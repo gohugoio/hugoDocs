@@ -36,9 +36,11 @@ MathJax is a stable open-source library with many features. I encourage the inte
 
 After enabling MathJax, any math entered in-between proper markers (see documentation) will be processed and typeset in the web page. One issue that comes up, however, with Markdown is that the underscore character (`_`) is interpreted by Markdown as a way to wrap text in `emph` blocks while LaTeX (MathJax) interprets the underscore as a way to create a subscript. This "double speak" of the underscore can result in some unexpected and unwanted behavior.
 
-### Solution
+### Solution One
 
 There are multiple ways to remedy this problem. One solution is to simply escape each underscore in your math code by entering `\_` instead of `_`. This can become quite tedious if the equations you are entering are full of subscripts.
+
+### Solution Two
 
 Another option is to tell Markdown to treat the MathJax code as verbatim code and not process it. One way to do this is to wrap the math expression inside a `<div>` `</div>` block. Markdown would ignore these sections and they would get passed directly on to MathJax and processed correctly. This works great for display style mathematics, but for inline math expressions the line break induced by the `<div>` is not acceptable. The syntax for instructing Markdown to treat inline text as verbatim is by wrapping it in backticks (`` ` ``). You might have noticed, however, that the text included in between backticks is rendered differently than standard text (on this site these are items highlighted in red). To get around this problem, we could create a new CSS entry that would apply standard styling to all inline verbatim text that includes MathJax code. Below I will show the HTML and CSS source that would accomplish this (note this solution was adapted from [this blog post](http://doswa.com/2011/07/20/mathjax-in-markdown.html)---all credit goes to the original author).
 
@@ -79,6 +81,27 @@ As before, this content should be included in the HTML source of each page that 
 
 In the CSS snippet, notice the line `color: #515151;`. `#515151` is the value assigned to the `color` attribute of the `body` class in my CSS. In order for the equations to fit in with the body of a web page, this value should be the same as the color of the body.
 
-### Usage
+### Solution Two Usage
 
 With this setup, everything is in place for a natural usage of MathJax on pages generated using Hugo. In order to include inline mathematics, just put LaTeX code in between `` `$ TeX Code $` `` or `` `\( TeX Code \)` ``. To include display style mathematics, just put LaTeX code in between `<div>$$TeX Code$$</div>`. All the math will be properly typeset and displayed within your Hugo generated web page!
+
+### Solution Three
+
+An alternative solution is to edit the `_default` template as follows in addition to adding the mathjax script to your site's head. Add `mathjax: true` to the frontmatter of any page that will use this method to display maths. Where a template uses `{{ .Content }}` replace it with:
+
+    {{ if .Params.MathJax }} 
+        {{ $p := slice (dict "regex" "(\\$\\$)(.*?)(\\$\\$)" "delim" "$$" "tag" "block" "redelimL" "$$$$" "redelimR" "$$$$") (dict "regex" "(\\$)(.*?)(\\$)" "delim" "$" "tag" "inlineA" "redelimL" "$$" "redelimR" "$$") (dict "regex" "(\\\\\\()(.*?)(\\\\\\))" "delim" "$" "tag" "inlineB" "redelimL" "\\(" "redelimR" "\\)")  }} 
+        {{ $alpha := .RawContent | replaceRE (index $p 0).regex (print "<mathjax " (index $p 0).tag "=' $2 '/>") }} 
+        {{ $beta := $alpha | replaceRE (index $p 1).regex (print "<mathjax " (index $p 1).tag "=' $2 '/>") }} 
+        {{ $gamma := $beta | replaceRE (index $p 2).regex (print "<mathjax " (index $p 2).tag "=' $2 '/>") }} 
+        {{ $process := $gamma | markdownify }} 
+        {{ $ungamma := $process | replaceRE (print "(<mathjax " (index $p 2).tag "=')(.*?)('/>)") (print (index $p 2).redelimL " $2 " (index $p 2).redelimR) }} 
+        {{ $unbeta := $ungamma | replaceRE (print "(<mathjax " (index $p 1).tag "=')(.*?)('/>)") (print (index $p 1).redelimL " $2 " (index $p 1).redelimR) }} 
+        {{ $unalpha := $unbeta | replaceRE (print "(<mathjax " (index $p 0).tag "=')(.*?)('/>)") (print (index $p 0).redelimL " $2 " (index $p 0).redelimR) }} 
+        {{ $unalpha | safeHTML }}
+    {{ else }}
+        {{ .Content }}
+    {{ end }}
+
+The idea here is to use regular expressions to hide the LaTeX code from the markdown engine inside a pseudo-tag, then process the markdown before undoing the process. Benefits of this method are that you can write your LaTeX inside `$$`, `$` or `\(,\)` as usual without having to remember extra symbols. The markdown you create will also be more portable and it renders properly to what you would write if you wrote the HTML by hand rather than including extraneous `<code>` or `<div>` tags. As it requires `mathjax: true` in the frontbatter to be enables it is also backwards compatible if you have used a different method of enabling MathJax in the past.
+
