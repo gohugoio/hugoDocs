@@ -33,4 +33,4 @@ User-agent: *
 Disallow: {{.RelPermalink}}{{end}}
 ```
 
-This template disallows and all the pages of the site creating one `Disallow` entry for each one.
+This template disallows all the pages of the site creating one `Disallow` entry for each one.
