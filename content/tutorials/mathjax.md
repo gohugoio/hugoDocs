@@ -90,14 +90,14 @@ With this setup, everything is in place for a natural usage of MathJax on pages 
 An alternative solution is to edit the `_default` template as follows in addition to adding the mathjax script to your site's head. Add `mathjax: true` to the frontmatter of any page that will use this method to display maths. Where a template uses `{{ .Content }}` replace it with:
 
       {{ if .Params.MathJax }} 
-          {{ $p := slice (dict "regex" "(\\$\\$)(.*?)(\\$\\$)" "delim" "$$" "tag" "block" "redelimL" "$$$$" "redelimR" "$$$$") (dict "regex" "(\\$)(.*?)(\\$)" "delim" "$" "tag" "inlineA" "redelimL" "$$" "redelimR" "$$") (dict "regex" "(\\\\\\()(.*?)(\\\\\\))" "delim" "$" "tag" "inlineB" "redelimL" "\\(" "redelimR" "\\)")  }} 
+          {{ $p := slice (dict "regex" "(\\$\\$)((.|[\r\n\t])*?)(\\$\\$)" "delim" "$$" "tag" "block" "redelimL" "$$$$" "redelimR" "$$$$") (dict "regex" "(\\$)((.|[\r\n\t])*?)(\\$)" "delim" "$" "tag" "inlineA" "redelimL" "$$" "redelimR" "$$") (dict "regex" "(\\\\\\()((.|[\r\n\t])*?)(\\\\\\))" "delim" "$" "tag" "inlineB" "redelimL" "\\(" "redelimR" "\\)")  }} 
           {{ $alpha := .RawContent | replaceRE (index $p 0).regex (print "<mathjax " (index $p 0).tag "=' $2 '/>") }} 
           {{ $beta := $alpha | replaceRE (index $p 1).regex (print "<mathjax " (index $p 1).tag "=' $2 '/>") }} 
           {{ $gamma := $beta | replaceRE (index $p 2).regex (print "<mathjax " (index $p 2).tag "=' $2 '/>") }} 
           {{ $process := $gamma | markdownify }} 
-          {{ $ungamma := $process | replaceRE (print "(<mathjax " (index $p 2).tag "=')(.*?)('/>)") (print (index $p 2).redelimL " $2 " (index $p 2).redelimR) }} 
-          {{ $unbeta := $ungamma | replaceRE (print "(<mathjax " (index $p 1).tag "=')(.*?)('/>)") (print (index $p 1).redelimL " $2 " (index $p 1).redelimR) }} 
-          {{ $unalpha := $unbeta | replaceRE (print "(<mathjax " (index $p 0).tag "=')(.*?)('/>)") (print (index $p 0).redelimL " $2 " (index $p 0).redelimR) }} 
+          {{ $ungamma := $process | replaceRE (print "(<mathjax " (index $p 2).tag "=')((.|[\r\n\t])*?)('/>)") (print (index $p 2).redelimL " $2 " (index $p 2).redelimR) }} 
+          {{ $unbeta := $ungamma | replaceRE (print "(<mathjax " (index $p 1).tag "=')((.|[\r\n\t])*?)('/>)") (print (index $p 1).redelimL " $2 " (index $p 1).redelimR) }} 
+          {{ $unalpha := $unbeta | replaceRE (print "(<mathjax " (index $p 0).tag "=')((.|[\r\n\t])*?)('/>)") (print (index $p 0).redelimL " $2 " (index $p 0).redelimR) }} 
           {{ $unalpha | safeHTML }}
       {{ else }}
           {{ .Content }}
