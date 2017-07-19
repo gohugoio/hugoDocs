@@ -10,7 +10,7 @@ features:
   - heading: Robust Content Management
     image_path: /images/icon-content-management.svg
     tagline: Flexibility rules. Hugo is a content strategist's dream.
-    copy: Hugo supports unlimited content types, taxonomies, menus, dynamic API-driven content, and more, all without plugins.
+    copy: Hugo supports unlimited content types, taxonomies, menus, flexible data-driven content, and more, all without plugins.
 
   - heading: Shortcodes
     image_path: /images/icon-shortcodes.svg
