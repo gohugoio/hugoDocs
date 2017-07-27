@@ -7,9 +7,6 @@ publishdate: 2017-02-01
 lastmod: 2017-02-01
 keywords: [math, operators]
 categories: [functions]
-menu:
-  docs:
-    parent: "functions"
 toc:
 signature: []
 workson: []

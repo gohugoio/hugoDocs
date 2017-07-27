@@ -7,9 +7,6 @@ publishdate: 2017-02-01
 lastmod: 2017-02-01
 keywords: [multilingual,i18n,urls]
 categories: [functions]
-menu:
-  docs:
-    parent: "functions"
 signature: ["relLangURL INPUT"]
 workson: []
 hugoversion:

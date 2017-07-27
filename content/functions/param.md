@@ -7,9 +7,6 @@ publishdate: 2017-02-01
 lastmod: 2017-04-30
 keywords: ["front matter"]
 categories: [functions]
-menu:
-  docs:
-    parent: "functions"
 toc:
 signature: [".Param KEY"]
 workson: []

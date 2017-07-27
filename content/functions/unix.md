@@ -8,9 +8,6 @@ publishdate: 2017-02-01
 lastmod: 2017-02-01
 keywords: [dates,time]
 categories: [functions]
-menu:
-  docs:
-    parent: "functions"
 signature: [".Unix"]
 workson: [times]
 hugoversion:

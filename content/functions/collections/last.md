@@ -8,9 +8,6 @@ publishdate: 2017-02-01
 lastmod: 2017-02-01
 keywords: []
 categories: [functions]
-menu:
-  docs:
-    parent: "functions"
 toc:
 signature: ["last INDEX COLLECTION"]
 workson: [lists, taxonomies, terms, groups]

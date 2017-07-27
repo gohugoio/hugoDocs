@@ -6,13 +6,10 @@ date: 2017-02-01
 publishdate: 2017-02-01
 lastmod: 2017-02-01
 categories: [functions]
+signature: ["Get INDEX", "Get KEY"]
 menu:
   docs:
     parent: "functions"
-keywords: [shortcodes]
-signature: ["Get INDEX", "Get KEY"]
-workson: []
-hugoversion:
 relatedfuncs: []
 deprecated: false
 aliases: []

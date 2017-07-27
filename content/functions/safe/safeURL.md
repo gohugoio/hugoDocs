@@ -7,9 +7,6 @@ publishdate: 2017-02-01
 lastmod: 2017-02-01
 keywords: [strings,urls]
 categories: [functions]
-menu:
-  docs:
-    parent: "functions"
 signature: ["safeURL INPUT"]
 workson: []
 hugoversion:
