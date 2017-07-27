@@ -1,6 +1,6 @@
 ---
 title: inflect namespace
-linktitle: inflect namespace
+linktitle: Inflect
 description: The inflect namespace provides template functions for the inflection of words, e.g. pluralization.
 godocref:
 date: 2017-02-01

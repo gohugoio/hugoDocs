@@ -1,6 +1,6 @@
 ---
 title: time namespace
-linktitle: time namespace
+linktitle: Time
 description: The time namespace provides template functions to work with timestamps and their conversion.
 godocref:
 date: 2017-02-01

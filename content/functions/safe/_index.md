@@ -1,6 +1,6 @@
 ---
 title: safe namespace
-linktitle: safe namespace
+linktitle: Safe
 description: The safe namespace provides template functions to safely escape data from untrusted sources.
 godocref:
 date: 2017-02-01

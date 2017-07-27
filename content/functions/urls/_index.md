@@ -1,6 +1,6 @@
 ---
 title: urls namespace
-linktitle: urls namespace
+linktitle: URLs
 description: The urls namespace provides template functions to deal with urls.
 godocref:
 date: 2017-02-01

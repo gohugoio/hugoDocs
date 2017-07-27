@@ -1,6 +1,6 @@
 ---
 title: os namespace
-linktitle: os namespace
+linktitle: OS
 description: The os namespace provides template functions to interact with the operating system.
 godocref:
 date: 2017-02-01

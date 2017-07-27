@@ -1,6 +1,6 @@
 ---
 title: math namespace
-linktitle: math namespace
+linktitle: Math
 description: The math namespace provides template functions for basic mathematical operations.
 godocref:
 date: 2017-02-01

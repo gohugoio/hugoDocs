@@ -1,6 +1,6 @@
 ---
 title: cast namespace
-linktitle: cast namespace
+linktitle: Cast
 description: The cast namespace contains template functions to convert data types.
 godocref:
 date: 2017-02-01

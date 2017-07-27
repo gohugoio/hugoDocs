@@ -1,6 +1,6 @@
 ---
 title: transform namespace
-linktitle: transform namespace
+linktitle: Transform
 description: The transform namespace provides template functions transform content.
 godocref:
 date: 2017-02-01

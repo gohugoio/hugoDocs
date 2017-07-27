@@ -1,6 +1,6 @@
 ---
 title: compare namespace
-linktitle: compare namespace
+linktitle: Compare
 description: The compare namespace provides template functions to perform comparisons between values.
 godocref:
 date: 2017-02-01

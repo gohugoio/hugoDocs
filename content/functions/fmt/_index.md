@@ -1,6 +1,6 @@
 ---
 title: fmt namespace
-linktitle: fmt namespace
+linktitle: Fmt
 description: The fmt contains functions to format strings.
 godocref:
 date: 2017-02-01

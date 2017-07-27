@@ -10,7 +10,7 @@ keywords: []
 menu:
   docs:
     parent: "functions"
-weight: 01	#rem
+weight: -10	#rem
 draft: false
 aliases: [/layout/functions/,/templates/functions]
 ---

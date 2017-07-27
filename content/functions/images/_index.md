@@ -1,6 +1,6 @@
 ---
 title: images namespace
-linktitle: images namespace
+linktitle: Images
 description: The images namespace contains template funtions to gather the proportions and color of images.
 godocref:
 date: 2017-02-01
