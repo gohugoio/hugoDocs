@@ -1,6 +1,5 @@
 ---
-title: strings namespace
-linktitle: Strings
+title: Strings
 description: The strings namespace provides template functions manipulate strings.
 godocref:
 date: 2017-02-01

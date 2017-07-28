@@ -1,6 +1,5 @@
 ---
-title: crypto namespace
-linktitle: Crypto
+title: Crypto
 description: The crypto namespace contains cryptographic hash functions, e.g. to check the integrity of files.
 godocref:
 date: 2017-02-01

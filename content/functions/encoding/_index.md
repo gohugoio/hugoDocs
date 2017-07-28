@@ -1,6 +1,5 @@
 ---
-title: encoding namespace
-linktitle: Encoding
+title: Encoding
 description: The encoding namespace provides template functions to encode your data, e.g. into JSON and base64.
 godocref:
 date: 2017-02-01

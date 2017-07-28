@@ -1,6 +1,5 @@
 ---
-title: partial namespace
-linktitle: Partial
+title: Partial
 description: The partial namespace provides template functions to work with resuable temaplates.
 godocref:
 date: 2017-02-01

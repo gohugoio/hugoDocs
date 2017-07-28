@@ -1,6 +1,5 @@
 ---
-title: collections namespace
-linktitle: Collections
+title: Collections
 description: The collections namespace contains template functions to manipulate collections such as arrays, slices and dictionaries. 
 godocref:
 date: 2017-02-01

@@ -1,6 +1,5 @@
 ---
-title: lang namespace
-linktitle: Lang
+title: Lang
 description: The lang namespace provides template functions to work with internationalized content and data.
 godocref:
 date: 2017-02-01
