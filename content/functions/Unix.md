@@ -8,7 +8,7 @@ publishdate: 2017-02-01
 lastmod: 2017-02-01
 keywords: [dates,time]
 categories: [functions]
-signature: [".Unix"]
+signature: [".Unix INTEGER"]
 workson: [times]
 hugoversion:
 relatedfuncs: [Format,dateFormat,now,time]

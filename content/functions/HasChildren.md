@@ -11,7 +11,7 @@ menu:
     parent: "functions"
 keywords: [menus]
 toc:
-signature: ["HasChildren"]
+signature: [".HasChildren"]
 workson: [menus]
 hugoversion:
 relatedfuncs: []
