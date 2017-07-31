@@ -142,7 +142,7 @@ go get -v -u github.com/gohugoio/hugo
 Hugo relies on [Testify](https://github.com/stretchr/testify) for testing Go code. If you don't already have it, get the Testify testing tools:
 
 ```
-go get https://github.com/stretchr/testify
+go get github.com/stretchr/testify
 ```
 
 ### Fork the repository
