@@ -200,7 +200,7 @@ See [Content Organization][contentorg] for more details on paths.
 .
 └── content
     └── about
-    |   └── _index.md  // <- httpss://example.com/about/
+    |   └── _index.md  // <- https://example.com/about/
     ├── post
     |   ├── firstpost.md   // <- https://example.com/post/firstpost/
     |   ├── happy
