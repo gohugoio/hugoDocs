@@ -23,3 +23,12 @@ aliases: []
 ```
 {{title "BatMan"}}` → "Batman"
 ```
+
+Can be piped to combine with others.
+
+```
+{{ range $name, $items := .Site.Taxonomies.<YOUR_TAXONOMY> }}
+  <li><a href="{{ $.Site.BaseURL }}<YOUR_TAXONOMY>/{{ $name | urlize | lower }}">{{ $name  | humanize | title }} ({{ len $items }}</a>
+  </li>
+{{ end }}
+```
