@@ -19,6 +19,8 @@ toc: false
 wip: false
 ---
 
+This variable shows metada about a specific piece of content. It is useful for times when you are using Git and Hugo to manage a project or in a multi-author setting, for example. It will not be useful as a cache busting method.
+
 {{% note "`.GitInfo` Performance Considerations"  %}}
 Hugo's Git integrations should be fairly performant but *can* increase your build time. This will depend on the size of your Git history.
 {{% /note %}}
