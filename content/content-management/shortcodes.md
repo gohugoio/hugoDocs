@@ -74,7 +74,7 @@ Hugo ships with a set of predefined shortcodes that represent very common usage.
 
 ### `figure`
 
-`figure` is an extension of the image syntax in markdown, which does not provide a shorthand for the more semantic [HTML5 `<figure>` element][figureelement].
+`figure` is an extension of the image syntax in markdown, which does provide a shorthand for the more semantic [HTML5 `<figure>` element][figureelement].
 
 The `figure` shortcode can use the following named parameters:
 
