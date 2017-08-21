@@ -66,22 +66,15 @@ choco install hugo -confirm
 #### Prerequisite Tools
 
 * [Git][installgit]
-* [Go 1.5+][installgo]
-* [govendor][]
-
-#### Vendored Dependencies
-
-Hugo uses [govendor][] to vendor dependencies, but we don't commit the vendored packages themselves to the Hugo git repository. Therefore, a simple `go get` is *not* supported because the command is not vendor aware. *You must use `govendor` to fetch Hugo's dependencies.*
+* [Go 1.7+][installgo]
 
 #### Fetch from GitHub
 
 {{< code file="from-gh.sh" >}}
-go get github.com/kardianos/govendor
-govendor get github.com/gohugoio/hugo
-go install github.com/gohugoio/hugo
+go get github.com/gohugoio/hugo
 {{< /code >}}
 
-`govendor get` will fetch Hugo and all its dependent libraries to `$GOPATH/src/github.com/gohugoio/hugo`, and `go install` compiles everything into a final `hugo` (or `hugo.exe`) executable inside `$GOPATH/bin/`.
+`go get` will fetch Hugo and all its dependent libraries to `$GOPATH/src/github.com/gohugoio/hugo`, and compiles everything into a final `hugo` (or `hugo.exe`) executable inside `$GOPATH/bin/`.
 
 {{% note %}}
 If you are a Windows user, substitute the `$HOME` environment variable above with `%USERPROFILE%`.
