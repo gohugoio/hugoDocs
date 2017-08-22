@@ -1,11 +1,11 @@
 {{if .Prev }}
-  <a href="{{ .Prev.Permalink }}" class="db-l f4 f3-ns link primary-color hover-black fw8">
+  <a href="{{ .Prev.Permalink }}" class="db-l f4 f3-ns link primary-color hover-black fw8 ph3">
     <span class="v-mid dib">{{ partial "svg/ic_chevron_left_black_24px.svg" (dict "size" "30px") }}</span> {{ .Prev.Title }}
   </a>
 {{end}}
 
 {{if .Next }}
-  <a href="{{.Next.Permalink }}" class="db-l f4 f3-ns link primary-color hover-black fw8">
+  <a href="{{.Next.Permalink }}" class="db-l f4 f3-ns link primary-color hover-black fw8 ph3">
     {{ .Next.Title }} <span class="v-mid dib">{{ partial "svg/ic_chevron_right_black_24px.svg" (dict "size" "30px") }}</span>
   </a>
 {{end}}
