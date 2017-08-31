@@ -100,7 +100,7 @@ If you already have a functioning Hugo app, which should now be configured, you 
 
 ### Installing Hugo
 
-Nanobox uses Docker to create instant, isoloated, development environments. Because of this, you'll need to make sure that during development you have Hugo available.
+Nanobox uses Docker to create instant, isolated, development environments. Because of this, you'll need to make sure that during development you have Hugo available.
 
 Do this by add a custom install script at the root of your project that will install Hugo automatically for you:
 
@@ -172,7 +172,7 @@ theme = "nanobox-hugo-theme"
 ```
 
 {{% note %}}
-It is not intended that you use the `nanobox-hugo-theme` as your actual them. It's simply a theme to start with and should be replaced.
+It is not intended that you use the `nanobox-hugo-theme` as your actual theme. It's simply a theme to start with and should be replaced.
 {{% /note %}}
 
 ### View Your App
