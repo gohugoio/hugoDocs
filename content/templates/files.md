@@ -58,11 +58,19 @@ The initial slash `/` in `pathURL` is important in the `directoryindex` shortcod
 
 The [`readfile` function][reads] reads a file from disk and converts it into a string to be manipulated by other Hugo functions or added as-is. `readFile` takes the file, including path, as an argument passed to the function.
 
-To use the `readFile` function in your templates, make sure the path is relative to your *Hugo project's root directory*:
+Be sure to pass `readFile` a path relative to your project root directory:
 
 ```
 {{ readFile "/content/templates/local-file-templates" }}
 ```
+
+To inline critical CSS and scripts from the `static` directory of a theme do:
+
+```
+{{ readFile  "themes/theme-name/css/critical.css" }}
+```
+
+Note the preceeding `/` is optional.
 
 ### `readFile` Example: Add a Project File to Content
 
