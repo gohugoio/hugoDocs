@@ -110,7 +110,7 @@ There are a few predefined variables that Hugo is aware of. See [Page Variables]
 : the meta keywords for the content.
 
 `layout`
-: the layout Hugo should select from the [lookup order][lookup] when rendering the content. If a `type` is not specified in the front matter, Hugo will look for the layout of the same name in the layout directory that corresponds with a content's section. See ["Defining a Content Type"][definetype]
+: the layout Hugo should select from the [lookup order][lookup] when rendering the content or `none` in case you don't want to render, but only to call it from inside a different page. If a `type` is not specified in the front matter, Hugo will look for the layout of the same name in the layout directory that corresponds with a content's section. See ["Defining a Content Type"][definetype]
 
 `lastmod`
 : the datetime at which the content was last modified.
