@@ -1,14 +1,14 @@
 ---
-title: now.Unix
+title: .Unix
 draft: false
-description: now.Unix returns the local Time corresponding to the given Unix time, sec seconds and nsec nanoseconds since January 1, 1970 UTC.
+description: .Unix returns the local Time corresponding to the given Unix time, sec seconds and nsec nanoseconds since January 1, 1970 UTC.
 godocref: https://golang.org/search?q=Unix#Functions
 date: 2017-02-01
 publishdate: 2017-02-01
 lastmod: 2017-02-01
 keywords: [dates,time]
 categories: [functions]
-signature: ["now.Unix INTEGER"]
+signature: [".Unix INTEGER"]
 workson: [times]
 hugoversion:
 relatedfuncs: [Format,dateFormat,now,time]
