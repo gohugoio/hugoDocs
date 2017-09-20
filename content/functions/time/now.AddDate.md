@@ -1,5 +1,5 @@
 ---
-title: .AddDate
+title: now.AddDate
 description: Returns the time corresponding to adding the given number of years, months, and days passed to the function.
 godocref: https://golang.org/pkg/time/#Time.AddDate
 date: 2017-02-01
@@ -7,7 +7,7 @@ publishdate: 2017-02-01
 lastmod: 2017-02-01
 categories: [functions]
 keywords: [dates,time]
-signature: [".AddDate YEARS MONTHS DAYS"]
+signature: ["now.AddDate YEARS MONTHS DAYS"]
 workson: [times]
 hugoversion:
 relatedfuncs: [now]
@@ -16,7 +16,7 @@ aliases: []
 ---
 
 
-The `AddDate` function takes three arguments in logical order of `years`, `months`, and `days`.
+The `now.AddDate` function takes three arguments in logical order of `years`, `months`, and `days`.
 
 ## Example: Randomized Tweets from the Last 2 Years
 
