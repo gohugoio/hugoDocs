@@ -1,5 +1,5 @@
 ---
-title: Function namespaces
+title: Function Namespaces Overview
 description: Overview of function namespaces that are used to group related functions.
 godocref:
 date: 2017-02-01
