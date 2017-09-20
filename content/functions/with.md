@@ -7,9 +7,6 @@ date: 2017-02-01
 publishdate: 2017-02-01
 lastmod: 2017-03-12
 categories: [functions,fundamentals]
-menu:
-  docs:
-    parent: "functions"
 keywords: [conditionals]
 signature: ["with INPUT"]
 workson: []

@@ -8,9 +8,6 @@ publishdate: 2017-02-01
 lastmod: 2017-08-21
 categories: [functions]
 keywords: [numbers]
-menu:
-  docs:
-    parent: "functions"
 toc: false
 signature: ["lang.NumFmt PRECISION NUMBER [OPTIONS]"]
 workson: []

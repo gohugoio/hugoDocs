@@ -7,9 +7,6 @@ publishdate: 2017-02-01
 lastmod: 2017-02-01
 categories: [functions]
 signature: ["Get INDEX", "Get KEY"]
-menu:
-  docs:
-    parent: "functions"
 relatedfuncs: []
 deprecated: false
 aliases: []

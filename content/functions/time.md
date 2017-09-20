@@ -7,9 +7,6 @@ date: 2017-02-01
 publishdate: 2017-02-01
 lastmod: 2017-02-01
 categories: [functions]
-menu:
-  docs:
-    parent: "functions"
 keywords: [dates,time]
 signature: ["time INPUT"]
 workson: []

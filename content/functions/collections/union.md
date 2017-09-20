@@ -7,9 +7,6 @@ date: 2017-02-01
 publishdate: 2017-02-01
 lastmod: 2017-03-12
 categories: [functions]
-menu:
-  docs:
-    parent: "functions"
 keywords: [filtering,lists]
 signature: ["union SET1 SET2"]
 workson: []

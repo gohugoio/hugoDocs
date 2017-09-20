@@ -7,7 +7,7 @@ date: 2017-07-26
 publishdate: 2017-07-26
 lastmod: 2017-07-26
 categories: [functions]
-#tags: [operators,logic]
+keywords: [operators,logic]
 signature: ["ne ARG1 ARG2"]
 workson: []
 hugoversion:
