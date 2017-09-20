@@ -140,7 +140,7 @@ twitter = "GoHugoIO"
   url = "/templates/"
 
 [[menu.docs]]
-  name = "Functions"
+  name = "Function namespaces"
   weight = 30
   identifier = "functions"
   url = "/functions/"
