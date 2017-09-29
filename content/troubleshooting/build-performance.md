@@ -11,11 +11,11 @@ menu:
   docs:
     parent: "troubleshooting"
 weight:
-draft: true
+draft: false
 slug:
 aliases: []
 toc: true
-wip: true
+wip: false
 ---
 
 {{% note %}}
@@ -98,5 +98,16 @@ Note that you can create cached variants of each `partial` by passing additional
 parameters to `partialCached` beyond the initial context.  See the
 `partialCached` documentation for more details.
 {{% /tip %}}
+
+
+## Step Analysis
+
+Hugo provides a means of seeing metrics about each step in the site build
+process.  We call that *Step Analysis*.  The *step analysis* output shows the
+total time per step, the cumulative time after each step (in parentheses),
+the memory usage per step, and the total memory allocations per step.
+
+To enable *step analysis*, use the `--stepAnalysis` option when running Hugo.
+
 
 [partialCached]:{{< ref "functions/partialCached.md" >}}
