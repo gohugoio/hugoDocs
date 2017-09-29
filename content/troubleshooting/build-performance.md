@@ -11,11 +11,9 @@ menu:
   docs:
     parent: "troubleshooting"
 weight:
-draft: false
 slug:
 aliases: []
 toc: true
-wip: false
 ---
 
 {{% note %}}
