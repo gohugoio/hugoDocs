@@ -33,14 +33,9 @@ pre {
   border-style: solid;
 }
 
-/* The Pygments highlighter comes with its own styles. */
 .highlight pre {
-  background-color: inherit;
-  color: inherit;
-  padding: 0.5em;
-  font-size: .875rem;
+  background-color: #fff;
 }
-
 
 /*We are adding the copy button content here so we can change it with javascript. See the "Clipboard scripts"*/
 .copy:after {
