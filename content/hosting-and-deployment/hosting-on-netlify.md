@@ -114,10 +114,20 @@ cd themes
 git submodule add https://github.com/<THEMECREATOR>/<THEMENAME>
 ```
 
-It is recommended to only use stable versions of a theme (if it’s versioned) and always check the changelog. This can be done by checking out a specific release within the theme's directory:
+It is recommended to only use stable versions of a theme (if it’s versioned) and always check the changelog. This can be done by checking out a specific release within the theme's directory.
+
+Switch to the theme's directory and list all available versions:
+
 ```
 cd themes/<theme>
-git checkout tags/<latest-release>
+git tag
+# exit with q
+```
+
+You can checkout a spefic version via 
+
+```
+git checkout tags/<version-name>
 ```
 
 ## Next Steps
