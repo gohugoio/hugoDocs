@@ -114,6 +114,12 @@ cd themes
 git submodule add https://github.com/<THEMECREATOR>/<THEMENAME>
 ```
 
+It is recommended to only use stable versions of a theme (if it’s versioned) and always check the changelog. This can be done by checking out a specific release within the theme's directory:
+```
+cd themes/<theme>
+git checkout tags/<latest-release>
+```
+
 ## Next Steps
 
 You now have a live website served over https, distributed through CDN, and configured for continuous deployment. Dig deeper into the Netlify documentation:
