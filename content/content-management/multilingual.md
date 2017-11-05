@@ -34,16 +34,16 @@ help  = "Help"
 [Languages.en]
 title = "My blog"
 weight = 1
-[Languages.en.params]
 linkedin = "english-link"
 
 [Languages.fr]
 copyright = "Tout est à moi"
 title = "Mon blog"
 weight = 2
-[Languages.fr.params]
 linkedin = "lien-francais"
-[Languages.fr.params.navigation]
+
+# skip params key for front matter
+[Languages.fr.navigation]
 help  = "Aide"
 {{< /code >}}
 
