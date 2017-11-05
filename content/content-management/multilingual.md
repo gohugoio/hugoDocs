@@ -43,7 +43,7 @@ title = "Mon blog"
 weight = 2
 [Languages.fr.params]
 linkedin = "lien-francais"
-[Languages.fr.navigation]
+[Languages.fr.params.navigation]
 help  = "Aide"
 {{< /code >}}
 
