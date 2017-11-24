@@ -1,0 +1,24 @@
+{{if .Params.sponsors}}
+<section class="b--light-gray bb bt ph5 pt3 pb3 w-100">
+  <f3 class="b f3 light-silver">Hugo Sponsors</f3>
+  <div class="flex-ns flex-wrap center justify-between mw9 pv2 pv4-ns">
+    {{ range .Params.sponsors }}
+      <div class="br3 w-100 w-30-l bg-white flex flex-column flex-wrap justify-center items-center pa3 mb4">
+        {{/* Add a conditional around the logo so we can show blank boxes without */}}
+        {{if .logo}}
+          {{with .link -}}
+            <a href="{{.}}?{{ (querify "utm_source" "homepage" "utm_medium" "banner" "utm_campaign" "hugosponsor") | safeURL }}" class="grow">
+          {{- end}}
+          <img src="{{ .logo }}" alt="Logo for {{ .name }}" class="img h3 center">
+          {{with .link}}</a>{{end}}
+          {{with .copy}}
+            <p class="center f6 lh-copy gray tc w-70-ns">
+              {{.}}
+            </p>
+          {{end}}
+        {{end}}
+      </div>
+    {{end}}
+  </div>
+</section>
+{{end}}
