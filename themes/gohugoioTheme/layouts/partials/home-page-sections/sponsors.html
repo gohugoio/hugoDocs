@@ -1,9 +1,9 @@
 {{$sponsors := .cx.Site.GetPage "home"}}
 
 {{if $sponsors.Params.sponsors}}
-<section class="{{.classes_section | default "b--light-gray bb bt ph5 pv4 w-100"}}">
+<section class="{{.classes_section | default "bg-primary-color-dark b--light-gray bb bt ph5 pv4 w-100"}}">
   <div class="center mw9"> 
-    <f3 class="b f3 primary-color">Hugo Sponsors</f3>
+    <f3 class="b f3 light-gray">Hugo Sponsors</f3>
     <div class="flex-ns flex-wrap center justify-between pt3">
       {{ range $sponsors.Params.sponsors }}
         <div class="ba b--light-gray br3 w-100 w-30-l bg-near-whiteTK bg-light-gray flex flex-column flex-wrap justify-start items-center ph3 pt4 pb2 mb4">
