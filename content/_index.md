@@ -48,7 +48,7 @@ sponsors:
   - name: "Forestry.io"
     link: https://forestry.io/
     logo: /images/sponsors/forestry-logotype.svg
-    copy: "Forestry is A full-featured CMS for your Hugo sites"
+    copy: "Forestry is a full-featured CMS for your Hugo sites"
   - name:
     link:
     logo:
