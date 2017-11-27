@@ -49,14 +49,14 @@ sponsors:
     link: https://forestry.io/
     logo: /images/sponsors/forestry-logotype.svg
     copy: "Forestry is A full-featured CMS for your Hugo sites"
-  - name: "Netlify"
-    link: https://forestry.io/
-    logo: /images/sponsors/netlify-full-logo-light.svg
-    copy: "Write frontend code. Push it. We handle the rest."
-  - name: "Algolia"
-    link: https://forestry.io/
-    logo: /images/sponsors/algolia-logo-light.svg
-    copy: "Algolia is the most reliable platform for building search into your business."
+  - name:
+    link:
+    logo:
+    copy:
+  - name:
+    link:
+    logo:
+    copy:
 ---
 
 Hugo is one of the most popular open-source static site generators. With its amazing speed and flexibility, Hugo makes building websites fun again.
