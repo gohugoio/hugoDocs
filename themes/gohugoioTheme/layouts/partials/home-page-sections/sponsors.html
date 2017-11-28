@@ -6,7 +6,7 @@
     <f3 class="b f3 light-gray">Hugo Sponsors</f3>
     <div class="flex-ns flex-wrap center justify-between pt3">
       {{ range $sponsors.Params.sponsors }}
-        <div class="ba b--light-gray br3 w-100 w-30-l bg-near-whiteTK bg-light-gray flex flex-column flex-wrap justify-start items-center ph3 pt4 pb2 mb4{{with .logo}} o-100{{else}} o-10{{end}}">
+        <div class="ba b--light-gray br3 w-100 w-30-l bg-near-whiteTK bg-light-gray flex flex-column flex-wrap justify-start items-center ph3 pt4 mb4{{with .logo}} o-100{{else}} o-10{{end}}{{with .copy}} pb2{{else}} pb4{{end}}">
           {{/* Add a conditional around the logo so we can show blank boxes without */}}
           {{if .logo}}
             {{with .link -}}
