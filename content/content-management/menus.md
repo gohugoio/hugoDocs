@@ -65,6 +65,9 @@ A menu entry has the following properties (i.e., variables) available to it:
 `.Children`
 : Menu
 
+`.NewTab`
+: boolean
+
 Note that menus also have the following functions available as well:
 
 `.HasChildren`
@@ -132,6 +135,12 @@ Here’s an example snippet pulled from a `config.toml`:
     pre = "<i class='fa fa-road'></i>"
     weight = -100
     url = "/getting-started/"
+[[menu.main]]
+    name = "Our Twitter"
+    pre = "<i class='fa fa-twitter'></i>"
+    weight = -90
+    url = "https://twitter.com/gohugoio"
+    newTab = true
 {{< /code >}}
 
 Here's the equivalent snippet in a `config.yaml`:
@@ -149,6 +158,11 @@ menu:
         Pre: "<i class='fa fa-road'></i>"
         Weight: -100
         URL: "/getting-started/"
+      - Name: "Our Twitter"
+        Pre: "<i class='fa fa-twitter'></i>"
+        Weight: -90
+        URL: "https://twitter.com/gohugoio"
+        NewTab: true
 ---
 {{< /code >}}
 
