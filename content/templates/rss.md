@@ -135,7 +135,7 @@ The `.RSSLink` will render the appropriate RSS feed URL for the section, whether
 If you reference your RSS link, be sure to specify the MIME type with `type="application/rss+xml"`.
 
 ```
-<a href="{{ .URL }}" type="application/rss+xml" target="_blank">{{ .SomeText }}</a>
+<a href="{{ .RSSLink }}" type="application/rss+xml" target="_blank">{{ .SomeText }}</a>
 ```
 
 [config]: /getting-started/configuration/
