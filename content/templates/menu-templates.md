@@ -47,7 +47,7 @@ The following is an example:
             </ul>
           {{else}}
             <li>
-            <a href="{{.URL}}">
+            <a href="{{.URL}}"{{ if .NewTab }} target="_blank"{{ end }}>
                 {{ .Pre }}
                 <span>{{ .Name }}</span>
             </a>
