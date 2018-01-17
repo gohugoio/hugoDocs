@@ -71,6 +71,9 @@ git submodule add https://github.com/budparr/gohugo-theme-ananke.git themes/anan
 echo 'theme = "ananke"' >> config.toml
 ```
 
+Move the now downloaded theme into the theme file.
+
+
 
 {{< asciicast WJM2LEZQs8VRhNeuZ5NiGPp9I >}}
 
