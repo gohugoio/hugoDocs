@@ -56,6 +56,7 @@ The following is an example of a homepage template that uses [partial][partials]
       <div class="homepage-content">
         <!-- Note that the content for index.html, as a sort of list page, will pull from content/_index.md -->
         {{.Content}}
+        {{ end }}
       </div>
       <div>
         <!-- Note that .Data.Pages is the equivalent of .Site.Pages on the homepage template. -->
