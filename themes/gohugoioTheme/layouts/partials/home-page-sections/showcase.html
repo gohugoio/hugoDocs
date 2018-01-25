@@ -6,7 +6,7 @@
       <div class="row nowrap mv2 pb1">
         {{ range first 10 (where .Site.RegularPages "Section" "showcase") }}
           {{if .Params.images}}
-            <a href="{{.URL}}" class="tile lazyload cover dib f4 h5 ml1 mr2 bg-black relative mw-100" style="width:455px;"{{with .Params.images}} data-bg="{{ index . 0}}"{{end}}>
+            <a href="{{.URL}}" class="tile lazyload cover dib f4 h5 ml1 mr4 bg-black relative mw-100 shadow-5" style="width:455px;"{{with .Params.images}} data-bg="{{ index . 0}}"{{end}}>
                 {{/* {{with .Params.images}}
                   <img src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMzUwIiBoZWlnaHQ9IjI1MCIgdmlld0JveD0iMCAwIDM1MCAyNTAiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PHRpdGxlPlJlY3RhbmdsZTwvdGl0bGU+PHBhdGggZmlsbD0iI0ZGRiIgZD0iTTAgMGgzNTB2MjUwSDB6IiBmaWxsLXJ1bGU9ImV2ZW5vZGQiLz48L3N2Zz4=" data-src="{{ index . 0}}" alt="Showcase" class="lazyload h5 img tile__img shadow-5 " style="object-fit: cover;">
                 {{end}} */}}
