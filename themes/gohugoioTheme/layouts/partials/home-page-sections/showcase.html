@@ -1,21 +1,19 @@
-<section class="w-100 ph4 ph5-ns pt4 pb5 mid-gray bg-near-white">
-<h3 class="f1 fw4 black ma0 pb3 pt4 lh-title pt0-l">Showcase</h3>
-{{/* BEGIN */}}
+<section class="bg-near-white mid-gray pb5 ph4 ph5-ns pt4 w-100">
+<h3 class="black f1 fw4 lh-title ma0 pb3 pt0-l pt4">Showcase</h3>
+{{/* NOTE: transitions for this section are in themes/gohugoioTheme/src/css/_carousel.css */}}
   <div class="w-100">
     <div class="w-100 overflow-x-scroll">
-      <div class="row__inner nowrap pb2">
+      <div class="row nowrap mv2 pb1">
         {{ range first 10 (where .Site.RegularPages "Section" "showcase") }}
           {{if .Params.images}}
-            <a href="{{.URL}}" class="tile f4 relative dib">
-              <div class="tile__media">
+            <a href="{{.URL}}" class="tile dib f4 h5 mr3 relative mw-100" style="width:455px;">
                 {{with .Params.images}}
-                  <img src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMzUwIiBoZWlnaHQ9IjI1MCIgdmlld0JveD0iMCAwIDM1MCAyNTAiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PHRpdGxlPlJlY3RhbmdsZTwvdGl0bGU+PHBhdGggZmlsbD0iI0ZGRiIgZD0iTTAgMGgzNTB2MjUwSDB6IiBmaWxsLXJ1bGU9ImV2ZW5vZGQiLz48L3N2Zz4=" data-src="{{ index . 0}}" alt="Showcase" class="lazyload tile__img shadow-5 ">
+                  <img src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMzUwIiBoZWlnaHQ9IjI1MCIgdmlld0JveD0iMCAwIDM1MCAyNTAiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PHRpdGxlPlJlY3RhbmdsZTwvdGl0bGU+PHBhdGggZmlsbD0iI0ZGRiIgZD0iTTAgMGgzNTB2MjUwSDB6IiBmaWxsLXJ1bGU9ImV2ZW5vZGQiLz48L3N2Zz4=" data-src="{{ index . 0}}" alt="Showcase" class="lazyload h5-ns img tile__img shadow-5 " style="object-fit: cover;">
                 {{end}}
-              </div>
               {{with .Title}}
-                <div class="tile__details absolute  bottom-0 f7 left-0 o-0 right-0 top-0">
-                  <div class="absolute bottom-0 pa1 white">
-                    {{.}}
+                <div class="details absolute bottom-0 f3-ns f4 left-0 o-0 right-0 top-0">
+                  <div class="absolute bottom-0 pa2 tc white">
+                    {{.}} &#8594;
                   </div>
                 </div>
               {{end}}
@@ -33,82 +31,3 @@
 </div>
 
   </section>
-<style>
-
-
-.row__inner {
-  transition: 450ms transform;
-  font-size: 0;
-  margin: 70.3125px 0;
-}
-.tile {
-  width: 250px;
-  height: 140.625px;
-  margin-right: 10px;
-  /* font-size: 20px; */
-  cursor: pointer;
-  transition: 450ms all;
-  transform-origin: center left;
-}
-.tile__img {
-  width: 250px;
-  height: 140.625px;
-  object-fit: cover;
-}
-.tile__details {
-
-
-  background: -webkit-gradient(linear, left bottom, left top, from(rgba(0,0,0,0.9)), to(rgba(0,0,0,0)));
-  background: linear-gradient(to top, rgba(0,0,0,0.9) 0%, rgba(0,0,0,0) 100%);
-  transition: 450ms opacity;
-}
-.tile__details:after,
-.tile__details:before {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  display: #000;
-}
-.tile__details:after {
-  margin-top: -25px;
-  margin-left: -25px;
-  width: 50px;
-  height: 50px;
-  border: 3px solid #ecf0f1;
-  line-height: 50px;
-  text-align: center;
-  border-radius: 100%;
-  background: rgba(0,0,0,0.5);
-  z-index: 1;
-}
-.tile__details:before {
-  /* content: '▶'; */
-  left: 0;
-  width: 100%;
-  font-size: 30px;
-  margin-left: 7px;
-  margin-top: -18px;
-  text-align: center;
-  z-index: 2;
-}
-.tile:hover .tile__details {
-  opacity: 1;
-}
-
-.row__inner:hover {
-
-          transform: translate3d(-62.5px, 0, 0);
-}
-.row__inner:hover .tile {
-  opacity: 0.3;
-}
-.row__inner:hover .tile:hover {
-
-          transform: scale(1.5);
-  opacity: 1;
-}
-.tile:hover ~ .tile {
-
-          transform: translate3d(125px, 0, 0);
-}
-</style>
