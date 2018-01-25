@@ -1,3 +1,6 @@
+.overflow-x-scroll{
+  -webkit-overflow-scrolling: touch;
+}
 .row {
   transition: 450ms transform;
   font-size: 0;
