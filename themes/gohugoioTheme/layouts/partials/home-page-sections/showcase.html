@@ -1,0 +1,17 @@
+  <section class="w-100 ph4 ph5-ns pt4 pb5 mid-gray bg-near-white">
+    <h3 class="f1 fw4 black ma0 pb3 pt4 lh-title pt0-l">Showcase</h3>
+    <div class="mw9 overflow-hidden w-100">
+      {{ range first 10 (where .Site.RegularPages "Section" "showcase") }}
+        {{if .Params.images}}
+          <div class="ml1-ns mr4-ns"> 
+            {{with .Params.images}}
+              <img src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMzUwIiBoZWlnaHQ9IjI1MCIgdmlld0JveD0iMCAwIDM1MCAyNTAiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PHRpdGxlPlJlY3RhbmdsZTwvdGl0bGU+PHBhdGggZmlsbD0iI0ZGRiIgZD0iTTAgMGgzNTB2MjUwSDB6IiBmaWxsLXJ1bGU9ImV2ZW5vZGQiLz48L3N2Zz4=" data-src="{{ index . 0}}" alt="Showcase" class="lazyload db grow h5-ns img shadow-5 mb2">
+            {{end}}
+            {{with .Param "title"}}<div class="f7 mid-gray">{{.}}</div>{{end}}
+          </div>
+        {{end}}
+      {{end}}
+    </div>
+
+    
+  </section>
