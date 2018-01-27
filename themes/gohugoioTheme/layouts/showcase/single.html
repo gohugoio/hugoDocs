@@ -16,17 +16,45 @@
       </div>
       <aside class="fn mid-gray w-100 w-25-l">
         <div class="mt4 nested-links ph4-l">
-        {{with .Params.sitelink}}
-          <a href="{{.}}" class="db f3-ns f4 mb4">
-            {{- . | replaceRE "^https?://([^/]+).*" "$1" -}}
-          </a>
-        {{end}}
-        {{with .Params.description}}
-          <div class="f4 lh-title mb4">
-            {{- . | markdownify -}}
+          {{with .Params.sitelink}}
+            <a href="{{.}}" class="db f3-ns f4 mb1">
+              {{- . | replaceRE "^https?://([^/]+).*" "$1" -}}
+            </a>
+          {{end}}
+          {{with .Params.repo}}
+            <a href="{{.}}" class="mb4">Source</a>
+          {{end}}
+
+          {{with .Params.description}}
+            <div class="f5 lh-title mv4">
+              {{- . | markdownify -}}
+            </div>
+          {{end}}
+          {{/* Because we want to allow for the creator array to be present in an item's front matter it will always show as set, so we see if the first item's name field is not null, then show the created by fields. Better way? */}}
+          {{$creator := (index .Params.creator 0).name }}
+          {{if ne $creator nil}}
+            <div class="mb4">
+                Created by:<br />
+              <ul>
+                {{range .Params.creator}}
+                  <li class="list">
+                    {{if .link}}
+                      <a href="{{.link}}" class="link"/>
+                        {{- .name -}}
+                      </a>
+                    {{else}}
+                      {{.name}}
+                    {{end}}
+                  </li>
+                {{end}}
+              </ul>
+            </div>
+          {{end}}
+
+
+          <div class="b--light-gray bt pt3 ">
+            {{- partial "previous-next-links-in-section-with-title.html" . -}}
           </div>
-        {{end}}
-          {{- partial "previous-next-links-in-section-with-title.html" . -}}
         </div>
       </aside>
     </div>
