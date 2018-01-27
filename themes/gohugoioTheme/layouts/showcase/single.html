@@ -1,5 +1,5 @@
 {{ define "main" }}
-  <article class="cf ph3 ph4-ns4 pv3 pv5-ns">
+  <article class="cf ph3 ph4-ns pv3 pv5-ns">
     <!-- header spans the full width -->
     <header class="flex-none pb4 w-100">
       <h1 class="fw9 lh-title mb7 mv0 pt3">
@@ -15,9 +15,14 @@
         {{ end }}
       </div>
       <aside class="fn mid-gray w-100 w-25-l">
-        <div class="mt4 nested-links pl3-l">
+        <div class="mt4 nested-links ph4-l">
+        {{with .Params.link}}
+          <a href="{{.}}" class="db f3-ns f4 mb4">
+            {{- . | replaceRE "^https?://([^/]+).*" "$1" -}}
+          </a>
+        {{end}}
         {{with .Params.description}}
-          <div class="f3-ns f4 lh-title measure-wide-ns">
+          <div class="f4 lh-title mb4">
             {{- . | markdownify -}}
           </div>
         {{end}}
