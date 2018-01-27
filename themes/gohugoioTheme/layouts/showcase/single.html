@@ -16,7 +16,7 @@
       </div>
       <aside class="fn mid-gray w-100 w-25-l">
         <div class="mt4 nested-links ph4-l">
-        {{with .Params.link}}
+        {{with .Params.sitelink}}
           <a href="{{.}}" class="db f3-ns f4 mb4">
             {{- . | replaceRE "^https?://([^/]+).*" "$1" -}}
           </a>
