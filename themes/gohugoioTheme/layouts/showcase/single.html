@@ -1,44 +1,34 @@
 {{ define "main" }}
-  <article class="cf ph4 pv3 pv5-ns">
+  <article class="cf ph3 ph4-ns4 pv3 pv5-ns">
     <!-- header spans the full width -->
-    <header class="flex-none w-100 pb4">
-      <h1 class="lh-title fw9 mb7 mv0 pt3">
-        <a href="{{ .URL }}" class="link primary-color dim">
+    <header class="flex-none pb4 w-100">
+      <h1 class="fw9 lh-title mb7 mv0 pt3">
+        <a href="{{ .URL }}" class="dim link primary-color">
           {{ .Title }}
         </a>
       </h1>
-      {{with .Params.description}}
-        <div class="f3 lh-title measure-wide-ns">
-          {{- . | markdownify -}}
-        </div>
-      {{end}}
     </header>
     <div class="flex-l">
-      <div class="bg-red sans-serif nested-copy-line-height no-underline nested-links nested-img nested-copy-seperator nested-blockquote mw8 w-75-l">
+      <div class="bg-red mw8 nested-copy-line-height no-underline nested-links nested-img nested-copy-seperator nested-blockquote sans-serif w-75-l">
         {{ with .Params.images }}
           <img src="{{ index . 0 }}" alt="Featured Image for {{ $.Title }}" class="img">
         {{ end }}
       </div>
-      <aside class="mid-gray fn w-100 w-25-l">
-        <div class="nested-links mt4 pl3">
+      <aside class="fn mid-gray w-100 w-25-l">
+        <div class="mt4 nested-links pl3-l">
+        {{with .Params.description}}
+          <div class="f3-ns f4 lh-title measure-wide-ns">
+            {{- . | markdownify -}}
+          </div>
+        {{end}}
           {{- partial "previous-next-links-in-section-with-title.html" . -}}
         </div>
       </aside>
     </div>
     {{/* bottom row */}}
-    <div class="gray f6 mv6">
+    <div class="f6 gray mv6">
       Last Update: {{ .Lastmod.Format "January 2, 2006" }} <br>
       {{ partial "page-edit.html" . }}
     </div>
   </article>
-
-
-
-
-
-
-
-
-
-
 {{ end }}

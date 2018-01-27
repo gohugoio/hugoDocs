@@ -2,11 +2,11 @@
 {{/* this div holds these a tags as a unit for flex-box display */}}
 	<div date-pref>
 		{{if .NextInSection}}
-			<a href="{{.NextInSection.Permalink }}" class="dib f5" title="{{ .NextInSection.Title }} ">{{ partial "svg/ic_chevron_left_black_24px.svg" (dict "fill" "#0594CB" "size" "12px") }} {{.NextInSection.Title}}</a>
+			<a href="{{.NextInSection.Permalink }}" class="db f5" title="{{ .NextInSection.Title }} ">{{ partial "svg/ic_chevron_left_black_24px.svg" (dict "fill" "#0594CB" "size" "12px") }} {{.NextInSection.Title}}</a>
 		{{end}}
 
-		{{if .PrevInSection}}<br /><br />
-			<a href="{{ .PrevInSection.Permalink }}" class="dib f5 pr1" title="{{ .PrevInSection.Title }}">
+		{{if .PrevInSection}}
+			<a href="{{ .PrevInSection.Permalink }}" class="db f5 pr1 ml3 mt3" title="{{ .PrevInSection.Title }}">
 			{{.PrevInSection.Title}} {{ partial "svg/ic_chevron_right_black_24px.svg" (dict "fill" "#0594CB" "size" "12px") }}
 			</a>
 		{{end}}
