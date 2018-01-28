@@ -9,10 +9,15 @@
       </h1>
     </header>
     <div class="flex-l">
-      <div class="bg-red mw8 nested-copy-line-height no-underline nested-links nested-img nested-copy-seperator nested-blockquote sans-serif w-75-l">
+      <div class="mw8 w-75-l">
         {{ with .Params.images }}
           <img src="{{ index . 0 }}" alt="Featured Image for {{ $.Title }}" class="img">
         {{ end }}
+        {{with .Content}}
+          <div class="nested-copy-line-height nested-img nested-links">
+            {{- . -}}
+          </div>
+        {{end}}
       </div>
       <aside class="fn mid-gray w-100 w-25-l">
         <div class="mt4 nested-links ph4-l">
@@ -37,7 +42,7 @@
                 Created by:<br />
               <ul>
                 {{range .Params.creator}}
-                  <li class="list">
+                  <li>
                     {{if .link}}
                       <a href="{{.link}}" class="link"/>
                         {{- .name -}}
@@ -50,9 +55,8 @@
               </ul>
             </div>
           {{end}}
-
-
           <div class="b--light-gray bt pt3 ">
+            <div class="f6 gray mb2">Previous/Next</div>
             {{- partial "previous-next-links-in-section-with-title.html" . -}}
           </div>
         </div>
