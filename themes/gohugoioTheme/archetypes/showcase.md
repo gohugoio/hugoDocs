@@ -1,13 +1,11 @@
 ---
-description: ""
-lastmod: ""
-license: ""
-licenseLink: ""
-sitelink: ""
-sourcelink: ""
-categories: [showcase]
-tags: []
-image: ""
-toc: false
-notesforauthors: "Go to gohugo.io/contribute/documentation for more info"
+title: "{{ replace .TranslationBaseName "-" " " | title }}"
+date: {{ .Date }}
+description:
+sitelink:
+repo:
+creator:
+  - name:
+    link:
+images: []
 ---
