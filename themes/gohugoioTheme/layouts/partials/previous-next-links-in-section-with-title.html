@@ -6,7 +6,7 @@
 		{{end}}
 
 		{{if .PrevInSection}}
-			<a href="{{ .PrevInSection.Permalink }}" class="db f5 pr1 ml3 mt3" title="{{ .PrevInSection.Title }}">
+			<a href="{{ .PrevInSection.Permalink }}" class="db f5 pr1  mt3" title="{{ .PrevInSection.Title }}">
 			{{.PrevInSection.Title}} {{ partial "svg/ic_chevron_right_black_24px.svg" (dict "fill" "#0594CB" "size" "12px") }}
 			</a>
 		{{end}}
