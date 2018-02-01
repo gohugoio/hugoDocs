@@ -337,6 +337,15 @@ $ env HUGO_TITLE="Some Title" hugo
 Names must be prefixed with `HUGO_` and the configuration key must be set in uppercase when setting operating system environment variables.
 {{% /note %}}
 
+## Merge Mutliple Configuration
+
+You can merge serveral configuration files using the Hugo cli flag `--config`. This can be useful to share common properties among serveral environements.
+
+```
+$ hugo --config base.config.toml,prod.config.toml
+```
+
+
 ## Ignore Files When Rendering
 
 The following statement inside `./config.toml` will cause Hugo to ignore files ending with `.foo` and `.boo` when rendering:
