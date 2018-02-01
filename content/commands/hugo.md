@@ -32,7 +32,7 @@ hugo [flags]
       --cacheDir string            filesystem path to cache directory. Defaults: $TMPDIR/hugo_cache/
       --canonifyURLs               if true, all relative URLs will be canonicalized using baseURL
       --cleanDestinationDir        remove files from destination not found in static directories
-      --config string              config file (default is path/config.yaml|json|toml)
+      --config string              config file(s), multiple files (a.toml,b.toml.c.toml) will be merged (default is path/config.yaml|json|toml)
   -c, --contentDir string          filesystem path to content directory
       --debug                      debug output
   -d, --destination string         filesystem path to write files to
