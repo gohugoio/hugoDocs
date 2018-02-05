@@ -116,6 +116,9 @@ Ensuring heading uniqueness across the site is accomplished with a unique identi
 /content-management/cross-references/#hugo-heading-anchors:77cd9ea530577debf4ce0f28c8dca242
 ```
 
+## Multilingual
+
+Since release 0.33, you may use `.Site.GetPage "page" "post/post"` (i.e. content page name without any language code or extension) and get the current language version.
 
 [built-in Hugo shortcodes]: /content-management/shortcodes/#using-the-built-in-shortcodes
 [lists]: /templates/lists/
