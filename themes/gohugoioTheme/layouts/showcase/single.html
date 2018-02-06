@@ -8,17 +8,17 @@
       </h1>
     </header>
 
-    <div class="flex-ns">
+    <div class="flex flex-wrap">
 
-      <div class="w-20-l">
+      <div class="w-100 w-20-l order-1 order-0-l">
         {{template "details" .}}
       </div>
 
-      <div class="w-70-m w-60-ns">
+      <div class="w-100 w-60-l order-0 order-1-l">
         {{template "main-column" .}}
       </div>
 
-      <aside class="dn mid-gray w-100 w-20-ns flex-l justify-center">
+      <aside class="dn mid-gray w-100 w-20-ns flex-l justify-center order-2">
         {{template "navigation" .}}
       </aside>
 
