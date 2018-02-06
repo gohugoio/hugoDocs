@@ -49,7 +49,7 @@
 
 {{define "details"}}
   <div class="mt4 mt0-ns nested-links mr3-m mr4-l">
-    <div class="ba b--moon-gray bg-white pa3">
+    <div class="ba b--light-gray bg-white pa3">
       {{ with .Params.siteURL }}
       <a href="{{ . }}" class="db pre f4 mb1">{{ . | replaceRE "^https?://([^/]+).*" "$1"}} {{ partial "svg/link-ext.svg" (dict "size" "10") }}</a>
       {{ end }}
@@ -74,12 +74,12 @@
   {{$section := where .Site.RegularPages "Section" .Section}}
   {{$number_of_entries := $section | len}}
   <ul class="pa0 list">
-  <li class="b f3">
+  <li class="b f5 blTK b--light-gray pb2 pl2">
       More Sites
   </li>
     {{range first 20 $section}}
-      <li class="f6 hover-bg-light-gray hover-accent-color-light">
-        <a href="{{.RelPermalink}}" class="db link w-100 pv1 ph1 {{ if eq $ . }} b bg-light-gray primary-color{{else}} mid-gray {{end}}">
+      <li class="bl b--light-gray pl2 f6 hover-bg-light-gray hover-accent-color-light {{if eq $ .}} bg-light-gray{{end}}">
+        <a href="{{.RelPermalink}}" class="db link w-100 pv1 ph1 {{ if eq $ . }} b  primary-color{{else}} mid-gray {{end}}">
           {{- .Title -}}
         </a>
       </li>
