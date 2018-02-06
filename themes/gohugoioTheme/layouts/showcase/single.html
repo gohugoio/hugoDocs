@@ -2,12 +2,6 @@
   <article class="center ph3 ph4-ns pv3 pv5-ns mw9">
 
     <!-- header spans the full width -->
-    <header class="flex-none pb4 w-100">
-      <h1 class="fw9 lh-title mb7 mv0 pt3">
-          Showcase
-      </h1>
-    </header>
-
     <div class="flex flex-wrap">
 
       <div class="w-100 w-20-l order-1 order-0-l">
@@ -50,7 +44,7 @@
 {{define "details"}}
   <div class="mt4 mt0-ns nested-links mr3-m mr4-l">
     <div class="ba b--light-gray bg-white pa3">
-      <h2 class="f3 mt0">{{.Title}}</h2>
+      <h1 class="f3 mt0">{{.Title}}</h1>
       {{ with .Params.siteURL }}
       <a href="{{ . }}" class="db pre f5 mb1">{{ . | replaceRE "^https?://([^/]+).*" "$1"}} {{ partial "svg/link-ext.svg" (dict "size" "10") }}</a>
       {{ end }}
