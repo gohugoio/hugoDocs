@@ -61,7 +61,7 @@ Once selected, you'll be brought to a screen for basic setup. Here you can selec
 
 ### Build with a Specific Hugo Version
 
-Setting the build command to `hugo` will build your site according to the current default Hugo version used by Netlify. You can see the full list of [available Hugo versions in Netlify's Docker file][hugoversions].
+Setting the build command to `hugo` will build your site according to the current default Hugo version used by Netlify.
 
 If you want to tell Netlify to build with a specific version (hugo <= 0.20), you can append an underscore followed by the version number to the build command:
 
