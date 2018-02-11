@@ -103,7 +103,7 @@ Once the build is finished---this should only take a few seconds--you should now
 
 Now every time you push changes to your hosted git repository, Netlify will rebuild and redeploy your site.
 
-See [this blog post](https://www.netlify.com/blog/2017/04/11/netlify-plus-hugo-0.20-and-beyond/) for more details on how Netlify handles Hugo versions.
+See [this blog post](https://www.netlify.com/blog/2017/04/11/netlify-plus-hugo-0.20-and-beyond/) for more details about how Netlify handles Hugo versions.
 
 ## Use Hugo Themes with Netlify
 
