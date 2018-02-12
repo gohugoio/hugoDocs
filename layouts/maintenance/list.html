@@ -1,4 +1,14 @@
 {{ define "main" }}
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.16/css/jquery.dataTables.min.css">
+<script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.16/js/jquery.dataTables.min.js"></script>
+<script type="text/javascript">
+ $(document).ready(function() {
+     $('#recent').DataTable( {
+         "order": [[ 0, 'desc' ]]
+     } );
+ } );
+</script>
 <div class="w-100 ph4 pb5 pb6-ns pt1 mt4 pt3-ns">
     <div class="flex-l">
         <div class="order-2 w-100 w-20-l ph5-m ph0-l mb4 sticky">
@@ -7,29 +17,28 @@
                 <ul>
                     <li><a href="#last-updated">Last Updated</a></li>
                     <li><a href="#least-recently-updated">Least Recently Updated</a></li>
-                     <li><a href="#todos">Pages marked with TODO</a></li>
+                    <li><a href="#todos">Pages marked with TODO</a></li>
                 </ul>
             </aside>
         </div>
         <div class="w-100">
             {{ $byLastMod :=  .Site.RegularPages.ByLastmod  }}
-            {{ $recent := ($byLastMod | last 10).Reverse }}
-            {{ $leastRecent := $byLastMod | first 10 }}            
+            {{ $recent := ($byLastMod | last 500).Reverse }}
+            {{ $leastRecent := $byLastMod | first 10 }}
             <h2 id="last-updated">Last Updated</h2>
-            {{ partial "maintenance-pages-table" $recent }}
+            {{ partial "maintenance-pages-table" (dict "id" "recent" "pages" $recent) }}
             <h2 id="least-recently-updated">Least Recently Updated</h2>
-            {{ partial "maintenance-pages-table" $leastRecent }}
+            {{ partial "maintenance-pages-table" (dict "id" "least-recent" "pages" $leastRecent) }}
 
             {{/* Don't think this is possible with where directly. Should investigate. */}}
             {{ .Scratch.Set "todos" slice }}
             {{ range .Site.RegularPages }}
-                 {{ if .HasShortcode "todo" }}
-                 {{ $.Scratch.Add "todos" . }}
-                 {{ end }}
+                {{ if .HasShortcode "todo" }}
+                    {{ $.Scratch.Add "todos" . }}
+                {{ end }}
             {{ end }}
             <h2 id="todos">Pages marked with TODO</h2>
-            {{ partial "maintenance-pages-table" (.Scratch.Get "todos") }}
-
+            {{ partial "maintenance-pages-table" (dict "id" "todos" "pages" (.Scratch.Get "todos")) }}
         </div>
     </div>
 </div>
