@@ -22,6 +22,8 @@ aliases: [/tutorials/hosting-on-gitlab/]
 
 [GitLab](https://gitlab.com/) makes it incredibly easy to build, deploy, and host your Hugo website via their free GitLab Pages service, which provides [native support for Hugo, as well as numerous other static site generators](https://gitlab.com/pages/hugo).
 
+N.B. You need to exercise caution when deploying your Hugo website with a custom domain to Gitlab Pages. Sometimes Gitlab introduces changes that can cause site outage with no prior user notification.
+
 ## Assumptions
 
 * Working familiarity with Git for version control
