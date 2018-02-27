@@ -361,6 +361,41 @@ Go considers the following characters whitespace:
 * carriage <kbd>return</kbd>
 * newline
 
+## Commenting templates
+
+In order to keep your templates organized and share information throughout your team, you may want to add comments to your templates. There are two ways to do that with Hugo.
+
+### Go templates comments
+
+Go templates support `{{/*` and `*/}}` to open and close a comment block. Nothing within that block will be rendered.
+
+For example:
+
+```
+Bonsoir, {{/* {{ add 0 + 2 }} */}}Eliott.
+```
+
+Will render `Bonsoir, Eliott.` and not care about the syntax error we have within the comment block.
+
+### HTML comments
+
+HTML comments are by default stripped as well, but their content is evaluated. That means although the HTML comment will never render any content to the final HTML pages, code contained within the comment may crash the build process.
+
+For instance:
+
+```
+<!-- {{ $author := "Emma Goldman" }} was a great woman. -->
+{{ $author }}
+```
+
+Will render `Emma Goldman`. The templating engine will strip the content produced within the comment block (that is, nothing) but will still assign a value to the `author` variable that we can reuse outside of the comment block. If we had made an error within the comment block, the build would have been stopped with an `is an incomplete or empty template` error.
+
+If you really need to produce HTML comments from your templates, take a look at how we deal with [Internet Explorer conditional comments](#example-4-internet-explorer-conditional-comments) in Hugo. If you need to access variables within your HTML comments, just pipe printf to safeHTML. For example:
+
+```
+{{ printf "<!-- Our website is named: %s -->" .Site.Title | safeHTML }}
+```
+
 ## Hugo Parameters
 
 Hugo provides the option of passing values to your template layer through your [site configuration][config] (i.e. for site-wide values) or through the metadata of each specific piece of content (i.e. the [front matter][]). You can define any values of any type and use them however you want in your templates, as long as the values are supported by the front matter format specified via `metaDataFormat` in your configuration file.
