@@ -8,7 +8,12 @@
         {{ range .banners }}
           {{ $banner := . }}
           {{if .logo}}
-            <div class="{{$classes_box}} o-100">
+            <div class="{{$classes_box}} o-100 relative">
+              {{/* Add the box, position/style, make a link, give its own outgoing UTM code */}}
+              <div  class="absolute mr2 mt1 top-0 right-0">
+                {{partial "svg/link-external.svg" .}}
+              </div>
+
               {{with .link -}}
                 {{ $url := printf "%s?%s" . (querify "utm_source" "homepage" "utm_medium" "banner" "utm_campaign" "hugosponsor") | safeURL }}
                 {{ if eq (getenv "HUGO_ENV") "production" | or (eq $.cx.Site.Params.env "production")  }}
