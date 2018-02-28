@@ -15,14 +15,14 @@
                 {{ if eq (getenv "HUGO_ENV") "production" | or (eq $.cx.Site.Params.env "production")  }}
                    {{ $gtagID := printf "Sponsor %s %s" $banner.name $gtag | title }}
                    {{/* external link icon */}}
-                   <a href="{{$url_link}}" onclick="trackOutboundLink({{ printf "'%s', '%s'" $gtagID $url | safeJS }}); return false;" class="absolute primary-color pt2 pr2 top-0 right-0">
+                   <a href="{{$url_link}}" onclick="trackOutboundLink({{ printf "'%s', '%s'" $gtagID $url | safeJS }}); return false;" class="absolute hover-gray primary-color pr2 pt2 right-0 top-0">
                      {{partial "svg/link-external.svg" .}}
                    </a>
                    {{/* END external link icon */}}
                    <a href="{{ $url }}" onclick="trackOutboundLink({{ printf "'%s', '%s'" $gtagID $url | safeJS }}); return false;" class="grow">
                 {{ else }}
                   {{/* external link icon */}}
-                  <a href="{{$url_link}}" class="absolute pt2 primary-color top-0 right-0" style="padding-right:.625rem;">
+                  <a href="{{$url_link}}" class="absolute hover-gray primary-color pr2 pt2 right-0 top-0" style="padding-right:.625rem;">
                     {{partial "svg/link-external.svg" .}}
                   </a>
                   {{/* END external link icon */}}
