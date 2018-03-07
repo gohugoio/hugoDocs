@@ -45,7 +45,7 @@ Since section lists and taxonomy lists (N.B., *not* [taxonomy terms lists][taxte
 
 #### Default Section Templates
 
-1. `layouts/_default/section.html`
+1. `layouts/_default/section/list.html`
 2. `layouts/_default/list.html`
 
 #### Default Taxonomy List Templates
