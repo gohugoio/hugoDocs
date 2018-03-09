@@ -40,7 +40,9 @@ Hugo provides the ability for you to define any RSS type you wish and can have d
 
 1. `/layouts/rss.xml`
 2. `/layouts/_default/rss.xml`
-3.  Embedded rss.xml
+3. `/themes/<THEME>/layouts/rss.xml`
+4. `/themes/<THEME>/layouts/_default/rss.xml`
+5. Embedded rss.xml
 
 ### Section RSS
 
