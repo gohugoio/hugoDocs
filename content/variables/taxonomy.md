@@ -28,7 +28,7 @@ For example, the following fields would be available in `layouts/_defaults/terms
 : The singular name of the taxonomy (e.g., `tags => tag`)
 
 .Data.Plural
-: The plural name of the taxonomy (e.g., `tags => tags`)
+ The plural name of the taxonomy (e.g., `tags => tags`)
 
 .Data.Pages
 : The list of pages in the taxonomy
@@ -49,7 +49,7 @@ Note that `.Data.Terms.Alphabetical` and `.Data.Terms.ByCount` can also be rever
 
 ## Use `.Site.Taxonomies` Outside of Taxonomy Templates
 
-The `.Site.Taxonomies` variable holds all the taxonomies defined site-wide. `.Site.Taxonomies` is a map of the taxonomy name to a list of its values (e.g., `"tags" -> ["tag1", "tag2", "tag3"]``). Each value, though, is not a string but rather a *Taxonomy variable*.
+The `.Site.Taxonomies` variable holds all the taxonomies defined site-wide. `.Site.Taxonomies` is a map of the taxonomy name to a list of its values (e.g., `"tags" -> ["tag1", "tag2", "tag3"]`). Each value, though, is not a string but rather a *Taxonomy variable*.
 
 ## The `.Taxonomy` Variable
 
