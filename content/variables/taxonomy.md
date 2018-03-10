@@ -28,7 +28,7 @@ For example, the following fields would be available in `layouts/_defaults/terms
 : The singular name of the taxonomy (e.g., `tags => tag`)
 
 .Data.Plural
- The plural name of the taxonomy (e.g., `tags => tags`)
+: The plural name of the taxonomy (e.g., `tags => tags`)
 
 .Data.Pages
 : The list of pages in the taxonomy
