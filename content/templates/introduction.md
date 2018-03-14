@@ -379,22 +379,24 @@ Will render `Bonsoir, Eliott.` and not care about the syntax error we have withi
 
 ### HTML comments
 
-HTML comments are by default stripped as well, but their content is evaluated. That means although the HTML comment will never render any content to the final HTML pages, code contained within the comment may crash the build process.
+If you really need to produce HTML comments from your templates, take a look at how we deal with [Internet Explorer conditional comments](#example-4-internet-explorer-conditional-comments) in Hugo. If you need to access variables within your HTML comments, just pipe printf to safeHTML. For example:
 
-For instance:
+```
+{{ printf "<!-- Our website is named: %s -->" .Site.Title | safeHTML }}
+```
+
+HTML comments are by default stripped, but their content is evaluated. That means although the HTML comment will never render any content to the final HTML pages, code contained within the comment may crash the build process.
+
+{{% note %}}
+Here's an example of how you should **not** try to use HTML comments.
+{{% /note %}}
 
 ```
 <!-- {{ $author := "Emma Goldman" }} was a great woman. -->
 {{ $author }}
 ```
 
-Will render `Emma Goldman`. The templating engine will strip the content produced within the comment block (that is, nothing) but will still assign a value to the `author` variable that we can reuse outside of the comment block. If we had made an error within the comment block, the build would have been stopped with an `is an incomplete or empty template` error.
-
-If you really need to produce HTML comments from your templates, take a look at how we deal with [Internet Explorer conditional comments](#example-4-internet-explorer-conditional-comments) in Hugo. If you need to access variables within your HTML comments, just pipe printf to safeHTML. For example:
-
-```
-{{ printf "<!-- Our website is named: %s -->" .Site.Title | safeHTML }}
-```
+The above example will render `Emma Goldman`. The templating engine will strip the content within the comment block but will still assign a value to the `author` variable that we can reuse elsewhere. If we had made an error within the comment block, the build would have been stopped with an `is an incomplete or empty template` error.
 
 ## Hugo Parameters
 
