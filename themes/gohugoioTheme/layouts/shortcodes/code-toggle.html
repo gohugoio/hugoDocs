@@ -1,0 +1,48 @@
+	<style>
+		[data-toggle-tab]{
+			margin-bottom:-1px;
+			position: relative;
+			z-index: 1;
+			color:#333;
+			border-color:#ccc;
+			outline: none;
+		}
+		[data-toggle-tab].active{
+			border-bottom-color:#f3f4f4;
+		}
+		.tab-content .tab-pane{
+			display: none;
+		}
+		.tab-content .copy, .tab-content .copied{
+			display: none;
+		}
+		.tab-content .tab-pane.active{
+			display: block;
+		}
+		.tab-content .tab-pane.active + .copy, .tab-content .tab-pane.active + .copied{
+			display: block;
+		}
+	</style>
+<div class="code relative" {{ with .Get "file" }}id="{{ . | urlize}}"{{ end }}>
+	<div class="code-nav flex flex-nowrap items-stretch">
+		{{- with .Get "file" -}}
+			<div class="san-serif f6 dib lh-solid pl2 pv2 mr2">{{ . }}.</div>
+		{{- end -}}
+		<button data-toggle-tab="yaml" class="active bg-near-white ba san-serif f6 dib lh-solid ph2 pv2">yaml</button>
+		<button data-toggle-tab="toml" class="ml2 ba san-serif f6 dib lh-solid ph2 pv2">toml</button>
+		<button data-toggle-tab="json" class="ml2 ba san-serif f6 dib lh-solid ph2 pv2">json</button>
+	</div>
+	<div class="tab-content">
+		{{ range (slice "yaml" "toml" "json") }}
+			<div data-panel="{{ . }}" class="code-copy-content nt3 tab-pane active">
+				<pre><code>{{ $.Inner | transform.Remarshal . | safeHTML }}</code></pre>
+			</div>
+			{{ if ne ($.Get "copy") "false" }}
+				<button class="needs-js copy copy-toggle bg-accent-color-dark f6 absolute top-0 right-0 lh-solid hover-bg-primary-color-dark bn white ph3 pv2" title="Copy this code to your clipboard." data-clipboard-action="copy" aria-label="copy button">
+				</button>
+				{{/* Functionality located within filesaver.js The copy here is located in the css with .copy class so it can be replaced with JS on success */}}
+			{{end}}
+		{{ end }}
+	</div>
+
+</div>
