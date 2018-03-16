@@ -1,6 +1,10 @@
 var Clipboard = require('clipboard/dist/clipboard.js');
 new Clipboard('.copy', {
   target: function(trigger) {
+    if(trigger.classList.contains('copy-toggle')){
+      console.log('yeah')
+      return trigger.previousElementSibling;
+    }
     return trigger.nextElementSibling;
   }
   }).on('success', function(e) {
