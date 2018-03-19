@@ -134,15 +134,6 @@ Example from site `config.toml`:
   page = ["HTML"]
 ```
 
-Example from site `config.yml`:
-
-```
-outputs:
-  home: ["HTML", "AMP", "RSS"]
-  page: ["HTML"]
-```
-
-
 * The output definition is per `Page` `Kind` (i.e, `page`, `home`, `section`, `taxonomy`, or `taxonomyTerm`).
 * The names used must match the `Name` of a defined `Output Format`.
 * Any `Kind` without a definition will default to `HTML`.
