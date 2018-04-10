@@ -122,7 +122,7 @@ In addition to the [data files](/extras/datafiles/) feature, Hugo also has a "da
 
 Data-driven content currently consists of two functions, `getJSON` and `getCSV`, which are available in all template files.
 
-The CSV & JSON files must be located **outside** of `data` directory.
+The CSV files must be located **outside** of `data` directory.
 
 ## Implementation details
 
