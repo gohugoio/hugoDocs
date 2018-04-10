@@ -64,11 +64,11 @@ See [themes.gohugo.io](https://themes.gohugo.io/) for a list of themes to consid
 ```bash
 cd quickstart;\
 git init;\
-git submodule add https://github.com/budparr/gohugo-theme-ananke.git themes/ananke;\
+git submodule add https://github.com/budparr/gohugo-theme-ananke.git themes/gohugo-theme-ananke;\
 
 # Edit your config.toml configuration file
 # and add the Ananke theme.
-echo 'theme = "ananke"' >> config.toml
+echo 'theme = "gohugo-theme-ananke"' >> config.toml
 ```
 
 
