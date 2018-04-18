@@ -26,6 +26,10 @@ In most cases you can do okay without `Scratch`, but due to scoping issues, ther
 See [this Go issue](https://github.com/golang/go/issues/10608) for the main motivation behind Scratch.
 {{% /note %}}
 
+{{% note %}}
+For a detailed analysis of `.Scratch` and in context use cases, see this [post](https://regisphilibert.com/blog/2017/04/hugo-scratch-explained-variable/).
+{{% /note %}}
+
 ## Methods
 
 `Scratch` is added to both `Page` and `Shortcode` -- with following methods:
