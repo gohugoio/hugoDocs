@@ -41,7 +41,7 @@ keywords: [ "tag1", "tag2", "tag3" ]
 {{< /code >}}
 
 {{< code file="delimit-page-tags-input.html" >}}
-<p>Tags: {{ delimit .Params.tags ", " }}</p>
+<p>Tags: {{ delimit .Params.keywords ", " }}</p>
 {{< /code >}}
 
 {{< output file="delimit-page-tags-output.html" >}}
@@ -51,7 +51,7 @@ keywords: [ "tag1", "tag2", "tag3" ]
 Here is the same example but with the optional "last" delimiter:
 
 {{< code file="delimit-page-tags-final-and-input.html" >}}
-Tags: {{ delimit .Params.tags ", " ", and " }}
+Tags: {{ delimit .Params.keywords ", " ", and " }}
 {{< /code >}}
 
 {{< output file="delimit-page-tags-final-and-output.html" >}}
