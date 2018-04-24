@@ -50,6 +50,12 @@ Here are two examples of paired shortcodes:
 
 The examples above use two different delimiters, the difference being the `%` character in the first and the `<>` characters in the second.
 
+{{% tip %}}
+If your shortcodes do not render, here are some things to check:
+* You must have a layout directory in the base of your site even if you are pulling the shortcodes from your theme
+* If there are any build errors on the page, the shortcodes will not render
+{{% /tip %}}
+
 ### Shortcodes with Markdown
 
 The `%` character indicates that the shortcode's inner content---called in the [shortcode template][sctemps] with the [`.Inner` variable][scvars]---needs further processing by the page's rendering processor (i.e. markdown via Blackfriday). In the following example, Blackfriday would convert `**World**` to `<strong>World</strong>`:
