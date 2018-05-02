@@ -48,6 +48,8 @@ See [Partial Templates][partials] to learn how to add the Disqus partial to your
 There are a few alternatives to commenting on static sites for those who do not want to use Disqus:
 
 * [Static Man](https://staticman.net/)
+* [Talkyard](https://www.talkyard.io/blog-comments) (free and open source, or hosted serverless)
+    * [Talkyard instructions for Hugo](https://hugo-demo.talkyard.io/posts/demo-and-instructions/)
 * [txtpen](https://txtpen.com)
 * [IntenseDebate](http://intensedebate.com/)
 * [Graph Comment][]
