@@ -19,7 +19,7 @@ deprecated: false
 aliases: []
 ---
 
-`ref` and `relref` look up a content page by logical name (`ref`) or relative path (`relref`) to return the permalink:
+`ref` and `relref` look up pages by their relative path (e.g., `blog/post.md`) or their logical name (`post.md`) and return the permalink (`ref`) or relative permalink (`relref`) for the the page. Both functions require a `Page` object (usually satisfied with a "`.`"):
 
 ```
 {{ ref . "about.md" }}
