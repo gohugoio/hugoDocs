@@ -82,6 +82,16 @@ title
 params
 : A map of custom key/values.
 
+### Simple Example
+
+get the first matching image in the page bundle using .Resources.GetMatch ("images/*")}}
+```go
+{{ $img := .Resources.GetMatch ("images/*")}}
+<figure>
+    <img src="{{ $img.RelPermalink }}" alt="{{ $img.Name }}" />
+    <figcaption>{{ $img.Title }}(set in Frontmatter) {{ $img.Name }}  </figcaption>
+</figure>
+```
 
 ###  Resources metadata example
 
