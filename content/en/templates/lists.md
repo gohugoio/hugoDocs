@@ -215,7 +215,7 @@ Hugo lists render the content based on metadata you provide in [front matter][].
 {{< /code >}}
 
 ### By Weight
-
+(will order by weight ascending)
 {{< code file="layouts/partials/by-weight.html" >}}
 <ul>
     {{ range .Data.Pages.ByWeight }}
