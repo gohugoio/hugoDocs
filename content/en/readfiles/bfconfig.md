@@ -41,7 +41,7 @@
 `hrefTargetBlank`
 : default: **`false`** <br>
     Blackfriday flag: **`HTML_HREF_TARGET_BLANK`** <br>
-    Purpose: `true` opens external links in a new window or tab.
+    Purpose: `true` opens non-relative links in a new window or tab. If your internal links are relative, then only external links are opened in a new window or tab.
 
 `plainIDAnchors`
 : default **`true`** <br>
