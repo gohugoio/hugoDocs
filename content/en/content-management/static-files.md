@@ -13,7 +13,7 @@ aliases: [/static-files]
 toc: true
 ---
 
-The `static` folder is where you place all your **static files**, e.g. stylesheets, JavaScript, images etc.
+The `static` folder is where you place all your **static files**, e.g. stylesheets, JavaScript, images etc.  They will copied into the destination folder as if the root of the static folder is the base URL.
 
 You can set the name of the static folder to use in your configuration file.  From **Hugo 0.31** you can configure as many static directories as you need. All the files in all the static directories will form a union filesystem.
 
