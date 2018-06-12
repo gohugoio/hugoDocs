@@ -376,7 +376,7 @@ Using the preceding `youtube` example (without `autoplay="true"`), the following
 
 ## Privacy Config
 
-To learn how to configure your Hugo site to meet the new EU privacy regulation, see the [Hugo and the GDPR][].
+To learn how to configure your Hugo site to meet the new EU privacy regulation, see [Hugo and the GDPR][].
 
 ## Create Custom Shortcodes
 
