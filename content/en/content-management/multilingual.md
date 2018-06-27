@@ -193,7 +193,7 @@ languages:
 
 {{< /code-toggle >}}
 
-The value of `contentDir` can be any valid path, even absolute path references. The only restriction is that the content dirs cannot overlap.
+The value of `contentDir` can be any valid path, even absolute path references. The only restriction is that the content directories cannot overlap.
 
 Considering the following example in conjunction with the configuration above: 
 
@@ -230,7 +230,7 @@ Considering the following example:
 translationKey: "about"
 ```
 
-By setting the `translationKey` front matter param to `about` in all three pages, they will be __linked__ as translated pages even though their filename or placement won't match.
+By setting the `translationKey` front matter param to `about` in all three pages, they will be __linked__ as translated pages.
 
 
 ### Localizing permalinks
