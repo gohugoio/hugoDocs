@@ -157,7 +157,7 @@ plaque = "plaques"
 
 ## Translate Your Content
 
-There are two sytems to manage your translations in Hugo: __filename__ and __placement__. Both systems will assign languages and link pages as translated version of the other.
+There are two ways to manage your content translation, both ensures each page is assigned a language and linked to its translations.
 
 ### Translation by filename
 
@@ -171,11 +171,13 @@ The second file is assigned the french language and linked to the first.
 
 Their language is __assigned__ according to the language code added as __suffix to the filename__. 
 
-By having the same **directory and base filename**, the content pieces are __linked__ together as translated pages.
+By having the same **path and base filename**, the content pieces are __linked__ together as translated pages.
 {{< note >}}
+
 If a file is missing any language code, it will be assigned the default language.
+
 {{</ note >}}
-### Translation by placement
+### Translation by content directory
 
 This system uses different content directories for each of the languages. Each language's content directory is set using the `contentDir` param.
 
@@ -205,19 +207,11 @@ The first file is assigned the english language and is linked to the second.
 
 Their language is __assigned__ according to the content directory they are __placed__ in.
 
-By having the same **filename and path** (relative to their language content directory), the content pieces are __linked__ together as translated pages.
+By having the same **path and basename** (relative to their language content directory), the content pieces are __linked__ together as translated pages.
 
-{{% note %}}
+### Bypassing default linking.
 
-_Note that both translation systems, **filename** (`about.fr.md`) or **placement** (`french/about.md`) can cohabit_. 
-
-If both files exist, they will be considered duplicates and the version inside `content/french` will win.
-
-{{% /note %}}
-
-### Bypassing filename or placement linking.
-
-Any pages sharing the same `translationKey`  set in front matter will be linked as translated pages regardless of their placement or filename.
+Any pages sharing the same `translationKey`  set in front matter will be linked as translated pages regardless of basename or location.
 
 Considering the following example:
 
@@ -235,7 +229,7 @@ By setting the `translationKey` front matter param to `about` in all three pages
 
 ### Localizing permalinks
 
-Because both translation systems (filename or placement) rely on paths and filenames to handle linking, all translated pages, except for the language part, will be sharing the same url.
+Because paths and filenames are used to handle linking, all translated pages, except for the language part, will be sharing the same url.
 
 To localize the URLs, the [`slug`]({{< ref "content-management/organization/index.md#slug" >}}) or [`url`]({{< ref "content-management/organization/index.md#url" >}}) front matter param can be set in any of the non-default language file. 
 
@@ -251,18 +245,23 @@ At render, Hugo will build both `/about/` and `fr/a-propos/` while maintaning th
 {{% note %}}
 If using `url`, remember to include the language part as well: `fr/compagnie/a-propos/`.
 {{%/ note %}}
-### Page Bundles
 
-In a project using the __placement__ translation system, translated pages can have their own [Page Bundle]({{< ref "content-management/organization#page-bundles" >}}).
+### Page Bundles
 
 To avoid the burden of having to duplicate files, each Page Bundle inherits the resources of its linked translated pages' bundles except for the content files (markdown files, html files etc...).
 
 Therefore, from within a template, the page will have access to the files from all linked pages' bundles.
 
-If, across the linked bundles, two or more files share the same name, only one will be included and chosen as follows:
+If, across the linked bundles, two or more files share the same basenname, only one will be included and chosen as follows:
 
 * File from current language Bundle, if present.
 * First file found across bundles by order of language `Weight`.
+
+{{% note %}}
+
+Page Bundle's resources follow the same language assignement logic as content files, be it by filename (`image.jpg`, `image.fr.jpg`) or by directory (`english/about/header.jpg`, `french/about/header.jpg`).
+
+{{%/ note %}}
 
 ## Reference the Translated Content
 
