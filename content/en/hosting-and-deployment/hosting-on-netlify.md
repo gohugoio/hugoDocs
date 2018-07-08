@@ -24,7 +24,7 @@ toc: true
 ## Assumptions
 
 * You have an account with GitHub, GitLab, or Bitbucket.
-* You have completed the [Quick Start][] or have Hugo website you are ready to deploy and share with the world.
+* You have completed the [Quick Start][] or have a Hugo website you are ready to deploy and share with the world.
 * You do not already have a Netlify account.
 
 ## Create a Netlify account
