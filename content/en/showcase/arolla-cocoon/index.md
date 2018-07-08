@@ -13,7 +13,7 @@ siteURL: https://arolla-cocoon.netlify.com/
 
 # Link to the site's Hugo source code if public and you can/want to share.
 # Remove or leave blank if not needed/wanted.
-siteSource: hhttps://github.com/divinerites/camping-arolla
+siteSource: https://github.com/divinerites/cocoon
 
 # Add credit to the article author. Leave blank or remove if not needed/wanted.
 byline: "[Didier Divinerites](https://github.com/divinerites)"
