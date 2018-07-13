@@ -9,7 +9,7 @@ date: 2018-07-08
 description: "Showcase: \"Emergency setup a dedicated site in an afternoon.\""
 
 # The URL to the site on the internet.
-siteURL: https://arolla-cocoon.netlify.com/
+siteURL: https://www.cocoon-arolla.com
 
 # Link to the site's Hugo source code if public and you can/want to share.
 # Remove or leave blank if not needed/wanted.
@@ -24,7 +24,7 @@ Swiss [Arolla campsite](http://www.camping-arolla.com/) runs the highest campsit
 
 But they just launch a brand new offer (luxury tents with bed and fire oven), and we couldn't wait for the proper new website for having this promoted : we needed the website up and running within 24h !
 
-So we decided to quickly launch a dedicated [independant web site](https://arolla-cocoon.netlify.com) using all the powefull tools included with [gohugo.io](http://gohugo.io) and some things we already knew & used :
+So we decided to quickly launch a dedicated [independant web site](https://www.cocoon-arolla.com) using all the powefull tools included with [gohugo.io](http://gohugo.io) and some things we already knew & used :
 
 - Choose a spectacular landing theme in the rich [Hugo Themes](http://themes.gohugo.io/) collection : [Airspace Theme](https://themes.gohugo.io/airspace-hugo/) by Themefisher.
 - Replace the main images.
