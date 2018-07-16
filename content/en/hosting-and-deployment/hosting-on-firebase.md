@@ -50,7 +50,7 @@ From here:
 2. Choose the project you just set up
 3. Accept the default for your database rules file
 4. Accept the default for the publish directory, which is `public`
-5. Choose "No" in the question if you are deploying a single-page app
+5. Choose "No" in the question asking if you are deploying a single-page app
 
 ## Deploy
 
