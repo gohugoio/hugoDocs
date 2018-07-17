@@ -166,7 +166,11 @@ anchor = "smart"
   weight = 35
   identifier = "variables"
   url = "/variables/"
-
+[[menu.docs]]
+  name = "Assets"
+  weight = 36
+  identifier = "assets"
+  url = "/assets/"
 [[menu.docs]]
   name = "CLI"
   weight = 40
