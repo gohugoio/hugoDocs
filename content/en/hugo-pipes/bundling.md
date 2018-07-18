@@ -16,11 +16,11 @@ draft: false
 ---
 
 
-Asset files can be bundled into one resource using `resources.Concat` which takes two arguments, a target path and a slice of resource objects.
+Asset files of the same MIME type can be bundled into one resource using `resources.Concat` which takes two arguments, a target path and a slice of resource objects.
 
 
 ```go-html-template
 {{ $plugins := resources.Get "js/plugins.js" }}
 {{ $global := resources.Get "js/global.js" }}
-{{ $js := resources.Concat "js/bundle.js" (slice $plugins $global) }}
+{{ $js := slice $plugins $global | resources.Concat "js/bundle.js" }}
 ```
