@@ -8,10 +8,10 @@ categories: [asset management]
 keywords: []
 menu:
   docs:
-    parent: "assets"
-    weight: 03
-weight: 03
-sections_weight: 03
+    parent: "pipes"
+    weight: 40
+weight: 40
+sections_weight: 40
 draft: false
 ---
 
@@ -27,7 +27,7 @@ The resource will be processed using the project's or theme's own `postcss.confi
 ```
 
 {{% note %}}
-Hugo Pipe's PostCSS requires `postcss-cli` javascript package to be installed along with any PostCSS plugin used.
+Hugo Pipe's PostCSS requires `postcss-cli` javascript package to be installed on the environement along with any PostCSS plugin used.
 {{% /note %}}
 ### Options
 

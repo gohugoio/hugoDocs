@@ -8,17 +8,13 @@ categories: [asset management]
 keywords: []
 menu:
   docs:
-    indentifier: pipes_intro
-    parent: "assets"
-    weight: 01
-    name: Pipes Introduction
+    parent: "pipes"
+    weight: 20
 weight: 01
 sections_weight: 01
 draft: false
 aliases: [/assets/]
 --- 
-
-Various sort of asset processing can be performed using Hugo Pipes' functions.
 
 ### Asset directory
 
@@ -29,7 +25,7 @@ Asset files must be stored in the asset directory which defaults to `/assets` bu
 In order to process an asset with Hugo Pipes it must be retrieved as a resource using `resources.Get` which takes one argument, the filepath of the file relative to the asset directory.
 
 ```go-html-template
-{{ $style := resoursec.Get "sass/main.scss" 
+{{ $style := resoursec.Get "sass/main.scss" }}
 ```
 
 ### Asset publishing
@@ -47,7 +43,7 @@ For improved readability the Hugo Pipes examples of this documentation will be w
 ### Method aliases
 
 Each Hugo Pipes' `resources` transformation methods uses a __lowercase__ alias.
-Non-transformation methods are `resources.Get`, `resources.FromString` and `resources.ExecuteAsTemplate`.
+Non-transformation methods deprived of such aliases are `resources.Get`, `resources.FromString` and `resources.ExecuteAsTemplate`.
 
 The example above can therefore also be written as follow
 :

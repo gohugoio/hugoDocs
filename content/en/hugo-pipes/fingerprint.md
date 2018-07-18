@@ -8,15 +8,15 @@ categories: [asset management]
 keywords: []
 menu:
   docs:
-    parent: "assets"
-    weight: 06
-weight: 06
-sections_weight: 06
+    parent: "pipes"
+    weight: 70
+weight: 70
+sections_weight: 70
 draft: false
 ---
 
 
-Fingerprinting and SRI can be applied to any asset file using `resources.Fingerpint` which takes two arguments, the resource object and the encryption method. 
+Fingerprinting and [SRI](https://developer.mozilla.org/en-US/docs/Web/Security/Subresource_Integrity) can be applied to any asset file using `resources.Fingerpint` which takes two arguments, the resource object and the encryption method. 
 
 The default method is `sha256`. Other available methods are `sha512` and `md5`.
 

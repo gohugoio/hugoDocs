@@ -8,8 +8,8 @@ categories: [asset management]
 keywords: []
 menu:
   docs:
-    parent: "assets"
-    weight: 02
+    parent: "pipes"
+    weight: 30
 weight: 02
 sections_weight: 02
 draft: false
@@ -28,7 +28,7 @@ targetPath [string]
 : If not set, the resource's target path will be the asset file original path with its extension replaced by `.css`.
 
 outputStyle [string]
-: Default is `nested. Other available output styles are `expanded`, `compact` and `compressed`.
+: Default is `nested`. Other available output styles are `expanded`, `compact` and `compressed`.
 
 precision [int]
 : Precision of floating point math.
