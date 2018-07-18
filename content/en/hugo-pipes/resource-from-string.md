@@ -9,10 +9,10 @@ categories: [asset management]
 keywords: []
 menu:
   docs:
-    parent: "assets"
-    weight: 08
-weight: 08
-sections_weight: 08
+    parent: "pipes"
+    weight: 90
+weight: 90
+sections_weight: 90
 draft: false
 ---
 
@@ -21,16 +21,11 @@ It is possible to create a resource directly from the template using `resources.
 The following example creates a resource file containing localized variables for every project's languages.
 
 ```go-html-template
-{{ $string := (printf "var clickHere: %s;" (i18n "click_here")) }}
-{{ $targetPath := (printf "js/loc.%x.js" .Lang) }}
-{{ $localized := $string | resources.FromString $targetPath }}
+{{ $string := (printf "var rootURL: '%s'; var apiURL: '%s';" (absURL "/") (.Param "API_URL")) }}
+{{ $targetPath := "js/vars.js" }}
+{{ $vars := $string | resources.FromString $targetPath }}
 {{ $global := resources.Get "js/global.js" | resources.Minify }}
 
-<script type="text/javascript" src="{{ $localized.Permalink }}"></script>
+<script type="text/javascript" src="{{ $vars.Permalink }}"></script>
 <script type="text/javascript" src="{{ $global.Permalink }}"></script>
 ```
-
-{{% note %}}
-In the example above, `.Lang` is used to create a unique filepath for each language's own resource. 
-It is important to make sure that every resource is created with its own filepath, otherwise the resource created last will inevitably overwrite the first.
-{{% /note %}}

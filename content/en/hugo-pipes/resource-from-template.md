@@ -9,10 +9,10 @@ categories: [asset management]
 keywords: []
 menu:
   docs:
-    parent: "assets"
-    weight: 07
-weight: 07
-sections_weight: 07
+    parent: "pipes"
+    weight: 80
+weight: 80
+sections_weight: 80
 draft: false
 ---
 
