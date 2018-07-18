@@ -1,6 +1,6 @@
 ---
 title: Asset minification
-description: Hugo Pipes allows the minification of any CSS, JS, JSON, HTML, SVG or XML files.
+description: Hugo Pipes allows the minification of any CSS, JS, JSON, HTML, SVG or XML resource.
 date: 2018-07-14
 publishdate: 2018-07-14
 lastmod: 2018-07-14
@@ -16,7 +16,7 @@ draft: false
 ---
 
 
-Any asset file of the aforementioned types can be minifed using `resources.Minify` which takes for argument the resource object.
+Any resource of the aforementioned types can be minifed using `resources.Minify` which takes for argument the resource object.
 
 
 ```go-html-template

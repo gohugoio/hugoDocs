@@ -30,7 +30,7 @@ In order to process an asset with Hugo Pipes it must be retrieved as a resource 
 
 ### Asset publishing
 
-Assets will only be published to the project's publish directory if their `.Permalink` or `.RelPermalink` is outputted in one of the project's template file.
+Assets will only be published (to `/public`) if its `.Permalink` or `.RelPermalink` is used.
 
 ### Go Pipes
 
@@ -42,7 +42,7 @@ For improved readability the Hugo Pipes examples of this documentation will be w
 
 ### Method aliases
 
-Each Hugo Pipes' `resources` transformation methods uses a __lowercase__ alias.
+Each Hugo Pipes' `resources` transformation methods uses a __camelCased__ alias (`toCSS` for `resources.ToCSS`).
 Non-transformation methods deprived of such aliases are `resources.Get`, `resources.FromString` and `resources.ExecuteAsTemplate`.
 
 The example above can therefore also be written as follow
