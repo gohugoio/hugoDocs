@@ -167,10 +167,10 @@ anchor = "smart"
   identifier = "variables"
   url = "/variables/"
 [[menu.docs]]
-  name = "Assets"
+  name = "Hugo Pipes"
   weight = 36
-  identifier = "assets"
-  url = "/assets/"
+  identifier = "pipes"
+  url = "/hugo-pipes/"
 [[menu.docs]]
   name = "CLI"
   weight = 40

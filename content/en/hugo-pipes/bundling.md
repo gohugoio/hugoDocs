@@ -8,19 +8,19 @@ categories: [asset management]
 keywords: []
 menu:
   docs:
-    parent: "assets"
-    weight: 05
-weight: 05
-sections_weight: 05
+    parent: "pipes"
+    weight: 60
+weight: 60
+sections_weight: 60
 draft: false
 ---
 
 
-Asset files can be bundled into one using `resources.Concat` which takes two arguments, a target path and a slice of resource objects.
+Asset files can be bundled into one resource using `resources.Concat` which takes two arguments, a target path and a slice of resource objects.
 
 
 ```go-html-template
 {{ $plugins := resources.Get "js/plugins.js" }}
 {{ $global := resources.Get "js/global.js" }}
-{{ $js := (slice $plugins $global) | resources.Concat "js/bundle.js" }}
+{{ $js := resources.Concat "js/bundle.js" (slice $plugins $global) }}
 ```
