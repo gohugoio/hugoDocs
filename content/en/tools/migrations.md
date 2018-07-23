@@ -66,7 +66,7 @@ Alternatively, you can use the new [Jekyll import command](/commands/hugo_import
 
 - [blogimport](https://github.com/natefinch/blogimport) - A tool to import from Blogger posts to Hugo.
 - [blogger-to-hugo](https://bitbucket.org/petraszd/blogger-to-hugo) - Another tool to import Blogger posts to Hugo. It also downloads embedded images so they will be stored locally.
-- [BloggerToHugo](https://github.com/huanlin/blogger-to-hugo) - Yet another tool to import Blogger posts to Hugo. See README.md befor using this tool.
+- [BloggerToHugo](https://github.com/huanlin/blogger-to-hugo) - Yet another tool to import Blogger posts to Hugo. For Windows platform only, and .NET Framework 4.5 is required. See README.md before using this tool.
 
 ## Contentful
 
