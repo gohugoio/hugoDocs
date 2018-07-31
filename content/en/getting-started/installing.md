@@ -426,6 +426,12 @@ In any of the [Linux distributions that support snaps][snaps]:
 snap install hugo
 ```
 
+Specify the `extended` channel if you need [SASS/SCSS](/hugo-pipes/scss-sass/) support:
+
+```
+snap install hugo --channel=extended/stable
+```
+
 ### Debian and Ubuntu
 
 Debian and Ubuntu provide a `hugo` version via `apt-get`:
