@@ -2838,6 +2838,21 @@
         }
       },
       "os": {
+        "FileStat": {
+          "Description": "FileStat returns a file infomation under the given path.",
+          "Args": [
+            "i"
+          ],
+          "Aliases": [
+            "fileStat"
+          ],
+          "Examples": [
+            [
+              "{{ (fileStat \"foo.txt\").Name }}",
+              "foo.txt"
+            ]
+          ]
+        },
         "FileExists": {
           "Description": "FileExists checks whether a file exists under the given path.",
           "Args": [
