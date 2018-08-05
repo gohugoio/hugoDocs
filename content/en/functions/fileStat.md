@@ -1,6 +1,6 @@
 ---
 title: fileStat
-description: Gets a file infomation of a given path.
+description: Gets a file information of a given path.
 godocref:
 date: 2018-08-05
 publishdate: 2018-08-05
@@ -20,12 +20,13 @@ aliases: []
 
 If your current project working directory has a single file named `README.txt` (30 bytes):
 ```
-{{ $stat := fileStat "README.txt" }} → "README.txt"
+{{ $stat := (fileStat "README.txt") }}
 {{ $stat.Name }} → "README.txt"
 {{ $stat.Size }} → 30
 ```
 
-Funcction [`fileStat`][fileStat] returns [`os.FileInfo`][osfileinfo].
+Function [`fileStat`][fileStat] returns [`os.FileInfo`][osfileinfo].
+For Further information of `os.FileInfo`, see  [golang page][osfileinfo].
 
 
 [fileStat]: /functions/fileStat/
