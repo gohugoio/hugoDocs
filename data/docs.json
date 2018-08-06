@@ -2838,17 +2838,15 @@
         }
       },
       "os": {
-        "FileStat": {
-          "Description": "FileStat returns a file infomation under the given path.",
+        "Stat": {
+          "Description": "Stat returns a file infomation under the given path.",
           "Args": [
             "i"
           ],
-          "Aliases": [
-            "fileStat"
-          ],
+          "Aliases": null,
           "Examples": [
             [
-              "{{ (fileStat \"foo.txt\").Name }}",
+              "{{ (os.Stat \"foo.txt\").Name }}",
               "foo.txt"
             ]
           ]
