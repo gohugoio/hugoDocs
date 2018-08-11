@@ -34,7 +34,7 @@ Also note that the documentation version for a given version of Hugo can also be
 Then to view the docs in your browser, run Hugo and open up the link:
 
 ```bash
-▶ hugo server
+▶ ./hugow server
 
 Started building sites ...
 .
