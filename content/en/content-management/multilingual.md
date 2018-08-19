@@ -13,11 +13,13 @@ menu:
     weight: 150
 weight: 150	#rem
 draft: false
-aliases: [/content/multilingual/,/content-management/multilingual/,/tutorials/create-a-multilingual-site/]
+aliases: [/content/multilingual/,/tutorials/create-a-multilingual-site/]
 toc: true
 ---
 
 You should define the available languages in a `languages` section in your site configuration.
+
+> Also See [Hugo Multilingual Part 1: Content translation](https://regisphilibert.com/blog/2018/08/hugo-multilingual-part-1-managing-content-translation/)
 
 ## Configure Languages
 
