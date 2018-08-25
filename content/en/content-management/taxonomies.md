@@ -205,6 +205,74 @@ If you need to add custom metadata to your taxonomy terms, you will need to crea
 
 You can later use your custom metadata as shown in the [Taxonomy Terms Templates documentation](/templates/taxonomy-templates/#displaying-custom-metadata-in-taxonomy-terms-templates).
 
+## Nested Taxonomies
+
+If you need to nest a Taxonomy under a Section of your Hugo project, you can do so with something like this:
+
+{{< code file="/config.toml" >}}
+disableKinds = ["taxonomyTerm"]
+
+[taxonomies]
+  topic = "topics"
+  
+[permalinks]
+  topics = "/news/topics/:slug/"
+{{< /code >}}
+
+In the above we first disabled the creation of a Taxonomy Term list page because otherwise Hugo will still publish a `/topics/` directory under the root of your site, then we defined a custom `topic` taxonomy and configured it to have custom permalinks, read the docs on [Permalinks Configuration](/content-management/urls/#permalinks-configuration-example) 
+
+You can assign multiple taxonomy terms for the `topic` taxonomy with the following front matter in your content files:
+
+{{< code file="/content/news/test-article.md" >}}
+  ---
+topics: ["World News", "Technology"] 
+  ---
+{{< /code >}}
+
+With the above configuration Hugo will automatically create Taxonomy Lists under the News Section of your site at `/news/topics/world-news/` and `/news/topics/technology`
+
+{{% note "Limits of Nested Taxonomies" %}}
+Nesting a Taxonomy under a Section does not create a hierarchy below that Section. Also the above ways of creating links and assigning custom meta to Taxonomies are not available for Nested Taxonomies. For example if you create an `_index.md` under `/news/topics/world-news/` then Hugo's Nested Sections Model will take over and you will end up with an empty list page.
+{{% /note %}}
+
+To create links for the Nested Taxonomy List Pages in a partial for use in the navigation of your site you can do the following:
+
+{{< code file="/layouts/partials/nested-terms.html" >}}
+{{ $var := .Scratch }}
+{{ range where .Site.RegularPages ".Params.topics" "ne" nil }} 
+{{ range $key, $value := .Params.topics }}
+{{ $var.Add "topics" (slice $value) }}
+{{ end }}
+{{ end }} 
+{{ $var.Set "topics" ($var.Get "topics" | uniq) }}
+{{ $topics := $var.Get "topics" }}
+{{ range $topics }}
+<a href="/news/topics{{ . | urlize | relLangURL }}">{{ . }}</a>
+{{ end }}
+{{< /code >}}
+
+To create links for the Nested Taxonomy List Pages as defined in a content file:
+
+{{< code file="/layouts/_default/single.html" >}}
+{{ with .Params.topics }}
+{{ range $key, $value := . }}
+<a href="/news/topics{{ $value | urlize | relLangURL }}">{{ $value }}</a>
+{{ end }}
+{{ end }}
+{{< /code >}}
+
+To set custom metadata for Nested Taxonomies you will need to manually check for the `.Permalink` value of a Nested Taxonomy like so:
+
+{{< code file="/layouts/partials/nested-tax-titles.html" >}}
+{{ if in (.Permalink | string) "/news/topics/world-news/" }}World News{{ end }}
+{{< /code >}}
+
+And then in the head partial of your site you can define the `<title>` of a Nested Taxonomy like so:
+
+{{< code file="/layouts/partials/head.html" >}}
+<title>{{ partial "nested-tax-titles.html" . }}</title>
+{{< /code >}}
+
 [`urlize` template function]: /functions/urlize/
 [content section]: /content-management/sections/
 [content type]: /content-management/types/
