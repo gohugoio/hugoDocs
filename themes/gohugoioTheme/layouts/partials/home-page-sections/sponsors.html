@@ -1,4 +1,4 @@
-{{$classes_box := "ba b--light-gray bg-light-gray br3 flex flex-column flex-wrap items-center justify-center ph3 pv4 mb4 w-100 w-30-l "}}
+{{$classes_box := "ba b--light-grayTK bg-light-gray br3 flex flex-column flex-wrap items-center justify-center ph3 pv4 mb4 w-100 w-30-l "}}
 {{$gtag := .gtag | default "unknown" }}
 {{ with .cx.Site.Data.sponsors }}
   <section class="{{ $.classes_section | default "bg-primary-color-dark b--dark-gray bb bt ph5 pv4 w-100"}}">
@@ -8,13 +8,24 @@
         {{ range .banners }}
           {{ $banner := . }}
           {{if .logo}}
-            <div class="{{$classes_box}} o-100">
+            <div class="{{$classes_box}} o-100 relative">
               {{with .link -}}
                 {{ $url := printf "%s?%s" . (querify "utm_source" "homepage" "utm_medium" "banner" "utm_campaign" "hugosponsor") | safeURL }}
+                {{ $url_link := printf "%s?%s" . (querify "utm_source" "homepage" "utm_medium" "banner" "utm_campaign" "hugosponsor_link") | safeURL }}
                 {{ if eq (getenv "HUGO_ENV") "production" | or (eq $.cx.Site.Params.env "production")  }}
                    {{ $gtagID := printf "Sponsor %s %s" $banner.name $gtag | title }}
+                   {{/* external link icon */}}
+                   <a href="{{$url_link}}" onclick="trackOutboundLink({{ printf "'%s', '%s'" $gtagID $url | safeJS }}); return false;" class="absolute hover-gray primary-color pr2 pt2 right-0 top-0">
+                     {{partial "svg/link-external.svg" .}}
+                   </a>
+                   {{/* END external link icon */}}
                    <a href="{{ $url }}" onclick="trackOutboundLink({{ printf "'%s', '%s'" $gtagID $url | safeJS }}); return false;" class="grow">
                 {{ else }}
+                  {{/* external link icon */}}
+                  <a href="{{$url_link}}" class="absolute hover-gray primary-color pr2 pt2 right-0 top-0" style="padding-right:.625rem;">
+                    {{partial "svg/link-external.svg" .}}
+                  </a>
+                  {{/* END external link icon */}}
                    <a href="{{ $url }}" class="grow">
                 {{ end }}
               {{- end}}
