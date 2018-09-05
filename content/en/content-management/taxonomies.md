@@ -97,7 +97,8 @@ Without adding a single line to your [site config][config] file, Hugo will autom
 If you do not want Hugo to create any taxonomies, set `disableKinds` in your [site config][config] to the following:
 
 {{< code-toggle copy="false" >}}
-disableKinds = ["taxonomy","taxonomyTerm"]
+[taxonomies]
+  disableKinds = ["taxonomy","taxonomyTerm"]
 {{</ code-toggle >}}
 
 ### Default Destinations
