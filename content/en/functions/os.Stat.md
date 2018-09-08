@@ -25,8 +25,8 @@ If your current project working directory has a single file named `README.txt` (
 {{ $stat.Size }} → 30
 ```
 
-Feunction [`os.Stat`][Stat] returns [`os.FileInfo`][osfileinfo].
-For Further information of `os.FileInfo`, see [golang page][osfileinfo].
+Function [`os.Stat`][Stat] returns [`os.FileInfo`][osfileinfo].
+For further information of `os.FileInfo`, see [golang page][osfileinfo].
 
 
 [Stat]: /functions/os.Stat/
