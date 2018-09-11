@@ -482,10 +482,36 @@ sudo eopkg install hugo
 
 ## OpenBSD
 
-OpenBSD provides a package for Hugo via `pkg_add`:
+OpenBSD doesn't provide the package for Hugo and mage, so, they are not in the OpenBSD ports, consider the following way to 
+install Hugo:
 
-    doas pkg_add hugo
+After installing the dependency go via `pkg_add`
 
+Install mage (make alterntive for go) from git:
+
+    go get github.com/magefile/mage
+    
+    cd ${GOPATH:-$HOME/go}/src/github.com/magefile/mage
+    
+    go run bootstrap.go
+    
+Now, execute the following command to copy the mage binary to /usr/bin/ directory:
+    
+    doas cp $HOME/go/bin/mage /usr/bin/
+
+After that, download Hugo from git:
+
+    go get -d github.com/gohugoio/hugo
+    
+    cd ${GOPATH:-$HOME/go}/src/github.com/gohugoio/hugo 
+    
+    mage vendor 
+    
+    mage install
+    
+Now, execute the following command to copy the Hugo binary to /usr/bin/ directory: 
+
+    doas cp $HOME/go/bin/hugo /usr/bin/
 
 ## Upgrade Hugo
 
