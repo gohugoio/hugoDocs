@@ -31,7 +31,7 @@ It is natural to accompany the summary with links to the original content, and a
 By default, Hugo automatically takes the first 70 words of your content as its summary and stores it into the `.Summary` page variable for use in your templates. You may customize the summary length by setting `summaryLength` in your [site configuration](/getting-started/configuration/).
 
 {{% note %}}
-You can customize how HTML tags in the summary are loaded using funcitons such as `plainify` and `safeHTML`.
+You can customize how HTML tags in the summary are loaded using functions such as `plainify` and `safeHTML`.
 {{% /note %}}
 
 {{% note %}}
