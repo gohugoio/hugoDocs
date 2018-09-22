@@ -4,7 +4,7 @@ linktitle: Host on GitHub
 description: Deploy Hugo as a GitHub Pages project or personal/organizational site and automate the whole process with a simple shell script.
 date: 2014-03-21
 publishdate: 2014-03-21
-lastmod: 2017-03-30
+lastmod: 2018-09-22
 categories: [hosting and deployment]
 keywords: [github,git,deployment,hosting]
 authors: [Spencer Lyon, Gunnar Morling]
@@ -193,11 +193,7 @@ To automate these steps, you can create a script with the following contents:
 {{< code file="publish_to_ghpages.sh" >}}
 #!/bin/sh
 
-DIR=$(dirname "$0")
-
-cd $DIR/..
-
-if [[ $(git status -s) ]]
+if [ "`git status -s`" ]
 then
     echo "The working directory is dirty. Please commit any pending changes."
     exit 1;
