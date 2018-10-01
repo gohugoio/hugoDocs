@@ -4,7 +4,7 @@ title: Taxonomy Templates
 description: Taxonomy templating includes taxonomy list pages, taxonomy terms pages, and using taxonomies in your single page templates.
 date: 2017-02-01
 publishdate: 2017-02-01
-lastmod: 2017-02-01
+lastmod: 2018-10-01
 categories: [templates]
 keywords: [taxonomies,metadata,front matter,terms,templates]
 menu:
