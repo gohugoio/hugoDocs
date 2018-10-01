@@ -301,6 +301,26 @@ This would be very useful in a sidebar as “featured content”. You could even
 </section>
 ```
 
+## List All Unique Taxonomies for a Page
+
+This will be useful in having a cloud or group of unique tags, categories or any list taxonomy.
+
+### Example: Unique Taxonomies across Blog
+
+```go-html-template
+{{ $blog := .Site.GetPage "/blog"}}
+{{ $slice := slice }}
+{{ range $page := $blog.Data.Pages }}
+    {{ range $tag := $page.Params.tags }}
+        {{ $slice = $slice | append $tag }}
+    {{ end }}
+{{ end }}
+
+{{ range $uniqueTags := $slice | uniq }}
+    {{ $uniqueTags }} <br/>
+{{ end }}
+```
+
 ## Render a Site's Taxonomies
 
 If you wish to display the list of all keys for your site's taxonomy, you can retrieve them from the [`.Site` variable][sitevars] available on every page.
