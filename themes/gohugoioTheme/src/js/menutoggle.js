@@ -4,7 +4,11 @@ var toggleBtns = document.getElementsByClassName('js-toggle')
     toggleBtns[i].addEventListener('click', toggleClass, false)
   }
 
-function toggleClass() {
+function toggleClass(event) {
+  // disable menu links from redirecting if the link is a dropdown toggle
+  if (event.target.parentNode.querySelector('ul')) {
+    event.preventDefault();
+  };
   // Define the data target via the dataset "target" (e.g. data-target=".docsmenu")
   var content = this.dataset.target.split(' ')
   // Find any menu items that are open
