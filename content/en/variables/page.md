@@ -30,6 +30,9 @@ See [`.Scratch`](/functions/scratch/) for page-scoped, writable variables.
 .AlternativeOutputFormats
 : contains all alternative formats for a given page; this variable is especially useful `link rel` list in your site's `<head>`. (See [Output Formats](/templates/output-formats/).)
 
+.Aliases
+: aliases of this page
+
 .Content
 : the content itself, defined below the front matter.
 
