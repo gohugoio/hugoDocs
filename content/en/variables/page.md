@@ -143,6 +143,9 @@ http://remarkjs.com)
 .ReadingTime
 : the estimated time, in minutes, it takes to read the content.
 
+.Resources
+: resources such as images and CSS that are associated with this page
+
 .Ref
 : returns the permalink for a given reference (e.g., `.Ref "sample.md"`).  `.Ref` does *not* handle in-page fragments correctly. See [Cross References](/content-management/cross-references/).
 
