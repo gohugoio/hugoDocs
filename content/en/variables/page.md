@@ -168,6 +168,9 @@ http://remarkjs.com)
 .Translations
 : a list of translated versions of the current page. See [Multilingual Mode](/content-management/multilingual/) for more information.
 
+.TranslationKey
+: the key used to map language translations of the current page. See [Multilingual Mode](/content-management/multilingual/) for more information.
+
 .Truncated
 : a boolean, `true` if the `.Summary` is truncated. Useful for showing a "Read more..." link only when necessary.  See [Summaries](/content-management/summaries/) for more information.
 
