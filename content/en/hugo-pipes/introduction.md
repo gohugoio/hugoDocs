@@ -24,9 +24,15 @@ Asset files must be stored in the asset directory. This is `/assets` by default,
 
 In order to process an asset with Hugo Pipes, it must be retrieved as a resource using `resources.Get`, which takes one argument: the filepath of the file relative to the asset directory.
 
+FILE: layouts/partials/head.html
 ```go-html-template
 {{ $style := resources.Get "sass/main.scss" }}
 ```
+
+FILE: /assets/sass/main.scss
+
+TODO: resources.Get should be GetMatch? How to show that $style is not null? What do errors look like when file is not found?
+
 
 ### Asset publishing
 
