@@ -17,7 +17,7 @@ byline: "[Robonica](https://www.robonica.it)"
 
 ---
 
-When we had to build the website for [Linfa](https://linfa.io), our very first consumer product, [Sinapsi](http://www.sinapsi.com) suggested us to go for Hugo. They showed us few of the available themes to choose from as a starting point to organize the site content. Then they teached us how easy was to write content by using markdown syntax and we were caught.
+When we had to build the website for [Linfa](https://linfa.io), our very first consumer product, [Sinapsi](http://www.sinapsi.com) suggested us to go for Hugo. They showed us few of the available themes to choose from as a starting point to organize the site content. Then they taught us how easy was to write content by using markdown syntax and we were caught.
 
 After a while we decide to deeply personalize the latest universal theme by [bootstrapious](https://bootstrapious.com/p/universal-business-e-commerce-template) and make it multilingual.
 
