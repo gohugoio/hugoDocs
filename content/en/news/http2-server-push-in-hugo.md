@@ -54,9 +54,9 @@ Add `layouts/index.headers`:
   X-XSS-Protection: 1; mode=block
   X-Content-Type-Options: nosniff
   Referrer-Policy: origin-when-cross-origin
-*/
-  Link: <{{ "dist/app.bundle.js" | relURL }}>; rel=preload; as=script
-  Link: <{{ "dist/main.css" | relURL }}>; rel=preload; as=style
+{{ $hugo := .Site.Data.webpack_assets.app }}
+  Link: <{{ relURL (printf "%s%s" "dist/" $hugo.js) }}>; rel=preload; as=script
+  Link: <{{ relURL (printf "%s%s" "dist/" $hugo.css) }}>; rel=preload; as=style
 ```
 The template above creates both a security header definition and a HTTP/2 server push configuration.
 
