@@ -24,14 +24,7 @@ module.exports = env => {
 			filename: "js/[name].js" // string
 		},
 		module: {
-			rules: [
-				// {
-				// 	test: /\.js$/,
-				// 	exclude: /node_modules/,
-				// 	use: {
-				// 		loader: "babel-loader"
-				// 	}
-				// },
+			rules: [				
 				{
 					test: /\.css$/,
 					use: [
@@ -55,8 +48,8 @@ module.exports = env => {
 								ident: "postcss",
 								plugins: () => [
 									require("postcss-import"),									
-									require("autoprefixer")({
-										grid: true, browsers: ['last 3 versions', 'ie 6-8', 'Firefox > 20']  
+									require("postcss-cssnext")({
+										browsers: ['last 2 versions', '> 5%']  
 									})
 								]
 							}
@@ -116,7 +109,8 @@ module.exports = env => {
 				],
 				fontFace: false,
 				whitelist: [
-					"body"		
+					"pagination",
+					"#TableOfContents ul li"		
 				]
 			})
 		);
