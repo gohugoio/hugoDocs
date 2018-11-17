@@ -110,7 +110,10 @@ module.exports = env => {
 				fontFace: false,
 				whitelist: [
 					"pagination",
-					"#TableOfContents ul li"		
+					"#TableOfContents ul li",
+					"chroma",
+					"expand",
+					"hljs"
 				]
 			})
 		);
