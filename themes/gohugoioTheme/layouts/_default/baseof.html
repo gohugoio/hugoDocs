@@ -25,8 +25,20 @@
     {{ range .AlternativeOutputFormats -}}
     <link rel="{{ .Rel }}" type="{{ .MediaType.Type }}" href="{{ .Permalink | safeURL }}">
     {{ end -}}
+    
 
-     <link href='{{ "dist/main.css" | relURL }}' rel='stylesheet' type="text/css" />
+    {{ if (fileExists "./themes/gohugoioTheme/assets/output/css/app.css") -}}
+      {{ $stylesheet := resources.Get "output/css/app.css" | minify | fingerprint }}
+      {{ with $stylesheet }}
+        <link rel="stylesheet" href="{{ .Permalink | relURL }}" integrity="{{ .Data.Integrity }}" crossorigin="anonymous"> 
+        {{ $.Scratch.Set "stylesheet" . }}    
+      {{end}}
+    {{end}}
+
+     {{ block "scripts" . }}
+      {{- partial "site-scripts.html" . -}}
+    {{ end }}
+
       {{- partial "head-additions.html" . -}}
       {{- template "_internal/opengraph.html" . -}}
       {{- template "_internal/google_news.html" . -}}
@@ -38,7 +50,7 @@
       {{ end }}
 
 
-
+          
 
   </head>
   <body class="ma0 sans-serif bg-primary-color-light{{ with getenv "HUGO_ENV" }} {{ . }}{{ end }}">
@@ -49,7 +61,7 @@
     </main>
 
     {{ block "footer" . }}{{ partialCached "site-footer.html" . }}{{ end }}
-    {{ block "scripts" . }}{{- partial "site-scripts.html" . -}}{{ end }}
+    
 
   </body>
 </html>
