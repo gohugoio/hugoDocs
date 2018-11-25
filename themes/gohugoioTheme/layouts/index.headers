@@ -4,8 +4,10 @@
   X-Content-Type-Options: nosniff
   Referrer-Policy: origin-when-cross-origin
 */
-{{ $stylesheet :=  $.Scratch.Get "stylesheet" }}    
-{{ $scripts :=  $.Scratch.Get "scripts" }}
+
+{{ $stylesheet := resources.Get "output/css/app.css" }}
+{{ $scripts := resources.Get "output/js/app.js" }}
+
 {{ with $stylesheet -}}Link: <{{ .Permalink | relURL }}>; rel=preload; as=style nopush{{- end}}  
 {{ with $scripts -}}Link: <{{ .Permalink | relURL }}>; rel=preload; as=script nopush{{- end}}
 {{ range (readDir "/static/fonts/") }}
