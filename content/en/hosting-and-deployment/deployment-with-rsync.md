@@ -122,9 +122,9 @@ index.html
 index.xml
 sitemap.xml
 cours-versailles/index.html
-exercices/index.html
-exercices/index.xml
-exercices/barycentre-et-carres-des-distances/index.html
+exercise/index.html
+exercise/index.xml
+exercise/barycentre-et-carres-des-distances/index.html
 post/
 post/index.html
 sujets/index.html
