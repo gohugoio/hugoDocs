@@ -21,7 +21,7 @@ aliases: []
 If your current project working directory has a single file named `README.txt` (30 bytes):
 ```
 {{ $stat := os.Stat "README.txt" }}
-{{ $stat.Name }} → README.txt
+{{ $stat.Name }} → "README.txt"
 {{ $stat.Size }} → 30
 {{ $stat.Mode }} → -rw-r--r--
 {{ $stat.ModTime }} → 2018-12-04 04:36:00.638169904 +0000 UTC
