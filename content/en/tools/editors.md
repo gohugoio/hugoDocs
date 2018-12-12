@@ -27,6 +27,7 @@ The Hugo community uses a wide range of preferred tools and has developed plug-i
 ## Visual Studio Code
 
 * [Hugofy](https://marketplace.visualstudio.com/items?itemName=akmittal.hugofy). Hugofy is a plugin for Visual Studio Code to "make life easier" when developing with Hugo. The source code can be found [here](https://github.com/akmittal/hugofy-vscode).
+* [Hugo Helper](https://marketplace.visualstudio.com/items?itemName=rusnasonov.vscode-hugo). Hugo Helper is a plugin for Visual Studio Code that has some useful commands for Hugo. The source code can be found [here](https://github.com/rusnasonov/vscode-hugo).
 
 ## Emacs
 
