@@ -100,7 +100,7 @@ For Hugo v0.47 and older versions, variables defined inside `if`
 conditionals and similar are not visible on the outside.
 See [https://github.com/golang/go/issues/10608](https://github.com/golang/go/issues/10608).
 
-Hugo has created a workaround for this issue in [Scratch](/functions/scratch).
+Hugo has created a workaround for this issue in [Scratch](/objects/page/scratch/).
 {{% /warning %}}
 
 For **Hugo v0.48** and newer, variables can be re-defined using the

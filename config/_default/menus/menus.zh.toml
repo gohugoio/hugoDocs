@@ -44,8 +44,8 @@
 [[docs]]
   name = "变量"
   weight = 35
-  identifier = "variables"
-  url = "/zh/variables/"
+  identifier = "objects"
+  url = "/zh/objects/"
 
 [[docs]]
   name = "CLI"

@@ -40,10 +40,10 @@
   url = "/functions/"
 
 [[docs]]
-  name = "Variables"
+  name = "Objects"
   weight = 35
-  identifier = "variables"
-  url = "/variables/"
+  identifier = "objects"
+  url = "/objects/"
 [[docs]]
   name = "Hugo Pipes"
   weight = 36

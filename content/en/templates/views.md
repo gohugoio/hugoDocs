@@ -111,7 +111,7 @@ Continuing on the previous example, we can change our render function to use a s
 [lists]: /templates/lists/
 [lookup]: /templates/lookup-order/
 [pagevars]: /variables/page/
-[render]: /functions/render/
+[render]: /objects/page/render/
 [single]: /templates/single-page-templates/
 [spf]: http://spf13.com
 [spfsourceli]: https://github.com/spf13/spf13.com/blob/master/layouts/_default/li.html
