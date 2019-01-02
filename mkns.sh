@@ -1,5 +1,22 @@
-## Get tpl packages
-pkgs=`ls ../hugo/tpl/*/init.go | awk -F/ '{print $4;}'`
+#!/bin/bash
+#
+# Requires:
+#   * awk
+#   * basename
+#   * git
+#   * grep
+#   * head
+#   * jq
+#   * perl
+#   * sed
+#   * tail
+#   * tr
+#   * xargs
+
+HUGO_REPO_PATH="../hugo"
+
+## Get tpl packages from hugo repo
+pkgs=`ls $HUGO_REPO_PATH/tpl/*/init.go | awk -F/ '{print $4;}'`
 
 funcroot=content/en/functions
 
@@ -104,8 +121,7 @@ for f in `ls $funcroot/*.md`; do
 
   mod=`jq -r --arg arg $arg '(paths | select(.[-2] == "Aliases")) as $p | select(getpath($p) | test("^"+$arg+"$"; "i")) | $p[2]' data/docs.json | tail -1`
   if [[ "$mod" == "" ]]; then
-    echo "NOMODULE: $f"
-    ## XXX
+    echo "UNHANDLED MODULE: $f"
     continue
   fi
 
@@ -275,6 +291,7 @@ git rm $funcroot/${mod}.md
 for m in Add Sub Mul Div Mod ModBool Ceil Floor Round; do
   func="$(tr '[:upper:]' '[:lower:]' <<< $m)"
   desc=`jq -r ".tpl.funcs.${mod}.${m}.Description" data/docs.json`
+  # TODO(moorereason): output all examples
   example=`jq -r ".tpl.funcs.${mod}.${m}.Examples[0][0]" data/docs.json`
   exampleOut=`jq -r ".tpl.funcs.${mod}.${m}.Examples[0][1]" data/docs.json`
   newfile="$funcroot/$mod/${func}.md"
