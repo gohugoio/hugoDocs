@@ -31,11 +31,13 @@ hugo new posts/my-first-post.md
 The above will create a new content file in `content/posts/my-first-post.md` using the first archetype file found of these:
 
 1. `archetypes/posts.md`
-2. `archetypes/default.md`
-3. `themes/my-theme/archetypes/posts.md`
+2. `themes/my-theme/archetypes/posts.md`
+3. `archetypes/default.md`
 4. `themes/my-theme/archetypes/default.md`
 
-The last two list items are only applicable if you use a theme and it uses the `my-theme` theme name as an example.
+The second and fourth items are only applicable if you use a theme and it uses the `my-theme` theme name as an example.
+
+If no match is found, then Hugo will use an archetype consisting of the title, date, and setting draft to true.
 
 ## Create a New Archetype Template
 
