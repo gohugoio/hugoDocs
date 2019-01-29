@@ -3,7 +3,10 @@ date: 2018-12-12
 title: "hugo benchmark"
 slug: hugo_benchmark
 url: /commands/hugo_benchmark/
+draft: true
 ---
+This command was removed in v.0.53: https://github.com/gohugoio/hugo/commit/35bfca3b14977eaebab4003b43b5236c1888d93d
+
 ## hugo benchmark
 
 Benchmark Hugo by building a site a number of times.
