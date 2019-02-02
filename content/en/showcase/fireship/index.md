@@ -1,14 +1,12 @@
 ---
 
 title: fireship.io
-date: 2019-01-11
+date: 2019-02-02
 description: "Showcase: \"Hugo helps us create complex technical content that integrates engaging web components\""
 siteURL: https://fireship.io
 siteSource: https://github.com/fireship-io/fireship.io
-byline: "[Jeff Delaney](https://github.com/codediodeio), Fireship.io Creator & Google Developer Expert"
+byline: "[Jeff Delaney](https://github.com/codediodeio), Fireship.io Creator"
 ---
-
-Fireship.io is on a mission to increase developer happiness and proudly uses Hugo to compose its static HTML. 
 
 After careful consideration of JavaScript/JSX-based static site generators, it became clear that Hugo was the only tool capable of handling our project's complex demands. Not only do we have multiple content formats and taxonomies, but we often need to customize the experience at a more granular level. The problems Hugo has solved for us include:
 
