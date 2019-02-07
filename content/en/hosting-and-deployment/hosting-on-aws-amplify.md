@@ -1,7 +1,7 @@
 ---
 title: Host on AWS Amplify
 linktitle: Host on AWS Amplify
-description: AWS Amplify provides the fastest way to develop and deploy a mobile or web app. 
+description: Develop and deploy a cloud-powered web app with AWS Amplify. 
 date: 2018-01-31
 publishdate: 2018-01-31
 lastmod: 2018-01-31
