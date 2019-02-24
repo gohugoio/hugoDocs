@@ -74,7 +74,8 @@ git submodule add https://github.com/budparr/gohugo-theme-ananke.git themes/anan
 #   - Extract that .zip file to get a "gohugo-theme-ananke-master" directory.
 #   - Rename that directory to "ananke", and move it into the "themes/" directory.
 # End of note for non-git users.
-
+```
+```
 # Edit your config.toml configuration file
 # and add the Ananke theme.
 echo 'theme = "ananke"' >> config.toml
