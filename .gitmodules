@@ -1,0 +1,3 @@
+[submodule "content/ja"]
+	path = content/ja
+	url = https://github.com/hugojapan/ja.git
