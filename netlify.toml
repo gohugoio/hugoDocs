@@ -1,6 +1,6 @@
 [build]
 publish = "public"
-command = "hugo --gc --minify"
+command = "hugo --gc --minify --baseURL 'https://hugodocsja.netlify.com/' && echo 'User-agent: *\nDisallow: /' > public/robots.txt"
 
 [context.production.environment]
 HUGO_VERSION = "0.54.0"
@@ -28,4 +28,3 @@ HUGO_VERSION = "0.54.0"
 
 [context.next.environment]
 HUGO_ENABLEGITINFO = "true"
-
