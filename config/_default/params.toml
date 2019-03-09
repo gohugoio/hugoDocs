@@ -1,5 +1,5 @@
 
-description = "The world’s fastest framework for building websites"
+description = "世界最速のウェブサイト構築フレームワーク"
 ## Used for views in rendered HTML (i.e., rather than using the .Hugo variable)
 release = "0.52"
 ## Setting this to true will add a "noindex" to *EVERY* page on the site..
