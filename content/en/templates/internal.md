@@ -34,7 +34,7 @@ Hugo ships with internal templates for Google Analytics tracking, including both
 Provide your tracking id in your configuration file:
 
 {{< code-toggle file="config" >}}
-googleAnalytics = "UA-123-45"
+GoogleAnalytics = "UA-123-45"
 {{</ code-toggle >}}
 
 ### Use the Google Analytics Template
