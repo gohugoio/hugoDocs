@@ -61,7 +61,7 @@ audio
 : an array of paths to audio files related to the page; used by the `opengraph` [internal template](/templates/internal) to populate `og:audio`.
 
 date
-: the datetime at which the content was created; note this value is auto-populated according to Hugo's built-in [archetype][].
+: the datetime at which the content was created; note this value is auto-populated according to Hugo's built-in [archetype][]. This can be set to an [ISO 8601] datetime string to include the time, i.e. `2019-03-24T13:34:02`.
 
 description
 : the description for the content.
@@ -182,3 +182,4 @@ It's possible to set some options for Markdown rendering in a content's front ma
 [urls]: /content-management/urls/
 [variables]: /variables/
 [yaml]: http://yaml.org/spec/ "Specification for YAML, YAML Ain't Markup Language"
+[ISO 8601]: https://en.wikipedia.org/wiki/ISO_8601
