@@ -263,7 +263,6 @@ Sometimes changes on the codebase can cause unintended side effects. Or they don
 Make sure the commands 
 
 ```
-mage hugoRace
 mage -v check
 ```
 
