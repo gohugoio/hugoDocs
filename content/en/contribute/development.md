@@ -266,13 +266,7 @@ Make sure the commands
 mage -v check
 ```
 
-passes, and 
-
-```
-mage hugo
-```
-
-completes.
+passes.
 
 ### Formatting 
 The Go code styleguide maybe is opinionated but it ensures that the codebase looks the same, regardless who wrote the code. Go comes with its own formatting tool. Let's apply the styleguide to our additions:
