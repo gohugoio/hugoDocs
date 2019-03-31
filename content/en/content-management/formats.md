@@ -237,7 +237,7 @@ Markdown syntax is simple enough to learn in a single sitting. The following are
 [ascii]: http://asciidoctor.org/
 [bfconfig]: /getting-started/configuration/#configuring-blackfriday-rendering
 [blackfriday]: https://github.com/russross/blackfriday
-[mmark]: https://github.com/miekg/mmark
+[mmark]: https://github.com/mmarkdown/mmark
 [config]: /getting-started/configuration/
 [developer tools]: /tools/
 [emojis]: https://www.webpagefx.com/tools/emoji-cheat-sheet/
