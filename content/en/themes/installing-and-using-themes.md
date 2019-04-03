@@ -43,7 +43,7 @@ Without [Git](https://git-scm.com/) installed on your computer, none of the foll
 You can install *all* available Hugo themes by cloning the entire [Hugo Theme repository on GitHub][themesrepo] from within your working directory. Depending on your internet connection the download of all themes might take a while.
 
 ```
-git clone --depth 1 --recursive https://github.com/gohugoio/hugoThemes.git themes
+git clone --depth=1 --recurse-submodules https://github.com/gohugoio/hugoThemes.git themes
 ```
 
 Before you use a theme, remove the .git folder in that theme's root folder. Otherwise, this will cause problem if you deploy using Git.
