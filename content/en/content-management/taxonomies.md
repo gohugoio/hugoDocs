@@ -111,6 +111,8 @@ When taxonomies are used---and [taxonomy templates][] are provided---Hugo will a
 
 Custom taxonomies other than the [defaults](#default-taxonomies) must be defined in your [site config][config] before they can be used throughout the site. You need to provide both the plural and singular labels for each taxonomy. For example, `singular key = "plural value"` for TOML and `singular key: "plural value"` for YAML.
 
+If you do not want your taxonomies [normalized](https://en.wikipedia.org/wiki/URL_normalization) by hugo, then you can set `preserveTaxonomyNames` to `true` in your [site config][config]. For example, `preserveTaxonomyNames = true` for TOML and `preserveTaxonomyNames: "true"` for YAML.
+
 ### Example: Adding a custom taxonomy named "series"
 
 {{% note %}}
