@@ -40,9 +40,9 @@ To add or modify a media type, define it in a `mediaTypes` section in your [site
 {{< code-toggle file="config" >}}
 [mediaTypes]
   [mediaTypes."text/enriched"]
-  suffix = "enr"
+  suffixes = ["enr"]
   [mediaTypes."text/html"]
-  suffix = "asp"
+  suffixes = ["asp"]
 {{</ code-toggle >}}
 
 The above example adds one new media type, `text/enriched`, and changes the suffix for the built-in `text/html` media type.
@@ -52,7 +52,7 @@ The above example adds one new media type, `text/enriched`, and changes the suff
 ```toml
 [mediaTypes]
 [mediaTypes."text/html"]
-suffix = "htm"
+suffixes = ["htm"]
 
 # Redefine HTML to update its media type.
 [outputFormats]
