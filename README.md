@@ -6,9 +6,9 @@ Documentation site for [Hugo](https://github.com/gohugoio/hugo), the very fast a
 
 ## Contributing
 
-We welcome contributions to Hugo of any kind including documentation, suggestions, bug reports, pull requests etc. Also check out our [contribution guide](https://gohugo.io/contribute/documentation/). We would love to hear from you. 
+We welcome contributions to Hugo of any kind including documentation, suggestions, bug reports, pull requests etc. Also check out our [contribution guide](https://gohugo.io/contribute/documentation/). We would love to hear from you.
 
-Note that this repository contains solely the documentation for Hugo. For contributions that aren't documentation-related please refer to the [hugo](https://github.com/gohugoio/hugo) repository. 
+Note that this repository contains solely the documentation for Hugo. For contributions that aren't documentation-related please refer to the [hugo](https://github.com/gohugoio/hugo) repository.
 
 *Pull requests shall **only** contain changes to the actual documentation. However, changes on the code base of Hugo **and** the documentation shall be a single, atomic pull request in the [hugo](https://github.com/gohugoio/hugo) repository.*
 
@@ -23,7 +23,7 @@ Spelling fixes are most welcomed, and if you want to contribute longer sections 
 * The `master` branch is where the site is automatically built from, and is the place to put changes relevant to the current Hugo version.
 * The `next` branch is where we store changes that is related to the next Hugo release. This can be previewed here: https://next--gohugoio.netlify.com/
 
-## Build
+## Build Locally
 
 To view the documentation site locally, you need to clone this repository:
 
@@ -45,3 +45,9 @@ Serving pages from memory
 Web Server is available at http://localhost:1313/ (bind address 127.0.0.1)
 Press Ctrl+C to stop
 ```
+
+## Build Online
+
+Alternatively, you can open and edit this repository in your browser using Gitpod.io.
+
+[![Open in Gitpod](https://gitpod.io/button/open-in-gitpod.svg)](https://gitpod.io/#https://github.com/gohugoio/hugoDocs)
