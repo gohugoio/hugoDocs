@@ -87,7 +87,7 @@ date: 2017-03-03T14:15:59-06:00
 `"Mon, 02 Jan 2006 15:04:05 MST"` (RFC1123)
 : **Returns**: `Fri, 03 Mar 2017 14:15:59 CST`
 
-`"Mon, 02 Jan 2006 15:04:05 -0700"` (RFC339)
+`"Mon, 02 Jan 2006 15:04:05 -0700"` (RFC3339)
 : **Returns**: `Fri, 03 Mar 2017 14:15:59 -0600`
 
 ### Cardinal Numbers and Ordinal Abbreviations
