@@ -72,6 +72,9 @@ See [`.Scratch`](/functions/scratch/) for page-scoped, writable variables.
 .IsPage
 : always `true` for regular content pages.
 
+IsSection
+: `true` in the section content file `_index.md`.
+
 .IsTranslated
 : `true` if there are translations to display.
 
