@@ -26,7 +26,7 @@ GitHub provides free and fast static hosting over SSL for personal, organization
 1. You have Git 2.8 or greater [installed on your machine][installgit].
 2. You have a GitHub account. [Signing up][ghsignup] for GitHub is free.
 3. You have a ready-to-publish Hugo website or have at least completed the [Quick Start][].
-4. You have created an empty `.nojekyll` file in your `public` folder to [keep GitHub from needlessly running Jekyll processing](https://github.blog/2009-12-29-bypassing-jekyll-on-github-pages/) on your published Hugo website 
+4. You have created an empty `.nojekyll` file in your `static` folder to [keep GitHub from needlessly running Jekyll processing](https://github.blog/2009-12-29-bypassing-jekyll-on-github-pages/) on your published Hugo website 
 
 ## Types of GitHub Pages
 
