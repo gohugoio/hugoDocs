@@ -456,7 +456,7 @@ Hugo installed via Snap can write only inside the user’s `$HOME` directory---a
 
     sudo apt-get install hugo
 
-This installs the "extended" Sass/SCSS version.
+This installs the non-extended version without Sass/SCSS support.
 
 ### Arch Linux
 
