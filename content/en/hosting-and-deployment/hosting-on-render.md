@@ -26,7 +26,7 @@ toc: true
 Static sites are **completely free** on Render and include the following:
 
 - Continuous, automatic builds & deploys from GitHub.
-- Automatic SSL certificates through [Let's Encrypt](https://letsencrypt.org).
+- Automatic [SSL certificates](https://hosting.review/web-hosting-glossary/#12) through [Let's Encrypt](https://letsencrypt.org).
 - Instant cache invalidation with a lightning fast, global CDN.
 - Unlimited collaborators.
 - Unlimited [custom domains](https://render.com/docs/custom-domains).
