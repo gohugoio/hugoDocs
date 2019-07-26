@@ -181,7 +181,7 @@ Hugo now has:
 * Fix WeightedPages in union etc. [f2795d4d](https://github.com/gohugoio/hugo/commit/f2795d4d2cef30170af43327f3ff7114923833b1) [@bep](https://github.com/bep) [#5850](https://github.com/gohugoio/hugo/issues/5850)
 * Fix [4d425a86](https://github.com/gohugoio/hugo/commit/4d425a86f5c03a5cca27d4e0f99d61acbb938d80) [@bep](https://github.com/bep) 
 * Fix paginator refresh on server change [f7375c49](https://github.com/gohugoio/hugo/commit/f7375c497239115cd30ae42af6b4d298e4e7ad7d) [@bep](https://github.com/bep) [#5838](https://github.com/gohugoio/hugo/issues/5838)
-* Fix .RSSLinke deprecation message [3b86b4a9](https://github.com/gohugoio/hugo/commit/3b86b4a9f5ce010c9714d813d5b8ecddda22c69f) [@bep](https://github.com/bep) [#4427](https://github.com/gohugoio/hugo/issues/4427)
+* Fix .RSSLink deprecation message [3b86b4a9](https://github.com/gohugoio/hugo/commit/3b86b4a9f5ce010c9714d813d5b8ecddda22c69f) [@bep](https://github.com/bep) [#4427](https://github.com/gohugoio/hugo/issues/4427)
 
 
 
