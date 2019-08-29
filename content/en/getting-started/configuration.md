@@ -54,10 +54,9 @@ In addition to using a single site config file, one can use the `configDir` dire
 │   ├── _default
 │   │   ├── config.toml
 │   │   ├── languages.toml
-│   │   ├── mediaTypes.toml
-│   │   ├── menu.en.toml
-│   │   ├── menu.zh.toml
-│   │   ├── params.toml
+│   │   ├── menus.en.toml
+│   │   ├── menus.zh.toml
+│   │   └── params.toml
 │   ├── production
 │   │   ├── config.toml
 │   │   └── params.toml
