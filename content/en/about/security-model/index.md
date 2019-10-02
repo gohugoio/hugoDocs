@@ -29,7 +29,7 @@ But when developing and building your site, the runtime is the `hugo` executable
 * Only the main project can walk symbolic links.
 * User-defined components have only read-access to the filesystem.
 
-Hugo will soon introduce a concept of _Content Source Plugins (aka _Data from pages_), but the above will still hold true.
+Hugo will soon introduce a concept of _Content Source Plugins_ (aka _Data from pages_), but the above will still hold true.
 
 ## Web Application Security
 
