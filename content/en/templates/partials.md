@@ -77,7 +77,47 @@ The second argument in a partial call is the variable being passed down. The abo
 
 This means the partial will *only* be able to access those variables. The partial is isolated and *has no access to the outer scope*. From within the partial, `$.Var` is equivalent to `.Var`.
 
-### Cached Partials
+## Returning a value from a Partial
+
+In addition to outputting markup, partials can be used to return a value of any type. In order to return a value, a partial must include a lone `return` statement.
+
+### Example GetFeatured
+```go-html-template
+{{/* layouts/partials/GetFeatured.html */}}
+{{ return first . (where site.RegularPages ".Params.featured" true) }}
+```
+
+```go-html-template
+{{/* layouts/index.html */}}
+{{ range partial "GetFeatured.html" 5 }}
+  [...]
+{{ end }}
+```
+### Example GetImage
+```go-html-template
+{{/* layouts/partials/GetImage.html */}}
+{{ $image := false }}
+{{ with .Params.gallery }}
+  {{ $image = index . 0 }}
+{{ end }}
+{{ with .Params.image }}
+  {{ $image = . }}
+{{ end }}
+{{ return $image }}
+```
+
+```go-html-template
+{{/* layouts/_default/single.html */}}
+{{ with partial "GetImage.html" . }}
+  [...]
+{{ end }}
+```
+
+{{% note %}}
+Only one `return` statement is allowed per partial file.
+{{% /note %}}
+
+## Cached Partials
 
 The [`partialCached` template function][partialcached] can offer significant performance gains for complex templates that don't need to be re-rendered on every invocation. The simplest usage is as follows:
 
@@ -103,7 +143,7 @@ Note that the variant parameters are not made available to the underlying partia
 
 ### Example `header.html`
 
-The following `header.html` partial template is used for [spf13.com](http://spf13.com/):
+The following `header.html` partial template is used for [spf13.com](https://spf13.com/):
 
 {{< code file="layouts/partials/header.html" download="header.html" >}}
 <!DOCTYPE html>
@@ -129,14 +169,14 @@ The `header.html` example partial was built before the introduction of block tem
 
 ### Example `footer.html`
 
-The following `footer.html` partial template is used for [spf13.com](http://spf13.com/):
+The following `footer.html` partial template is used for [spf13.com](https://spf13.com/):
 
 {{< code file="layouts/partials/footer.html" download="footer.html" >}}
 <footer>
   <div>
     <p>
     &copy; 2013-14 Steve Francia.
-    <a href="http://creativecommons.org/licenses/by/3.0/" title="Creative Commons Attribution">Some rights reserved</a>;
+    <a href="https://creativecommons.org/licenses/by/3.0/" title="Creative Commons Attribution">Some rights reserved</a>;
     please attribute properly and link back. Hosted by <a href="http://servergrove.com">ServerGrove</a>.
     </p>
   </div>

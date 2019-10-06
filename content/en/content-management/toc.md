@@ -74,7 +74,7 @@ The following is an example of a very basic [single page template][]:
 The following is a [partial template][partials] that adds slightly more logic for page-level control over your table of contents. It assumes you are using a `toc` field in your content's [front matter][] that, unless specifically set to `false`, will add a TOC to any page with a `.WordCount` (see [Page Variables][pagevars]) greater than 400. This example also demonstrates how to use [conditionals][] in your templating:
 
 {{< code file="layouts/partials/toc.html" download="toc.html" >}}
-{{ if and (gt .WordCount 400 ) (ne .Params.toc "false") }}
+{{ if and (gt .WordCount 400 ) (.Params.toc) }}
 <aside>
     <header>
     <h2>{{.Title}}</h2>
@@ -89,7 +89,7 @@ With the preceding example, even pages with > 400 words *and* `toc` not set to `
 {{% /note %}}
 
 [conditionals]: /templates/introduction/#conditionals
-[front matter]: /content-management/table-of-contents/
+[front matter]: /content-management/front-matter/
 [pagevars]: /variables/page/
 [partials]: /templates/partials/
 [single page template]: /templates/single-page-templates/

@@ -16,7 +16,7 @@ aliases: [/extras/highlighting/,/extras/highlight/,/tools/syntax-highlighting/]
 toc: true
 ---
 
-From Hugo 0.28, the default syntax hightlighter in Hugo is [Chroma](https://github.com/alecthomas/chroma); it is built in Go and is really, really fast -- and for the most important parts compatible with Pygments.
+From Hugo 0.28, the default syntax highlighter in Hugo is [Chroma](https://github.com/alecthomas/chroma); it is built in Go and is really, really fast -- and for the most important parts compatible with Pygments.
 
 If you want to continue to use Pygments (see below), set `pygmentsUseClassic=true` in your site config.
 
@@ -44,7 +44,7 @@ Gives this:
 //
 // - "Go" (strings.Title)
 // - "AP" (see https://www.apstylebook.com/)
-// - "Chicago" (see http://www.chicagomanualofstyle.org/home.html)
+// - "Chicago" (see https://www.chicagomanualofstyle.org/home.html)
 //
 // If an unknown or empty style is provided, AP style is what you get.
 func GetTitleFunc(style string) func(s string) string {
@@ -120,7 +120,7 @@ You can generate one with Hugo:
 hugo gen chromastyles --style=monokai > syntax.css
 ```
 
-Run `hugo gen chromastyles -h` for more options. See https://help.farbox.com/pygments.html for a gallery of available styles.
+Run `hugo gen chromastyles -h` for more options. See https://xyproto.github.io/splash/docs/ for a gallery of available styles.
 
 
 ## Highlight Shortcode
@@ -190,10 +190,10 @@ On Debian and Ubuntu systems, you may also install Pygments by running `sudo apt
 
 
 
-[Prism]: http://prismjs.com
-[prismdownload]: http://prismjs.com/download.html
-[Highlight.js]: http://highlightjs.org/
-[Rainbow]: http://craig.is/making/rainbows
-[Syntax Highlighter]: http://alexgorbatchev.com/SyntaxHighlighter/
+[Prism]: https://prismjs.com
+[prismdownload]: https://prismjs.com/download.html
+[Highlight.js]: https://highlightjs.org/
+[Rainbow]: https://craig.is/making/rainbows
+[Syntax Highlighter]: https://alexgorbatchev.com/SyntaxHighlighter/
 [Google Prettify]: https://github.com/google/code-prettify
-[Yandex]: http://yandex.ru/
+[Yandex]: https://yandex.ru/

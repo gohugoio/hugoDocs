@@ -20,10 +20,14 @@ toc: true
 needsexample: true
 ---
 
-`where` filters an array to only the elements containing a matching value for a given field.
+`where` filters an array to only the elements containing a matching
+value for a given field.
+
+It works in a similar manner to the [`where` keyword in
+SQL][wherekeyword].
 
 ```go-html-template
-{{ range where .Pages "Section" "post" }}
+{{ range where .Pages "Section" "foo" }}
   {{ .Content }}
 {{ end }}
 ```
@@ -45,7 +49,7 @@ series: golang
 It can also be used with the logical operators `!=`, `>=`, `in`, etc. Without an operator, `where` compares a given field with a matching value equivalent to `=`.
 
 ```go-html-template
-{{ range where .Pages "Section" "!=" "post" }}
+{{ range where .Pages "Section" "!=" "foo" }}
    {{ .Content }}
 {{ end }}
 ```
@@ -79,6 +83,15 @@ The following logical operators are available with `where`:
 `intersect`
 : `true` if a given field value that is a slice/array of strings or integers contains elements in common with the matching value; it follows the same rules as the [`intersect` function][intersect].
 
+## Use `where` with `Booleans`
+When using booleans you should not put quotation marks.
+```go-html-template
+{{range where .Pages ".Draft" true}}
+        <p>{{.Title}}</p>
+{{end}}
+```
+  
+
 ## Use `where` with `intersect`
 
 ```go-html-template
@@ -101,10 +114,14 @@ You can also put the returned value of the `where` clauses into a variable:
 
 ## Use `where` with `first`
 
-The following grabs the first five content files in `post` using the [default ordering](/templates/lists/) for lists (i.e., `weight => date`):
+Using `first` and [`where`][wherefunction] together can be very
+powerful. Below snippet gets a list of posts only from [**main
+sections**](#mainsections), sorts it using the [default
+ordering](/templates/lists/) for lists (i.e., `weight => date`), and
+then ranges through only the first 5 posts in that list:
 
-{{< code file="where-with-first.html" >}}
-{{ range first 5 (where .Pages "Section" "post") }}
+{{< code file="first-and-where-together.html" >}}
+{{ range first 5 (where site.RegularPages "Type" "in" site.Params.mainSections) }}
    {{ .Content }}
 {{ end }}
 {{< /code >}}
@@ -114,7 +131,7 @@ The following grabs the first five content files in `post` using the [default or
 You can also nest `where` clauses to drill down on lists of content by more than one parameter. The following first grabs all pages in the "blog" section and then ranges through the result of the first `where` clause and finds all pages that are *not* featured:
 
 ```go-html-template
-{{ range where (where .Pages "Section" "blog" ) ".Params.featured" "!=" "true" }}
+{{ range where (where .Pages "Section" "blog" ) ".Params.featured" "!=" true }}
 ```
 
 ## Unset Fields
@@ -134,21 +151,27 @@ Only the following operators are available for `nil`
 {{ end }}
 ```
 
-## Portable `where` filters
+## Portable `where` filters -- `site.Params.mainSections` {#mainsections}
 
-This is especially important for themes, but to list the most relevant pages on the front page or similar, you can use `.Site.Params.mainSections` list.
+**This is especially important for themes.**
 
-This will, by default, list pages from the _section with the most pages_.
+To list the most relevant pages on the front page or similar, you
+should use the `site.Params.mainSections` list instead of comparing
+section names to hard-coded values like `"posts"` or `"post"`.
 
 ```go-html-template
-{{ $pages := where .Site.RegularPages "Type" "in" .Site.Params.mainSections }}
+{{ $pages := where site.RegularPages "Type" "in" site.Params.mainSections }}
 ```
+
+If the user has not set this config parameter in their site config, it
+will default to the _section with the most pages_.
 
 The user can override the default in `config.toml`:
 
 ```toml
 [params]
-mainSections = ["blog", "docs"]
+  mainSections = ["blog", "docs"]
 ```
 
 [intersect]: /functions/intersect/
+[wherekeyword]: https://www.techonthenet.com/sql/where.php

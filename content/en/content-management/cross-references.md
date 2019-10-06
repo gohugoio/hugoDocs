@@ -35,7 +35,7 @@ The single parameter to `ref` is a string with a content `documentname` (e.g., `
 
 **Paths without a leading `/` will first  be tried resolved relative to the current page.**
 
-You will get an error if you document could not be uniquely resolved. The error behaviour can be configured, see below.
+You will get an error if your document could not be uniquely resolved. The error behaviour can be configured, see below.
 
 ### Link to another language version
 
@@ -70,13 +70,25 @@ The above examples render as follows for this very page as well as a reference t
 
 More information about document unique identifiers and headings can be found [below]({{< ref "#hugo-heading-anchors" >}}).
 
+## Hugo Heading Anchors
+
+When using Markdown document types, Hugo generates heading anchors automatically. The generated anchor for this section is `hugo-heading-anchors`. Because the heading anchors are generated automatically, Hugo takes some effort to ensure that heading anchors are unique both inside a document and across the entire site.
+
+Ensuring heading uniqueness across the site is accomplished with a unique identifier for each document based on its path. Unless a document is renamed or moved between sections *in the filesystem*, the unique identifier for the document will not change: `blog/post.md` will always have a unique identifier of `81df004c333b392d34a49fd3a91ba720`.
+
+`ref` and `relref` were added so you can make these reference links without having to know the document’s unique identifier. (The links in document tables of contents are automatically up-to-date with this value.)
+
+```
+{{</* relref "content-management/cross-references.md#hugo-heading-anchors" */>}}
+/content-management/cross-references/#hugo-heading-anchors:77cd9ea530577debf4ce0f28c8dca242
+```
 
 ## Ref and RelRef Configuration
 
 The behaviour can, since Hugo 0.45, be configured in `config.toml`:
 
 refLinksErrorLevel ("ERROR") 
-: When using `ref` or `relref` to resolve page links and a link cannot resolved, it will be logged with this logg level. Valid values are `ERROR` (default) or `WARNING`. Any `ERROR` will fail the build (`exit -1`).
+: When using `ref` or `relref` to resolve page links and a link cannot resolved, it will be logged with this log level. Valid values are `ERROR` (default) or `WARNING`. Any `ERROR` will fail the build (`exit -1`).
 
 refLinksNotFoundURL
 : URL to be used as a placeholder when a page reference cannot be found in `ref` or `relref`. Is used as-is.

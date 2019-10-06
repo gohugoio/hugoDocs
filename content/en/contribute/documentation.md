@@ -192,7 +192,7 @@ The output of this example will render to the Hugo docs as follows:
 The `output` shortcode is almost identical to the `code` shortcode but only takes and requires `file`. The purpose of `output` is to show *rendered* HTML and therefore almost always follows another basic code block *or* and instance of the `code` shortcode:
 
 ```
-{{%/* output file="post/my-first-post/index.html" */%}}
+{{%/* output file="posts/my-first-post/index.html" */%}}
 <h1>This is my First Hugo Blog Post</h1>
 <p>I am excited to be using Hugo.</p>
 {{%/* /output */%}}
@@ -200,7 +200,7 @@ The `output` shortcode is almost identical to the `code` shortcode but only take
 
 The preceding `output` example will render as follows to the Hugo docs:
 
-{{< output file="post/my-first-post/index.html" >}}
+{{< output file="posts/my-first-post/index.html" >}}
 <h1>This is my First Hugo Blog Post</h1>
 <p>I am excited to be using Hugo.</p>
 {{< /output >}} -->
@@ -324,7 +324,7 @@ Similar to [contributing to Hugo development](/contribute/development/), the Hug
 [abe]: https://en.wikipedia.org/wiki/Kobo_Abe
 [archetypes]: /content-management/archetypes/
 [bqsyntax]: https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet#blockquotes
-[charcount]: http://www.lettercount.com/
+[charcount]: https://www.lettercount.com/
 [`docs/static/images/showcase/`]: https://github.com/gohugoio/hugo/tree/master/docs/static/images/showcase/
 [ghforking]: https://help.github.com/articles/fork-a-repo/
 [hugodev]: /contribute/development/

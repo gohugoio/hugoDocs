@@ -67,6 +67,13 @@
         ]
       },
       {
+        "Name": "Arduino",
+        "Aliases": [
+          "arduino",
+          "ino"
+        ]
+      },
+      {
         "Name": "Awk",
         "Aliases": [
           "awk",
@@ -292,6 +299,13 @@
         ]
       },
       {
+        "Name": "D",
+        "Aliases": [
+          "d",
+          "di"
+        ]
+      },
+      {
         "Name": "DTD",
         "Aliases": [
           "dtd"
@@ -479,10 +493,24 @@
         ]
       },
       {
+        "Name": "GraphQL",
+        "Aliases": [
+          "gql",
+          "graphql",
+          "graphqls"
+        ]
+      },
+      {
         "Name": "Groovy",
         "Aliases": [
           "gradle",
           "groovy"
+        ]
+      },
+      {
+        "Name": "HCL",
+        "Aliases": [
+          "hcl"
         ]
       },
       {
@@ -561,13 +589,6 @@
         "Name": "JSON",
         "Aliases": [
           "json"
-        ]
-      },
-      {
-        "Name": "JSX",
-        "Aliases": [
-          "jsx",
-          "react"
         ]
       },
       {
@@ -651,6 +672,13 @@
           "mma",
           "nb",
           "nbp"
+        ]
+      },
+      {
+        "Name": "Matlab",
+        "Aliases": [
+          "m",
+          "matlab"
         ]
       },
       {
@@ -1140,6 +1168,13 @@
         ]
       },
       {
+        "Name": "Turing",
+        "Aliases": [
+          "tu",
+          "turing"
+        ]
+      },
+      {
         "Name": "Turtle",
         "Aliases": [
           "ttl",
@@ -1178,6 +1213,15 @@
         "Name": "TypoScriptHtmlData",
         "Aliases": [
           "typoscripthtmldata"
+        ]
+      },
+      {
+        "Name": "VB.net",
+        "Aliases": [
+          "bas",
+          "vb",
+          "vb.net",
+          "vbnet"
         ]
       },
       {
@@ -1261,6 +1305,13 @@
         ]
       },
       {
+        "Name": "react",
+        "Aliases": [
+          "jsx",
+          "react"
+        ]
+      },
+      {
         "Name": "reg",
         "Aliases": [
           "reg",
@@ -1280,6 +1331,13 @@
         "Aliases": [
           "v",
           "verilog"
+        ]
+      },
+      {
+        "Name": "vue",
+        "Aliases": [
+          "vue",
+          "vuejs"
         ]
       }
     ]
@@ -1353,6 +1411,27 @@
         "suffixes": [
           "yaml",
           "yml"
+        ]
+      },
+      {
+        "type": "image/jpg",
+        "string": "image/jpg",
+        "mainType": "image",
+        "subType": "jpg",
+        "delimiter": ".",
+        "suffixes": [
+          "jpg",
+          "jpeg"
+        ]
+      },
+      {
+        "type": "image/png",
+        "string": "image/png",
+        "mainType": "image",
+        "subType": "png",
+        "delimiter": ".",
+        "suffixes": [
+          "png"
         ]
       },
       {
@@ -1441,6 +1520,30 @@
     "formats": [
       {
         "MediaType": "text/html",
+        "name": "HTML",
+        "mediaType": {
+          "type": "text/html",
+          "string": "text/html",
+          "mainType": "text",
+          "subType": "html",
+          "delimiter": ".",
+          "suffixes": [
+            "html"
+          ]
+        },
+        "path": "",
+        "baseName": "index",
+        "rel": "canonical",
+        "protocol": "",
+        "isPlainText": false,
+        "isHTML": true,
+        "noUgly": false,
+        "notAlternative": false,
+        "permalinkable": true,
+        "weight": 10
+      },
+      {
+        "MediaType": "text/html",
         "name": "AMP",
         "mediaType": {
           "type": "text/html",
@@ -1459,7 +1562,9 @@
         "isPlainText": false,
         "isHTML": true,
         "noUgly": false,
-        "notAlternative": false
+        "notAlternative": false,
+        "permalinkable": true,
+        "weight": 0
       },
       {
         "MediaType": "text/css",
@@ -1481,7 +1586,9 @@
         "isPlainText": true,
         "isHTML": false,
         "noUgly": false,
-        "notAlternative": true
+        "notAlternative": true,
+        "permalinkable": false,
+        "weight": 0
       },
       {
         "MediaType": "text/csv",
@@ -1503,7 +1610,9 @@
         "isPlainText": true,
         "isHTML": false,
         "noUgly": false,
-        "notAlternative": false
+        "notAlternative": false,
+        "permalinkable": false,
+        "weight": 0
       },
       {
         "MediaType": "text/calendar",
@@ -1525,29 +1634,9 @@
         "isPlainText": true,
         "isHTML": false,
         "noUgly": false,
-        "notAlternative": false
-      },
-      {
-        "MediaType": "text/html",
-        "name": "HTML",
-        "mediaType": {
-          "type": "text/html",
-          "string": "text/html",
-          "mainType": "text",
-          "subType": "html",
-          "delimiter": ".",
-          "suffixes": [
-            "html"
-          ]
-        },
-        "path": "",
-        "baseName": "index",
-        "rel": "canonical",
-        "protocol": "",
-        "isPlainText": false,
-        "isHTML": true,
-        "noUgly": false,
-        "notAlternative": false
+        "notAlternative": false,
+        "permalinkable": false,
+        "weight": 0
       },
       {
         "MediaType": "application/json",
@@ -1569,7 +1658,9 @@
         "isPlainText": true,
         "isHTML": false,
         "noUgly": false,
-        "notAlternative": false
+        "notAlternative": false,
+        "permalinkable": false,
+        "weight": 0
       },
       {
         "MediaType": "text/plain",
@@ -1591,7 +1682,9 @@
         "isPlainText": true,
         "isHTML": false,
         "noUgly": false,
-        "notAlternative": false
+        "notAlternative": false,
+        "permalinkable": false,
+        "weight": 0
       },
       {
         "MediaType": "application/rss+xml",
@@ -1613,7 +1706,9 @@
         "isPlainText": false,
         "isHTML": false,
         "noUgly": true,
-        "notAlternative": false
+        "notAlternative": false,
+        "permalinkable": false,
+        "weight": 0
       },
       {
         "MediaType": "application/xml",
@@ -1635,7 +1730,9 @@
         "isPlainText": false,
         "isHTML": false,
         "noUgly": true,
-        "notAlternative": false
+        "notAlternative": false,
+        "permalinkable": false,
+        "weight": 0
       }
     ],
     "layouts": [
@@ -2144,6 +2241,17 @@
         }
       },
       "compare": {
+        "And": {
+          "Description": "And computes the Boolean AND of its arguments, returning\nthe first false argument it encounters, or the last argument.",
+          "Args": [
+            "arg0",
+            "args"
+          ],
+          "Aliases": [
+            "and"
+          ],
+          "Examples": []
+        },
         "Conditional": {
           "Description": "Conditional can be used as a ternary operator.\nIt returns a if condition, else b.",
           "Args": [
@@ -2254,6 +2362,27 @@
           ],
           "Aliases": [
             "ne"
+          ],
+          "Examples": []
+        },
+        "Not": {
+          "Description": "Not returns the Boolean negation of its argument.",
+          "Args": [
+            "arg"
+          ],
+          "Aliases": [
+            "not"
+          ],
+          "Examples": []
+        },
+        "Or": {
+          "Description": "Or computes the Boolean OR of its arguments, returning\nthe first true argument it encounters, or the last argument.",
+          "Args": [
+            "arg0",
+            "args"
+          ],
+          "Aliases": [
+            "or"
           ],
           "Examples": []
         }
@@ -2449,6 +2578,26 @@
           ],
           "Examples": []
         },
+        "Merge": {
+          "Description": "Merge creates a copy of dst and merges src into it.\nCurrently only maps supported. Key handling is case insensitive.",
+          "Args": [
+            "src",
+            "dst"
+          ],
+          "Aliases": [
+            "merge"
+          ],
+          "Examples": [
+            [
+              "{{ dict \"title\" \"Hugo Rocks!\" | collections.Merge (dict \"title\" \"Default Title\" \"description\" \"Yes, Hugo Rocks!\") | sort }}",
+              "[Yes, Hugo Rocks! Hugo Rocks!]"
+            ],
+            [
+              "{{  merge (dict \"title\" \"Default Title\" \"description\" \"Yes, Hugo Rocks!\") (dict \"title\" \"Hugo Rocks!\") | sort }}",
+              "[Yes, Hugo Rocks! Hugo Rocks!]"
+            ]
+          ]
+        },
         "NewScratch": {
           "Description": "NewScratch creates a new Scratch which can be used to store values in a\nthread safe way.",
           "Args": null,
@@ -2567,7 +2716,7 @@
         "Uniq": {
           "Description": "Uniq takes in a slice or array and returns a slice with subsequent\nduplicate elements removed.",
           "Args": [
-            "l"
+            "seq"
           ],
           "Aliases": [
             "uniq"
@@ -2796,6 +2945,24 @@
         }
       },
       "images": {
+        "Brightness": {
+          "Description": "",
+          "Args": null,
+          "Aliases": null,
+          "Examples": null
+        },
+        "ColorBalance": {
+          "Description": "",
+          "Args": null,
+          "Aliases": null,
+          "Examples": null
+        },
+        "Colorize": {
+          "Description": "",
+          "Args": null,
+          "Aliases": null,
+          "Examples": null
+        },
         "Config": {
           "Description": "Config returns the image.Config for the specified path relative to the\nworking directory.",
           "Args": [
@@ -2805,6 +2972,78 @@
             "imageConfig"
           ],
           "Examples": []
+        },
+        "Contrast": {
+          "Description": "",
+          "Args": null,
+          "Aliases": null,
+          "Examples": null
+        },
+        "Filter": {
+          "Description": "",
+          "Args": null,
+          "Aliases": null,
+          "Examples": null
+        },
+        "Gamma": {
+          "Description": "",
+          "Args": null,
+          "Aliases": null,
+          "Examples": null
+        },
+        "GaussianBlur": {
+          "Description": "",
+          "Args": null,
+          "Aliases": null,
+          "Examples": null
+        },
+        "Grayscale": {
+          "Description": "",
+          "Args": null,
+          "Aliases": null,
+          "Examples": null
+        },
+        "Hue": {
+          "Description": "",
+          "Args": null,
+          "Aliases": null,
+          "Examples": null
+        },
+        "Invert": {
+          "Description": "",
+          "Args": null,
+          "Aliases": null,
+          "Examples": null
+        },
+        "Pixelate": {
+          "Description": "",
+          "Args": null,
+          "Aliases": null,
+          "Examples": null
+        },
+        "Saturation": {
+          "Description": "",
+          "Args": null,
+          "Aliases": null,
+          "Examples": null
+        },
+        "Sepia": {
+          "Description": "",
+          "Args": null,
+          "Aliases": null,
+          "Examples": null
+        },
+        "Sigmoid": {
+          "Description": "",
+          "Args": null,
+          "Aliases": null,
+          "Examples": null
+        },
+        "UnsharpMask": {
+          "Description": "",
+          "Args": null,
+          "Aliases": null,
+          "Examples": null
         }
       },
       "inflect": {
@@ -3132,7 +3371,7 @@
       },
       "partials": {
         "Include": {
-          "Description": "Include executes the named partial and returns either a string,\nwhen the partial is a text/template, or template.HTML when html/template.",
+          "Description": "Include executes the named partial.\nIf the partial contains a return statement, that value will be returned.\nElse, the rendered output will be returned:\nA string if the partial is a text/template, or template.HTML when html/template.",
           "Args": [
             "name",
             "contextList"
@@ -3226,6 +3465,34 @@
           ]
         }
       },
+      "reflect": {
+        "IsMap": {
+          "Description": "IsMap reports whether v is a map.",
+          "Args": [
+            "v"
+          ],
+          "Aliases": null,
+          "Examples": [
+            [
+              "{{ if reflect.IsMap (dict \"a\" 1) }}Map{{ end }}",
+              "Map"
+            ]
+          ]
+        },
+        "IsSlice": {
+          "Description": "IsSlice reports whether v is a slice.",
+          "Args": [
+            "v"
+          ],
+          "Aliases": null,
+          "Examples": [
+            [
+              "{{ if reflect.IsSlice (slice 1 2 3) }}Slice{{ end }}",
+              "Slice"
+            ]
+          ]
+        }
+      },
       "resources": {
         "Concat": {
           "Description": "",
@@ -3256,12 +3523,24 @@
           "Examples": null
         },
         "Get": {
-          "Description": "Get locates the filename given in Hugo's filesystems: static, assets and content (in that order)\nand creates a Resource object that can be used for further transformations.",
+          "Description": "Get locates the filename given in Hugo's assets filesystem\nand creates a Resource object that can be used for further transformations.",
           "Args": [
             "filename"
           ],
           "Aliases": null,
           "Examples": []
+        },
+        "GetMatch": {
+          "Description": "",
+          "Args": null,
+          "Aliases": null,
+          "Examples": null
+        },
+        "Match": {
+          "Description": "",
+          "Args": null,
+          "Aliases": null,
+          "Examples": null
         },
         "Minify": {
           "Description": "Minify minifies the given Resource using the MediaType to pick the correct\nminifier.",
@@ -3392,6 +3671,18 @@
         }
       },
       "site": {
+        "BaseURL": {
+          "Description": "",
+          "Args": null,
+          "Aliases": null,
+          "Examples": null
+        },
+        "Data": {
+          "Description": "",
+          "Args": null,
+          "Aliases": null,
+          "Examples": null
+        },
         "Hugo": {
           "Description": "",
           "Args": null,
@@ -3405,6 +3696,60 @@
           "Examples": null
         },
         "Language": {
+          "Description": "",
+          "Args": null,
+          "Aliases": null,
+          "Examples": null
+        },
+        "LastChange": {
+          "Description": "",
+          "Args": null,
+          "Aliases": null,
+          "Examples": null
+        },
+        "Menus": {
+          "Description": "",
+          "Args": null,
+          "Aliases": null,
+          "Examples": null
+        },
+        "Pages": {
+          "Description": "",
+          "Args": null,
+          "Aliases": null,
+          "Examples": null
+        },
+        "Params": {
+          "Description": "",
+          "Args": null,
+          "Aliases": null,
+          "Examples": null
+        },
+        "RegularPages": {
+          "Description": "",
+          "Args": null,
+          "Aliases": null,
+          "Examples": null
+        },
+        "ServerPort": {
+          "Description": "",
+          "Args": null,
+          "Aliases": null,
+          "Examples": null
+        },
+        "Sites": {
+          "Description": "",
+          "Args": null,
+          "Aliases": null,
+          "Examples": null
+        },
+        "Taxonomies": {
+          "Description": "",
+          "Args": null,
+          "Aliases": null,
+          "Examples": null
+        },
+        "Title": {
           "Description": "",
           "Args": null,
           "Aliases": null,

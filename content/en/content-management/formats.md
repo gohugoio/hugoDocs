@@ -19,7 +19,7 @@ toc: true
 
 **Markdown is the main content format** and comes in two flavours:  The excellent [Blackfriday project][blackfriday] (name your files `*.md` or set `markup = "markdown"` in front matter) or its fork [Mmark][mmark] (name your files `*.mmark` or set `markup = "mmark"` in front matter), both very fast markdown engines written in Go.
 
-For Emacs users, [goorgeous](https://github.com/chaseadamsio/goorgeous) provides built-in native support for Org-mode  (name your files `*.org` or set `markup = "org"` in front matter)
+For Emacs users, [go-org](https://github.com/niklasfasching/go-org) provides built-in native support for Org-mode  (name your files `*.org` or set `markup = "org"` in front matter)
 
 But in many situations, plain HTML is what you want. Just name your files with `.html` or `.htm` extension inside your content folder. Note that if you want your HTML files to have a layout, they need front matter. It can be empty, but it has to be there:
 
@@ -100,7 +100,7 @@ Hugo supports GitHub-flavored markdown's use of triple back ticks, as well as pr
 
 ## Mmark
 
-Mmark is a [fork of BlackFriday][mmark] and markdown superset that is well suited for writing [IETF documentation][ietf]. You can see examples of the syntax in the [Mmark GitHub repository][mmarkgh] or the full syntax on [Miek Gieben's website][].
+Mmark is a [fork of BlackFriday][mmark] and markdown superset that is well suited for writing [IETF documentation][ietf]. You can see examples of the syntax in the [Mmark GitHub repository][mmark] or the full syntax on [Miek Gieben's website][].
 
 ### Use Mmark
 
@@ -122,13 +122,13 @@ Thare are some features not available in Mmark; one example being that shortcode
 
 ## MathJax with Hugo
 
-[MathJax](http://www.mathjax.org/) is a JavaScript library that allows the display of mathematical expressions described via a LaTeX-style syntax in the HTML (or Markdown) source of a web page. As it is a pure a JavaScript library, getting it to work within Hugo is fairly straightforward, but does have some oddities that will be discussed here.
+[MathJax](https://www.mathjax.org/) is a JavaScript library that allows the display of mathematical expressions described via a LaTeX-style syntax in the HTML (or Markdown) source of a web page. As it is a pure a JavaScript library, getting it to work within Hugo is fairly straightforward, but does have some oddities that will be discussed here.
 
 This is not an introduction into actually using MathJax to render typeset mathematics on your website. Instead, this page is a collection of tips and hints for one way to get MathJax working on a website built with Hugo.
 
 ### Enable MathJax
 
-The first step is to enable MathJax on pages that you would like to have typeset math. There are multiple ways to do this (adventurous readers can consult the [Loading and Configuring](http://docs.mathjax.org/en/latest/configuration.html) section of the MathJax documentation for additional methods of including MathJax), but the easiest way is to use the secure MathJax CDN by include a `<script>` tag for the officially recommended secure CDN ([cdn.js.com](https://cdnjs.com)):
+The first step is to enable MathJax on pages that you would like to have typeset math. There are multiple ways to do this (adventurous readers can consult the [Loading and Configuring](https://docs.mathjax.org/en/latest/web/configuration.html) section of the MathJax documentation for additional methods of including MathJax), but the easiest way is to use the secure MathJax CDN by include a `<script>` tag for the officially recommended secure CDN ([cdn.js.com](https://cdnjs.com)):
 
 {{< code file="add-mathjax-to-page.html" >}}
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
@@ -139,7 +139,7 @@ One way to ensure that this code is included in all pages is to put it in one of
 
 ### Options and Features
 
-MathJax is a stable open-source library with many features. I encourage the interested reader to view the [MathJax Documentation](http://docs.mathjax.org/en/latest/index.html), specifically the sections on [Basic Usage](http://docs.mathjax.org/en/latest/index.html#basic-usage) and [MathJax Configuration Options](http://docs.mathjax.org/en/latest/index.html#mathjax-configuration-options).
+MathJax is a stable open-source library with many features. I encourage the interested reader to view the [MathJax Documentation](https://docs.mathjax.org/en/latest/index.html), specifically the sections on [Basic Usage](http://docs.mathjax.org/en/latest/index.html#basic-usage) and [MathJax Configuration Options](http://docs.mathjax.org/en/latest/index.html#mathjax-configuration-options).
 
 ### Issues with Markdown
 
@@ -209,7 +209,7 @@ With this setup, everything is in place for a natural usage of MathJax on pages 
 
 Hugo has a new concept called _external helpers_. It means that you can write your content using [Asciidoc][ascii], [reStructuredText][rest], or [pandoc]. If you have files with associated extensions, Hugo will call external commands to generate the content. ([See the Hugo source code for external helpers][helperssource].)
 
-For example, for Asciidoc files, Hugo will try to call the `asciidoctor` or `asciidoc` command. This means that you will have to install the associated tool on your machine to be able to use these formats. ([See the Asciidoctor docs for installation instructions](http://asciidoctor.org/docs/install-toolchain/)).
+For example, for Asciidoc files, Hugo will try to call the `asciidoctor` or `asciidoc` command. This means that you will have to install the associated tool on your machine to be able to use these formats. ([See the Asciidoctor docs for installation instructions](https://asciidoctor.org/docs/install-toolchain/)).
 
 To use these formats, just use the standard extension and the front matter exactly as you would do with natively supported `.md` files.
 
@@ -234,7 +234,7 @@ Markdown syntax is simple enough to learn in a single sitting. The following are
 * [The Markdown Guide, Matt Cone][mdguide]
 
 [`emojify` function]: /functions/emojify/
-[ascii]: http://asciidoctor.org/
+[ascii]: https://asciidoctor.org/
 [bfconfig]: /getting-started/configuration/#configuring-blackfriday-rendering
 [blackfriday]: https://github.com/russross/blackfriday
 [mmark]: https://github.com/miekg/mmark
@@ -251,12 +251,11 @@ Markdown syntax is simple enough to learn in a single sitting. The following are
 [mathjaxdocs]: https://docs.mathjax.org/en/latest/
 [mdcheatsheet]: https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet
 [mdguide]: https://www.markdownguide.org/
-[mdtutorial]: http://www.markdowntutorial.com/
+[mdtutorial]: https://www.markdowntutorial.com/
 [Miek Gieben's website]: https://miek.nl/2016/march/05/mmark-syntax-document/
-[mmark]: https://github.com/miekg/mmark
-[mmarkgh]: https://github.com/miekg/mmark/wiki/Syntax
-[org]: http://orgmode.org/
-[pandoc]: http://www.pandoc.org/
+[mmark]: https://github.com/mmarkdown/mmark
+[org]: https://orgmode.org/
+[pandoc]: https://www.pandoc.org/
 [Pygments]: http://pygments.org/
 [rest]: http://docutils.sourceforge.net/rst.html
 [sc]: /content-management/shortcodes/

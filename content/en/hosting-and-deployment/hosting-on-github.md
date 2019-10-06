@@ -4,7 +4,7 @@ linktitle: Host on GitHub
 description: Deploy Hugo as a GitHub Pages project or personal/organizational site and automate the whole process with a simple shell script.
 date: 2014-03-21
 publishdate: 2014-03-21
-lastmod: 2017-03-30
+lastmod: 2018-09-22
 categories: [hosting and deployment]
 keywords: [github,git,deployment,hosting]
 authors: [Spencer Lyon, Gunnar Morling]
@@ -54,43 +54,44 @@ This is a much simpler setup as your Hugo files and generated content are publis
 1. Create a `<YOUR-PROJECT>` (e.g. `blog`) repository on GitHub. This repository will contain Hugo's content and other source files.
 2. Create a `<USERNAME>.github.io` GitHub repository. This is the repository that will contain the fully rendered version of your Hugo website.
 3. `git clone <YOUR-PROJECT-URL> && cd <YOUR-PROJECT>`
-4. Make your website work locally (`hugo server` or `hugo server -t <YOURTHEME>`) and open your browser to <http://localhost:1313>.
+4. Paste your existing Hugo project into a new local `<YOUR-PROJECT>` repository. Make sure your website works locally (`hugo server` or `hugo server -t <YOURTHEME>`) and open your browser to <http://localhost:1313>.
 5. Once you are happy with the results:
     * Press <kbd>Ctrl</kbd>+<kbd>C</kbd> to kill the server
-    * `rm -rf public` to completely remove the `public` directory
-6. `git submodule add -b master git@github.com:<USERNAME>/<USERNAME>.github.io.git public`. This creates a git [submodule][]. Now when you run the `hugo` command to build your site to `public`, the created `public` directory will have a different remote origin (i.e. hosted GitHub repository). You can automate some of these steps with the following script.
+    * Before proceeding run `rm -rf public` to completely remove the `public` directory 
+6. `git submodule add -b master git@github.com:<USERNAME>/<USERNAME>.github.io.git public`. This creates a git [submodule][]. Now when you run the `hugo` command to build your site to `public`, the created `public` directory will have a different remote origin (i.e. hosted GitHub repository).
 
 ### Put it Into a Script
 
-You're almost done. You can also add a `deploy.sh` script to automate the preceding steps for you. You can also make it executable with `chmod +x deploy.sh`.
+You're almost done. In order to automate next steps create a `deploy.sh` script. You can also make it executable with `chmod +x deploy.sh`.
 
 The following are the contents of the `deploy.sh` script:
 
 ```
-#!/bin/bash
+#!/bin/sh
 
-echo -e "\033[0;32mDeploying updates to GitHub...\033[0m"
+# If a command fails then the deploy stops
+set -e
+
+printf "\033[0;32mDeploying updates to GitHub...\033[0m\n"
 
 # Build the project.
 hugo # if using a theme, replace with `hugo -t <YOURTHEME>`
 
 # Go To Public folder
 cd public
+
 # Add changes to git.
 git add .
 
 # Commit changes.
-msg="rebuilding site `date`"
-if [ $# -eq 1 ]
-  then msg="$1"
+msg="rebuilding site $(date)"
+if [ -n "$*" ]; then
+	msg="$*"
 fi
 git commit -m "$msg"
 
 # Push source and build repos.
 git push origin master
-
-# Come Back up to the Project Root
-cd ..
 ```
 
 
@@ -193,11 +194,7 @@ To automate these steps, you can create a script with the following contents:
 {{< code file="publish_to_ghpages.sh" >}}
 #!/bin/sh
 
-DIR=$(dirname "$0")
-
-cd $DIR/..
-
-if [[ $(git status -s) ]]
+if [ "`git status -s`" ]
 then
     echo "The working directory is dirty. Please commit any pending changes."
     exit 1;
@@ -220,9 +217,12 @@ hugo
 
 echo "Updating gh-pages branch"
 cd public && git add --all && git commit -m "Publishing to gh-pages (publish.sh)"
+
+#echo "Pushing to github"
+#git push --all
 {{< /code >}}
 
-This will abort if there are pending changes in the working directory and also makes sure that all previously existing output files are removed. Adjust the script to taste, e.g. to include the final push to the remote repository if you don't need to take a look at the gh-pages branch before pushing. Or adding `echo yourdomainname.com >> CNAME` if you set up for your gh-pages to use customize domain.
+This will abort if there are pending changes in the working directory and also makes sure that all previously existing output files are removed. Adjust the script to taste, e.g. to include the final push to the remote repository if you don't need to take a look at the gh-pages branch before pushing.
 
 ### Deployment of Project Pages from Your `master` Branch
 

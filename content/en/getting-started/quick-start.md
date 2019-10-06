@@ -21,7 +21,7 @@ toc: true
 {{% note %}}
 This quick start uses `macOS` in the examples. For instructions about how to install Hugo on other operating systems, see [install](/getting-started/installing).
 
-You also need [Git](https://git-scm.com/downloads) installed to run this tutorial.
+It is recommended to have [Git](https://git-scm.com/downloads) installed to run this tutorial.
 {{% /note %}}
 
 
@@ -43,7 +43,7 @@ hugo version
 ```
 
 
-{{< asciicast HDlKrUrbfT7yiWsbd6QoxzRTN >}}
+{{< asciicast ItACREbFgvJ0HjnSNeTknxWy9 >}}
 
 
 ## Step 2: Create a New Site
@@ -54,7 +54,7 @@ hugo new site quickstart
 
 The above will create a new Hugo site in a folder named `quickstart`.
 
-{{< asciicast 1PH9A2fs14Dnyarx5v8OMYQer >}}
+{{< asciicast 3mf1JGaN0AX0Z7j5kLGl3hSh8 >}}
 
 
 ## Step 3: Add a Theme
@@ -62,9 +62,18 @@ The above will create a new Hugo site in a folder named `quickstart`.
 See [themes.gohugo.io](https://themes.gohugo.io/) for a list of themes to consider. This quickstart uses the beautiful [Ananke theme](https://themes.gohugo.io/gohugo-theme-ananke/).
 
 ```bash
-cd quickstart;\
-git init;\
-git submodule add https://github.com/budparr/gohugo-theme-ananke.git themes/ananke;\
+cd quickstart
+
+# Download the theme
+git init
+git submodule add https://github.com/budparr/gohugo-theme-ananke.git themes/ananke
+# Note for non-git users:
+#   - If you do not have git installed, you can download the archive of the latest
+#     version of this theme from:
+#       https://github.com/budparr/gohugo-theme-ananke/archive/master.zip
+#   - Extract that .zip file to get a "gohugo-theme-ananke-master" directory.
+#   - Rename that directory to "ananke", and move it into the "themes/" directory.
+# End of note for non-git users.
 
 # Edit your config.toml configuration file
 # and add the Ananke theme.
@@ -72,34 +81,59 @@ echo 'theme = "ananke"' >> config.toml
 ```
 
 
-{{< asciicast WJM2LEZQs8VRhNeuZ5NiGPp9I >}}
+{{< asciicast 7naKerRYUGVPj8kiDmdh5k5h9 >}}
+
 
 ## Step 4: Add Some Content
+
+You can manually create content files (for example as `content/<CATEGORY>/<FILE>.<FORMAT>`) and provide metadata in them, however you can use the `new` command to do few things for you (like add title and date):
 
 ```
 hugo new posts/my-first-post.md
 ```
 
+{{< asciicast eUojYCfRTZvkEiqc52fUsJRBR >}}
 
-Edit the newly created content file if you want. Now, start the Hugo server with [drafts](/getting-started/usage/#draft-future-and-expired-content) enabled:
+Edit the newly created content file if you want, it will start with something like this:
+
+```markdown
+---
+title: "My First Post"
+date: 2019-03-26T08:47:11+01:00
+draft: true
+---
+
+```
+
+
+## Step 5: Start the Hugo server
+
+Now, start the Hugo server with [drafts](/getting-started/usage/#draft-future-and-expired-content) enabled:
+
+{{< asciicast BvJBsF6egk9c163bMsObhuNXj >}}
+
+
 
 ```
 ▶ hugo server -D
 
-Started building sites ...
-Built site for language en:
-1 of 1 draft rendered
-0 future content
-0 expired content
-1 regular pages created
-8 other pages created
-0 non-page files copied
-1 paginator pages created
-0 categories created
-0 tags created
-total in 18 ms
-Watching for changes in /Users/bep/sites/quickstart/{data,content,layouts,static,themes}
+                   | EN
++------------------+----+
+  Pages            | 10
+  Paginator pages  |  0
+  Non-page files   |  0
+  Static files     |  3
+  Processed images |  0
+  Aliases          |  1
+  Sitemaps         |  1
+  Cleaned          |  0
+
+Total in 11 ms
+Watching for changes in /Users/bep/quickstart/{content,data,layouts,static,themes}
+Watching for config changes in /Users/bep/quickstart/config.toml
+Environment: "development"
 Serving pages from memory
+Running in Fast Render Mode. For full rebuilds on change: hugo server --disableFastRender
 Web Server is available at http://localhost:1313/ (bind address 127.0.0.1)
 Press Ctrl+C to stop
 ```
@@ -107,9 +141,10 @@ Press Ctrl+C to stop
 
 **Navigate to your new site at [http://localhost:1313/](http://localhost:1313/).**
 
+Feel free to edit or add new content and simply refresh in browser to see changes quickly (You might need to force refresh in webbrowser, something like Ctrl-R usually works).
 
 
-## Step 5: Customize the Theme
+## Step 6: Customize the Theme
 
 Your new site already looks great, but you will want to tweak it a little before you release it to the public.
 
@@ -124,7 +159,7 @@ title = "My New Hugo Site"
 theme = "ananke"
 ```
 
-Replace the `title` above with something more personal. Also, if you already have a domain ready, set the `baseURL`. Note that this value is not needed when running the local development server. 
+Replace the `title` above with something more personal. Also, if you already have a domain ready, set the `baseURL`. Note that this value is not needed when running the local development server.
 
 {{% note %}}
 **Tip:** Make the changes to the site configuration or any other file in your site while the Hugo server is running, and you will see the changes in the browser right away, though you may need to [clear your cache](https://kb.iu.edu/d/ahic).
@@ -135,6 +170,17 @@ For theme specific configuration options, see the [theme site](https://github.co
 
 **For further theme customization, see [Customize a Theme](/themes/customizing/).**
 
-## Recapitulation
 
-{{< asciicast pWp4uvyAkdWgQllD9RCfeBL5k >}}
+### Step 7: Build static pages
+
+It is simple. Just call:
+
+```
+hugo
+```
+
+Output will be in `./public/` directory by default (`-d`/`--destination` flag to change it, or set `publishdir` in the config file).
+
+{{% note %}}
+Drafts do not get deployed; once you finish a post, update the header of the post to say `draft: false`. More info [here](/getting-started/usage/#draft-future-and-expired-content).
+{{% /note %}}

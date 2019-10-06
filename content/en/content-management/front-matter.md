@@ -23,7 +23,7 @@ toc: true
 
 ## Front Matter Formats
 
-Hugo supports three formats for front matter, each with their own identifying tokens.
+Hugo supports four formats for front matter, each with their own identifying tokens.
 
 TOML
 : identified by opening and closing `+++`.
@@ -33,6 +33,10 @@ YAML
 
 JSON
 : a single JSON object surrounded by '`{`' and '`}`', followed by a new line.
+
+ORG
+: a group of Org mode keywords in the format '`#+KEY: VALUE`'. Any line that does not start with `#+` ends the front matter section.
+  Keyword values can be either strings (`#+KEY: VALUE`) or a whitespace separated list of strings (`#+KEY[]: VALUE_1 VALUE_2`).
 
 ### Example
 
@@ -60,8 +64,11 @@ aliases
 audio
 : an array of paths to audio files related to the page; used by the `opengraph` [internal template](/templates/internal) to populate `og:audio`.
 
+cascade
+: a map of Front Matter keys whose values are passed down to the page's descendents unless overwritten by self or a closer ancestor's cascade. See [Front Matter Cascade](#front-matter-cascade) for details.
+
 date
-: the datetime at which the content was created; note this value is auto-populated according to Hugo's built-in [archetype][].
+: the datetime assigned to this page. This is usually fetched from the `date` field in front matter, but this behaviour is configurable.
 
 description
 : the description for the content.
@@ -111,6 +118,9 @@ series
 slug
 : appears as the tail of the output URL. A value specified in front matter will override the segment of the URL based on the filename.
 
+summary
+: text used when providing a summary of the article in the `.Summary` page variable; details available in the [content-summaries](/content-management/summaries/) section.
+
 title
 : the title for the content.
 
@@ -145,6 +155,22 @@ include_toc: true
 show_comments: false
 {{</ code-toggle >}}
 
+## Front Matter Cascade
+
+Any node or section can pass down to descendents a set of Front Matter values as long as defined underneath the reserved `cascade` Front Matter key.
+
+### Example
+```yaml
+# content/blog/_index.md
+title: Blog
+cascade:
+  banner: images/typewriter.jpg
+```
+
+With the above example the Blog section page and its descendents will return `images/typewriter.jpg` when `.Params.banner` is invoked unless:
+
+- Said descendent has its own `banner` value set 
+- Or a closer ancestor node has its own `cascade.banner` value set.
 
 ## Order Content Through Front Matter
 
@@ -181,4 +207,4 @@ It's possible to set some options for Markdown rendering in a content's front ma
 [toml]: https://github.com/toml-lang/toml "Specification for TOML, Tom's Obvious Minimal Language"
 [urls]: /content-management/urls/
 [variables]: /variables/
-[yaml]: http://yaml.org/spec/ "Specification for YAML, YAML Ain't Markup Language"
+[yaml]: https://yaml.org/spec/ "Specification for YAML, YAML Ain't Markup Language"

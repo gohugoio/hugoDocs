@@ -20,7 +20,7 @@ toc: true
 ---
 
 {{% note %}}
-The following is only a primer on Go Templates. For an in-depth look into Go Templates, check the official [Go docs](http://golang.org/pkg/html/template/).
+The following is only a primer on Go Templates. For an in-depth look into Go Templates, check the official [Go docs](https://golang.org/pkg/text/template/).
 {{% /note %}}
 
 Go Templates provide an extremely simple template language that adheres to the belief that only the most basic of logic belongs in the template or view layer.
@@ -141,7 +141,7 @@ Go Templates only ship with a few basic functions but also provide a mechanism f
 Note that both examples make use of Go Template's [math functions][].
 
 {{% note "Additional Boolean Operators" %}}
-There are more boolean operators than those listed in the Hugo docs in the [Go Template documentation](http://golang.org/pkg/text/template/#hdr-Functions).
+There are more boolean operators than those listed in the Hugo docs in the [Go Template documentation](https://golang.org/pkg/text/template/#hdr-Functions).
 {{% /note %}}
 
 ## Includes
@@ -170,7 +170,7 @@ Example of including a `layouts/partials/header.html` partial:
 ### Template
 
 The `template` function was used to include *partial* templates
-in much older Hugo versions. Now it useful only for calling
+in much older Hugo versions. Now it's useful only for calling
 [*internal* templates][internal_templates]. The syntax is `{{ template
 "_internal/<TEMPLATE>.<EXTENSION>" . }}`.
 
@@ -230,6 +230,18 @@ key.
 ```go-html-template
 {{ range $elem_key, $elem_val := $map }}
    {{ $elem_key }} -- {{ $elem_val }}
+{{ end }}
+```
+
+#### Example 5: Conditional on empty _map_, _array_, or _slice_.
+
+If the _map_, _array_, or _slice_ passed into the range is zero-length then the else statement is evaluated.
+
+```go-html-template
+{{ range $array }}
+    {{ . }}
+{{else}}
+    <!-- This is only evaluated if $array is empty -->
 {{ end }}
 ```
 
@@ -379,7 +391,7 @@ By default, Go Templates remove HTML comments from output. This has the unfortun
 {{ "<![endif]-->" | safeHTML }}
 ```
 
-Alternatively, you can use the backtick (`` ` ``) to quote the IE conditional comments, avoiding the tedious task of escaping every double quotes (`"`) inside, as demonstrated in the [examples](http://golang.org/pkg/text/template/#hdr-Examples) in the Go text/template documentation:
+Alternatively, you can use the backtick (`` ` ``) to quote the IE conditional comments, avoiding the tedious task of escaping every double quotes (`"`) inside, as demonstrated in the [examples](https://golang.org/pkg/text/template/#hdr-Examples) in the Go text/template documentation:
 
 ```go-html-template
 {{ `<!--[if lt IE 7]><html class="no-js lt-ie9 lt-ie8 lt-ie7"><![endif]-->` | safeHTML }}
@@ -521,7 +533,7 @@ The templating engine will strip the content within the HTML comment, but will f
 
 ## Hugo Parameters
 
-Hugo provides the option of passing values to your template layer through your [site configuration][config] (i.e. for site-wide values) or through the metadata of each specific piece of content (i.e. the [front matter][]). You can define any values of any type and use them however you want in your templates, as long as the values are supported by the front matter format specified via `metaDataFormat` in your configuration file.
+Hugo provides the option of passing values to your template layer through your [site configuration][config] (i.e. for site-wide values) or through the metadata of each specific piece of content (i.e. the [front matter][]). You can define any values of any type and use them however you want in your templates, as long as the values are supported by the [front matter format]({{< ref "front-matter.md#front-matter-formats" >}}).
 
 ## Use Content (`Page`) Parameters
 
@@ -630,12 +642,12 @@ Go allows you to do more than what's shown here. Using Hugo's [`where` function]
 
 [`where` function]: /functions/where/
 [config]: /getting-started/configuration/
-[dotdoc]: http://golang.org/pkg/text/template/#hdr-Variables
+[dotdoc]: https://golang.org/pkg/text/template/#hdr-Variables
 [first]: /functions/first/
 [front matter]: /content-management/front-matter/
 [functions]: /functions/ "See the full list of Hugo's templating functions with a quick start reference guide and basic and advanced examples."
-[Go html/template]: http://golang.org/pkg/html/template/ "Godocs references for Go's html templating"
-[gohtmltemplate]: http://golang.org/pkg/html/template/ "Godocs references for Go's html templating"
+[Go html/template]: https://golang.org/pkg/html/template/ "Godocs references for Go's html templating"
+[gohtmltemplate]: https://golang.org/pkg/html/template/ "Godocs references for Go's html templating"
 [index]: /functions/index/
 [math functions]: /functions/math/
 [partials]: /templates/partials/ "Link to the partial templates page inside of the templating section of the Hugo docs"
@@ -647,6 +659,6 @@ Go allows you to do more than what's shown here. Using Hugo's [`where` function]
 [variables]: /variables/ "See the full extent of page-, site-, and other variables that Hugo make available to you in your templates."
 [where]: /functions/where/
 [with]: /functions/with/
-[godocsindex]: http://golang.org/pkg/text/template/ "Godocs page for index function"
+[godocsindex]: https://golang.org/pkg/text/template/ "Godocs page for index function"
 [param]: /functions/param/
 [isset]: /functions/isset/

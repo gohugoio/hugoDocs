@@ -27,16 +27,16 @@ The `permalinks` option in your [site configuration][config] allows you to adjus
 These examples use the default values for `publishDir` and `contentDir`; i.e., `public` and `content`, respectively. You can override the default values in your [site's `config` file](/getting-started/configuration/).
 {{% /note %}}
 
-For example, if one of your [sections][] is called `post` and you want to adjust the canonical path to be hierarchical based on the year, month, and post title, you could set up the following configurations in YAML and TOML, respectively.
+For example, if one of your [sections][] is called `posts` and you want to adjust the canonical path to be hierarchical based on the year, month, and post title, you could set up the following configurations in YAML and TOML, respectively.
 
 ### Permalinks Configuration Example
 
 {{< code-toggle file="config" copy="false" >}}
 permalinks:
-  post: /:year/:month/:title/
+  posts: /:year/:month/:title/
 {{< /code-toggle >}}
 
-Only the content under `post/` will have the new URL structure. For example, the file `content/post/sample-entry.md` with `date: 2017-02-27T19:20:00-05:00` in its front matter will render to `public/2017/02/sample-entry/index.html` at build time and therefore be reachable at `https://example.com/2017/02/sample-entry/`.
+Only the content under `posts/` will have the new URL structure. For example, the file `content/posts/sample-entry.md` with `date: 2017-02-27T19:20:00-05:00` in its front matter will render to `public/2017/02/sample-entry/index.html` at build time and therefore be reachable at `https://example.com/2017/02/sample-entry/`.
 
 You can also configure permalinks of taxonomies with the same syntax, by using the plural form of the taxonomy instead of the section. You will probably only want to use the configuration values `:slug` or `:title`.
 
@@ -82,9 +82,12 @@ The following is a list of values that can be used in a `permalink` definition i
 
 ## Aliases
 
-For people migrating existing published content to Hugo, there's a good chance you need a mechanism to handle redirecting old URLs.
+Aliases can be used to create redirects to your page from other URLs.
 
-Luckily, redirects can be handled easily with **aliases** in Hugo.
+Aliases comes in two forms:
+
+1. Starting with a `/` meaning they are relative to the `BaseURL`, e.g. `/posts/my-blogpost/`
+2. They are relative to the `Page` they're defined in, e.g. `my-blogpost` or even something like `../blog/my-blogpost` (new in Hugo 0.55).
 
 ### Example: Aliases
 
@@ -126,6 +129,8 @@ aliases:
 ---
 ```
 
+From Hugo 0.55 you can also have page-relative aliases, so ` /es/posts/my-original-post/` can be simplified to the more portable `my-original-post/`
+
 ### How Hugo Aliases Work
 
 When aliases are specified, Hugo creates a directory to match the alias entry. Inside the directory, Hugo creates an `.html` file specifying the canonical URL for the page and the new redirect target.
@@ -156,7 +161,7 @@ Assuming a `baseURL` of `example.com`, the contents of the auto-generated alias 
 
 The `http-equiv="refresh"` line is what performs the redirect, in 0 seconds in this case. If an end user of your website goes to `https://example.com/posts/my-old-url`, they will now be automatically redirected to the newer, correct URL. The addition of `<meta name="robots" content="noindex">` lets search engine bots know that they should not crawl and index your new alias page.
 
-### Customize 
+### Customize
 You may customize this alias page by creating an `alias.html` template in the
 layouts folder of your site (i.e., `layouts/alias.html`). In this case, the data passed to the template is
 
@@ -199,11 +204,11 @@ See [Content Organization][contentorg] for more details on paths.
 └── content
     └── about
     |   └── _index.md  // <- https://example.com/about/
-    ├── post
-    |   ├── firstpost.md   // <- https://example.com/post/firstpost/
+    ├── posts
+    |   ├── firstpost.md   // <- https://example.com/posts/firstpost/
     |   ├── happy
-    |   |   └── ness.md  // <- https://example.com/post/happy/ness/
-    |   └── secondpost.md  // <- https://example.com/post/secondpost/
+    |   |   └── ness.md  // <- https://example.com/posts/happy/ness/
+    |   └── secondpost.md  // <- https://example.com/posts/secondpost/
     └── quote
         ├── first.md       // <- https://example.com/quote/first/
         └── second.md      // <- https://example.com/quote/second/
@@ -216,11 +221,11 @@ Here's the same organization run with `hugo --uglyURLs`:
 └── content
     └── about
     |   └── _index.md  // <- https://example.com/about.html
-    ├── post
-    |   ├── firstpost.md   // <- https://example.com/post/firstpost.html
+    ├── posts
+    |   ├── firstpost.md   // <- https://example.com/posts/firstpost.html
     |   ├── happy
-    |   |   └── ness.md    // <- https://example.com/post/happy/ness.html
-    |   └── secondpost.md  // <- https://example.com/post/secondpost.html
+    |   |   └── ness.md    // <- https://example.com/posts/happy/ness.html
+    |   └── secondpost.md  // <- https://example.com/posts/secondpost.html
     └── quote
         ├── first.md       // <- https://example.com/quote/first.html
         └── second.md      // <- https://example.com/quote/second.html
@@ -253,11 +258,28 @@ Or, if you are on Windows and do not have `grep` installed:
 hugo config | FINDSTR /I canon
 ```
 
-## Override URLs with Front Matter
+## Set URL in Front Matter
 
 In addition to specifying permalink values in your site configuration for different content sections, Hugo provides even more granular control for individual pieces of content.
 
 Both `slug` and `url` can be defined in individual front matter. For more information on content destinations at build time, see [Content Organization][contentorg].
+
+From Hugo 0.55, you can use URLs relative to the current site context (the language), which makes it simpler to maintain. For a Japanese translation, both of the following examples would get the same URL:
+
+```markdown
+---
+title: "Custom URL!"
+url: "/jp/custom/foo"
+---
+```
+
+```markdown
+---
+title: "Custom URL!"
+url: "custom/foo"
+---
+```
+
 
 ## Relative URLs
 
@@ -265,7 +287,7 @@ By default, all relative URLs are left unchanged by Hugo, which can be problemat
 
 Setting `relativeURLs` to `true` in your [site configuration][config] will cause Hugo to rewrite all relative URLs to be relative to the current content.
 
-For example, if your `/post/first/` page contains a link to `/about/`, Hugo will rewrite the URL to `../../about/`.
+For example, if your `/posts/first/` page contains a link to `/about/`, Hugo will rewrite the URL to `../../about/`.
 
 [config]: /getting-started/configuration/
 [contentorg]: /content-management/organization/
