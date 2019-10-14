@@ -179,7 +179,7 @@ It is simple. Just call:
 hugo
 ```
 
-Output will be in `./public/` directory by default (`-d`/`--destination` flag to change it, or set `publishdir` in the config file).
+Output will be in `./private/` directory by default (`-d`/`--destination` flag to change it, or set `publishdir` in the config file).
 
 {{% note %}}
 Drafts do not get deployed; once you finish a post, update the header of the post to say `draft: false`. More info [here](/getting-started/usage/#draft-future-and-expired-content).
