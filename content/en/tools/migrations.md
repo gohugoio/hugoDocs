@@ -52,6 +52,7 @@ Alternatively, you can use the new [Jekyll import command](/commands/hugo_import
 
 ## Medium
 
+- [Medium to Hugo](https://github.com/bgadrian/medium-to-hugo) - Tool for the migration of articles from a medium.com account to a static website generator with markdown like Hugo.
 - [medium2md](https://github.com/gautamdhameja/medium-2-md) - A simple Medium to Hugo exporter able to import stories in one command, including Front Matter.
 
 ## Tumblr
