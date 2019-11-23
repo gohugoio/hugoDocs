@@ -61,7 +61,7 @@ The above will create a new Hugo site in a folder named `quickstart`.
 
 See [themes.gohugo.io](https://themes.gohugo.io/) for a list of themes to consider. This quickstart uses the beautiful [Ananke theme](https://themes.gohugo.io/gohugo-theme-ananke/).
 
-First download the theme from Github and add it to your site's `theme` directory:
+First, download the theme from Github and add it to your site's `theme` directory:
 
 ```bash
 cd quickstart
