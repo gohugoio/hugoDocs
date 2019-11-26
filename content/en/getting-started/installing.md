@@ -463,6 +463,8 @@ Hugo installed via Snap can write only inside the user’s `$HOME` directory---a
 
 This installs the "extended" Sass/SCSS version.
 
+This option is not reccommended because the Hugo in Linux package managers for Debian and Ubuntu is broken. This issue is described [here](https://github.com/gcushen/hugo-academic/issues/703)
+
 ### Arch Linux
 
 You can also install Hugo from the Arch Linux [community](https://www.archlinux.org/packages/community/x86_64/hugo/) repository. Applies also to derivatives such as Manjaro.
