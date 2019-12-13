@@ -98,6 +98,7 @@ Tags:
 {{ range $k, $v := .Tags }}
 TAG: {{ $k }}: {{ $v }}
 {{ end }}
+{{ end }}
 ```
 
 #### Exif fields
