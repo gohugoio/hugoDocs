@@ -102,7 +102,7 @@ TAG: {{ $k }}: {{ $v }}
 
 #### Exif fields
 
-Data
+Date
 : "photo taken" date/time
 
 Lat
