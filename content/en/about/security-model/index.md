@@ -54,4 +54,4 @@ This is why you sometimes need to use the safeHTML function to avoid escaping of
 There is one exception to the above (as noted in the documentation): If you enable inline shortcodes you also say that the shortcodes and data handling in content files are trusted, as those macros are treated as pure text.
 It may be worth adding that Hugo is a static site generator with no concept of dynamic user input.
 
-TODO: Content, Goldmark, inline shortcodes
+For content, the default Markdown renderer is [configured](gohugo.io/getting-started/configuration-markup) to remove potentially unsafe comment. This can be reconfigured if you trust your content.
