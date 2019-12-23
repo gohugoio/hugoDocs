@@ -134,6 +134,14 @@ A very simple template example given the above:
 <a href="{{ .Destination | safeURL }}"{{ with .Title}} title="{{ . }}"{{ end }}>{{ .Text }}{{ with .Page }} (in page {{ .Title }}){{ end }}</a>
 {{< /code >}}
 
+An example to open external links in a new tab:
+
+{{< code file="layouts/_default/_markup/render-link.html" >}}
+<a href="{{ .Destination | safeURL }}"{{ if ne true (in (urls.Parse .Destination).Host "gohugo.io") }} target="_blank"{{ end }}>{{ .Text }}"</a>
+{{< /code >}}
+
+The above example would treat non "gohugo.io" domain/subdomain links as external links (that means "themes.gohugo.io", "discourse.gohugo.io", etc. are opened in the same tab).
+
 (look in the page bundle, inside `/assets` etc.) and [transform](/content-management/image-processing) images.
 
 [^hooktemplate]: It's currently only possible to have one set of render hook templates, e.g. not per `Type` or `Section`. We may consider that in a future version.
