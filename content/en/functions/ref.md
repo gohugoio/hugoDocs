@@ -29,7 +29,7 @@ aliases: []
 `ref` looks up Hugo "Regular Pages" only. It can't be used for the homepage, section pages, etc.
 {{% /note %}}
 
-It is also possible to pass a additional arguments to link to another language or an alternative output format. Therefore, pass a mao of arguments instead of just the path. 
+It is also possible to pass additional arguments to link to another language or an alternative output format. Therefore, pass a map of arguments instead of just the path.
 
 ``` 
 {{ ref . (dict "path" "about.md" "lang" "ja" "outputFormat" "rss") }} 
