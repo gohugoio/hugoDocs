@@ -457,7 +457,7 @@ In the above example, you may want `{{.Title}}` to point the `title` field you h
 
 ### By Page Parameter in Date Format
 
-The following template takes grouping by `date` a step further and uses Go's layout string. See the [`Format` function][] for more examples of how to use Go's layout string to format dates in Hugo.
+The following template takes grouping by `date` a step further and uses Go's layout string. The custom parameter must be in full ISO 8601 date+time (e.g. `2020-01-19T01:52:33+01:00`) format; a subset like `2020-01-19T01:52` will not work. See the [`Format` function][] for more examples of how to use Go's layout string to format dates in Hugo.
 
 {{< code file="layouts/partials/by-page-param-as-date.html" >}}
 <!-- Groups content by month according to the "param_key" field in front matter -->
