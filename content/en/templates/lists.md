@@ -457,6 +457,10 @@ In the above example, you may want `{{.Title}}` to point the `title` field you h
 
 ### By Page Parameter in Date Format
 
+{{% note %}}
+This feature currently [does not work](https://github.com/gohugoio/hugo/issues/3983).
+{{% /note %}}
+
 The following template takes grouping by `date` a step further and uses Go's layout string. See the [`Format` function][] for more examples of how to use Go's layout string to format dates in Hugo.
 
 {{< code file="layouts/partials/by-page-param-as-date.html" >}}
