@@ -49,9 +49,12 @@ The following values will also be included in the RSS output if specified in you
 languageCode = "en-us"
 copyright = "This work is licensed under a Creative Commons Attribution-ShareAlike 4.0 International License."
 
-[author]
+[Author]
     name = "My Name Here"
+    email = "myemailaddress@example.com"
 ```
+
+To include an author's name in RSS output, you must have the `email` key set.
 
 ## The Embedded rss.xml
 

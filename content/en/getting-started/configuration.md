@@ -326,6 +326,9 @@ params:
     - "foo1"
     - "foo2"
   SidebarRecentLimit: 5
+Author:
+  name: "Jon Doe"
+  email: "jondoe@example.com"
 {{< /code-toggle >}}
 
 ## Configure with Environment Variables

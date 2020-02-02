@@ -129,6 +129,8 @@ Hugo's Open Graph template is configured using a mix of configuration variables 
   description = "Text about my cool site"
 [taxonomies]
   series = "series"
+[Social]
+  facebook = "website-facebook-profile"
 {{</ code-toggle >}}
 
 {{< code-toggle file="content/blog/my-post" >}}
@@ -151,6 +153,7 @@ Various optional metadata can also be set:
 - `audio` and `videos` are URL arrays like `images` for the audio and video metadata tags, respectively.
 - The first 6 `tags` on the page are used for the tags metadata.
 - The `series` taxonomy is used to specify related "see also" pages by placing them in the same series.
+- `publisher` is set to the `.Site.Social.facebook` value, and could correspond to a Facebook page for your website.
 
 If using YouTube this will produce a og:video tag like `<meta property="og:video" content="url">`. If using a YouTube link make sure this is in **https://www.youtube.com/v/NlXVWtgLNjY** not __https://www.youtube.com/watch?v=NlXVWtgLNjY__
 
