@@ -70,3 +70,7 @@ frontend:
 ```
 
 [Quick Start]: /getting-started/quick-start/
+
+## Add a GraphQL API to your Hugo site with AWS Amplify
+
+A GraphQL API gives you the ability to fetch data from a backend and serve it in your static Hugo site. [This blog post](https://aws.amazon.com/blogs/mobile/add-a-graphql-api-to-your-hugo-site-with-aws-amplify/) walks through how to use AWS Amplify to connect a GraphQL API to your site.
