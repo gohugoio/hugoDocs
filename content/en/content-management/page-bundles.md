@@ -43,7 +43,7 @@ directory, that contains an **`index.md`** file.
 ```text
 content/
 ├── about
-│   ├── index.md
+│   └── index.md
 ├── posts
 │   ├── my-post
 │   │   ├── content1.md
