@@ -389,6 +389,8 @@ By default, Go Templates remove HTML comments from output. This has the unfortun
 {{ "<![endif]-->" | safeHTML }}
 ```
 
+This example uses the [`safeHTML` function][safehtml].
+
 Alternatively, you can use the backtick (`` ` ``) to quote the IE conditional comments, avoiding the tedious task of escaping every double quotes (`"`) inside, as demonstrated in the [examples](https://golang.org/pkg/text/template/#hdr-Examples) in the Go text/template documentation:
 
 ```go-html-template
