@@ -333,7 +333,7 @@ Using the preceding `tweet` example, the following simulates the displayed exper
 
 ### `vimeo`
 
-Adding a video from [Vimeo][] is equivalent to the [YouTube Input shortcode].[]
+Adding a video from [Vimeo][] is equivalent to the [YouTube Input shortcode][].
 
 ```
 https://vimeo.com/channels/staffpicks/146022717
