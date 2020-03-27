@@ -54,7 +54,7 @@ The preceding partial would then output to the rendered page as follows, assumin
 {{< output file="/blog/greatest-city/index.html" >}}
 <header>
     <h1>The World's Greatest City</h1>
-    <div><a href="/locations/chicago-il/">Chicago IL</a></div>
+    <div><a href="/locations/chicago-il">Chicago IL</a></div>
     <ul>
         <li>
             <a href="/tags/pizza">pizza</a>
