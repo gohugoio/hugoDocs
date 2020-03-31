@@ -108,8 +108,8 @@ Or individually access EXIF data with dot access, e.g.:
 {{ with $src.Exif }}
   <ul>
       {{ with .Date }}<li>Date: {{ .Format "January 02, 2006" }}</li>{{ end }}
-      {{ with .Tags.ApertureValue }}<li>Aperture: {{ (printf "%.2f" .) }}</li>{{ end }}
-      {{ with .Tags.BrightnessValue }}<li>Brightness: {{ (printf "%.2f" .) }}</li>{{ end }}
+      {{ with .Tags.ApertureValue }}<li>Aperture: {{ lang.NumFmt 2 . }}</li>{{ end }}
+      {{ with .Tags.BrightnessValue }}<li>Brightness: {{ lang.NumFmt 2 . }}</li>{{ end }}
       {{ with .Tags.ExposureTime }}<li>Exposure Time: {{ . }}</li>{{ end }}
       {{ with .Tags.FNumber }}<li>F Number: {{ . }}</li>{{ end }}
       {{ with .Tags.FocalLength }}<li>Focal Length: {{ . }}</li>{{ end }}
@@ -119,7 +119,7 @@ Or individually access EXIF data with dot access, e.g.:
 {{ end }}
 ```
 
-Some fields may need to be formatted with printf function to prevent display like `Aperture: 2.278934289` instead of `Aperture: 2.28`.
+Some fields may need to be formatted with [`lang.NumFmt`]({{< relref "functions/numfmt" >}}) function to prevent display like `Aperture: 2.278934289` instead of `Aperture: 2.28`.
 
 #### Exif fields
 
