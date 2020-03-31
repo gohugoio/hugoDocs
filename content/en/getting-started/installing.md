@@ -517,11 +517,11 @@ Now that you've installed Hugo, read the [Quick Start guide][quickstart] and exp
 [installgo]: https://golang.org/dl/
 [linuxbrew]: https://docs.brew.sh/Homebrew-on-Linux
 [Path Editor]: https://patheditor2.codeplex.com/
-[pygments]: http://pygments.org
+[pygments]: https://pygments.org
 [quickstart]: /getting-started/quick-start/
 [redhatforum]: https://discourse.gohugo.io/t/solved-fedora-copr-repository-out-of-service/2491
 [releases]: https://github.com/gohugoio/hugo/releases
 [Scoop]: https://scoop.sh/
 [snaps]: https://snapcraft.io/docs/installing-snapd
 [windowsarch]: https://esupport.trendmicro.com/en-us/home/pages/technical-support/1038680.aspx
-[Windows Environment Variables Editor]: http://eveditor.com/
+[Windows Environment Variables Editor]: https://eveditor.com/
