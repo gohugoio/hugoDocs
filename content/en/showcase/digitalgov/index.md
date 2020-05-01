@@ -1,7 +1,7 @@
 ---
 title: Digital.gov
 date: 2020-05-01
-description: "Showcase: \"Seeing Hugo in action is a whole different world of awesome.\""
+description: "Showcase: \"Guidance on building better digital services in government.\""
 siteURL: https://digital.gov/
 siteSource: https://github.com/gsa/digitalgov.gov
 ---
@@ -34,7 +34,7 @@ Hugo was the clear option. The [Federalist](https://federalist.18f.gov/) team qu
 
 At the moment, it takes around `32 seconds` to build close to `~10,000` pages!
 
-Take a look:
+**Take a look:**
 
 ```bash
 
@@ -52,6 +52,9 @@ Take a look:
 Built in 32.427 secons
 
 ```
+
+_Feel free to [give us pointers on how to improve our builds »](https://github.com/GSA/digitalgov.gov/issues)_
+
 
 In addition to HUGO, we are proudly using a number of other tools and services, all built by government are free to use:
 
