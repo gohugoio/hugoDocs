@@ -49,7 +49,7 @@ At the moment, it takes around `32 seconds` to build close to `~10,000` pages!
   Sitemaps         |    1
   Cleaned          |    0
 
-Built in 32.427 secons
+Built in 32.427 seconds
 
 ```
 
