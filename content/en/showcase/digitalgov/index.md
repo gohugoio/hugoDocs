@@ -6,7 +6,7 @@ siteURL: https://digital.gov/
 siteSource: https://github.com/gsa/digitalgov.gov
 ---
 
-For over a decade, Digital.gov has provided guidance, training, and community support to the people who are responsible for delivering digital services in government. Essentially, it is a place where people can find examples of problems being solved in government, and get links to the tools and resources they need.
+For over a decade, Digital.gov has provided guidance, training, and community support to the people who are responsible for delivering digital services in the U.S. government. Essentially, it is a place where people can find examples of problems being solved in government, and get links to the tools and resources they need.
 
 Through collaboration in our communities of practice, Digital.gov is a window into the people who work in technology in government and the challenges they face making digital services stronger and more effective. [Read more about our site »](https://digital.gov/2019/12/19/a-new-digitalgov/)
 
