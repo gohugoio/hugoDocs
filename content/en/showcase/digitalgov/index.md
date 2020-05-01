@@ -58,7 +58,7 @@ _Feel free to [give us pointers on how to improve our builds »](https://github.
 
 In addition to HUGO, we are proudly using a number of other tools and services, all built by government are free to use:
 
--   [Federalist](https://federalist.18f.gov/)
+-   [Federalist](https://federalist.18f.gov/) — A publishing platform for static websites, from the U.S. government.
 -   [Search.gov](https://www.search.gov/)  — A free, hosted search platform for federal websites.
 -   [Cloud.gov](https://www.cloud.gov/)  — helps teams build, run, and authorize cloud-ready or legacy government systems quickly and cheaply.
 -   [Federal CrowdSource Mobile Testing Program](https://digital.gov/services/mobile-application-testing-program/)  — Free mobile compatibility testing by feds, for feds.
