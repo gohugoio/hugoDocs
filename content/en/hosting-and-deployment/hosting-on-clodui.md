@@ -1,7 +1,7 @@
 ---
 title: Host on Clodui
 linktitle: Host on Clodui
-description: Clodui optimizes your website files for speed and serve from a global CDN
+description: Clodui optimizes your website files for speed and serves from a global CDN
 godocref: ""
 publishdate: "2020-05-16"
 lastmod: ""
@@ -67,7 +67,7 @@ There are multiple ways to deploy your Hugo website; choose a strategy to fit yo
         --website-id <website id>
    ```
 
-#### Continuos deployment from GitHub actions
+#### Continuous deployment from GitHub actions
 
 [GitHub Actions](https://github.com/features/actions) allows you to automate deployment workflows. Use custom [Clodui Actions](https://github.com/marketplace/actions/clodui-actions) to deploy changes to your Clodui website.
 
