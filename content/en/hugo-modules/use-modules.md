@@ -41,9 +41,7 @@ The easiest way to use a for a theme is to import it in the config.
 ```toml
 [module]
   [[module.imports]]
-    path = "github.com/dzello/reveal-hugo"
-
-theme = "reveal-hugo"
+    path = "github.com/spf13/hyde/"
 ```
 
 ## Update Modules
