@@ -54,3 +54,15 @@ error: failed to transform resource: TOCSS: failed to transform "scss/main.scss"
 We release two set of binaries for technical reasons. The extended version is not what you get by default for some installation methods. On the [release page](https://github.com/gohugoio/hugo/releases), look for archives with `extended` in the name. To build `hugo-extended`, use `go install --tags extended`
 
 To confirm, run `hugo version` and look for the word `extended`.
+
+## What Is The Difference Between Hugo Regular and Hugo Extended and Which Version Should I Choose?
+
+The biggest difference is that Hugo Extended includes [built-in SCSS/SASS support]({{< ref "scss-sass">}}). This comes at the expense of some performance[^1].
+
+Some good reasons to stick to regular Hugo are:
+
+* If you don't need SASS/SCSS.
+* You want to use certain [SASS features which aren't supported on Hugo Extended]({{< relref "scss-sass#limitations" >}}), like `@use`.
+* You want to run Hugo in a resource constrained environment[^1], like a minimal docker container.
+
+[^1]: The extended version includes [libsass](https://sass-lang.com/libsass), a C dependency which comes with overhead, reduced portability (since C is needed in addition to Go) and a complicated build chain. Given Hugo's emphasis on performance, [C dependencies aren't allowed in Hugo's source code](https://github.com/gohugoio/hugo/blob/master/CONTRIBUTING.md#code-contribution) and this is the only exception.
