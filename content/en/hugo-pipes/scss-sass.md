@@ -28,9 +28,7 @@ Any SASS or SCSS file can be transformed into a CSS file using `resources.ToCSS`
 
 ### Limitations
 
-Asides from only working on the extended version of Hugo, some newer SASS features might not be present, like the @use rule. If you look through [Sass's documentation](https://sass-lang.com/blog/the-module-system-is-launched), any features which aren't supported by `libsass` won't work in Hugo Extended.
-
-To get newer SASS features, you will have to add it manually, as shown by the [Victor Hugo](https://github.com/netlify/victor-hugo) starter kit.
+Asides from only working on the extended version of Hugo, some SASS features might not be present, like the @use rule. If you look through [Sass's documentation](https://sass-lang.com/blog/the-module-system-is-launched), any features which aren't supported by `libsass` won't work in Hugo Extended.
 
 ### Options
 targetPath [string]
