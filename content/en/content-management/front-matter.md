@@ -21,6 +21,20 @@ toc: true
 
 {{< youtube Yh2xKRJGff4 >}}
 
+
+## Front Matter Example
+
+If a variable is defined in front matter of `report.md`, as
+```
+--- 
+pdf: "energy.pdf"
+---
+```
+then it can be accessed in `single.html` template as
+```
+<a href={{ printf "/doc/%s" $.Params.pdf  }}> Download PDF </a>
+```
+
 ## Front Matter Formats
 
 Hugo supports four formats for front matter, each with their own identifying tokens.
