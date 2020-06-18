@@ -459,6 +459,8 @@ In the above example, you may want `{{.Title}}` to point the `title` field you h
 
 The following template takes grouping by `date` a step further and uses Go's layout string. See the [`Format` function][] for more examples of how to use Go's layout string to format dates in Hugo.
 
+> Up to Hugo 0.72.0 this function only works with TOML frontmatter and when date/time values are unquoted, as per the [TOML specifications](https://github.com/toml-lang/toml). It does not work correctly with JSON or YAML frontmatter. See [Issue 3983](https://github.com/gohugoio/hugo/issues/3983#issuecomment-645321822) for more details.
+
 {{< code file="layouts/partials/by-page-param-as-date.html" >}}
 <!-- Groups content by month according to the "param_key" field in front matter -->
 {{ range .Pages.GroupByParamDate "param_key" "2006-01" }}
