@@ -14,8 +14,7 @@ toc: true
 
 {{< new-in "0.60.0" >}}
 
-See [Goldmark](#goldmark) for settings related to the default Markdown
-handler in Hugo.
+See [Goldmark](#goldmark) for settings related to the default Markdown handler in Hugo.
 
 Below are all markup related configuration in Hugo with their default settings:
 
@@ -25,12 +24,7 @@ Below are all markup related configuration in Hugo with their default settings:
 
 ### Goldmark
 
-[Goldmark](https://github.com/yuin/goldmark/) is from Hugo 0.60 the
-default library used for Markdown. It's fast, it's
-[CommonMark](https://spec.commonmark.org/0.29/) compliant and it's very
-flexible. Note that the feature set of Goldmark vs Blackfriday isn't the
-same; you gain a lot but also lose some, but we will work to bridge any
-gap in the upcoming Hugo versions.
+[Goldmark](https://github.com/yuin/goldmark/) is from Hugo 0.60 the default library used for Markdown. It's fast, it's [CommonMark](https://spec.commonmark.org/0.29/) compliant and it's very flexible. Note that the feature set of Goldmark vs Blackfriday isn't the same; you gain a lot but also lose some, but we will work to bridge any gap in the upcoming Hugo versions.
 
 This is the default configuration:
 
@@ -39,30 +33,18 @@ This is the default configuration:
 Some settings explained:
 
 unsafe
-: By default, Goldmark does not render raw HTMLs and potentially
-dangerous links. If you have lots of inline HTML and/or JavaScript, you
-may need to turn this on.
+: By default, Goldmark does not render raw HTMLs and potentially dangerous links. If you have lots of inline HTML and/or JavaScript, you may need to turn this on.
 
 typographer
-: This extension substitutes punctuations with typographic entities like
-[smartypants](https://daringfireball.net/projects/smartypants/).
+: This extension substitutes punctuations with typographic entities like [smartypants](https://daringfireball.net/projects/smartypants/).
 
 autoHeadingIDType ("github") {{< new-in "0.62.2" >}}
-: The strategy used for creating auto IDs (anchor names). Available
-types are `github`, `github-ascii` and `blackfriday`. `github` produces
-GitHub-compatible IDs, `github-ascii` will drop any non-Ascii characters
-after accent normalization, and `blackfriday` will make the IDs work as
-with [Blackfriday](#blackfriday), the default Markdown engine before
-Hugo 0.60. Note that if Goldmark is your default Markdown engine, this
-is also the strategy used in the [anchorize](/functions/anchorize/)
-template func.
+: The strategy used for creating auto IDs (anchor names). Available types are `github`, `github-ascii` and `blackfriday`. `github` produces GitHub-compatible IDs, `github-ascii` will drop any non-Ascii characters after accent normalization, and `blackfriday` will make the IDs work as with [Blackfriday](#blackfriday), the default Markdown engine before Hugo 0.60. Note that if Goldmark is your default Markdown engine, this is also the strategy used in the [anchorize](/functions/anchorize/) template func.
 
 ### Blackfriday
 
-[Blackfriday](https://github.com/russross/blackfriday) was Hugo's
-default Markdown rendering engine, now replaced with Goldmark. But you
-can still use it: Just set `defaultMarkdownHandler` to `blackfriday` in
-your top level `markup` config.
+
+[Blackfriday](https://github.com/russross/blackfriday) was Hugo's default Markdown rendering engine, now replaced with Goldmark. But you can still use it: Just set `defaultMarkdownHandler` to `blackfriday` in your top level `markup` config.
 
 This is the default config:
 
@@ -70,9 +52,7 @@ This is the default config:
 
 ### Highlight
 
-This is the default `highlight` configuration. Note that some of these
-settings can be set per code block, see [Syntax
-Highlighting](/content-management/syntax-highlighting/).
+This is the default `highlight` configuration. Note that some of these settings can be set per code block, see [Syntax Highlighting](/content-management/syntax-highlighting/).
 
 {{< code-toggle config="markup.highlight" />}}
 
@@ -90,8 +70,7 @@ For CSS, see [Generate Syntax Highlighter CSS](/content-management/syntax-highli
 These settings only works for the Goldmark renderer:
 
 startLevel
-: The heading level, values starting at 1 (`h1`), to start render the
-table of contents.
+: The heading level, values starting at 1 (`h1`), to start render the table of contents.
 
 endLevel
 : The heading level, inclusive, to stop render the table of contents.
@@ -99,19 +78,16 @@ endLevel
 ordered
 : Whether or not to generate an ordered list instead of an unordered list.
 
+
 ## Markdown Render Hooks
 
 {{< new-in "0.62.0" >}}
 
 Note that this is only supported with the [Goldmark](#goldmark) renderer.
 
-Render Hooks allow custom templates to override markdown rendering
-functionality. You can do this by creating templates with base names
-`render-{feature}` in `layouts/_default/_markup`.
+Render Hooks allow custom templates to override markdown rendering functionality. You can do this by creating templates with base names `render-{feature}` in `layouts/_default/_markup`.
 
-You can also create type/section specific hooks in
-`layouts/[type/section]/_markup`, e.g.: `layouts/blog/_markup`.
-{{< new-in "0.73.0" >}}
+You can also create type/section specific hooks in `layouts/[type/section]/_markup`, e.g.: `layouts/blog/_markup`. {{< new-in "0.73.0" >}}
 
 The features currently supported are:
 
@@ -119,9 +95,7 @@ The features currently supported are:
 * `link`
 * `heading` {{< new-in "0.71.0" >}}
 
-You can define [Output-Format-](/templates/output-formats) and
-[language-](/content-management/multilingual/)specific templates if
-needed. Your `layouts` folder may look like this:
+You can define [Output-Format-](/templates/output-formats) and [language-](/content-management/multilingual/)specific templates if needed. Your `layouts` folder may look like this:
 
 ```bash
 layouts
@@ -138,9 +112,7 @@ layouts
 
 Some use cases for the above:
 
-* Resolve link references using `.GetPage`. This would make links
-  portable as you could translate `./my-post.md` (and similar constructs
-  that would work on GitHub) into `/blog/2019/01/01/my-post/` etc.
+* Resolve link references using `.GetPage`. This would make links portable as you could translate `./my-post.md` (and similar constructs that would work on GitHub) into `/blog/2019/01/01/my-post/` etc.
 * Add `target=_blank` to external links.
 * Resolve and [process](/content-management/image-processing/) images.
 * Add [header links](https://remysharp.com/2014/08/08/automatic-permalinks-for-blog-posts).
@@ -181,7 +153,7 @@ Text
 PlainText
 : The plain variant of the above.
 
-#### Link with title Markdown example
+#### Link with title Markdown example:
 
 ```md
 [Text](https://www.gohugo.io "Title")
@@ -193,7 +165,7 @@ Here is a code example for how the render-link.html template could look:
 <a href="{{ .Destination | safeURL }}"{{ with .Title}} title="{{ . }}"{{ end }}{{ if strings.HasPrefix .Destination "http" }} target="_blank" rel="noopener"{{ end }}>{{ .Text | safeHTML }}</a>
 {{< /code >}}
 
-#### Image Markdown example
+#### Image Markdown example:
 
 ```md
 ![Text](https://d33wubrfki0l68.cloudfront.net/c38c7334cc3f23585738e40334284fddcaf03d5e/2e17c/images/hugo-logo-wide.svg "Title")
