@@ -43,9 +43,24 @@ Setting `Paginate` to a positive value will split the list pages for the homepag
 There are two ways to configure and use a `.Paginator`:
 
 1. The simplest way is just to call `.Paginator.Pages` from a template. It will contain the pages for *that page*.
-2. Select a subset of the pages with the available template functions and ordering options, and pass the slice to `.Paginate`, e.g. `{{ range (.Paginate ( first 50 .Pages.ByTitle )).Pages }}`.
+2. Select another set of pages with the available template functions and ordering options, and pass the slice to `.Paginate`, e.g.
+  * `{{ range (.Paginate ( first 50 .Pages.ByTitle )).Pages }}` or
+  * `{{ range (.Paginate .RegularPagesRecursive).Pages }}`.
 
 For a given **Page**, it's one of the options above. The `.Paginator` is static and cannot change once created.
+
+It's essential that there be **at most one call** to either `.Paginator` or `.Paginate` while generating a page. These functions have side effects, and multiple calls will result in unexpected behaviour. For example, if you want to use a different paginator based on a condition `c`, you must use `if`/`else` like this:
+
+```
+$paginator := ""
+{{ if c }}
+    {{ $paginator = .Paginator }}
+{{ else }}
+    {{ $paginator = .Paginate x }}
+{{ end }}
+```
+
+and **not** `$paginator := cond c .Paginator (.Paginate x)`, because this will cause both `.Paginator` and `.Paginate x` to be evaluated.
 
 The global page size setting (`Paginate`) can be overridden by providing a positive integer as the last argument. The examples below will give five items per page:
 
