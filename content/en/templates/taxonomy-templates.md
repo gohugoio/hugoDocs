@@ -158,7 +158,7 @@ Hugo uses both `date` and `weight` to order content within taxonomies.
 
 Each piece of content in Hugo can optionally be assigned a date. It can also be assigned a weight for each taxonomy it is assigned to.
 
-When iterating over content within taxonomies, the default sort is the same as that used for [section and list pages]() first by weight then by date. This means that if the weights for two pieces of content are the same, then the more recent content will be displayed first.
+When iterating over content within taxonomies, the default sort is the same as that used for section and list pages first by weight then by date. This means that if the weights for two pieces of content are the same, then the more recent content will be displayed first.
 
 The default weight for any piece of content is 0.
 
