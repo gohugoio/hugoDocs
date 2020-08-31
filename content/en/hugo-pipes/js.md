@@ -26,6 +26,11 @@ Note that the target path's extension may change if the target MIME type is diff
 minify [bool]
 : Let `js.Build` handle the minification.
 
+sourceMap [string, bool] {{< new-in "0.75-DEV" >}}
+: Let `js.Build` output sourceMap. Current only inline is supported. true defaults to inline.
+  One of: true, false, `inline`, `external`
+  Default is false
+
 target [string]
 : The language target.
   One of: `es5`, `es2015`, `es2016`, `es2017`, `es2018`, `es2019`, `es2020` or `esnext`.
