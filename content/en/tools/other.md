@@ -27,3 +27,4 @@ And for all the other small things around Hugo:
 * [Hugo SFTP Upload](https://github.com/thomasmey/HugoSftpUpload) Syncs the local build of your Hugo website with your remote webserver via SFTP.
 * [Emacs Easy Hugo](https://github.com/masasam/emacs-easy-hugo) Emacs package for writing blog posts in markdown or org-mode and building your site with Hugo.
 * [JAMStack Themes](https://jamstackthemes.dev/ssg/hugo/). JAMStack themes is a collection of site themes filterable by static site generator and supported CMS to help build CMS-connected sites using Hugo (linking to Hugo-specific themes).
+* [hugo-embed-pdf-shortcode](https://github.com/anvithks/hugo-embed-pdf-shortcode) A shortcode that allows you to embed PDF files in a page using [PDF.js](https://mozilla.github.io/pdf.js/)
