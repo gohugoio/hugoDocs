@@ -141,7 +141,7 @@ If you are a Windows user, substitute the `$HOME` environment variable above wit
 
 There are three ways to install Hugo on your Mac
 
-1. The [Homebrew][brew] `brew` utility
+1. A package manager, like [Homebrew][brew] (`brew`) or [MacPorts][macports] (`port`)
 2. Distribution (i.e., tarball)
 3. Building from Source
 
@@ -151,7 +151,7 @@ There is no "best" way to install Hugo on your Mac. You should use the method th
 
 There are pros and cons to each of the aforementioned methods:
 
-1. **Homebrew.** Homebrew is the simplest method and will require the least amount of work to maintain. The drawbacks aren't severe. The default package will be for the most recent release, so it will not have bug fixes until the next release (i.e., unless you install it with the `--HEAD` option). Hugo `brew` releases may lag a few days behind because it has to be coordinated with another team. Nevertheless, `brew` is the recommended installation method if you want to work from a stable, widely used source. Brew works well and is easy to update.
+1. **Package Manager.** Using a package manager is the simplest method and will require the least amount of work to maintain. The drawbacks aren't severe. The default package will be for the most recent release, so it will not have bug fixes until the next release (i.e., unless you install it with the `--HEAD` option in Homebrew). Releases may lag a few days behind because it has to be coordinated with another team. Nevertheless, this is the recommended installation method if you want to work from a stable, widely used source. Package managers work well and they are easy to update.
 
 2. **Tarball.** Downloading and installing from the tarball is also easy, although it requires a few more command line skills than does Homebrew. Updates are easy as well: you just repeat the process with the new binary. This gives you the flexibility to have multiple versions on your computer. If you don't want to use `brew`, then the tarball/binary is a good choice.
 
