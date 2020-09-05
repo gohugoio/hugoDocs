@@ -58,6 +58,14 @@ brew install hugo
 
 For more detailed explanations, read the installation guides that follow for installing on macOS and Windows.
 
+### MacPorts (macOS)
+
+If you are on macOS and using [MacPorts][macports], you can install Hugo with the following one-liner:
+
+{{< code file="install-with-macports.sh" >}}
+port install hugo
+{{< /code >}}
+
 ### Homebrew (Linux)
 
 If you are using [Homebrew][linuxbrew] on Linux, you can install Hugo with the following one-liner:
@@ -532,6 +540,7 @@ Upgrading Hugo is as easy as downloading and replacing the executable you’ve p
 Now that you've installed Hugo, read the [Quick Start guide][quickstart] and explore the rest of the documentation. If you have questions, ask the Hugo community directly by visiting the [Hugo Discussion Forum][forum].
 
 [brew]: https://brew.sh/
+[macports]: https://www.macports.org/
 [Chocolatey]: https://chocolatey.org/
 [content]: /content-management/
 [@dhersam]: https://github.com/dhersam
