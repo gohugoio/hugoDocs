@@ -72,6 +72,9 @@ See [`.Scratch`](/functions/scratch/) for page-scoped, writable variables.
 .IsPage
 : always `true` for regular content pages.
 
+.IsSection
+: always `false` for regular content pages and the [homepage](/templates/homepage/).
+
 .IsTranslated
 : `true` if there are translations to display.
 
