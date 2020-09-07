@@ -24,7 +24,7 @@ If `SUBSTR` is an empty string, this function returns 1 plus the number of Unico
 
 Example|Result
 :--|:--
-`{{ strings.Count "a" "aaabaab" }}`|5
-`{{ strings.Count "aa" "aaabaab" }}`|2
-`{{ strings.Count "aaa" "aaabaab" }}`|1
-`{{ strings.Count "" "aaabaab" }}`|8
+`{{ "aaabaab" | strings.Count "a" }}`|5
+`{{ "aaabaab" | strings.Count "aa" }}`|2
+`{{ "aaabaab" | strings.Count "aaa" }}`|1
+`{{ "aaabaab" | strings.Count "" }}`|8
