@@ -104,7 +104,9 @@ That's it! Your personal page should be up and running at `https://<USERNAME>.gi
 
 ### Setup Hugo's Configuration Directory
 
-Github Project Pages appends the project's repository name to the URL.  The format is: `<USERNAME>.github.io/<REPOSITORY-NAME>/`
+If you are using a custom domain you will not need to setup Hugo's Configuration Directory.  For a custom domain `baseURL = "/"`.
+
+Github Project Pages appends the project's repository name to the URL.  The URL format is: `<USERNAME>.github.io/<REPOSITORY-NAME>/`
 
 Because of the addition of `<REPOSITORY-NAME>` to the http path, a different `baseURL` must set for Github Project Pages to render html correctly.  However `hugo serve` still needs the default `baseURL = "/"` in order to render local builds.
 
