@@ -102,9 +102,29 @@ That's it! Your personal page should be up and running at `https://<USERNAME>.gi
 
 ## GitHub Project Pages
 
-{{% note %}}
-Make sure your `baseURL` key-value in your [site configuration](/getting-started/configuration/) reflects the full URL of your GitHub pages repository if you're using the default GH Pages URL (e.g., `<USERNAME>.github.io/<PROJECT>/`) and not a custom domain.
-{{% /note %}}
+### Setup Hugo's Configuration Directory
+
+Github Project Pages appends the project's repository name to the URL.  The format is: `<USERNAME>.github.io/<REPOSITORY-NAME>/`
+
+Because of the addition of `<REPOSITORY-NAME>` to the http path, a different `baseURL` must set for Github Project Pages to render html correctly.  However `hugo serve` still needs the default `baseURL = "/"` in order to render local builds.
+
+The easiest way to solve these two conditions is to setup [Hugo's Configuration Directory](https://gohugo.io/getting-started/configuration/#configuration-directory) to handle builds for the different environments: local vs Github Project Pages.  
+
+1. Create the directory `config/_default`
+1. Move config.toml from Hugo's root directory into  `config/_default`  
+1. Create the directory `config/GithubProjectPage`
+1. Create the file `config/GithubProjectPage/config.toml` which only requires one line of text:  `baseuURL =  "/<REPOSITORY-NAME>"`
+
+```unix
+config
+├── GithubProjectPage
+│   └── config.toml  #baseURL = "/REPOSITORY-NAME"
+└── _default
+    └── config.toml  #baseURL = "/"
+```
+
+5. To test the Configuration Directory is setup correctly, build your local environment by running `hugo serve` and verify the html renders ok.
+6. To test the GithubProjectPage configuration run `hugo --environment GithubProjectPage`, push the build to Github, and view the Github Project Page at: `<USERNAME>.github.io/<REPOSITORY-NAME>/`
 
 ### Deployment of Project Pages from `/docs` folder on `master` branch
 
