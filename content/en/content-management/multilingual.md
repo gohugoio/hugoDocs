@@ -465,7 +465,7 @@ The rendering of the main navigation works as usual. `.Site.Menus` will just con
 
 ## Missing Translations
 
-If a string does not have a translation for the current language, Hugo will use the value from the default language. If no default value is set, an empty string will be shown.
+If a string does not have a translation for the current language, Hugo will use the value from the default language (`DefaultContentLanguage`). If no default language is set, English translations will be used. If English translation for the string is not availabe, an empty string will be shown.
 
 While translating a Hugo website, it can be handy to have a visual indicator of missing translations. The [`enableMissingTranslationPlaceholders` configuration option][config] will flag all untranslated strings with the placeholder `[i18n] identifier`, where `identifier` is the id of the missing translation.
 
