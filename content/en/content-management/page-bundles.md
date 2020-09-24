@@ -97,10 +97,7 @@ as long as it is not inside another **leaf** bundle.
 ### Headless Bundle {#headless-bundle}
 
 A headless bundle is a bundle that is configured to not get published
-anywhere:
-
--   It will have no `Permalink` and no rendered HTML in `public/`.
--   It will not be part of `.Site.RegularPages`, etc.
+anywhere. It will have no `Permalink` and no rendered HTML in `public/`.
 
 But you can get it by `.Site.GetPage`. Here is an example:
 
