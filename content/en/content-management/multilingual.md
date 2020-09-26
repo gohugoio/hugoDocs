@@ -360,13 +360,13 @@ This article has 101 words.
 
 ### Query a singular/plural translation
 
-In other to meet singular/plural requirement, you must pass a dictionary (map) data with a numeric `.Count` property to the `i18n` function. The below example uses `.ReadingTime` variable which has a built-in `.Count` property.
+In other to meet singular/plural requirement, you must pass a dictionary (map) with a numeric `.Count` property to the `i18n` function. The below example uses `.ReadingTime` variable which has a built-in `.Count` property.
 
 ```
 {{ i18n "readingTime" .ReadingTime }}
 ```
 
-The function will read `.Count` from `.ReadingTime` and evaluate where the number is singular (`one`) or plural (`other`). After that, it will pass to `readingTime` id in `i18n/en-US.toml` file:
+The function will read `.Count` from `.ReadingTime` and evaluate whether the number is singular (`one`) or plural (`other`). After that, it will pass to `readingTime` id in `i18n/en-US.toml` file:
 
 ```
 [readingTime]
@@ -374,7 +374,7 @@ one = "One minute to read"
 other = "{{.Count}} minutes to read"
 ```
 
-Assume `.ReadingTime.Count` in the context has value is 525600. The result will be:
+Assuming `.ReadingTime.Count` in the context has value is 525600. The result will be:
 
 ```
 525600 minutes to read
@@ -386,7 +386,7 @@ If `.ReadingTime.Count` in the context has value is 1. The result is:
 One minutes to read
 ```
 
-In case you need to pass a custom data: (`"(dict Count" 25)` is minimum requirment)
+In case you need to pass a custom data: (`(dict "Count" numeric_value_only)` is minimum requirment)
 
 ```
 {{ i18n "readingTime" (dict "Count" 25 "FirstArgument" true "SecondArgument" false "Etc" "so on, so far") }}
@@ -490,6 +490,12 @@ To support Multilingual mode in your themes, some considerations must be taken f
 * Be constructed with the [`relLangURL` template function][rellangurl] or the [`absLangURL` template function][abslangurl] **OR** be prefixed with `{{ .LanguagePrefix }}`
 
 If there is more than one language defined, the `LanguagePrefix` variable will equal `/en` (or whatever your `CurrentLanguage` is). If not enabled, it will be an empty string (and is therefore harmless for single-language Hugo websites).
+
+
+## Generate multilingual content with `hugo new`
+Currently, `hugo new` is not ready to support generating multilingual content. But there is a [proposal topic](https://github.com/gohugoio/hugo/issues/7732) about this in Github issue to discuss how it should work.
+
+
 
 [abslangurl]: /functions/abslangurl
 [config]: /getting-started/configuration/
