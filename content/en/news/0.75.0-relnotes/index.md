@@ -49,10 +49,10 @@ const tailwind = require('tailwindcss')(tailwindConfig);
 ## Statistics
 
 This release represents **79 contributions by 19 contributors** to the main Hugo code base. [@bep](https://github.com/bep) leads the Hugo development with a significant amount of contributions, but also a big shoutout to [@dependabot[bot]](https://github.com/apps/dependabot), [@moorereason](https://github.com/moorereason), and [@jmooring](https://github.com/jmooring) for their ongoing contributions.
-And a big thanks to [@digitalcraftsman](https://github.com/digitalcraftsman) for his relentless work on keeping the themes site in pristine condition and to [@davidsneighbour](https://github.com/davidsneighbour), [@coliff](https://github.com/coliff) and [@kaushalmodi](https://github.com/kaushalmodi) for all the great work on the documentation site.
+And a big thanks to [@digitalcraftsman](https://github.com/digitalcraftsman) for his relentless work on keeping the themes site in pristine condition.
 
 Many have also been busy writing and fixing the documentation in [hugoDocs](https://github.com/gohugoio/hugoDocs), 
-which has received **24 contributions by 15 contributors**. A special thanks to [@jmooring](https://github.com/jmooring), [@bep](https://github.com/bep), [@jornane](https://github.com/jornane), and [@inwardmovement](https://github.com/inwardmovement) for their work on the documentation site.
+which has received **24 contributions by 15 contributors**. A special thanks to [@davidsneighbour](https://github.com/davidsneighbour), [@coliff](https://github.com/coliff), [@jmooring](https://github.com/jmooring), [@bep](https://github.com/bep), [@jornane](https://github.com/jornane), and [@inwardmovement](https://github.com/inwardmovement) for their work on the documentation site.
 
 
 Hugo now has:
@@ -62,6 +62,7 @@ Hugo now has:
 * 352+ [themes](http://themes.gohugo.io/)
 
 ## Notes
+
 * We now build with Go 1.15, which means that we no longer build release binaries for MacOS 32-bit.
 * You may now get an error message about "error calling partial: partials that returns a value needs a non-zero argument.". This error situation was not caught earlier, and comes from a limitation in Go's templates: If you use the `return` keyword in a partial, the argument you pass to that partial (e.g. the ".") cannot be zero (and 0 and "" is considered a zero argument).
 
@@ -159,8 +160,3 @@ Hugo now has:
 * Fix Asciidoctor args [45c665d3](https://github.com/gohugoio/hugo/commit/45c665d396ed368261f4a63ceee753c7f6dc5bf9) [@helfper](https://github.com/helfper) [#7493](https://github.com/gohugoio/hugo/issues/7493)
 * Fix date format in internal schema template [a06c06a5](https://github.com/gohugoio/hugo/commit/a06c06a5c202de85ff47792b7468bfaeec2fea12) [@jmooring](https://github.com/jmooring) [#7495](https://github.com/gohugoio/hugo/issues/7495)
 * Fix baseof block regression [c91dbe4c](https://github.com/gohugoio/hugo/commit/c91dbe4ce9c30623ba6e686fd17efae935aa0cc5) [@bep](https://github.com/bep) [#7478](https://github.com/gohugoio/hugo/issues/7478)
-
-
-
-
-
