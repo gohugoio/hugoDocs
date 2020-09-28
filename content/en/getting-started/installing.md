@@ -128,11 +128,12 @@ Remove `--tags extended` if you do not want/need Sass/SCSS support.
 
 {{% note %}}
 
-##### For Windows user
-- Substitute the `$HOME` environment variable above with `%USERPROFILE%`.
-- If you encounter this error `"gcc": executable file not found in %PATH%`
-  - Please make sure you have installed `gcc` command.
-  - "MinGW" is recommended, it has been tested and built successfully
+##### For installation on Windows
+
+* Substitute the `$HOME` environment variable above with `%USERPROFILE%`.
+* If you install `--tags extended` version, you may encounter this error `"gcc": executable file not found in %PATH%`
+  * Please make sure you have installed `gcc` command and add it to `%PATH%`.
+  * "MinGW" is recommended, it has been tested and built successfully
 
 {{% /note %}}
 
