@@ -27,12 +27,12 @@ toc: true
 If a variable is defined in front matter of `report.md`, as
 ```
 --- 
-pdf: "energy.pdf"
+energydoc: "energy.pdf"
 ---
 ```
 then it can be accessed in `single.html` template as
 ```
-<a href={{ printf "/doc/%s" $.Params.pdf  }}> Download PDF </a>
+<a href="{{ printf '/doc/%s' .Params.energydoc }}"> Download PDF </a>
 ```
 
 ## Front Matter Formats
