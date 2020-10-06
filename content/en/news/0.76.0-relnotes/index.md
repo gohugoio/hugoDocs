@@ -1,7 +1,7 @@
 
 ---
 date: 2020-10-06
-title: "Multiple Cascades With Page Filters"
+title: "Hugo 0.76.0: Multiple Cascades With Page Filters"
 description: "Hugo 0.76.0 brings multiple cascade blocks per page with filters for path, kind and language."
 categories: ["Releases"]
 ---
