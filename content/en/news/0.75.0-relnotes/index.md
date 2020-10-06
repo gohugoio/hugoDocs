@@ -1,7 +1,7 @@
 
 ---
 date: 2020-09-14
-title: "NPM Pack"
+title: "Hugo 0.75.0: NPM Pack"
 description: "Hugo 0.75 comes with a new \"hugo mod npm pack\" command, several improvements re. Hugo Modules and the Node tools, and more."
 categories: ["Releases"]
 ---
