@@ -563,6 +563,7 @@ i.freebsd-19px:before {
 #TableOfContents > ul > li > ul > li > ul li { margin-right: 8px; }
 #TableOfContents > ul > li > ul > li > a, #TableOfContents > ul > li > a   { font-weight: bold; background-color: #eeeeee; padding: 0 10px; margin: 0 2px; }
 #TableOfContents > ul > li > ul > li > a { font-style: italic; }
+#TableOfContents ul ul { margin-left:1rem; }
 .toc.compact ul > li > ul > li > ul  { display: none; }
 
 #toc {
