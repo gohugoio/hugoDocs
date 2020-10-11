@@ -484,6 +484,8 @@ To switch between the two, use either `snap refresh hugo --channel=extended` or 
 
 {{% note %}}
 Hugo installed via Snap can write only inside the user’s `$HOME` directory---and gvfs-mounted directories owned by the user---because of Snaps’ confinement and security model. More information is also available [in this related GitHub issue](https://github.com/gohugoio/hugo/issues/3143).
+
+If you are using NPM packages with a Snap installed Hugo you MUST install all packages locally into your project (`npm install --save-dev package` as opposed to `npm install -g`) so Hugo can find these packages.
 {{% /note %}}
 
 ### Debian and Ubuntu
