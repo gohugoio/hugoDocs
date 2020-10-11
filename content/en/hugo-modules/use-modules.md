@@ -81,7 +81,7 @@ Also see the [CLI Doc](/commands/hugo_mod_get/).
 
 ## Make and test changes in a module
 
-One way to do local development of a module imported in a project is to add a replace directive to a local directory with the source in `go.mod`:
+One way to do local development of a module imported in a project is to add a replace directive to a local directory _before_ the require command in `go.mod`:
 
 ```bash
 replace github.com/bep/hugotestmods/mypartials => /Users/bep/hugotestmods/mypartials
