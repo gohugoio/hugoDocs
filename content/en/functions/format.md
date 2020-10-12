@@ -108,7 +108,6 @@ This will output:
 5th of March 2017
 ```
 
-<!-- Content idea: see https://discourse.gohugo.io/t/formatting-a-date-with-suffix-2nd/5701 -->
 
 ### Use `.Local` and `.UTC`
 
