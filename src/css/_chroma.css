@@ -20,7 +20,7 @@
 /* LiteralString */ .chroma .sc1c { color: #4070a0 }
 /* LiteralStringDoc */ .chroma .sc23 { color: #4070a0; font-style: italic }
 /* LiteralStringEscape */ .chroma .sc25 { color: #4070a0; font-weight: bold }
-/* LiteralStringInterpol */ .chroma .sc27 { color: #70a0d0; font-style: italic }
+/* LiteralStringInterpol */ .chroma .sc27 { color: #70a0d0; font-style: sans-serif }
 /* LiteralStringOther */ .chroma .sc29 { color: #c65d09 }
 /* LiteralStringRegex */ .chroma .sc2a { color: #235388 }
 /* LiteralStringSymbol */ .chroma .sc2c { color: #517918 }
