@@ -4,10 +4,10 @@ linktitle: Host on GitHub
 description: Deploy Hugo as a GitHub Pages project or personal/organizational site and automate the whole process with a simple shell script.
 date: 2014-03-21
 publishdate: 2014-03-21
-lastmod: 2018-09-22
+lastmod: 2020-11-12
 categories: [hosting and deployment]
 keywords: [github,git,deployment,hosting]
-authors: [Spencer Lyon, Gunnar Morling]
+authors: [Spencer Lyon, Gunnar Morling, Thomas Garlot]
 menu:
   docs:
     parent: "hosting-and-deployment"
@@ -36,11 +36,11 @@ There are 2 types of GitHub Pages:
 
 Please refer to the [GitHub Pages documentation][ghorgs] to decide which type of site you would like to create as it will determine which of the below methods to use.
 
-To create a User/Organization Pages site, follow the single method in the *GitHub User and Organization Pages* section below.
+To create a User/Organization Pages site, follow the single method in the *GitHub User or Organisation Pages* [section]({{< ref "#github-user-organisation-pages" >}}) below.
 
-To create a Project Pages site, choose a method from the *Project Pages* section below.
+To create a Project Pages site, choose a method from the *Project Pages* [section]({{< ref "#project-pages" >}}) below.
 
-## GitHub User or Organization Pages
+## GitHub User or Organization Pages {#github-user-organisation-pages}
 
 As mentioned in the [GitHub Pages documentation][ghorgs], you can host a user/organization page in addition to project pages. Here are the key differences in GitHub Pages websites for Users and Organizations:
 
@@ -54,12 +54,25 @@ This is a much simpler setup as your Hugo files and generated content are publis
 1. Create a `<YOUR-PROJECT>` (e.g. `blog`) repository on GitHub. This repository will contain Hugo's content and other source files.
 2. Create a `<USERNAME>.github.io` GitHub repository. This is the repository that will contain the fully rendered version of your Hugo website.
 3. `git clone <YOUR-PROJECT-URL> && cd <YOUR-PROJECT>`
-4. Paste your existing Hugo project into the new local `<YOUR-PROJECT>` repository. Make sure your website works locally (`hugo server` or `hugo server -t <YOURTHEME>`) and open your browser to <http://localhost:1313>.
-5. Once you are happy with the results:
+4. Paste your existing Hugo project into the new local `<YOUR-PROJECT>` repository. 
+5. Make sure your website works locally (`hugo server` or `hugo server -t <YOURTHEME>` and check via your browser at <http://localhost:1313>.
+6. Once you are happy with the results:
     * Press <kbd>Ctrl</kbd>+<kbd>C</kbd> to kill the server
-    * Before proceeding run `rm -rf public` to completely remove the `public` directory
-6. `git submodule add -b master https://github.com/<USERNAME>/<USERNAME>.github.io.git public`. This creates a git [submodule][]. Now when you run the `hugo` command to build your site to `public`, the created `public` directory will have a different remote origin (i.e. hosted GitHub repository).
-7. Make sure the `baseURL` in your config file is updated with: `<USERNAME>.github.io`
+    * OPTIONAL - Add/commit/push your work to `<YOUR-PROJECT>` repository on GitHub.
+7. Generate the site content and initialise `<USERNAME>.github.io` GitHub repository:
+    * Run `hugo` command. It will output the HTML version in the `public` directory
+    * `cd public`
+    * `git init` then `git add .` then `git commit -m"Initial commit"` 
+    * Add the remote: `git remote add origin https://github.com/<USERNAME>/<USERNAME>.github.io.git` and push to it with `git push origin master` 
+    * then remove the `public` directory with `cd .. && rm-rf public`
+7. Add the  `<USERNAME>.github.io` GitHub repository as a git [submodule][] with `git submodule add -b master https://github.com/<USERNAME>/<USERNAME>.github.io.git public`. Now when you run the `hugo` command to build your site to `public`, the created `public` directory will have a different remote origin (i.e. hosted GitHub repository).
+
+---
+**Note**
+
+Make sure the `baseURL` in your config file is updated with: `<USERNAME>.github.io`
+
+---
 
 ### Put it Into a Script
 
@@ -95,12 +108,18 @@ git commit -m "$msg"
 git push origin master
 ```
 
+You can then run `./deploy.sh "Your optional commit message"` to send changes to `<USERNAME>.github.io`. 
 
-You can then run `./deploy.sh "Your optional commit message"` to send changes to `<USERNAME>.github.io`. Note that you likely will want to commit changes to your `<YOUR-PROJECT>` repository as well.
+---
+**Note**
+
+Note that you likely will want to commit changes to your `<YOUR-PROJECT>` repository as well as the script above only publish the changes in `<USERNAME>.github.io`. 
+
+---
 
 That's it! Your personal page should be up and running at `https://<USERNAME>.github.io` within a couple minutes.
 
-## GitHub Project Pages
+## GitHub Project Pages {#project-pages}
 
 {{% note %}}
 Make sure your `baseURL` key-value in your [site configuration](/getting-started/configuration/) reflects the full URL of your GitHub pages repository if you're using the default GH Pages URL (e.g., `<USERNAME>.github.io/<PROJECT>/`) and not a custom domain.
