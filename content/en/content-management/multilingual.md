@@ -26,7 +26,7 @@ You should define the available languages in a `languages` section in your site 
 The following is an example of a site configuration for a multilingual Hugo project:
 
 {{< code-toggle file="config" >}}
-DefaultContentLanguage = "en"
+defaultContentLanguage = "en"
 copyright = "Everything is mine"
 
 [params]
