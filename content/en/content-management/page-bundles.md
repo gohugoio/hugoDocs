@@ -186,4 +186,4 @@ The hierarchy depth at which a branch bundle is created does not
 matter.
 {{% /note %}}
 
-[^fn:1]: The `.md` extension is just an example. The extension can be `.html`, `.json` or any of any valid MIME type.
+[^fn:1]: The `.md` extension is just an example. The extension can be `.html`, `.json` or of any valid MIME type.
