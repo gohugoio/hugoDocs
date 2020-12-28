@@ -17,8 +17,12 @@ draft: false
 
 Asset files of the same MIME type can be bundled into one resource using `resources.Concat` which takes two arguments, a target path and a slice of resource objects.
 
+Default resources folder is `/assets` and can be configured via the configuration file’s `assetDir` key.
+
 ```go-html-template
 {{ $plugins := resources.Get "js/plugins.js" }}
 {{ $global := resources.Get "js/global.js" }}
 {{ $js := slice $plugins $global | resources.Concat "js/bundle.js" }}
+
+<script src="{{ $js.RelPermalink }}"></script>
 ```
