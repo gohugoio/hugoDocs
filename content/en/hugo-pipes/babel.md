@@ -68,6 +68,9 @@ verbose [bool]
 sourceMaps [string]
 : Output `inline` or `external` sourceMaps to babel output
 
+NOTE: Babel is able to read `inline` source maps from a previous pipe command
+and incorporate them into the output source maps.
+
 ### Examples
 
 ```go-html-template
@@ -79,4 +82,12 @@ Or with options:
 ```go-html-template
 {{ $opts := dict "noComments" true }}
 {{- $transpiled := resources.Get "scripts/main.js" | babel $opts -}}
+```
+
+Or with js.Build and source maps:
+
+```go-html-template
+{{ $jsBuildOpts := dict "sourceMap" "inline" }}
+{{ $babelOpts := dict "sourceMaps" "external" }}
+{{- $transpiled := resources.Get "scripts/main.js" | js.Build $jsBuildOpts | babel $babelOpts -}}
 ```
