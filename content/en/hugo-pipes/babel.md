@@ -65,7 +65,7 @@ compact [bool]
 verbose [bool]
 : Log everything
 
-sourceMaps [string]
+sourceMap [string]
 : Output `inline` or `external` sourceMaps to babel output
 
 NOTE: Babel is able to read `inline` source maps from a previous pipe command
@@ -88,6 +88,6 @@ Or with js.Build and source maps:
 
 ```go-html-template
 {{ $jsBuildOpts := dict "sourceMap" "inline" }}
-{{ $babelOpts := dict "sourceMaps" "external" }}
+{{ $babelOpts := dict "sourceMap" "external" }}
 {{- $transpiled := resources.Get "scripts/main.js" | js.Build $jsBuildOpts | babel $babelOpts -}}
 ```
