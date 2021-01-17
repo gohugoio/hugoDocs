@@ -65,6 +65,9 @@ compact [bool]
 verbose [bool]
 : Log everything
 
+sourceMaps [string]
+: Output `inline` or `external` sourceMaps to babel output
+
 ### Examples
 
 ```go-html-template
