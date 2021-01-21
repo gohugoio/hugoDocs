@@ -18,10 +18,21 @@
 	{{ range $list }}
 	<tr>
 		{{ range $k, $v := . }}
-		{{ $.Scratch.Set $k $v }}
+		  {{ $.Scratch.Set $k $v }}
 		{{ end }}
 		{{ range $fields }}
-			<td>{{ $.Scratch.Get . }}</td>
+			{{ $cell := $.Scratch.Get . }}
+      <td>
+        {{ if eq $k "Template Lookup Order" }}
+          <ul>
+          {{ range $cell }}
+            <li>{{ . }}</li>
+          {{ end }}          
+          </ul>
+        {{ else }}
+          {{ $cell }}
+        {{ end }}
+      </td>
 		{{ end }}
 	</tr>
 	{{ end }}
