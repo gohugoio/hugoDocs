@@ -1,11 +1,11 @@
 [![Netlify Status](https://api.netlify.com/api/v1/badges/e0dbbfc7-34f1-4393-a679-c16e80162705/deploy-status)](https://app.netlify.com/sites/gohugoio/deploys)
 [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=flat-square)](https://gohugo.io/contribute/documentation/)
 
-# Hugo Docs
+# Hugo Docs levantuan91
 
 Documentation site for [Hugo](https://github.com/gohugoio/hugo), the very fast and flexible static site generator built with love in Go.
 
-## Contributing
+## Contributinglevantun91
 
 We welcome contributions to Hugo of any kind including documentation, suggestions, bug reports, pull requests etc. Also check out our [contribution guide](https://gohugo.io/contribute/documentation/). We would love to hear from you. 
 
@@ -20,15 +20,15 @@ Spelling fixes are most welcomed, and if you want to contribute longer sections 
 * Hugo has users from all over the world, so easy to understand and [simple English](https://simple.wikipedia.org/wiki/Basic_English) is good.
 
 ## Branches
-
-* The `master` branch is where the site is automatically built from, and is the place to put changes relevant to the current Hugo version.
+Levantuan91
+* Te `master` branch is where the site is automatically built from, and is the place to put changes relevant to the current Hugo version.
 * The `next` branch is where we store changes that are related to the next Hugo release. This can be previewed here: https://next--gohugoio.netlify.com/
 
 ## Build
-
+Levantuan91
 To view the documentation site locally, you need to clone this repository:
 
-```bash
+```bash levantuan91
 git clone https://github.com/gohugoio/hugoDocs.git
 ```
 
@@ -36,13 +36,14 @@ Also note that the documentation version for a given version of Hugo can also be
 
 Then to view the docs in your browser, run Hugo and open up the link:
 
-```bash
+```bash levantuan91
 ▶ hugo server
-
-Started building sites ...
-.
-.
+Levantuan91
+Started building sites ...levantuan91
+.levantuan91
+.0972117648
 Serving pages from memory
 Web Server is available at http://localhost:1313/ (bind address 127.0.0.1)
 Press Ctrl+C to stop
-```
+```levantuan91
+Levantuan91
