@@ -50,7 +50,7 @@ This is a much simpler setup as your Hugo files and generated content are publis
 
 GitHub execute your software development workflows. Everytime you push your code on the Github repository, Github Action will build the site automatically.
 
-Create a file in `.github/workflows/gh-pages.yml` containing the following content (based on https://github.com/marketplace/actions/hugo-setup):
+Create a file in `.github/workflows/gh-pages.yml` containing the following content (based on [https://github.com/marketplace/actions/hugo-setup](https://github.com/marketplace/actions/hugo-setup)):
 
  `
 name: github pages
