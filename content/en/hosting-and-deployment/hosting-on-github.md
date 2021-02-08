@@ -55,7 +55,7 @@ name: github pages
 on:
   push:
     branches:
-      - main  # Set a branch to deploy
+      - master  # Set a branch to deploy
 
 jobs:
   deploy:
@@ -76,15 +76,11 @@ jobs:
         run: hugo --minify
 
       - name: Deploy
-        uses: peaceiris/actions-gh-pages@latest
+        uses: peaceiris/actions-gh-pages@v3
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_dir: ./public
 
-- name: Setup Hugo
-  uses: peaceiris/actions-hugo@latest
-  with:
-    hugo-version: 'latest'
 ```
 
 For more advance settings https://github.com/marketplace/actions/hugo-setup 
