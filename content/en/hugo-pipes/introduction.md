@@ -18,7 +18,7 @@ aliases: [/assets/]
 
 ### Asset directory
 
-Asset files must be stored in the asset directory. This is `/assets` by default, but can be configured via the configuration file's `assetDir` key.
+By default, asset files are stored in the `asset` directory inside your theme. You can configure a different location or a different directory via the [configuration file](https://gohugo.io/getting-started/configuration/)'s `assetDir` key.
 
 ### From file to resource
 
