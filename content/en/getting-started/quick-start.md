@@ -175,5 +175,7 @@ It is simple. Just call:
 hugo -D
 ```
 
+> Note that -D will include posts marked as drafts when building and is not required to build. See: https://gohugo.io/commands/hugo/#options
+
 Output will be in `./public/` directory by default (`-d`/`--destination` flag to change it, or set `publishdir` in the config file).
 
