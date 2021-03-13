@@ -125,7 +125,7 @@ The options are the same as in the [highlighting shortcode](/content-management/
 
 ## List of Chroma Highlighting Languages
 
-The full list of Chroma lexers and their aliases (which is the identifier used in the `highlight` template func or when doing highlighting in code fences):
+The full list of [Chroma](https://github.com/alecthomas/chroma) lexers and their aliases (which is the identifier used in the `highlight` template func or when doing highlighting in code fences):
 
 {{< chroma-lexers >}}
 
