@@ -38,7 +38,12 @@ RelPermalink
 : The relative URL to the resource. Resources of type `page` will have no value.
 
 Content
-: The content of the resource itself. For most resources, this returns a string with the contents of the file. This can be used to inline some resources, such as `<script>{{ (.Resources.GetMatch "myscript.js").Content | safeJS }}</script>` or `<img src="{{ (.Resources.GetMatch "mylogo.png").Content | base64Encode }}">`.
+: The content of the resource itself. For most resources, this returns a string with the contents of the file. This can be used to inline some resources, such as `<script>{{ (.Resources.GetMatch "myscript.js").Content | safeJS }}</script>`. To inline base64-encoded images, use:
+
+```go
+{{ $image = .Resources.GetMatch "mylogo.png" }}
+<img src="data:{{ .MediaType }};base64,{{ .Content | base64Encode }}">
+```
 
 MediaType
 : The MIME type of the resource, such as `image/jpeg`.
