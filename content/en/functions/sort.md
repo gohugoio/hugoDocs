@@ -42,22 +42,22 @@ keywords: [ "tag3", "tag1", "tag2" ]
 ```
 
 ```
-// Use default sort options - sort by key / ascending
+// Sort by value, ascending (default for lists)
 Tags: {{ range sort .Params.tags }}{{ . }} {{ end }}
 
 → Outputs Tags: tag1 tag2 tag3
 
-// Sort by value / descending
+// Sort by value, descending
 Tags: {{ range sort .Params.tags "value" "desc" }}{{ . }} {{ end }}
 
 → Outputs Tags: tag3 tag2 tag1
 
-// Use default sort options - sort by value / descending
+// Sort by key, ascending (default for maps)
 Authors: {{ range sort .Site.Params.authors }}{{ .firstName }} {{ end }}
 
 → Outputs Authors: Derek Joe Tanner
 
-// Use default sort options - sort by value / descending
+// Sort by field, descending
 Authors: {{ range sort .Site.Params.authors "lastName" "desc" }}{{ .lastName }} {{ end }}
 
 → Outputs Authors: Perkins Linsley Bergevin
