@@ -22,22 +22,22 @@ aliases: []
 A sorted array of map values will be returned with the keys eliminated. There are two optional arguments: `sortByField` and `sortAsc`. If left blank, sort will sort by keys (for maps) in ascending order as its default behavior.
 
 ```
-+++
-keywords: [ "tag3", "tag1", "tag2" ]
-+++
+---
+tags: ["tag3", "tag1", "tag2"]
+---
 
 // Site config
 +++
 [params.authors]
-  [params.authors.Derek]
-    "firstName"  = "Derek"
-    "lastName"   = "Perkins"
   [params.authors.Joe]
-    "firstName"  = "Joe"
-    "lastName"   = "Bergevin"
+    firstName = "Joe"
+    lastName  = "Bergevin"
+  [params.authors.Derek]
+    firstName = "Derek"
+    lastName  = "Perkins"
   [params.authors.Tanner]
-    "firstName"  = "Tanner"
-    "lastName"   = "Linsley"
+    firstName = "Tanner"
+    lastName  = "Linsley"
 +++
 ```
 
