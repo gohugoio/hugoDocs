@@ -1,0 +1,54 @@
+<section class="bg-near-white text-gray-500 pb-5 px-4 sm:px-5 pt-4 w-full">
+  <h3 class="text-black text-5xl font-normal leading-tight m-0 pb-3 pt-0 pt-4">
+    Showcase
+  </h3>
+  {{/* NOTE: transitions for this section are in themes/gohugoioTheme/src/css/_carousel.css */}}
+  <div class="w-full">
+    <div class="w-full overflow-x-scroll">
+      <div class="row whitespace-no-wrap mv2 pb-1">
+        {{ $showcasePages := where .Site.RegularPages "Section" "showcase" }}
+        {{ if $showcasePages }}
+          {{ template "home_showcase_item" (index $showcasePages 0) }}
+          {{ range $p := first 10 ($showcasePages | after 1 | shuffle) }}
+            {{ template "home_showcase_item" $p }}
+          {{ end }}
+        {{ end }}
+      </div>
+    </div>
+  </div>
+  {{/* END */}}
+  <div class="flex w-full mt4 justify-end">
+    {{/* using Flex to make the button show up on the right side */}}
+    <a
+      href="/showcase/"
+      class="rounded text-sm bg-steel-900 hover-bg-primary-color link px-3 py-2 uppercase text-white"
+      >See All</a
+    >
+  </div>
+</section>
+
+{{ define "home_showcase_item" }}
+  {{ $img := (.Resources.ByType "image").GetMatch "*featured*" }}
+  {{ with $img }}
+    {{ $big := .Fill "1024x512 top" }}
+    {{ $small := $big.Resize "512x" }}
+    <a
+      href="{{ $.RelPermalink }}"
+      class="tile lazyload bg-cover inline-block text-xl h-64 ml1 mr-4 bg-black relative mw-100 shadow-lg"
+      style="width:{{ $small.Width }}px;"
+      data-bg="{{ $img.RelPermalink }}"
+      data-sizes="auto"
+      data-srcset="{{ $small.RelPermalink }} 1x,
+          {{ $big.RelPermalink }} 2x"
+      data-src="small">
+      {{ with $.Title }}
+        <div
+          class="details absolute bottom-0 sm:text-2xl text-xl left-0 o-0 right-0 top-0">
+          <div class="absolute bottom-0 p-2 text-center text-white">
+            {{ . }} &#8594;
+          </div>
+        </div>
+      {{ end }}
+    </a>
+  {{ end }}
+{{ end }}

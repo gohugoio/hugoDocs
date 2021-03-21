@@ -1,0 +1,38 @@
+{{ $file := .Get "file" | default "config" }}
+{{ $code := "" }}
+{{ with .Get "config" }}
+  {{ $file = $file | default "config" }}
+  {{ $sections := (split . ".") }}
+  {{ $configSection := index $.Site.Data.docs.config $sections }}
+  {{ $code = dict $sections $configSection }}
+{{ else }}
+  {{ $code = $.Inner }}
+{{ end }}
+{{ $langs := (slice "yaml" "toml" "json") }}
+<div x-data class="code-toggle border border-gray-100">
+  <nav
+    class="relative flex divide-x divide-gray-100 dark:divide-gray-800  "
+    aria-label="Tabs">
+    {{ range $i, $lang := $langs }}
+      <a
+        href="#"
+        x-on:click="$store.nav.userSettings.settings.configFileType = '{{ index $langs $i }}'"
+        class="text-gray-900 group relative min-w-0 flex-1 overflow-hidden p-3 text-sm font-medium text-center hover:bg-gray-50 focus:z-10"
+        aria-current="page">
+        <span>
+          {{ printf "%s.%s" $file . }}
+        </span>
+        <span
+          aria-hidden="true"
+          class="absolute inset-x-0 bottom-0 h-0.5 bg-gray-200 dark:bg-orange-800"
+          x-bind:class="{ 'bg-steel-400': $store.nav.userSettings.settings.configFileType === '{{ index $langs $i }}' }"></span>
+      </a>
+    {{ end }}
+  </nav>
+  {{ range $i, $lang := $langs }}
+    <div
+      x-bind:class="{ 'block': $store.nav.userSettings.settings.configFileType === '{{ index $langs $i }}', 'hidden': $store.nav.userSettings.settings.configFileType !== '{{ index $langs $i }}' }">
+      {{ highlight ($code | transform.Remarshal . | safeHTML) . "" }}
+    </div>
+  {{ end }}
+</div>

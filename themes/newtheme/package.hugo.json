@@ -1,0 +1,18 @@
+{
+	"license": "MIT",
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/bep/hugo-starter-tailwind-basic.git"
+	},
+	"devDependencies": {
+		"@tailwindcss/typography": "^0.3.0",
+		"autoprefixer": "^10.0.4",
+		"nightwind": "^1.1.7",
+		"postcss": "^8.1.10",
+		"postcss-cli": "^8.0.0",
+		"postcss-purgecss": "^2.0.3",
+		"tailwindcss": "^2.0.3"
+	},
+	"name": "hugo-starter-tailwind-basic",
+	"version": "0.1.0"
+}

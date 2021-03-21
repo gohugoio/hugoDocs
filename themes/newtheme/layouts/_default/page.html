@@ -1,0 +1,32 @@
+<header class="flex-none w-full">
+  {{ $categories := .GetTerms "categories" }}
+  {{ range $categories }}
+    <a
+      href="{{ .RelPermalink }}"
+      class="text-sm tracking-wider mb-0 link text-gray-500 dim mr-3">
+      {{ .Title | upper }}
+    </a>
+  {{ end }}
+
+
+  <h1 class="text-4xl font-semibold leading-tight mb-3 my-0 pt-3 text-black">
+    {{ .Title }}
+  </h1>
+</header>
+
+{{/* TODO1 check usage */}}
+{{ with .Params.featured_image_path }}
+  <img src="{{ . }}" alt="Featured Image for {{ $.Title }}" class="mw-100" />
+{{ end }}
+
+
+<div class="mt-4 md:mt-8 prose lg:prose-lg" id="prose">
+  {{ with .Params.description }}
+    <div class="lead">
+      {{ . | $.RenderString }}
+    </div>
+  {{ end }}
+
+  {{- partial "docs/functions-signature.html" . -}}
+  {{ .Content }}
+</div>

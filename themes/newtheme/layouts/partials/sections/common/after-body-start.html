@@ -1,0 +1,2 @@
+{{/* This script must run before any rendering takes place, as it sets up the color scheme (dark mode) etc., so no defer/async. */}}
+{{ partialCached "helpers/script-src.html" (dict "js" (resources.Get "js/body-start/index.js") ) "js/body-start/index.js" }}

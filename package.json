@@ -1,0 +1,14 @@
+{
+ "comments": {},
+ "devDependencies": {
+  "@tailwindcss/typography": "^0.3.1",
+  "autoprefixer": "^10.4.2",
+  "nightwind": "^1.1.12",
+  "postcss": "^8.4.6",
+  "postcss-cli": "^8.3.1",
+  "postcss-purgecss": "^1.0.0",
+  "tailwindcss": "^2.2.19"
+ },
+ "name": "hugo-docs",
+ "version": "0.1.0"
+}

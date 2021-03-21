@@ -1,0 +1,125 @@
+{{ define "title" }}
+  Showcase:
+  {{ .Title }}
+{{ end }}
+
+{{ define "main" }}
+  <article class="mx-auto space-x-4 py-3 sm:py-5 max-w-7xl">
+    <div class="flex flex-wrap">
+      <div class="w-full lg:w-1/5 order-1 hidden lg:block prose lg:prose-lg">
+        {{ template "sc-details" . }}
+      </div>
+
+      <div class="w-full lg:w-3/5 order-2 lg:px-4 prose lg:prose-lg">
+        {{ template "sc-main-column" . }}
+      </div>
+
+      <aside
+        class="hidden text-gray-500 w-full sm:w-1/5 lg:flex justify-center order-3">
+        {{ template "sc-navigation" . }}
+      </aside>
+    </div>
+
+    <div class="mx-auto max-w-5xl">
+      <div class="text-sm text-gray-600 my-6 inline-flex items-center">
+        {{ partial "page-edit.html" . }}
+        <span class="ml-3"
+          >Last Update: {{ .Lastmod.Format "January 2, 2006" }}</span
+        >
+      </div>
+      <div class="font-bold">
+        The Showcase articles are copyright the content authors. Any open source
+        license will be attached.
+      </div>
+    </div>
+  </article>
+{{ end }}
+
+{{ define "sc-main-column" }}
+  {{ $img := (.Resources.ByType "image").GetMatch "*featured*" }}
+  {{ with $img }}
+    {{ $big := .Fill "1024x512 top" }}
+    {{ $small := $big.Resize "512x" }}
+    <img
+      alt="{{ $img.Title }}"
+      src="{{ $big.RelPermalink }}"
+      srcset="{{ $small.RelPermalink }} 512w, {{ $big.RelPermalink }} 1024w"
+      sizes="(min-width: 1570px) 822px, (max-width: 1569px) and (min-width: 960px) 50vw, 93vw"
+      width="{{ $big.Width }}"
+      class="mw-100 border-gray-300 border border-solid" />
+  {{ end }}
+  <div class="text-gray-500 leading-normal nested-img nested-links">
+    {{ with .Params.byline }}
+      <div style="margin-top: 20px; font-style: italic;">
+        By
+        {{ . | markdownify -}}
+      </div>
+    {{ end }}
+    {{ with .Content }}
+      {{- . -}}
+    {{ end }}
+  </div>
+{{ end }}
+
+{{ define "sc-details" }}
+  <div class="mt4 sm:mt-0 nested-links">
+    <div class="border border-solid border-gray-300 bg-white p-3">
+      <h1 class="f2-fluid mt-0">{{ .Title }}</h1>
+      {{ with .Params.siteURL }}
+        <a href="{{ . }}" class="flex items-center text-base mb-1"
+          ><span class="mr-1"
+            >{{ . | replaceRE "^https?://(www\\.)?([^/]+).*" "$2" }}</span
+          >
+          {{ partial "svg/link-ext.svg" (dict "size" "10") }}</a
+        >
+      {{ end }}
+      {{ with .Params.siteSource }}
+        <a href="{{ . }}" class="flex items-center mb-4"
+          ><span class="mr-1">source</span
+          >{{ partial "svg/link-ext.svg" (dict "size" "10") }}</a
+        >
+      {{ end }}
+      {{ $bio := (.Resources.ByType "page").GetMatch "bio*" }}
+      {{ with $bio }}
+        <div class="text-sm text-gray-500 leading-normal nested-links">
+          {{- .Content -}}
+        </div>
+      {{ end }}
+    </div>
+    <div class="border-gray-300 border-t border-solid lg:hidden pt-3">
+      <div class="text-sm text-gray-600 mb-2">Previous/Next</div>
+      {{- partial "previous-next-links-in-section-with-title.html" . -}}
+    </div>
+  </div>
+{{ end }}
+
+{{ define "sc-navigation" }}
+  {{ $section := where .Site.RegularPages "Section" .Section }}
+  {{ $number_of_entries := $section | len }}
+  <ul class="p-0 list-reset">
+    <li class="font-bold text-base border-gray-300 pb-2 pl-3">More Sites</li>
+    {{ range first 20 $section }}
+      <li
+        class="border-l border-solid border-gray-300 pl-3 py-1 text-sm hover:bg-gray-300 {{ if eq $ . }}
+          bg-gray-200
+        {{ end }}">
+        <a
+          href="{{ .RelPermalink }}"
+          class="block link w-full pv1 ph1 {{ if eq $ . }}
+            font-bold primary-color
+          {{ else }}
+            text-gray-500
+          {{ end }}">
+          {{- .Title -}}
+        </a>
+      </li>
+    {{ end }}
+    {{ if gt $number_of_entries 20 }}
+      <li class="mt-3">
+        <a href="/showcase/page/2/" class="link text-steel-700">
+          See More &raquo;
+        </a>
+      </li>
+    {{ end }}
+  </ul>
+{{ end }}

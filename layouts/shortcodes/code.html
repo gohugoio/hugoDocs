@@ -8,13 +8,13 @@
 {{ if eq $codeLang "html"}}
 {{ $codeLang = "go-html-template" }}
 {{ end }}
-<div class="code relative" id="{{ $file | urlize}}">
+<div class="font-mono relative" id="{{ $file | urlize}}">
 	{{- with $file -}}
-		<div class="filename san-serif f6 dib lh-solid pl2 pv2">{{.}}</div>
+		<div class="filename san-serif text-sm inline-block leading-none pl-2 py-2">{{.}}</div>
 	{{- end -}}
 
 	{{ if ne (.Get "copy") "false" }}
-		<button class="needs-js copy bg-accent-color-dark f6 absolute top-0 right-0 lh-solid hover-bg-primary-color-dark bn white ph3 pv2" title="Copy this code to your clipboard." data-clipboard-action="copy" aria-label="copy button">
+		<button class="needs-js copy bg-accent-color-dark text-sm absolute top-0 right-0 leading-none hover-bg-primary-color-dark border-0 border-none text-white px-3 py-2" title="Copy this font-mono to your clipboard." data-clipboard-action="copy" aria-label="copy button">
 		</button>
 		{{/* Functionality located within filesaver.js The copy here is located in the css with .copy class so it can be replaced with JS on success */}}
 	{{end}}

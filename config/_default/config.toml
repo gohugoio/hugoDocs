@@ -8,6 +8,7 @@ languageCode = "en-us"
 title = "Hugo"
 
 googleAnalytics = "UA-7131036-4"
+refLinksErrorLevel = "warning"
 
 pluralizeListTitles = false
 

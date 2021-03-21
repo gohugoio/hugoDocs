@@ -1,0 +1,81 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import "components/all.css";
+
+html {
+    font-size: 14px;
+}
+
+@screen md {
+    html {
+        font-size: 16px;
+    }
+}
+
+body {
+    -moz-osx-font-smoothing: grayscale;
+    -webkit-font-smoothing: antialiased;
+    fill: currentColor; /* Applies to SVG only */
+}
+
+.nested-blockquote blockquote {
+    border-left: 4px solid var(--primary-color);
+    padding-left: 1em;
+    /*margin: 0;*/
+}
+
+.mw-90 {
+    max-width: 90%;
+}
+
+/* Hide pre-initialized DOM elements. */
+[x-cloak] {
+    visibility: hidden;
+}
+
+/* Combine with classes in skins and skins-pseudo for 
+ * many different transition possibilities. */
+.bg-animate,
+.bg-animate:hover,
+.bg-animate:focus {
+    -webkit-transition: background-color 0.15s ease-in-out;
+    transition: background-color 0.15s ease-in-out;
+}
+
+/*
+
+  Dim element on hover by adding the dim class.
+
+*/
+.dim {
+    opacity: 1;
+    -webkit-transition: opacity 0.15s ease-in;
+    transition: opacity 0.15s ease-in;
+}
+.dim:hover,
+.dim:focus {
+    opacity: 0.5;
+    -webkit-transition: opacity 0.15s ease-in;
+    transition: opacity 0.15s ease-in;
+}
+.dim:active {
+    opacity: 0.8;
+    -webkit-transition: opacity 0.15s ease-out;
+    transition: opacity 0.15s ease-out;
+}
+
+@layer components {
+    .btn-primary {
+        @apply py-2 px-4 font-semibold rounded-lg shadow-md bg-steel-600 hover:bg-steel-700 text-white hover:text-gray-200 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-steel-500;
+    }
+
+    a {
+        @apply text-steel-700 hover:text-steel-500 no-underline;
+    }
+
+    .dark a {
+        @apply text-steel-600 hover:text-steel-400 no-underline;
+    }
+}

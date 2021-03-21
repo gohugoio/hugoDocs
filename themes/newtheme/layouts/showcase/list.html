@@ -1,0 +1,46 @@
+{{ define "main" }}
+<div class="w-full px-4 sm:px-5 pb-5 sm:pb-6 pt-1 sm:pt-3 ">
+  <article class="clearfix p-3 pa4-m lg:p-4 leading-normal nested-img">
+    <h1 class="text-steel-900">
+      {{ .Title }}
+    </h1>
+    <div class="leading-normal">
+      {{ .Content }}
+    </div>
+  </article>
+    <section class="sm:flex flex-wrap justify-between w-full v-top">
+      {{ range (.Paginate (.Pages | shuffle ) 20).Pages  }}
+        {{template "showcase_items" .}}
+      {{ end }}
+    </section>
+  <div class="nested-list-reset nested-links">
+    {{/* pagination.html: https://github.com/gohugoio/hugo/blob/master/tpl/tplimpl/template_embedded.go#L117 */}}
+    {{ template "_internal/pagination.html" . }}
+  </div>
+  <div class="inline-block text-2xl mt4">The Showcase articles are copyrighted by their respective content authors. Any open source license will be attached.</div>
+</div>
+{{ end }}
+
+
+{{define "showcase_items"}}
+  <a href="{{.RelPermalink}}" class="b--moon-gray border border-solid bg-animate bg-white block flex-auto-ns hover-bg-near-white mb-3 mr-3 w-full w-30-l" style="max-width: 1024px;">
+    <div class="flex flex-col text-black h-full mb-2 p-3 lg:p-4">
+      {{ $img := (.Resources.ByType "image").GetMatch "*featured*" }}
+      {{ with $img }}
+      {{ $big := .Fill "1024x512 top" }}
+      {{ $small := $big.Resize "512x" }}
+      <img src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTYwMCIgaGVpZ2h0PSI5MDAiIHZpZXdCb3g9IjAgMCAxNjAwIDkwMCIgdmVyc2lvbj0iMS4xIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHhtbG5zOnhsaW5rPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rIj48dGl0bGU+UmVjdGFuZ2xlPC90aXRsZT48ZGVzYz5DcmVhdGVkIHdpdGggU2tldGNoLjwvZGVzYz48ZyBpZD0iUGFnZS0xIiBzdHJva2U9Im5vbmUiIHN0cm9rZS13aWR0aD0iMSIgZmlsbD0ibm9uZSIgZmlsbC1ydWxlPSJldmVub2RkIj48cmVjdCBpZD0iUmVjdGFuZ2xlIiB4PSIwIiB5PSIwIiB3aWR0aD0iMTYwMCIgaGVpZ2h0PSI5MDAiLz48L2c+PC9zdmc+" 
+          data-sizes="auto" 
+          data-srcset="{{ $small.RelPermalink }} 1x,
+          {{ $big.RelPermalink }} 2x" data-bg="{{ $small.RelPermalink }}" class="grow img lazyload" style="display: block;  width: 100%; height: auto;" />
+      {{end}}
+      <div style="margin-top:auto;">{{/* the margin aligns to the bottom */}}
+        <h2 class="inline-block text-2xl mt4">
+          {{- .Title -}}
+        </h2>
+      </div>
+    </div>
+  </a>
+
+
+{{end}}

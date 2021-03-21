@@ -1,0 +1,86 @@
+<head>
+  <meta charset="utf-8" />
+  {{/* TODO1 self host https://fonts.google.com/specimen/Mulish?preview.text_type=custom */}}
+  <link rel="preconnect" href="https://fonts.gstatic.com" />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Mulish:wght@200;400;800&display=swap"
+    rel="stylesheet" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  {{/* NOTE: the Site's title, and if there is a page title, that is set too */}}
+  <title>
+    {{ block "title" . }}
+      {{ with .Title }}{{ . }} |{{ end }}{{ .Site.Title }}
+    {{ end }}
+  </title>
+
+  <meta name="viewport" content="width=device-width,minimum-scale=1" />
+  {{ hugo.Generator }}
+
+  {{ if hugo.IsProduction }}
+    <meta name="robots" content="index, follow" />
+  {{ else }}
+    <meta name="robots" content="noindex, nofollow" />
+  {{ end }}
+
+  {{ range .AlternativeOutputFormats -}}
+    <link
+      rel="{{ .Rel }}"
+      type="{{ .MediaType.Type }}"
+      href="{{ .RelPermalink | safeURL }}" />
+  {{ end -}}
+
+  {{/* TODO1 check usage $.Scratch.Set "stylesheet" . */}}
+
+  {{/* styles */}}
+  {{ $options := dict "inlineImports" true }}
+  {{ $styles := resources.Get "css/styles.css" }}
+  {{ $styles = $styles | resources.PostCSS $options }}
+  {{ if  hugo.IsProduction }}
+    {{ $styles = $styles | minify | fingerprint | resources.PostProcess }}
+    <link
+      href="{{ $styles.RelPermalink }}"
+      rel="stylesheet"
+      integrity="{{ .Data.Integrity }}"
+      crossorigin="anonymous" />
+  {{ else }}
+    <link
+      href="{{ $styles.RelPermalink }}"
+      rel="stylesheet"
+      crossorigin="anonymous" />
+  {{ end }}
+
+
+  <noscript>
+    <style>
+      .hide-if-no-js {
+        display: none;
+      }
+    </style>
+  </noscript>
+
+  <meta
+    name="description"
+    content="{{ with .Description }}
+      {{ . }}
+    {{ else }}
+      {{ with .Site.Params.description }}{{ . }}{{ end }}
+    {{ end }}
+    " />
+
+  {{ block "scripts" . }}
+    {{/*  */}}
+  {{ end }}
+
+  {{ partialCached "jslibs/turbo/script-src.html" "-" }}
+  {{ partialCached "helpers/script-src.html" (dict "js" (resources.Get "js/main/index.js") "loadAttribute" "defer") "js/main/index.js" }}
+  {{ partial "site-manifest.html" . }}
+  {{- partial "head-additions.html" . -}}
+  {{- template "_internal/opengraph.html" . -}}
+  {{- template "_internal/schema.html" . -}}
+  {{- template "_internal/twitter_cards.html" . -}}
+
+  {{ if hugo.IsProduction }}
+    {{ partial "gtag" . }}
+  {{ end }}
+
+</head>

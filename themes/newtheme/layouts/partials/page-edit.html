@@ -1,0 +1,8 @@
+{{ $href := printf "%sedit/master/content/%s%s" .Site.Params.ghrepo .Lang .File.Path }}
+
+
+<a
+  href="{{ $href }}"
+  class="bg-steel-500 hover:bg-steel-700 text-white hover:text-white font-bold py-2 px-4 rounded">
+  Improve this page
+</a>

@@ -1,0 +1,29 @@
+<div class="relative bg-white border border-gray-100 mb-2 p-3 lg:p-4 text-gray-600">
+  {{ if eq .context.Section "news" }}
+    <date class="text-sm block" datetime="{{ .Date.Format "2006-01-02T15:04:05Z07:00" }}">
+      {{ .context.Date.Format "January 2, 2006" }}
+    </date>
+  {{ end }}
+  
+  <h2 class="text-gray-900 text-2xl">
+    <a href="{{ .context.RelPermalink }}" class="link text-steel-500 dim">
+      {{- if eq .context.Section "functions" -}}
+        {{ .context.LinkTitle }}
+      {{- else -}}
+        {{ .context.Title }}
+      {{- end -}}
+    </a>
+  </h2>
+  
+  <div class="leading-normal tracking-normal mt-2">
+    {{ if .context.Params.description  }}
+      {{ .context.Params.description | markdownify }}
+    {{ else }}
+      {{ .context.Summary  }}
+    {{ end }}
+    
+    <a href="{{ .context.RelPermalink }}" class="text-sm mt-2 block link text-steel-500 dim">
+      Read More &raquo;
+    </a>
+  </div>
+</div>

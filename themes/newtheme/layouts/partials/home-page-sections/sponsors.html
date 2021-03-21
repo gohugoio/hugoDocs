@@ -1,0 +1,24 @@
+{{ $gtag := .gtag | default "unknown" }}
+{{ with .cx.Site.Data.sponsors }}
+  <div class="w-100">
+    <h3 class="font-bold text-2xl">Hugo Sponsors</h3>
+    <div class="flex space-x-3 pt-4">
+      {{ range .banners }}
+        <div
+          class="bg-white px-4 py-6 rounded-md"
+          {{ with .bgcolor }}style="background-color: {{ . }};"{{ end }}>
+          <a
+            href="{{ .link }}"
+            {{ if hugo.IsProduction }}
+              onclick="trackOutboundLink({{ printf "'%s', '%s'" $gtag (printf "%s?%s" .link (querify "utm_source" "homepage" "utm_medium" "banner" "utm_campaign" "hugosponsor")) | safeJS }});"
+            {{ end }}>
+            <img
+              src="{{ .logo }}"
+              alt="Logo for {{ .name }}"
+              class="img h-16 mx-auto transform duration-200 hover:scale-105" />
+          </a>
+        </div>
+      {{ end }}
+    </div>
+  </div>
+{{ end }}

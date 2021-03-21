@@ -1,0 +1,33 @@
+<!-- TOCs need to be declared explicitly in the front matter of content/*.md -->
+<aside
+  class="fixed-lTK mw5-l right-0 text-sm py-4 sm:py-0 lg:px-4 nested-list-reset nested-links leading-normal text-black">
+  {{ if .Params.toc }}
+    {{ with .TableOfContents }}
+      {{ if ge (len .) 100 }}
+        <h3 class="text-lg font-bold">What's on this Page</h3>
+        <div class="leading-relaxed tracking-tight mt-2 mb-8">
+          {{ . }}
+        </div>
+      {{ end }}
+    {{ end }}
+  {{ end }}
+
+  {{ $related := .Site.RegularPages.Related . | first 5 }}
+  {{ with $related }}
+    <h3 class="text-lg font-bold">See Also</h3>
+    <ul class="text-md mt-2">
+      {{ range . }}
+        <li>
+          <a href="{{ .RelPermalink }}">
+            {{ .Title }}
+          </a>
+        </li>
+      {{ end }}
+    </ul>
+  {{ end }}
+
+
+  <div class="mt-8">
+    {{- partial "previous-next-links-in-section.html" . -}}
+  </div>
+</aside>

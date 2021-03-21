@@ -1,0 +1,44 @@
+<div class="lg:w-11/12 mx-auto">
+  {{ if .Params.features }}
+    <div class=" sm:flex flex-wrap justify-center mx-auto max-w-6xl">
+      {{ $features := .Params.features }}
+      {{ range $i, $e := $features }}
+        {{ $features_count := $e | len }}
+        <div
+          class="w-full{{ if and (eq $i $features_count) (ne (modBool $features_count 2) true) }}
+            sm:w-8/12
+          {{ else }}
+            sm:w-1/2
+          {{ end }} lg:px-5 lg:py-5">
+          <!-- NOTE:  "if eq $i $features_count" makes the last item a bit wider for balance. If we use an even number of items, we'll want to remove this -->
+          <div class="lg:flex flex-wrap justify-between">
+            <div class="flex-auto w-full sm:w-1/5 pt-1">
+              {{ with .image_path }}
+                <img
+                  src="{{ . }}"
+                  alt="icon depicting {{ $e.heading }}"
+                  class="h-16 o-80 v-mid mx-auto w-full" />
+              {{ end }}
+            </div>
+
+            <div class="flex-auto text-center sm:text-left w-full sm:w-4/5">
+              <h3
+                class="leading-tight text-gray-600 o-80 text-xl sm:text-base mb-2 font-extrabold bmt1 lg:mt-0">
+                {{ .heading }}
+              </h3>
+              <div
+                class="block v-mid w-full text-gray-600 max-w-lg mb5 lg:mb-0">
+                <p class="text-2xl text-steel-500 mt-0 mb-2">
+                  {{ .tagline }}
+                </p>
+                <div class="leading-normal">
+                  {{ .copy }}
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      {{ end }}
+    </div>
+  {{ end }}
+</div>

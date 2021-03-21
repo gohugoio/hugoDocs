@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html id="gohugoio" class="no-js nightwind" lang="{{ .Site.Language.Lang }}">
+  {{ partial "sections/common/head.html" . }}
+  <body class="m-0 font-sans">
+    {{ partial "sections/common/after-body-start.html" . }}
+    <div class="bg-white">
+      {{ block "nav" . }}
+        {{ partial "sections/nav/menu.html" . }}
+      {{ end }}
+      {{ block "header" . }}{{ end }}
+      <main role="main" class="min-h-screen container mx-auto pb-7 sm:pb-0">
+        <div class="h-screen flex overflow-hidden" x-data="{ open: false }">
+          {{/* Mobile menu */}}
+          <div
+            class="fixed inset-0 flex z-40 lg:hidden"
+            role="dialog"
+            aria-modal="true"
+            x-show.transition="open">
+            <div
+              class="fixed inset-0 bg-gray-900 bg-opacity-75"
+              aria-hidden="true"
+              @click="open = false"></div>
+            <div
+              class="relative flex-1 flex flex-col max-w-xs w-full focus:outline-none">
+              <div class="absolute top-0 right-0 -mr-12 pt-2">
+                <button
+                  type="button"
+                  class="ml-1 flex items-center justify-center h-10 w-10 rounded-full focus:outline-none focus:ring-2 focus:ring-inset focus:ring-white"
+                  @click="open = false">
+                  <span class="sr-only">Close sidebar</span>
+                  {{/* outline/x */}}
+                  <svg
+                    class="h-6 w-6 text-white"
+                    xmlns="http://www.w3.org/2000/svg"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke="currentColor"
+                    aria-hidden="true">
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="2"
+                      d="M6 18L18 6M6 6l12 12" />
+                  </svg>
+                </button>
+              </div>
+              <div class="flex-1 h-0 pt-5 pb-4 overflow-y-auto">
+                <nav aria-label="Sidebar" class="mt-5">
+                  <div class="px-4 space-y-1">
+                    {{ partial "sections/nav/docs-explorer.html" . }}
+                  </div>
+                </nav>
+              </div>
+            </div>
+            <div class="flex-shrink-0 w-14" aria-hidden="true">
+              {{/* Force the sidebar to shrink to fit close icon */}}
+            </div>
+          </div>
+          {{/* Static desktop sidebar. */}}
+          <div class="hidden lg:flex lg:flex-shrink-0">
+            <div class="flex flex-col w-64">
+              <div class="flex flex-col h-0 flex-1 border-r border-gray-200">
+                <div class="flex-1 flex flex-col pt-5 pb-4 overflow-y-auto">
+                  <nav class="mt-0 flex-1" aria-label="Sidebar">
+                    <div class="px-0">
+                      {{ partial "sections/nav/docs-explorer.html" . }}
+                    </div>
+                  </nav>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="flex flex-col min-w-0 flex-1 overflow-hidden">
+            <div class="lg:hidden">
+              <div
+                class="flex items-center justify-between bg-gray-50 border-b border-gray-200 px-4 py-1.5">
+                <div>
+                  <img
+                    class="h-8 w-auto"
+                    src="/images/hugo-logo-wide.svg"
+                    alt="Gopher" />
+                </div>
+                <div>
+                  <button
+                    type="button"
+                    class="-mr-3 h-12 w-12 inline-flex items-center justify-center rounded-md text-gray-500 hover:text-gray-900"
+                    @click="open = !open">
+                    <span class="sr-only">Open sidebar</span>
+                    {{/* outline/menu */}}
+                    <svg
+                      class="h-6 w-6"
+                      xmlns="http://www.w3.org/2000/svg"
+                      fill="none"
+                      viewBox="0 0 24 24"
+                      stroke="currentColor"
+                      aria-hidden="true">
+                      <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        stroke-width="2"
+                        d="M4 6h16M4 12h16M4 18h16" />
+                    </svg>
+                  </button>
+                </div>
+              </div>
+            </div>
+            <div class="flex-1 relative z-0 flex overflow-hidden pb-8 md:pb-12">
+              <main
+                class="flex-1 relative z-0 overflow-y-auto focus:outline-none"
+                tabindex="0">
+                {{/* Main */}}
+                <div class="absolute inset-0 py-6 px-4 sm:px-6 lg:px-8">
+                  <div
+                    class="h-full border-2 border-gray-200 border-none rounded-lg">
+                    {{ block "main" . }}{{ end }}
+                  </div>
+                </div>
+              </main>
+              {{ if .IsPage }}
+                <aside
+                  class="hidden relative xl:flex xl:flex-col flex-shrink-0 w-96 border-l border-gray-200 overflow-auto">
+                  {{/* Secondary col */}}
+                  <div class="absolute inset-0 py-6 px-4 sm:px-6 lg:px-8">
+                    <div
+                      class="h-full border-2 border-gray-200 border-none rounded-lg">
+                      {{- partial "toc.html" . -}}
+                    </div>
+                  </div>
+                </aside>
+              {{ end }}
+            </div>
+          </div>
+        </div>
+      </main>
+      {{ block "footer" . }}
+        {{ partialCached "sections/nav/footer.html" . }}
+      {{ end }}
+      {{ partial "sections/common/before-body-end.html" . }}
+    </div>
+  </body>
+</html>

@@ -1,8 +1,13 @@
 {{ $version := .Get 0 }}
 {{ if not $version }}
-{{ errorf "Missing version in new-in shortcode "}}
+  {{ errorf "Missing version in new-in shortcode "}}
 {{ end }}
 {{ $version = $version | strings.TrimPrefix "v" }}
-<button class="bg-white hover:bg-gray-100 text-gray-800 font-semibold py-2 mr2 ml2 px-4 border border-gray-400 rounded shadow">
-    <a href="{{ printf "https://gohugo.io/news/%s-relnotes/" $version }}" target="_blank">New in v{{$version}}</a>
-</button>
+<span class="m-1 inline-flex items-center px-2 py-0.5 rounded text-xs font-medium bg-green-100 text-limegreen-600">
+  <svg class="mr-1.5 h-2 w-2" fill="currentColor" viewBox="0 0 8 8">
+    <circle cx="4" cy="4" r="3" />
+  </svg>
+  <a class="no-underline text-limegreen-700 hover:text-limegreen-900" href="{{ printf "https://gohugo.io/news/%s-relnotes/" $version }}" target="_blank">
+    New in v{{$version}}
+  </a>
+</span>

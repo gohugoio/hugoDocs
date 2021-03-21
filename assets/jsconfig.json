@@ -1,0 +1,12 @@
+{
+ "compilerOptions": {
+  "baseUrl": ".",
+  "paths": {
+   "*": [
+    "../../../../hugo_cache/modules/filecache/modules/pkg/mod/github.com/gohugoio/hugo-mod-jslibs-dist/alpinejs/v3@v3.500.100/packages/*",
+    "../../../../hugo_cache/modules/filecache/modules/pkg/mod/github.com/hotwired/turbo@v7.0.1+incompatible/src/*",
+    "../themes/newtheme/assets/*"
+   ]
+  }
+ }
+}

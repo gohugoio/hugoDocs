@@ -1,0 +1,38 @@
+{{ define "main" }}
+  <div class="w-full px-4 sm:px-5 pb-5 sm:pb-6 pt-1 sm:pt-3">
+    <article class="clearfix p-3 pa4-m lg:p-4 leading-normal nested-img">
+      <h1 class="text-steel-900">
+        {{ .Title }}
+      </h1>
+      <div class="leading-normal">
+        {{ .Content }}
+      </div>
+    </article>
+    <!-- TODO: May be a good idea in this case to add monthly archives -->
+    <div class="flex flex-wrap">
+      {{/* [wip] add archive lists
+        <div class="w-full sm:w-1/5 hidden">
+        <ul>
+        <li>
+        <a href="#">
+        archive section
+        </a>
+        </li>
+        </ul>
+        </div>
+      */}}
+
+      {{ $interior_classes := $.Site.Params.flex_box_interior_classes }}
+      <section class="sm:flex flex-wrap justify-between w-full w-80-nsTK v-top">
+        {{ $paginator := .Paginate (.Pages | lang.Merge (where .Sites.First.RegularPages "Section" .Section)) -}}
+        {{ range $paginator.Pages }}
+          {{ partial "boxes-section-summaries" (dict "context" . "classes" $interior_classes "fullcontent" false) }}
+        {{ end }}
+      </section>
+    </div>
+    <div class="nested-list-reset nested-links">
+      {{/* pagination.html: https://github.com/gohugoio/hugo/blob/master/tpl/tplimpl/template_embedded.go#L117 */}}
+      {{ template "_internal/pagination.html" . }}
+    </div>
+  </div>
+{{ end }}

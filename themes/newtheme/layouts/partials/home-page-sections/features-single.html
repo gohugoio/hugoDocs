@@ -1,0 +1,42 @@
+{{ if .Params.sections }}
+  {{ range $i, $e := .Params.sections }}
+    {{ $i = add $i 1 }}
+    <section
+      class="w-full  ph4 sm:px-5 py-4 sm:py-10 text-gray-500 {{ .color_classes }}">
+      <div class="sm:flex flex-wrap mx-auto max-w-6xl">
+        <div
+          class="w-full lg:w-1/2 {{ if modBool $i 2 }}
+            order-1
+          {{ else }}
+            order-0
+          {{ end }}">
+          <div class="sm:w-11/12 mx-auto">
+            <img
+              src="{{ .image }}"
+              alt="image depicting an example of {{ .heading }}"
+              class="img shadow-lg" />
+          </div>
+        </div>
+        <div class="w-full lg:w-1/2">
+          <div class="sm:w-4/5 mx-auto text-center">
+            <h3
+              class="text-5xl font-normal text-black m-0 py-4 tracking-tight lg:pt-0">
+              {{ .heading }}
+            </h3>
+            <p class="text-2xl">
+              {{ .copy }}
+            </p>
+            <p class="text-xl leading-normal mt-4">
+              <a
+                href="{{ .link | absURL }}"
+                class="link text-black dim inline-flex items-center">
+                <span class="mr-2">{{ .cta }}</span>
+                {{ partial "svg/link-ext.svg" (dict "fill" "#333" "size" "14") }}
+              </a>
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+  {{ end }}
+{{ end }}

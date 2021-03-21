@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html
+  id="gohugoio"
+  class="no-js"
+  lang="{{ with $.Site.LanguageCode }}
+    {{ . }}
+  {{ else }}
+    en-us
+  {{ end }}">
+  {{ partial "sections/common/head.html" . }}
+  <body
+    class="m-0 font-sans bg-gray-50 {{ block `body-classes` . }}na{{ end }}">
+    {{ partial "sections/common/after-body-start.html" . }}
+    {{ block "nav" . }}
+      {{ partial "sections/nav/menu.html" . }}
+    {{ end }}
+    {{ block "header" . }}{{ end }}
+    <main
+      role="main"
+      class="min-h-screen pb-7 sm:pb-0 {{ block `main-classes` . }}
+        na
+      {{ end }} bg-gray-50">
+      {{ block "main" . }}{{ end }}
+    </main>
+    {{ block "footer" . }}
+      {{ partialCached "sections/nav/footer.html" . }}
+    {{ end }}
+    {{ partial "sections/common/before-body-end.html" . }}
+  </body>
+</html>
