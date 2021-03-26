@@ -17,10 +17,12 @@ relatedfuncs: [Format,now,Unix,time]
 deprecated: false
 ---
 
-`dateFormat` converts the textual representation of the `datetime` into the specified format or returns it as a Go `time.Time` type value. These are formatted with the layout string.
+`dateFormat` converts the textual representation of the `datetime` into the specified format or returns it as a Go `time.Time` type value. The first parameter is the the layout string, which has to refer specifically to the second day of January in 2006. For instance, here are some different format strings applied to the same date (21 January 2015):
 
 ```
 {{ dateFormat "Monday, Jan 2, 2006" "2015-01-21" }} → "Wednesday, Jan 21, 2015"
+{{ dateFormat "Monday" "2015-01-21" }} → "Wednesday"
+{{ dateFormat "January 2006" "2015-01-21" }} → "January 2015"
 ```
 
 {{% warning %}}
