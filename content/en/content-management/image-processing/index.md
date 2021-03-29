@@ -249,9 +249,9 @@ And it is used like this:
 
 ## Image Processing Config
 
-You can configure an `imaging` section in `config.toml` with default image processing options:
+You can configure an `imaging` section in the site configuration. The following is an example with default image processing options:
 
-```toml
+{{< code-toggle file="config" >}}
 [imaging]
 # Default resample filter used for resizing. Default is Box,
 # a simple and fast averaging filter appropriate for downscaling.
@@ -294,9 +294,7 @@ disableDate = false
 # Hugo extracts the "photo taken where" (GPS latitude and longitude) into
 # .Long and .Lat. Set this to true to turn it off.
 disableLatLong = false
-
-
-```
+{{< /code-toggle >}}
 
 ## Smart Cropping of Images
 
