@@ -15,7 +15,7 @@ weight: 50
 sections_weight: 50
 draft: false
 aliases: []
-toc: false
+toc: true
 ---
 
 The Hugo community uses a wide range of preferred tools and has developed plug-ins for some of the most popular text editors to help automate parts of your workflow.
@@ -23,6 +23,8 @@ The Hugo community uses a wide range of preferred tools and has developed plug-i
 ## Sublime Text
 
 * [Hugofy](https://github.com/akmittal/Hugofy). Hugofy is a plugin for Sublime Text 3 to make life easier to use Hugo static site generator.
+* [Hugo Snippets](https://packagecontrol.io/packages/Hugo%20Snippets). Hugo Snippets is a useful plugin for add automatic snippets to Sublime Text 3. The source code can be found [here](https://github.com/regisphilibert/Sublime-Hugo-Snippets).
+
 
 ## Visual Studio Code
 
