@@ -84,7 +84,8 @@ disable = true
 ### GoogleAnalytics
 
 Implement tracking consent with JavaScript.
-```html
+
+```go-html-template
 <script>
 if (localStorage.getItem("doNotTrack") === null) {
     // default value before any choice has been made
