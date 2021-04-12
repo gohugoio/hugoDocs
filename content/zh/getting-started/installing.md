@@ -4,7 +4,7 @@ linktitle: 安装 Hugo
 description: 将 Hugo 安装到 macOS、Windows、Linux、OpenBSD、FreeBSD以及任何 Go 编译器工具链能够运行的平台。
 date: 2016-11-01
 publishdate: 2016-11-01
-lastmod: 2018-01-02
+lastmod: 2021-04-13
 categories: [入门,基础]
 authors: ["Michael Henderson"]
 keywords: [install,pc,windows,linux,macos,binary,tarball]

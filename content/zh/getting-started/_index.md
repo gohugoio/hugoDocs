@@ -4,7 +4,7 @@ linktitle: 入门概览
 description: 快速入门并指导您将 Hugo 安装到您喜爱的平台。
 date: 2017-02-01
 publishdate: 2017-02-01
-lastmod: 2017-02-01
+lastmod: 2021-04-13
 categories: [入门]
 keywords: [usage,docs]
 menu:
