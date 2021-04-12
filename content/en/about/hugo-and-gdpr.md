@@ -83,6 +83,23 @@ disable = true
 
 ### GoogleAnalytics
 
+Implement tracking consent with JavaScript.
+```html
+<script>
+if (localStorage.getItem("doNotTrack") === null) {
+    // default value before any choice has been made
+    localStorage.setItem("doNotTrack", "1")
+}
+var doNotTrack = localStorage.getItem("doNotTrack");
+</script>
+{{ template "_internal/google_analytics.html" . }}
+```
+After consent, set localStorage `doNotTrack` to `"0"` and reload the page.
+```js
+localStorage.setItem("doNotTrack", "0")
+window.location.reload()
+```
+
 anonymizeIP
 : Enabling this will make it so the users' IP addresses are anonymized within Google Analytics.
 
