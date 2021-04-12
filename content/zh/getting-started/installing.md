@@ -5,7 +5,7 @@ description: 将 Hugo 安装到 macOS、Windows、Linux、OpenBSD、FreeBSD以�
 date: 2016-11-01
 publishdate: 2016-11-01
 lastmod: 2018-01-02
-categories: [getting started,fundamentals]
+categories: [入门,基础]
 authors: ["Michael Henderson"]
 keywords: [install,pc,windows,linux,macos,binary,tarball]
 menu:
