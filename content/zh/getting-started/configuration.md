@@ -6,7 +6,7 @@ date: 2013-07-01
 publishdate: 2017-01-02
 lastmod: 2021-04-13
 categories: [入门,基础]
-keywords: [configuration,toml,yaml,json]
+keywords: [配置,toml,yaml,json]
 menu:
   docs:
     parent: "getting-started"
@@ -34,12 +34,12 @@ hugo --config a.toml,b.toml,c.toml
 ```
 
 {{% note %}}
-多个站点配置文件可以使用一个逗号分隔的字符串指定给 `--config` 参数。
+多个网站配置文件可以使用一个通过逗号分隔的字符串指定给 `--config` 参数。
 {{% /note %}}
 
 {{< todo >}}TODO: distinct config.toml and others (the root object files){{< /todo >}}
 
-## Configuration Directory
+## 配置文件目录
 
 In addition to using a single site config file, one can use the `configDir` directory (default to `config/`) to maintain easier organization and environment specific settings.
 
