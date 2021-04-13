@@ -19,26 +19,26 @@ toc: true
 ---
 
 {{% note %}}
-This quick start uses `macOS` in the examples. For instructions about how to install Hugo on other operating systems, see [install](/getting-started/installing).
+本教程使用 `macOS` 作为范例。关于如何在其他操作系统上安装 Hugo 的说明，请参见[安装](/getting-started/installing)。
 
-It is recommended to have [Git installed](https://git-scm.com/downloads) to run this tutorial.
+建议安装 [Git](https://git-scm.com/downloads) 来运行本教程。
 
-For other approaches learning Hugo like book or a video tutorial refer to the [external learning resources](/getting-started/external-learning-resources/) page.
+其他学习 Hugo 的方法，如书籍或视频教程，请参考[外部学习资源](/getting-started/external-learning-resources/)页面。
 {{% /note %}}
 
-## Step 1: Install Hugo
+## 第一步：安装 Hugo
 
 {{% note %}}
-`Homebrew` and `MacPorts`, package managers for `macOS`,  can be installed from [brew.sh](https://brew.sh/) or [macports.org](https://www.macports.org/) respectively. See [install](/getting-started/installing) if you are running Windows etc.
+`Homebrew` 和 `MacPorts`，`macOS` 的软件包管理器，可以分别从 [brew.sh](https://brew.sh/) 或 [macports.org](https://www.macports.org/) 安装。如果你运行的是 Windows 等系统，请参见[安装](/getting-started/install)。
 {{% /note %}}
 
 ```bash
 brew install hugo
-# or
+# 或者
 port install hugo
 ```
 
-To verify your new install:
+验证安装是否成功：
 
 ```bash
 hugo version
@@ -46,21 +46,21 @@ hugo version
 
 {{< asciicast ItACREbFgvJ0HjnSNeTknxWy9 >}}
 
-## Step 2: Create a New Site
+## 第二步：创建一个新网站
 
 ```bash
 hugo new site quickstart
 ```
 
-The above will create a new Hugo site in a folder named `quickstart`.
+上面这条命令将会在名为 `quickstart` 文件夹中创建一个新的网站。
 
 {{< asciicast 3mf1JGaN0AX0Z7j5kLGl3hSh8 >}}
 
-## Step 3: Add a Theme
+## 第三步：添加一个主题
 
-See [themes.gohugo.io](https://themes.gohugo.io/) for a list of themes to consider. This quickstart uses the beautiful [Ananke theme](https://themes.gohugo.io/gohugo-theme-ananke/).
+查看 [themes.gohugo.io](https://themes.gohugo.io/) 以获得可考虑的主题列表。这个快速开始教程使用了漂亮的 [Ananke 主题](https://themes.gohugo.io/gohugo-theme-ananke/)作为示例。
 
-First, download the theme from GitHub and add it to your site's `themes` directory:
+首先，将主题从 Github 上面下载下来，并添加到你的网站的 `themes` 文件夹内：
 
 ```bash
 cd quickstart
@@ -68,14 +68,14 @@ git init
 git submodule add https://github.com/theNewDynamic/gohugo-theme-ananke.git themes/ananke
 ```
 
-*Note for non-git users:*
-   - If you do not have git installed, you can download the archive of the latest
-     version of this theme from:
+*非git用户注意：*
+   - 如果你没有安装 git，你可以下载最新的档案。
+     这个主题的版本：
        https://github.com/theNewDynamic/gohugo-theme-ananke/archive/master.zip
-   - Extract that .zip file to get a "gohugo-theme-ananke-master" directory.
-   - Rename that directory to "ananke", and move it into the "themes/" directory.
+   - 解压该 .zip 文件，得到一个 `gohugo-theme-anke-master` 目录。
+   - 将该目录重命名为 `anke`，并将其移动到 `themes/` 目录下。
 
-Then, add the theme to the site configuration:
+然后，将主题添加到网站的配置文件中：
 
 ```bash
 echo theme = \"ananke\" >> config.toml
@@ -83,9 +83,9 @@ echo theme = \"ananke\" >> config.toml
 
 {{< asciicast 7naKerRYUGVPj8kiDmdh5k5h9 >}}
 
-## Step 4: Add Some Content
+## 第四步：添加一些内容
 
-You can manually create content files (for example as `content/<CATEGORY>/<FILE>.<FORMAT>`) and provide metadata in them, however you can use the `new` command to do a few things for you (like add title and date):
+你可以手动创建内容文件（例如 `content/<CATEGORY>/<FILE>.<FORMAT>`），并在其中提供元数据，不过你可以使用 `new` 命令为你做一些事情（如添加标题和日期）：
 
 ```
 hugo new posts/my-first-post.md
@@ -93,7 +93,7 @@ hugo new posts/my-first-post.md
 
 {{< asciicast eUojYCfRTZvkEiqc52fUsJRBR >}}
 
-Edit the newly created content file if you want, it will start with something like this:
+如果你想编辑新创建的内容文件，它将以这样的方式开头：
 
 ```markdown
 ---
@@ -105,12 +105,12 @@ draft: true
 ```
 
 {{% note %}}
-Drafts do not get deployed; once you finish a post, update the header of the post to say `draft: false`. More info [here](/getting-started/usage/#draft-future-and-expired-content).
+草稿不会被部署；一旦你完成了一篇文章，请更新文章的文件头为 `draft: false`。点击[这里](/getting-started/usage/#draft-future-and-expired-content)查看更多信息。
 {{% /note %}}
 
-## Step 5: Start the Hugo server
+## 第五步：启动 Hugo 服务器
 
-Now, start the Hugo server with [drafts](/getting-started/usage/#draft-future-and-expired-content) enabled:
+现在，在启用[草稿](/getting-started/usage/#draft-future and-expired-content)的情况下启动 Hugo 服务器：
 
 {{< asciicast BvJBsF6egk9c163bMsObhuNXj >}}
 
@@ -138,17 +138,17 @@ Web Server is available at http://localhost:1313/ (bind address 127.0.0.1)
 Press Ctrl+C to stop
 ```
 
-**Navigate to your new site at [http://localhost:1313/](http://localhost:1313/).**
+**导航到您的新网站 [http://localhost:1313/](http://localhost:1313/)。**
 
-Feel free to edit or add new content and simply refresh in browser to see changes quickly (You might need to force refresh in webbrowser, something like Ctrl-R usually works).
+你可以随意编辑或添加新的内容，只需在浏览器中刷新即可快速看到变化（你可能需要在浏览器中强制刷新，像Ctrl+R通常是有效的）。
 
-## Step 6: Customize the Theme
+## 第六步：自定义主题
 
-Your new site already looks great, but you will want to tweak it a little before you release it to the public.
+你的新网站看起来已经很不错了，但是在你向公众发布之前，你要对它进行一些调整。
 
-### Site Configuration
+### 网站配置
 
-Open up `config.toml` in a text editor:
+使用文本编辑器打开 `config.toml` 文件：
 
 ```
 baseURL = "https://example.org/"
@@ -157,23 +157,23 @@ title = "My New Hugo Site"
 theme = "ananke"
 ```
 
-Replace the `title` above with something more personal. Also, if you already have a domain ready, set the `baseURL`. Note that this value is not needed when running the local development server.
+将上面的 `title` 换成更个性化的东西。另外，如果你已经准备好了一个域名，设置 `baseURL`。注意，当运行本地开发服务器时，不需要这个值。
 
 {{% note %}}
-**Tip:** Make the changes to the site configuration or any other file in your site while the Hugo server is running, and you will see the changes in the browser right away, though you may need to [clear your cache](https://kb.iu.edu/d/ahic).
+**提示：** 在 Hugo 服务器运行时，对网站配置或网站中的任何其他文件进行修改，你会立即在浏览器中看到修改，不过你可能需要[清除缓存](https://kb.iu.edu/d/ahic)。
 {{% /note %}}
 
-For theme specific configuration options, see the [theme site](https://github.com/theNewDynamic/gohugo-theme-ananke).
+关于主题的具体配置选项，请参见[主题网站](https://github.com/theNewDynamic/gohugo-theme-ananke)。
 
-**For further theme customization, see [Customize a Theme](/themes/customizing/).**
+**关于更深度的主题定制，请参阅[定制主题](/themes/customizing/)。**
 
-### Step 7: Build static pages
+### 第七步：构建静态页面
 
-It is simple. Just call:
+这非常简单，只需要这一行命令：
 
 ```
 hugo -D
 ```
 
-Output will be in `./public/` directory by default (`-d`/`--destination` flag to change it, or set `publishdir` in the config file).
+默认情况下，最终的网站页面将输出在 `./public/` 目录下（可以使用 `-d`/`--destination` 参数进行更改，或者在配置文件中设置 `publishdir`）。
 
