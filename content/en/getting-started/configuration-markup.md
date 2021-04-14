@@ -125,7 +125,7 @@ Note that this is only supported with the [Goldmark](#goldmark) renderer.
 
 Render Hooks allow custom templates to override markdown rendering functionality. You can do this by creating templates with base names `render-{feature}` in `layouts/_default/_markup`.
 
-You can also create type/section specific hooks in `layouts/[type/section]/_markup`, e.g.: `layouts/blog/_markup`.{{< new-in "0.71.0" >}}
+You can also create type/section specific hooks in `layouts/[type/section]/_markup`, e.g.: `layouts/blog/_markup`. {{< new-in "0.73.0" >}}
 
 The features currently supported are:
 
@@ -137,11 +137,15 @@ You can define [Output-Format-](/templates/output-formats) and [language-](/cont
 
 ```bash
 layouts
-└── _default
+├── _default
+│   └── _markup
+│       ├── render-image.html
+│       ├── render-image.rss.xml
+│       ├── render-link.html
+│       └── render-heading.html
+└── blog
     └── _markup
-        ├── render-image.html
-        ├── render-image.rss.xml
-        └── render-link.html
+        └── render-heading.html
 ```
 
 Some use cases for the above:
