@@ -303,7 +303,7 @@ Assuming that standard Hugo pretty URLs are turned on.
 
 ```
 <a href="https://example.com/blog/neat">Neat</a>
-<a href="/about/#who:c28654c202e73453784cfd2c5ab356c0">Who</a>
+<a href="/about/#who">Who</a>
 ```
 
 ### `tweet`
