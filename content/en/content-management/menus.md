@@ -101,7 +101,7 @@ The URLs must be relative to the context root. If the `baseURL` is `https://exam
 
 ## Nesting
 
-All nesting of content is done via the `parent` field.
+All nesting of content is done via the `parent` field. Only [list pages](/templates/lists/) (`_index.md`) can have child pages.
 
 The parent of an entry should be the identifier of another entry. The identifier should be unique (within a menu).
 
