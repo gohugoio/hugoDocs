@@ -14,11 +14,11 @@
   url = "/zh/getting-started/"
 
 [[docs]]
-  name = "主题"
+  name = "Hugo Modules"
   weight = 15
-  identifier = "themes"
+  identifier = "modules"
   post = "break"
-  url = "/zh/themes/"
+  url = "/zh/hugo-modules/"
 
 # Core languages.zh.menus
 
@@ -46,6 +46,12 @@
   weight = 35
   identifier = "variables"
   url = "/zh/variables/"
+
+[[docs]]
+  name = "Hugo 管道"
+  weight = 36
+  identifier = "pipes"
+  url = "/hugo-pipes/"
 
 [[docs]]
   name = "CLI"
@@ -79,6 +85,16 @@
   post = "break"
   identifier = "contribute"
   url = "/zh/contribute/"
+
+  ######## QUICKLINKS
+
+  [[quicklinks]]
+    name = "基础"
+    weight = 1
+    identifier = "fundamentals"
+    url = "/tags/fundamentals/"
+
+######## GLOBAL ITEMS TO BE SHARED WITH THE HUGO SITES
 
 [[global]]
   name = "新闻"
