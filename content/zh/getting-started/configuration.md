@@ -385,7 +385,7 @@ force = false
 
 ## 配置标题大小写
 
-设置 `titleCaseStyle` 来指定[标题（title）](/functions/title/)模板函数和 Hugo 中自动章节标题所使用的标题样式。它的默认值是[AP Stylebook](https://www.apstylebook.com/)，但你也可以将其设置为 `Chicago` 或 `Go` (每个单词都以大写字母开头)。
+设置 `titleCaseStyle` 来指定[标题（title）](/functions/title/)模板函数和 Hugo 中自动章节标题所使用的标题样式。它的默认使用[AP Stylebook](https://www.apstylebook.com/)来判断，但你也可以将其设置为 `Chicago` 或 `Go` (每个单词都以大写字母开头)。
 
 ## 配置环境变量
 
