@@ -47,14 +47,18 @@ hugo --config a.toml,b.toml,c.toml
 - 每个文件的内容都必须是顶层的，比如：
   
   在 `config.toml` 中，是：
-  ```toml
+
+{{< code-toggle file="config" >}}
   [Params]
     foo = "bar"
-  ```
+{{< /code-toggle >}}
+
   在 `params.toml` 中，是：
-  ```
+
+{{< code-toggle file="params" >}}
   foo = "bar"
-  ```
+{{< /code-toggle >}}
+
 - 每个目录中都有一组文件，其中包含了环境中特有的设置。
 - 文件可以进行本地化，使其成为特定的语言。
 
@@ -462,20 +466,20 @@ ignoreFiles = [ "\\.foo$","\\.boo$"]
 
 默认的配置是：
 
-```toml
+{{< code-toggle file="config" >}}
 [frontmatter]
 date = ["date", "publishDate", "lastmod"]
 lastmod = [":git", "lastmod", "date", "publishDate"]
 publishDate = ["publishDate", "date"]
 expiryDate = ["expiryDate"]
-```
+{{< /code-toggle >}}
 
 例如，如果您在一些内容中使用了非标准的日期参数，您可以覆盖 `date` 的设置：
 
- ```toml
+{{< code-toggle file="config" >}}
 [frontmatter]
 date = ["myDate", ":default"]
-```
+{{< /code-toggle >}}
 
 `:default` 是默认设置的快捷方式。上面会将 `.Date` 设置为 `myDate` 中的日期值（如果存在），如果不存在，我们会在 `date`、`publishDate`、`lastmod` 中查找并选择第一个有效的日期。
 
@@ -489,10 +493,10 @@ date = ["myDate", ":default"]
 
 例如：
 
- ```toml
+{{< code-toggle file="config" >}}
 [frontmatter]
 lastmod = ["lastmod", ":fileModTime", ":default"]
-```
+{{< /code-toggle >}}
 
 
 上面会先尝试从 `.lastmod` front matter 中开始提取 `.Lastmod` 的值，然后再提取内容文件的修改时间戳，最后在 `:git`、`date` 和 `publishDate` 中查找有效日期。最后一个，`:default` 这里应该不需要，但 Hugo 最后会在 `:git`、`date` 中寻找有效的日期，然后是`publishDate`。
@@ -503,10 +507,10 @@ lastmod = ["lastmod", ":fileModTime", ":default"]
 
 例如：
 
-```toml
+{{< code-toggle file="config" >}}
 [frontmatter]
 date  = [":filename", ":default"]
-```
+{{< /code-toggle >}}
 
 上面将先尝试从文件名中提取 `.Date` 的值，然后它将查找前面的参数 `date`、`publishDate` ，最后是 `lastmod`。
 

@@ -183,15 +183,11 @@ hugo server --watch=false
 hugo server --disableLiveReload
 ```
 
-后面的参数可以通过在你的 `config.toml` 或 `config.yml` 文件中添加以下键值来省略：
+后面的参数可以通过添加以下键值来省略：
 
-```
+{{< code-toggle file="config" >}}
 disableLiveReload = true
-```
-
-```
-disableLiveReload: true
-```
+{{< /code-toggle >}}
 
 ## 部署你的网站
 
