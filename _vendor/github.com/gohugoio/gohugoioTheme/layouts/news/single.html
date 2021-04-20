@@ -13,7 +13,7 @@
       {{end}}
 
       <h1 class="lh-title fw9 mb7 mv0 pt3">
-        <a href="{{ .RelPermalink }}" class="link primary-color dim">
+        <a href="{{ .RelPermalink }}" title="{{ .Title }}" class="link primary-color dim">
           {{ .Title }}
         </a>
       </h1>
@@ -31,7 +31,7 @@
         </time>
         {{ if in .Params.categories "Releases" }}
         <p>
-        Go to <a href="https://github.com/gohugoio/hugo/releases" class="link primary-color dim">Hugo Releases</a> for the release downloads.
+        Go to <a href="https://github.com/gohugoio/hugo/releases" title="Hugo Releases" class="link primary-color dim">Hugo Releases</a> for the release downloads.
         </p>
         {{ end }}
         <!--
@@ -68,7 +68,7 @@
               {{ range $tags.Pages }}
                 {{ if ne .RelPermalink $currentPageUrl }}
                   <li class="mb2 mr3">
-                     <a href="{{ .RelPermalink }}" class="link">
+                     <a href="{{ .RelPermalink }}" title="{{ .LinkTitle }}" class="link">
                        {{ .LinkTitle }}
                      </a>
                    </li>

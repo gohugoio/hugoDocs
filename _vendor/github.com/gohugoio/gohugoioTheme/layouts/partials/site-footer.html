@@ -3,7 +3,7 @@
       <div class="pb3 pt4 w-100 w-50-ns">
 
          <div class="b f3  light-gray mb3 nested-links tc">
-           By the <a href="https://github.com/gohugoio/hugo/graphs/contributors" class="link">Hugo Authors</a><br />
+           By the <a href="https://github.com/gohugoio/hugo/graphs/contributors" title="Hugo authors" class="link">Hugo Authors</a><br />
           </div>
 
           <div class="center w4">
@@ -11,19 +11,19 @@
           </div>
 
           <ul class="center f6 list ma0 mv3 pa0 tc">
-            {{- with .Site.Params.github_repo -}}<li class="dib mr3"><a href="{{ . }}" class="dim link light-gray pv2">File an Issue</a></li>{{- end -}}
-            {{- with .Site.Params.forum -}}<li class="dib mr3"><a href="{{ . }}" class="dim link light-gray pv2">Get Help</a></li>{{- end -}}
-            {{- with .Site.Params.gitter -}}<li class="dib"><a href="{{ . }}" class="dim link light-gray pv2">Discuss Source Code</a></li>{{- end -}}
+            {{- with .Site.Params.github_repo -}}<li class="dib mr3"><a href="{{ . }}" title="File an Issue" class="dim link light-gray pv2">File an Issue</a></li>{{- end -}}
+            {{- with .Site.Params.forum -}}<li class="dib mr3"><a href="{{ . }}" title="Get Help" class="dim link light-gray pv2">Get Help</a></li>{{- end -}}
+            {{- with .Site.Params.gitter -}}<li class="dib"><a href="{{ . }}" title="Discuss Source Code" class="dim link light-gray pv2">Discuss Source Code</a></li>{{- end -}}
           </ul>
 
           <ul class="center f6 list ma0 mv4 pa0 tc">
-            <li class="dib mr3"><a href="https://twitter.com/gohugoio" class="dim link light-gray pv2">@GoHugoIO</a></li>
-            <li class="dib mr3"><a href="https://twitter.com/spf13" class="dim link light-gray pv2">@spf13</a></li>
-            <li class="dib"><a href="https://twitter.com/bepsays" class="dim link light-gray pv2">@bepsays</a></li>
+            <li class="dib mr3"><a href="https://twitter.com/gohugoio" title="hugo twitter" class="dim link light-gray pv2">@GoHugoIO</a></li>
+            <li class="dib mr3"><a href="https://twitter.com/spf13" title="spf13 twitter" class="dim link light-gray pv2">@spf13</a></li>
+            <li class="dib"><a href="https://twitter.com/bepsays" title="bepsays twitter" class="dim link light-gray pv2">@bepsays</a></li>
           </ul>
 
           {{ with  getenv "REPOSITORY_URL" -}}
-          <p class="center f6 tc w-70"><a href="https://www.netlify.com"><img src="/images/netlify-dark.svg" alt="Netlify badge"></a></p>
+          <p class="center f6 tc w-70"><a href="https://www.netlify.com" title="Netlify website"><img src="/images/netlify-dark.svg" alt="Netlify badge"></a></p>
           {{- end }}
 
       </div>

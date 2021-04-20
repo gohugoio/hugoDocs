@@ -4,7 +4,7 @@
   <div class="center flex-ns flex-wrap items-center justify-start mw9">
 
     <h1 class="dim f3 lh-solid ml0-ns mr0 mr4-l mv0 pl3 pl4-ns">
-      <a href="https://gohugo.io/" class="link white">
+      <a href="https://gohugo.io/" title="Hugo" class="link white">
          HUGO
       </a>
     </h1>
@@ -12,7 +12,7 @@
       {{ range .Site.Menus.global }}
         <li class="f5 dib mr4" role="menuitem">
             {{/* TODO: Create an "Global" active class to show which site one is currently at */}}
-          <a href="{{ .URL }}" class="dim link{{ if $currentPage.IsMenuCurrent "global" . }} gray {{else}} light-silver{{ end }}">
+          <a href="{{ .URL }}" title="Hugo {{ .Name }}" class="dim link{{ if $currentPage.IsMenuCurrent "global" . }} gray {{else}} light-silver{{ end }}">
             {{ .Name }}
               {{/* using ".Post" from the menu system to determine if we should show an icon for external links */}}
             {{ $post_status := printf "%s" .Post }}

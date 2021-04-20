@@ -18,7 +18,7 @@
               {{ .copy }}
             </p>
               <p class="f4 lh-copy nested-linksTK">
-                <a href="{{ .link | absURL }}" class="link black dim">
+                <a href="{{ .link | absURL }}" title="{{ .cta }}" class="link black dim">
                   {{ .cta }} {{ partial "svg/link-ext.svg" (dict "fill" "#333" "size" "14") }}
                 </a>
               </p>
