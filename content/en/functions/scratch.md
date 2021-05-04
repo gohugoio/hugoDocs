@@ -20,39 +20,56 @@ draft: false
 aliases: [/extras/scratch/,/doc/scratch/]
 ---
 
-In most cases you can do okay without `Scratch`, but due to scoping issues, there are many use cases that aren't solvable in Go Templates without `Scratch`'s help.
+`.Scratch` is available as methods on `Page` and `Shortcode`.
 
-`.Scratch` is available as methods on `Page` and `Shortcode`. Since Hugo 0.43 you can also create a locally scoped `Scratch` using the template func `newScratch`.
+It was initially created as a workaround to fight a [Go template scoping limitation](https://github.com/golang/go/issues/10608) which prevented template variable overwrites. Starting with Hugo 0.48, this limitation was lifted and the use of `Scratch` isn't necessary anymore in those cases.
 
+But `Scratch` offers another feature which can be useful for certain use cases: The *scope* of the backing data is *global* for the given `Page` or `Shortcode`, and spans partial and shortcode includes. This means a `Scratch` assigned in a parent context is available in a child's context by simply passing on the parent page object as context.
 
-{{% note %}}
-See [this Go issue](https://github.com/golang/go/issues/10608) for the main motivation behind Scratch.
-{{% /note %}}
-
-{{% note %}}
-For a detailed analysis of `.Scratch` and in context use cases, see this [post](https://regisphilibert.com/blog/2017/04/hugo-scratch-explained-variable/).
-{{% /note %}}
-
-## Get a Scratch
-
-From Hugo `0.43` you can also create a locally scoped `Scratch` by calling `newScratch`:
+A very simple example:
 
 ```go-html-template
-$scratch := newScratch
-$scratch.Set "greeting" "Hello"
+{{ .Scratch.Set "mood" "Happy" }}
+{{ if $rain }}
+	{{ .Scratch.Set "mood" "Grumpy" }}
+{{ end }}
+{{ partial "snowwhite/dwarf.html" . }}
 ```
 
-A `Scratch` is also added to both `Page` and `Shortcode`. `Scratch` has the following methods:
+Calling `.Scratch.Get "mood"` in the `snowwhite/dwarf.html` partial will return the value assigned in the above parent (`"Happy"` or `"Grumpy"`). 
+
+But note that since Hugo 0.48, this simple example can also be implemented without the use of `Scratch`:
+
+```go-html-template
+{{ $mood := "Happy" }}
+{{ if $rain }}
+	{{ $mood = "Grumpy" }}
+{{ end }}
+{{ partial "snowwhite/dwarf.html" (dict "mood" $mood "page" . ) }}
+```
+
+{{% note %}}
+For a detailed analysis of `.Scratch` and contextual use cases, see [this blog post](https://regisphilibert.com/blog/2017/04/hugo-scratch-explained-variable/).
+{{% /note %}}
+
+{{% note %}}
+Note that `.Scratch` from a shortcode will return the shortcode's `Scratch`, which in most cases is what you want. If you want to store it in the `Page` scoped `Scratch`, then use `.Page.Scratch`.
+{{% /note %}}
+
+
+`Scratch` has the following methods:
 
 #### .Set
 
-Set the given value to a given key
+Set the given value to a given key.
 
 ```go-html-template
 {{ .Scratch.Set "greeting" "Hello" }}
 ```
+
 #### .Get
-Get the value of a given key
+
+Get the value of a given key.
 
 ```go-html-template
 {{ .Scratch.Set "greeting" "Hello" }}
@@ -61,7 +78,8 @@ Get the value of a given key
 ```
 
 #### .Add
-Will add a given value to existing value of the given key. 
+
+Adds a given value to existing value of the given key. 
 
 For single values, `Add` accepts values that support Go's `+` operator. If the first `Add` for a key is an array or slice, the following adds will be appended to that list.
 
@@ -79,7 +97,6 @@ For single values, `Add` accepts values that support Go's `+` operator. If the f
 {{ .Scratch.Get "total" }} > 10
 ```
 
-
 ```go-html-template
 {{ .Scratch.Add "greetings" (slice "Hello") }}
 {{ .Scratch.Add "greetings" (slice "Welcome" "Cheers") }}
@@ -88,6 +105,7 @@ For single values, `Add` accepts values that support Go's `+` operator. If the f
 ```
 
 #### .SetInMap
+
 Takes a `key`, `mapKey` and `value` and add a map of `mapKey` and `value` to the given `key`.
 
 ```go-html-template
@@ -98,7 +116,8 @@ Takes a `key`, `mapKey` and `value` and add a map of `mapKey` and `value` to the
 ```
 
 #### .GetSortedMapValues
-Returns array of values from `key` sorted by `mapKey`
+
+Returns an array of values from `key` sorted by `mapKey`.
 
 ```go-html-template
 {{ .Scratch.SetInMap "greetings" "english" "Hello" }}
@@ -106,8 +125,10 @@ Returns array of values from `key` sorted by `mapKey`
 ----
 {{ .Scratch.GetSortedMapValues "greetings" }} > [Hello Bonjour]
 ```
+
 #### .Delete
-Removes the given key
+
+{{< new-in "0.38.0" >}} Removes the given key.
 
 ```go-html-template
 {{ .Scratch.Delete "greetings" }}
@@ -115,15 +136,17 @@ Removes the given key
 
 #### .Values
 
-`Values` returns the raw backing map. Note that you should just use this method on the locally scoped `Scratch` instances you obtain via `newScratch`, not
+`Values` returns the raw backing map. Note that you should only use this method on the locally scoped `Scratch` instances you obtain via `newScratch`, not
  `.Page.Scratch` etc., as that will lead to concurrency issues.
 
-## Scope
-The scope of the backing data is global for the given `Page` or `Shortcode`, and spans partial and shortcode includes.
+#### .newScratch
 
-Note that `.Scratch` from a shortcode will return the shortcode's `Scratch`, which in most cases is what you want. If you want to store it in the page scoped Scratch, then use `.Page.Scratch`.
+{{< new-in "0.43.0" >}} `newScratch` creates a locally scoped `Scratch` which can be useful when the parent context already includes a `Scratch`.
 
-
+```go-html-template
+$scratch := newScratch
+$scratch.Set "greeting" "Hello"
+```
 
 
 [pagevars]: /variables/page/
