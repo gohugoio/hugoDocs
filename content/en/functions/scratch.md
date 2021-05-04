@@ -1,6 +1,6 @@
 ---
 title: .Scratch
-description: Acts as a "scratchpad" to allow for writable page- or shortcode-scoped variables.
+description: Acts as a "scratchpad" to store and manipulate data.
 godocref:
 date: 2017-02-01
 publishdate: 2017-02-01
@@ -20,63 +20,39 @@ draft: false
 aliases: [/extras/scratch/,/doc/scratch/]
 ---
 
-`.Scratch` is available as a method on `Page` and `Shortcode`.
-
-It was initially created as a workaround to fight a [Go template scoping limitation](https://github.com/golang/go/issues/10608) which prevented template variable overwrites. Starting with Hugo 0.48, this limitation was lifted and the use of `Scratch` isn't necessary anymore in those cases.
-
-But `Scratch` still offers a feature which can be useful for certain use cases: The *scope* of its backing data is *global* for the given `Page` or `Shortcode`, and spans partial and shortcode includes. This means a `Scratch` assigned in a parent context is available in a child's context by simply passing on the parent page object.
-
-A very simple example:
-
-```go-html-template
-{{ .Scratch.Set "mood" "Happy" }}
-{{ if $rain }}
-  {{ .Scratch.Set "mood" "Grumpy" }}
-{{ end }}
-{{ partial "snowwhite/dwarf.html" . }}
-```
-
-Calling `.Scratch.Get "mood"` in the `snowwhite/dwarf.html` partial will return the value assigned in the above parent (`"Happy"` or `"Grumpy"`). 
-
-But note that since Hugo 0.48, this simple example can also be implemented without the use of `Scratch`:
-
-```go-html-template
-{{ $mood := "Happy" }}
-{{ if $rain }}
-  {{ $mood = "Grumpy" }}
-{{ end }}
-{{ partial "snowwhite/dwarf.html" (dict "mood" $mood "page" . ) }}
-```
+Scratch is a Hugo feature designed to conveniently manipulate data in a Go Template world. It is either a Page or Shortcode method for which the resulting data will be attached to the given context, or it can live as a unique instance stored in a variable.
 
 {{% note %}}
 For a detailed analysis of `.Scratch` and contextual use cases, see [this blog post](https://regisphilibert.com/blog/2017/04/hugo-scratch-explained-variable/).
 {{% /note %}}
 
-### Global vs. local context
+### Contexted .Scratch vs local newScratch
 
-Since Hugo 0.43, there are two different types of `Scratch`: The `.Scratch` that is available as a method on `Page` and `Shortcode` and the function [`newScratch`](#newscratch) that creates a locally scoped `Scratch`:
+Since Hugo 0.43, there are two different ways of using `Scratch`:
 
-A short example of both:
+#### The Page's Scratch.
+
+It is available as a Page method or a Shortcode method and attach the "scratched" data to the given page. One needs either a Page context or a Shortcode context to use Scratch. The methods detailed below are therefor available from the Page context's `.Scratch`.
 
 ```go-html-template
-{{ .Scratch.Set "greeting" "bonjouer" }}
-{{ $local_scratch := newScratch }}
-{{ $local_scratch.Set "greeting" "bonjour" }}
-
-{{ partial "goodday.html" . }}
+{{ .Scratch.Set "greeting" "bonjour" }}
+{{ range .Pages }}
+  {{ .Scratch.Set "greeting" (print "bonjour" .Title }}
+{{ end }}
 ```
 
-When called from the same template file, `.Scratch.Get "greeting"` will return `"bonjouer"` while `$local_scratch.Scratch.Get "greeting"` will return `"bonjour"` (note the absent `e`).
+#### The local Scratch
 
-`$local_scratch` will not be available in the `goodday.html` partial's context since its scope is local to the above template file.
+A Scratch instance can be stored in any variable using the `newScratch` function. With this, one does not need a Page context to use Scratch. The methods detailed below are therefor available from that given variable.
 
-{{% note %}}
-Note that `.Scratch` from a shortcode will return the shortcode's `Scratch`, which in most cases is what you want. If you want to store it in the `Page` scoped `Scratch`, then use `.Page.Scratch`.
-{{% /note %}}
+```go-html-template
+{{ $data := newScratch }}
+{{ $data.Set "greeting" "hola" }}
+```
 
 ### newScratch
 
-{{< new-in "0.43.0" >}} `newScratch` creates a locally scoped `Scratch` which for example can be useful when the parent context already includes a `Scratch`.
+{{< new-in "0.43.0" >}} `newScratch` creates a locally scoped `Scratch` instance.
 
 ```go-html-template
 {{ $scratch := newScratch }}
@@ -86,6 +62,10 @@ Note that `.Scratch` from a shortcode will return the shortcode's `Scratch`, whi
 ### Methods
 
 `Scratch` has the following methods:
+
+{{% note %}}
+Note that the following examples assume a [local Scratch instance](#the-local-scratch) has been stored in `$scratch`.
+{{% /note %}}
 
 #### .Set
 
