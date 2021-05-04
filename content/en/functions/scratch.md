@@ -68,7 +68,7 @@ A short example of both:
 
 When called from the same template file, `.Scratch.Get "greeting"` will return `"bonjouer"` while `$local_scratch.Scratch.Get "greeting"` will return `"bonjour"` (note the absent `e`).
 
-`$local_scratch` will not be available in the `goodday.html` partial's context since it's scope is local to the above template file.
+`$local_scratch` will not be available in the `goodday.html` partial's context since its scope is local to the above template file.
 
 {{% note %}}
 Note that `.Scratch` from a shortcode will return the shortcode's `Scratch`, which in most cases is what you want. If you want to store it in the `Page` scoped `Scratch`, then use `.Page.Scratch`.
@@ -89,10 +89,10 @@ Note that `.Scratch` from a shortcode will return the shortcode's `Scratch`, whi
 
 #### .Set
 
-Set the given value to a given key.
+Set the value of a given key.
 
 ```go-html-template
-{{ .Scratch.Set "greeting" "Hello" }}
+{{ $scratch.Set "greeting" "Hello" }}
 ```
 
 #### .Get
@@ -100,71 +100,73 @@ Set the given value to a given key.
 Get the value of a given key.
 
 ```go-html-template
-{{ .Scratch.Set "greeting" "Hello" }}
+{{ $scratch.Set "greeting" "Hello" }}
 ----
-{{ .Scratch.Get "greeting" }} > Hello
+{{ $scratch.Get "greeting" }} > Hello
 ```
 
 #### .Add
 
-Adds a given value to existing value of the given key. 
+Add a given value to existing value(s) of the given key. 
 
 For single values, `Add` accepts values that support Go's `+` operator. If the first `Add` for a key is an array or slice, the following adds will be appended to that list.
 
 ```go-html-template
-{{ .Scratch.Add "greetings" "Hello" }}
-{{ .Scratch.Add "greetings" "Welcome" }}
+{{ $scratch.Add "greetings" "Hello" }}
+{{ $scratch.Add "greetings" "Welcome" }}
 ----
-{{ .Scratch.Get "greetings" }} > HelloWelcome
+{{ $scratch.Get "greetings" }} > HelloWelcome
 ```
 
 ```go-html-template
-{{ .Scratch.Add "total" 3 }}
-{{ .Scratch.Add "total" 7 }}
+{{ $scratch.Add "total" 3 }}
+{{ $scratch.Add "total" 7 }}
 ----
-{{ .Scratch.Get "total" }} > 10
+{{ $scratch.Get "total" }} > 10
 ```
 
 ```go-html-template
-{{ .Scratch.Add "greetings" (slice "Hello") }}
-{{ .Scratch.Add "greetings" (slice "Welcome" "Cheers") }}
+{{ $scratch.Add "greetings" (slice "Hello") }}
+{{ $scratch.Add "greetings" (slice "Welcome" "Cheers") }}
 ----
-{{ .Scratch.Get "greetings" }} > []interface {}{"Hello", "Welcome", "Cheers"}
+{{ $scratch.Get "greetings" }} > []interface {}{"Hello", "Welcome", "Cheers"}
 ```
 
 #### .SetInMap
 
-Takes a `key`, `mapKey` and `value` and add a map of `mapKey` and `value` to the given `key`.
+Takes a `key`, `mapKey` and `value` and adds a map of `mapKey` and `value` to the given `key`.
 
 ```go-html-template
-{{ .Scratch.SetInMap "greetings" "english" "Hello" }}
-{{ .Scratch.SetInMap "greetings" "french" "Bonjour" }}
+{{ $scratch.SetInMap "greetings" "english" "Hello" }}
+{{ $scratch.SetInMap "greetings" "french" "Bonjour" }}
 ----
-{{ .Scratch.Get "greetings" }} > map[french:Bonjour english:Hello]
+{{ $scratch.Get "greetings" }} > map[french:Bonjour english:Hello]
 ```
 
 #### .GetSortedMapValues
 
-Returns an array of values from `key` sorted by `mapKey`.
+Return an array of values from `key` sorted by `mapKey`.
 
 ```go-html-template
-{{ .Scratch.SetInMap "greetings" "english" "Hello" }}
-{{ .Scratch.SetInMap "greetings" "french" "Bonjour" }}
+{{ $scratch.SetInMap "greetings" "english" "Hello" }}
+{{ $scratch.SetInMap "greetings" "french" "Bonjour" }}
 ----
-{{ .Scratch.GetSortedMapValues "greetings" }} > [Hello Bonjour]
+{{ $scratch.GetSortedMapValues "greetings" }} > [Hello Bonjour]
 ```
 
 #### .Delete
 
-{{< new-in "0.38.0" >}} Removes the given key.
+{{< new-in "0.38.0" >}} Remove the given key.
 
 ```go-html-template
-{{ .Scratch.Delete "greetings" }}
+{{ $scratch.Set "greeting" "Hello" }}
+----
+{{ $scratch.Delete "greeting" }}
 ```
 
 #### .Values
 
-`Values` returns the raw backing map. Note that you should only use this method on the locally scoped `Scratch` instances you obtain via [`newScratch`](#newscratch), not
+Return the raw backing map. Note that you should only use this method on the locally scoped `Scratch` instances you obtain via [`newScratch`](#newscratch), not
  `.Page.Scratch` etc., as that will lead to concurrency issues.
 
 
