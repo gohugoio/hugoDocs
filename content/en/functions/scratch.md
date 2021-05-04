@@ -164,7 +164,7 @@ Returns an array of values from `key` sorted by `mapKey`.
 
 #### .Values
 
-`Values` returns the raw backing map. Note that you should only use this method on the locally scoped `Scratch` instances you obtain via `newScratch`, not
+`Values` returns the raw backing map. Note that you should only use this method on the locally scoped `Scratch` instances you obtain via [`newScratch`](#newscratch), not
  `.Page.Scratch` etc., as that will lead to concurrency issues.
 
 
