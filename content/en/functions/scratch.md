@@ -26,13 +26,13 @@ Scratch is a Hugo feature designed to conveniently manipulate data in a Go Templ
 For a detailed analysis of `.Scratch` and contextual use cases, see [this blog post](https://regisphilibert.com/blog/2017/04/hugo-scratch-explained-variable/).
 {{% /note %}}
 
-### Contexted .Scratch vs local newScratch
+### Contexted `.Scratch` vs. local `newScratch`
 
-Since Hugo 0.43, there are two different ways of using `Scratch`:
+Since Hugo 0.43, there are two different ways of using Scratch:
 
-#### The Page's Scratch.
+#### The Page's `.Scratch`
 
-It is available as a Page method or a Shortcode method and attach the "scratched" data to the given page. One needs either a Page context or a Shortcode context to use Scratch. The methods detailed below are therefor available from the Page context's `.Scratch`.
+`.Scratch` is available as a Page method or a Shortcode method and attaches the "scratched" data to the given page. Either a Page or a Shortcode context is required to use `.Scratch`.
 
 ```go-html-template
 {{ .Scratch.Set "greeting" "bonjour" }}
@@ -41,30 +41,21 @@ It is available as a Page method or a Shortcode method and attach the "scratched
 {{ end }}
 ```
 
-#### The local Scratch
+#### The local `newScratch`
 
-A Scratch instance can be stored in any variable using the `newScratch` function. With this, one does not need a Page context to use Scratch. The methods detailed below are therefor available from that given variable.
+{{< new-in "0.43.0" >}} A Scratch instance can also be assigned to any variable using the `newScratch` function. In this case, no Page or Shortcode context is required and the scope of the scratch is only local. The methods detailed below are available from the variable the Scratch instance was assigned to.
 
 ```go-html-template
 {{ $data := newScratch }}
 {{ $data.Set "greeting" "hola" }}
 ```
 
-### newScratch
-
-{{< new-in "0.43.0" >}} `newScratch` creates a locally scoped `Scratch` instance.
-
-```go-html-template
-{{ $scratch := newScratch }}
-{{ $scratch.Set "greeting" "Hello" }}
-```
-
 ### Methods
 
-`Scratch` has the following methods:
+A Scratch has the following methods:
 
 {{% note %}}
-Note that the following examples assume a [local Scratch instance](#the-local-scratch) has been stored in `$scratch`.
+Note that the following examples assume a [local Scratch instance](#the-local-newscratch) has been stored in `$scratch`.
 {{% /note %}}
 
 #### .Set
@@ -146,8 +137,7 @@ Return an array of values from `key` sorted by `mapKey`.
 
 #### .Values
 
-Return the raw backing map. Note that you should only use this method on the locally scoped `Scratch` instances you obtain via [`newScratch`](#newscratch), not
- `.Page.Scratch` etc., as that will lead to concurrency issues.
+Return the raw backing map. Note that you should only use this method on the locally scoped Scratch instances you obtain via [`newScratch`](#the-local-newscratch), not `.Page.Scratch` etc., as that will lead to concurrency issues.
 
 
 [pagevars]: /variables/page/
