@@ -20,7 +20,7 @@ draft: false
 aliases: [/extras/scratch/,/doc/scratch/]
 ---
 
-`.Scratch` is available as methods on `Page` and `Shortcode`.
+`.Scratch` is available as a method on `Page` and `Shortcode`.
 
 It was initially created as a workaround to fight a [Go template scoping limitation](https://github.com/golang/go/issues/10608) which prevented template variable overwrites. Starting with Hugo 0.48, this limitation was lifted and the use of `Scratch` isn't necessary anymore in those cases.
 
@@ -54,19 +54,21 @@ For a detailed analysis of `.Scratch` and contextual use cases, see [this blog p
 
 ### Global vs. local context
 
-Since Hugo 0.43, there are two different types of `Scratch`: The `.Scratch` that is available as methods on `Page` and `Shortcode` and the function [`newScratch`](#newscratch) that creates a locally scoped `Scratch`:
+Since Hugo 0.43, there are two different types of `Scratch`: The `.Scratch` that is available as a method on `Page` and `Shortcode` and the function [`newScratch`](#newscratch) that creates a locally scoped `Scratch`:
 
 A short example of both:
 
 ```go-html-template
-{{ .Scratch.Set "greeting" "bonjouer"
+{{ .Scratch.Set "greeting" "bonjouer" }}
 {{ $local_scratch := newScratch }}
 {{ $local_scratch.Set "greeting" "bonjour" }}
 
 {{ partial "goodday.html" . }}
 ```
 
-When called from the same template file, `.Scratch.Get "greeting"` will return `"bonjouer"` while `$local_scratch.Scratch.Get "greeting"` will return `"bonjour"`. Note that `$local_scratch` will not be available in the `goodday.html` partial's context since it's scope is local to the above template file.
+When called from the same template file, `.Scratch.Get "greeting"` will return `"bonjouer"` while `$local_scratch.Scratch.Get "greeting"` will return `"bonjour"` (note the absent `e`).
+
+`$local_scratch` will not be available in the `goodday.html` partial's context since it's scope is local to the above template file.
 
 {{% note %}}
 Note that `.Scratch` from a shortcode will return the shortcode's `Scratch`, which in most cases is what you want. If you want to store it in the `Page` scoped `Scratch`, then use `.Page.Scratch`.
