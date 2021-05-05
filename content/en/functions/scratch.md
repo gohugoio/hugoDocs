@@ -37,7 +37,7 @@ Since Hugo 0.43, there are two different ways of using Scratch:
 ```go-html-template
 {{ .Scratch.Set "greeting" "bonjour" }}
 {{ range .Pages }}
-  {{ .Scratch.Set "greeting" (print "bonjour" .Title }}
+  {{ .Scratch.Set "greeting" (print "bonjour" .Title) }}
 {{ end }}
 ```
 
