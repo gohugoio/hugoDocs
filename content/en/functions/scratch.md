@@ -23,7 +23,7 @@ aliases: [/extras/scratch/,/doc/scratch/]
 Scratch is a Hugo feature designed to conveniently manipulate data in a Go Template world. It is either a Page or Shortcode method for which the resulting data will be attached to the given context, or it can live as a unique instance stored in a variable.
 
 {{% note %}}
-For a detailed analysis of `.Scratch` and contextual use cases, see [this blog post](https://regisphilibert.com/blog/2017/04/hugo-scratch-explained-variable/).
+Note that Scratch was initially created as a workaround for a [Go template scoping limitation](https://github.com/golang/go/issues/10608) that affected Hugo versions prior to 0.48. For a detailed analysis of `.Scratch` and contextual use cases, see [this blog post](https://regisphilibert.com/blog/2017/04/hugo-scratch-explained-variable/).
 {{% /note %}}
 
 ### Contexted `.Scratch` vs. local `newScratch`
