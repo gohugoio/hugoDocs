@@ -84,6 +84,15 @@ jobs:
 
 For more advanced settings https://github.com/marketplace/actions/hugo-setup 
 
+## Configure the branch used by GitHub Pages
+
+The workflow above will build your site with Hugo and push the resulting `public` folder to a new branch called `gh-pages`. This is the branch, whose content you want to publish with GitHub Pages. By default, GitHub Pages publishes the content of the `main` or `master` branch.
+
+After the workflow has run successfully at least once and the branch `gh-pages` has been created, you need to change the branch used by GitHub Pages. A symptom of a wrongly configured branch can be that GitHub Pages only displays your project's `README.md`, because there's usually no `index.html` in the root folder to use instead.
+
+Go to your GitHub project settings and move to the `Pages` section or open the URL directly: `https://github.com/<USERNAME|ORGANIZATION>/<PROJECT>/settings/pages`
+In the `Source` section, change the branch to `gh-pages` and click `Save`. GitHub Pages should display the contents of this branch (your Hugo site) shortly after.
+
 ## Use a Custom Domain
 
 If you'd like to use a custom domain for your GitHub Pages site, create a file `static/CNAME`. Your custom domain name should be the only contents inside `CNAME`. Since it's inside `static`, the published site will contain the CNAME file at the root of the published site, which is a requirement of GitHub Pages.
