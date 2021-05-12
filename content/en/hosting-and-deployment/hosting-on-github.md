@@ -36,12 +36,7 @@ Please refer to the [GitHub Pages documentation][ghorgs] to decide which type of
 
 ## GitHub User or Organization Pages
 
-As mentioned in the [GitHub Pages documentation][ghorgs], you can host a user/organization page in addition to project pages. Here are the key differences in GitHub Pages websites for Users and Organizations:
-
-1. You must use a `<USERNAME>.github.io` to host your **generated** content
-2. Content from the `main` branch will be used to publish your GitHub Pages site
-
-This is a much simpler setup as your Hugo files and generated content are published into two different repositories.
+As mentioned in the [GitHub Pages documentation][ghorgs], you can host a user/organization page in addition to project pages. The key difference is that you must use a `<USERNAME>.github.io` URL to host your **generated** content.
 
 ## Build Hugo With GitHub Action
 
