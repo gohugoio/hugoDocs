@@ -16,7 +16,7 @@ sections_weight: 10
 toc: true
 ---
 
-[Azure Static Web Sites] is a service that automatically builds and deploys full stack web apps to Azure from a Git repository, using [GitHub Actions] or [Azure DevOps].
+[Azure Static Web Apps] is a service that automatically builds and deploys full stack web apps to Azure from a Git repository, using [GitHub Actions] or [Azure DevOps].
 
 _The following documentation covers how to use GitHub Actions for the deployment. If you are using Azure DevOps, follow the Microsoft documentation._
 
@@ -89,7 +89,7 @@ jobs:
 
 Azure Static Web Apps supports custom domains as a CNAME or APEX domain mapping. You can configure the custom domains via the Azure Portal. Refer to the [official documentation for custom domains][domains] for more information.
 
-[Azure Static Web Sites]: https://docs.microsoft.com/azure/static-web-apps/?WT.mc_id=javascript-26008-aapowell
+[Azure Static Web Apps]: https://docs.microsoft.com/azure/static-web-apps/?WT.mc_id=javascript-26008-aapowell
 [GitHub Actions]: https://docs.github.com/en/actions
 [Azure DevOps]: https://docs.microsoft.com/azure/static-web-apps/publish-devops?WT.mc_id=javascript-26008-aapowell
 [ghsignup]: https://github.com/join
