@@ -522,6 +522,14 @@ Bonsoir, {{/* {{ add 0 + 2 }} */}}Eliott.
 
 Will render `Bonsoir, Eliott.`, and not care about the syntax error (`add 0 + 2`) in the comment block.
 
+{{% note %}} You also can write somme text as HTML comment for example. In this case you have to use backticks as delimiter.
+For example:
+
+```go-html-template
+{{ `<!-- Bonsoir, Eliott -->` | safeHTML }}
+```
+{{% /note %}}
+
 ### HTML comments
 
 If you need to produce HTML comments from your templates, take a look at the [Internet Explorer conditional comments](#ie-conditional-comments) example. If you need variables to construct such HTML comments, just pipe `printf` to `safeHTML`. For example:
