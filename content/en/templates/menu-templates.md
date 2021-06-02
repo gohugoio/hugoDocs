@@ -4,7 +4,7 @@ linktitle: Menu Templates
 description: Menus are a powerful but simple feature for content management but can be easily manipulated in your templates to meet your design needs.
 date: 2017-02-01
 publishdate: 2017-02-01
-lastmod: 2017-02-01
+lastmod: 2020-06-16
 categories: [templates]
 keywords: [lists,sections,menus]
 menu:
@@ -23,7 +23,7 @@ Hugo makes no assumptions about how your rendered HTML will be
 structured. Instead, it provides all of the functions you will need to be
 able to build your menu however you want.
 
-The following is an example:
+The following is an example template, appropriate when a menu is configured in the front matter of the page:
 
 {{< code file="layouts/partials/sidebar.html" download="sidebar.html" >}}
 <!-- sidebar start -->
@@ -67,6 +67,25 @@ The following is an example:
 {{% note "`absLangURL` and `relLangURL`" %}}
 Use the [`absLangURL`](/functions/abslangurl) or [`relLangURL`](/functions/rellangurl) functions if your theme makes use of the [multilingual feature](/content-management/multilingual/). In contrast to `absURL` and `relURL`, these two functions add the correct language prefix to the url.
 {{% /note %}}
+
+If configuring your menus entirely in the [site config file](/getting-started/configuration), then comparing the [page's Permalink](/variables/page) and the [menu's URL](/variables/menus) would be more appropriate for the active menu:
+
+{{< code file="layouts/partials/header.html" >}}
+<ul>
+{{- $currentPage := . -}}
+{{- range .Site.Menus.main }}
+    {{- if eq ($currentPage.Permalink | relURL) .URL }}
+    <li class="active">
+        <a href="#">{{ .Name }}</a>
+    </li>
+    {{- else }}
+    <li>
+        <a href="{{ .URL }}">{{ .Name }}</a>
+    </li>
+    {{- end }}
+{{- end }}
+</ul>
+{{< /code >}}
 
 ## Section Menu for Lazy Bloggers
 
