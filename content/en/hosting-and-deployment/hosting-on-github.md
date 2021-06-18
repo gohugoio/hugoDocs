@@ -70,7 +70,7 @@ jobs:
       - name: Setup Hugo
         uses: peaceiris/actions-hugo@v2
         with:
-          hugo-version: 'latest'
+          hugo-version: '{{< hugoVersion.inline >}}{{ hugo.Version }}{{< /hugoVersion.inline >}}'
           # extended: true
 
       - name: Build
