@@ -46,7 +46,7 @@ See [`.Scratch`](/functions/scratch/) for page-scoped, writable variables.
 : the description for the page.
 
 .Dir
-: the path of the folder containing this content file. The path is relative to the `content` folder.
+: the path of the folder containing this content file. The path is relative to the `content` folder. See also [File.Dir](/variables/files/#prose)
 
 .Draft
 : a boolean, `true` if the content is marked as a draft in the front matter.
