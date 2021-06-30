@@ -88,7 +88,7 @@ For the second position, you would just use:
 `with` is great when the output depends on a parameter being set:
 
 ```
-{{ with .Get "class" }} class="{{.}}"{{ end }}
+{{ with .Get "class" }} class="{{ . }}"{{ end }}
 ```
 
 `.Get` can also be used to check if a parameter has been provided. This is
