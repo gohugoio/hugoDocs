@@ -59,6 +59,9 @@ foo = "bar"
 - Each directory holds a group of files containing settings unique to an environment.
 - Files can be localized to become language specific.
 
+{{% warning %}}
+The `configDir` directory is only read for the main project. You can't use it in nested modules, where only regular config files (`config.toml`, etc.) will be read.
+{{% /warning %}}
 
 ```
 ├── config
