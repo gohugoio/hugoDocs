@@ -46,4 +46,4 @@ sections:
     copy: "Hugo's Go-based templating provides just the right amount of logic to build anything from the simple to complex. If you prefer Jade/Pug-like syntax, you can also use Amber, Ace, or any combination of the three."
 ---
 
-Hugo is one of the most popular open-source static site generators. With its amazing speed and flexibility, Hugo makes building websites fun again.
+Hugo是最流行的开源静态网站生成器之一。凭借其惊人的速度和灵活性，Hugo再次使构建网站变得有趣。
