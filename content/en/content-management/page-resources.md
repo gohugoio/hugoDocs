@@ -25,9 +25,9 @@ content
 └── post
     ├── first-post
     │   ├── images
-    │   │   ├── morning.jpg
-    │   │   ├── sunset.jpg
-    │   │   └── moonrise.jpg
+    │   │   ├── a.jpg
+    │   │   ├── b.jpg
+    │   │   └── c.jpg
     │   ├── index.md (root of page bundle)
     │   ├── latest.html
     │   ├── manual.json
@@ -76,14 +76,11 @@ MediaType.Suffixes
 
 ## Methods
 ByType
-: Returns the page resources of the given type as a slice.
+: Returns the page resources of the given type.
 
 ```go
 {{ .Resources.ByType "image" }}
 ```
-
-returns "images/morning.jpg", "images/sunset.jpg" and "images/moonrise.jpg".
-
 Match
 : Returns all the page resources (as a slice) whose `Name` matches the given Glob pattern ([examples](https://github.com/gobwas/glob/blob/master/readme.md)). The matching is case-insensitive.
 
@@ -91,10 +88,8 @@ Match
 {{ .Resources.Match "images/*" }}
 ```
 
-returns "images/morning.jpg", "images/sunset.jpg" and "images/moonrise.jpg", same as `Resources.ByType "image"`.
-
 GetMatch
-: Same as `Match` but will return the first match as a single resource, not a slice.
+: Same as `Match` but will return the first match.
 
 ### Pattern Matching
 ```go
