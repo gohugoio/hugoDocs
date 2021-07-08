@@ -94,7 +94,7 @@ shallow
 : Only add values for new keys.
 
 deep
-: Add values for new keys, merge existing.
+: Add values for new keys, merge existing. The default.
 
 Note that you don't need to be so verbose as in the default setup below; a `_merge` value higher up will be inherited if not set.
 
