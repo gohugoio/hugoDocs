@@ -39,6 +39,7 @@ For improved readability, the Hugo Pipes examples of this documentation will be 
 {{ $style := resources.Get "sass/main.scss" | resources.ToCSS | resources.Minify | resources.Fingerprint }}
 <link rel="stylesheet" href="{{ $style.Permalink }}">
 ```
+Place the above code within the HTML where you would normally include your CSS such as the Base template.
 
 ### Method aliases
 
