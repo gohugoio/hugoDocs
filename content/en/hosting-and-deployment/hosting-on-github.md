@@ -36,12 +36,7 @@ Please refer to the [GitHub Pages documentation][ghorgs] to decide which type of
 
 ## GitHub User or Organization Pages
 
-As mentioned in the [GitHub Pages documentation][ghorgs], you can host a user/organization page in addition to project pages. Here are the key differences in GitHub Pages websites for Users and Organizations:
-
-1. You must use a `<USERNAME>.github.io` to host your **generated** content
-2. Content from the `main` branch will be used to publish your GitHub Pages site
-
-This is a much simpler setup as your Hugo files and generated content are published into two different repositories.
+As mentioned in the [GitHub Pages documentation][ghorgs], you can host a user/organization page in addition to project pages. The key difference is that you must use a `<USERNAME>.github.io` URL to host your **generated** content.
 
 ## Build Hugo With GitHub Action
 
@@ -85,6 +80,15 @@ jobs:
 ```
 
 For more advanced settings [actions-hugo](https://github.com/marketplace/actions/hugo-setup) and [actions-gh-pages](https://github.com/marketplace/actions/github-pages-action).
+
+## Configure the branch used by GitHub Pages
+
+The workflow above will build your site with Hugo and push the resulting `public` folder to a new branch called `gh-pages`. This is the branch, whose content you want to publish with GitHub Pages. By default, GitHub Pages publishes the content of the `main` or `master` branch.
+
+After the workflow has run successfully at least once and the branch `gh-pages` has been created, you need to change the branch used by GitHub Pages. A symptom of a wrongly configured branch can be that GitHub Pages only displays your project's `README.md`, because there's usually no `index.html` in the root folder to use instead.
+
+Go to your GitHub project settings and move to the `Pages` section or open the URL directly: `https://github.com/<USERNAME|ORGANIZATION>/<PROJECT>/settings/pages`
+In the `Source` section, change the branch to `gh-pages` and click `Save`. GitHub Pages should display the contents of this branch (your Hugo site) shortly after.
 
 ## Use a Custom Domain
 
