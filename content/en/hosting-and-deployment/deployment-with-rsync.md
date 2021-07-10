@@ -4,7 +4,7 @@ linktitle: Deployment with Rsync
 description: If you have access to your web host with SSH, you can use a simple rsync one-liner to incrementally deploy your entire Hugo website.
 date: 2017-02-01
 publishdate: 2017-02-01
-lastmod: 2019-10-03
+lastmod: 2021-04-12
 categories: [hosting and deployment]
 keywords: [rsync,deployment]
 authors: [Adrien Poupin]
@@ -101,7 +101,7 @@ USER=my-user
 HOST=my-server.com             
 DIR=my/directory/to/topologix.fr/   # the directory where your web site files should go
 
-hugo && rsync -avz --delete public/ ${USER}@${HOST}:~/${DIR}
+hugo && rsync -avz --delete public/ ${USER}@${HOST}:~/${DIR} # this will delete everything on the server that's not in the local public folder 
 
 exit 0
 ```
