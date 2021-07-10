@@ -31,7 +31,9 @@ To print all images paths in a [Page Bundle]({{< relref "/content-management/org
 
 ## The Image Resource
 
-The `image` resource can also be retrieved from a [global resource]({{< relref "/hugo-pipes/introduction#from-file-to-resource" >}})
+The `image` resource gives you access to image-specific attributes like the picture's `Width` and `Height`, as well as powerful processing methods and filters. More on that below.
+
+Note that the `image` resource can also be retrieved from a [global resource]({{< relref "/hugo-pipes/introduction#from-file-to-resource" >}})
 
 ```go-html-template
 {{- $image := resources.Get "images/logo.jpg" -}}
