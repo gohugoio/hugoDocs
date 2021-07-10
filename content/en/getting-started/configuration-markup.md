@@ -216,6 +216,49 @@ Here is a code example for how the render-image.html template could look:
 </p>
 {{< /code >}}
 
+#### Image with native lazy-loading Markdown example:
+
+Here is a code example to use [browser-native image lazy-loading](https://css-tricks.com/native-lazy-loading/).
+
+When using this feature, you want to set your images' `width` and `height` attributes to avoid layout shifts while loading.
+
+If you store all your images in `static/`, you can use the [imageConfig](/functions/images/#imageconfig) function to get that data.
+
+{{< code file="layouts/_default/_markup/render-image.html" >}}
+<img loading="lazy" 
+     src="{{ .Destination | safeURL }}" 
+     alt="{{ .Text }}" 
+     {{ with .Title}} title="{{ . }}"{{ end }} 
+     {{ with imageConfig ( printf "static/%s" .Destination ) }} 
+     width={{ .Width }}
+     height="{{ .Height }}" 
+     {{ end }}
+/>
+{{< /code >}}
+
+If you store images in the `content/` directory, you'll want to use [image page resources](/content-management/image-processing/#the-image-page-resource) instead. Note the `imageConfig` function offers higher performance in comparison.
+
+{{< code file="layouts/_default/_markup/render-image.html" >}}
+{{ $resource := .Page.Resources.GetMatch .Destination }}
+{{ $alt := .Text }}
+
+{{ with $resource }}
+     <!-- svg and webp image resources don't have .Width and .Height properties, 
+     so we skip them -->
+     {{ if and (eq .ResourceType "image") (ne .MediaType.SubType "svg") }}
+     <img loading="lazy"
+          src="{{ .Permalink | safeURL }}"
+          alt="{{ $alt }}"
+          {{ with .Title}}title="{{ . }}"{{ end }}
+          {{ with .Width }}width="{{ . }}"{{ end }}
+          {{ with .Height }}height="{{ . }}"{{ end }}
+     />
+     {{ else }}
+     <img src="$path" alt="$alt" />
+     {{ end }}
+{{ end }}
+{{< /code >}}
+
 #### Heading link example
 
 Given this template file
