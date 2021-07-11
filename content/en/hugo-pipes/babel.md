@@ -66,7 +66,7 @@ verbose [bool]
 : Log everything
 
 sourceMap [string]
-: Output `inline` or `external` sourcemap from the babel compile. External sourcemaps will be written to the target with the output file name + ".map". Sourcemap settings inside of the babel.config.js are being ignored other than `inputSourceMap: true` which defaults to true. Input sourcemaps can be read from js.Build with sourcemap "inline"
+: Output `inline` or `external` sourcemap from the babel compile. External sourcemaps will be written to the target with the output file name + ".map". Input sourcemaps can be read from js.Build and node modules and combined into the output sourcemaps.
 
 
 ### Examples
