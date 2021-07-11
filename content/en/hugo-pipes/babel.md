@@ -34,6 +34,7 @@ In Hugo `v0.75` we improved the way we resolve JS configuration and dependencies
 
 ```js
 module.exports = {
+        inputSourceMap: true, // OPTIONAL: Read sourcemaps from npm and inline.
         presets: [
                 [
                         require('@babel/preset-env'),
