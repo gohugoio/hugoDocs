@@ -93,7 +93,7 @@ format [string] {{< new-in "0.74.3" >}}
   Default is `iife`, a self-executing function, suitable for inclusion as a <script> tag.
 
 sourceMap
-: Whether to generate source maps. Enum, currently only `inline` (we will improve that).
+: Whether to generate source maps. Enum, currently only `inline` or `external`.
 
 ### Import JS code from /assets
 
