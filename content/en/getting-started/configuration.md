@@ -85,7 +85,7 @@ Let's take an example to understand this better. Let's say you are using Google 
   - `UA-SSSSSSSS` for staging
 
 This is how you need to configure tour `config.toml` files considering the above scenario:
-1. In `_default/config.toml` you don't need to mention the `googleAnalytics` parameter at all. This ensures that no Google Analytics code is not loaded in your development server i.e. when you run hugo serve. This works since, by default Hugo sets `Environment=development` when you run `hugo serve` which uses the config files from `_default` folder
+1. In `_default/config.toml` you don't need to mention `googleAnalytics` parameter at all. This ensures that no Google Analytics code is loaded in your development server i.e. when you run `hugo serve`. This works since, by default Hugo sets `Environment=development` when you run `hugo serve` which uses the config files from `_default` folder
 2. In `production/config.toml` you just need to have one line:
 
     ```googleAnalytics = "UA-PPPPPPPP"```
@@ -95,7 +95,7 @@ This is how you need to configure tour `config.toml` files considering the above
 
     ```googleAnalytics = "UA-SSSSSSSS"```
     
-    Now you got to tell Hugo that you are using the staging environment. So your build command should be `hugo --environment staging` which will load the `UA-SSSSSSSS` analytics code in your staging website
+    Now you need to tell Hugo that you are using the staging environment. So your build command should be `hugo --environment staging` which will load the `UA-SSSSSSSS` analytics code in your staging website
 
 
 {{% note %}}
