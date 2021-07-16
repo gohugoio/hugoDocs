@@ -78,7 +78,7 @@ foo = "bar"
 
 Considering the structure above, when running `hugo --environment staging`, Hugo will use every settings from `config/_default` and merge `staging`'s on top of those.
 
-Let's take an example to understand this better. Let's say you are using Google analytics for your website. This requires you to specify `googleAnalytics = "UA-XXXXXXXX"` in `config.toml`. Now consider the following scenario:
+Let's take an example to understand this better. Let's say you are using Google Analytics for your website. This requires you to specify `googleAnalytics = "UA-XXXXXXXX"` in `config.toml`. Now consider the following scenario:
 - You don't want the Analytics code to be loaded in development i.e. in your `localhost`
 - You want to use separate googleAnalytics IDs for your production & staging environments (say):
   - `UA-PPPPPPPP` for production
