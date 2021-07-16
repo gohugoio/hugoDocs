@@ -90,7 +90,7 @@ This is how you need to configure your `config.toml` files considering the above
 
     ```googleAnalytics = "UA-PPPPPPPP"```
 
-    You don't need to mention all other parameters like `title`, `baseURL`, `theme` etc. againg in this config file. You need to mention only those parameters which are different or new for the production environment. This is due to the fact that Hugo is going to __merge__ this on top of `_default/config.toml`. Now when you run `hugo` (build command), by default hugo sets `Environment=production`, so the `UA-PPPPPPPP` analytics code will be there in your production website
+    You don't need to mention all other parameters like `title`, `baseURL`, `theme` etc. again in this config file. You need to mention only those parameters which are different or new for the production environment. This is due to the fact that Hugo is going to __merge__ this on top of `_default/config.toml`. Now when you run `hugo` (build command), by default hugo sets `Environment=production`, so the `UA-PPPPPPPP` analytics code will be there in your production website
 3. Similarly in `staging/config.toml` you just need to have one line:
 
     ```googleAnalytics = "UA-SSSSSSSS"```
