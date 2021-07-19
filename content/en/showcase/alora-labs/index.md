@@ -1,18 +1,18 @@
 ---
-
 title: Alora Labs
 date: 2021-05-27
-
-description: "A short description of this page."
+description: "Showcase: \"Making performant websites accessible for everyone.\""
 siteURL: https://aloralabs.com/
-aliases: [/showcase/alora/]
-
+siteSource: https://github.com/aloralabs/homepage
+aliases: [/showcase/aloralabs/]
 ---
 
-At Alora, we're always looking to build the best technology — whether it be for our customers, or for internal projects like our website. 
+At Alora Labs we always have an eye open for new tools and technology that we can utilize to the benefit of our customers or internal projects like our website.
 
-Our website was originally built using **Jekyll**, another static site generator. When we came across Hugo, we were very interested and immediately converted our website to use it instead. 
+The previous iteration of our site was built with Jekyll, which served us well at first. However as time went on, we became frustrated with the number of dependencies we had to rely on, that would often break at the most inconvenient times. 
 
-After using it, we were immediately hooked. It's **blazing fast**, flexible, and simple to use.
+Hugo was a breath of fresh air in this regard, a single binary that works equally well on Windows as it did on macOS or Linux. We no longer need additional tools for image optimization, Sass compilation or JavaScript bundling. Everything just works, and with a substantial performance boost too.
 
-Because we love it so much, we now also help companies with Hugo development and implementation, whether it be migrating from another platform or setting up a new site.
+Hugo has become a favorite tool in the toolbelt and the foundation for many client projects. We couldn't be happier with the switch and we are optimistic about recommending Hugo for many years to come. 
+
+Thank you to the vibrant community and talented development team for all the hard work in making Hugo a success. As excellent as Hugo is now, we cannot wait to see what the release notes have in store for us next.
