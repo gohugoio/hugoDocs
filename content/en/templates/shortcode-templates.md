@@ -98,6 +98,17 @@ most helpful when the condition depends on either of the values, or both:
 {{ if or (.Get "title") (.Get "alt") }} alt="{{ with .Get "alt" }}{{ . }}{{ else }}{{ .Get "title" }}{{ end }}"{{ end }}
 ```
 
+Another way to check for optional shortcode parameters is through the `isset`
+function:
+
+```
+{{ if isset .Params `lazy` }}
+  <img src="" loading="lazy">
+{{ else }}
+  <img src="" loading="eager">
+{{ end }}
+```
+
 #### `.Inner`
 
 If a closing shortcode is used, the `.Inner` variable will be populated with all of the content between the opening and closing shortcodes. If a closing shortcode is required, you can check the length of `.Inner` as an indicator of its existence.
