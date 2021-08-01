@@ -46,6 +46,7 @@ This is a much simpler setup as your Hugo files and generated content are publis
 ## Build Hugo With GitHub Action
 
 GitHub executes your software development workflows. Everytime you push your code on the Github repository, Github Actions will build the site automatically.
+You have to generate a [GitHub secret token](https://github.com/settings/tokens/new) with repo access. Save that token in repo settings with the title `TOKEN`.
 
 Create a file in `.github/workflows/gh-pages.yml` containing the following content (based on [actions-hugo](https://github.com/marketplace/actions/hugo-setup)):
 
@@ -80,9 +81,12 @@ jobs:
         uses: peaceiris/actions-gh-pages@v3
         if: github.ref == 'refs/heads/main'
         with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
+          github_token: ${{ secrets.TOKEN }}
           publish_dir: ./public
 ```
+Enable github pages from your repo settings and change source branch to `gh-pages`.
+
+That's all.. Your Hugo website is now available for all 🎊.
 
 For more advanced settings [actions-hugo](https://github.com/marketplace/actions/hugo-setup) and [actions-gh-pages](https://github.com/marketplace/actions/github-pages-action).
 
