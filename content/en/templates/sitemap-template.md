@@ -46,10 +46,11 @@ For multilingual sites, we also create a Sitemap index. You can provide a custom
 This template respects the version 0.9 of the [Sitemap Protocol](https://www.sitemaps.org/protocol.html).
 
 ```xml
-{{ printf "<?xml version=\"1.0\" encoding=\"utf-8\" standalone=\"yes\" ?>" | safeHTML }}
+{{ printf "<?xml version=\"1.0\" encoding=\"utf-8\" standalone=\"yes\"?>" | safeHTML }}
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   {{ range .Data.Pages }}
+    {{- if .Permalink -}}
   <url>
     <loc>{{ .Permalink }}</loc>{{ if not .Lastmod.IsZero }}
     <lastmod>{{ safeHTML ( .Lastmod.Format "2006-01-02T15:04:05-07:00" ) }}</lastmod>{{ end }}{{ with .Sitemap.ChangeFreq }}
@@ -57,15 +58,16 @@ This template respects the version 0.9 of the [Sitemap Protocol](https://www.sit
     <priority>{{ .Sitemap.Priority }}</priority>{{ end }}{{ if .IsTranslated }}{{ range .Translations }}
     <xhtml:link
                 rel="alternate"
-                hreflang="{{ .Lang }}"
+                hreflang="{{ .Language.Lang }}"
                 href="{{ .Permalink }}"
                 />{{ end }}
     <xhtml:link
                 rel="alternate"
-                hreflang="{{ .Lang }}"
+                hreflang="{{ .Language.Lang }}"
                 href="{{ .Permalink }}"
                 />{{ end }}
   </url>
+    {{- end -}}
   {{ end }}
 </urlset>
 ```
@@ -75,16 +77,16 @@ This template respects the version 0.9 of the [Sitemap Protocol](https://www.sit
 This is used to create a Sitemap index in multilingual mode:
 
 ```xml
-{{ printf "<?xml version=\"1.0\" encoding=\"utf-8\" standalone=\"yes\" ?>" | safeHTML }}
+{{ printf "<?xml version=\"1.0\" encoding=\"utf-8\" standalone=\"yes\"?>" | safeHTML }}
 <sitemapindex xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-	{{ range . }}
-	<sitemap>
-	   	<loc>{{ .SitemapAbsURL }}</loc>
-		{{ if not .LastChange.IsZero }}
-	   	<lastmod>{{ .LastChange.Format "2006-01-02T15:04:05-07:00" | safeHTML }}</lastmod>
-		{{ end }}
-	</sitemap>
-	{{ end }}
+  {{ range . }}
+  <sitemap>
+    <loc>{{ .SitemapAbsURL }}</loc>
+    {{ if not .LastChange.IsZero }}
+      <lastmod>{{ .LastChange.Format "2006-01-02T15:04:05-07:00" | safeHTML }}</lastmod>
+    {{ end }}
+  </sitemap>
+  {{ end }}
 </sitemapindex>
 ```
 
