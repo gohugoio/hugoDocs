@@ -86,6 +86,12 @@ jobs:
 
 For more advanced settings [actions-hugo](https://github.com/marketplace/actions/hugo-setup) and [actions-gh-pages](https://github.com/marketplace/actions/github-pages-action).
 
+## Properly Set the "Publishing Source"
+
+Properly configuring your GitHub Pages "publishing source" can be a little confusing.  See [Configuring a publishing source for your GitHub Pages site](https://docs.github.com/en/pages/getting-started-with-github-pages/configuring-a-publishing-source-for-your-github-pages-site) for complete details and note that as presented above, this workflow will compile a _Hugo_ site from the `main` branch of your project, but it does so by creating or updating a special `gh-pages` branch.  The root (`/`) of the `gh-pages` branch is meant to be published during deployment.  To configure this visit your project's GitHub `/settings/pages` page (the address should be of the form `https://github.com/your-username/your-project/settings/pages`) and choose `Branch: gh-pages` with the directory set to `/ (root)`.  Be sure to `Save` these selections.
+
+The "publishing source" can especially confusing because GitHub, by default, is programmed to generate `.github.io` sites from Jekyll sources.  Consequently, so there are many documentation references to Jekyll and its `/docs` folder, which is the Jekyll equivalent of a `/public` folder in Hugo. Don't be confused by these Jekyll references! The Hugo configuration provided above, coupled with an understanding of the `gh-pages` branch creation, is all you need to be successful.   
+
 ## Use a Custom Domain
 
 If you'd like to use a custom domain for your GitHub Pages site, create a file `static/CNAME`. Your custom domain name should be the only contents inside `CNAME`. Since it's inside `static`, the published site will contain the CNAME file at the root of the published site, which is a requirement of GitHub Pages.
