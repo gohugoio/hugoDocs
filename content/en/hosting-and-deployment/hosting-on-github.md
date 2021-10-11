@@ -84,6 +84,8 @@ jobs:
           publish_dir: ./public
 ```
 
+If this is your first deployment to `gh-pages` branch, go to your Repository settings, Pages, under Source, select `gh-pages` branch. See [First Deployment with GITHUB_TOKEN](https://github.com/marketplace/actions/github-pages-action#%EF%B8%8F-first-deployment-with-github_token) for details.
+
 For more advanced settings [actions-hugo](https://github.com/marketplace/actions/hugo-setup) and [actions-gh-pages](https://github.com/marketplace/actions/github-pages-action).
 
 ## Use a Custom Domain
