@@ -13,10 +13,7 @@ menu:
     parent: "content-management"
     weight: 31
 ---
-Page resources are only accessible from [page bundles]({{< relref
-"/content-management/page-bundles" >}}), those directories with `index.md` or
-`_index.md` files at their root. Page resources are only available to the
-page with which they are bundled.
+Page resources are only accessible from [page bundles]({{< relref "/content-management/page-bundles" >}}), those directories with `index.md` or `_index.md` files at their root. Page resources are accessible through `.Resources`, but only on the page with which they are bundled. Page resources are separate from [global assets]({{< relref "/hugo-pipes/introduction" >}}) which are accessible through `resources`.
 
 In this example, `first-post` is a page bundle with access to 10 page resources including audio, data, documents, images, and video. Although `second-post` is also a page bundle, it has no page resources and is unable to directly access the page resources associated with `first-post`.
 
@@ -75,6 +72,7 @@ MediaType.Suffixes
 : A slice of possible suffixes for the resource's MIME type.
 
 ## Methods
+
 ByType
 : Returns the page resources of the given type.
 
@@ -90,6 +88,8 @@ Match
 
 GetMatch
 : Same as `Match` but will return the first match.
+
+Note that unlike [global assets]({{< relref "/hugo-pipes/introduction" >}}) which support a `resources.Get` method, there is no `.Resources.Get` method for page resources. `.Resources.GetMatch` should be used for this purpose.
 
 ### Pattern Matching
 ```go

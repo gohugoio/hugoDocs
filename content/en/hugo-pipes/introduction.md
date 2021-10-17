@@ -28,6 +28,8 @@ In order to process an asset with Hugo Pipes, it must be retrieved as a resource
 {{ $style := resources.Get "sass/main.scss" }}
 ```
 
+Note that `resources` is separate from `.Resources`, which is used for [page resources]({{< relref "/content-management/page-resources" >}}).
+
 ### Asset publishing
 
 Assets will only be published (to `/public`) if `.Permalink` or `.RelPermalink` is used.
