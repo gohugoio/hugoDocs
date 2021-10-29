@@ -52,11 +52,11 @@ We currently do not offer official Hugo images for Docker, but we do recommend t
 
 If you are on macOS and using [Homebrew][brew], you can install Hugo with the following one-liner:
 
-{{< code file="install-with-homebrew.sh" >}}
+{{< code file="install-extended-with-homebrew.sh" >}}
 brew install hugo
 {{< /code >}}
 
-For more detailed explanations, read the installation guides that follow for installing on macOS and Windows.
+This installs the "extended" Sass/SCSS version. For more detailed explanations, read the installation guides that follow for installing on macOS and Windows.
 
 ### MacPorts (macOS)
 
@@ -64,6 +64,12 @@ If you are on macOS and using [MacPorts][macports], you can install Hugo with th
 
 {{< code file="install-with-macports.sh" >}}
 port install hugo
+{{< /code >}}
+
+Or if you need the "extended" Sass/SCSS version:
+
+{{< code file="install-extended-with-macports.sh" >}}
+port install hugo +extended
 {{< /code >}}
 
 ### Homebrew (Linux)
