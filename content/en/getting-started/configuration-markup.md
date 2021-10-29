@@ -4,6 +4,10 @@ description: How to handle Markdown and other markup related configuration.
 date: 2019-11-15
 categories: [getting started,fundamentals]
 keywords: [configuration,highlighting]
+menu:
+  docs:
+    parent: "getting-started"
+    weight: 65
 weight: 65
 sections_weight: 65
 slug: configuration-markup
