@@ -14,8 +14,11 @@ weight: 40
 sections_weight: 40
 draft: false
 ---
+## Configuring PostCSS with HUGO
 
-Any asset file can be processed using `resources.PostCSS` which takes for argument the resource object and a slice of options listed below. 
+{{< youtube kHuRp7W8StE >}}
+
+Any asset file can be processed using `resources.PostCSS` which takes for argument the resource object and a slice of options listed below.
 
 The resource will be processed using the project's or theme's own `postcss.config.js` or any file set with the `config` option.
 
