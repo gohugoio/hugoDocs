@@ -15,6 +15,9 @@ sections_weight: 02
 draft: false
 ---
 
+## Configuring SCSS and SASS with HUGO
+
+{{< youtube kHuRp7W8StE >}}
 
 Any SASS or SCSS file can be transformed into a CSS file using `resources.ToCSS` which takes two arguments, the resource object and a map of options listed below.
 
