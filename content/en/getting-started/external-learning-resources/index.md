@@ -35,3 +35,7 @@ Hugo in Action is a step-by-step guide to using Hugo to create static websites. 
 ### Video Playlist by Mike Dane
 
 Mike Dane explains the various features of Hugo via dedicated tutorials on [YouTube](https://www.youtube.com/watch?list=PLLAZ4kZ9dFpOnyRlyS-liKL5ReHDcj4G3&v=qtIqKaDlqXo).
+
+### Video Playlist by Sean Emerson of Future Web Design
+
+Informative videos covering the implementation of HUGO in many different use cases. [YouTube Playlist](https://www.youtube.com/watch?v=sX1_R11wuxk&list=PLE92IfveVXuXTOjdPM_nleN6Cga_d3uJ-).
