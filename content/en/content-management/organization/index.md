@@ -159,7 +159,7 @@ The `url` is the relative URL for the piece of content. The `url`
 
 Hugo assumes that your content is organized with a purpose. The same structure that you use to organize your source content is used to organize the rendered site. As displayed above, the organization of the source content will be mirrored at the destination.
 
-There are times when you may need more fine-grained control over the content organization. In such cases, front matter field can be used to determine the destination of a specific piece of content.
+There are times when you may need more fine-grained control over the content organization. In such cases, the front matter field can be used to determine the destination of a specific piece of content.
 
 The following items are defined in a specific order for a reason: items explained lower down in the list override higher items. Note that not all items can be defined in front matter.
 
