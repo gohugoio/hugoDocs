@@ -190,7 +190,7 @@ example.com/posts/new-post/
 
 ### `type`
 
-A content item's `type` is also determined by its location on disk but, unlike `section`, it *can* be specified in the front matter. See [types][]. This can come in especially handy when you want a piece of content to render using a different layout. In the following example, you can create a layout at `layouts/new/mylayout.html` that Hugo will use to render this piece of content, even in the midst of many other posts.
+A content item's `type` is also determined by its location on disk but, unlike `section`, it *can* be specified in the front matter. See [types]. This can come in especially handy when you want a piece of content to render using a different layout. In the following example, you can create a layout at `layouts/new/mylayout.html` that Hugo will use to render this piece of content, even in the midst of many other posts.
 
 {{< code file="content/posts/my-post.md" >}}
 ---
