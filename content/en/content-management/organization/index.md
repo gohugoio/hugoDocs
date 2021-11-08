@@ -96,7 +96,7 @@ At build, this will output to the following destination with the associated valu
 https://example.com/posts/index.html
 ```
 
-The [sections][] can be nested as deeply as you want. The important thing to understand is that to make the section tree fully navigational, at least the lower-most section must include a content file. (i.e. `_index.md`).
+The [sections] can be nested as deeply as you want. The important thing to understand is that to make the section tree fully navigational, at least the lower-most section must include a content file. (i.e. `_index.md`).
 
 
 ### Single Pages in Sections
