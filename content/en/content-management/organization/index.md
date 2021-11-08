@@ -186,7 +186,7 @@ example.com/posts/new-post/
 
 ### `section`
 
-`section` is determined by a content item's location on disk and *cannot* be specified in the front matter. See [sections][] for more information.
+`section` is determined by a content item's location on disk and *cannot* be specified in the front matter. See [sections] for more information.
 
 ### `type`
 
