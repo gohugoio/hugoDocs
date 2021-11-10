@@ -1,96 +1,129 @@
-
-# Chinese menus
-
 [[docs]]
   name = "关于 Hugo"
   weight = 1
   identifier = "about"
-  url = "/zh/about/"
+  url = "/about/"
 
 [[docs]]
-  name = "入门"
+  name = "开始上手"
   weight = 5
   identifier = "getting-started"
-  url = "/zh/getting-started/"
+  url = "/getting-started/"
 
 [[docs]]
-  name = "主题"
+  name = "Hugo 模块"
   weight = 15
-  identifier = "themes"
+  identifier = "modules"
   post = "break"
-  url = "/zh/themes/"
+  url = "/hugo-modules/"
 
-# Core languages.zh.menus
-
+# Core menus
+# 文档核心导航菜单
 [[docs]]
   name = "内容管理"
   weight = 20
   identifier = "content-management"
   post = "expanded"
-  url = "/zh/content-management/"
+  url = "/content-management/"
 
 [[docs]]
   name = "模板"
   weight = 25
   identifier = "templates"
-  url = "/zh/templates/"
+  url = "/templates/"
 
 [[docs]]
   name = "函数"
   weight = 30
   identifier = "functions"
-  url = "/zh/functions/"
+  url = "/functions/"
 
 [[docs]]
   name = "变量"
   weight = 35
   identifier = "variables"
-  url = "/zh/variables/"
-
+  url = "/variables/"
 [[docs]]
-  name = "CLI"
+  name = "Hugo 管道"
+  weight = 36
+  identifier = "管道"
+  url = "/hugo-pipes/"
+  
+[[docs]]
+  name = "命令行"
   weight = 40
   post = "break"
   identifier = "commands"
   url = "/commands/"
 
+
+
 # LOW LEVEL ITEMS
+# 文档导航
+
+
 [[docs]]
   name = "故障排除"
   weight = 60
   identifier = "troubleshooting"
-  url = "/zh/troubleshooting/"
+  url = "/troubleshooting/"
 
 [[docs]]
   name = "工具"
   weight = 70
   identifier = "tools"
-  url = "/zh/tools/"
+  url = "/tools/"
 
 [[docs]]
   name = "托管与部署"
   weight = 80
   identifier = "hosting-and-deployment"
-  url = "/zh/hosting-and-deployment/"
+  url = "/hosting-and-deployment/"
 
 [[docs]]
   name = "贡献"
   weight = 100
   post = "break"
   identifier = "contribute"
-  url = "/zh/contribute/"
+  url = "/contribute/"
 
+#[[docs]]
+#  name = "标签"
+#  weight = 120
+#  identifier = "tags"
+#  url = "/tags/"
+
+
+# [[docs]]
+#   name = "分类"
+#   weight = 140
+#   identifier = "categories"
+#   url = "/categories/"
+
+######## QUICKLINKS
+
+  [[quicklinks]]
+    name = "基础知识"
+    weight = 1
+    identifier = "fundamentals"
+    url = "/tags/fundamentals/"
+
+
+
+
+######## GLOBAL ITEMS TO BE SHARED WITH THE HUGO SITES
+######## 与 Hugo 站点共享的全局项
 [[global]]
   name = "新闻"
   weight = 1
   identifier = "news"
-  url = "/zh/news/"
+  url = "/news/"
 
 [[global]]
   name = "文档"
   weight = 5
   identifier = "docs"
-  url = "/zh/documentation/"
+  url = "/documentation/"
 
 [[global]]
   name = "主题"
@@ -99,12 +132,13 @@
   url = "https://themes.gohugo.io/"
 
 [[global]]
-  name = "作品展示"
+  name = "作品"
   weight = 20
   identifier = "showcase"
-  url = "/zh/showcase/"
+  url = "/showcase/"
 
 # Anything with a weight > 100 gets an external icon
+# 任意权重 > 100 的链接会获得一个扩展图标
 [[global]]
   name = "社区"
   weight = 150

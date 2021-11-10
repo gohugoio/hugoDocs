@@ -1,10 +1,12 @@
 
   [en]
+    baseURL = "https://gohugo.io/"
     contentDir = "content/en"
     languageName = "English"
     weight = 1
   
   [zh]
+    baseURL = "https://zh.gohugo.io/"
     contentDir = "content/zh"
     languageName = "中文"
     weight = 2
