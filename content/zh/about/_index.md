@@ -2,9 +2,9 @@
 title: 关于 Hugo
 linktitle: 概览
 description: Hugo 的特色、规划、许可和动力。
-date: 2018-04-26
-publishdate: 2018-04-26
-lastmod: 2018-04-26
+date: 2017-02-01
+publishdate: 2021-11-11
+lastmod: 2021-11-11
 categories: []
 keywords: []
 menu:
