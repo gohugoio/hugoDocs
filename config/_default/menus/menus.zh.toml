@@ -1,6 +1,3 @@
-
-# Chinese menus
-
 [[docs]]
   name = "关于 Hugo"
   weight = 1
@@ -8,19 +5,19 @@
   url = "/zh/about/"
 
 [[docs]]
-  name = "入门"
+  name = "开始上手"
   weight = 5
   identifier = "getting-started"
   url = "/zh/getting-started/"
 
 [[docs]]
-  name = "主题"
+  name = "Hugo 模块"
   weight = 15
-  identifier = "themes"
+  identifier = "modules"
   post = "break"
-  url = "/zh/themes/"
+  url = "/zh/hugo-modules/"
 
-# Core languages.zh.menus
+# 核心菜单
 
 [[docs]]
   name = "内容管理"
@@ -48,13 +45,21 @@
   url = "/zh/variables/"
 
 [[docs]]
+  name = "Hugo 管道"
+  weight = 36
+  identifier = "管道"
+  url = "/zh/hugo-pipes/"
+  
+[[docs]]
   name = "CLI"
   weight = 40
   post = "break"
   identifier = "commands"
-  url = "/commands/"
+  url = "/zh/commands/"
 
-# LOW LEVEL ITEMS
+
+
+# 二级菜单
 [[docs]]
   name = "故障排除"
   weight = 60
@@ -80,6 +85,37 @@
   identifier = "contribute"
   url = "/zh/contribute/"
 
+[[docs]]
+  name = "维护"
+  weight = 120
+  post = "break"
+  identifier = "maintenance"
+  url = "/zh/maintenance/"
+#[[docs]]
+#  name = "标签"
+#  weight = 120
+#  identifier = "tags"
+#  url = "/zh/tags/"
+
+
+# [[docs]]
+#   name = "分类"
+#   weight = 140
+#   identifier = "categories"
+#   url = "/zh/categories/"
+
+######## QUICKLINKS
+
+  [[quicklinks]]
+    name = "基础知识"
+    weight = 1
+    identifier = "fundamentals"
+    url = "/zh/tags/fundamentals/"
+
+
+
+
+######## 与 Hugo 站点共享全局项
 [[global]]
   name = "新闻"
   weight = 1
@@ -99,12 +135,12 @@
   url = "https://themes.gohugo.io/"
 
 [[global]]
-  name = "作品展示"
+  name = "作品"
   weight = 20
   identifier = "showcase"
   url = "/zh/showcase/"
 
-# Anything with a weight > 100 gets an external icon
+# 任意权重 > 100 的链接会获得一个额外图标
 [[global]]
   name = "社区"
   weight = 150

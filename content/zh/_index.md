@@ -1,49 +1,50 @@
 ---
-title: "世界上最快的网站构建框架 The world’s fastest framework for building websites"
+title: "世界上最快的网站构建框架"
 date: 2017-03-02T12:00:00-05:00
 features:
-  - heading: Blistering Speed
+  - heading: 极快的速度
     image_path: /images/icon-fast.svg
-    tagline: What's modern about waiting for your site to build?
-    copy: Hugo is the fastest tool of its kind. At <1 ms per page, the average site builds in less than a second.
+    tagline: 什么是现代化的站点构建？
+    copy: Hugo 是同类工具中速度最快的，在每个页面 <1 毫秒的情况下，站点的平均构建时间不到 1 秒。
 
-  - heading: Robust Content Management
+  - heading: 强大的内容管理
     image_path: /images/icon-content-management.svg
-    tagline: Flexibility rules. Hugo is a content strategist's dream.
-    copy: Hugo supports unlimited content types, taxonomies, menus, dynamic API-driven content, and more, all without plugins.
+    tagline: 灵活的规则，Hugo 是内容战略家的梦想
+    copy: Hugo支持无限的内容类型、分类法、菜单、动态api驱动的内容等等，所有这些都不需要插件。
 
-  - heading: Shortcodes
+  - heading: 简码「短代码」
     image_path: /images/icon-shortcodes.svg
-    tagline: Hugo's shortcodes are Markdown's hidden superpower.
-    copy: We love the beautiful simplicity of markdown’s syntax, but there are times when we want more flexibility. Hugo shortcodes allow for both beauty and flexibility.
+    tagline: 雨果的简码就是 Markdown 隐藏的超能力
+    copy: 我们喜欢 Markdown 语法的简洁，但有时我们需要更灵活，Hugo 简码既美观又灵活。
 
-  - heading: Built-in Templates
+  - heading: 内置模板
     image_path: /images/icon-built-in-templates.svg
-    tagline: Hugo has common patterns to get your work done quickly.
-    copy: Hugo ships with pre-made templates to make quick work of SEO, commenting, analytics and other functions. One line of code, and you're done.
+    tagline: Hugo有一些常见的模式可以让你快速完成工作
+    copy: Hugo 附带预制的模板，使 SEO 的快速工作，评论，分析等功能；一行代码，你就大功告成了。
 
-  - heading: Multilingual and i18n
+  - heading: 多语言和国际化
     image_path: /images/icon-multilingual2.svg
-    tagline: Polyglot baked in.
-    copy: Hugo provides full i18n support for multi-language sites with the same straightforward development experience Hugo users love in single-language sites.
+    tagline: 多语种支持
+    copy: Hugo 为多语言站点提供了完整的 i18n 支持，与 Hugo 用户喜欢的单语言站点相同的直接开发体验。
 
-  - heading: Custom Outputs
+  - heading: 自定义输出
     image_path: /images/icon-custom-outputs.svg
-    tagline: HTML not enough?
-    copy: Hugo allows you to output your content in multiple formats, including JSON or AMP, and makes it easy to create your own.
+    tagline: HTML 还不够?
+    copy: Hugo 允许您以多种格式输出内容，包括 JSON 或 AMP，并且很容易创建自己的内容。
 sections:
-  - heading: "100s of Themes"
-    cta: Check out the Hugo's themes.
+  - heading: "数百种主题"
+    cta: 看看 Hugo 的主题
     link: https://themes.gohugo.io/
     color_classes: bg-accent-color white
     image: /images/homepage-screenshot-hugo-themes.jpg
-    copy: "Hugo provides a robust theming system that is easy to implement but capable of producing even the most complicated websites."
-  - heading: "Capable Templating"
-    cta: Get Started.
+    copy: Hugo 提供了一种强大的主题系统，易于实施，但能够产生最复杂的网站。
+  - heading: "出众的模板"
+    cta: 点击查看
     link: templates/
     color_classes: bg-primary-color-light black
     image: /images/home-page-templating-example.png
-    copy: "Hugo's Go-based templating provides just the right amount of logic to build anything from the simple to complex. If you prefer Jade/Pug-like syntax, you can also use Amber, Ace, or any combination of the three."
+    copy: Hugo 的基于 Golang 的模板提供了适当的逻辑，可以构建从简单到复杂的任何东西。
 ---
 
-Hugo is one of the most popular open-source static site generators. With its amazing speed and flexibility, Hugo makes building websites fun again.
+Hugo 是最流行的开源静态站点生成器之一  
+以其惊人的速度和灵活性，Hugo 使构建网站变得更加有趣。
