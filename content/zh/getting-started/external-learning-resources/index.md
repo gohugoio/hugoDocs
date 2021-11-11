@@ -18,7 +18,7 @@ toc: false
 
 ## 书籍
 
-### Hugo In Action
+### 《Hugo In Action》
 
 [![Hugo In Action](hia.jpg)](https://www.manning.com/books/hugo-in-action)
 

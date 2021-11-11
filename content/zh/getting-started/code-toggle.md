@@ -39,11 +39,9 @@ params:
   SidebarRecentLimit: 5
 {{< /code-toggle >}}
 
-## Another Config Toggler!
+## 另一个可变配置
 
 {{< code-toggle file="theme">}}
-
-# theme.toml template for a Hugo theme
 
 name = "Hugo Theme"
 license = "MIT"

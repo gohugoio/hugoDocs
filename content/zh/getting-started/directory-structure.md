@@ -18,13 +18,13 @@ aliases: [/overview/source-directory/]
 toc: true
 ---
 
-## New Site Scaffolding
+## 新站点脚手架
 
 {{< youtube sB0HLHjgQ7E >}}
 
 从命令行运行 `hugo new site` 生成器将创建一个包含以下元素的目录结构:
 
-```
+```dir
 .
 ├── archetypes
 ├── config.toml
@@ -34,7 +34,6 @@ toc: true
 ├── static
 └── themes
 ```
-
 
 ## 目录结构阐述
 
@@ -73,7 +72,6 @@ Hugo 在生成您的网站时使用。 您可以使用 YAML、JSON 或 TOML 格�
 
 资源
 : 缓存一些文件以加快生成速度。 模板作者也可以使用它来分发构建的 SASS 文件，因此您不必安装预处理器。 注意：默认情况下不创建资源目录。
-
 
 [原型]: /content-management/archetypes/
 [配置指令]: /getting-started/configuration/#all-variables-yaml

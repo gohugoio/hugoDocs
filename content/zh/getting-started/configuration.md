@@ -1,6 +1,6 @@
 ---
 title: 配置 Hugo
-linktitle: 配置
+linktitle: 配置 Hugo
 description: 如何配置 Hugo 站点。
 date: 2013-07-01
 publishdate: 2017-01-02
@@ -29,7 +29,7 @@ Hugo 使用 `config.toml`、`config.yaml` 或 `config.json`（如果在
 
 例如:
 
-```
+```shell
 hugo --config debugconfig.toml
 hugo --config a.toml,b.toml,c.toml
 ```
@@ -37,7 +37,7 @@ hugo --config a.toml,b.toml,c.toml
 {{% note %}}
 可以将多个站点配置文件指定为`--config` 开关的逗号分隔字符串。
 {{% /note %}}
-Pages marked with TODO
+
 ## 配置目录
 
 除了使用单个站点配置文件之外，还可以使用 `configDir` 目录（默认为 `config/`）来维护更轻松的组织和环境特定设置。
@@ -57,8 +57,7 @@ foo = "bar"
 - 每个目录都包含一组文件，其中包含环境特有的设置。
 - 文件可以本地化为特定语言。
 
-
-```
+```treeree -L 3
 ├── config
 │   ├── _default
 │   │   ├── config.toml
@@ -117,12 +116,15 @@ Hugo 找到原型文件（内容模板）的目录。 {{% module-mounts-note %}}
 Hugo 在其中查找 [Hugo Pipes](/hugo-pipes/) 中使用的资产文件的目录。{{% module-mounts-note %}}
 
 ### baseURL
-到根的主机名（和路径）， e.g. https://bep.is/
+
+到根的主机名（和路径）， e.g. <https://bep.is/>
 
 ### blackfriday
+
 请参阅 [配置黑色星期五](/getting-started/configuration-markup#blackfriday)
 
 ### build
+
 请参阅 [配置构建](#configure-build)
 
 ### buildDrafts (false)
@@ -144,6 +146,7 @@ Hugo 在其中查找 [Hugo Pipes](/hugo-pipes/) 中使用的资产文件的目�
 包括将来发布的内容。
 
 ### caches
+
 请参阅 [Configure File Caches](#configure-file-caches)
 
 ### cascade
@@ -252,7 +255,7 @@ Hugo 从中读取数据文件的目录。 {{% module-mounts-note %}}
 
 脚注的前缀。
 
-###  footnoteReturnLinkContents
+### footnoteReturnLinkContents
 
 **默认值:**  ""
 
@@ -271,9 +274,11 @@ Google Analytics 跟踪 ID。
 如果为 true，则自动检测内容中的中文/日文/韩文。 这将使 `.Summary` 和 `.WordCount` 在 CJK 语言中正确运行。
 
 ### imaging
+
 请参阅 [Image Processing Config](/content-management/image-processing/#image-processing-config).
 
 ### languages
+
 请参阅 [Configure Languages](/content-management/multilingual/#configure-languages).
 
 ### disableLanguages
@@ -281,33 +286,42 @@ Google Analytics 跟踪 ID。
 请参阅 [Disable a Language](/content-management/multilingual/#disable-a-language)
 
 ### markup
+
 请参阅 [Configure Markup](/getting-started/configuration-markup).{{< new-in "0.60.0" >}}
 
 ### mediaTypes
+
 请参阅 [Configure Media Types](/templates/output-formats/#media-types).
 
 ### menus
+
 请参阅 [Add Non-content Entries to a Menu](/content-management/menus/#add-non-content-entries-to-a-menu).
 
 ### minify
+
 请参阅 [Configure Minify](#configure-minify)
 
 ### module
+
 Module config 请参阅 [Module Config](/hugo-modules/configuration/).{{< new-in "0.56.0" >}}
 
 ### newContentEditor
+
 创建新内容时使用的编辑器。
 
 ### noChmod
+
 不要同步文件的权限模式。
 
 ### noTimes
+
 不要同步文件的修改时间。
 
 ### outputFormats
+
 请参阅 [Configure Output Formats](#configure-additional-output-formats).
 
-### paginate 
+### paginate
 
 **默认值:** 10
 
@@ -320,6 +334,7 @@ Module config 请参阅 [Module Config](/hugo-modules/configuration/).{{< new-in
 分页期间使用的路径元素 (`https://example.com/page/2`)。
 
 ### permalinks
+
 请参阅 [Content Management](/content-management/urls/#permalinks).
 
 ### pluralizeListTitles
@@ -362,15 +377,16 @@ Hugo 将写入最终静态站点（HTML 文件等）的目录。
 content/post/hügó.md --> https://example.org/post/hugo/
 ```
 
-
 ### rssLimit
 
 RSS 的最大项目数。
 
 ### sectionPagesMenu
+
 请参阅 ["Section Menu for Lazy Bloggers"](/templates/menu-templates/#section-menu-for-lazy-bloggers).
 
 ### sitemap
+
 Default [sitemap configuration](/templates/sitemap-template/#configure-sitemapxml).
 
 ### summaryLength
@@ -380,9 +396,11 @@ Default [sitemap configuration](/templates/sitemap-template/#configure-sitemapxm
 在 [`概要`](/content-management/summaries/#hugo-defined-automatic-summary-splitting) 中显示的文字长度。
 
 ### taxonomies
+
 请参阅 [Configure Taxonomies](/content-management/taxonomies#configure-taxonomies).
 
 ### theme
+
 : 请参阅 [Module Config](/hugo-modules/configuration/#module-config-imports) for how to import a theme.
 
 ### themesDir
@@ -404,6 +422,7 @@ Hugo 从中读取主题的目录。
 时区（或位置），例如 `Europe/Oslo`，用于在 [`time` 函数](/functions/time/) 中解析没有此类信息的正面日期。 有效值列表可能取决于系统，但应包括“UTC”、“Local”以及 [IANA 时区库](https://en.wikipedia.org/wiki/List_of_tz_database_time_zones) 中的任何位置。
 
 ### title
+
 站点标题
 
 ### titleCaseStyle
@@ -413,6 +432,7 @@ Hugo 从中读取主题的目录。
 请参阅 [Configure Title Case](#configure-title-case)
 
 ### uglyURLs
+
 启用后，创建形式为 `/filename.html` 而不是 `/filename/` 的 URL。
 
 ### watch
@@ -421,16 +441,18 @@ Hugo 从中读取主题的目录。
 
 {{% note %}}
 如果您在类 Unix 机器上开发您的站点，这里有一个方便的快捷方式，用于从命令行查找配置选项：
-```
+
+```shell
 cd ~/sites/yourhugosite
 hugo config | grep emoji
 ```
 
 显示输出如下
 
-```
+```shell
 enableemoji: true
 ```
+
 {{% /note %}}
 
 ## 配置构建
@@ -445,7 +467,6 @@ useResourceCacheWhen="fallback"
 writeStats = false
 noJSConfigInAssets = false
 {{< /code-toggle >}}
-
 
 useResourceCacheWhen
 : 何时将 `/resources/_gen` 中的缓存资源用于 PostCSS 和 ToCSS。 有效值为“never”、“always”和“fallback”。 最后一个值表示如果 PostCSS/extended 版本不可用，将尝试缓存。
@@ -464,7 +485,6 @@ noJSConfigInAssets {{< new-in "0.78.0" >}}
 
 这仅在运行 `hugo server` 时相关，它允许在开发期间设置 HTTP 标头，这允许您测试您的内容安全策略等。 配置格式与 [Netlify's](https://docs.netlify.com/routing/headers/#syntax-for-the-netlify-configuration-file) 匹配，具有稍微更强大的 [Glob 匹配](https://github.com)。 com/gobwas/glob）：
 
-
 {{< code-toggle file="config">}}
 [server]
 [[server.headers]]
@@ -480,7 +500,6 @@ Content-Security-Policy = "script-src localhost:1313"
 
 由于这是“仅开发”，因此将其放在“开发”环境下可能是有意义的：
 
-
 {{< code-toggle file="config/development/server">}}
 [[headers]]
 for = "/**.html"
@@ -492,7 +511,6 @@ X-Content-Type-Options = "nosniff"
 Referrer-Policy = "strict-origin-when-cross-origin"
 Content-Security-Policy = "script-src localhost:1313"
 {{< /code-toggle >}}
-
 
 {{< new-in "0.72.0" >}}
 
@@ -529,7 +547,6 @@ HUGO_NUMWORKERMULTIPLIER
 
 在你的 `config` 文件中，你可以指导 Hugo 你希望如何呈现你的网站，控制你网站的菜单，并任意定义特定于你的项目的站点范围的参数。
 
-
 ## 示例配置
 
 下面是一个配置文件的典型示例。 嵌套在 `params:` 下的值将填充 [`.Site.Params`][] 变量以在 [templates][] 中使用：
@@ -555,8 +572,9 @@ params:
 除了已经提到的 3 个配置选项之外，还可以通过操作系统环境变量定义配置键值。
 
 例如，以下命令将有效地在类 Unix 系统上设置网站的标题：
-```
-$ env HUGO_TITLE="Some Title" hugo
+
+```shell
+env HUGO_TITLE="Some Title" hugo
 ```
 
 如果您使用 Netlify 等服务来部署您的站点，这将非常有用。 以 Hugo 文档 [Netlify 配置文件](https://github.com/gohugoio/hugoDocs/blob/master/netlify.toml) 为例。
@@ -567,9 +585,7 @@ $ env HUGO_TITLE="Some Title" hugo
 要设置配置参数，请在名称前加上 `HUGO_PARAMS_`
 {{% /note %}}
 
-{{< new-in "0.79.0" >}} 如果您使用蛇形大小写的变量名，上面的将不起作用，因此由于 Hugo 0.79.0 Hugo 确定了由 `HUGO` 之后的第一个字符使用的分隔符。 这允许您使用任何 [allowed](https://stackoverflow.com/questions/2821043/allowed-characters-in-linux-environment-variable-names#:~ :text=So%20names%20may%20contain%20any,not%20begin%20with%20a%20digit.) 分隔符。
-
-
+{{< new-in "0.79.0" >}} 如果您使用蛇形大小写的变量名，上面的将不起作用，因此由于 Hugo 0.79.0 Hugo 确定了由 `HUGO` 之后的第一个字符使用的分隔符。 这允许您使用任何 [allowed](<https://stackoverflow.com/questions/2821043/allowed-characters-in-linux-environment-variable-names>#:~ :text=So%20names%20may%20contain%20any,not%20begin%20with%20a%20digit.) 分隔符。
 
 ## 渲染时忽略内容和数据文件
 
@@ -586,7 +602,6 @@ ignoreFiles = [ "\\.foo$","\\.boo$"]
 ### 配置日期
 
 日期在 Hugo 中很重要，您可以配置 Hugo 如何为您的内容页面分配日期。 你可以通过在你的 `config.toml` 中添加一个 `frontmatter` 部分来做到这一点。
-
 
 默认配置为：
 
@@ -609,22 +624,19 @@ date = ["myDate", ":default"]
 
 在右侧的列表中，以“:”开头的值是具有特殊含义的日期处理程序（见下文）。 其他只是前端配置中日期参数的名称（不区分大小写）。 还要注意 Hugo 有一些内置的别名：`lastmod` => `modified`、`publishDate` => `pubdate`、`published` 和 `expiryDate` => `unpublishdate`。 举个例子，首先使用`pubDate`作为日期，默认情况下，将被分配给`.PublishDate`。
 
-The special date handlers are:
-
+特殊日期处理程序是：
 
 `:fileModTime`
 : Fetches the date from the content file's last modification timestamp.
 
-An example:
+举个例子：
 
 {{< code-toggle file="config" >}}
 [frontmatter]
 lastmod = ["lastmod", ":fileModTime", ":default"]
 {{< /code-toggle >}}
 
-
 上面将首先尝试从 `lastmod` 前端参数开始提取 `.Lastmod` 的值，然后是内容文件的修改时间戳。 最后一个 `:default` 在这里不需要，但 Hugo 最终会在 `:git`、`date` 和 `publishDate` 中查找有效日期。
-
 
 `:文件名`
 ：从内容文件的文件名中获取日期。 例如，`2018-02-22-mypage.md` 将提取日期`2018-02-22`。 此外，如果没有设置 `slug`，`mypage` 将用作 `.Slug` 的值。
@@ -637,7 +649,6 @@ date  = [":filename", ":default"]
 {{< /code-toggle >}}
 
 上面将首先尝试从文件名中提取`.Date`的值，然后它会查看前面的参数`date`、`publishDate`和最后`lastmod`。
-
 
 `:git`
 这是此内容文件最后一次修订的 Git 作者日期。 仅当在站点配置中设置了 `--enableGitInfo` 或 `enableGitInfo = true` 时才会设置。
@@ -698,9 +709,9 @@ maxAge = -1
 
 ## 配置格式规范
 
-* [TOML 规范][toml]
-* [YAML 规范][yaml]
-* [JSON 规范][json]
+- [TOML 规范][toml]
+- [YAML 规范][yaml]
+- [JSON 规范][json]
 
 [`.Site.Params`]: /variables/site/
 [directory structure]: /getting-started/directory-structure
