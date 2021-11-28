@@ -221,7 +221,7 @@ Here is a code example for how the render-image.html template could look:
 Given this template file
 
 {{< code file="layouts/_default/_markup/render-heading.html" >}}
-<h{{ .Level }} id="{{ .Anchor | safeURL }}">{{ .Text | safeHTML }} <a href="#{{ .Anchor | safeURL }}">¶</a></h{{ .Level }}>
+<h{{ .Level }} id="{{ .Anchor | safeURL }}">{{ .Text | safeHTML }} <a href="#{{ .Anchor | safeURL }}"> <span aria-hidden="true">¶</span><span class="visually-hidden">Permalink to heading {{ .Text | safeHTML }}</span></a></h{{ .Level }}>
 {{< /code >}}
 
 And this markdown
@@ -233,5 +233,7 @@ And this markdown
 The rendered html will be
 
 ```html
-<h3 id="section-a">Section A <a href="#section-a">¶</a></h3>
+<h3 id="section-a">Section A <a href="#section-a"><span aria-hidden="true">¶</span> <span class="visually-hidden">Permalink to heading Section A</span></a></h3>
 ```
+
+Don't forget to add some CSS to visually hide `.visually-hidden {}`.
