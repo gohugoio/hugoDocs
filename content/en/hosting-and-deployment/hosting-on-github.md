@@ -90,7 +90,7 @@ By default, the github actions pushes the generated content to the `gh-pages` br
 ![Screenshot of the github pages setting for setting source branch](/images/hosting-and-deployment/hosting-on-github/set-correct-branch.jpg)
 
 ## Change baseURL in config.toml
-Don't forget to rename your `baseURL` in `config.toml` with the value `https://<USERNAME>.github.io`
+Don't forget to rename your `baseURL` in `config.toml` with the value `https://<USERNAME>.github.io` for your user repository or `https://<USERNAME>.github.io/<REPOSITORY_NAME>` for a project repository.
 
 Unless this is present in your `config.toml`, your website won't work.
 
