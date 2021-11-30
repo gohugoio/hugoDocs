@@ -85,7 +85,7 @@ jobs:
 For more advance settings https://github.com/marketplace/actions/hugo-setup 
 
 ## Github pages setting
-By default, the github actions pushes the generated content to the `gh-pages` branch. This means github has to serve your `gh-pages` branch instead of the default branch. You can change this setting by going to Settings > Github Pages, and change the source branch to gh-pages
+By default, the GitHub action pushes the generated content to the `gh-pages` branch. This means GitHub has to serve your `gh-pages` branch as a GitHub Pages branch. You can change this setting by going to Settings > GitHub Pages, and change the source branch to `gh-pages`.
 
 ![Screenshot of the github pages setting for setting source branch](/images/hosting-and-deployment/hosting-on-github/set-correct-branch.jpg)
 
