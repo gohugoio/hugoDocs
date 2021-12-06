@@ -157,8 +157,6 @@ Hugo relies on [mage](https://github.com/magefile/mage) for some convenient buil
 go get github.com/magefile/mage@latest
 ```
 
-This will install mage executable in `$GOPATH` without affecting current project’s module.
-
 ### Fork the repository
 
 If you're not familiar with this term, GitHub's [help pages](https://help.github.com/articles/fork-a-repo/) provide again a simple explanation:
