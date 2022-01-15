@@ -537,6 +537,12 @@ sudo eopkg install hugo
 OpenBSD provides a package for Hugo via `pkg_add`:
 
     doas pkg_add hugo
+    
+## FreeBSD
+
+FreeBSD provides a package for Hugo via `pkg`:
+
+    pkg install gohugo
 
 
 ## Upgrade Hugo
