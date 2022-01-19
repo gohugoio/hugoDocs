@@ -6,7 +6,7 @@ categories: [functions]
 menu:
   docs:
     parent: "functions"
-keywords: []
+keywords: [xml]
 signature: ["RESOURCE or STRING | transform.Unmarshal [OPTIONS]"]
 hugoversion: "0.53"
 aliases: []
@@ -48,20 +48,30 @@ Example:
 
 ## XML data
 
-As a convenience, Hugo allows you to access XML data in the same way that you access JSON, TOML, and YAML: you do not need to specify the root node when accessing the data.
+As a convenience, Hugo allows you to access XML data in the same way that you access JSON, TOML, and YAML: you do not need to specify the root node (`<root/>` in the example below) when accessing the data.
 
-To get the contents of `<title>` in the document below, you use `{{ .message.title }}`:
+Given the document below:
 
 ```
-<root>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<root xmlns:something="http://www.w3.org/something">
     <message>
         <title>Hugo rocks!</title>
-        <description>Thanks for using Hugo</description>
+        <something:id>1234</something:id>
+        <description status="verified">Thanks for using Hugo</description>
     </message>
 </root>
 ```
 
-The following example lists the items of an RSS feed:
+- Use `{{ .message.title }}` to get the contents of `<title/>` (`"Hugo rocks!"`)
+- Use `{{ index .message.description "-status" }}` to get the value of attribute `status` (`"verified"`). See [the index function](/functions/index-function/) for more information.
+- Use `{{ index .message.id }}` to get the value of namespace tag `<something:id/>`
+
+Multiple tags of the same name return a map with each instance. 
+
+### Fetching data
+
+The following example lists the items of an RSS feed, Using [resources.Get](/hugo-pipes/introduction/#get-resource-with-resourcesget-and-resourcesgetremote):
 
 ```
 {{ with resources.Get "https://example.com/rss.xml" | transform.Unmarshal }}
@@ -74,3 +84,8 @@ The following example lists the items of an RSS feed:
     {{ end }}
 {{ end }}
 ```
+
+Using 
+
+Simply storing `.xml` files in the `/data` folder works too, see [data templates](/templates/data-templates/#the-data-folder).
+

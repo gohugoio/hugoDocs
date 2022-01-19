@@ -30,6 +30,8 @@ The `data` folder is where you can store additional data for Hugo to use when ge
 
 These files must be YAML, JSON, XML, or TOML files (using the `.yml`, `.yaml`, `.json`, `.xml`, or `.toml` extension). The data will be accessible as a `map` in the `.Site.Data` variable.
 
+See [transform.Unmarshal](/functions/transform.unmarshal/) for an example on how to parse XML.
+
 ## Data Files in Themes
 
 Data Files can also be used in [Hugo themes][themes] but note that theme data files follow the same logic as other template files in the [Hugo lookup order][lookup] (i.e., given two files with the same name and relative path, the file in the root project `data` directory will override the file in the `themes/<THEME>/data` directory).
@@ -146,6 +148,7 @@ This will resolve internally to the following:
 {{ $gistJ := getJSON "https://api.github.com/users/GITHUB_USERNAME/gists" }}
 ```
 
+
 ### Add HTTP headers
 
 {{< new-in "0.84.0" >}} Both `getJSON` and `getCSV` takes an optional map as the last argument, e.g.:
@@ -225,6 +228,7 @@ If you change any local file and the LiveReload is triggered, Hugo will read the
 
 - Photo gallery JSON powered: [https://github.com/pcdummy/hugo-lightslider-example](https://github.com/pcdummy/hugo-lightslider-example)
 - GitHub Starred Repositories [in a post](https://github.com/SchumacherFM/blog-cs/blob/master/content%2Fposts%2Fgithub-starred.md) using data-driven content in a [custom short code](https://github.com/SchumacherFM/blog-cs/blob/master/layouts%2Fshortcodes%2FghStarred.html).
+- Fetching JSON Webmentions to display [comments in a post](https://github.com/wgroeneveld/brainbaking/blob/master/themes/brainbaking-minimal/layouts/partials/single-webmentions.html) without resorting to JavaScript.
 
 ## Specs for Data Formats
 
