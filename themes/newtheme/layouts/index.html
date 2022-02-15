@@ -1,6 +1,6 @@
 {{/* For the home page, we manually control the dark mode via the dark: classes in Tailwind. */}}
 {{- define "main-classes" -}}
-  nightwind-prevent nightwind-prevent-block
+  _nightwind-prevent _nightwind-prevent-block
 {{- end -}}
 
 {{ define "header" }}
@@ -13,25 +13,26 @@
 
 {{ define "main" }}
   <section
-    class="w-full px-4 sm:px-5 py-4 sm:py-10 text-gray-500 bg-carrot-600">
+    class="w-full px-4 sm:px-5 py-4 sm:py-10 text-gray-800 bg-hotpink-50 dark:bg-gray-900">
     {{- partial "home-page-sections/testimonials.html" . -}}
   </section>
 
-  <section class="w-full px-4 sm:px-5 py-4 sm:py-10 text-gray-800 bg-mango-200">
+  <section
+    class="w-full px-4 sm:px-5 py-4 sm:py-10 text-gray-800 bg-mango-100 dark:bg-steel-900 nightwind-prevent-block">
     <div class="mx-auto max-w-3xl">
       {{ partial "home-page-sections/sponsors.html" (dict "cx" . "gtag" "home" ) }}
     </div>
   </section>
 
-  <section class="w-full px-4 sm:px-5 py-4 bg-mango-50">
+  <section class="w-full px-4 sm:px-5 py-4 bg-mango-50 dark:bg-gray-800">
     {{- partial "home-page-sections/features-icons.html" . -}}
   </section>
 
   {{ partial "home-page-sections/features-single.html" . }}
 
 
-  <section class="w-full px-4 sm:px-5 py-4 sm:py-12 bg-white dark:bg-black">
-    <div class="mx-auto max-w-5xl">
+  <section class="w-full px-4 sm:px-5 py-4 sm:py-12 bg-white dark:bg-steel-900">
+    <div class="mx-auto max-w-5xl nightwind-prevent-block">
       {{ partial "home-page-sections/showcase.html" . }}
     </div>
   </section>
