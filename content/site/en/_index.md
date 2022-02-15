@@ -35,13 +35,13 @@ sections:
   - heading: "300+ Themes"
     cta: Check out the Hugo themes.
     link: https://themes.gohugo.io/
-    color_classes: bg-carrot-100 text-black dark:bg-gray-700 nightwind-prevent-block
+    color_classes: text-black bg-gray-100
     image: /images/homepage-screenshot-hugo-themes.jpg
     copy: "Hugo provides a robust theming system that is easy to implement but capable of producing even the most complicated websites."
   - heading: "Capable Templating"
     cta: Get Started.
     link: templates/
-    color_classes: bg-steel-400 text-black
+    color_classes: bg-gray-200 text-black
     image: /images/home-page-templating-example.png
     copy: "Hugo's Go-based templating provides just the right amount of logic to build anything from the simple to complex."
 ---
