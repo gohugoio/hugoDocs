@@ -17,9 +17,7 @@
     {{ block "header" . }}{{ end }}
     <main
       role="main"
-      class="min-h-screen py-8 sm:py-6 {{ block `main-classes` . }}
-        na
-      {{ end }} bg-gray-50">
+      class="min-h-screen {{ block `main-classes` . }}{{ end }} bg-gray-50">
       {{ block "main" . }}{{ end }}
     </main>
     {{ block "footer" . }}

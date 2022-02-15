@@ -4,7 +4,8 @@
 {{- end -}}
 
 {{ define "header" }}
-  <div class="h-screen bg-gradient-to-b from-primarydark to-steel-800 ">
+  <div
+    class="h-full lg:h-screen bg-gradient-to-b from-primarydark to-steel-800">
     {{ partial "hero.html" . }}
     {{ partial "boxes-small-news.html" . }}
   </div>
