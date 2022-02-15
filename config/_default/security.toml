@@ -2,7 +2,7 @@
   enableInlineShortcodes = false
 
   [exec]
-    allow = ['^go$']
+    allow = ['^go$', '^npx$']
     osEnv = ['^PATH$']
 
   [funcs]
