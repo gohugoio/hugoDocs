@@ -9,7 +9,7 @@
   {{ $code = $.Inner }}
 {{ end }}
 {{ $langs := (slice "yaml" "toml" "json") }}
-<div x-data class="code-toggle border border-gray-100">
+<div x-data class="code-toggle border border-gray-100 my-2 sm:my-6">
   <nav
     class="relative flex divide-x divide-gray-100 dark:divide-gray-800  "
     aria-label="Tabs">
@@ -24,7 +24,7 @@
         </span>
         <span
           aria-hidden="true"
-          class="absolute inset-x-0 bottom-0 h-0.5 bg-gray-200 dark:bg-orange-800"
+          class="absolute inset-x-0 bottom-0 h-0.5 bg-gray-200"
           x-bind:class="{ 'bg-steel-400': $store.nav.userSettings.settings.configFileType === '{{ index $langs $i }}' }"></span>
       </a>
     {{ end }}

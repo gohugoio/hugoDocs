@@ -13,12 +13,14 @@
     {{ end }}
     {{ $img = $img.Fill "512x315" }}
     <div class="w-full md:w-1/2 px-4 mb-8">
-      <a class="block mb-6 overflow-hidden rounded-md" href="#">
+      <a
+        class="block mb-6 overflow-hidden rounded-md"
+        href="{{ $p.RelPermalink }}">
         <img class="w-full" src="{{ $img.RelPermalink }}" alt="" />
       </a>
       <a
         class="inline-block mb-4 text-3xl md:text-2xl leading-tight text-gray-800 hover:text-gray-900 font-bold hover:underline"
-        href="#"
+        href="{{ $p.RelPermalink }}"
         >{{ $p.Summary | truncate 80 }}</a
       >
       <a

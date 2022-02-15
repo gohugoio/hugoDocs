@@ -5,7 +5,7 @@
     <div class="flex space-x-3 pt-4">
       {{ range .banners }}
         <div
-          class="bg-white px-4 py-6 rounded-md"
+          class="bg-white px-4 py-6 rounded-md shadow-md"
           {{ with .bgcolor }}style="background-color: {{ . }};"{{ end }}>
           <a
             href="{{ .link }}"

@@ -16,7 +16,7 @@ const px = (px) => `${px}px`;
 
 module.exports = {
   darkMode: "class", // See https://tailwindcss.com/docs/dark-mode
-  //important: '#gohugoio', // See https://tailwindcss.com/docs/configuration#important
+  important: "#gohugoio", // See https://tailwindcss.com/docs/configuration#important
   plugins: [typography, require("nightwind")],
   theme: {
     nightwind: {
