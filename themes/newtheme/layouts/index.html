@@ -4,8 +4,10 @@
 {{- end -}}
 
 {{ define "header" }}
-  {{ partial "hero.html" . }}
-  {{ partial "boxes-small-news.html" . }}
+  <div class="h-screen bg-gradient-to-b from-primarydark to-steel-800 ">
+    {{ partial "hero.html" . }}
+    {{ partial "boxes-small-news.html" . }}
+  </div>
 {{ end }}
 
 {{ define "main" }}
@@ -14,15 +16,19 @@
     class="w-full px-4 sm:px-5 py-4 sm:py-10 text-gray-500 bg-carrot-500">
     {{- partial "home-page-sections/testimonials.html" . -}}
   </section>
-  {{ partial "home-page-sections/sponsors.html" (dict "cx" . "gtag" "home" ) }}
 
+  <section class="w-full px-4 sm:px-5 py-4 sm:py-10 text-gray-800 bg-mango-200">
+    <div class="mx-auto max-w-3xl">
+      {{ partial "home-page-sections/sponsors.html" (dict "cx" . "gtag" "home" ) }}
+    </div>
+  </section>
 
   <section class="w-full px-4 sm:px-5 py-4 bg-mango-50 dark:bg-red-800">
     {{- partial "home-page-sections/features-icons.html" . -}}
   </section>
 
   {{ partial "home-page-sections/features-single.html" . }}
-  {{ partial "home-page-sections/showcase.html" . }}
+  {{ partial "home-page-sections/showcase2.html" . }}
   <section
     class="w-full px-4 sm:px-5 py-4 sm:py-6 text-gray-500 bg-white border-b border-t border-solid border-gray-300">
     {{/* TODO(bep) - partial "home-page-sections/installation" . - */}}

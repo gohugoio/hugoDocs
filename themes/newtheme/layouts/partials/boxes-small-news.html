@@ -1,11 +1,18 @@
-<section class="w-full bg-steel-800 py-4 lg:py-8 mx-auto nightwind-prevent nightwind-prevent-block">
+<section
+  class="w-full py-4 lg:py-8 mx-auto nightwind-prevent nightwind-prevent-block">
   <div class="flex flex-wrap mx-auto max-w-6xl lg:space-x-4 justify-center">
     {{ range $i, $e:= first 3 ( sort (where .Site.RegularPages "Section" "news") "Date" "desc" ) }}
-      <a href="{{ .RelPermalink }}" class="link leading-normal text-mango-100 lg:bg-steel-700 bg-opacity-20 hover:bg-steel-500 text-sm w-full w-50-m lg:w-1/4 bg-animate hover:border lg:rounded-md lg:shadow-lg hover:text-white py-3 sm:py-4 px-3 sm:px-4{{ if ge $i 2 }} hidden lg:inline-block{{ else }} inline-block{{ end }}">
+      <a
+        href="{{ .RelPermalink }}"
+        class="link leading-normal text-mango-100 lg:bg-steel-700 bg-opacity-20 hover:bg-steel-500 text-sm w-full w-50-m lg:w-1/4 bg-animate hover:border lg:rounded-md lg:shadow-lg hover:text-white py-3 sm:py-4 px-3 sm:px-4{{ if ge $i 2 }}
+          hidden lg:inline-block
+        {{ else }}
+          inline-block
+        {{ end }}">
         <span class="text-sm text-mango-300 pb-2 block">
           {{ .Date.Format "January 2, 2006" }}
         </span>
-        {{ .Params.description | markdownify | truncate 100 "…"}}
+        {{ .Params.description | markdownify | truncate 100 "…" }}
       </a>
     {{ end }}
   </div>
