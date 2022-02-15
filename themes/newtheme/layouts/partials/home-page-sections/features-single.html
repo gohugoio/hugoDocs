@@ -1,7 +1,8 @@
 {{ if .Params.sections }}
   {{ range $i, $e := .Params.sections }}
     {{ $i = add $i 1 }}
-    <section class="w-full  ph4 sm:px-5 py-4 sm:py-10  {{ .color_classes }}">
+    <section
+      class="w-full  ph4 sm:px-5 py-4 sm:py-10 text-gray-900 {{ .color_classes }}">
       <div class="sm:flex flex-wrap mx-auto max-w-6xl">
         <div
           class="w-full lg:w-1/2 {{ if modBool $i 2 }}
@@ -19,10 +20,10 @@
         <div class="w-full lg:w-1/2">
           <div class="sm:w-4/5 mx-auto text-center">
             <h3
-              class="text-5xl leading-tight text-darkgray-900 font-bold tracking-tighter m-0 py-4">
+              class="text-5xl leading-tight font-bold tracking-tighter m-0 py-4">
               {{ .heading }}
             </h3>
-            <p class="text-2xl">
+            <p class="text-2xl text-gray-500 font-medium">
               {{ .copy }}
             </p>
             <p class="text-xl leading-normal mt-4">

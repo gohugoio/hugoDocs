@@ -11,7 +11,6 @@
 {{ end }}
 
 {{ define "main" }}
-
   <section
     class="w-full px-4 sm:px-5 py-4 sm:py-10 text-gray-500 bg-carrot-500">
     {{- partial "home-page-sections/testimonials.html" . -}}
@@ -28,14 +27,11 @@
   </section>
 
   {{ partial "home-page-sections/features-single.html" . }}
-  {{ partial "home-page-sections/showcase2.html" . }}
-  <section
-    class="w-full px-4 sm:px-5 py-4 sm:py-6 text-gray-500 bg-white border-b border-t border-solid border-gray-300">
-    {{/* TODO(bep) - partial "home-page-sections/installation" . - */}}
-  </section>
 
-  <section
-    class="w-full px-4 sm:px-5 pt-4 pb-5 text-gray-500 bg-gray-50 border-b border-t border-solid border-gray-300 ">
-    {{/* TODO(bep)  - partial "home-page-sections/open-source-involvement.html" . - */}}
+
+  <section class="w-full px-4 sm:px-5 py-4 sm:py-12 bg-white">
+    <div class="mx-auto max-w-5xl">
+      {{ partial "home-page-sections/showcase.html" . }}
+    </div>
   </section>
 {{ end }}
