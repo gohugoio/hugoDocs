@@ -68,7 +68,11 @@ body {
 
 @layer components {
     .btn-primary {
-        @apply py-2 px-4 font-semibold rounded-lg shadow-md bg-steel-600 hover:bg-steel-700 text-white hover:text-gray-200 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-steel-500;
+        @apply py-2 px-4 font-semibold rounded-md shadow-md bg-steel-600 hover:bg-steel-700 text-white hover:text-gray-200 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-steel-500;
+    }
+
+    .btn-secondary {
+        @apply py-2 px-4 font-semibold rounded-md shadow-md bg-green-600 hover:bg-green-700 text-white hover:text-gray-200 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-steel-500;
     }
 
     a {
