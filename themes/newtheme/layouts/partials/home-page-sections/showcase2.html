@@ -9,46 +9,24 @@
     {{ if not $img }}
       {{ errorf "No image found for showcase item %q" $p.Title }}
     {{ end }}
-    {{ if  true }}
-      <div class="w-full sm: sm:w-1/2 lg:w-1/3 px-4 mb-16">
-        <div class="flex mb-6 pb-2/3 relative overflow-hidden">
-          <img
-            class="w-full h-full absolute object-cover shadow-lg border border-white"
-            src="{{ $img.RelPermalink }}"
-            alt="" />
-        </div>
-        <h2 class="mb-3 text-3xl font-semibold font-heading">
-          {{ .LinkTitle }}
-        </h2>
-        <p class="mb-3 text-xl  three-lines-ellipsis">
-          {{ .Summary }}
-        </p>
-        <a
-          class="text-lg font-medium text-steel-500 hover:text-steel-400 no-underline"
-          href="{{ .RelPermalink }}"
-          >Read more</a
-        >
+    <div class="w-full sm: sm:w-1/2 lg:w-1/3 px-4 mb-16">
+      <div class="flex mb-6 pb-2/3 relative overflow-hidden">
+        <img
+          class="w-full h-full absolute object-cover shadow-lg border border-white"
+          src="{{ $img.RelPermalink }}"
+          alt="" />
       </div>
-    {{ else }}
-      <div class="w-full lg:w-1/3 px-4 mb-16">
-        <div class="flex h-96 mb-10">
-          <img
-            class="w-full h-full object-cover rounded-xl shadow-lg border border-gray-200"
-            src="{{ $img.RelPermalink }}"
-            alt="" />
-        </div>
-        <h2 class="mb-4 text-3xl font-semibold font-heading">
-          {{ .LinkTitle }}
-        </h2>
-        <p class="mb-4 text-xl  three-lines-ellipsis">
-          {{ .Summary }}
-        </p>
-        <a
-          class="text-lg font-medium text-red-500 underline hover:no-underline"
-          href="#"
-          >Read more</a
-        >
-      </div>
-    {{ end }}
+      <h2 class="mb-3 text-3xl font-semibold font-heading">
+        {{ .LinkTitle }}
+      </h2>
+      <p class="mb-3 text-xl  three-lines-ellipsis">
+        {{ .Summary }}
+      </p>
+      <a
+        class="text-lg font-medium text-steel-400 hover:text-steel-300 no-underline"
+        href="{{ .RelPermalink }}"
+        >Read more</a
+      >
+    </div>
   {{ end }}
 </div>

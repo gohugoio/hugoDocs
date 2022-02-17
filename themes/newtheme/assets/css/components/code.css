@@ -110,3 +110,9 @@ pre {
   color: inherit;
   padding-right: 30px;
 }
+
+
+.goat {
+  background-color: #f3f4f4;
+  overflow: hidden;
+}
