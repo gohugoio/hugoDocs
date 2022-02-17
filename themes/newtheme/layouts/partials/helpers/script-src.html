@@ -2,7 +2,7 @@
 {{ $loadAttribute := .loadAttribute | safeHTMLAttr }}
 {{ $params := .params | default dict }}
 {{ $sourceMap := cond hugo.IsProduction "" "inline" }}
-{{ $opts := dict "sourceMap" $sourceMap "minify" false "target" "es2018" "params" $params }}
+{{ $opts := dict "sourceMap" $sourceMap "minify"  hugo.IsProduction "target" "es2018" "params" $params }}
 {{ $js := $js | js.Build $opts }}
 {{ if  hugo.IsProduction }}
   {{ $js = $js | fingerprint }}
