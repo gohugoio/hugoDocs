@@ -494,11 +494,9 @@ This option is not recommended because the Hugo in Linux package managers for De
 
 Hugo can be installed from the [makedeb Package Repository](https://mpr.makedeb.org/packages/hugo), which provides an up-to-date version of Hugo for users on Debian and Ubuntu based systems. To install it you need to first have [makedeb](https://makedeb.org/) installed, after which it can be installed via the `makedeb` command:
 
-```sh
-git clone 'https://mpr.makedeb.org/hugo.git'
-cd hugo/
-makedeb -si
-```
+    git clone 'https://mpr.makedeb.org/hugo.git'
+    cd hugo/
+    makedeb -si
 
 ### Arch Linux
 
