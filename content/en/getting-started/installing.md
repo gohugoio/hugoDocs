@@ -488,7 +488,17 @@ Hugo installed via Snap can write only inside the user’s `$HOME` directory---a
 
 What this installs depends on your Debian/Ubuntu version. On Ubuntu bionic (18.04), this installs the non-extended version without Sass/SCSS support. On Ubuntu disco (19.04), this installs the extended version with Sass/SCSS support.
 
-This option is not recommended because the Hugo in Linux package managers for Debian and Ubuntu is usually a few versions behind as described [here](https://github.com/gcushen/hugo-academic/issues/703)
+This option is not recommended because the Hugo in Linux package managers for Debian and Ubuntu is usually a few versions behind as described [here](https://github.com/gcushen/hugo-academic/issues/703).
+
+### MPR Package
+
+Hugo can be installed from the [makedeb Package Repository](https://mpr.makedeb.org/packages/hugo), which provides an up-to-date version of Hugo for users on Debian and Ubuntu based systems. To install it you need to first have [makedeb](https://makedeb.org/) installed, after which it can be installed via the `makedeb` command:
+
+```sh
+git clone 'https://mpr.makedeb.org/hugo.git'
+cd hugo/
+makedeb -si
+```
 
 ### Arch Linux
 
