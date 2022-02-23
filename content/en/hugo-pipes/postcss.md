@@ -28,6 +28,8 @@ The resource will be processed using the project's or theme's own `postcss.confi
 Hugo Pipe's PostCSS requires the `postcss-cli` JavaScript package to be installed in the environment (`npm install -g postcss postcss-cli`) along with any PostCSS plugin(s) used (e.g., `npm install -g autoprefixer`).
 
 If you are using the Hugo Snap package, PostCSS and plugin(s) need to be installed locally within your Hugo site directory, e.g., `npm install postcss-cli` without the `-g` flag.
+
+On Windows it can happen, that PostCSS fails with an error of "‘C:\Program’ is not recognized as an internal or external command". You can [fix this](https://github.com/gohugoio/hugo/issues/7333#issuecomment-1048571703) by adding your postcss.config.js content to package.json instead.
 {{% /note %}}
 
 ### Options
