@@ -18,6 +18,6 @@ gtmid = ""
 # First one is picked as the Twitter card image if not set on page.
 images = ["images/gohugoio-card.png"]
 
-flex_box_interior_classes = "flex-auto w-100 lg:w-2/5 mr3 mb-3 bg-white border-gray-400 leading-normal"
+flex_box_interior_classes = "flex-auto w-100 lg:w-2/5 mr-3 mb-3 bg-white border-gray-400 leading-normal"
 
 #sidebar_direction = "sidebar_left"
