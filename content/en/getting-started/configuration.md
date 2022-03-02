@@ -106,7 +106,7 @@ The following is the full list of Hugo-defined variables with their default
 value in parentheses. Users may choose to override those values in their site
 config file(s).
 
-### archetypeDir 
+### archetypeDir
 
 **Default value:** "archetypes"
 
@@ -152,7 +152,7 @@ See [Configure File Caches](#configure-file-caches)
 
 {{< new-in "0.86.0" >}}
 
-Pass down down default configuration values (front matter) to pages in the content tree. The options in site config is the same as in page front matter, see [Front Matter Cascade](/content-management/front-matter#front-matter-cascade).
+Pass down down default configuration values (front matter) to pages in the content tree. The options in site config is the same as in page front matter, see [Front Matter Cascade](/content-management/front-matter#front-matter-cascade). 
 
 ### canonifyURLs
 
@@ -220,7 +220,7 @@ Disable automatic live reloading of browser window.
 
 : Do not convert the url/path to lowercase.
 
-### enableEmoji 
+### enableEmoji
 
 **Default value:**  false
 
@@ -260,7 +260,7 @@ See [Front matter Configuration](#configure-front-matter).
 
 Prefix for footnote anchors.
 
-###  footnoteReturnLinkContents
+### footnoteReturnLinkContents
 
 **Default value:**  ""
 
@@ -321,7 +321,7 @@ Don't sync modification time of files.
 ### outputFormats
 See [Configure Output Formats](#configure-additional-output-formats).
 
-### paginate 
+### paginate
 
 **Default value:** 10
 
@@ -351,7 +351,7 @@ The directory to where Hugo will write the final static site (the HTML files etc
 ### related
 : See [Related Content](/content-management/related/#configure-related-content).{{< new-in "0.27" >}}
 
-### relativeURLs 
+### relativeURLs
 Enable this to make all relative URLs relative to content root. Note that this does not affect absolute URLs.
 
 ### refLinksErrorLevel
@@ -406,13 +406,13 @@ See [Configure Taxonomies](/content-management/taxonomies#configure-taxonomies).
 
 The directory where Hugo reads the themes from.
 
-### timeout 
+### timeout
 
 **Default value:** "30s"
 
 Timeout for generating page contents, specified as a [duration](https://pkg.go.dev/time#Duration) or in milliseconds. *Note:*&nbsp;this is used to bail out of recursive content generation. You might need to raise this limit if your pages are slow to generate (e.g., because they require large image processing or depend on remote contents).
 
-### timeZone 
+### timeZone
 
 {{< new-in "0.87.0" >}}
 

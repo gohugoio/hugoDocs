@@ -189,7 +189,11 @@ kind
 lang
 : A Glob pattern matching the Page's language, e.g. "{en,sv}".
 
-Any of the above can be omitted. 
+Any of the above can be omitted.
+
+{{% note %}}
+When defining a `[[cascade]]` in front matter for different languages, the cascade will only cascade down on the files in that site/language. As a result this has to be done on a per-language basis. Therefore it is recommended to do it in [site config](getting-started/configuration#all-configuration-settings) instead to prevent duplication.
+{{% /note %}}
 
 ### Example
 
