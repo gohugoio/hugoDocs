@@ -192,7 +192,9 @@ lang
 Any of the above can be omitted.
 
 {{% note %}}
-When defining a `[[cascade]]` in front matter for different languages, the cascade will only cascade down on the files in that site/language. As a result this has to be done on a per-language basis. Therefore it is recommended to do it in [site config](getting-started/configuration#all-configuration-settings) instead to prevent duplication.
+When defining a `[[cascade]]` in front matter, it will only apply to the current site/language. As a result this has to be done on a **per-language basis**:  an `_index.XX.md` needs to be defined for every language where `XX` is the language glob pattern.
+
+It is recommended to do it in [site config](../../getting-started/configuration/#cascade) instead to prevent duplication.
 {{% /note %}}
 
 ### Example
