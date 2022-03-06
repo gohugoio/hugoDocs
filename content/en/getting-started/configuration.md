@@ -159,7 +159,7 @@ The options in site config is the same as in page front matter, see [Front Matte
 For a website in a single language, define the `[[cascade]]` in [Content](/content-management/front-matter#front-matter-cascade).   
 For a multilingual website, define the `[[cascade]]` in [Site Config](../../getting-started/configuration/#cascade).
 
-**Do not mix these strategies**, as it will likely introduce errors and bugs.
+**Do not mix these strategies** to remain consistent and prevent unexpected behaviour.
 {{% /note %}}
 
 
