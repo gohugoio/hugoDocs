@@ -522,6 +522,8 @@ X-XSS-Protection = "1; mode=block"
 X-Content-Type-Options = "nosniff"
 Referrer-Policy = "strict-origin-when-cross-origin"
 Content-Security-Policy = "script-src localhost:1313"
+Strict-Transport-Security: max-age=31536000; includeSubDomains; preload
+Permissions-Policy= "accelerometer=(), camera=(), geolocation=(), gyroscope=(), magnetometer=(), microphone=(), payment=(), usb=()"
 {{< /code-toggle >}}
 
 
