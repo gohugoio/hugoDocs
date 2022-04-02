@@ -35,7 +35,7 @@ In technical terms, Hugo takes a source directory of files and templates and use
 
 Hugo is for people that prefer writing in a text editor over a browser.
 
-Hugo is for people who want to hand code their own website without worrying about setting up complicated runtimes, dependencies and databases.
+Hugo is for people who want to hand code their own website without worrying about setting up complicated runtimes environment, dependencies and databases.
 
 Hugo is for people building a blog, a company site, a portfolio site, documentation, a single landing page, or a website with thousands of pages.
 

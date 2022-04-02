@@ -1,8 +1,8 @@
 ---
 title: Hugo 说明文档
 linktitle: Hugo
-description: Hugo is the world's fastest static website engine. It's written in Go (aka Golang) and developed by bep, spf13 and friends.
-date: 2017-02-01
+description: Hugo是世界上最快的静态网站引擎。它是用Go（又名Golang）编写的，由bep，spf13和朋友开发。
+date: 2022-04-02
 publishdate: 2017-02-01
 menu:
   main:
