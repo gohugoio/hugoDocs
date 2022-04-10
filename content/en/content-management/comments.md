@@ -62,6 +62,7 @@ These are some alternatives to Disqus:
 * [Staticman](https://staticman.net/)
 * [Talkyard](https://www.talkyard.io/blog-comments) (Open source, & serverless hosting)
 * [Utterances](https://utteranc.es/) (Open source, GitHub comments widget built on GitHub issues)
+* [Cusdis](https://cusdis.com/) (Available as a service) 
 
 [configuration]: /getting-started/configuration/
 [disquspartial]: /templates/partials/#disqus
