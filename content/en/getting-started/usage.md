@@ -164,7 +164,7 @@ Whenever you make changes, Hugo will simultaneously rebuild the site and continu
 Most Hugo builds are so fast that you may not notice the change unless looking directly at the site in your browser. This means that keeping the site open on a second monitor (or another half of your current monitor) allows you to see the most up-to-date version of your website without the need to leave your text editor.
 
 {{% note "Closing `</body>` Tag"%}}
-Hugo injects the LiveReload `<script>` before the closing `</body>` in your templates and will therefore not work if this tag is not present..
+If Hugo finds plain `<head>` without any attributes, it will inject the LiveReload `<script>` after the (opening `<head>`) tag. Hugo injects the LiveReload `<script>` before the closing `</body>` in your templates if the `head` has attributes e.g. `<head data-random="anything">`. Hugo will therefore not work if this tag [is not present](https://github.com/gohugoio/hugo/blob/3d5dbdcb1a11b059fc2f93ed6fadb9009bf72673/transform/livereloadinject/livereloadinject.go).
 {{% /note %}}
 
 ### Redirect automatically to the page you just saved
