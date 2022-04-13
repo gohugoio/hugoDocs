@@ -92,7 +92,7 @@ keywords
 : the meta keywords for the content.
 
 layout
-: the layout Hugo should select from the [lookup order][lookup] when rendering the content. If a `type` is not specified in the front matter, Hugo will look for the layout of the same name in the layout directory that corresponds with a content's section. See ["Content Types"][content type]
+: the layout Hugo should select from the [lookup order][lookup] when rendering the content. If a `type` is not specified in the front matter, Hugo will look for the layout of the same name in the layout directory that corresponds with a content's section. See [Content Types][content type].
 
 lastmod
 : the datetime at which the content was last modified.
