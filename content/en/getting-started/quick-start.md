@@ -58,7 +58,9 @@ The above will create a new Hugo site in a folder named `quickstart`.
 
 ## Step 3: Add a Theme
 
-See [themes.gohugo.io](https://themes.gohugo.io/) for a list of themes to consider. This quickstart uses the beautiful [Ananke theme](https://themes.gohugo.io/gohugo-theme-ananke/).
+To add a theme to Hugo, you can use pre-made themes (See [themes.gohugo.io](https://themes.gohugo.io/)) or create your own from scratch.
+
+For a pre-made theme, this quickstart uses the beautiful [Ananke theme](https://themes.gohugo.io/gohugo-theme-ananke/).
 
 First, download the theme from GitHub and add it to your site's `themes` directory:
 
@@ -75,6 +77,17 @@ echo theme = \"ananke\" >> config.toml
 ```
 
 {{< asciicast 7naKerRYUGVPj8kiDmdh5k5h9 >}}
+
+To use your own blank theme (let's call it "hugotest"), add it to your site's theme directory as follows:
+```bash
+cd quickstart
+hugo new theme hugotest
+```
+Then, add the theme to the site configuration:
+
+```bash
+echo theme = \"hugotest\" >> config.toml
+```
 
 ## Step 4: Add Some Content
 
