@@ -94,6 +94,8 @@ By default, the GitHub action pushes the generated content to the `gh-pages` bra
 ## Change baseURL in config.toml
 Don't forget to rename your `baseURL` in `config.toml` with the value `https://<USERNAME>.github.io` for your user repository or `https://<USERNAME>.github.io/<REPOSITORY_NAME>` for a project repository.
 
+If the method above doesn't work, try rename your `baseURL` with the value `/`.
+
 Unless this is present in your `config.toml`, your website won't work.
 
 ## Use a Custom Domain
