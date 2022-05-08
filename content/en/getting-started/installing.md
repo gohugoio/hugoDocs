@@ -482,6 +482,9 @@ Hugo installed via Snap can write only inside the user’s `$HOME` directory---a
 
 ### Debian and Ubuntu
 
+Open <https://github.com/gohugoio/hugo/releases> in your browser and choose the deb file for your computer.  You may also use the standard apt install as stated below, but it is often not up to date.
+
+
 [@anthonyfok](https://github.com/anthonyfok) and friends in the [Debian Go Packaging Team](https://go-team.pages.debian.net/) maintains an official hugo [Debian package](https://packages.debian.org/hugo) which is shared with [Ubuntu](https://packages.ubuntu.com/hugo) and is installable via `apt-get`:
 
     sudo apt-get install hugo
