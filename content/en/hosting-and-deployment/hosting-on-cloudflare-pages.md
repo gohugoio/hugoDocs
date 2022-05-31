@@ -17,3 +17,4 @@ toc: true
 You can host your Hugo site using [Cloudflare Pages](https://developers.cloudflare.com/pages/). Pages are super fast, always up-to-date, and deployed directly from your Git provider (currently supports only GitHub and GitLab).
 
 Cloudflare Pages has a handy tutorial on [how to deploy a Hugo site](https://developers.cloudflare.com/pages/framework-guides/deploy-a-hugo-site/).
+To [add hugo forms](https://fabform.io/a/hugo-contact-form) you can use fabform.io
