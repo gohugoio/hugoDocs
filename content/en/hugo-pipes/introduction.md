@@ -61,6 +61,12 @@ With `resources.GetRemote`, the first argument is a remote URL:
 {{ $resized := $image.Resize "400x400" |  resources.Copy "images/mynewname.jpg" }}
 <img src="{{ $resized.RelPermalink }}">
 ```
+`resources.Copy` can also be used with `resources.GetRemote`:
+
+```go-html-template
+{{ $bar := resources.GetRemote "https://example.org/foo.js" | resources.Copy "js/bar.js" }}
+<script src="{{ $bar.RelPermalink }}"></script>
+```
 
 ### Caching
 
