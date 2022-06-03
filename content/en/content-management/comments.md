@@ -59,6 +59,7 @@ These are some alternatives to Disqus:
 * [Isso](https://posativ.org/isso/) (Self-hosted, Python) ([tutorial][issotutorial])
 * [Muut](https://muut.com/)
 * [Remark42](https://remark42.com/) (Open source, Golang, Easy to run docker)
+* [ReplyBox](https://getreplybox.com/)
 * [Staticman](https://staticman.net/)
 * [Talkyard](https://www.talkyard.io/blog-comments) (Open source, & serverless hosting)
 * [Utterances](https://utteranc.es/) (Open source, GitHub comments widget built on GitHub issues)
