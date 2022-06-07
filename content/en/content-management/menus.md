@@ -106,6 +106,19 @@ This means that `.Title` will be used unless `.LinkTitle` is present, etc. In pr
 
 In this example, the top level of the menu is defined in your [site `config` file][config]. All content entries are attached to one of these entries via the `.Parent` field.
 
+{{< code-toggle file="config" >}}
+[[menu.main]]
+    name = "about hugo"
+    weight = -110
+    identifier = "about"
+    url = "/about/"
+[[menu.main]]
+    name = "about authors"
+    weight = -100
+    url = "/about/authors/"
+    parent = "about"
+{{< /code-toggle >}}
+
 ## Params
 
 You can also add user-defined content to menu items via the `params` field.
