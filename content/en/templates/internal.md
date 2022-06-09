@@ -4,7 +4,6 @@ linktitle: Internal Templates
 description: Hugo ships with a group of boilerplate templates that cover the most common use cases for static websites.
 date: 2017-03-06
 publishdate: 2017-03-06
-lastmod: 2017-03-06
 categories: [templates]
 keywords: [internal, analytics,]
 menu:
@@ -37,6 +36,8 @@ Provide your tracking id in your configuration file:
 {{< code-toggle file="config" >}}
 googleAnalytics = "UA-PROPERTY_ID"
 {{</ code-toggle >}}
+
+Note: Google have [deprecated Universal Analytics](https://support.google.com/analytics/answer/11583528).
 
 **Google Analytics v4 (gtag.js)**
 {{< code-toggle file="config" >}}
