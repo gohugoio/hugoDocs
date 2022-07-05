@@ -50,10 +50,14 @@ In addition to using a single site config file, one can use the `configDir` dire
 {{< code-toggle file="config" >}}
 [Params]
   foo = "bar"
+  [Params.baz]
+    bar = "foo"
 {{< /code-toggle >}}
 
 {{< code-toggle file="params" >}}
 foo = "bar"
+[baz]
+  bar = "foo"
 {{< /code-toggle >}}
 
 - Each directory holds a group of files containing settings unique to an environment.
