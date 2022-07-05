@@ -433,6 +433,9 @@ Site title.
 See [Configure Title Case](#configure-title-case)
 
 ### uglyURLs
+
+**Default value:** false
+
 When enabled, creates URL of the form `/filename.html` instead of `/filename/`.
 
 ### watch
