@@ -62,6 +62,10 @@ When using Google Analytics v4 use `_internal/google_analytics.html`.
 
 A `.Site.GoogleAnalytics` variable is also exposed from the config.
 
+{{% warning %}}
+The value `googleAnalytics` is used if `services.googleAnalytics.id` is undefined (or zero). We recommend you use the latter (`services.googleAnalytics.id`), but not both to avoid unexpected results!
+{{% /warning %}}
+
 ## Disqus
 
 Hugo also ships with an internal template for [Disqus comments][disqus], a popular commenting system for both static and dynamic websites. In order to effectively use Disqus, you will need to secure a Disqus "shortname" by [signing up for the free service][disqussignup].
