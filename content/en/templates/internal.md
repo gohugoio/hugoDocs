@@ -184,6 +184,8 @@ Hugo's Twitter Card template is configured using a mix of configuration variable
 [params]
   images = ["site-feature-image.jpg"]
   description = "Text about my cool site"
+ [social]
+twitter = "username"
 {{</ code-toggle >}}
 
 {{< code-toggle file="content/blog/my-post" >}}
@@ -197,6 +199,8 @@ If no image resources with those names are found, the images defined in the [sit
 If no images are found at all, then an image-less Twitter `summary` card is used instead of `summary_large_image`.
 
 Hugo uses the page title and description for the card's title and description fields. The page summary is used if no description is given.
+
+Replace the username with your Twitter username without the @ symbol.
 
 ### Use the Twitter Cards Template
 
