@@ -255,7 +255,7 @@ See [Front matter Configuration](#configure-front-matter).
 
 **Default value:**  ""
 
-Google Analytics tracking ID.
+Alias for `services.googleAnalytics.id`. See [Configure Google Analytics](https://gohugo.io/templates/internal/#configure-google-analytics).
 
 ### hasCJKLanguage
 
@@ -376,6 +376,8 @@ content/post/hügó.md --> https://example.org/post/hugo/
 ### rssLimit
 
 **Default value:** -1 (unlimited)
+
+An alias for `Services.RSS.Limit`. See [Configure RSS](https://gohugo.io/templates/rss/#configure-rss).
 
 Maximum number of items in the RSS feed.
 
