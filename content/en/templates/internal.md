@@ -35,12 +35,14 @@ Provide your tracking id in your configuration file:
 
 **Google Analytics v3 (analytics.js)**
 {{< code-toggle file="config" >}}
-googleAnalytics = "UA-PROPERTY_ID"
+[services.googleAnalytics]
+    id = "UA-PROPERTY_ID"
 {{</ code-toggle >}}
 
 **Google Analytics v4 (gtag.js)**
 {{< code-toggle file="config" >}}
-googleAnalytics = "G-MEASUREMENT_ID"
+[services.googleAnalytics]
+    id = "G-MEASUREMENT_ID"
 {{</ code-toggle >}}
 
 ### Use the Google Analytics Template
