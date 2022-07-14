@@ -1687,6 +1687,24 @@
           ".*"
         ]
       }
+    },
+    "services": {
+      "disqus": {
+        "shortname": ""
+      },
+      "googleAnalytics": {
+        "ID": ""
+      },
+      "instagram": {
+        "disableInlineCSS": false,
+        "accessToken": ""
+      },
+      "twitter": {
+        "disableInlineCSS": false
+      },
+      "RSS": {
+        "limit": -1
+      }
     }
   },
   "media": {

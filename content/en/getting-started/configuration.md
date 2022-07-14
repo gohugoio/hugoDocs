@@ -125,7 +125,7 @@ The following is the full list of Hugo-defined variables with their default
 value in parentheses. Users may choose to override those values in their site
 config file(s).
 
-### archetypeDir 
+### archetypeDir
 
 **Default value:** "archetypes"
 
@@ -369,7 +369,7 @@ The directory to where Hugo will write the final static site (the HTML files etc
 ### related
 : See [Related Content](/content-management/related/#configure-related-content).{{< new-in "0.27" >}}
 
-### relativeURLs 
+### relativeURLs
 
 **Default value:** false
 
@@ -406,7 +406,11 @@ See ["Section Menu for Lazy Bloggers"](/templates/menu-templates/#section-menu-f
 
 ### security
 
-See [Security Policy](/about/security-model/#security-policy)
+See [Security Policy](/about/security-model/#security-policy).
+
+### services
+
+See [Configure Services](/getting-started/configuration-services).
 
 ### sitemap
 Default [sitemap configuration](/templates/sitemap-template/#configuration).
@@ -429,13 +433,13 @@ See [Configure Taxonomies](/content-management/taxonomies#configure-taxonomies).
 
 The directory where Hugo reads the themes from.
 
-### timeout 
+### timeout
 
 **Default value:** "30s"
 
 Timeout for generating page contents, specified as a [duration](https://pkg.go.dev/time#Duration) or in milliseconds. *Note:*&nbsp;this is used to bail out of recursive content generation. You might need to raise this limit if your pages are slow to generate (e.g., because they require large image processing or depend on remote contents).
 
-### timeZone 
+### timeZone
 
 {{< new-in "0.87.0" >}}
 
@@ -536,7 +540,7 @@ Content-Security-Policy = "script-src localhost:1313"
 
 {{< new-in "0.72.0" >}}
 
-You can also specify simple redirects rules for the server. The syntax is again similar to Netlify's. 
+You can also specify simple redirects rules for the server. The syntax is again similar to Netlify's.
 
 Note that a `status` code of 200 will trigger a [URL rewrite](https://docs.netlify.com/routing/redirects/rewrites-proxies/), which is what you want in SPA situations, e.g:
 

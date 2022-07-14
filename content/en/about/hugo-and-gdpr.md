@@ -4,7 +4,7 @@ linktitle: Hugo and GDPR
 description: About how to configure your Hugo site to meet the new regulations.
 date: 2018-05-25
 layout: single
-keywords: ["GDPR", "Privacy", "Data Protection"]
+keywords: [GDPR, privacy, data protection, services]
 menu:
   docs:
     parent: "about"
@@ -137,4 +137,3 @@ enableDNT
 
 simple
 : If simple mode is enabled, the video thumbnail is fetched from Vimeo's servers and it is overlayed with a play button. If the user clicks to play the video, it will open in a new tab directly on Vimeo's website.
-
