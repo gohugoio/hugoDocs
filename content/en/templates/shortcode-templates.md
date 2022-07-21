@@ -110,6 +110,13 @@ by using the self-closing syntax:
 {{</* innershortcode /*/>}}
 ```
 
+{{% warning %}}
+Once a shortcode has `.Inner` in its template, the shortcode *must* be closed.
+
+While you can create shortcodes that do not need to be closed (without `.Inner`) and shortcodes that do need to be closed (uses `.Inner`),
+you cannot do so *within the same shortcode*.
+{{% /warning %}}
+
 #### `.Params`
 
 The `.Params` variable in shortcodes contains the list parameters passed to shortcode for more complicated use cases. You can also access higher-scoped parameters with the following logic:
