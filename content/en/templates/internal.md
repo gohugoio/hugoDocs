@@ -184,6 +184,8 @@ Hugo's Twitter Card template is configured using a mix of configuration variable
 [params]
   images = ["site-feature-image.jpg"]
   description = "Text about my cool site"
+[social]
+  twitter = "Username (without @)"
 {{</ code-toggle >}}
 
 {{< code-toggle file="content/blog/my-post" >}}
