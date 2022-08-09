@@ -3,7 +3,7 @@ title: findRE
 description: Returns a list of strings that match the regular expression.
 date: 2017-02-01
 publishdate: 2017-02-01
-lastmod: 2017-02-01
+lastmod: 2022-07-21
 categories: [functions]
 menu:
   docs:
@@ -19,16 +19,26 @@ aliases: []
 
 By default all matches will be included. The number of matches can be limited with an optional third parameter.
 
+It is best practice to use backticks `` ` `` to surround the regular expression pattern you are trying to match. In the Go language, enclosing a string in backticks represent a string literal. This means characters that would normally need to be escaped (most commonly the backslash `\`) don't need to be escaped, where they would if quotes/double-quotes were used.
+
+```
+{{/* Using Backticks, no character escapes needed */}}
+{{ findRE `^\d*(-| |)` .Name }}
+
+{{/* Using double quotes, escapes needed. Notice double \\ */}}
+{{ findRE "^\\d*(-| |)" .Name }}
+```
+
 The example below returns a list of all second level headers (`<h2>`) in the content:
 
 ```
-{{ findRE "<h2.*?>(.|\n)*?</h2>" .Content }}
+{{ findRE `<h2.*?>(.|\n)*?</h2>` .Content }}
 ```
 
 You can limit the number of matches in the list with a third parameter. The following example shows how to limit the returned value to just one match (or none, if there are no matched substrings):
 
 ```
-{{ findRE "<h2.*?>(.|\n)*?</h2>" .Content 1 }}
+{{ findRE `<h2.*?>(.|\n)*?</h2>` .Content 1 }}
     <!-- returns ["<h2 id="#foo">Foo</h2>"] -->
 ```
 

@@ -3,7 +3,7 @@ title: replaceRE
 description: Replaces all occurrences of a regular expression with the replacement pattern.
 date: 2017-02-01
 publishdate: 2017-02-01
-lastmod: 2020-09-07
+lastmod: 2022-07-21
 categories: [functions]
 menu:
   docs:
@@ -21,10 +21,22 @@ aliases: []
 expression `PATTERN` with the replacement text `REPLACEMENT`.
 The number of replacements can be limited with an optional `LIMIT` parameter.
 
+It is best practice to use backticks `` ` `` to surround the regular expression pattern you are trying to match. In the Go language, enclosing a string in backticks represent a string literal. This means characters that would normally need to be escaped (most commonly the backslash `\`) don't need to be escaped, where they would if quotes/double-quotes were used.
+
 ```
-{{ replaceRE "^https?://([^/]+).*" "$1" "http://gohugo.io/docs" }}` → "gohugo.io"
-{{ "http://gohugo.io/docs" | replaceRE "^https?://([^/]+).*" "$1" }}` → "gohugo.io"
-{{ replaceRE "a+b" "X" "aabbaabbab" 1 }} → "Xbaabbab"
+{{/* Using Backticks, no character escapes needed */}}
+{{ replaceRE `^\d*(-| |)` "" .Name }}
+
+{{/* Using double quotes, escapes needed. Notice double \\ */}}
+{{ replaceRE "^\\d*(-| |)" "" .Name }}
+```
+
+Examples below show parsing of a URL and the use of the `LIMIT` parameter:
+
+```
+{{ replaceRE `^https?://([^/]+).*` "$1" "http://gohugo.io/docs" }} → "gohugo.io"
+{{ "http://gohugo.io/docs" | replaceRE `^https?://([^/]+).*` "$1" }} → "gohugo.io"
+{{ replaceRE `a+b` "X" "aabbaabbab" 1 }} → "Xbaabbab"
 ```
 
 {{% note %}}
