@@ -56,6 +56,14 @@ In addition to using a single site config file, one can use the `configDir` dire
 foo = "bar"
 {{< /code-toggle >}}
 
+{{< code-toggle file="menu(s)" >}}
+[[main]]
+identifier = "about"
+name = "About"
+url = "/about/"
+weight = 1
+{{< /code-toggle >}}
+
 - Each directory holds a group of files containing settings unique to an environment.
 - Files can be localized to become language specific.
 
