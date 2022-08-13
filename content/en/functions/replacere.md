@@ -3,7 +3,7 @@ title: replaceRE
 description: Replaces all occurrences of a regular expression with the replacement pattern.
 date: 2017-02-01
 publishdate: 2017-02-01
-lastmod: 2020-09-07
+lastmod: 2022-07-21
 categories: [functions]
 menu:
   docs:
@@ -21,14 +21,26 @@ aliases: []
 expression `PATTERN` with the replacement text `REPLACEMENT`.
 The number of replacements can be limited with an optional `LIMIT` parameter.
 
+It is best practice to use backticks `` ` `` to surround the regular expression pattern you are trying to match. In the Go language, enclosing a string in backticks represent a string literal. This means characters that would normally need to be escaped (most commonly the backslash `\`) don't need to be escaped, where they would if quotes/double-quotes were used.
+
 ```
-{{ replaceRE "^https?://([^/]+).*" "$1" "http://gohugo.io/docs" }}` → "gohugo.io"
-{{ "http://gohugo.io/docs" | replaceRE "^https?://([^/]+).*" "$1" }}` → "gohugo.io"
-{{ replaceRE "a+b" "X" "aabbaabbab" 1 }} → "Xbaabbab"
+{{/* Using Backticks, no character escapes needed */}}
+{{ replaceRE `^\d*(-| |)` "" .Name }}
+
+{{/* Using double quotes, escapes needed. Notice double \\ */}}
+{{ replaceRE "^\\d*(-| |)" "" .Name }}
+```
+
+Examples below show parsing of a URL and the use of the `LIMIT` parameter:
+
+```
+{{ replaceRE `^https?://([^/]+).*` "$1" "http://gohugo.io/docs" }} → "gohugo.io"
+{{ "http://gohugo.io/docs" | replaceRE `^https?://([^/]+).*` "$1" }} → "gohugo.io"
+{{ replaceRE `a+b` "X" "aabbaabbab" 1 }} → "Xbaabbab"
 ```
 
 {{% note %}}
 Hugo uses Go's [Regular Expression package](https://golang.org/pkg/regexp/), which is the same general syntax used by Perl, Python, and other languages but with a few minor differences for those coming from a background in PCRE. For a full syntax listing, see the [GitHub wiki for re2](https://github.com/google/re2/wiki/Syntax).
 
-If you are just learning RegEx, or at least Go's flavor, you can practice pattern matching in the browser at <https://regex101.com/>.
+If you are just learning RegEx, or at least Go's flavor, you can practice pattern matching in the browser at <https://regexr.com/> or <https://regex101.com/>. Go RegEx also supports *mode modifiers* or processing flags in the PCRE style of RegEx, such as `(?i)` - case insensitive, `(?s)` - dotall, `(?m)` - multiline, `(?x)` - free spacing, `(?J)` - allow duplicate names, `(?U)` - ungreedy.
 {{% /note %}}
