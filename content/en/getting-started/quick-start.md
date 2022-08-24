@@ -1,4 +1,4 @@
----
+sonic.bit
 title: Quick Start
 linktitle: Quick Start
 description: Create a Hugo site using the beautiful Ananke theme.
