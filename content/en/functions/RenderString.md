@@ -1,7 +1,6 @@
 ---
 title: .RenderString
 description: "Renders markup to HTML."
-godocref:
 date: 2019-12-18
 categories: [functions]
 menu:
@@ -14,8 +13,6 @@ signature: [".RenderString MARKUP"]
 {{< new-in "0.62.0" >}} 
 
 `.RenderString` is a method on `Page` that renders some markup to HTML using the content renderer defined for that page (if not set in the options).
-
-*Note* that this method does not parse and render shortcodes.
 
 The method takes an optional map argument with these options:
 

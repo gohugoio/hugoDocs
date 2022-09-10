@@ -2,7 +2,6 @@
 title: Template Debugging
 # linktitle: Template Debugging
 description: You can use Go templates' `printf` function to debug your Hugo  templates. These snippets provide a quick and easy visualization of the variables available to you in different contexts.
-godocref: https://golang.org/pkg/fmt/
 date: 2017-02-01
 publishdate: 2017-02-01
 lastmod: 2017-02-01
@@ -62,13 +61,13 @@ When developing a [homepage][], what does one of the pages you're looping throug
 Check that you are passing variables in the `partial` function:
 
 ```
-{{ partial "header" }}
+{{ partial "header.html" }}
 ```
 
 This example will render the header partial, but the header partial will not have access to any contextual variables. You need to pass variables explicitly. For example, note the addition of ["the dot"][tempintro].
 
 ```
-{{ partial "header" . }}
+{{ partial "header.html" . }}
 ```
 
 The dot (`.`) is considered fundamental to understanding Hugo templating. For more information, see [Introduction to Hugo Templating][tempintro].

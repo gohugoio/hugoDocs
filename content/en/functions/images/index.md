@@ -1,7 +1,6 @@
 ---
-title: Image Functions
+title: Image Filters
 description: The images namespace provides a list of filters and other image related functions.
-godocref:
 date: 2017-02-01
 categories: [functions]
 aliases: [/functions/imageconfig/]
@@ -12,12 +11,9 @@ keywords: [images]
 toc: true
 ---
 
-
-## Image Filters
-
 See [images.Filter](#filter) for how to apply these filters to an image.
 
-### Overlay
+## Overlay
 
 {{< new-in "0.80.0" >}}
 
@@ -41,7 +37,42 @@ A shorter version of the above, if you only need to apply the filter once:
 
 The above will overlay `$logo` in the upper left corner of `$img` (at position `x=50, y=50`).
 
-### Brightness
+## Text
+
+{{< new-in "0.90.0" >}}
+
+Using the `Text` filter, you can add text to an image.
+
+{{% funcsig %}}
+images.Text TEXT DICT)
+{{% /funcsig %}}
+
+The following example will add the text `Hugo rocks!` to the image with the specified color, size and position.
+
+```go-html-template
+{{ $img := resources.Get "/images/background.png"}}
+{{ $img = $img.Filter (images.Text "Hugo rocks!" (dict
+    "color" "#ffffff"
+    "size" 60
+    "linespacing" 2
+    "x" 10
+    "y" 20
+))}}
+```
+
+You can load a custom font if needed. Load the font as a Hugo `Resource` and set it as an option:
+
+```go-html-template
+
+{{ $font := resources.Get "https://github.com/google/fonts/raw/main/apache/roboto/static/Roboto-Black.ttf" }}
+{{ $img := resources.Get "/images/background.png"}}
+{{ $img = $img.Filter (images.Text "Hugo rocks!" (dict
+    "font" $font
+))}}
+```
+
+
+## Brightness
 
 {{% funcsig %}}
 images.Brightness PERCENTAGE
@@ -59,7 +90,7 @@ images.ColorBalance PERCENTAGERED PERCENTAGEGREEN PERCENTAGEBLUE
 ColorBalance creates a filter that changes the color balance of an image.
 The percentage parameters for each color channel (red, green, blue) must be in range (-100, 500).
 
-### Colorize
+## Colorize
 
 {{% funcsig %}}
 images.Colorize HUE SATURATION PERCENTAGE
@@ -70,7 +101,7 @@ The hue parameter is the angle on the color wheel, typically in range (0, 360).
 The saturation parameter must be in range (0, 100).
 The percentage parameter specifies the strength of the effect, it must be in range (0, 100).
 
-### Contrast
+## Contrast
 
 {{% funcsig %}}
 images.Contrast PERCENTAGE
@@ -79,7 +110,7 @@ images.Contrast PERCENTAGE
 Contrast creates a filter that changes the contrast of an image.
 The percentage parameter must be in range (-100, 100).
 
-### Gamma
+## Gamma
 
 {{% funcsig %}}
 images.Gamma GAMMA
@@ -89,7 +120,7 @@ Gamma creates a filter that performs a gamma correction on an image.
 The gamma parameter must be positive. Gamma = 1 gives the original image.
 Gamma less than 1 darkens the image and gamma greater than 1 lightens it.
 
-### GaussianBlur
+## GaussianBlur
 
 {{% funcsig %}}
 images.GaussianBlur SIGMA
@@ -97,7 +128,7 @@ images.GaussianBlur SIGMA
 
 GaussianBlur creates a filter that applies a gaussian blur to an image.
 
-### Grayscale
+## Grayscale
 
 {{% funcsig %}}
 images.Grayscale
@@ -105,7 +136,7 @@ images.Grayscale
 
 Grayscale creates a filter that produces a grayscale version of an image.
 
-### Hue
+## Hue
 
 {{% funcsig %}}
 images.Hue SHIFT
@@ -114,7 +145,7 @@ images.Hue SHIFT
 Hue creates a filter that rotates the hue of an image.
 The hue angle shift is typically in range -180 to 180.
 
-### Invert
+## Invert
 
 {{% funcsig %}}
 images.Invert
@@ -122,7 +153,7 @@ images.Invert
 
 Invert creates a filter that negates the colors of an image.
 
-### Pixelate
+## Pixelate
 
 {{% funcsig %}}
 images.Pixelate SIZE
@@ -130,7 +161,7 @@ images.Pixelate SIZE
 
 Pixelate creates a filter that applies a pixelation effect to an image.
 
-### Saturation
+## Saturation
 
 {{% funcsig %}}
 images.Saturation PERCENTAGE
@@ -138,7 +169,7 @@ images.Saturation PERCENTAGE
 
 Saturation creates a filter that changes the saturation of an image.
 
-### Sepia
+## Sepia
 
 {{% funcsig %}}
 images.Sepia PERCENTAGE
@@ -146,7 +177,7 @@ images.Sepia PERCENTAGE
 
 Sepia creates a filter that produces a sepia-toned version of an image.
 
-### Sigmoid
+## Sigmoid
 
 {{% funcsig %}}
 images.Sigmoid MIDPOINT FACTOR
@@ -155,7 +186,7 @@ images.Sigmoid MIDPOINT FACTOR
 Sigmoid creates a filter that changes the contrast of an image using a sigmoidal function and returns the adjusted image.
 It's a non-linear contrast change useful for photo adjustments as it preserves highlight and shadow detail.
 
-### UnsharpMask
+## UnsharpMask
 
 {{% funcsig %}}
 images.UnsharpMask SIGMA AMOUNT THRESHOLD
@@ -186,6 +217,8 @@ Also see the [Filter Method](/content-management/image-processing/#filter).
 ### ImageConfig
 
 Parses the image and returns the height, width, and color model.
+
+The `imageConfig` function takes a single parameter, a file path (_string_) relative to the _project's root directory_, with or without a leading slash.
 
 {{% funcsig %}}
 images.ImageConfig PATH

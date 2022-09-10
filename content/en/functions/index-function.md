@@ -2,7 +2,6 @@
 title: index
 linktitle: index
 description: Looks up the index(es) or key(s) of the data structure passed into it.
-godocref: https://golang.org/pkg/text/template/#hdr-Functions
 date: 2017-02-01
 publishdate: 2017-02-01
 lastmod: 2017-02-01
@@ -38,6 +37,14 @@ The function takes multiple indices as arguments, and this can be used to get ne
 {{ index $map "c" "e" }} => 20
 ```
 
+You may write multiple indices as a slice:
+
+```go-text-template
+{{ $map := dict "a" 100 "b" 200 "c" (dict "d" 10 "e" 20) }}
+{{ $slice := slice "c" "e" }}
+{{ index $map $slice }} => 20
+```
+
 ## Example: Load Data from a Path Based on Front Matter Params
 
 Assume you want to add a `location = ""` field to your front matter for every article written in `content/vacations/`. You want to use this field to populate information about the location at the bottom of the article in your `single.html` template. You also have a directory in `data/locations/` that looks like the following:
@@ -52,13 +59,13 @@ Assume you want to add a `location = ""` field to your front matter for every ar
         └── provo.toml
 ```
 
-Here is an example of the data inside `data/locations/oslo.toml`:
+Here is an example:
 
-```
+{{< code-toggle file="data/locations/oslo" >}}
 website = "https://www.oslo.kommune.no"
 pop_city = 658390
 pop_metro = 1717900
-```
+{{< /code-toggle >}}
 
 The example we will use will be an article on Oslo, whose front matter should be set to exactly the same name as the corresponding file name in `data/locations/`:
 

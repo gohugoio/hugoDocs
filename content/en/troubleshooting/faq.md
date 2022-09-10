@@ -21,6 +21,8 @@ aliases: [/faq/]
 
 Is your markdown file [in draft mode](https://gohugo.io/content-management/front-matter/#front-matter-variables)? When testing, run `hugo server` with the `-D` or `--buildDrafts` [switch](https://gohugo.io/getting-started/usage/#draft-future-and-expired-content).
 
+Is your markdown file part of a [leaf bundle](/content-management/page-bundles/)? If there is an `index.md` file in the same or any parent directory then other markdown files will not be rendered as individual pages.
+
 ## Can I set configuration variables via OS environment?
 
 Yes you can! See [Configure with Environment Variables](/getting-started/configuration/#configure-with-environment-variables).
@@ -37,7 +39,7 @@ How to automate the "publish at intervals" part depends on your situation:
 
 Also see this Twitter thread:
 
-{{< tweet 962380712027590657 >}}
+{{< tweet user="ChrisShort" id="962380712027590657" >}}
 
 [^date-hierarchy]: See [Configure Dates](https://gohugo.io/getting-started/configuration/#configure-dates) for the order in which the different date variables are complemented by each other when not explicitly set.
 
@@ -45,9 +47,9 @@ Also see this Twitter thread:
 
 Yes you can! Read [this](/hosting-and-deployment/hosting-on-netlify/#configure-hugo-version-in-netlify).
 
-## I get "TOCSS ... this feature is not available in your current Hugo version"
+## I get "... this feature is not available in your current Hugo version"
 
-If you process `SCSS` or `SASS` to `CSS` in your Hugo project, you need the Hugo `extended` version, or else you may see this error message:
+If you process `SCSS` or `SASS` to `CSS` in your Hugo project with `libsass` as the transpiler or if you convert images to the `webp` format, you need the Hugo `extended` version, or else you may see an error message similar to the below:
 
 ```bash
 error: failed to transform resource: TOCSS: failed to transform "scss/main.scss" (text/x-scss): this feature is not available in your current Hugo version
@@ -56,3 +58,14 @@ error: failed to transform resource: TOCSS: failed to transform "scss/main.scss"
 We release two set of binaries for technical reasons. The extended version is not what you get by default for some installation methods. On the [release page](https://github.com/gohugoio/hugo/releases), look for archives with `extended` in the name. To build `hugo-extended`, use `go install --tags extended`
 
 To confirm, run `hugo version` and look for the word `extended`.
+
+## Do I need to install Git to create, deploy, and maintain a website with Hugo?
+
+>Technically, no.
+>
+>Practically, yes.
+
+* The primary installation method documented by most (perhaps all) themes is via Git or the Hugo Modules feature.
+* The Hugo Modules feature requires Go, and Go “gets” with Git.
+* A Git repository is required by CI/CD hosting (Bitbucket, Cloudflare, GitHub Pages, GitLab Pages, Netlify, et. al.).
+* The canonical “last modified” date for content is its Git committer date; using anything else is error-prone.

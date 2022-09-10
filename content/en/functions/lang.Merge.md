@@ -1,8 +1,6 @@
 ---
 title: lang.Merge
 description: "Merge missing translations from other languages."
-godocref: ""
-workson: []
 date: 2018-03-16
 categories: [functions]
 keywords: [multilingual]

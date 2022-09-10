@@ -1,8 +1,6 @@
 ---
 title: dict
 description: Creates a dictionary from a list of key and value pairs.
-godocref:
-workson: []
 date: 2017-02-01
 publishdate: 2017-02-01
 lastmod: 2017-02-26
@@ -21,7 +19,7 @@ aliases: []
 
 `dict` is especially useful for passing more than one value to a partial template.
 
-Note that the `key` can be either a `string` or a `string slice`. The latter is useful to create a deply nested structure, e.g.:
+Note that the `key` can be either a `string` or a `string slice`. The latter is useful to create a deeply nested structure, e.g.:
 
 ```go-text-template
 {{ $m := dict (slice "a" "b" "c") "value" }}

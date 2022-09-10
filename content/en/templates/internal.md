@@ -66,10 +66,10 @@ Hugo also ships with an internal template for [Disqus comments][disqus], a popul
 
 ### Configure Disqus
 
-To use Hugo's Disqus template, you first need to set a single value in your site's `config.toml` or `config.yml`:
+To use Hugo's Disqus template, you first need to set a single configuration value:
 
 {{< code-toggle file="config" >}}
-disqusShortname = "yourdiscussshortname"
+disqusShortname = "your-disqus-shortname"
 {{</ code-toggle >}}
 
 You also have the option to set the following in the front matter for a given piece of content:
@@ -152,6 +152,7 @@ tags = []
 
 Hugo uses the page title and description for the title and description metadata.
 The first 6 URLs from the `images` array are used for image metadata.
+If [page bundles](/content-management/page-bundles/) are used and the `images` array is empty or undefined, images with filenames matching `*feature*` or `*cover*,*thumbnail*` are used for image metadata.
 
 Various optional metadata can also be set:
 
@@ -208,7 +209,6 @@ To add Twitter card metadata, include the following line between the `<head>` ta
 ## The Internal Templates
 
 * `_internal/disqus.html`
-* `_internal/google_news.html`
 * `_internal/google_analytics.html`
 * `_internal/google_analytics_async.html`
 * `_internal/opengraph.html`

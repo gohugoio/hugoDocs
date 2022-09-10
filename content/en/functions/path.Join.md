@@ -1,7 +1,6 @@
 ---
 title: path.Join
 description: Join path elements into a single path.
-godocref:
 date: 2018-11-28
 publishdate: 2018-11-28
 lastmod: 2018-11-28
@@ -13,7 +12,7 @@ keywords: [path, join]
 signature: ["path.Join ELEMENT..."]
 workson: []
 hugoversion: "0.39"
-relatedfuncs: [path.Split]
+relatedfuncs: [path.Base, path.BaseName, path.Clean, path.Dir, path.Ext, path.Split]
 deprecated: false
 ---
 

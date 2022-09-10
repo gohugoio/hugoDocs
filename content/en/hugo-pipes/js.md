@@ -70,6 +70,10 @@ With the above, these imports should work in both scenarios:
 import * as React from 'react'
 import * as ReactDOM from 'react-dom';
 ```
+sourceMap [string, bool] {{< new-in "0.75.0" >}}
+: Let `js.Build` output sourceMap. Current only inline is supported. true defaults to inline.
+  One of: '`inline`, `external`
+  Default is "" (disabled)
 
 target [string]
 : The language target.

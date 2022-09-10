@@ -2,7 +2,6 @@
 title: Shortcodes
 linktitle:
 description: Shortcodes are simple snippets inside your content files calling built-in or custom templates.
-godocref:
 date: 2017-02-01
 publishdate: 2017-02-01
 lastmod: 2019-11-07
@@ -184,7 +183,7 @@ To demonstrate the remarkably efficiency of Hugo's shortcode feature, we have em
 
 ### `highlight`
 
-This shortcode will convert the source code provided into syntax-highlighted HTML. Read more on [highlighting](/tools/syntax-highlighting/). `highlight` takes exactly one required `language` parameter and requires a closing shortcode.
+This shortcode will convert the source code provided into syntax-highlighted HTML. Read more on [highlighting](/content-management/syntax-highlighting/). `highlight` takes exactly one required `language` parameter and requires a closing shortcode.
 
 #### Example `highlight` Input
 
@@ -302,8 +301,8 @@ Read a more extensive description of `ref` and `relref` in the [cross references
 Assuming that standard Hugo pretty URLs are turned on.
 
 ```
-<a href="/blog/neat">Neat</a>
-<a href="/about/#who:c28654c202e73453784cfd2c5ab356c0">Who</a>
+<a href="https://example.com/blog/neat">Neat</a>
+<a href="/about/#who">Who</a>
 ```
 
 ### `tweet`
@@ -311,15 +310,15 @@ Assuming that standard Hugo pretty URLs are turned on.
 You want to include a single tweet into your blog post? Everything you need is the URL of the tweet:
 
 ```
-https://twitter.com/spf13/status/877500564405444608
+https://twitter.com/SanDiegoZoo/status/1453110110599868418
 ```
 
 #### Example `tweet` Input
 
-Pass the tweet's ID from the URL as a parameter to the `tweet` shortcode:
+Pass the tweet's user (case-insensitive) and id from the URL as parameters to the `tweet` shortcode.
 
 {{< code file="example-tweet-input.md" >}}
-{{</* tweet 877500564405444608 */>}}
+{{</* tweet user="SanDiegoZoo" id="1453110110599868418" */>}}
 {{< /code >}}
 
 #### Example `tweet` Output
@@ -327,14 +326,14 @@ Pass the tweet's ID from the URL as a parameter to the `tweet` shortcode:
 Using the preceding `tweet` example, the following HTML will be added to your rendered website's markup:
 
 {{< output file="example-tweet-output.html" >}}
-{{< tweet 877500564405444608 >}}
+{{< tweet user="SanDiegoZoo" id="1453110110599868418" >}}
 {{< /output >}}
 
 #### Example `tweet` Display
 
 Using the preceding `tweet` example, the following simulates the displayed experience for visitors to your website. Naturally, the final display will be contingent on your stylesheets and surrounding markup.
 
-{{< tweet 877500564405444608 >}}
+{{< tweet user="SanDiegoZoo" id="1453110110599868418" >}}
 
 ### `vimeo`
 
@@ -435,7 +434,6 @@ To learn more about creating custom shortcodes, see the [shortcode template docu
 [Instagram]: https://www.instagram.com/
 [pagevariables]: /variables/page/
 [partials]: /templates/partials/
-[Pygments]: https://pygments.org/
 [quickstart]: /getting-started/quick-start/
 [sctemps]: /templates/shortcode-templates/
 [scvars]: /variables/shortcodes/

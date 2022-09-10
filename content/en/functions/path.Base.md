@@ -1,7 +1,6 @@
 ---
 title: path.Base
 description: Base returns the last element of a path.
-godocref:
 date: 2018-11-28
 publishdate: 2018-11-28
 lastmod: 2018-11-28
@@ -13,7 +12,7 @@ keywords: [path, base]
 signature: ["path.Base PATH"]
 workson: []
 hugoversion: "0.40"
-relatedfuncs: [path.Dir, path.Ext, path.Split]
+relatedfuncs: [path.BaseName, path.Clean, path.Dir, path.Ext, path.Join, path.Split]
 deprecated: false
 ---
 

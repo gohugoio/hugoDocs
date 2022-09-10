@@ -112,7 +112,7 @@ The following is the full list of configuration options for output formats and t
 : use Go's plain text templates parser for the templates. **Default:** `false`.
 
 `isHTML`
-: used in situations only relevant for `HTML`-type formats; e.g., page aliases.
+: used in situations only relevant for `HTML`-type formats; e.g., page aliases. **Default:** `false`.
 
 `noUgly`
 : used to turn off ugly URLs If `uglyURLs` is set to `true` in your site. **Default:** `false`.
@@ -122,6 +122,9 @@ The following is the full list of configuration options for output formats and t
 
 `permalinkable`
 : make `.Permalink` and `.RelPermalink` return the rendering Output Format rather than main ([see below](#link-to-output-formats)). This is enabled by default for `HTML` and `AMP`. **Default:** `false`.
+
+`weight`
+: Setting this to a non-zero value will be used as the first sort criteria.
 
 ## Output Formats for Pages
 

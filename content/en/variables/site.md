@@ -22,7 +22,7 @@ The following is a list of site-level (aka "global") variables. Many of these va
 
 ## Get the Site object from a partial
 
-All the methods below, e.g. `.Site.RegularPages` can also be reached via the global `site` function, e.g. `site.RegularPages`, which can be handy in partials where the `Page` object isn't easily available. {{< new-in "0.53" >}}.
+All the methods below, e.g. `.Site.RegularPages` can also be reached via the global [`site`](/functions/site/) function, e.g. `site.RegularPages`, which can be handy in partials where the `Page` object isn't easily available. {{< new-in "0.53" >}}.
 
 ## Site Variables List
 
@@ -72,7 +72,7 @@ All the methods below, e.g. `.Site.RegularPages` can also be reached via the glo
 : indicates the language currently being used to render the website. This object's attributes are set in site configurations' language definition.
 
 .Site.LanguageCode
-: a string representing the language as defined in the site configuration. This is mostly used to populate the RSS feeds with the right language code.
+: a string representing the language tag as defined in the site configuration.
 
 .Site.LanguagePrefix
 : this can be used to prefix URLs to point to the correct language. It will even work when only one defined language. See also the functions [absLangURL](/functions/abslangurl/) and [relLangURL](/functions/rellangurl).
@@ -96,7 +96,7 @@ All the methods below, e.g. `.Site.RegularPages` can also be reached via the glo
 : top-level directories of the site.
 
 .Site.Taxonomies
-: the [taxonomies](/taxonomies/usage/) for the entire site.  Also see section [Taxonomies elsewhere](#taxonomies-elsewhere).
+: the [taxonomies](/taxonomies/usage/) for the entire site. Also see section [Use `.Site.Taxonomies` Outside of Taxonomy Templates](/variables/taxonomy/#use-sitetaxonomies-outside-of-taxonomy-templates).
 
 .Site.Title
 : a string representing the title of the site.
@@ -127,7 +127,7 @@ You can use `.Site.Params` in a [partial template](/templates/partials/) to call
 
 ### `.Site.Pages` compared to `.Pages`
 
-{{< readfile file="/content/en/readfiles/pages-vs-site-pages.md" markdown="true" >}}
+{{< getcontent path="readfiles/pages-vs-site-pages.md" >}}
 
 
 

@@ -42,14 +42,14 @@ Here is the list of "Related" methods available on a page collection such `.Regu
 Returns a collection of pages related the given one.
 
 ```
-{{ $related := .Site.RegularPages.Related . }}
+{{ $related := site.RegularPages.Related . }}
 ```
 
 #### .RelatedIndices PAGE INDICE1 [INDICE2 ...]
 Returns a collection of pages related to a given one restricted to a list of indices.
 
 ```
-{{ $related := .Site.RegularPages.RelatedIndices . "tags" "date" }}
+{{ $related := site.RegularPages.RelatedIndices . "tags" "date" }}
 ```
 
 #### .RelatedTo KEYVALS [KEYVALS2 ...]
@@ -58,7 +58,7 @@ Returns a collection of pages related together by a set of indices and their mat
 In order to build those set and pass them as argument, one must use the `keyVals` function where the first argument would be the `indice` and the consecutive ones its potential `matches`.
 
 ```
-{{ $related := .Site.RegularPages.RelatedTo ( keyVals "tags" "hugo" "rocks")  ( keyVals "date" .Date ) }}
+{{ $related := site.RegularPages.RelatedTo ( keyVals "tags" "hugo" "rocks")  ( keyVals "date" .Date ) }}
 ```
 
 {{% note %}}
@@ -84,7 +84,7 @@ related:
     weight: 10
 {{< /code-toggle >}}
 
-Note that if you have configured `tags` as a taxonomy, `tags` will also be added to the default configuration abve with the weight of `80`.
+Note that if you have configured `tags` as a taxonomy, `tags` will also be added to the default configuration above with the weight of `80`.
 
 Custom configuration should be set using the same syntax.
 
@@ -123,7 +123,7 @@ toLower
 
 This feature has been in the back log and requested by many for a long time. The development got this recent kick start from this Twitter thread:
 
-{{< tweet 898398437527363585 >}}
+{{< tweet user="scott_lowe" id="898398437527363585" >}}
 
 Scott S. Lowe removed the "Related Content" section built using the `intersect` template function on tags, and the build time dropped from 30 seconds to less than 2 seconds on his 1700 content page sized blog.
 

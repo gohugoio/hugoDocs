@@ -31,6 +31,7 @@ Running the `hugo new site` generator from the command line will create a direct
 ├── content
 ├── data
 ├── layouts
+├── public
 ├── static
 └── themes
 ```
@@ -45,10 +46,10 @@ The following is a high-level overview of each of the directories with links to 
 By default, Hugo will create new content files with at least `date`, `title` (inferred from the file name), and `draft = true`. This saves time and promotes consistency for sites using multiple content types. You can create your own [archetypes][] with custom preconfigured front matter fields as well.
 
 [`assets`][]
-: Stores all the files which need be processed by [Hugo Pipes]({{< ref "/hugo-pipes" >}}). Only the files whose `.Permalink` or `.RelPermalink` are used will be published to the `public` directory. Note: assets directory is not created by default.
+: Stores all the files which need be processed by [Hugo Pipes](/hugo-pipes/). Only the files whose `.Permalink` or `.RelPermalink` are used will be published to the `public` directory. Note: assets directory is not created by default.
 
 [`config`](/getting-started/configuration/)
-: Hugo ships with a large number of [configuration directives](https://gohugo.io/getting-started/configuration/#all-variables-yaml).
+: Hugo ships with a large number of [configuration directives][].
 The [config directory](/getting-started/configuration/#configuration-directory) is where those directives are stored as JSON, YAML, or TOML files. Every root setting object can stand as its own file and structured by environments.
 Projects with minimal settings and no need for environment awareness can use a single `config.toml` file at its root.
 
@@ -71,12 +72,12 @@ used by Hugo when generating your website. You can write these files in YAML, JS
 From **Hugo 0.31** you can have multiple static directories.
 {{% /note %}}
 
-resources
+[`resources`][]
 : Caches some files to speed up generation. Can be also used by template authors to distribute built SASS files, so you don't have to have the preprocessor installed. Note: resources directory is not created by default.
 
-
 [archetypes]: /content-management/archetypes/
-[configuration directives]: /getting-started/configuration/#all-variables-yaml
+[`assets`]: /hugo-pipes/introduction#asset-directory/
+[configuration directives]: /getting-started/configuration/#all-configuration-settings
 [`content`]: /content-management/organization/
 [content section]: /content-management/sections/
 [content types]: /content-management/types/
@@ -84,6 +85,7 @@ resources
 [homepage]: /templates/homepage/
 [`layouts`]: /templates/
 [`static`]: /content-management/static-files/
+[`resources`]: /getting-started/configuration/#configure-file-caches
 [lists]: /templates/list/
 [pagevars]: /variables/page/
 [partials]: /templates/partials/
@@ -93,4 +95,3 @@ resources
 [taxonomies]: /content-management/taxonomies/
 [taxonomy templates]: /templates/taxonomy-templates/
 [types]: /content-management/types/
-[`assets`]: {{< ref "/hugo-pipes/introduction#asset-directory" >}}

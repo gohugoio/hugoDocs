@@ -21,9 +21,9 @@ toc: true
 {{% note %}}
 This quick start uses `macOS` in the examples. For instructions about how to install Hugo on other operating systems, see [install](/getting-started/installing).
 
-It is recommended to have [Git installed](https://git-scm.com/downloads) to run this tutorial.
+It is required to have [Git installed](https://git-scm.com/downloads) to run this tutorial.
 
-For other approaches learning Hugo like book or a video tutorial refer to the [external learning resources](/getting-started/external-learning-resources/) page.
+For other approaches to learning Hugo (like books or video tutorials), refer to the [external learning resources](/getting-started/external-learning-resources/) page.
 {{% /note %}}
 
 ## Step 1: Install Hugo
@@ -67,13 +67,6 @@ cd quickstart
 git init
 git submodule add https://github.com/theNewDynamic/gohugo-theme-ananke.git themes/ananke
 ```
-
-*Note for non-git users:*
-   - If you do not have git installed, you can download the archive of the latest
-     version of this theme from:
-       https://github.com/theNewDynamic/gohugo-theme-ananke/archive/master.zip
-   - Extract that .zip file to get a "gohugo-theme-ananke-master" directory.
-   - Rename that directory to "ananke", and move it into the "themes/" directory.
 
 Then, add the theme to the site configuration:
 
@@ -140,7 +133,7 @@ Press Ctrl+C to stop
 
 **Navigate to your new site at [http://localhost:1313/](http://localhost:1313/).**
 
-Feel free to edit or add new content and simply refresh in browser to see changes quickly (You might need to force refresh in webbrowser, something like Ctrl-R usually works).
+Feel free to edit or add new content and simply refresh in browser to see changes quickly. (You might need to force refresh your web browser, something like Ctrl-R usually works.)
 
 ## Step 6: Customize the Theme
 
