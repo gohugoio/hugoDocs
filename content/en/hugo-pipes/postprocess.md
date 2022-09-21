@@ -44,18 +44,23 @@ The below configuration will write a `hugo_stats.json` file to the project root 
 
 ```js
 const purgecss = require('@fullhuman/postcss-purgecss')({
-    content: [ './hugo_stats.json' ],
-    defaultExtractor: (content) => {
-        let els = JSON.parse(content).htmlElements;
-        return els.tags.concat(els.classes, els.ids);
-    }
+  content: ['./hugo_stats.json'],
+  defaultExtractor: content => {
+    const els = JSON.parse(content).htmlElements;
+    return [
+      ...(els.tags || []),
+      ...(els.classes || []),
+      ...(els.ids || []),
+    ];
+  },
+  safelist: []
 });
 
 module.exports = {
-     plugins: [
-         ...(process.env.HUGO_ENVIRONMENT === 'production' ? [ purgecss ] : [])
-     ]
- };
+  plugins: [
+    ...(process.env.HUGO_ENVIRONMENT === 'production' ? [purgecss] : [])
+  ]
+};
 ```
 
 Note that in the example above, the "CSS purge step" will only be applied to the production build. This means that you need to do something like this in your head template to build and include your CSS:
@@ -63,8 +68,14 @@ Note that in the example above, the "CSS purge step" will only be applied to the
 ```go-html-template
 {{ $css := resources.Get "css/main.css" }}
 {{ $css = $css | resources.PostCSS }}
+
 {{ if hugo.IsProduction }}
-{{ $css = $css | minify | fingerprint | resources.PostProcess }}
+  {{ $css = $css | minify | fingerprint | resources.PostProcess }}
 {{ end }}
-<link href="{{ $css.RelPermalink }}" rel="stylesheet" />
+
+<link
+  rel="stylesheet"
+  href="{{ $css.RelPermalink }}"
+  integrity="{{ $css.Data.Integrity }}"
+>
 ```
