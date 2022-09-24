@@ -116,3 +116,4 @@ Refer to the [official documentation for custom domains][domains] for further in
 [submodule]: https://github.com/blog/2104-working-with-submodules
 [worktree feature]: https://git-scm.com/docs/git-worktree
 [GitHub Actions]: https://docs.github.com/en/actions
+[static website forms]: https://fabform.io
