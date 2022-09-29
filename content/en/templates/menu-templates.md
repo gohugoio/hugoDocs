@@ -167,6 +167,15 @@ Here's an example:
 
 User-defined content on menu items are accessible via `.Params`.
 
+{{< code-toggle file="config" >}}
+[[menu.main]]
+    name = 'Test'
+    pageRef = '/post/test'
+    weight = 1
+      [menu.main.params]
+          class = 'foo'
+{{</ code-toggle >}}
+
 Here's an example:
 
 ```
