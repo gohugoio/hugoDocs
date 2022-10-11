@@ -45,20 +45,15 @@ googleAnalytics = "G-MEASUREMENT_ID"
 
 ### Use the Google Analytics Template
 
-You can then include the Google Analytics internal template:
+You can then include the Google Analytics internal template your template:
 
-```
-{{ template "_internal/google_analytics.html" . }}
-```
+```go-html-template
+{{ if hugo.IsProduction }}
+    {{ template "_internal/google_analytics.html" . }}
+{{ end }}
+ ```
 
-
-```
-{{ template "_internal/google_analytics_async.html" . }}
-```
-
-When using Google Analytics v4 use `_internal/google_analytics.html`.
-
-A `.Site.GoogleAnalytics` variable is also exposed from the config.
+If you want to create your own template, you can access the configured ID with `{{ site.Config.Services.GoogleAnalytics.ID }}`.
 
 ## Disqus
 
@@ -200,7 +195,7 @@ Hugo uses the page title and description for the card's title and description fi
 
 ### Use the Twitter Cards Template
 
-To add Twitter card metadata, include the following line between the `<head>` tags in your templates:
+To add Twitter card metadata, include the following line immediately after the `<head>` element in your templates:
 
 ```
 {{ template "_internal/twitter_cards.html" . }}

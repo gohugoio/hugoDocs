@@ -36,7 +36,7 @@ Run `hugo gen chromastyles -h` for more options. See https://xyproto.github.io/s
 
 ## Highlight Shortcode
 
-Highlighting is carried out via the built-in [`highlight` shortcode](https://gohugo.io/content-management/shortcodes/#highlight). It takes exactly one required parameter for the programming language to be highlighted and requires a closing shortcode. Note that `highlight` is *not* used for client-side javascript highlighting.
+Highlighting is carried out via the built-in [`highlight` shortcode](https://gohugo.io/content-management/shortcodes/#highlight). It takes exactly one required parameter for the programming language to be highlighted and requires a closing shortcode. Note that `highlight` is *not* used for client-side JavaScript highlighting.
 
 Options:
 
@@ -79,6 +79,20 @@ func GetTitleFunc(style string) func(s string) string {
   }
 }
 {{< / highlight >}}
+
+## Highlight Hugo/GO Template Code
+
+For highlighting Hugo/GO template code on your page, add `/*` after the opening double curly braces and `*/` before closing curly braces.
+
+``` go
+{{</*/* myshortcode */*/>}}
+```
+
+Gives this:
+
+``` go
+{{</* myshortcode */>}}
+```
 
 ## Highlight Template Func
 

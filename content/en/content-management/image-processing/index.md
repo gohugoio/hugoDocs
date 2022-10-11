@@ -28,7 +28,11 @@ content/
         └── sunset.jpg    <-- page resource
 ```
 
-To access an image as a page resource:
+## The Image Resource
+
+The `image` resource gives you access to image-specific attributes like the picture's `Width` and `Height`, as well as powerful processing methods and filters. More on that below.
+
+Note that the `image` resource can also be retrieved from a [global resource]({{< relref "/hugo-pipes/introduction#from-file-to-resource" >}})
 
 ```go-html-template
 {{ $image := .Resources.GetMatch "sunset.jpg" }}
@@ -158,6 +162,19 @@ Sometimes it can be useful to create the filter chain once and then reuse it.
 {{ $image1 := $image1.Filter $filters }}
 {{ $image2 := $image2.Filter $filters }}
 ```
+
+### Colors
+
+{{< new-in "0.104.0" >}}
+
+`.Colors` returns a slice of hex string with the dominant colors in the image using a simple histogram method.
+
+```go-html-template
+{{ $colors := $image.Colors }}
+```
+
+This method is fast, but if you also scale down your images, it would be good for performance to extract the colors from the scaled down image.
+
 
 ### Exif
 
