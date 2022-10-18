@@ -36,7 +36,7 @@ Hugo ships with internal templates supporting Google Analytics, both [Google Ana
 
 ### Configure Google Analytics
 
-Provide your tracking id in your configuration file:
+Provide your tracking ID in your configuration file:
 
 **Google Analytics 4 (gtag.js)**
 {{< code-toggle file="config" >}}
@@ -53,17 +53,16 @@ googleAnalytics = "UA-PROPERTY_ID"
 You can then include the Google Analytics internal template:
 
 ```
-{{ template "_internal/google_analytics.html" . }}
-```
-
-
-```
 {{ template "_internal/google_analytics_async.html" . }}
 ```
 
-The async template is _not_ suitable for Google Analytics 4.
+**Note:** The async template is _not_ suitable for Google Analytics 4.
 
-A `.Site.GoogleAnalytics` variable is also exposed from the config.
+```
+{{ template "_internal/google_analytics.html" . }}
+```
+
+If you want to create your own template, you can access the configured ID with `{{ site.Config.Services.GoogleAnalytics.ID }}`.
 
 ## Disqus
 
@@ -205,7 +204,7 @@ Hugo uses the page title and description for the card's title and description fi
 
 ### Use the Twitter Cards Template
 
-To add Twitter card metadata, include the following line between the `<head>` tags in your templates:
+To add Twitter card metadata, include the following line immediately after the `<head>` element in your templates:
 
 ```
 {{ template "_internal/twitter_cards.html" . }}

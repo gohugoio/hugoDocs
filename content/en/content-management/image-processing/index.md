@@ -28,7 +28,11 @@ content/
         └── sunset.jpg    <-- page resource
 ```
 
-To access an image as a page resource:
+## The Image Resource
+
+The `image` resource gives you access to image-specific attributes like the picture's `Width` and `Height`, as well as powerful processing methods and filters. More on that below.
+
+Note that the `image` resource can also be retrieved from a [global resource]({{< relref "/hugo-pipes/introduction#from-file-to-resource" >}})
 
 ```go-html-template
 {{ $image := .Resources.GetMatch "sunset.jpg" }}
@@ -90,10 +94,10 @@ Example 3: A more concise way to skip image rendering if the resource is not fou
 
 ## Image Processing Methods
 
-The `image` resource implements the  `Resize`, `Fit`, `Fill`, `Crop`, `Filter`, and `Exif` methods.
+The `image` resource implements the  [`Resize`], [`Fit`], [`Fill`], [`Crop`], [`Filter`], [`Colors`] and [`Exif`] methods.
 
 {{% note %}}
-Metadata (Exif, IPTC, XMP, etc.) is not preserved during image transformation. Use the`Exif` method with the _original_ image to extract Exif metadata from JPEG or TIFF images.
+Metadata (Exif, IPTC, XMP, etc.) is not preserved during image transformation. Use the [`Exif`] method with the _original_ image to extract Exif metadata from JPEG or TIFF images.
 {{% /note %}}
 
 ### Resize
@@ -159,11 +163,24 @@ Sometimes it can be useful to create the filter chain once and then reuse it.
 {{ $image2 := $image2.Filter $filters }}
 ```
 
+### Colors
+
+{{< new-in "0.104.0" >}}
+
+`.Colors` returns a slice of hex strings with the dominant colors in the image using a simple histogram method.
+
+```go-html-template
+{{ $colors := $image.Colors }}
+```
+
+This method is fast, but if you also scale down your images, it would be good for performance to extract the colors from the scaled down image.
+
+
 ### Exif
 
 Provides an [Exif] object containing image metadata.
 
-You may access Exif data in JPEG and TIFF images. To prevent errors when processing images without Exif data, wrap the access in a `with` statement.
+You may access Exif data in JPEG and TIFF images. To prevent errors when processing images without Exif data, wrap the access in a [`with`] statement.
 
 ```go-html-template
 {{ with $image.Exif }}
@@ -209,11 +226,11 @@ You may also access Exif fields individually, using the [`lang.FormatNumber`] fu
 
 ## Image Processing Options
 
-The `Resize`, `Fit`, `Fill`, and `Crop` methods accept a space-separated, case-insensitive list of options. The order of the options within the list is irrelevant.
+The [`Resize`], [`Fit`], [`Fill`], and [`Crop`] methods accept a space-separated, case-insensitive list of options. The order of the options within the list is irrelevant.
 
 ### Dimensions
 
-With the `Resize` method you must specify width, height, or both. The `Fit`, `Fill`, and `Crop` methods require both width and height. All dimensions are in pixels.
+With the [`Resize`] method you must specify width, height, or both. The [`Fit`], [`Fill`], and [`Crop`] methods require both width and height. All dimensions are in pixels.
 
 ```go-html-template
 {{ $image := $image.Resize "600x" }}
@@ -248,9 +265,9 @@ In the example above, on the second line, we have reversed width and height to r
 
 ### Anchor
 
-When using the `Crop` or `Fill` method, the _anchor_ determines the placement of the crop box. You may specify `TopLeft`, `Top`, `TopRight`, `Left`, `Center`,`Right`, `BottomLeft`, `Bottom`, `BottomRight`, or `Smart`.
+When using the [`Crop`] or [`Fill`] method, the _anchor_ determines the placement of the crop box. You may specify `TopLeft`, `Top`, `TopRight`, `Left`, `Center`,`Right`, `BottomLeft`, `Bottom`, `BottomRight`, or `Smart`.
 
-The default value is `Smart`, which uses [Smartcrop] image analysis to determine the optimal placement of the crop box. You may override the default value in the [site configuration](#processing-options).
+The default value is `Smart`, which uses [Smartcrop] image analysis to determine the optimal placement of the crop box. You may override the default value in the [site configuration].
 
 For example, if you have a 400x200 image with a bird in the upper left quadrant, you can create a 200x100 thumbnail containing the bird:
 
@@ -258,7 +275,7 @@ For example, if you have a 400x200 image with a bird in the upper left quadrant,
 {{ $image.Crop "200x100 TopLeft" }}
 ```
 
-If you apply rotation when using the `Crop` or `Fill` method, specify the anchor relative to the rotated image.
+If you apply [rotation](#rotation) when using the [`Crop`] or [`Fill`] method, specify the anchor relative to the rotated image.
 
 ### Target Format
 
@@ -282,7 +299,7 @@ To convert an image without scaling, use the dimensions of the original image:
 
 Applicable to JPEG and WebP images, the `q` value determines the quality of the converted image. Higher values produce better quality images, while lower values produce smaller files. Set this value to a whole number between 1 and 100, inclusive.
 
-The default value is 75. You may override the default value in the [site configuration](#processing-options).
+The default value is 75. You may override the default value in the [site configuration].
 
 ```go-html-template
 {{ $image.Resize "600x webp q50" }}
@@ -302,7 +319,7 @@ Value|Example
 `picture`|Indoor photograph such as a portrait
 `text`|Image that is primarily text
 
-The default value is `photo`. You may override the default value in the [site configuration](#processing-options).
+The default value is `photo`. You may override the default value in the [site configuration].
 
 ```go-html-template
 {{ $image.Resize "600x webp picture" }}
@@ -314,7 +331,7 @@ When converting an image from a format that supports transparency (e.g., PNG) to
 
 Use either a 3-digit or a 6-digit hexadecimal color code (e.g., `#00f` or `#0000ff`).
 
-The default value is `#ffffff` (white). You may override the default value in the [site configuration](#processing-options).
+The default value is `#ffffff` (white). You may override the default value in the [site configuration].
 
 ```go-html-template
 {{ $image.Resize "600x jpg #b31280" }}
@@ -333,7 +350,7 @@ Filter|Description
 `Linear`|Bilinear resampling filter, produces smooth output, faster than cubic filters
 `NearestNeighbor`|Fastest resampling filter, no antialiasing
 
-The default value is `Box`. You may override the default value in the [site configuration](#processing-options).
+The default value is `Box`. You may override the default value in the [site configuration].
 
 ```go-html-template
 {{ $image.Resize "600x400 Lanczos" }}
@@ -460,3 +477,12 @@ hugo --gc
 [page bundle]: {{< relref "content-management/page-bundles" >}}
 [Smartcrop]: <https://github.com/muesli/smartcrop#smartcrop>
 [time.Format]: {{< relref "functions/dateformat" >}}
+[`Colors`]: #colors
+[`Crop`]: #crop
+[`Exif`]: #exif
+[`Fill`]: #fill
+[`Filter`]: #filter
+[`Fit`]: #fit
+[`Resize`]: #resize
+[site configuration]: #processing-options
+[`with`]: /functions/with/

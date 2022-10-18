@@ -4,7 +4,6 @@ linktitle: Comments
 description: Hugo ships with an internal Disqus template, but this isn't the only commenting system that will work with your new Hugo website.
 date: 2017-02-01
 publishdate: 2017-02-01
-lastmod: 2017-03-09
 keywords: [sections,content,organization]
 categories: [project organization, fundamentals]
 menu:
@@ -59,8 +58,9 @@ These are some alternatives to Disqus:
 * [Isso](https://posativ.org/isso/) (Self-hosted, Python) ([tutorial][issotutorial])
 * [Muut](https://muut.com/)
 * [Remark42](https://remark42.com/) (Open source, Golang, Easy to run docker)
+* [ReplyBox](https://getreplybox.com/)
 * [Staticman](https://staticman.net/)
-* [Talkyard](https://www.talkyard.io/blog-comments) (Open source, & serverless hosting)
+* [Talkyard](https://blog-comments.talkyard.io/) (Open source, & serverless hosting)
 * [Utterances](https://utteranc.es/) (Open source, GitHub comments widget built on GitHub issues)
 
 [configuration]: /getting-started/configuration/
