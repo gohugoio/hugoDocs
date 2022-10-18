@@ -114,6 +114,12 @@ You can use the following code to render the `Short Description` in your layout:
 
 Note the use of the [`markdownify` template function][markdownify]. This will send the description through the Markdown rendering engine.
 
+## Use data in front matter
+
+You might want to access different properties of your data in front matter.
+For example, you want to specify a `location` for a page with specific information about that location.
+
+To do so, use the [`index` function][index].
 
 ## Get Remote Data
 
