@@ -114,12 +114,21 @@ You can use the following code to render the `Short Description` in your layout:
 
 Note the use of the [`markdownify` template function][markdownify]. This will send the description through the Markdown rendering engine.
 
-## Use data in front matter
+## Keys as variables
 
-You might want to access different properties of your data in front matter.
-For example, you want to specify a `location` for a page with specific information about that location.
+You might want to access a key name as a variable.
+To do so, use the [`index` function][index] with the variable as the second parameter.
+```plaintext
+{{ $keyName := "Name" }}
+{{ index .Site.Data.User0123 $keyName }}
+```
 
-To do so, use the [`index` function][index].
+If the `Name` key is an object, you can also access its properties:
+
+```plaintext
+{{ $keyName := "Name" }}
+{{ (index .Site.Data.User0123 $keyName).propertyName }}
+```
 
 ## Get Remote Data
 
