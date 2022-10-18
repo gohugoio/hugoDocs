@@ -65,7 +65,7 @@ You can print the `GOPATH` with `echo $GOPATH`. You should see a non-empty strin
 
 ### Install Go with Homebrew
 
-If you are a MacOS user and have [Homebrew](https://brew.sh/) installed on your machine, installing Go is as simple as the following command:
+If you are a macOS user and have [Homebrew](https://brew.sh/) installed on your machine, installing Go is as simple as the following command:
 
 {{< code file="install-go.sh" >}}
 brew install go
@@ -374,7 +374,7 @@ Check the commit log if everything looks as expected. Should an error occur you 
 
 ### Push commits
 
-To push our commits to the fork on GitHub we need to specify a destination. A destination is defined by the remote and a branch name. Earlier, the defined that the remote url of our fork is the same as our GitHub handle, in my case `digitalcraftsman`. The branch should have the same as our local one. This makes it easy to identify corresponding branches.
+To push our commits to the fork on GitHub we need to specify a destination. A destination is defined by the remote and a branch name. Earlier, the defined that the remote URL of our fork is the same as our GitHub handle, in my case `digitalcraftsman`. The branch should have the same as our local one. This makes it easy to identify corresponding branches.
 
 ```
 git push --set-upstream <YOUR-GITHUB-USERNAME> <BRANCHNAME>
@@ -402,7 +402,7 @@ Last but not least you should accept the contributor license agreement (CLA). A 
 
 ### Automatic builds
 
-We use a GitHub Actions workflow to build and test. This is a matrix build across combinations of operating system (masOS, Windows, and Ubuntu) and Go versions. The workflow is triggered by the submission of a pull request. If you are a first-time contributor, the workflow requires approval from a project maintainer.
+We use a GitHub Actions workflow to build and test. This is a matrix build across combinations of operating system (macOS, Windows, and Ubuntu) and Go versions. The workflow is triggered by the submission of a pull request. If you are a first-time contributor, the workflow requires approval from a project maintainer.
 
 ## Where to start?
 

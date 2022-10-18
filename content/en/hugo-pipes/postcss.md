@@ -33,7 +33,7 @@ If you are using the Hugo Snap package, PostCSS and plugin(s) need to be install
 ### Options
 
 config [string]
-: Path to the PostCSS configuration file
+: Set a custom directory to look for a config file
 
 noMap [bool]
 : Default is `false`. Disable the default inline sourcemaps
@@ -45,8 +45,7 @@ Note that this import routine does not care about the CSS spec, so you can have 
 Hugo will look for imports relative to the module mount and will respect theme overrides.
 
 skipInlineImportsNotFound [bool] {{< new-in "0.99.0" >}}
-
-Before Hugo 0.99.0 when `inlineImports` was enabled and we failed to resolve an import, we logged it as a warning. We now fail the build. If you have regular CSS imports in your CSS that you want to preserve, you can either use imports with URL or media queries (Hugo does not try to resolve those) or set `skipInlineImportsNotFound` to true.
+: Default is `false`. Before Hugo 0.99.0 when `inlineImports` was enabled and we failed to resolve an import, we logged it as a warning. We now fail the build. If you have regular CSS imports in your CSS that you want to preserve, you can either use imports with URL or media queries (Hugo does not try to resolve those) or set `skipInlineImportsNotFound` to true.
 
 _If no configuration file is used:_
 
@@ -63,7 +62,7 @@ syntax [string]
 : Custom postcss syntax
 
 ```go-html-template
-{{ $options := dict "config" "customPostCSS.js" "noMap" true }}
+{{ $options := dict "config" "/path/to/custom-config-directory" "noMap" true }}
 {{ $style := resources.Get "css/main.css" | resources.PostCSS $options }}
 
 {{ $options := dict "use" "autoprefixer postcss-color-alpha" }}
