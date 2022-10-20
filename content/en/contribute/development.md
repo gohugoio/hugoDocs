@@ -65,7 +65,7 @@ You can print the `GOPATH` with `echo $GOPATH`. You should see a non-empty strin
 
 ### Install Go with Homebrew
 
-If you are a MacOS user and have [Homebrew](https://brew.sh/) installed on your machine, installing Go is as simple as the following command:
+If you are a macOS user and have [Homebrew](https://brew.sh/) installed on your machine, installing Go is as simple as the following command:
 
 {{< code file="install-go.sh" >}}
 brew install go
@@ -95,7 +95,7 @@ Finally, check again with `git version` if Git was installed successfully.
 
 ### Git Graphical Front Ends
 
-There are several [GUI clients](https://git-scm.com/downloads/guis) that help you to operate Git. Not all are available for all operating systems and maybe differ in their usage. Because of this we will document how to use the command line, since the commands are the same everywhere.
+There are several [GUI clients](https://git-scm.com/downloads/guis) that help you to operate Git. Not all are available for all operating systems and maybe differ in their usage. Because of this we will document how to use the command-line, since the commands are the same everywhere.
 
 ### Install Hub on Your System (Optional)
 
@@ -140,7 +140,7 @@ cd $HOME/src
 git clone https://github.com/gohugoio/hugo.git
 ```
 
-> Since Hugo 0.48, Hugo uses the Go Modules support built into Go 1.11 to build. 
+> Since Hugo 0.48, Hugo uses the Go Modules support built into Go 1.11 to build.
 > The easiest is to clone Hugo in a directory outside of GOPATH
 
 And then, install dependencies of Hugo by running the following in the cloned directory:
@@ -149,7 +149,6 @@ And then, install dependencies of Hugo by running the following in the cloned di
 cd $HOME/src/hugo
 go install
 ```
-
 
 Hugo relies on [mage](https://github.com/magefile/mage) for some convenient build and test targets. If you don't already have it, get it:
 
@@ -169,7 +168,7 @@ Open the [Hugo repository](https://github.com/gohugoio/hugo) on GitHub and click
 
 ![Fork button](/images/contribute/development/forking-a-repository.png)
 
-Now open your fork repository on GitHub and copy the remote url of your fork. You can choose between HTTPS and SSH as protocol that Git should use for the following operations. HTTPS works always [if you're not sure](https://help.github.com/articles/which-remote-url-should-i-use/).
+Now open your fork repository on GitHub and copy the remote URL of your fork. You can choose between HTTPS and SSH as protocol that Git should use for the following operations. HTTPS works always [if you're not sure](https://help.github.com/articles/which-remote-url-should-i-use/).
 
 ![Copy remote url](/images/contribute/development/copy-remote-url.png)
 
@@ -257,10 +256,11 @@ If you want to install the binary in `$GOPATH/bin`, run
 mage install
 ```
 
-### Test 
+### Test
+
 Sometimes changes on the codebase can cause unintended side effects. Or they don't work as expected. Most functions have their own test cases. You can find them in files ending with `_test.go`.
 
-Make sure the commands 
+Make sure the commands
 
 ```
 mage -v check
@@ -268,8 +268,9 @@ mage -v check
 
 passes.
 
-### Formatting 
-The Go code styleguide maybe is opinionated but it ensures that the codebase looks the same, regardless who wrote the code. Go comes with its own formatting tool. Let's apply the styleguide to our additions:
+### Formatting
+
+The Go code style guide maybe is opinionated but it ensures that the codebase looks the same, regardless who wrote the code. Go comes with its own formatting tool. Let's apply the style guide to our additions:
 
 ```
 mage fmt
@@ -374,7 +375,7 @@ Check the commit log if everything looks as expected. Should an error occur you 
 
 ### Push commits
 
-To push our commits to the fork on GitHub we need to specify a destination. A destination is defined by the remote and a branch name. Earlier, the defined that the remote url of our fork is the same as our GitHub handle, in my case `digitalcraftsman`. The branch should have the same as our local one. This makes it easy to identify corresponding branches.
+To push our commits to the fork on GitHub we need to specify a destination. A destination is defined by the remote and a branch name. Earlier, the defined that the remote URL of our fork is the same as our GitHub handle, in my case `digitalcraftsman`. The branch should have the same as our local one. This makes it easy to identify corresponding branches.
 
 ```
 git push --set-upstream <YOUR-GITHUB-USERNAME> <BRANCHNAME>
@@ -402,7 +403,7 @@ Last but not least you should accept the contributor license agreement (CLA). A 
 
 ### Automatic builds
 
-We use a GitHub Actions workflow to build and test. This is a matrix build across combinations of operating system (masOS, Windows, and Ubuntu) and Go versions. The workflow is triggered by the submission of a pull request. If you are a first-time contributor, the workflow requires approval from a project maintainer.
+We use a GitHub Actions workflow to build and test. This is a matrix build across combinations of operating system (macOS, Windows, and Ubuntu) and Go versions. The workflow is triggered by the submission of a pull request. If you are a first-time contributor, the workflow requires approval from a project maintainer.
 
 ## Where to start?
 
@@ -416,7 +417,6 @@ Feel free to [open an issue][newissue] if you think you found a bug or you have 
 * [Code School and GitHub's "Try Git" Tutorial][trygit] (Free)
 * [The Git Book][gitbook] (Free)
 * [Go Bootcamp][gobootcamp]
-
 
 [codecademy]: https://www.codecademy.com/learn/learn-git
 [contributors]: https://github.com/gohugoio/hugo/graphs/contributors

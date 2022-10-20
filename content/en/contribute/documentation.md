@@ -4,7 +4,6 @@ linktitle: Documentation
 description: Documentation is an integral part of any open source project. The Hugo docs are as much a work in progress as the source it attempts to cover.
 date: 2017-02-01
 publishdate: 2017-02-01
-lastmod: 2017-02-01
 categories: [contribute]
 keywords: [docs,documentation,community, contribute]
 menu:
@@ -13,7 +12,6 @@ menu:
     weight: 20
 weight: 20
 sections_weight: 20
-draft: false
 aliases: [/contribute/docs/]
 toc: true
 ---
@@ -40,7 +38,7 @@ hugo new <DOCS-SECTION>/<new-content-lowercase>.md
 
 ### Add a New Function
 
-Once you have cloned the Hugo repository, you can create a new function via the following command. Keep the file name lowercase.
+Once you have cloned the Hugo repository, you can create a new function via the following command. Keep the filename lowercase.
 
 ```
 hugo new functions/newfunction.md
@@ -94,7 +92,7 @@ Code blocks are crucial for providing examples of Hugo's new features to end use
 
 ### Standard Syntax
 
-Across many pages on the Hugo docs, the typical triple-back-tick markdown syntax (```` ``` ````) is used. If you do not want to take the extra time to implement the following code block shortcodes, please use standard GitHub-flavored markdown. The Hugo docs use a version of [highlight.js](https://highlightjs.org/) with a specific set of languages.
+Across many pages on the Hugo docs, the typical triple-back-tick Markdown syntax (```` ``` ````) is used. If you do not want to take the extra time to implement the following code block shortcodes, please use standard GitHub-flavored Markdown. The Hugo docs use a version of [highlight.js](https://highlightjs.org/) with a specific set of languages.
 
 Your options for languages are `xml`/`html`, `go`/`golang`, `md`/`markdown`/`mkd`, `handlebars`, `apache`, `toml`, `yaml`, `json`, `css`, `asciidoc`, `ruby`, `powershell`/`ps`, `scss`, `sh`/`zsh`/`bash`/`git`, `http`/`https`, and `javascript`/`js`.
 
@@ -124,7 +122,6 @@ A whole bunch of coding going on up in here!
 ```
 
 The following are the arguments passed into `code`:
-
 
 ***`file`***
 : the only *required* argument. `file` is needed for styling but also plays an important role in helping users create a mental model around Hugo's directory structure. Visually, this will be displayed as text in the top left of the code block.

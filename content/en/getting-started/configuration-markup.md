@@ -77,8 +77,7 @@ Note that attributes in [code fences](/content-management/syntax-highlighting/#h
 ````
 
 autoHeadingIDType ("github") {{< new-in "0.62.2" >}}
-: The strategy used for creating auto IDs (anchor names). Available types are `github`, `github-ascii` and `blackfriday`. `github` produces GitHub-compatible IDs, `github-ascii` will drop any non-Ascii characters after accent normalization, and `blackfriday` will make the IDs compatible with [Blackfriday](#blackfriday), the default Markdown engine before Hugo 0.60. Note that if Goldmark is your default Markdown engine, this is also the strategy used in the [anchorize](/functions/anchorize/) template func.
-
+: The strategy used for creating auto IDs (anchor names). Available types are `github`, `github-ascii` and `blackfriday`. `github` produces GitHub-compatible IDs, `github-ascii` will drop any non-Ascii characters after accent normalization, and `blackfriday` will make the IDs compatible with Blackfriday, the default Markdown engine before Hugo 0.60. Note that if Goldmark is your default Markdown engine, this is also the strategy used in the [anchorize](/functions/anchorize/) template func.
 
 ### Highlight
 
@@ -108,8 +107,6 @@ endLevel
 ordered
 : Whether or not to generate an ordered list instead of an unordered list.
 
-
 ## Markdown Render Hooks
 
 See [Markdown Render Hooks](/templates/render-hooks/).
-

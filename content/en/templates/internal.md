@@ -27,20 +27,25 @@ While the following internal templates are called similar to partials, they do *
 
 ## Google Analytics
 
-Hugo ships with internal templates for Google Analytics tracking, including both synchronous and asynchronous tracking codes. As well as support for both v3 and v4 of Google Analytics.
+Hugo ships with internal templates supporting Google Analytics, both [Google Analytics 4][GA4] (GA4) and Universal Analytics.
+
+**Note:** Universal Analytics are deprecated. For details, see [Universal Analytics will be going away][].
+
+[GA4]: https://support.google.com/analytics/answer/10089681
+[Universal Analytics will be going away]: https://support.google.com/analytics/answer/11583528
 
 ### Configure Google Analytics
 
-Provide your tracking id in your configuration file:
+Provide your tracking ID in your configuration file:
 
-**Google Analytics v3 (analytics.js)**
-{{< code-toggle file="config" >}}
-googleAnalytics = "UA-PROPERTY_ID"
-{{</ code-toggle >}}
-
-**Google Analytics v4 (gtag.js)**
+**Google Analytics 4 (gtag.js)**
 {{< code-toggle file="config" >}}
 googleAnalytics = "G-MEASUREMENT_ID"
+{{</ code-toggle >}}
+
+**Google Universal Analytics (analytics.js)**
+{{< code-toggle file="config" >}}
+googleAnalytics = "UA-PROPERTY_ID"
 {{</ code-toggle >}}
 
 ### Use the Google Analytics Template
@@ -48,17 +53,16 @@ googleAnalytics = "G-MEASUREMENT_ID"
 You can then include the Google Analytics internal template:
 
 ```
-{{ template "_internal/google_analytics.html" . }}
-```
-
-
-```
 {{ template "_internal/google_analytics_async.html" . }}
 ```
 
-When using Google Analytics v4 use `_internal/google_analytics.html`.
+**Note:** The async template is _not_ suitable for Google Analytics 4.
 
-A `.Site.GoogleAnalytics` variable is also exposed from the config.
+```
+{{ template "_internal/google_analytics.html" . }}
+```
+
+If you want to create your own template, you can access the configured ID with `{{ site.Config.Services.GoogleAnalytics.ID }}`.
 
 ## Disqus
 
@@ -123,6 +127,7 @@ You can then render your custom Disqus partial template as follows:
 ```
 
 ## Open Graph
+
 An internal template for the [Open Graph protocol](https://ogp.me/), metadata that enables a page to become a rich object in a social graph.
 This format is used for Facebook and some other sites.
 
@@ -200,7 +205,7 @@ Hugo uses the page title and description for the card's title and description fi
 
 ### Use the Twitter Cards Template
 
-To add Twitter card metadata, include the following line between the `<head>` tags in your templates:
+To add Twitter card metadata, include the following line immediately after the `<head>` element in your templates:
 
 ```
 {{ template "_internal/twitter_cards.html" . }}

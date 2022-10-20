@@ -71,10 +71,9 @@ If you want the old behavior, you can put the following line in the start of you
 {{ $_hugo_config := `{ "version": 1 }` }}
 ```
 
-
 ### Shortcodes Without Markdown
 
-The `<` character indicates that the shortcode's inner content does *not* need further rendering. Often shortcodes without markdown include internal HTML:
+The `<` character indicates that the shortcode's inner content does *not* need further rendering. Often shortcodes without Markdown include internal HTML:
 
 ```
 {{</* myshortcode */>}}<p>Hello <strong>World!</strong></p>{{</* /myshortcode */>}}
@@ -86,11 +85,11 @@ You can call shortcodes within other shortcodes by creating your own templates t
 
 ## Use Hugo's Built-in Shortcodes
 
-Hugo ships with a set of predefined shortcodes that represent very common usage. These shortcodes are provided for author convenience and to keep your markdown content clean.
+Hugo ships with a set of predefined shortcodes that represent very common usage. These shortcodes are provided for author convenience and to keep your Markdown content clean.
 
 ### `figure`
 
-`figure` is an extension of the image syntax in markdown, which does not provide a shorthand for the more semantic [HTML5 `<figure>` element][figureelement].
+`figure` is an extension of the image syntax in Markdown, which does not provide a shorthand for the more semantic [HTML5 `<figure>` element][figureelement].
 
 The `figure` shortcode can use the following named parameters:
 
@@ -249,10 +248,9 @@ By adding the preceding `hidecaption` example, the following HTML will be added 
 
 #### Example `instagram` Display
 
-Using the preceding `instagram` with `hidecaption` example above, the following simulates the displayed experience for visitors to your website. Naturally, the final display will be contingent on your stylesheets and surrounding markup.
+Using the preceding `instagram` with `hidecaption` example above, the following simulates the displayed experience for visitors to your website. Naturally, the final display will be contingent on your style sheets and surrounding markup.
 
 {{< instagram BWNjjyYFxVx hidecaption >}}
-
 
 
 {{% note %}}
@@ -315,7 +313,7 @@ https://twitter.com/SanDiegoZoo/status/1453110110599868418
 
 #### Example `tweet` Input
 
-Pass the tweet's user (case-insensitive) and id from the URL as parameters to the `tweet` shortcode.
+Pass the tweet's user (case-insensitive) and ID from the URL as parameters to the `tweet` shortcode.
 
 {{< code file="example-tweet-input.md" >}}
 {{</* tweet user="SanDiegoZoo" id="1453110110599868418" */>}}
@@ -360,7 +358,7 @@ Using the preceding `vimeo` example, the following HTML will be added to your re
 {{< /output >}}
 
 {{% tip %}}
-If you want to further customize the visual styling of the YouTube or Vimeo output, add a `class` named parameter when calling the shortcode. The new `class` will be added to the `<div>` that wraps the `<iframe>` *and* will remove the inline styles. Note that you will need to call the `id` as a named parameter as well. You can also give the vimeo video a descriptive title with `title`. 
+If you want to further customize the visual styling of the YouTube or Vimeo output, add a `class` named parameter when calling the shortcode. The new `class` will be added to the `<div>` that wraps the `<iframe>` *and* will remove the inline styles. Note that you will need to call the `id` as a named parameter as well. You can also give the vimeo video a descriptive title with `title`.
 
 ```
 {{</* vimeo id="146022717" class="my-vimeo-wrapper-class" title="My vimeo video" */>}}
@@ -381,7 +379,6 @@ The `youtube` shortcode embeds a responsive video player for [YouTube videos][].
 https://www.youtube.com/watch?v=w7Ft2ymGmfc
 ```
 
-
 #### Example `youtube` Input
 
 Copy the YouTube video ID that follows `v=` in the video's URL and pass it to the `youtube` shortcode:
@@ -390,7 +387,7 @@ Copy the YouTube video ID that follows `v=` in the video's URL and pass it to th
 {{</* youtube w7Ft2ymGmfc */>}}
 {{< /code >}}
 
-Furthermore, you can automatically start playback of the embedded video by setting the `autoplay` parameter to `true`. Remember that you can't mix named and unnamed parameters, so you'll need to assign the yet unnamed video id to the parameter `id`:
+Furthermore, you can automatically start playback of the embedded video by setting the `autoplay` parameter to `true`. Remember that you can't mix named and unnamed parameters, so you'll need to assign the yet unnamed video ID to the parameter `id`:
 
 
 {{< code file="example-youtube-input-with-autoplay.md" >}}
@@ -403,7 +400,6 @@ For [accessibility reasons](https://dequeuniversity.com/tips/provide-iframe-titl
 {{</* youtube id="w7Ft2ymGmfc" title="A New Hugo Site in Under Two Minutes" */>}}
 {{< /code >}}
 
-
 #### Example `youtube` Output
 
 Using the preceding `youtube` example, the following HTML will be added to your rendered website's markup:
@@ -414,7 +410,7 @@ Using the preceding `youtube` example, the following HTML will be added to your 
 
 #### Example `youtube` Display
 
-Using the preceding `youtube` example (without `autoplay="true"`), the following simulates the displayed experience for visitors to your website. Naturally, the final display will be contingent on your stylesheets and surrounding markup. The video is also include in the [Quick Start of the Hugo documentation][quickstart].
+Using the preceding `youtube` example (without `autoplay="true"`), the following simulates the displayed experience for visitors to your website. Naturally, the final display will be contingent on your style sheets and surrounding markup. The video is also include in the [Quick Start of the Hugo documentation][quickstart].
 
 {{< youtube w7Ft2ymGmfc >}}
 

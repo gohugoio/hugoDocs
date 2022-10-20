@@ -28,6 +28,8 @@ For other approaches to learning Hugo (like books or video tutorials), refer to 
 
 ## Step 1: Install Hugo
 
+Install the **extended version of Hugo** (this is required for the current theme used).
+
 {{% note %}}
 `Homebrew` and `MacPorts`, package managers for `macOS`,  can be installed from [brew.sh](https://brew.sh/) or [macports.org](https://www.macports.org/) respectively. See [install](/getting-started/installing) if you are running Windows etc.
 {{% /note %}}
@@ -42,7 +44,10 @@ To verify your new install:
 
 ```bash
 hugo version
+# Example output: hugo v0.104.2+extended darwin/amd64 BuildDate=unknown
 ```
+
+It should state that it is `extended`. If it does not, uninstall it and try another installation method.
 
 {{< asciicast ItACREbFgvJ0HjnSNeTknxWy9 >}}
 
@@ -133,7 +138,7 @@ Press Ctrl+C to stop
 
 **Navigate to your new site at [http://localhost:1313/](http://localhost:1313/).**
 
-Feel free to edit or add new content and simply refresh in browser to see changes quickly. (You might need to force refresh your web browser, something like Ctrl-R usually works.)
+Feel free to edit or add new content and you will see the changes in the browser right away while the Hugo server is running. (You might need to force refresh your web browser, something like Ctrl-R usually works.)
 
 ## Step 6: Customize the Theme
 

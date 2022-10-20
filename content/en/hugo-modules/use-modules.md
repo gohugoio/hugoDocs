@@ -20,8 +20,6 @@ toc: true
 
 {{< gomodules-info >}}
 
-
-
 ## Initialize a New Module
 
 Use `hugo mod init` to initialize a new Hugo Module. If it fails to guess the module path, you must provide it as an argument, e.g.:
@@ -33,6 +31,7 @@ hugo mod init github.com/gohugoio/myShortcodes
 Also see the [CLI Doc](/commands/hugo_mod_init/).
 
 ## Use a Module for a Theme
+
 The easiest way to use a Module for a theme is to import it in the config.
 
 1. Initialize the hugo module system: `hugo mod init github.com/<your_user>/<your_project>`
@@ -71,6 +70,7 @@ hugo mod get -u ./...
 ```bash
 hugo mod get -u github.com/gohugoio/myShortcodes
 ```
+
 ### Get a Specific Version
 
 ```bash
@@ -92,7 +92,6 @@ If you have the `hugo server` running, the configuration will be reloaded and `/
 Note that since v.0.77.0 you can use modules config [`replacements`](https://gohugo.io/hugo-modules/configuration/#module-config-top-level) option. {{< new-in "0.77.0" >}}
 
 ## Print Dependency Graph
-
 
 Use `hugo mod graph` from the relevant module directory and it will print the dependency graph, including vendoring, module replacement or disabled status.
 
@@ -125,7 +124,6 @@ Note that:
 
 Also see the [CLI Doc](/commands/hugo_mod_vendor/).
 
-
 ## Tidy go.mod, go.sum
 
 Run `hugo mod tidy` to remove unused entries in `go.mod` and `go.sum`.
@@ -137,7 +135,5 @@ Also see the [CLI Doc](/commands/hugo_mod_clean/).
 Run `hugo mod clean` to delete the entire modules cache.
 
 Note that you can also configure the `modules` cache with a `maxAge`, see [File Caches](/getting-started/configuration/#configure-file-caches).
-
-
 
 Also see the [CLI Doc](/commands/hugo_mod_clean/).

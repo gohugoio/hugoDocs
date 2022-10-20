@@ -94,7 +94,7 @@ Create a new script called `deploy` the root of your Hugo tree:
 
 Add the following content. Replace the `USER`, `HOST`, and `DIR` values with your own values:
 
-```
+```bash
 #!/bin/sh
 USER=my-user
 HOST=my-server.com
@@ -105,7 +105,7 @@ hugo && rsync -avz --delete public/ ${USER}@${HOST}:~/${DIR} # this will delete 
 exit 0
 ```
 
-Note that `DIR` is the relative path from the remote user's home. If you have to specify a full path (for instance `/var/www/mysite/`) you must change `~/${DIR}` to `${DIR}` inside the command line. For most cases you should not have to.
+Note that `DIR` is the relative path from the remote user's home. If you have to specify a full path (for instance `/var/www/mysite/`) you must change `~/${DIR}` to `${DIR}` inside the command-line. For most cases you should not have to.
 
 Save and close, and make the `deploy` file executable:
 

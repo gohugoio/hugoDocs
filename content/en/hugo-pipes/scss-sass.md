@@ -1,9 +1,8 @@
 ---
-title: SASS / SCSS
-description: Hugo Pipes allows the processing of SASS and SCSS files.
+title: Sass / SCSS
+description: Hugo Pipes allows the processing of Sass and SCSS files.
 date: 2018-07-14
 publishdate: 2018-07-14
-lastmod: 2018-07-14
 categories: [asset management]
 keywords: []
 menu:
@@ -12,11 +11,9 @@ menu:
     weight: 30
 weight: 02
 sections_weight: 02
-draft: false
 ---
 
-
-Any SASS or SCSS file can be transformed into a CSS file using `resources.ToCSS` which takes two arguments, the resource object and a map of options listed below.
+Any Sass or SCSS file can be transformed into a CSS file using `resources.ToCSS` which takes two arguments, the resource object and a map of options listed below.
 
 ```go-html-template
 {{ $sass := resources.Get "sass/main.scss" }}
@@ -42,7 +39,7 @@ enableSourceMap [bool]
 : When enabled, a source map will be generated.
 
 includePaths [string slice]
-: Additional SCSS/SASS include paths. Paths must be relative to the project directory.
+: Additional SCSS/Sass include paths. Paths must be relative to the project directory.
 
 ```go-html-template
 {{ $options := (dict "targetPath" "style.css" "outputStyle" "compressed" "enableSourceMap" (not hugo.IsProduction) "includePaths" (slice "node_modules/myscss")) }}
@@ -50,5 +47,5 @@ includePaths [string slice]
 ```
 
 {{% note %}}
-Setting `outputStyle` to `compressed` will handle SASS/SCSS files minification better than the more generic [`resources.Minify`]({{< ref "minification">}}).
+Setting `outputStyle` to `compressed` will handle Sass/SCSS files minification better than the more generic [`resources.Minify`]({{< ref "minification">}}).
 {{% /note %}}
