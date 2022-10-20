@@ -47,7 +47,7 @@ hugo version
 # Example output: hugo v0.104.2+extended darwin/amd64 BuildDate=unknown
 ```
 
-It should state that it is `extended`. If it does not, uninstall it and try another installation method
+It should state that it is `extended`. If it does not, uninstall it and try another installation method.
 
 {{< asciicast ItACREbFgvJ0HjnSNeTknxWy9 >}}
 
