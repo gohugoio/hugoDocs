@@ -28,7 +28,7 @@ For other approaches to learning Hugo (like books or video tutorials), refer to 
 
 ## Step 1: Install Hugo
 
-Install the **extended version of Hugo** (this is required for the current theme used)
+Install the **extended version of Hugo** (this is required for the current theme used).
 
 {{% note %}}
 `Homebrew` and `MacPorts`, package managers for `macOS`,  can be installed from [brew.sh](https://brew.sh/) or [macports.org](https://www.macports.org/) respectively. See [install](/getting-started/installing) if you are running Windows etc.
