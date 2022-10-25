@@ -3,7 +3,6 @@ title: Babel
 description: Hugo Pipes can process JS files with Babel.
 date: 2019-03-21
 publishdate: 2019-03-21
-lastmod: 2019-03-21
 categories: [asset management]
 keywords: []
 menu:
@@ -12,7 +11,6 @@ menu:
     weight: 48
 weight: 48
 sections_weight: 48
-draft: false
 ---
 
 Any JavaScript resource file can be transpiled to another JavaScript version using `resources.Babel` which takes for argument the resource object and an optional dict of options listed below. Babel uses the [babel cli](https://babeljs.io/docs/en/babel-cli).
@@ -24,7 +22,6 @@ Hugo Pipe's Babel requires the `@babel/cli` and `@babel/core` JavaScript package
 If you are using the Hugo Snap package, Babel and plugin(s) need to be installed locally within your Hugo site directory, e.g., `npm install @babel/cli @babel/core --save-dev` without the `-g` flag.
 {{% /note %}}
 
-
 ### Config
 
 {{< new-in "v0.75.0" >}}
@@ -34,19 +31,17 @@ In Hugo `v0.75` we improved the way we resolve JS configuration and dependencies
 
 ```js
 module.exports = {
-        presets: [
-                [
-                        require('@babel/preset-env'),
-                        {
-                                useBuiltIns: 'entry',
-                                corejs: 3
-                        }
-                ]
-        ]
+  presets: [
+    [
+      require("@babel/preset-env"),
+      {
+        useBuiltIns: "entry",
+        corejs: 3,
+      },
+    ],
+  ],
 };
 ```
-
-
 
 ### Options
 

@@ -4,7 +4,6 @@ linktitle: Host on Firebase
 description: You can use Firebase's free tier to host your static website; this also gives you access to Firebase's NOSQL API.
 date: 2017-03-12
 publishdate: 2017-03-12
-lastmod: 2017-03-15
 categories: [hosting and deployment]
 keywords: [hosting,firebase]
 authors: [Michel Racic]
@@ -14,7 +13,6 @@ menu:
     weight: 20
 weight: 20
 sections_weight: 20
-draft: false
 toc: true
 aliases: []
 ---
@@ -38,11 +36,13 @@ Log in to Firebase (setup on your local machine) using `firebase login`, which o
 ```
 firebase login
 ```
+
 In the root of your Hugo project, initialize the Firebase project with the `firebase init` command:
 
 ```
 firebase init
 ```
+
 From here:
 
 1. Choose Hosting in the feature question
@@ -63,12 +63,11 @@ hugo && firebase deploy
 
 You can generate a deploy token using
 
-
 ```
 firebase login:ci
 ```
 
-You can also set up your CI (e.g., with [Wercker][]) and add the token to a private variable like `$FIREBASE_DEPLOY_TOKEN`.
+You can also set up your CI (e.g., with Wercker) and add the token to a private variable like `$FIREBASE_DEPLOY_TOKEN`.
 
 {{% note %}}
 This is a private secret and it should not appear in a public repository. Make sure you understand your chosen CI and that it's not visible to others.

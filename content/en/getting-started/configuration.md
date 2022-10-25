@@ -12,7 +12,6 @@ menu:
     weight: 60
 weight: 60
 sections_weight: 60
-draft: false
 aliases: [/overview/source-directory/,/overview/configuration/]
 toc: true
 ---
@@ -96,9 +95,8 @@ This is how you need to configure your `config.toml` files considering the above
 3. Similarly in `staging/config.toml` you just need to have one line:
 
     ```googleAnalytics = "G-SSSSSSSS"```
-    
-    Now you need to tell Hugo that you are using the staging environment. So your build command should be `hugo --environment staging` which will load the `G-SSSSSSSS` analytics code in your staging website
 
+    Now you need to tell Hugo that you are using the staging environment. So your build command should be `hugo --environment staging` which will load the `G-SSSSSSSS` analytics code in your staging website
 
 {{% note %}}
 Default environments are __development__ with `hugo server` and __production__ with `hugo`.
@@ -129,7 +127,7 @@ The following is the full list of Hugo-defined variables with their default
 value in parentheses. Users may choose to override those values in their site
 config file(s).
 
-### archetypeDir 
+### archetypeDir
 
 **Default value:** "archetypes"
 
@@ -142,9 +140,11 @@ The directory where Hugo finds archetype files (content templates). {{% module-m
 The directory where Hugo finds asset files used in [Hugo Pipes](/hugo-pipes/). {{% module-mounts-note %}}
 
 ### baseURL
+
 Hostname (and path) to the root, e.g. https://bep.is/
 
 ### build
+
 See [Configure Build](#configure-build)
 
 ### buildDrafts (false)
@@ -166,6 +166,7 @@ Include content already expired.
 Include content with publishdate in the future.
 
 ### caches
+
 See [Configure File Caches](#configure-file-caches)
 
 ### cascade
@@ -308,18 +309,23 @@ See [Configure Languages](/content-management/multilingual/#configure-languages)
 See [Disable a Language](/content-management/multilingual/#disable-a-language)
 
 ### markup
+
 See [Configure Markup](/getting-started/configuration-markup).{{< new-in "0.60.0" >}}
 
 ### mediaTypes
+
 See [Configure Media Types](/templates/output-formats/#media-types).
 
 ### menus
+
 See [Add Non-content Entries to a Menu](/content-management/menus/#add-non-content-entries-to-a-menu).
 
 ### minify
+
 See [Configure Minify](#configure-minify)
 
 ### module
+
 Module config see [Module Config](/hugo-modules/configuration/).{{< new-in "0.56.0" >}}
 
 ### newContentEditor
@@ -341,6 +347,7 @@ Don't sync permission mode of files.
 Don't sync modification time of files.
 
 ### outputFormats
+
 See [Configure Output Formats](#configure-additional-output-formats).
 
 ### paginate
@@ -356,6 +363,7 @@ Default number of elements per page in [pagination](/templates/pagination/).
 The path element used during pagination (`https://example.com/page/2`).
 
 ### permalinks
+
 See [Content Management](/content-management/urls/#permalinks).
 
 ### pluralizeListTitles
@@ -371,9 +379,10 @@ Pluralize titles in lists.
 The directory to where Hugo will write the final static site (the HTML files etc.).
 
 ### related
+
 : See [Related Content](/content-management/related/#configure-related-content).{{< new-in "0.27" >}}
 
-### relativeURLs 
+### relativeURLs
 
 **Default value:** false
 
@@ -386,6 +395,7 @@ Enable this to make all relative URLs relative to content root. Note that this d
 When using `ref` or `relref` to resolve page links and a link cannot resolved, it will be logged with this log level. Valid values are `ERROR` (default) or `WARNING`. Any `ERROR` will fail the build (`exit -1`).
 
 ### refLinksNotFoundURL
+
 URL to be used as a placeholder when a page reference cannot be found in `ref` or `relref`. Is used as-is.
 
 ### removePathAccents
@@ -398,7 +408,6 @@ Removes [non-spacing marks](https://www.compart.com/en/unicode/category/Mn) from
 content/post/hügó.md --> https://example.org/post/hugo/
 ```
 
-
 ### rssLimit
 
 **Default value:** -1 (unlimited)
@@ -406,6 +415,7 @@ content/post/hügó.md --> https://example.org/post/hugo/
 Maximum number of items in the RSS feed.
 
 ### sectionPagesMenu
+
 See ["Section Menu for Lazy Bloggers"](/templates/menu-templates/#section-menu-for-lazy-bloggers).
 
 ### security
@@ -413,6 +423,7 @@ See ["Section Menu for Lazy Bloggers"](/templates/menu-templates/#section-menu-f
 See [Security Policy](/about/security-model/#security-policy)
 
 ### sitemap
+
 Default [sitemap configuration](/templates/sitemap-template/#configuration).
 
 ### summaryLength
@@ -422,9 +433,11 @@ Default [sitemap configuration](/templates/sitemap-template/#configuration).
 The length of text in words to show in a [`.Summary`](/content-management/summaries/#automatic-summary-splitting).
 
 ### taxonomies
+
 See [Configure Taxonomies](/content-management/taxonomies#configure-taxonomies).
 
 ### theme
+
 : See [Module Config](/hugo-modules/configuration/#module-config-imports) for how to import a theme.
 
 ### themesDir
@@ -433,19 +446,20 @@ See [Configure Taxonomies](/content-management/taxonomies#configure-taxonomies).
 
 The directory where Hugo reads the themes from.
 
-### timeout 
+### timeout
 
 **Default value:** "30s"
 
 Timeout for generating page contents, specified as a [duration](https://pkg.go.dev/time#Duration) or in milliseconds. *Note:*&nbsp;this is used to bail out of recursive content generation. You might need to raise this limit if your pages are slow to generate (e.g., because they require large image processing or depend on remote contents).
 
-### timeZone 
+### timeZone
 
 {{< new-in "0.87.0" >}}
 
 The time zone (or location), e.g. `Europe/Oslo`,  used to parse front matter dates without such information and in the [`time` function](/functions/time/). The list of valid values may be system dependent, but should include `UTC`, `Local`, and any location in the [IANA Time Zone database](https://en.wikipedia.org/wiki/List_of_tz_database_time_zones).
 
 ### title
+
 Site title.
 
 ### titleCaseStyle
@@ -543,7 +557,7 @@ Content-Security-Policy = "script-src localhost:1313"
 
 {{< new-in "0.72.0" >}}
 
-You can also specify simple redirects rules for the server. The syntax is again similar to Netlify's. 
+You can also specify simple redirects rules for the server. The syntax is again similar to Netlify's.
 
 Note that a `status` code of 200 will trigger a [URL rewrite](https://docs.netlify.com/routing/redirects/rewrites-proxies/), which is what you want in SPA situations, e.g:
 
@@ -654,7 +668,6 @@ ignoreFiles = ['^/home/user/project/content/test\.md$']
 ### Configure Dates
 
 Dates are important in Hugo, and you can configure how Hugo assigns dates to your content pages. You do this by adding a `frontmatter` section to your `config.toml`.
-
 
 The default configuration is:
 
@@ -769,9 +782,9 @@ dir
 
 ## Configuration Format Specs
 
-* [TOML Spec][toml]
-* [YAML Spec][yaml]
-* [JSON Spec][json]
+- [TOML Spec][toml]
+- [YAML Spec][yaml]
+- [JSON Spec][json]
 
 [`.Site.Params`]: /variables/site/
 [directory structure]: /getting-started/directory-structure

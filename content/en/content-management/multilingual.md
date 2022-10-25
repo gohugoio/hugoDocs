@@ -59,7 +59,7 @@ weight = 3
 
 Anything not defined in a `languages` block will fall back to the global value for that key (e.g., `copyright` for the English `en` language). This also works for `params`, as demonstrated with `help` above: You will get the value `Aide` in French and `Help` in all the languages without this parameter set.
 
-With the configuration above, all content, sitemap, RSS feeds, paginations,
+With the configuration above, all content, sitemap, RSS feeds, pagination,
 and taxonomy pages will be rendered below `/` in English (your default content language) and then below `/fr` in French.
 
 When working with front matter `Params` in [single page templates], omit the `params` in the key for the translation.
@@ -507,6 +507,7 @@ The rendering of the main navigation works as usual. `.Site.Menus` will just con
 ```
 
 ### Dynamically localizing menus with i18n
+
 While customizing menus per language is useful, your config file can become hard to maintain if you have a lot of languages
 
 If your menus are the same in all languages (ie. if the only thing that changes is the translated name) you can use the `.Identifier` as a translation key for the menu name:
@@ -538,7 +539,6 @@ And do the appropriate changes in the menu code to use the `i18n` tag with the `
     {{- end }}
 </ul>
 {{< /code >}}
-                
 
 ## Missing Translations
 
@@ -570,9 +570,8 @@ If there is more than one language defined, the `LanguagePrefix` variable will e
 
 
 ## Generate multilingual content with `hugo new`
+
 Currently, `hugo new` is not ready to support generating multilingual content. But there is a [proposal topic](https://github.com/gohugoio/hugo/issues/7732) about this in GitHub issue to discuss how it should work.
-
-
 
 [abslangurl]: /functions/abslangurl
 [config]: /getting-started/configuration/

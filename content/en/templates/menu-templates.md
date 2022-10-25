@@ -76,7 +76,7 @@ To enable this menu, configure `sectionPagesMenu` in your site `config`:
 sectionPagesMenu = "main"
 ```
 
-The menu name can be anything, but take a note of what it is. 
+The menu name can be anything, but take a note of what it is.
 
 This will create a menu with all the sections as menu items and all the sections' pages as "shadow-members". Ensure that all first level directories that you would like to show up on this menu are [Branch Bundles](https://gohugo.io/content-management/sections/). Leaf Bundles do not form sections.
 
@@ -92,7 +92,6 @@ The _shadow_ implies that the pages isn't represented by a menu-item themselves,
 ```
 
 In the above, the menu item is marked as active if on the current section's list page or on a page in that section.
-
 
 ## Site Config menus
 

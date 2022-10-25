@@ -98,7 +98,7 @@ If you do not want Hugo to create any taxonomies, set `disableKinds` in your [si
 disableKinds = ["taxonomy","term"]
 {{</ code-toggle >}}
 
-{{< new-in "0.73.0" >}} We have fixed the before confusing page kinds used for taxonomies (see the listing below) to be in line with the terms used when we talk about taxonomies. We have been careful to avoid site breakage, and you should get an ERROR in the console if you need to adjust your `disableKinds` section.
+{{< new-in "0.73.0" >}} We have fixed the previously confusing page kinds used for taxonomies (see the listing below) to be in line with the terms used when we talk about taxonomies. We have been careful to avoid site breakage, and you should get an ERROR in the console if you need to adjust your `disableKinds` section.
 
 {{% page-kinds %}}
 
@@ -111,7 +111,7 @@ When taxonomies are used---and [taxonomy templates][] are provided---Hugo will a
 
 ## Configure Taxonomies
 
-Custom taxonomies other than the [defaults](#default-taxonomies) must be defined in your [site config][config] before they can be used throughout the site. You need to provide both the plural and singular labels for each taxonomy. For example, `singular key = "plural value"` for TOML and `singular key: "plural value"` for YAML.
+Custom taxonomies other than the [defaults]({{< relref "taxonomies.md#default-taxonomies" >}}) must be defined in your [site config][config] before they can be used throughout the site. You need to provide both the plural and singular labels for each taxonomy. For example, `singular key = "plural value"` for TOML and `singular key: "plural value"` for YAML.
 
 ### Example: Adding a custom taxonomy named "series"
 
@@ -135,7 +135,7 @@ If you want to have just the default `tags` taxonomy, and remove the `categories
   tag = "tags"
 {{</ code-toggle >}}
 
-If you want to disable all taxonomies altogether, see the use of `disableKinds` in [Hugo Taxonomy Defaults](#default-taxonomies).
+If you want to disable all taxonomies altogether, see the use of `disableKinds` in [Hugo Taxonomy Defaults]({{< relref "taxonomies.md#default-taxonomies" >}}).
 
 {{% note %}}
 You can add content and front matter to your taxonomy list and taxonomy terms pages. See [Content Organization](/content-management/organization/) for more information on how to add an `_index.md` for this purpose.
