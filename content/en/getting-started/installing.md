@@ -509,6 +509,31 @@ What this installs depends on your Debian/Ubuntu version. On Ubuntu bionic (18.0
 
 This option is not recommended because the Hugo in Linux package managers for Debian and Ubuntu is usually a few versions behind as described [here](https://github.com/gcushen/hugo-academic/issues/703)
 
+### Debian and Ubuntu (deb-get)
+
+Users of Debian and Ubuntu can also install and
+update the latest `.deb` packages we publish in our GitHub releases page using [deb-get](https://github.com/wimpysworld/deb-get).
+
+First install `deb-get` using these commands in a terminal:
+
+```bash
+sudo apt install curl
+curl -sL https://raw.githubusercontent.com/wimpysworld/deb-get/main/deb-get | sudo -E bash -s install deb-get
+```
+
+Then install Hugo using the following command in terminal:
+
+```bash
+deb-get install hugo
+```
+
+Once Hugo is installed it can be kept up to date using:
+
+```bash
+deb-get update
+deb-get upgrade
+```
+
 ### Arch Linux
 
 You can also install Hugo from the Arch Linux [community](https://www.archlinux.org/packages/community/x86_64/hugo/) repository. Applies also to derivatives such as Manjaro.
