@@ -7,7 +7,7 @@ siteURL: https://help.ampio.com/
 ---
 
 As a company that specialises in highly customisable smart solutions for various industries and has
-been accumulating a stupendous amount of knowledge for the past 30 years, we were on a lookout for
+been accumulating a stupendous amount of knowledge throughout the years, we were on a lookout for
 a user-friendly platform to impart the know-how to our clients and installers. Delivering a service
 that would cater for the two audiences scattered around the globe with vastly divergent needs and
 expectations was a challenge.
