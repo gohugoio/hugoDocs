@@ -31,27 +31,27 @@ We started our journey with the following requirements:
 
 ## Dark ages of WordPress
 
-With the above-mentioned in mind, we built our first revision of the service in WordPress 
+With the above-mentioned in mind, we built our first revision of the service in WordPress
 with commercial knowledge base plugin. The initial requirements seemed not to be exorbitant,
-yet we were surprised to see, how few of the available solutions covered them all. 
+yet we were surprised to see, how few of the available solutions covered them all.
 Especially, the case of multilingualism turned out to be particularly neglected across the products.
 
 The WordPress-based products made big promises - pay some bucks, bootstrap the service in minutes,
-and forget about all the developement troubles. And those promises might even be delivered on, but only for 
+and forget about all the developement troubles. And those promises might even be delivered on, but only for
 the most generic deployments. In our case, we were dealing with more and more trade-offs. Plus, the
 solution was just slow on the simple shared hosting environment that we dedicated for the job.
 
 ## Turning point
 
 The turning point was the introduction of a new key requirement - each document was to be downloadable
-in a PDF format. Such functionality was not available in the plugins we owned, nor did it look like any of 
-the other existing WordPress plugins could fulfill our needs to a satisfactory degree. 
+in a PDF format. Such functionality was not available in the plugins we owned, nor did it look like any of
+the other existing WordPress plugins could fulfill our needs to a satisfactory degree.
 Nobody in our team was brave enough to add such a functionality to
 the current stack, so we decided to start from scratch.
 
 On top of that new development, we had to remember another one of our key requirements, namely,
 that mostly non-programmers were to be responsible for the service maintenance and content creation.
-Initially, we were leaning towards headless CMS-based solutions, 
+Initially, we were leaning towards headless CMS-based solutions,
 but finally we made a bold move and decided to create a git managed jamstack service and see what happens.
 
 ## Hugo to the rescue!
@@ -60,9 +60,9 @@ Hugo was our first choice of SSG. The multilingualism support was the primary fe
 us. Later on, going through the documentation, we kept on discovering new exciting features that we
 didn't even know we needed at the begining.
 
-The rich functionalities of WordPress WYSIWYG editors soon turned out to be a curse. It became 
-burdensom to maintain formatting consistency across documents prepared by multiple contributors. 
-When we considered Markdown, we knew that it gives a lot less flexibility, 
+The rich functionalities of WordPress WYSIWYG editors soon turned out to be a curse. It became
+burdensom to maintain formatting consistency across documents prepared by multiple contributors.
+When we considered Markdown, we knew that it gives a lot less flexibility,
 but that proved to be a blessing in disguise - the constraints imposed by the notation ensured that each
 document will be prepared in the same way. And in the cases where Markdown was not enough, hugo
 shortcodes gave us all that we needed to get the results we anticipated.
@@ -103,7 +103,7 @@ Total in 1096 ms
 
 ## Adaptation among the contributors
 
-Very quickly it became apparent that our initial concerns about the adaptation of the workflow among 
+Very quickly it became apparent that our initial concerns about the adaptation of the workflow among
 the contributors was grossly exaggerated.
 Markdown as such, is fairly straightforward and did not cause any trouble to the contributors.
 
@@ -123,6 +123,6 @@ organisation!
 ## Summary
 
 Hugo is the best!
-Definitely give it a try if you are ever faced with a challenge similar to ours. 
-And do not give it a second thought if your service contributors are not too technically inclined - 
+Definitely give it a try if you are ever faced with a challenge similar to ours.
+And do not give it a second thought if your service contributors are not too technically inclined -
 it might still turn out great!
