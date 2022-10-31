@@ -106,9 +106,11 @@ Total in 1096 ms
 Very quickly it became apparent that our initial concerns about the adaptation of the workflow among 
 the contributors was grossly exaggerated.
 Markdown as such, is fairly straightforward and did not cause any trouble to the contributors.
-<!-- The repository tracking the service sources contains Visual Studio Code project scoped configuration
-defining tasks allowing to run live server from the IDE, which is very useful for ones, that are
-easily becoming frightened when faced by mighty terminal. -->
+
+We recommend our colleagues to use Visual Studio Code as a tool for contributions creation. The
+project's repository tracks project-scoped configuration of the editor, which includes a set of
+_tasks_ allowing to run live server from the GUI level, which is very useful for ones, that are easily
+becoming frightened when faced by mighty terminal.
 
 The basics skills of git workflow were also easily acquired. At the end of the day, the builds and deployments are fully
 managed by CI/CD processes, so the administration of the service drills down to reviewing and
