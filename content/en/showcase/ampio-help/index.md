@@ -22,66 +22,68 @@ Over and above that, we could not overlook the fact that our internal team of ed
 maintainers of the Knowledge Base included non-programmers who had to be able to create contents and
 navigate the architecture of the site just as well as those adept at coding.
 
-We have started our journey with the following requirements:
+We started our journey with the following requirements:
 
  - ease of contribution,
  - efficient search capabilities,
  - possibility of deployment to simple shared hosting,
- - proper support for multilinguality.
+ - proper support for multilingualism.
 
 ## Dark ages of WordPress
 
-Given that, first revision of the service was built upon WordPress with commercial knowledge base
-plugin. The initial requirements seemed not to be exorbitant, yet we were surprised to see, how
-little of the available solutions covered them all. Especially, the case of multilinguality seems to
-be particularly neglected across the products.
+With the above-mentioned in mind, we built our first revision of the service in WordPress 
+with commercial knowledge base plugin. The initial requirements seemed not to be exorbitant,
+yet we were surprised to see, how few of the available solutions covered them all. 
+Especially, the case of multilingualism turned out to be particularly neglected across the products.
 
-The wordpress based products made big promises - pay some bucks, bootstrap the service in minutes,
-and forget about all the developement troubles. And those promises might even be true, but only for
-most generic deployments. In our case we were dealing with more and more trade-offs. And the
-solution was just slow on the simple shared hosting environment we have dedicated for the job.
+The WordPress-based products made big promises - pay some bucks, bootstrap the service in minutes,
+and forget about all the developement troubles. And those promises might even be delivered on, but only for 
+the most generic deployments. In our case, we were dealing with more and more trade-offs. Plus, the
+solution was just slow on the simple shared hosting environment that we dedicated for the job.
 
 ## Turning point
 
-The turning point was the introduction of a new requirement - each document was to be downloadable
-in a PDF format. Such functionality was not available in the plugins we owned nor in any other
-plugin fulfilling ours other needs. Nobody in our team was brave enough to add such functionality to
+The turning point was the introduction of a new key requirement - each document was to be downloadable
+in a PDF format. Such functionality was not available in the plugins we owned, nor did it look like any of 
+the other existing WordPress plugins could fulfill our needs to a satisfactory degree. 
+Nobody in our team was brave enough to add such a functionality to
 the current stack, so we decided to start from scratch.
 
-One of the key requirements was related to the fact, that mostly non-programmers was to be
-responsible of service maintenance and content creation. Initially we were roaming in the direction
-of headless CMS based solutions, but finally we made a bold move and decided to create git managed
-jamstack service and see what will happen.
+On top of that new development, we had to remember another one of our key requirements, namely,
+that mostly non-programmers were to be responsible for the service maintenance and content creation.
+Initially, we were leaning towards headless CMS-based solutions, 
+but finally we made a bold move and decided to create a git managed jamstack service and see what happens.
 
 ## Hugo to the rescue!
 
-Hugo was our first choice of SSG. The multilinguality support was the primary feature that convinced
-us. Later on, going through the documentation we were discovering new exciting features, that we
-didn't know we needed at the begining.
+Hugo was our first choice of SSG. The multilingualism support was the primary feature that convinced
+us. Later on, going through the documentation, we kept on discovering new exciting features that we
+didn't even know we needed at the begining.
 
-The rich functionalities of wordpress WYSIWYG editors quickly turned out to be a curse. Quickly it
-became hard to maintain formatting consistency across documents prepared by multiple contributors.
-Markdown gives a lot less flexibility, but the constraints imposed by the notation ensure that each
-document will be prepared in consistent way. And in the cases where Markdown was not enough, hugo
-shortcodes gave us all what we needed to get the results we needed.
+The rich functionalities of WordPress WYSIWYG editors soon turned out to be a curse. It became 
+burdensom to maintain formatting consistency across documents prepared by multiple contributors. 
+When we considered Markdown, we knew that it gives a lot less flexibility, 
+but that proved to be a blessing in disguise - the constraints imposed by the notation ensured that each
+document will be prepared in the same way. And in the cases where Markdown was not enough, hugo
+shortcodes gave us all that we needed to get the results we anticipated.
 
-For the PDF generation, we utilized [custom output formats](https://gohugo.io/templates/output-formats/)
-to produce intermediary documents representation, which is then consumed by our custom tool
-transforming them to TeX documents, which are finally used to produce PDF output.
+In terms of PDF generation, we utilised [custom output formats](https://gohugo.io/templates/output-formats/)
+to produce an intermediary document representations, which are consumed by our custom tool
+transforming them to TeX documents, which are finally used to produce a PDF output.
 
-Custom output formats are also used to create search index. The search functionality is build upon
-brilliant TNTSearch library. The search queries and results are handled by PHP snippets embedded
+Custom output formats were also used to create search indexes. The search functionality is built on
+the brilliant TNTSearch library. The search queries and results are handled by PHP snippets embedded
 into static documents handled by hugo.
 
-We have even implemented a simple REST API generated by hugo! Up until now, we have not come up with
-a thing that could not be done with this stack. While in WordPress based solutions we were
-struggling with things as simple as defining custom documents ordering in one of taxonomies lists
-views.
+We even implemented a simple REST API generated by hugo! We are yet to come up with
+a thing that cannot be achieved with this stack, while in WordPress-based solutions we were
+struggling with things as simple as defining custom document ordering in one of taxonomies list
+views...
 
 Speaking of hugo, we cannot forget about the speed. At the beginning we were not considering it a
-killer feature, but as our documents base grow, we appreciate it more and more. Dry-runs are not so
-common - most of the time we are working on one of the documents with cache already built during the
-previous hugo runs. In such scenario, hugo rebuilds the site in about a second - we consider it a
+killer feature, but as our document base grew, we appreciated it more and more. Dry-runs are not so
+common - most of the time we are working on one of the documents with cache already built during one of the
+previous hugo runs. In such a scenario, hugo rebuilds the site in about a second and we consider it a
 very good result.
 
 ```
@@ -101,22 +103,24 @@ Total in 1096 ms
 
 ## Adaptation among the contributors
 
-Our initial concerns about the adaptation of the workflow among the contributors wer well over the
-top. Markdown as such is fairly straightforward and did not cause any trouble to the contributors.
-The repository tracking the service sources contains Visual Studio Code project scoped configuration
-defining tasks allowing to run live  server from the IDE, which is very useful for ones, that are
-easily becoming frightened when faced by mighty terminal.
+Very quickly it became apparent that our initial concerns about the adaptation of the workflow among 
+the contributors was grossly exaggerated.
+Markdown as such, is fairly straightforward and did not cause any trouble to the contributors.
+<!-- The repository tracking the service sources contains Visual Studio Code project scoped configuration
+defining tasks allowing to run live server from the IDE, which is very useful for ones, that are
+easily becoming frightened when faced by mighty terminal. -->
 
-The basics of git workflow also got adopted easily. And finally, the build and deployment are fully
+The basics skills of git workflow were also easily acquired. At the end of the day, the builds and deployments are fully
 managed by CI/CD processes, so the administration of the service drills down to reviewing and
-accepting of the merge requests in the git frontend. As a side effect we received full and clear
+accepting merge requests in the git frontend. As a side effect, we received full and clear
 history of contributions which is well appreciated by our quality assurance auditors.
 
-We could even say that our experiment have spread the love to git among non-programmers in our
-organization!
+We could even say that our experiment spread the love for git among non-programmers in our
+organisation!
 
 ## Summary
 
-Hugo is the best. Definitely give it a try once faced with a challenge familiar to ours. And don't
-hesitate too much, if the contributors to yours service are not that much technical - it still may
-come out great!
+Hugo is the best!
+Definitely give it a try if you are ever faced with a challenge similar to ours. 
+And do not give it a second thought if your service contributors are not too technically inclined - 
+it might still turn out great!
