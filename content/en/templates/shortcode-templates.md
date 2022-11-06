@@ -100,7 +100,7 @@ most helpful when the condition depends on either of the values, or both:
 
 #### `.Inner`
 
-If a closing shortcode is used, the `.Inner` variable will be populated with all the content between the opening and closing shortcodes. If a closing shortcode is required, you can check the length of `.Inner` as an indicator of its existence.
+If a closing shortcode is used, the `.Inner` variable will be populated with the content between the opening and closing shortcodes. If a closing shortcode is required, you can check the length of `.Inner` as an indicator of its existence.
 
 A shortcode with content declared via the `.Inner` variable can also be declared without the content and without the closing by using the self-closing syntax:
 
