@@ -1,7 +1,7 @@
 ---
 title: split
 # linktitle: split
-description: splits a string into a slice/array by a delimiter
+description: Returns an array of strings by splitting STRING by DELIM.
 date: 2017-02-01
 publishdate: 2017-02-01
 lastmod: 2017-02-01
