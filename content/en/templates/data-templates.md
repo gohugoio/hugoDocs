@@ -36,7 +36,7 @@ If you wish to access the data using the `.Site.Data.filename` notation, the fil
 - `x123.json` - Valid
 - `_123.json` - Valid
 
-If you wish to access the data using the [`index`](/functions/index-function/) function, the first character of the filename is irrelevant. For example:
+If you wish to access the data using the [`index`](/functions/index-function/) function, the filename is irrelevant. For example:
 Date file|Template code
 :--|:--
 `123.json`|`{{ index .Site.Data "123" }}`
