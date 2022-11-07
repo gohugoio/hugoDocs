@@ -34,7 +34,14 @@ If you wish to access the data using the `.Site.Data.filename` notation, the fil
 
 - `123.json` - Invalid
 - `x123.json` - Valid
-- `_2022.json` - Valid
+- `_123.json` - Valid
+
+If you wish to access the data using the [`index`](/functions/index-function/) function, the first character of the filename is irrelevant. For example:
+Date file|Template code
+:--|:--
+`123.json`|`{{ index .Site.Data "123" }}`
+`x123.json`|`{{ index .Site.Data "x123" }}`
+`_123.json`|`{{ index .Site.Data "_123" }}`
 
 ## Data Files in Themes
 
