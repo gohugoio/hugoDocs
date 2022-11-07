@@ -28,7 +28,9 @@ Hugo supports loading data from YAML, JSON, XML, and TOML files located in the `
 
 The `data` folder is where you can store additional data for Hugo to use when generating your site. Data files aren't used to generate standalone pages; rather, they're meant to be supplemental to content files. This feature can extend the content in case your front matter fields grow out of control. Or perhaps you want to show a larger dataset in a template (see example below). In both cases, it's a good idea to outsource the data in their own files.
 
-These files must be YAML, JSON, XML, or TOML files (using the `.yml`, `.yaml`, `.json`, `.xml`, or `.toml` extension). The data will be accessible as a `map` in the `.Site.Data` variable. Additionally, filenames must begin with an underscore or a Unicode letter, followed by zero or more underscores, Unicode letters, or Unicode digits. eg:
+These files must be YAML, JSON, XML, or TOML files (using the `.yml`, `.yaml`, `.json`, `.xml`, or `.toml` extension). The data will be accessible as a `map` in the `.Site.Data` variable. 
+
+If you wish to access the data using the `.Site.Data.filename` notation, the filename must begin with an underscore or a Unicode letter, followed by zero or more underscores, Unicode letters, or Unicode digits. eg:
 
 - `2022.json` - Invalid
 - `data_2022.json` - Valid
