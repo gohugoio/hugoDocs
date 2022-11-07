@@ -32,7 +32,7 @@ These files must be YAML, JSON, XML, or TOML files (using the `.yml`, `.yaml`, `
 
 If you wish to access the data using the `.Site.Data.filename` notation, the filename must begin with an underscore or a Unicode letter, followed by zero or more underscores, Unicode letters, or Unicode digits. eg:
 
-- `2022.json` - Invalid
+- `123.json` - Invalid
 - `data_2022.json` - Valid
 - `_2022.json` - Valid
 
