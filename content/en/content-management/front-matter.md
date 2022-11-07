@@ -36,7 +36,7 @@ JSON
 
 ORG
 : a group of Org mode keywords in the format '`#+KEY: VALUE`'. Any line that does not start with `#+` ends the front matter section.
-  Keyword values can be either strings (`#+KEY: VALUE`) or a whitespace separated list of strings (`#+KEY[]: VALUE_1 VALUE_2`).
+  Keyword values can be a whitespace separated list of strings (`#+KEY[]: VALUE_1 VALUE_2`).
 
 ### Example
 
