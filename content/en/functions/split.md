@@ -18,7 +18,7 @@ deprecated: false
 aliases: []
 ---
 
-* `{{split "tag1,tag2,tag3" "," }}` → ["tag1", "tag2", "tag3"]
+* `{{ split "tag1,tag2,tag3" "," }}` → ["tag1", "tag2", "tag3"]
 
 {{% note %}}
 `split` essentially does the opposite of [delimit]({{< ref "functions/delimit" >}}). While `split` creates a slice from a string, `delimit` creates a string from a slice.
