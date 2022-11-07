@@ -37,7 +37,7 @@ If you wish to access the data using the `.Site.Data.filename` notation, the fil
 - `_123.json` - Valid
 
 If you wish to access the data using the [`index`](/functions/index-function/) function, the filename is irrelevant. For example:
-Date file|Template code
+Data file|Template code
 :--|:--
 `123.json`|`{{ index .Site.Data "123" }}`
 `x123.json`|`{{ index .Site.Data "x123" }}`
