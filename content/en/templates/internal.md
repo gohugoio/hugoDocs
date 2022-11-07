@@ -208,7 +208,7 @@ To add Twitter card metadata, include the following line between the `<head>` ta
 
 ## The Internal Templates
 
-The code for these templates and more can be found here at the [internal templates](https://github.com/gohugoio/hugo/tree/master/tpl/tplimpl/embedded/templates):
+The code for these templates is located [here](https://github.com/gohugoio/hugo/tree/master/tpl/tplimpl/embedded/templates).
 
 * `_internal/disqus.html`
 * `_internal/google_analytics.html`
