@@ -29,5 +29,5 @@ This template code:
 Is rendered to:
 
 ```html
-<a href="https://www.facebook.com/sharer.php?u=https%3A%2F%2Fgohugo.io%2F">Share</a>
+<a href="https://example.org?url=https%3A%2F%2Fexample.com">Link</a>
 ```
