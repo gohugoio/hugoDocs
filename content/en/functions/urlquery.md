@@ -19,7 +19,7 @@ aliases: []
 ---
 
 
-The following examples create a social sharing link for Facebook.
+This template code:
 
 ```go-html-template
 <a href="https://www.facebook.com/sharer.php?u={{ urlquery "https://gohugo.io/" }}">Share</a>
