@@ -1,7 +1,7 @@
 ---
 title: urlquery
 linktitle: urlquery
-description: Takes one or more string inputs and returns a single percent-encoded string which is safe to use inside a URL query.
+description: Returns the escaped value of the textual representation of its arguments in a form suitable for embedding in a URL query.
 date: 2022-01-18
 publishdate: 2022-01-18
 lastmod: 2022-01-18
