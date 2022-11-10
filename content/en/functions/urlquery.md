@@ -26,7 +26,7 @@ This template code:
 <a href="https://example.org?url={{ $u }}">Link</a>
 ```
 
-Both of these examples render the following HTML:
+Is rendered to:
 
 ```html
 <a href="https://www.facebook.com/sharer.php?u=https%3A%2F%2Fgohugo.io%2F">Share</a>
