@@ -24,7 +24,6 @@ This template code:
 ```go-html-template
 {{ $u := urlquery "https://" "example.com" | safeURL }}
 <a href="https://example.org?url={{ $u }}">Link</a>
-<a href="https://www.facebook.com/sharer.php?u={{ urlquery "https://" "go" "hugo" ".io/" }}">Share</a>
 ```
 
 Both of these examples render the following HTML:
