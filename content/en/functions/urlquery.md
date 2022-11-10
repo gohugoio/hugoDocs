@@ -22,7 +22,8 @@ aliases: []
 This template code:
 
 ```go-html-template
-<a href="https://www.facebook.com/sharer.php?u={{ urlquery "https://gohugo.io/" }}">Share</a>
+{{ $u := urlquery "https://" "example.com" | safeURL }}
+<a href="https://example.org?url={{ $u }}">Link</a>
 
 <a href="https://www.facebook.com/sharer.php?u={{ urlquery "https://" "go" "hugo" ".io/" }}">Share</a>
 ```
