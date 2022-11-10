@@ -18,7 +18,6 @@ relatedfuncs: []
 aliases: []
 ---
 
-`urlquery` takes one or more string inputs and returns a single [percent-encoded](https://en.wikipedia.org/wiki/Percent-encoding) string which is safe to use inside a URL query.
 
 The following examples create a social sharing link for Facebook.
 
