@@ -2,7 +2,6 @@
 title: substr
 # linktitle:
 description: Extracts parts of a string from a specified character's position and returns the specified number of characters.
-godocref:
 date: 2017-02-01
 publishdate: 2017-02-01
 lastmod: 2017-02-01
@@ -23,7 +22,7 @@ It normally takes two parameters: `start` and `length`. It can also take one par
 
 To extract characters from the end of the string, use a negative start number.
 
-In addition, borrowing from the extended behavior described at https://php.net substr, if `length` is given and is negative, that number of characters will be omitted from the end of string.
+If `length` is given and is negative, that number of characters will be omitted from the end of string.
 
 ```
 {{ substr "abcdef" 0 }} → "abcdef"

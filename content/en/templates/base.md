@@ -2,10 +2,8 @@
 title: Base Templates and Blocks
 linktitle:
 description: The base and block constructs allow you to define the outer shell of your master templates (i.e., the chrome of the page).
-godocref: https://golang.org/pkg/text/template/#example_Template_block
 date: 2017-02-01
 publishdate: 2017-02-01
-lastmod: 2017-02-01
 categories: [templates,fundamentals]
 keywords: [blocks,base]
 menu:
@@ -25,7 +23,7 @@ The `block` keyword allows you to define the outer shell of your pages' one or m
 
 ## Base Template Lookup Order
 
-{{< new-in "0.63.0" >}} Since Hugo v0.63, the base template lookup order closely follows that of the template it applies to (e.g. `_default/list.html`).
+The base template lookup order closely follows that of the template it applies to (e.g. `_default/list.html`).
 
 See [Template Lookup Order](/templates/lookup-order/) for details and examples.
 
@@ -76,7 +74,7 @@ This replaces the contents of our (basically empty) "main" block with something 
 {{% warning %}}
 Code that you put outside the block definitions *can* break your layout. This even includes HTML comments. For example:
 
-```
+```go-html-template
 <!-- Seemingly harmless HTML comment..that will break your layout at build -->
 {{ define "main" }}
 ...your code here

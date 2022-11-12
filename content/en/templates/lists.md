@@ -1,6 +1,6 @@
 ---
 title: Lists of Content in Hugo
-linktitle: List Page Templates
+linktitle: List Templates
 description: Lists have a specific meaning and usage in Hugo when it comes to rendering your site homepage, section page, taxonomy list, or taxonomy terms list.
 date: 2017-02-01
 publishdate: 2017-02-01
@@ -59,7 +59,7 @@ It is important to note that all `_index.md` content files will render according
 
 The following is an example of a typical Hugo project directory's content:
 
-```
+```txt
 .
 ...
 ├── content
@@ -162,7 +162,7 @@ The default behavior of Hugo is to pluralize list titles; hence the inflection o
 
 ### Section Template
 
-This list template has been modified slightly from a template originally used in [spf13.com](http://spf13.com/). It makes use of [partial templates][partials] for the chrome of the rendered page rather than using a [base template][base]. The examples that follow also use the [content view templates][views] `li.html` or `summary.html`.
+This list template has been modified slightly from a template originally used in [spf13.com](https://spf13.com/). It makes use of [partial templates][partials] for the chrome of the rendered page rather than using a [base template][base]. The examples that follow also use the [content view templates][views] `li.html` or `summary.html`.
 
 {{< code file="layouts/section/posts.html" >}}
 {{ partial "header.html" . }}
@@ -421,6 +421,8 @@ In the above example, you may want `{{.Title}}` to point the `title` field you h
 {{ end }}
 {{< /code >}}
 
+{{< new-in "0.97.0" >}} `GroupByDate` accepts the same time layouts as in [time.Format](/functions/dateformat/) and The `.Key` in the result will be localized for the current language.
+
 ### By Publish Date
 
 {{< code file="layouts/partials/by-page-publish-date.html" >}}
@@ -438,6 +440,7 @@ In the above example, you may want `{{.Title}}` to point the `title` field you h
 {{ end }}
 {{< /code >}}
 
+{{< new-in "0.97.0" >}} `GroupByDate` accepts the same time layouts as in [time.Format](/functions/dateformat/) and The `.Key` in the result will be localized for the current language.
 
 ### By Lastmod
 
@@ -456,6 +459,8 @@ In the above example, you may want `{{.Title}}` to point the `title` field you h
 {{ end }}
 {{< /code >}}
 
+{{< new-in "0.97.0" >}} `GroupByDate` accepts the same time layouts as in [time.Format](/functions/dateformat/) and The `.Key` in the result will be localized for the current language.
+
 ### By Expiry Date
 
 {{< code file="layouts/partials/by-page-expiry-date.html" >}}
@@ -472,6 +477,8 @@ In the above example, you may want `{{.Title}}` to point the `title` field you h
 </ul>
 {{ end }}
 {{< /code >}}
+
+{{< new-in "0.97.0" >}} `GroupByDate` accepts the same time layouts as in [time.Format](/functions/dateformat/) and The `.Key` in the result will be localized for the current language.
 
 ### By Page Parameter
 
@@ -517,27 +524,27 @@ While these are logical defaults, they are not always the desired order. There a
 
 #### 1. Adding the Reverse Method
 
-```
+```go-html-template
 {{ range (.Pages.GroupBy "Section").Reverse }}
 ```
 
-```
+```go-html-template
 {{ range (.Pages.GroupByDate "2006-01").Reverse }}
 ```
 
 #### 2. Providing the Alternate Direction
 
-```
+```go-html-template
 {{ range .Pages.GroupByDate "2006-01" "asc" }}
 ```
 
-```
+```go-html-template
 {{ range .Pages.GroupBy "Section" "desc" }}
 ```
 
 ### Order Within Groups
 
-Because Grouping returns a `{{.Key}}` and a slice of pages, all of the ordering methods listed above are available.
+Because Grouping returns a `{{.Key}}` and a slice of pages, all the ordering methods listed above are available.
 
 Here is the ordering for the example that follows:
 

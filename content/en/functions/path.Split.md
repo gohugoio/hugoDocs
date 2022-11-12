@@ -1,7 +1,6 @@
 ---
 title: path.Split
 description: Split path immediately following the final slash.
-godocref:
 date: 2018-11-28
 publishdate: 2018-11-28
 lastmod: 2018-11-28
@@ -13,7 +12,7 @@ keywords: [path, split]
 signature: ["path.Split PATH"]
 workson: []
 hugoversion: "0.39"
-relatedfuncs: [path.Split]
+relatedfuncs: [path.Base, path.BaseName, path.Clean, path.Dir, path.Ext, path.Join]
 deprecated: false
 ---
 

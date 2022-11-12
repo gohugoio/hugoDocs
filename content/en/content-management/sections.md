@@ -73,7 +73,7 @@ With the available [section variables and methods](#section-page-variables-and-m
 {{ else if not .p1.IsHome }}
 {{ template "breadcrumbnav" (dict "p1" .p1.Site.Home "p2" .p2 )  }}
 {{ end }}
-<li{{ if eq .p1 .p2 }} class="active"{{ end }}>
+<li{{ if eq .p1 .p2 }} class="active" aria-current="page" {{ end }}>
   <a href="{{ .p1.Permalink }}">{{ .p1.Title }}</a>
 </li>
 {{ end }}
@@ -87,7 +87,7 @@ Also see [Page Variables](/variables/page/).
 
 ## Content Section Lists
 
-Hugo will automatically create pages for each *root section* that list all of the content in that section. See the documentation on [section templates][] for details on customizing the way these pages are rendered.
+Hugo will automatically create a page for each *root section* that lists all the content in that section. See the documentation on [section templates][] for details on customizing the way these pages are rendered.
 
 ## Content *Section* vs Content *Type*
 

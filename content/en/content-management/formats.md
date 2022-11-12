@@ -4,9 +4,8 @@ linktitle: Content Formats
 description: Both HTML and Markdown are supported content formats.
 date: 2017-01-10
 publishdate: 2017-01-10
-lastmod: 2017-04-06
 categories: [content management]
-keywords: [markdown,asciidoc,mmark,pandoc,content format]
+keywords: [markdown,asciidoc,pandoc,content format]
 menu:
   docs:
     parent: "content-management"
@@ -27,19 +26,16 @@ You can put any file type into your `/content` directories, but Hugo uses the `m
 
 The current list of content formats in Hugo:
 
-| Name  | Markup identifiers | Comment | 
+| Name  | Markup identifiers | Comment |
 | ------------- | ------------- |-------------|
-| Goldmark  | md, markdown, goldmark  |Note that you can set the default handler of `md` and `markdown` to something else, see [Configure Markup](/getting-started/configuration-markup/).{{< new-in "0.60.0" >}} |
-| Blackfriday | blackfriday  |Blackfriday will eventually be deprecated.|
-|MMark|mmark|Mmark is deprecated and will be removed in a future release.|
+| Goldmark  | md, markdown, goldmark  |Note that you can set the default handler of `md` and `markdown` to something else, see [Configure Markup](/getting-started/configuration-markup/).|
 |Emacs Org-Mode|org|See [go-org](https://github.com/niklasfasching/go-org).|
 |AsciiDoc|asciidocext, adoc, ad|Needs [Asciidoctor][ascii] installed.|
-|RST|rst|Needs [RST](http://docutils.sourceforge.net/rst.html) installed.|
+|RST|rst|Needs [RST](https://docutils.sourceforge.io/rst.html) installed.|
 |Pandoc|pandoc, pdc|Needs [Pandoc](https://www.pandoc.org/) installed.|
 |HTML|html, htm|To be treated as a content file, with layout, shortcodes etc., it must have front matter. If not, it will be copied as-is.|
 
 The `markup identifier` is fetched from either the `markup` variable in front matter or from the file extension. For markup-related configuration, see [Configure Markup](/getting-started/configuration-markup/).
-
 
 ## External Helpers
 
@@ -59,13 +55,13 @@ Because additional formats are external commands, generation performance will re
 
 ### External Helper AsciiDoc
 
-[AsciiDoc](https://github.com/asciidoc/asciidoc) implementation EOLs in Jan 2020 and is no longer supported. 
-AsciiDoc development is being continued under [Asciidoctor](https://github.com/asciidoctor). The format AsciiDoc 
+[AsciiDoc](https://github.com/asciidoc/asciidoc) implementation EOLs in Jan 2020 and is no longer supported.
+AsciiDoc development is being continued under [Asciidoctor](https://github.com/asciidoctor). The format AsciiDoc
 remains of course. Please continue with the implementation Asciidoctor.
 
 ### External Helper Asciidoctor
 
-The Asciidoctor community offers a wide set of tools for the AsciiDoc format that can be installed additionally to Hugo. 
+The Asciidoctor community offers a wide set of tools for the AsciiDoc format that can be installed additionally to Hugo.
 [See the Asciidoctor docs for installation instructions](https://asciidoctor.org/docs/install-toolchain/). Make sure that also all
 optional extensions like `asciidoctor-diagram` or `asciidoctor-html5s` are installed if required.
 
@@ -104,7 +100,7 @@ Notice that for security concerns only extensions that do not have path separato
 
 Example of how to set extensions and attributes:
 
-```
+```yml
 [markup.asciidocExt]
     extensions = ["asciidoctor-html5s", "asciidoctor-diagram"]
     workingFolderCurrent = true
@@ -113,10 +109,10 @@ Example of how to set extensions and attributes:
         my-attribute-name = "my value"
 ```
 
-In a complex Asciidoctor environment it is sometimes helpful to debug the exact call to your external helper with all 
+In a complex Asciidoctor environment it is sometimes helpful to debug the exact call to your external helper with all
 parameters. Run Hugo with `-v`. You will get an output like
 
-```
+```txt
 INFO 2019/12/22 09:08:48 Rendering book-as-pdf.adoc with C:\Ruby26-x64\bin\asciidoctor.bat using asciidoc args [--no-header-footer -r asciidoctor-html5s -b html5s -r asciidoctor-diagram --base-dir D:\prototypes\hugo_asciidoc_ddd\docs -a outdir=D:\prototypes\hugo_asciidoc_ddd\build -] ...
 ```
 
@@ -131,9 +127,6 @@ Markdown syntax is simple enough to learn in a single sitting. The following are
 
 [`emojify` function]: /functions/emojify/
 [ascii]: https://asciidoctor.org/
-[bfconfig]: /getting-started/configuration/#configuring-blackfriday-rendering
-[blackfriday]: https://github.com/russross/blackfriday
-[mmark]: https://github.com/miekg/mmark
 [config]: /getting-started/configuration/
 [developer tools]: /tools/
 [emojis]: https://www.webpagefx.com/tools/emoji-cheat-sheet/
@@ -148,11 +141,8 @@ Markdown syntax is simple enough to learn in a single sitting. The following are
 [mdcheatsheet]: https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet
 [mdguide]: https://www.markdownguide.org/
 [mdtutorial]: https://www.markdowntutorial.com/
-[Miek Gieben's website]: https://miek.nl/2016/march/05/mmark-syntax-document/
-[mmark]: https://github.com/mmarkdown/mmark
 [org]: https://orgmode.org/
 [pandoc]: https://www.pandoc.org/
-[Pygments]: https://pygments.org/
 [rest]: https://docutils.sourceforge.io/rst.html
 [sc]: /content-management/shortcodes/
 [sct]: /templates/shortcode-templates/

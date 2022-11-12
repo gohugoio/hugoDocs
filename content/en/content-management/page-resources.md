@@ -45,8 +45,6 @@ content
 ResourceType
 : The main type of the resource's [Media Type](/templates/output-formats/#media-types). For example, a file of MIME type `image/jpeg` has the ResourceType `image`. A `Page` will have `ResourceType` with value `page`.
 
-{{< new-in "0.80.0" >}} Note that we in Hugo `v0.80.0` fixed a bug where non-image resources (e.g. video) would return the MIME sub type, e.g. `json`.
-
 Name
 : Default value is the filename (relative to the owning page). Can be set in front matter.
 
@@ -60,7 +58,22 @@ RelPermalink
 : The relative URL to the resource. Resources of type `page` will have no value.
 
 Content
-: The content of the resource itself. For most resources, this returns a string with the contents of the file. This can be used to inline some resources, such as `<script>{{ (.Resources.GetMatch "myscript.js").Content | safeJS }}</script>` or `<img src="{{ (.Resources.GetMatch "mylogo.png").Content | base64Encode }}">`.
+: The content of the resource itself. For most resources, this returns a string
+with the contents of the file. Use this to create inline resources.
+
+```go-html-template
+{{ with .Resources.GetMatch "script.js" }}
+  <script>{{ .Content | safeJS }}</script>
+{{ end }}
+
+{{ with .Resources.GetMatch "style.css" }}
+  <style>{{ .Content | safeCSS }}</style>
+{{ end }}
+
+{{ with .Resources.GetMatch "img.png" }}
+  <img src="data:{{ .MediaType }};base64,{{ .Content | base64Encode }}">
+{{ end }}
+```
 
 MediaType
 : The MIME type of the resource, such as `image/jpeg`.
@@ -75,16 +88,17 @@ MediaType.Suffixes
 : A slice of possible suffixes for the resource's MIME type.
 
 ## Methods
+
 ByType
 : Returns the page resources of the given type.
 
-```go
+```go-html-template
 {{ .Resources.ByType "image" }}
 ```
 Match
 : Returns all the page resources (as a slice) whose `Name` matches the given Glob pattern ([examples](https://github.com/gobwas/glob/blob/master/readme.md)). The matching is case-insensitive.
 
-```go
+```go-html-template
 {{ .Resources.Match "images/*" }}
 ```
 
@@ -92,6 +106,7 @@ GetMatch
 : Same as `Match` but will return the first match.
 
 ### Pattern Matching
+
 ```go
 // Using Match/GetMatch to find this images/sunset.jpg ?
 .Resources.Match "images/sun*" ✅
@@ -116,7 +131,7 @@ name
 : Sets the value returned in `Name`.
 
 {{% warning %}}
-The methods `Match` and `GetMatch` use `Name` to match the resources.
+The methods `Match`, `Get` and `GetMatch` use `Name` to match the resources.
 {{%/ warning %}}
 
 title
@@ -125,8 +140,7 @@ title
 params
 : A map of custom key/values.
 
-
-###  Resources metadata example
+### Resources metadata example
 
 {{< code-toggle copy="false">}}
 title: Application

@@ -10,7 +10,6 @@ menu:
   docs:
     parent: "functions"
 keywords: [urls,strings]
-godocref:
 signature: ["urlize INPUT"]
 hugoversion:
 deprecated: false
@@ -68,7 +67,5 @@ The preceding partial would then output to the rendered page as follows, assumin
     </ul>
 </header>
 {{< /output >}}
-
-
 
 [singletemplate]: /templates/single-page-templates/

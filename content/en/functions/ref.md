@@ -2,7 +2,6 @@
 title: ref
 linktitle: ref
 description: Returns the absolute permalink to a page.
-godocref:
 date: 2017-02-01
 publishdate: 2017-02-01
 lastmod: 2020-09-05
@@ -46,6 +45,6 @@ To return the absolute permalink to another Output Format of a page:
 {{ ref . (dict "path" "about.md" "outputFormat" "rss") }}
 ```
 
-Hugo emits an error or warning if the page cannot be uniquely resolved. The error behavior is configurable; see [Ref and RelRef Configuration](/content-management/cross-references/#ref-and-relref-configuration). 
+Hugo emits an error or warning if the page cannot be uniquely resolved. The error behavior is configurable; see [Ref and RelRef Configuration](/content-management/cross-references/#ref-and-relref-configuration).
 
 This function is used by Hugo's built-in [`ref`](/content-management/shortcodes/#ref-and-relref) shortcode. For a detailed explanation of how to leverage this shortcode for content management, see [Links and Cross References](/content-management/cross-references/).

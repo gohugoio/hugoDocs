@@ -54,32 +54,31 @@ toc: true
 * Support for [Go][] HTML templates
 * [Syntax highlighting][] powered by [Chroma][]
 
-
 [aliases]: /content-management/urls/#aliases
 [Chroma]: https://github.com/alecthomas/chroma
 [content summaries]: /content-management/summaries/
 [content types]: /content-management/types/
 [Disqus]: https://disqus.com/
-[Dynamic menu]: /templates/menus/
+[Dynamic menu]: /templates/menu-templates/
 [Extremely fast]: https://github.com/bep/hugo-benchmark
 [front matter]: /content-management/front-matter/
 [functions]: /functions/
-[Go]: https://golang.org/pkg/html/template/
+[Go]: https://pkg.go.dev/html/template
 [Google Analytics]: https://google-analytics.com/
 [homepage]: /templates/homepage/
 [hostanywhere]: /hosting-and-deployment/
-[install]: /getting-started/installing/
+[install]: /installation/
 [LiveReload]: /getting-started/usage/
 [organization for your projects]: /getting-started/directory-structure/
 [pagevars]: /variables/page/
 [Permalink]: /content-management/urls/#permalinks
-[Powerful theming]: /themes/
+[Powerful theming]: /hugo-modules/theme-components/
 [Pretty URLs]: /content-management/urls/
 [RSS]: /templates/rss/
 [Shortcodes]: /content-management/shortcodes/
 [sort content]: /templates/
 [supported formats]: /content-management/formats/
-[Syntax highlighting]: /tools/syntax-highlighting/
+[Syntax highlighting]: /content-management/syntax-highlighting/
 [table of contents]: /content-management/toc/
 [taxonomies]: /content-management/taxonomies/
 [URLs]: /content-management/urls/

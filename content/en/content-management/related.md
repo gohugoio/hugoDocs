@@ -14,11 +14,9 @@ aliases: [/content/related/,/related/]
 toc: true
 ---
 
-
 Hugo uses a set of factors to identify a page's related content based on Front Matter parameters. This can be tuned to the desired set of indices and parameters or left to Hugo's default [Related Content configuration](#configure-related-content).
 
 ## List Related Content
-
 
 To list up to 5 related pages (which share the same _date_ or _keyword_ parameters) is as simple as including something similar to this partial in your single page template:
 
@@ -27,9 +25,9 @@ To list up to 5 related pages (which share the same _date_ or _keyword_ paramete
 {{ with $related }}
 <h3>See Also</h3>
 <ul>
-	{{ range . }}
-	<li><a href="{{ .RelPermalink }}">{{ .Title }}</a></li>
-	{{ end }}
+ {{ range . }}
+ <li><a href="{{ .RelPermalink }}">{{ .Title }}</a></li>
+ {{ end }}
 </ul>
 {{ end }}
 {{< /code >}}
@@ -39,26 +37,29 @@ To list up to 5 related pages (which share the same _date_ or _keyword_ paramete
 Here is the list of "Related" methods available on a page collection such `.RegularPages`.
 
 #### .Related PAGE
+
 Returns a collection of pages related the given one.
 
-```
-{{ $related := .Site.RegularPages.Related . }}
+```go-html-template
+{{ $related := site.RegularPages.Related . }}
 ```
 
 #### .RelatedIndices PAGE INDICE1 [INDICE2 ...]
+
 Returns a collection of pages related to a given one restricted to a list of indices.
 
-```
-{{ $related := .Site.RegularPages.RelatedIndices . "tags" "date" }}
+```go-html-template
+{{ $related := site.RegularPages.RelatedIndices . "tags" "date" }}
 ```
 
 #### .RelatedTo KEYVALS [KEYVALS2 ...]
+
 Returns a collection of pages related together by a set of indices and their match.
 
 In order to build those set and pass them as argument, one must use the `keyVals` function where the first argument would be the `indice` and the consecutive ones its potential `matches`.
 
-```
-{{ $related := .Site.RegularPages.RelatedTo ( keyVals "tags" "hugo" "rocks")  ( keyVals "date" .Date ) }}
+```go-html-template
+{{ $related := site.RegularPages.RelatedTo ( keyVals "tags" "hugo" "rocks")  ( keyVals "date" .Date ) }}
 ```
 
 {{% note %}}
@@ -66,6 +67,7 @@ Read [this blog article](https://regisphilibert.com/blog/2018/04/hugo-optmized-r
 {{% /note %}}
 
 ## Configure Related Content
+
 Hugo provides a sensible default configuration of Related Content, but you can fine-tune this in your configuration, on the global or language level if needed.
 
 ### Default configuration
@@ -123,7 +125,7 @@ toLower
 
 This feature has been in the back log and requested by many for a long time. The development got this recent kick start from this Twitter thread:
 
-{{< tweet 898398437527363585 >}}
+{{< tweet user="scott_lowe" id="898398437527363585" >}}
 
 Scott S. Lowe removed the "Related Content" section built using the `intersect` template function on tags, and the build time dropped from 30 seconds to less than 2 seconds on his 1700 content page sized blog.
 

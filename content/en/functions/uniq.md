@@ -2,7 +2,6 @@
 title: uniq
 linktitle: uniq
 description: Takes in a slice or array and returns a slice with subsequent duplicate elements removed.
-godocref:
 date: 2017-02-01
 publishdate: 2017-02-01
 lastmod: 2017-02-01
@@ -17,7 +16,6 @@ hugoversion:
 relatedfuncs: []
 deprecated: false
 aliases: []
-needsexamples: false
 ---
 
 ```
@@ -25,7 +23,3 @@ needsexamples: false
 {{ slice 1 2 3 2 | uniq }}
 <!-- both return [1 2 3] -->
 ```
-
-
-
-

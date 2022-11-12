@@ -4,10 +4,8 @@ linktitle: Shortcode Variables
 description: Shortcodes can access page variables and also have their own specific built-in variables.
 date: 2017-03-12
 publishdate: 2017-03-12
-lastmod: 2017-03-12
 categories: [variables and params]
 keywords: [shortcodes]
-draft: false
 menu:
   docs:
     parent: "variables"
@@ -26,14 +24,14 @@ toc: false
 .Ordinal
 : Zero-based ordinal in relation to its parent. If the parent is the page itself, this ordinal will represent the position of this shortcode in the page content.
 
+.Page
+: The owning ´Page`.
+
 .Parent
 : provides access to the parent shortcode context in nested shortcodes. This can be very useful for inheritance of common shortcode parameters from the root.
 
 .Position
 : Contains [filename and position](https://godoc.org/github.com/gohugoio/hugo/common/text#Position) for the shortcode in a page. Note that this can be relatively expensive to calculate, and is meant for error reporting. See [Error Handling in Shortcodes](/templates/shortcode-templates/#error-handling-in-shortcodes).
-
-
-
 
 .IsNamedParams
 : boolean that returns `true` when the shortcode in question uses [named rather than positional parameters][shortcodes]
@@ -45,4 +43,5 @@ toc: false
 [markdownshortcode]: /content-management/shortcodes/#shortcodes-with-markdown
 [shortcodes]: /templates/shortcode-templates/
 
-
+.InnerDeindent {{< new-in "0.100.0" >}}
+: Gets the `.Inner` with any indentation removed. This is what's used in the built-in `{{</* highlight */>}}` shortcode.

@@ -2,7 +2,6 @@
 title: intersect
 linktitle: intersect
 description: Returns the common elements of two arrays or slices, in the same order as the first array.
-godocref:
 date: 2017-02-01
 publishdate: 2017-02-01
 lastmod: 2017-02-01
@@ -18,7 +17,7 @@ relatedfuncs: []
 deprecated: false
 aliases: []
 ---
-An useful example is to use it as `AND` filters when combined with where:
+A useful example is to use it as `AND` filters when combined with where:
 
 ## AND filter in where query
 

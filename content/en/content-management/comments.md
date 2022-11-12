@@ -4,7 +4,6 @@ linktitle: Comments
 description: Hugo ships with an internal Disqus template, but this isn't the only commenting system that will work with your new Hugo website.
 date: 2017-02-01
 publishdate: 2017-02-01
-lastmod: 2017-03-09
 keywords: [sections,content,organization]
 categories: [project organization, fundamentals]
 menu:
@@ -12,7 +11,6 @@ menu:
     parent: "content-management"
     weight: 140
 weight: 140	#rem
-draft: false
 aliases: [/extras/comments/]
 toc: true
 ---
@@ -30,7 +28,7 @@ Hugo comes with all the code you need to load Disqus into your templates. Before
 Disqus comments require you set a single value in your [site's configuration file][configuration] like so:
 
 {{< code-toggle copy="false" >}}
-disqusShortname = "yourdiscussshortname"
+disqusShortname = "yourDisqusShortname"
 {{</ code-toggle >}}
 
 For many websites, this is enough configuration. However, you also have the option to set the following in the [front matter][] of a single content file:
@@ -43,33 +41,32 @@ For many websites, this is enough configuration. However, you also have the opti
 
 Disqus has its own [internal template](https://gohugo.io/templates/internal/#disqus) available, to render it add the following code where you want comments to appear:
 
-```
+```go-html-template
 {{ template "_internal/disqus.html" . }}
 ```
 
-## Comments Alternatives
+## Alternatives
 
-There are a few alternatives to commenting on static sites for those who do not want to use Disqus:
+These are some alternatives to Disqus:
 
-* [Staticman](https://staticman.net/)
-* [Talkyard](https://www.talkyard.io/blog-comments) (Open source, & serverless hosting)
-* [IntenseDebate](https://intensedebate.com/)
-* [Graph Comment][]
-* [Muut](https://muut.com/)
-* [Isso](https://posativ.org/isso/) (Self-hosted, Python)
-    * [Tutorial on Implementing Isso with Hugo][issotutorial]
-* [Utterances](https://utteranc.es/) (Open source, GitHub comments widget built on GitHub issues)
-* [Remark](https://github.com/umputun/remark) (Open source, Golang, Easy to run docker)
+* [Cactus Comments](https://cactus.chat/docs/integrations/hugo/) (Open Source, Matrix appservice, Docker install)
 * [Commento](https://commento.io/) (Open Source, available as a service, local install, or docker image)
+* [Graph Comment](https://graphcomment.com/)
 * [Hyvor Talk](https://talk.hyvor.com/) (Available as a service)
-
+* [IntenseDebate](https://intensedebate.com/)
+* [Isso](https://isso-comments.de/) (Self-hosted, Python) ([tutorial][issotutorial])
+* [Muut](https://muut.com/)
+* [Remark42](https://remark42.com/) (Open source, Golang, Easy to run docker)
+* [ReplyBox](https://getreplybox.com/)
+* [Staticman](https://staticman.net/)
+* [Talkyard](https://blog-comments.talkyard.io/) (Open source, & serverless hosting)
+* [Utterances](https://utteranc.es/) (Open source, GitHub comments widget built on GitHub issues)
 
 [configuration]: /getting-started/configuration/
-[disquspartial]: /templates/partials/#disqus
+[disquspartial]: /templates/internal/#disqus
 [disqussetup]: https://disqus.com/profile/signup/
 [forum]: https://discourse.gohugo.io
 [front matter]: /content-management/front-matter/
-[Graph Comment]: https://graphcomment.com/
 [kaijuissue]: https://github.com/spf13/kaiju/issues/new
 [issotutorial]: https://stiobhart.net/2017-02-24-isso-comments/
 [partials]: /templates/partials/

@@ -6,7 +6,7 @@ categories: [functions]
 menu:
   docs:
     parent: "functions"
-keywords: [collections,intersect,union, complement]
+keywords: [collections,intersect,union,complement]
 signature: ["COLLECTION | symdiff COLLECTION" ]
 hugoversion: "0.51"
 aliases: []
@@ -21,8 +21,3 @@ Example:
 The above will print `[1 2 4]`.
 
 Also see https://en.wikipedia.org/wiki/Symmetric_difference
-
-
-
-
-

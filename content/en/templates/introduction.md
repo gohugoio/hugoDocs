@@ -1,11 +1,10 @@
 ---
 title: Introduction to Hugo Templating
-linktitle: Introduction
+linktitle: Templating
 description: Hugo uses Go's `html/template` and `text/template` libraries as the basis for the templating.
-godocref: https://golang.org/pkg/html/template/
 date: 2017-02-01
 publishdate: 2017-02-01
-lastmod: 2017-02-25
+lastmod: 2022-09-20
 categories: [templates,fundamentals]
 keywords: [go]
 menu:
@@ -44,7 +43,7 @@ current scope (like the `.Title` example in the [Variables]({{< relref
 
 Parameters for functions are separated using spaces. The general syntax is:
 
-```
+```go-html-template
 {{ FUNCTION ARG1 ARG2 .. }}
 ```
 
@@ -71,8 +70,8 @@ Accessing the Page Parameter `bar` defined in a piece of content's [front matter
 #### A Single Statement Can be Split over Multiple Lines
 
 ```go-html-template
-{{ if or 
-  (isset .Params "alt") 
+{{ if or
+  (isset .Params "alt")
   (isset .Params "caption")
 }}
 ```
@@ -109,18 +108,7 @@ The custom variables need to be prefixed with `$`.
 {{ $address }}
 ```
 
-{{% warning %}}
-For Hugo v0.47 and older versions, variables defined inside `if`
-conditionals and similar are not visible on the outside.
-See [https://github.com/golang/go/issues/10608](https://github.com/golang/go/issues/10608).
-
-Hugo has created a workaround for this issue in [Scratch](/functions/scratch).
-{{% /warning %}}
-
-For **Hugo v0.48** and newer, variables can be re-defined using the
-new `=` operator (new in Go 1.11).
-
-Below example will work only in these newer Hugo versions. The example
+Variables can be re-defined using the `=` operator. The example below
 prints "Var is Hugo Home" on the home page, and "Var is Hugo Page" on
 all other pages:
 
@@ -152,7 +140,7 @@ Go Templates only ship with a few basic functions but also provide a mechanism f
 <!-- prints true (i.e., since 1 is less than 2) -->
 ```
 
-Note that both examples make use of Go Template's [math functions][].
+Note that both examples make use of Go Template's [math][math] functions.
 
 {{% note "Additional Boolean Operators" %}}
 There are more boolean operators than those listed in the Hugo docs in the [Go Template documentation](https://golang.org/pkg/text/template/#hdr-Functions).
@@ -172,7 +160,7 @@ within Hugo.
 
 ### Partial
 
-The [`partial`][partials] function is used to include *partial* templates using
+The [`partial`][partials] function is used to include _partial_ templates using
 the syntax `{{ partial "<PATH>/<PARTIAL>.<EXTENSION>" . }}`.
 
 Example of including a `layouts/partials/header.html` partial:
@@ -183,9 +171,9 @@ Example of including a `layouts/partials/header.html` partial:
 
 ### Template
 
-The `template` function was used to include *partial* templates
+The `template` function was used to include _partial_ templates
 in much older Hugo versions. Now it's useful only for calling
-[*internal* templates][internal_templates]. The syntax is `{{ template
+[_internal_ templates][internal templates]. The syntax is `{{ template
 "_internal/<TEMPLATE>.<EXTENSION>" . }}`.
 
 {{% note %}}
@@ -247,7 +235,7 @@ key.
 {{ end }}
 ```
 
-#### Example 5: Conditional on empty _map_, _array_, or _slice_.
+#### Example 5: Conditional on empty _map_, _array_, or _slice_
 
 If the _map_, _array_, or _slice_ passed into the range is zero-length then the else statement is evaluated.
 
@@ -306,7 +294,7 @@ See the [`.Param` function][param].
 #### Example 3: `if`
 
 An alternative (and a more verbose) way of writing `with` is using
-`if`. Here, the `.` does not get rebinded.
+`if`. Here, the `.` does not get rebound.
 
 Below example is "Example 1" rewritten using `if`:
 
@@ -395,22 +383,6 @@ Stuff Here
 {{ end }}
 ```
 
-### Example 4: Internet Explorer Conditional Comments {#ie-conditional-comments}
-
-By default, Go Templates remove HTML comments from output. This has the unfortunate side effect of removing Internet Explorer conditional comments. As a workaround, use something like this:
-
-```go-html-template
-{{ "<!--[if lt IE 9]>" | safeHTML }}
-  <script src="html5shiv.js"></script>
-{{ "<![endif]-->" | safeHTML }}
-```
-
-Alternatively, you can use the backtick (`` ` ``) to quote the IE conditional comments, avoiding the tedious task of escaping every double quotes (`"`) inside, as demonstrated in the [examples](https://golang.org/pkg/text/template/#hdr-Examples) in the Go text/template documentation:
-
-```go-html-template
-{{ `<!--[if lt IE 7]><html class="no-js lt-ie9 lt-ie8 lt-ie7"><![endif]-->` | safeHTML }}
-```
-
 ## Context (aka "the dot") {#the-dot}
 
 The most easily overlooked concept to understand about Go Templates is
@@ -418,7 +390,7 @@ that `{{ . }}` always refers to the **current context**.
 
 - In the top level of your template, this will be the data set made
   available to it.
-- Inside of an iteration, however, it will have the value of the
+- Inside an iteration, however, it will have the value of the
   current item in the loop; i.e., `{{ . }}` will no longer refer to
   the data available to the entire page.
 
@@ -443,7 +415,7 @@ The following shows how to define a variable independent of the context.
 {{< /code >}}
 
 {{% note %}}
-Notice how once we have entered the loop (i.e. `range`), the value of `{{ . }}` has changed. We have defined a variable outside of the loop (`{{$title}}`) that we've assigned a value so that we have access to the value from within the loop as well.
+Notice how once we have entered the loop (i.e. `range`), the value of `{{ . }}` has changed. We have defined a variable outside the loop (`{{$title}}`) that we've assigned a value so that we have access to the value from within the loop as well.
 {{% /note %}}
 
 ### 2. Use `$.` to Access the Global Context
@@ -524,7 +496,7 @@ Will render `Bonsoir, Eliott.`, and not care about the syntax error (`add 0 + 2`
 
 ### HTML comments
 
-If you need to produce HTML comments from your templates, take a look at the [Internet Explorer conditional comments](#ie-conditional-comments) example. If you need variables to construct such HTML comments, just pipe `printf` to `safeHTML`. For example:
+If you need to produce HTML comments from your templates, take a look at the [Internet Explorer conditional comments]({{< relref "introduction.md#ie-conditional-comments" >}}) example. If you need variables to construct such HTML comments, just pipe `printf` to `safeHTML`. For example:
 
 ```go-html-template
 {{ printf "<!-- Our website is named: %s -->" .Site.Title | safeHTML }}
@@ -557,7 +529,7 @@ An example of this is used in the Hugo docs. Most of the pages benefit from havi
 
 Here is the example front matter (YAML):
 
-```
+```yml
 ---
 title: Roadmap
 lastmod: 2017-03-05
@@ -631,48 +603,69 @@ Finally, you can pull "magic constants" out of your layouts as well. The followi
 </nav>
 ```
 
-## Example: Show Only Upcoming Events
+## Example: Show Future Events
 
-Go allows you to do more than what's shown here. Using Hugo's [`where` function][where] and Go built-ins, we can list only the items from `content/events/` whose date (set in a content file's [front matter][]) is in the future. The following is an example [partial template][partials]:
+Given the following content structure and [front matter]:
 
-{{< code file="layouts/partials/upcoming-events.html" download="upcoming-events.html" >}}
-<h4>Upcoming Events</h4>
-<ul class="upcoming-events">
-{{ range where .Pages.ByDate "Section" "events" }}
-    {{ if ge .Date.Unix now.Unix }}
-        <li>
-        <!-- add span for event type -->
-          <span>{{ .Type | title }} —</span>
-          {{ .Title }} on
-        <!-- add span for event date -->
-          <span>{{ .Date.Format "2 January at 3:04pm" }}</span>
-          at {{ .Params.place }}
-        </li>
+```text
+content/
+└── events/
+    ├── event-1.md
+    ├── event-2.md
+    └── event-3.md
+```
+
+{{< code-toggle file="content/events/event-1.md" copy="false" >}}
+title = 'Event 1'
+date = 2021-12-06T10:37:16-08:00
+draft = false
+start_date = 2021-12-05T09:00:00-08:00
+end_date = 2021-12-05T11:00:00-08:00
+{{< /code-toggle >}}
+
+This [partial template][partials] renders future events:
+
+{{< code file="layouts/partials/future-events.html" >}}
+<h2>Future Events</h2>
+<ul>
+  {{ range where site.RegularPages "Type" "events" }}
+    {{ if gt (.Params.start_date | time.AsTime) now }}
+      {{ $startDate := .Params.start_date | time.Format ":date_medium" }}
+      <li>
+        <a href="{{ .RelPermalink }}">{{ .LinkTitle }}</a> - {{ $startDate }}
+      </li>
     {{ end }}
-{{ end }}
+  {{ end }}
 </ul>
 {{< /code >}}
 
+If you restrict front matter to the TOML format, and omit quotation marks surrounding date fields, you can perform date comparisons without casting.
 
-[`where` function]: /functions/where/
-[config]: /getting-started/configuration/
+{{< code file="layouts/partials/future-events.html" >}}
+<h2>Future Events</h2>
+<ul>
+  {{ range where (where site.RegularPages "Type" "events") "Params.start_date" "gt" now }}
+    {{ $startDate := .Params.start_date | time.Format ":date_medium" }}
+    <li>
+      <a href="{{ .RelPermalink }}">{{ .LinkTitle }}</a> - {{ $startDate }}
+    </li>
+  {{ end }}
+</ul>
+{{< /code >}}
+
+[config]: {{< relref "getting-started/configuration" >}}
 [dotdoc]: https://golang.org/pkg/text/template/#hdr-Variables
-[first]: /functions/first/
-[front matter]: /content-management/front-matter/
-[functions]: /functions/ "See the full list of Hugo's templating functions with a quick start reference guide and basic and advanced examples."
-[Go html/template]: https://golang.org/pkg/html/template/ "Godocs references for Go's html templating"
-[gohtmltemplate]: https://golang.org/pkg/html/template/ "Godocs references for Go's html templating"
-[index]: /functions/index-function/
-[math functions]: /functions/math/
-[partials]: /templates/partials/ "Link to the partial templates page inside of the templating section of the Hugo docs"
-[internal_templates]: /templates/internal/
-[relpermalink]: /variables/page/
-[safehtml]: /functions/safehtml/
-[sitevars]: /variables/site/
-[pagevars]: /variables/page/
-[variables]: /variables/ "See the full extent of page-, site-, and other variables that Hugo make available to you in your templates."
-[where]: /functions/where/
-[with]: /functions/with/
-[godocsindex]: https://golang.org/pkg/text/template/ "Godocs page for index function"
-[param]: /functions/param/
-[isset]: /functions/isset/
+[first]: {{< relref "functions/first" >}}
+[front matter]: {{< relref "content-management/front-matter" >}}
+[functions]: {{< relref "functions" >}}
+[internal templates]: {{< relref "templates/internal" >}}
+[isset]: {{< relref "functions/isset" >}}
+[math]: {{< relref "functions/math" >}}
+[pagevars]: {{< relref "variables/page" >}}
+[param]: {{< relref "functions/param" >}}
+[partials]: {{< relref "templates/partials" >}}
+[relpermalink]: {{< relref "variables/page#page-variables" >}}
+[safehtml]: {{< relref "functions/safehtml" >}}
+[sitevars]: {{< relref "variables/site" >}}
+[variables]: {{< relref "variables" >}}
+[with]: {{< relref "functions/with" >}}

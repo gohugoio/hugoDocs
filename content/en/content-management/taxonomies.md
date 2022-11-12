@@ -49,7 +49,7 @@ Then, in each of the movies, you would specify terms for each of these taxonomie
 
 To continue with the example of a movie site, the following demonstrates content relationships from the perspective of the taxonomy:
 
-```
+```txt
 Actor                    <- Taxonomy
     Bruce Willis         <- Term
         The Sixth Sense  <- Value
@@ -63,7 +63,7 @@ Actor                    <- Taxonomy
 
 From the perspective of the content, the relationships would appear differently, although the data and labels used are the same:
 
-```
+```txt
 Unbreakable                 <- Value
     Actors                  <- Taxonomy
         Bruce Willis        <- Term
@@ -84,7 +84,7 @@ Moonrise Kingdom            <- Value
 
 Hugo natively supports taxonomies.
 
-Without adding a single line to your [site config][config] file, Hugo will automatically create taxonomies for `tags` and `categories`. That would be the same as manually [configuring your taxonomies](#configuring-taxonomies) as below:
+Without adding a single line to your [site config][config] file, Hugo will automatically create taxonomies for `tags` and `categories`. That would be the same as manually [configuring your taxonomies](#configure-taxonomies) as below:
 
 {{< code-toggle copy="false" >}}
 [taxonomies]
@@ -98,8 +98,6 @@ If you do not want Hugo to create any taxonomies, set `disableKinds` in your [si
 disableKinds = ["taxonomy","term"]
 {{</ code-toggle >}}
 
-{{< new-in "0.73.0" >}} We have fixed the before confusing page kinds used for taxonomies (see the listing below) to be in line with the terms used when we talk about taxonomies. We have been careful to avoid site breakage, and you should get an ERROR in the console if you need to adjust your `disableKinds` section.
-
 {{% page-kinds %}}
 
 ### Default Destinations
@@ -111,7 +109,7 @@ When taxonomies are used---and [taxonomy templates][] are provided---Hugo will a
 
 ## Configure Taxonomies
 
-Custom taxonomies other than the [defaults](#default-taxonomies) must be defined in your [site config][config] before they can be used throughout the site. You need to provide both the plural and singular labels for each taxonomy. For example, `singular key = "plural value"` for TOML and `singular key: "plural value"` for YAML.
+Custom taxonomies other than the [defaults]({{< relref "taxonomies.md#default-taxonomies" >}}) must be defined in your [site config][config] before they can be used throughout the site. You need to provide both the plural and singular labels for each taxonomy. For example, `singular key = "plural value"` for TOML and `singular key: "plural value"` for YAML.
 
 ### Example: Adding a custom taxonomy named "series"
 
@@ -135,7 +133,7 @@ If you want to have just the default `tags` taxonomy, and remove the `categories
   tag = "tags"
 {{</ code-toggle >}}
 
-If you want to disable all taxonomies altogether, see the use of `disableKinds` in [Hugo Taxonomy Defaults](#default-taxonomies).
+If you want to disable all taxonomies altogether, see the use of `disableKinds` in [Hugo Taxonomy Defaults]({{< relref "taxonomies.md#default-taxonomies" >}}).
 
 {{% note %}}
 You can add content and front matter to your taxonomy list and taxonomy terms pages. See [Content Organization](/content-management/organization/) for more information on how to add an `_index.md` for this purpose.
@@ -189,12 +187,12 @@ categories_weight = 44
 By using taxonomic weight, the same piece of content can appear in different positions in different taxonomies.
 
 {{% note "Limits to Ordering Taxonomies" %}}
-Currently taxonomies only support the [default `weight => date` ordering of list content](/templates/lists/#default-weight-date). For more information, see the documentation on [taxonomy templates](/templates/taxonomy-templates/).
+Currently taxonomies only support the [default `weight => date` ordering of list content](/templates/lists/#default-weight--date--linktitle--filepath). For more information, see the documentation on [taxonomy templates](/templates/taxonomy-templates/).
 {{% /note %}}
 
 ## Add custom metadata to a Taxonomy or Term
 
-If you need to add custom metadata to your taxonomy terms, you will need to create a page for that term at `/content/<TAXONOMY>/<TERM>/_index.md` and add your metadata in it's front matter. Continuing with our 'Actors' example, let's say you want to add a Wikipedia page link to each actor. Your terms pages would be something like this:
+If you need to add custom metadata to your taxonomy terms, you will need to create a page for that term at `/content/<TAXONOMY>/<TERM>/_index.md` and add your metadata in its front matter. Continuing with our 'Actors' example, let's say you want to add a Wikipedia page link to each actor. Your terms pages would be something like this:
 
 {{< code file="/content/actors/bruce-willis/_index.md" >}}
 ---
@@ -209,7 +207,7 @@ wikipedia: "https://en.wikipedia.org/wiki/Bruce_Willis"
 [content type]: /content-management/types/
 [documentation on archetypes]: /content-management/archetypes/
 [front matter]: /content-management/front-matter/
-[taxonomy list templates]: /templates/taxonomy-templates/#taxonomy-page-templates
+[taxonomy list templates]: /templates/taxonomy-templates/#taxonomy-list-templates
 [taxonomy templates]: /templates/taxonomy-templates/
 [terms within the taxonomy]: /templates/taxonomy-templates/#taxonomy-terms-templates "See how to order terms associated with a taxonomy"
 [config]: /getting-started/configuration/

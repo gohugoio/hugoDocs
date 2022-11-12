@@ -19,17 +19,19 @@ toc: true
 ---
 
 {{% note %}}
-This quick start uses `macOS` in the examples. For instructions about how to install Hugo on other operating systems, see [install](/getting-started/installing).
+This quick start uses `macOS` in the examples. For instructions about how to install Hugo on other operating systems, see [install](/installation/).
 
-It is recommended to have [Git installed](https://git-scm.com/downloads) to run this tutorial.
+It is required to have [Git installed](https://git-scm.com/downloads) to run this tutorial.
 
-For other approaches learning Hugo like book or a video tutorial refer to the [external learning resources](/getting-started/external-learning-resources/) page.
+For other approaches to learning Hugo (like books or video tutorials), refer to the [external learning resources](/getting-started/external-learning-resources/) page.
 {{% /note %}}
 
 ## Step 1: Install Hugo
 
+Install the **extended version of Hugo** (this is required for the current theme used).
+
 {{% note %}}
-`Homebrew` and `MacPorts`, package managers for `macOS`,  can be installed from [brew.sh](https://brew.sh/) or [macports.org](https://www.macports.org/) respectively. See [install](/getting-started/installing) if you are running Windows etc.
+`Homebrew` and `MacPorts`, package managers for `macOS`,  can be installed from [brew.sh](https://brew.sh/) or [macports.org](https://www.macports.org/) respectively. See [install](/installation/) if you are running Windows etc.
 {{% /note %}}
 
 ```bash
@@ -42,7 +44,10 @@ To verify your new install:
 
 ```bash
 hugo version
+# Example output: hugo v0.104.2+extended darwin/amd64 BuildDate=unknown
 ```
+
+It should state that it is `extended`. If it does not, uninstall it and try another installation method.
 
 {{< asciicast ItACREbFgvJ0HjnSNeTknxWy9 >}}
 
@@ -68,13 +73,6 @@ git init
 git submodule add https://github.com/theNewDynamic/gohugo-theme-ananke.git themes/ananke
 ```
 
-*Note for non-git users:*
-   - If you do not have git installed, you can download the archive of the latest
-     version of this theme from:
-       https://github.com/theNewDynamic/gohugo-theme-ananke/archive/master.zip
-   - Extract that .zip file to get a "gohugo-theme-ananke-master" directory.
-   - Rename that directory to "ananke", and move it into the "themes/" directory.
-
 Then, add the theme to the site configuration:
 
 ```bash
@@ -87,7 +85,7 @@ echo theme = \"ananke\" >> config.toml
 
 You can manually create content files (for example as `content/<CATEGORY>/<FILE>.<FORMAT>`) and provide metadata in them, however you can use the `new` command to do a few things for you (like add title and date):
 
-```
+```txt
 hugo new posts/my-first-post.md
 ```
 
@@ -95,7 +93,7 @@ hugo new posts/my-first-post.md
 
 Edit the newly created content file if you want, it will start with something like this:
 
-```markdown
+```md
 ---
 title: "My First Post"
 date: 2019-03-26T08:47:11+01:00
@@ -114,7 +112,7 @@ Now, start the Hugo server with [drafts](/getting-started/usage/#draft-future-an
 
 {{< asciicast BvJBsF6egk9c163bMsObhuNXj >}}
 
-```
+```txt
 ▶ hugo server -D
 
                    | EN
@@ -140,7 +138,7 @@ Press Ctrl+C to stop
 
 **Navigate to your new site at [http://localhost:1313/](http://localhost:1313/).**
 
-Feel free to edit or add new content and simply refresh in browser to see changes quickly (You might need to force refresh in webbrowser, something like Ctrl-R usually works).
+Feel free to edit or add new content and you will see the changes in the browser right away while the Hugo server is running. (You might need to force refresh your web browser, something like Ctrl-R usually works.)
 
 ## Step 6: Customize the Theme
 
@@ -150,7 +148,7 @@ Your new site already looks great, but you will want to tweak it a little before
 
 Open up `config.toml` in a text editor:
 
-```
+```toml
 baseURL = "https://example.org/"
 languageCode = "en-us"
 title = "My New Hugo Site"
@@ -171,9 +169,8 @@ For theme specific configuration options, see the [theme site](https://github.co
 
 It is simple. Just call:
 
-```
+```txt
 hugo -D
 ```
 
 Output will be in `./public/` directory by default (`-d`/`--destination` flag to change it, or set `publishdir` in the config file).
-

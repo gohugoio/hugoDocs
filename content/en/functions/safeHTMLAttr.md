@@ -2,7 +2,6 @@
 title: safeHTMLAttr
 # linktitle: safeHTMLAttr
 description: Declares the provided string as a safe HTML attribute.
-godocref: https://golang.org/src/html/template/content.go?s=1661:1676#L33
 date: 2017-02-01
 publishdate: 2017-02-01
 lastmod: 2017-02-01
@@ -26,6 +25,7 @@ Example: Given a site-wide `config.toml` that contains this menu entry:
     name = "IRC: #golang at freenode"
     url = "irc://irc.freenode.net/#golang"
 {{< /code-toggle >}}
+
 
 Attempting to use the `url` value directly in an attribute like this:
 

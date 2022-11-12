@@ -4,7 +4,6 @@ linktitle: URL Management
 description: Hugo supports permalinks, aliases, link canonicalization, and multiple options for handling relative vs absolute URLs.
 date: 2017-02-01
 publishdate: 2017-02-01
-lastmod: 2017-03-09
 keywords: [aliases,redirects,permalinks,urls]
 categories: [content management]
 menu:
@@ -12,7 +11,6 @@ menu:
     parent: "content-management"
     weight: 110
 weight: 110	#rem
-draft: false
 aliases: [/extras/permalinks/,/extras/aliases/,/extras/urls/,/doc/redirects/,/doc/alias/,/doc/aliases/]
 toc: true
 ---
@@ -45,7 +43,7 @@ permalinks:
   /: /:year/:month/:filename/
 {{< /code-toggle >}}
 
-If the standard date-based permalink configuration does not meet your needs, you can also format URL segments using [Go time formatting directives](https://golang.org/pkg/time/#Time.Format). For example, a URL structure with two digit years and month and day digits without zero padding can be accomplished with:
+If the standard date-based permalink configuration does not meet your needs, you can also format URL segments using [Go time formatting directives](https://pkg.go.dev/time#Time.Format). For example, a URL structure with two digit years and month and day digits without zero padding can be accomplished with:
 
 {{< code-toggle file="config" copy="false" >}}
 permalinks:
@@ -83,13 +81,16 @@ The following is a list of values that can be used in a `permalink` definition i
 : the content's section
 
 `:sections`
-: the content's sections hierarchy. {{< new-in "0.83.0" >}} Since Hugo 0.83 you can use a selection of the sections using _slice syntax_: `:sections[1:]` includes all but the first, `:sections[:last]` includes all but the last, `:sections[last]` includes only the last, `:sections[1:2]` includes section 2 and 3. Note that this slice access will not throw any out-of-bounds errors, so you don't have to be exact.
+: the content's sections hierarchy. Uou can use a selection of the sections using _slice syntax_: `:sections[1:]` includes all but the first, `:sections[:last]` includes all but the last, `:sections[last]` includes only the last, `:sections[1:2]` includes section 2 and 3. Note that this slice access will not throw any out-of-bounds errors, so you don't have to be exact.
 
 `:title`
 : the content's title
 
 `:slug`
 : the content's slug (or title if no slug is provided in the front matter)
+
+`:slugorfilename`
+: the content's slug (or filename if no slug is provided in the front matter)
 
 `:filename`
 : the content's filename (without extension)
@@ -130,7 +131,7 @@ aliases:
 ---
 {{< /code >}}
 
-Now when you visit any of the locations specified in aliases---i.e., *assuming the same site domain*---you'll be redirected to the page they are specified on. For example, a visitor to `example.com/posts/my-original-url/` will be immediately redirected to `example.com/posts/my-awesome-post/`.
+Now when you visit any of the locations specified in aliases---i.e., _assuming the same site domain_---you'll be redirected to the page they are specified on. For example, a visitor to `example.com/posts/my-original-url/` will be immediately redirected to `example.com/posts/my-awesome-post/`.
 
 ### Example: Aliases in Multilingual
 
@@ -138,14 +139,14 @@ On [multilingual sites][multilingual], each translation of a post can have uniqu
 
 In `/posts/my-new-post.es.md`:
 
-```
+```md
 ---
 aliases:
     - /es/posts/my-original-post/
 ---
 ```
 
-From Hugo 0.55 you can also have page-relative aliases, so ` /es/posts/my-original-post/` can be simplified to the more portable `my-original-post/`
+From Hugo 0.55 you can also have page-relative aliases, so `/es/posts/my-original-post/` can be simplified to the more portable `my-original-post/`
 
 ### How Hugo Aliases Work
 
@@ -153,7 +154,7 @@ When aliases are specified, Hugo creates a directory to match the alias entry. I
 
 For example, a content file at `posts/my-intended-url.md` with the following in the front matter:
 
-```
+```yml
 ---
 title: My New post
 aliases: [/posts/my-old-url/]
@@ -162,7 +163,7 @@ aliases: [/posts/my-old-url/]
 
 Assuming a `baseURL` of `example.com`, the contents of the auto-generated alias `.html` found at `https://example.com/posts/my-old-url/` will contain the following:
 
-```
+```html
 <!DOCTYPE html>
 <html>
   <head>
@@ -175,9 +176,10 @@ Assuming a `baseURL` of `example.com`, the contents of the auto-generated alias 
 </html>
 ```
 
-The `http-equiv="refresh"` line is what performs the redirect, in 0 seconds in this case. If an end user of your website goes to `https://example.com/posts/my-old-url`, they will now be automatically redirected to the newer, correct URL. The addition of `<meta name="robots" content="noindex">` lets search engine bots know that they should not crawl and index your new alias page.
+The `http-equiv="refresh"` line is what performs the redirect, in 0 seconds in this case. If an end user of your website goes to `https://example.com/posts/my-old-url`, they will now be automatically redirected to the newer, correct URL. The addition of `<meta name="robots" content="noindex">` lets search engine bots know that they should not index your alias page (`https://example.com/posts/my-old-url/`).
 
 ### Customize
+
 You may customize this alias page by creating an `alias.html` template in the
 layouts folder of your site (i.e., `layouts/alias.html`). In this case, the data passed to the template is
 
@@ -200,7 +202,7 @@ Hugo's default behavior is to render your content with "pretty" URLs. No non-sta
 
 The following demonstrates the concept:
 
-```
+```txt
 content/posts/_index.md
 => example.com/posts/
 content/posts/post-1.md
@@ -215,7 +217,7 @@ If you want a specific piece of content to have an exact URL, you can specify th
 
 See [Content Organization][contentorg] for more details on paths.
 
-```
+```txt
 .
 └── content
     └── about
@@ -232,7 +234,7 @@ See [Content Organization][contentorg] for more details on paths.
 
 Here's the same organization run with `hugo --uglyURLs`:
 
-```
+```txt
 .
 └── content
     └── about
@@ -246,7 +248,6 @@ Here's the same organization run with `hugo --uglyURLs`:
         ├── first.md       // <- https://example.com/quote/first.html
         └── second.md      // <- https://example.com/quote/second.html
 ```
-
 
 ## Canonicalization
 
@@ -264,13 +265,13 @@ In the May 2014 release of Hugo v0.11, the default value of `canonifyURLs` was s
 
 To find out the current value of `canonifyURLs` for your website, you may use the handy `hugo config` command added in v0.13.
 
-```
+```txt
 hugo config | grep -i canon
 ```
 
 Or, if you are on Windows and do not have `grep` installed:
 
-```
+```txt
 hugo config | FINDSTR /I canon
 ```
 
@@ -295,7 +296,6 @@ title: "Custom URL!"
 url: "custom/foo"
 ---
 ```
-
 
 ## Relative URLs
 
