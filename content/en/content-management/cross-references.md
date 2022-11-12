@@ -55,7 +55,7 @@ The pages can be referenced as follows:
 
 index.md can be reference either by its path or by its containing folder without the ending `/`. \_index.md can be referenced only by its containing folder:
 
-```go-html-template
+```text
 {{</* ref "/about" */>}}             // <- References /about/_index.md
 {{</* ref "/about/_index" */>}}      //    Raises REF_NOT_FOUND error
 {{</* ref "/about/credits.md" */>}}  // <- References /about/credits.md
