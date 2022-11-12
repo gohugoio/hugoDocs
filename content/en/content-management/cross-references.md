@@ -39,7 +39,7 @@ The `ref` and `relref` shortcodes require a single parameter: the path to a cont
 The pages can be referenced as follows:
 
 
-```go-html-template
+```text
 {{</* ref "document2" */>}}             // <- From pages/document1.md, relative path
 {{</* ref "document2#anchor" */>}}      
 {{</* ref "document2.md" */>}}          
