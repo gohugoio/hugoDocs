@@ -66,7 +66,7 @@ index.md can be reference either by its path or by its containing folder without
 
 To generate a hyperlink using `ref` or `relref` in markdown:
 
-```md
+```text
 [About]({{</* ref "/about" */>}} "About Us")
 ```
 
