@@ -13,12 +13,7 @@ toc: true
 aliases: [/quickstart/,/overview/quickstart/]
 ---
 
-In this tutorial you will:
-
-1. Create a site
-2. Add content
-3. Configure the site
-4. Publish the site
+{{< video file="quickstart.mp4" autoplay=true loop=true />}}
 
 ## Prerequisites
 

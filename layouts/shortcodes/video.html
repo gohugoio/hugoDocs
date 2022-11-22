@@ -1,0 +1,154 @@
+{{/*
+Renders an HTML video element.
+
+Although it takes just one file parameter, it will throw an error if it cannot
+find both an MP4 file and a WebM file. The extensions must be lowercase.
+
+If autoplay is enabled, the video will be muted.
+
+Valid truthy values are true, "true" and 1.
+Valid falsy values are false, "false" and 0.
+
+@param {bool}   [autoplay=false]  If true, the video will autoplay.
+@param {string} [class=""]        The value of the video element's class attribute.
+@param {bool}   [controls=true]   If true, the browser will display playback controls.
+@param {string} file              The path to a video file; it must be a page resource.
+@param {bool}   [loop=false]      If true, the video will loop.
+@param {bool}   [muted=false]     If true, the video will be muted.
+@param {string} [style=""]        The value of the video element's style attribute.
+@param {int}    [width=0]         The value of the video element's width attribute.
+
+@returns {template.HTML}
+
+@example {{< video file="my-video.mp4" />}}
+@example {{< video file="my-video.mp4" autoplay=true />}}
+@example {{< video file="my-video.mp4" loop=1 />}}
+*/}}
+
+{{- /* Handle self-closing shortcode syntax. */}}
+{{- $noop := .Inner }}
+
+{{- /* Initialize params. */}}
+{{- $autoplay := false }}
+{{- $class := "mt3 w-100 h-auto" }} {{/* Hugo docs site. */}}
+{{- $controls := true }}
+{{- $file := "" }}
+{{- $loop := false }}
+{{- $muted := false }}
+{{- $style := "" }}
+{{- $width := 0 }}
+
+{{- /* Get non-boolean params. */}}
+{{- with .Get "file" }}
+  {{- $file = . }}
+{{- else }}
+  {{- errorf "The %s shortcode requires a parameter named file. See %s" .Name .Position }}
+{{- end }}
+{{- with .Get "class" }}
+  {{- $class = . }}
+{{- end }}
+{{- with .Get "style" }}
+  {{- $style = . }}
+{{- end }}
+{{- with .Get "width" }}
+  {{- $width = . }}
+{{- end }}
+
+{{- /* Get boolean params. */}}
+{{- with partial "inline/get-bool-param.html" (dict "param" "autoplay" "ctx" .) }}
+  {{- if .isset }}
+    {{- $autoplay = .value }}
+  {{- end }}
+{{- end }}
+{{- with partial "inline/get-bool-param.html" (dict "param" "controls" "ctx" .) }}
+  {{- if .isset }}
+    {{- $controls = .value }}
+  {{- end }}
+{{- end }}
+{{- with partial "inline/get-bool-param.html" (dict "param" "loop" "ctx" .) }}
+  {{- if .isset }}
+    {{- $loop = .value }}
+  {{- end }}
+{{- end }}
+{{- with partial "inline/get-bool-param.html" (dict "param" "muted" "ctx" .) }}
+  {{- if .isset }}
+    {{- $muted = .value }}
+  {{- end }}
+{{- end }}
+
+{{- /* Mute if autoplay is enabled. */}}
+{{- if $autoplay }}
+  {{- $muted = true }}
+{{- end }}
+
+{{- /* Validate file extension. */}}
+{{- $validExtensions := slice ".mp4" ".webm" }}
+{{- $ext := path.Ext $file }}
+{{- if not (in $validExtensions $ext) }}
+  {{- errorf "The %s shortcode detected an invalid file extension. The video must be an MP4 file or a WebM file with a lowercase extension. See %s" .Name .Position }}
+{{- end }}
+
+{{- /* Get resources. */}}
+{{- $rMP4 := "" }}
+{{- $rWebM := "" }}
+{{- with .Page.Resources.Get $file }}
+  {{- if eq $ext ".mp4" }}
+    {{- $rMP4 = . }}
+    {{- with $.Page.Resources.Get (print (strings.TrimSuffix $ext $file) ".webm") }}
+      {{- $rWebM = . }}
+    {{- else }}
+      {{- errorf "The %s shortcode was unable to find the WebM version of %s. See %s" $.Name $file $.Position }}
+    {{- end }}
+  {{- else }}
+    {{- $rWebM = . }}
+    {{- with $.Page.Resources.Get (print (strings.TrimSuffix $ext $file) ".mp4") }}
+      {{- $rMP4 = . }}
+    {{- else }}
+      {{- errorf "The %s shortcode was unable to find the MP4 version of %s. See %s" $.Name $file $.Position }}
+    {{- end }}
+  {{- end }}
+{{- else }}
+  {{- errorf "The %s shortcode was unable to find %s. See %s" $.Name $file $.Position }}
+{{- end }}
+
+{{- $attrs := dict
+  "autoplay" (and $autoplay "autoplay")
+  "class" $class
+  "controls" (and $controls "controls")
+  "loop" (and $loop "loop")
+  "muted" (and $muted "muted")
+  "style" $style
+  "width" (and $width (string $width))
+-}}
+
+<video
+  {{- range $k, $v := $attrs }}
+    {{- if $v }}
+      {{- printf " %s=%q" $k $v | safeHTMLAttr }}
+    {{- end }}
+  {{- end }}>
+  <source src="{{- $rWebM.RelPermalink }}" type="video/webm">
+  <source src="{{- $rMP4.RelPermalink }}" type="video/mp4">
+</video>
+
+{{- /* Returns a map with isset and values keys. */}}
+{{- define "partials/inline/get-bool-param.html" }}
+  {{- $isset := false }}
+  {{- $returnValue := false }}
+  {{- if .ctx.Params }}
+    {{- if isset .ctx.Params .param }}
+      {{- $isset = true }}
+      {{- $value := index .ctx.Params .param }}
+      {{- if in (slice true "true" 1) $value }}
+        {{- $returnValue = true }}
+      {{- else }}
+        {{- if in (slice false "false" 0) $value }}
+          {{- $returnValue = false }}
+        {{- else }}
+          {{- errorf "The %s shortcode expected a boolean value for the %s parameter, but received %s instead. See %s" .ctx.Name .param $value .ctx.Position }}
+        {{- end }}
+      {{- end }}
+    {{- end }}
+  {{- end }}
+  {{- return (dict "isset" $isset "value" $returnValue) }}
+{{- end -}}
