@@ -36,19 +36,31 @@ The `.File` object contains the following fields:
 .File.ContentBaseName
 : is either a TranslationBaseName or name of containing folder if file is a leaf bundle.
 
+.File.FileName
+: the full path and name to the file (e.g., `/home/me/mysite/content/foo.en.md`). Note that the path separator (`\` or `/`) dependens on the operating system.
+
 .File.BaseFileName
 : the filename without extension (e.g., `foo.en`)
 
 .File.Ext
-: the file extension of the content file (e.g., `md`).
+: the file extension of the content file (e.g., `md`)
 
 .File.Lang
 : the language associated with the given file if Hugo's [Multilingual features][multilingual] are enabled (e.g., `en`)
+
+.File.Section
+: the section of the file. `Section` is first directory below the content root. For page bundles in root, `Section` will be empty.
+
+.File.FileInfo
+: the file info of the file. `.Page.File.FileInfo.Meta` provides various metadata provided from the OS file system. 
 
 .File.Dir
 : given the path `content/posts/dir1/dir2/`, the relative directory path of the content file will be returned (e.g., `posts/dir1/dir2/`). Note that the path separator (`\` or `/`) could be dependent on the operating system.
 
 .File.UniqueID
-: the MD5-checksum of the content file's path.
+: the MD5-checksum of the content file's path
+
+.File.IsZero
+: returns whether the file has a length or size of zero byte
 
 [Multilingual]: /content-management/multilingual/
