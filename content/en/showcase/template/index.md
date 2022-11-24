@@ -1,11 +1,12 @@
 ---
 title: Hugo Showcase Template
-date: 2018-02-07
 description: "A short description of this page."
 siteURL: https://gohugo.io/
 siteSource: https://github.com/gohugoio/hugoDocs
 byline: "[bep](https://github.com/bep), Hugo Lead"
+draft: true
 ---
+
 Have a **notable Hugo site[^1]**? We would love to feature it in this **Showcase Section**
 
 Please:
