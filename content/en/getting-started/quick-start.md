@@ -35,7 +35,7 @@ You must also be comfortable working from the command line.
 
 Run these commands[^1] to create a Hugo site with the [Ananke] theme. The next section provides an explanation of each command.
 
-[^1]: If you are a Windows user, you must run these commands with [PowerShell]. You cannot use Windows Powershell, which is a different application, or the Command Prompt.
+[^1]: If you are a Windows user, and prefer not to use Git, you must run these commands with [PowerShell]. You cannot use Windows Powershell, which is a different application, or the Command Prompt.
 
 ```text
 hugo new site quickstart
