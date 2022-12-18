@@ -33,7 +33,7 @@ For example, the following fields would be available in `layouts/_defaults/terms
 .Data.Pages
 : The list of pages in the taxonomy
 
-.Data.Terms
+.Data.Term
 : The taxonomy itself
 
 .Data.Terms.Alphabetical
