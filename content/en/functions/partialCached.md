@@ -22,7 +22,7 @@ The `partialCached` template function can offer significant performance gains fo
 
 **Note:** Each Site (or language) has its own `partialCached` cache, so each site will execute a partial once.
 
-**Note:** The `partialCached` directive is done for performance enhancing only and does not guarantee that your partial is going to be executed only once. Since the pages are built in parallels, in the beginning of the building process several pages will execute the partial concurrently, check for cached results, not find it, and commence executing the partial, all in parallels. It will continue to happen until one of them finishes the execution and places the partial result in the cache. Only from that moment all the following pages will reuse the result instead of executing the partial again.
+**Note**: Hugo renders pages in parallel, and will render the partial more than once with concurrent calls to the `partialCached` function. After Hugo caches the rendered partial, new pages entering the build pipeline will use the cached result.
 
 Here is the simplest usage:
 
