@@ -39,7 +39,7 @@ Multiple site config files can be specified as a comma-separated string to the `
 
 ## Configuration Directory
 
-In addition to using a single site config file, one can use the `configDir` directory (default to `config/`) to maintain easier organization and environment specific settings.
+In addition to using a single site config file, one can use the `configDir` directory (default to `config/`) to maintain easier organization and environment-specific settings.
 
 - Each file represents a configuration root object, such as `params.toml` for `[Params]`, `menu(s).toml` for `[Menu]`, `languages.toml` for `[Languages]` etc...
 - Each file's content must be top-level, for example:
@@ -87,7 +87,7 @@ This is how you need to configure your `config.toml` files considering the above
 
     ```googleAnalytics = "G-PPPPPPPP"```
 
-    You don't need to mention all other parameters like `title`, `baseURL`, `theme` etc. again in this config file. You need to mention only those parameters which are different or new for the production environment. This is due to the fact that Hugo is going to __merge__ this on top of `_default/config.toml`. Now when you run `hugo` (build command), by default hugo sets `Environment=production`, so the `G-PPPPPPPP` analytics code will be there in your production website
+You don't need to mention all other parameters like `title`, `baseURL`, `theme` etc. again in this config file. You need to mention only those parameters which are different or new for the production environment. This is because Hugo is going to __merge__ this on top of `_default/config.toml`. Now when you run `hugo` (build command), by default hugo sets `Environment=production`, so the `G-PPPPPPPP` analytics code will be there on your production website
 3. Similarly in `staging/config.toml` you just need to have one line:
 
     ```googleAnalytics = "G-SSSSSSSS"```
@@ -109,7 +109,7 @@ shallow
 : Only add values for new keys.
 
 deep
-: Add values for new keys, merge existing.
+: Add values for new keys, and merge existing ones.
 
 Note that you don't need to be so verbose as in the default setup below; a `_merge` value higher up will be inherited if not set.
 
@@ -131,7 +131,7 @@ The directory where Hugo finds archetype files (content templates). {{% module-m
 
 **Default value:** "assets"
 
-The directory where Hugo finds asset files used in [Hugo Pipes](/hugo-pipes/). {{% module-mounts-note %}}
+The directory where Hugo finds the asset files used in [Hugo Pipes](/hugo-pipes/). {{% module-mounts-note %}}
 
 ### baseURL
 
@@ -165,7 +165,7 @@ See [Configure File Caches](#configure-file-caches)
 
 ### cascade
 
-Pass down default configuration values (front matter) to pages in the content tree. The options in site config is the same as in page front matter, see [Front Matter Cascade](/content-management/front-matter#front-matter-cascade).
+Pass down default configuration values (front matter) to pages in the content tree. The options in the site config are the same as in page front matter, see [Front Matter Cascade](/content-management/front-matter#front-matter-cascade).
 
 ### canonifyURLs
 
@@ -195,7 +195,7 @@ The directory from where Hugo reads data files. {{% module-mounts-note %}}
 
 **Default value:** "en"
 
-Content without language indicator will default to this language.
+Content without a language indicator will default to this language.
 
 ### defaultContentLanguageInSubdir
 
@@ -207,13 +207,13 @@ Render the default content language in subdir, e.g. `content/en/`. The site root
 
 **Default value:**  false
 
-Will disable generation of alias redirects. Note that even if `disableAliases` is set, the aliases themselves are preserved on the page. The motivation with this is to be able to generate 301 redirects in an `.htaccess`, a Netlify `_redirects` file or similar using a custom output format.
+Will disable generation of alias redirects. Note that even if `disableAliases` is set, the aliases themselves are preserved on the page. The motivation for this is to be able to generate 301 redirects in a `.htaccess`, a Netlify `_redirects` file or similar using a custom output format.
 
 ### disableHugoGeneratorInject
 
 **Default value:**  false
 
-Hugo will, by default, inject a generator meta tag in the HTML head on the _home page only_. You can turn it off, but we would really appreciate if you don't, as this is a good way to watch Hugo's popularity on the rise.
+Hugo will, by default, inject a generator meta tag in the HTML head on the _home page only_. You can turn it off, but we would appreciate it if you don't, as this is a good way to watch Hugo's popularity on the rise.
 
 ### disableKinds
 
@@ -225,7 +225,7 @@ Enable disabling of all pages of the specified *Kinds*. Allowed values in this l
 
 **Default value:**  false
 
-Disable automatic live reloading of browser window.
+Disable automatic live reloading of the browser window.
 
 ### disablePathToLower
 
@@ -318,7 +318,7 @@ See [Configure Minify](#configure-minify)
 
 ### module
 
-Module config see [Module Config](/hugo-modules/configuration/).
+Module config, see [Module Config](/hugo-modules/configuration/).
 
 ### newContentEditor
 
@@ -330,13 +330,13 @@ The editor to use when creating new content.
 
 **Default value:** false
 
-Don't sync permission mode of files.
+Don't sync the permission mode of files.
 
 ### noTimes
 
 **Default value:** false
 
-Don't sync modification time of files.
+Don't sync the modification time of files.
 
 ### outputFormats
 
@@ -346,7 +346,7 @@ See [Configure Output Formats](#configure-additional-output-formats).
 
 **Default value:** 10
 
-Default number of elements per page in [pagination](/templates/pagination/).
+The default number of elements per page in [pagination](/templates/pagination/).
 
 ### paginatePath
 
@@ -368,7 +368,7 @@ Pluralize titles in lists.
 
 **Default value:** "public"
 
-The directory to where Hugo will write the final static site (the HTML files etc.).
+The directory where Hugo will write the final static site (the HTML files etc.).
 
 ### related
 
@@ -378,7 +378,7 @@ The directory to where Hugo will write the final static site (the HTML files etc
 
 **Default value:** false
 
-Enable this to make all relative URLs relative to content root. Note that this does not affect absolute URLs.
+Enable this to make all relative URLs relative to the content root. Note that this does not affect absolute URLs.
 
 ### refLinksErrorLevel
 
@@ -404,7 +404,7 @@ content/post/hügó.md --> https://example.org/post/hugo/
 
 **Default value:** -1 (unlimited)
 
-Maximum number of items in the RSS feed.
+The maximum number of items in the RSS feed.
 
 ### sectionPagesMenu
 
@@ -442,11 +442,11 @@ The directory where Hugo reads the themes from.
 
 **Default value:** "30s"
 
-Timeout for generating page contents, specified as a [duration](https://pkg.go.dev/time#Duration) or in milliseconds. *Note:*&nbsp;this is used to bail out of recursive content generation. You might need to raise this limit if your pages are slow to generate (e.g., because they require large image processing or depend on remote contents).
+Timeout for generating page contents, specified as a [duration](https://pkg.go.dev/time#Duration) or in milliseconds. *Note:*&nbsp;this is used to bail out recursive content generation. You might need to raise this limit if your pages are slow to generate (e.g., because they require large image processing or depend on remote content).
 
 ### timeZone
 
-The time zone (or location), e.g. `Europe/Oslo`,  used to parse front matter dates without such information and in the [`time` function](/functions/time/). The list of valid values may be system dependent, but should include `UTC`, `Local`, and any location in the [IANA Time Zone database](https://en.wikipedia.org/wiki/List_of_tz_database_time_zones).
+The time zone (or location), e.g. `Europe/Oslo`, is used to parse front matter dates without such information and in the [`time` function](/functions/time/). The list of valid values may be system dependent but should include `UTC`, `Local`, and any location in the [IANA Time Zone database](https://en.wikipedia.org/wiki/List_of_tz_database_time_zones).
 
 ### title
 
@@ -462,13 +462,13 @@ See [Configure Title Case](#configure-title-case)
 
 **Default value:** false
 
-When enabled, creates URL of the form `/filename.html` instead of `/filename/`.
+When enabled, creates a URL of the form `/filename.html` instead of `/filename/`.
 
 ### watch
 
 **Default value:** false
 
-Watch filesystem for changes and recreate as needed.
+Watch the filesystem for changes and recreate as needed.
 
 {{% note %}}
 If you are developing your site on a \*nix machine, here is a handy shortcut for finding a configuration option from the command line:
@@ -509,7 +509,7 @@ noJSConfigInAssets
 
 ## Configure Server
 
-This is only relevant when running `hugo server`, and it allows to set HTTP headers during development, which allows you to test out your Content Security Policy and similar. The configuration format matches [Netlify's](https://docs.netlify.com/routing/headers/#syntax-for-the-netlify-configuration-file) with slightly more powerful [Glob matching](https://github.com/gobwas/glob):
+This is only relevant when running `hugo server`, and it allows you to set HTTP headers during development, which allows you to test out your Content Security Policy and similar. The configuration format matches [Netlify's](https://docs.netlify.com/routing/headers/#syntax-for-the-netlify-configuration-file) with slightly more powerful [Glob matching](https://github.com/gobwas/glob):
 
 
 {{< code-toggle file="config">}}
@@ -552,7 +552,7 @@ status = 200
 force = false
 {{< /code-toggle >}}
 
-Setting `force=true` will make a redirect even if there is existing content in the path. Note that before Hugo 0.76  `force` was the default behavior, but this is inline with how Netlify does it.
+Setting `force=true` will make a redirect even if there is existing content in the path. Note that before Hugo 0.76  `force` was the default behavior, but this is in line with how Netlify does it.
 
 ## 404 Server Error Page {#_404-server-error-page}
 
@@ -578,7 +578,7 @@ HUGO_NUMWORKERMULTIPLIER
 
 ## Configuration Lookup Order
 
-Similar to the template [lookup order], Hugo has a default set of rules for searching for a configuration file in the root of your website's source directory as a default behavior:
+Similar to the template [lookup order], Hugo has a default set of rules for searching for a configuration file in the root of your website's source directory as default behavior:
 
 1. `./config.toml`
 2. `./config.yaml`
@@ -616,7 +616,7 @@ For example, the following command will effectively set a website's title on Uni
 $ env HUGO_TITLE="Some Title" hugo
 ```
 
-This is really useful if you use a service such as Netlify to deploy your site. Look at the Hugo docs [Netlify configuration file](https://github.com/gohugoio/hugoDocs/blob/master/netlify.toml) for an example.
+This is useful if you use a service such as Netlify to deploy your site. Look at the Hugo docs [Netlify configuration file](https://github.com/gohugoio/hugoDocs/blob/master/netlify.toml) for an example.
 
 {{% note "Setting Environment Variables" %}}
 Names must be prefixed with `HUGO_` and the configuration key must be set in uppercase when setting operating system environment variables.
@@ -673,7 +673,7 @@ date = ["myDate", ":default"]
 
 The `:default` is a shortcut to the default settings. The above will set `.Date` to the date value in `myDate` if present, if not we will look in `date`,`publishDate`, `lastmod` and pick the first valid date.
 
-In the list to the right, values starting with ":" are date handlers with a special meaning (see below). The others are just names of date parameters (case insensitive) in your front matter configuration.  Also note that Hugo have some built-in aliases to the above: `lastmod` => `modified`, `publishDate` => `pubdate`, `published` and `expiryDate` => `unpublishdate`. With that, as an example, using `pubDate` as a date in front matter, will, by default, be assigned to `.PublishDate`.
+In the list to the right, values starting with ":" are date handlers with a special meaning (see below). The others are just names of date parameters (case insensitive) in your front matter configuration.  Also, note that Hugo has some built-in aliases to the above: `lastmod` => `modified`, `publishDate` => `pubdate`, `published` and `expiryDate` => `unpublishdate`. With that, as an example, using `pubDate` as a date in the front matter, will, by default, be assigned to `.PublishDate`.
 
 The special date handlers are:
 
@@ -706,11 +706,11 @@ The above will try first to extract the value for `.Date` from the filename, the
 
 
 `:git`
-: This is the Git author date for the last revision of this content file. This will only be set if `--enableGitInfo` is set or `enableGitInfo = true` is set in site config.
+: This is the Git author date for the last revision of this content file. This will only be set if `--enableGitInfo` is set or `enableGitInfo = true` is set in the site config.
 
 ## Configure Additional Output Formats
 
-Hugo v0.20 introduced the ability to render your content to multiple output formats (e.g., to JSON, AMP html, or CSV). See [Output Formats] for information on how to add these values to your Hugo project's configuration file.
+Hugo v0.20 introduced the ability to render your content to multiple output formats (e.g., JSON, AMP HTML, or CSV). See [Output Formats](/templates/output-formats/) for information on how to add these values to your Hugo project's configuration file.
 
 ## Configure Minify
 
@@ -749,7 +749,7 @@ You can override any of these cache settings in your own `config.toml`.
 ### The keywords explained
 
 `:cacheDir`
-: This is the value of the `cacheDir` config option if set (can also be set via OS env variable `HUGO_CACHEDIR`). It will fall back to `/opt/build/cache/hugo_cache/` on Netlify, or a `hugo_cache` directory below the OS temp dir for the others. This means that if you run your builds on Netlify, all caches configured with `:cacheDir` will be saved and restored on the next build. For other CI vendors, please read their documentation. For an CircleCI example, see [this configuration](https://github.com/bep/hugo-sass-test/blob/6c3960a8f4b90e8938228688bc49bdcdd6b2d99e/.circleci/config.yml).
+: This is the value of the `cacheDir` config option if set (can also be set via OS env variable `HUGO_CACHEDIR`). It will fall back to `/opt/build/cache/hugo_cache/` on Netlify, or a `hugo_cache` directory below the OS temp dir for the others. This means that if you run your builds on Netlify, all caches configured with `:cacheDir` will be saved and restored on the next build. For other CI vendors, please read their documentation. For a CircleCI example, see [this configuration](https://github.com/bep/hugo-sass-test/blob/6c3960a8f4b90e8938228688bc49bdcdd6b2d99e/.circleci/config.yml).
 
 `:project`
 : The base directory name of the current Hugo project. This means that, in its default setting, every project will have separated file caches, which means that when you do `hugo --gc` you will not touch files related to other Hugo projects running on the same PC.
