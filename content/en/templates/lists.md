@@ -41,7 +41,7 @@ The idea of a list page comes from the [hierarchical mental model of the web][me
 
 ### Default Templates
 
-Since section lists and taxonomy lists (N.B., *not* [taxonomy terms lists][taxterms]) are both *lists* with regards to their templates, both have the same terminating default of `_default/list.html` or `themes/<THEME>/layouts/_default/list.html` in their lookup order. In addition, both [section lists][sectiontemps] and [taxonomy lists][taxlists] have their own default list templates in `_default`.
+Since section lists and taxonomy lists (N.B., *not* [taxonomy terms lists][taxterms]) are both *lists* with regards to their templates, both have the same terminating default of `_default/list.html` or `themes/<THEME>/layouts/_default/list.html` in their lookup order. In addition, both [section lists][sectiontemps] and [taxonomy lists][taxlists] have their (own) default list templates in `_default`.
 
 See [Template Lookup Order](/templates/lookup-order/) for the complete reference.
 
@@ -142,7 +142,7 @@ Using this same `layouts/_default/list.html` template and applying it to the `qu
 <main>
     <article>
         <header>
-        <!-- Hugo assumes that .Title is the name of the section since there is no _index.md content file from which to pull a "title:" field -->
+        <!-- Hugo assumes that  .Title is the name of the section since there is no _index.md content file from which to pull a "title:" field -->
             <h1>Quotes</h1>
         </header>
     </article>
@@ -328,7 +328,7 @@ Lower weight gets higher precedence. So content with lower weight will come firs
 
 ### By Parameter
 
-Order based on the specified front matter parameter. Content that does not have the specified front matter field  will use the site's `.Site.Params` default. If the parameter is not found at all in some entries, those entries will appear together at the end of the ordering.
+Order based on the specified front matter parameter. Content that does not have the specified front matter field will use the site's `.Site.Params` default. If the parameter is not found at all in some entries, those entries will appear together at the end of the ordering.
 
 {{< code file="layouts/partials/by-rating.html" >}}
 <!-- Ranges through content according to the "rating" field set in front matter -->
@@ -367,7 +367,7 @@ Hugo provides some functions for grouping pages by Section, Type, Date, etc.
 ### By Page Field
 
 {{< code file="layouts/partials/by-page-field.html" >}}
-<!-- Groups content according to content section. The ".Key" in this instance will be the section's title. -->
+<!-- Groups content according to the content section. The ".Key" in this instance will be the section's title. -->
 {{ range .Pages.GroupBy "Section" }}
 <h3>{{ .Key }}</h3>
 <ul>
@@ -381,12 +381,12 @@ Hugo provides some functions for grouping pages by Section, Type, Date, etc.
 {{ end }}
 {{< /code >}}
 
-In the above example, you may want `{{.Title}}` to point the `title` field you have added to your `_index.md` file instead. You can access this value using the [`.GetPage` function][getpage]:
+In the above example, you may want `{{.Title}}` to point to the `title` field you have added to your `_index.md` file instead. You can access this value using the [`.GetPage` function][getpage]:
 
 {{< code file="layouts/partials/by-page-field.html" >}}
-<!-- Groups content according to content section.-->
+<!-- Groups content according to the content section.-->
 {{ range .Pages.GroupBy "Section" }}
-<!-- Checks for existence of _index.md for a section; if available, pulls from "title" in front matter -->
+<!-- Checks for the existence of _index.md for a section; if available, pulls from "title" in front matter -->
 {{ with $.Site.GetPage "section" .Key }}
 <h3>{{.Title}}</h3>
 {{ else }}
@@ -518,9 +518,9 @@ The following template takes grouping by `date` a step further and uses Go's lay
 
 ### Reverse Key Order
 
-Ordering of groups is performed by keys in alphanumeric order (A–Z, 1–100) and in reverse chronological order (i.e., with the newest first) for dates.
+Ordering of groups is performed by keys in alphanumeric order (A–Z, 1–100) and reverse chronological order (i.e., with the newest first) for dates.
 
-While these are logical defaults, they are not always the desired order. There are two different syntaxes to change Hugo's default ordering for groups, both of which work the same way.
+While these are logical defaults, they are not always in the desired order. There are two different syntaxes to change Hugo's default ordering for groups, both of which work the same way.
 
 #### 1. Adding the Reverse Method
 
@@ -548,7 +548,7 @@ Because Grouping returns a `{{.Key}}` and a slice of pages, all the ordering met
 
 Here is the ordering for the example that follows:
 
-1. Content is grouped by month according to the `date` field in front matter.
+1. Content is grouped by month according to the `date` field in the front matter.
 2. Groups are listed in ascending order (i.e., the oldest groups first)
 3. Pages within each respective group are ordered alphabetically according to the `title`.
 
