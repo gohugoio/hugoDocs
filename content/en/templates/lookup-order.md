@@ -1,7 +1,7 @@
 ---
 title: Hugo's Lookup Order
 linktitle: Template Lookup Order
-description: Hugo searches for the layout to use for a given page in a well defined order, starting from the most specific.
+description: Hugo searches for the layout to use for a given page in a well-defined order, starting from the most specific.
 date: 2017-02-01
 publishdate: 2017-02-01
 lastmod: 2017-07-05
@@ -21,11 +21,11 @@ toc: true
 
 ## Hugo Layouts Lookup Rules
 
-Hugo takes the parameters listed below into consideration when choosing a layout for a given page. They are listed in a priority order. This should feel natural, but look at the table below for concrete examples of the different parameter variations.
+Hugo takes the parameters listed below into consideration when choosing a layout for a given page. They are listed in priority order. This should feel natural but look at the table below for concrete examples of the different parameter variations.
 
 
 Kind
-: The page `Kind` (the home page is one). See the example tables below per kind. This also determines if it is a **single page** (i.e. a regular content page. We then look for a template in `_default/single.html` for HTML) or a **list page** (section listings, home page, taxonomy lists, taxonomy terms. We then look for a template in `_default/list.html` for HTML).
+: The page `Kind` (the home page is one). See the example tables below per kind. This also determines if it is a **single page** (i.e. a regular content page. We then look for a template in `_default/single.html` for HTML) or a **list page** (section listings, homepage, taxonomy lists, taxonomy terms. We then look for a template in `_default/list.html` for HTML).
 
 Layout
 : Can be set in page front matter.
@@ -39,13 +39,13 @@ Language
 : We will consider a language code in the template name. If the site language is `fr`, `index.fr.amp.html` will win over `index.amp.html`, but `index.amp.html` will be chosen before `index.fr.html`.
 
 Type
-: Is value of `type` if set in front matter, else it is the name of the root section (e.g. "blog"). It will always have a value, so if not set, the value is "page".
+: Is the value of `type` if set in the front matter, else it is the name of the root section (e.g. "blog"). It will always have a value, so if not set, the value is "page".
 
 Section
 : Is relevant for `section`, `taxonomy` and `term` types.
 
 {{% note %}}
-**Tip:** The examples below look long and complex. That is the flexibility talking. Most Hugo sites contain just a handful of templates:
+**Tip:** The examples below look long and complex. That is flexibility talking. Most Hugo sites contain just a handful of templates:
 
 ```bash
 ├── _default
