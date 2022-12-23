@@ -1,5 +1,5 @@
 ---
-title: Create Your Own Shortcodes
+title: Create Your (Own) Shortcodes
 linktitle: Shortcode Templates
 description: You can extend Hugo's built-in shortcodes by creating your own using the same templating syntax as that for single and list pages.
 date: 2017-02-01
@@ -115,7 +115,7 @@ Any shortcode that refers to `.Inner` must be closed or self-closed.
 
 #### `.Params`
 
-The `.Params` variable in shortcodes contains the list parameters passed to shortcode for more complicated use cases. You can also access higher-scoped parameters with the following logic:
+The `.Params` variable in shortcodes contains the list of parameters passed to the shortcode for more complicated use cases. You can also access higher-scoped parameters with the following logic:
 
 `$.Params`
 : these are the parameters passed directly into the shortcode declaration (e.g., a YouTube video ID)
@@ -130,7 +130,7 @@ The `.Params` variable in shortcodes contains the list parameters passed to shor
 
 The `.IsNamedParams` variable checks whether the shortcode declaration uses named parameters and returns a boolean value.
 
-For example, you could create an `image` shortcode that can take either a `src` named parameter or the first positional parameter, depending on the preference of the content's author. Let's assume the `image` shortcode is called as follows:
+For example, you could create an `image` shortcode that can take either an `src` named parameter or the first positional parameter, depending on the preference of the content's author. Let's assume the `image` shortcode is called as follows:
 
 ```go-html-template
 {{</* image src="images/my-image.jpg" */>}}
@@ -154,7 +154,7 @@ While you can create shortcode templates that accept both positional and named p
 
 You can also use the variable `.Page` to access all the normal [page variables][pagevars].
 
-A shortcodes can also be nested. In a nested shortcode, you can access the parent shortcode context with [`.Parent` variable][shortcodesvars]. This can be very useful for inheritance of common shortcode parameters from the root.
+Shortcodes can also be nested. In a nested shortcode, you can access the parent shortcode context with [`.Parent` variable][shortcodesvars]. This can be very useful for the inheritance of common shortcode parameters from the root.
 
 ### Checking for Existence
 
@@ -358,7 +358,7 @@ Use the [errorf](/functions/errorf) template func and [.Position](/variables/sho
 {{ end }}
 ```
 
-When the above fails, you will see an `ERROR` log similar to the below:
+When the above fails, you will see an `ERROR` log similar to the one below:
 
 ```bash
 ERROR 2018/11/07 10:05:55 missing value for param name: "/Users/bep/dev/go/gohugoio/hugo/docs/content/en/variables/shortcodes.md:32:1"
@@ -378,7 +378,7 @@ This feature is disabled by default, but can be enabled in your site config:
 enableInlineShortcodes = true
 {{< /code-toggle >}}
 
-It is disabled by default for security reasons. The security model used by Hugo's template handling assumes that template authors are trusted, but that the content files are not, so the templates are injection-safe from malformed input data. But in most situations you have full control over the content, too, and then `enableInlineShortcodes = true` would be considered safe. But it's something to be aware of: It allows ad-hoc [Go Text templates](https://golang.org/pkg/text/template/) to be executed from the content files.
+It is disabled by default for security reasons. The security model used by Hugo's template handling assumes that template authors are trusted, but that the content files are not, so the templates are injection-safe from malformed input data. But in most situations, you have full control over the content, too, and then `enableInlineShortcodes = true` would be considered safe. But it's something to be aware of: It allows ad-hoc [Go Text templates](https://golang.org/pkg/text/template/) to be executed from the content files.
 
 And once enabled, you can do this in your content files:
 
@@ -390,7 +390,7 @@ The above will print the current date and time.
 
  Note that an inline shortcode's inner content is parsed and executed as a Go text template with the same context as a regular shortcode template.
 
-This means that the current page can be accessed via `.Page.Title` etc. This also means that there are no concept of "nested inline shortcodes".
+This means that the current page can be accessed via `.Page.Title` etc. This also means that there is no concept of "nested inline shortcodes".
 
 The same inline shortcode can be reused later in the same content file, with different params if needed, using the self-closing syntax:
 
@@ -400,7 +400,7 @@ The same inline shortcode can be reused later in the same content file, with dif
 
 [basic content files]: /content-management/formats/ "See how Hugo leverages markdown--and other supported formats--to create content for your website."
 [built-in shortcode]: /content-management/shortcodes/
-[config]: /getting-started/configuration/ "Learn more about Hugo's built-in configuration variables as well as how to us your site's configuration file to include global key-values that can be used throughout your rendered website."
+[config]: /getting-started/configuration/ "Learn more about Hugo's built-in configuration variables as well as how to use your site's configuration file to include global key-values that can be used throughout your rendered website."
 [Content Management: Shortcodes]: /content-management/shortcodes/#using-hugo-s-built-in-shortcodes "Check this section if you are not familiar with the definition of what a shortcode is or if you are unfamiliar with how to use Hugo's built-in shortcodes in your content files."
 [source organization]: /getting-started/directory-structure/#directory-structure-explained "Learn how Hugo scaffolds new sites and what it expects to find in each of your directories."
 [docsshortcodes]: https://github.com/gohugoio/hugo/tree/master/docs/layouts/shortcodes "See the shortcode source directory for the documentation site you're currently reading."
@@ -409,7 +409,7 @@ The same inline shortcode can be reused later in the same content file, with dif
 [lookup order]: /templates/lookup-order/ "See the order in which Hugo traverses your template files to decide where and how to render your content at build time"
 [pagevars]: /variables/page/ "See which variables you can leverage in your templating for page vs list templates."
 [parent]: /variables/shortcodes/
-[shortcodesvars]: /variables/shortcodes/ "Certain variables are specific to shortcodes, although most .Page variables can be accessed within your shortcode template."
+[shortcodesvars]: /variables/shortcodes/ "Certain variables are specific to shortcodes, although most `.Page` variables can be accessed within your shortcode template."
 [spfscs]: https://github.com/spf13/spf13.com/tree/master/layouts/shortcodes "See more examples of shortcodes by visiting the shortcode directory of the source for spf13.com, the blog of Hugo's creator, Steve Francia."
 [templates]: /templates/ "The templates section of the Hugo docs."
 [vimeoexample]: #single-flexible-example-vimeo
