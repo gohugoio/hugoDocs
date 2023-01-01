@@ -49,14 +49,14 @@ This single page template makes use of Hugo [base templates], the [`.Format` fun
     {{ with .Params.topics }}
     <ul id="topics">
       {{ range . }}
-        <li><a href="{{ "topics" | absURL}}{{ . | urlize }}">{{ . }}</a> </li>
+        <li><a href="{{ "topics" | absURL}}/{{ . | urlize }}">{{ . }}</a> </li>
       {{ end }}
     </ul>
     {{ end }}
     {{ with .Params.tags }}
     <ul id="tags">
       {{ range . }}
-        <li> <a href="{{ "tags" | absURL }}{{ . | urlize }}">{{ . }}</a> </li>
+        <li> <a href="{{ "tags" | absURL }}/{{ . | urlize }}">{{ . }}</a> </li>
       {{ end }}
     </ul>
     {{ end }}
