@@ -278,7 +278,7 @@ To convert an image without scaling, use the dimensions of the original image:
 
 ```go-html-template
 {{ with .Resources.GetMatch "sunset.jpg" }}
-  {{ with .Resize (printf "%dx%d webp" .Width .Height) }}
+  {{ with .Resize (printf "%dx%d webp" .Height .Width) }}
     <img src="{{ .RelPermalink }}" width="{{ .Width }}" height="{{ .Height }}">
   {{ end }}
 {{ end }}
