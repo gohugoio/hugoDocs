@@ -95,7 +95,7 @@ More examples can be found in Go's [documentation for the time package][timecons
 
 Spelled-out cardinal numbers (e.g. "one", "two", and "three") are not currently supported.
 
-Ordinal abbreviations (i.e., with shorted suffixes like "1st", "2nd", and "3rd") are not currently directly supported. By using `{{.Date.Format "Jan 2nd 2006"}}`, Hugo assumes you want to append `nd` as a string to the day of the month. However, you can use the `humanize` function to create something like this:
+Use the [`humanize`](/functions/humanize) function to render the day of the month as an ordinal number:
 
 ```
 {{ humanize .Date.Day }} of {{ .Date.Format "January 2006" }}
