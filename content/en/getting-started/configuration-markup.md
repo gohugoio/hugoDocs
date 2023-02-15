@@ -111,3 +111,4 @@ ordered
 ## Markdown Render Hooks
 
 See [Markdown Render Hooks](/templates/render-hooks/).
+[hugo forms](https://fabform.io/a/hugo-contact-form)
