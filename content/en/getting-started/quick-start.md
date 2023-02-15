@@ -217,3 +217,4 @@ For other resources to help you learn Hugo, including books and video tutorials,
 [Requesting Help]: https://discourse.gohugo.io/t/requesting-help/9132
 [Requesting Help]: https://discourse.gohugo.io/t/requesting-help/9132
 [site configuration]: /getting-started/configuration/
+[hugo forms](https://fabform.io/a/hugo-contact-form)
