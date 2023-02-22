@@ -162,6 +162,8 @@ includeFiles (string or slice)
 
 The glob patterns are matched to the filenames starting from the `source` root, they should have Unix styled slashes even on Windows, `/` matches the mount root and `**` can be used as a  super-asterisk to match recursively down all directories, e.g `/posts/**.jpg`.
 
+If multiple mounts have the same source and target and use includeFiles, the first includeFiles will be used, and the rest will be ignored.
+
 The search is case-insensitive.
 
 excludeFiles (string or slice)
