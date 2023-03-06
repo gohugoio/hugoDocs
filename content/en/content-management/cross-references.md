@@ -68,6 +68,9 @@ To generate a hyperlink using `ref` or `relref` in markdown:
 [About]({{</* ref "/about" */>}} "About Us")
 ```
 
+Explaination of Syntax:
+[This will show up on page hyperlinked]({{/* ref "Filename of Page to be referenced" */>}} "Hover Over Text")
+
 Hugo emits an error or warning if a document cannot be uniquely resolved. The error behavior is configurable; see below.
 
 ### Link to another language version
