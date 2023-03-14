@@ -1,7 +1,7 @@
 ---
 title: Custom Output Formats
 linktitle: Custom Output Formats
-description: Hugo can output content in multiple formats, including calendar events, e-book formats, Google AMP, and JSON search indexes, or any custom text format.
+description: Hugo can output content in multiple formats, including calendar events, e-book formats, Google AMP, JSON search indexes, or any custom text format.
 date: 2017-03-22
 publishdate: 2017-03-22
 lastmod: 2019-12-11
@@ -97,7 +97,7 @@ The following is the full list of configuration options for output formats and t
 : this must match the `Type` of a defined media type.
 
 `path`
-: sub path to save the output files.
+: sub-path to save the output files.
 
 `baseName`
 : the base filename for the list filenames (homepage, etc.). **Default:** `index`.
@@ -133,8 +133,7 @@ system.
 
 ### Default Output Formats
 
-Every `Page` has a [`Kind`][page_kinds] attribute, and the default Output
-Formats are set based on that.
+Every `Page` has a [`Kind`][page_kinds] attribute and the default Output Formats are set based on that.
 
 | Kind       | Default Output Formats |
 | ---------- | ---------------------- |
@@ -165,7 +164,7 @@ Note that in the above examples, the _output formats_ for `section`,
 
 * The `outputs` definition is per [`Page` `Kind`][page_kinds] (`page`, `home`, `section`, `taxonomy`, or `term`).
 * The names (e.g. `HTML`, `AMP`) used must match the `Name` of a defined *Output Format*.
-  * These names are case insensitive.
+  * These names are case-insensitive.
 * These can be overridden per `Page` in the front matter of content files.
 
 The following is an example of `YAML` front matter in a content file that defines output formats for the rendered `Page`:
@@ -202,7 +201,7 @@ __from `single.json.json`:__
 {{- end }}
 ```
 
-In order for them to return the output format of the current template file instead, the given output format should have its `permalinkable` setting set to true.
+For them to return the output format of the current template file instead, the given output format should have its `permalinkable` setting set to true.
 
 **Same template file as above with json output format's `permalinkable` set to true:**
 
@@ -222,7 +221,7 @@ From content files, you can use the [`ref` or `relref` shortcodes](/content-mana
 
 ## Templates for Your Output Formats
 
-A new output format needs a corresponding template in order to render anything useful.
+A new output format needs a corresponding template to render anything useful.
 
 {{% note %}}
 The key distinction for Hugo versions 0.20 and newer is that Hugo looks at an output format's `Name` and MediaType's `Suffixes` when choosing the template used to render a given `Page`.
