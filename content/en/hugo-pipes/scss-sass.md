@@ -24,7 +24,11 @@ Any Sass or SCSS file can be transformed into a CSS file using `resources.ToCSS`
 
 transpiler [string]
 
-: The `transpiler` to use, valid values are `libsass` (default) and `dartsass`. If you want to use Hugo with Dart Sass you need to download a release binary from [Embedded Dart Sass](https://github.com/sass/dart-sass-embedded/releases) and make sure it's in your PC's `$PATH` (or `%PATH%` on Windows).
+: The `transpiler` to use, valid values are `libsass` (default) and `dartsass`. If you want to use Hugo with Dart Sass you need to download a release binary from [Embedded Dart Sass](https://github.com/sass/dart-sass-embedded/releases) and make sure it's in your PC's `$PATH` (or `%PATH%` on Windows). The exception would be if you are using any npm packages and a `package.json` file. In that case, you can install the [`sass`](https://github.com/sass/sass) package and appropriate `package.json` scripting such as:
+
+```json
+"style-exe:sass": "sass --no-source-map assets/scss:assets/css"
+```
 
 targetPath [string]
 : If not set, the transformed resource's target path will be the asset file original path with its extension replaced by `.css`.
