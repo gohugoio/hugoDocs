@@ -59,6 +59,9 @@ See [`.Scratch`](/functions/scratch/) for page-scoped, writable variables.
 .File
 : filesystem-related data for this content file. See also [File Variables].
 
+.Fragments
+: Fragments returns the fragments for this page. See [Page Fragments](#page-fragments).
+
 .FuzzyWordCount
 : the approximate number of words in the content.
 
@@ -199,6 +202,56 @@ aliased form `.Pages`.
 
 {{< getcontent path="readfiles/pages-vs-site-pages.md" >}}
 
+## Page Fragments
+
+{{< new-in "0.111.0" >}}
+
+The `.Fragments` method returns a list of fragments for the current page.
+
+.Headings
+: A recursive list of headings for the current page. Can be used to generate a table of contents.
+
+{{< todo >}}add .Headings toc example{{< /todo >}}
+
+.Identifiers
+: A sorted list of identifiers for the current page. Can be used to check if a page contains a specific identifier or if a page contains duplicate identifiers:
+
+```go-html-template
+{{ if .Fragments.Identifiers.Contains "my-identifier" }}
+    <p>Page contains identifier "my-identifier"</p>
+{{ end }}
+
+{{ if gt (.Fragments.Identifiers.Count "my-identifier")  1 }}
+    <p>Page contains duplicate "my-idenfifier" fragments</p>
+{{ end }}
+``` 
+
+.HeadingsMap
+: Holds a map of headings for the current page. Can be used to start the table of contents from a specific heading.
+
+Also see the [Go Doc](https://pkg.go.dev/github.com/gohugoio/hugo@v0.111.0/markup/tableofcontents#Fragments) for the return type.
+
+### Fragments in hooks and shortcodes
+
+`.Fragments` are safe to call from render hooks, even on the page you're on (`.Page.Fragments`). For shortcodes we recommend that all `.Fragments` usage is nested inside the `{{</**/>}}` shortcode delimiter (`{{%/**/%}}` takes part in the ToC creation so it's easy to end up in a situation where you bite yourself in the tail).
+
+
+## The global page function
+
+{{< new-in "0.111.1" >}}
+
+Hugo almost always passes a `Page` as the data context into the top level template (e.g. `single.html`) (the one exception is the multihost sitemap template). This means that you can access the current page with the `.` variable in the template.
+
+But when you're deeply nested inside `.Render`, partial etc., accessing that `Page` object isn't always practical or possible.
+
+For this reason, Hugo provides a global `page` function that you can use to access the current page from anywhere in any template.
+
+```go-html-template
+{{ page.Title }}
+```
+
+There are one caveat with this, and this isn't new, but it's worth mentioning here: There are situations in Hugo where you may see a cached value, e.g. when using `partialCached` or in a shortcode. 
+
 ## Page-level Params
 
 Any other value defined in the front matter in a content file, including taxonomies, will be made available as part of the `.Params` variable.
@@ -299,3 +352,4 @@ The top-level key will be preferred. Therefore, the following method, when appli
 [gitinfo]: /variables/git/
 [File Variables]: /variables/files/
 [bundle]: {{< relref "content-management/page-bundles" >}}
+
