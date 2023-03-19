@@ -58,6 +58,18 @@ hugo server
 
 View your site at the URL displayed in your terminal. Press `Ctrl + C` to stop Hugo's development server.
 
+**Note**: The above will install the theme but you'll have example content. The theme ships with example content. To see it, do the following:
+
+```text
+cp -r themes/ananke/exampleSite/content/ content/
+cp -r themes/ananke/exampleSite/static/ static/
+mv config.toml config.toml.bak
+cp themes/ananke/exampleSite/config.toml config.toml
+sed -i '' 's!github.com/theNewDynamic/gohugo-theme-ananke!ananke!' config.toml
+```
+
+Now browse your `content` directory to see the page structure.
+
 ### Explanation of commands
 
 Create the [directory structure] for your project in the `quickstart` directory.
