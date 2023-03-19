@@ -58,7 +58,7 @@ hugo server
 
 View your site at the URL displayed in your terminal. Press `Ctrl + C` to stop Hugo's development server.
 
-**Note**: The above will install the theme but you'll have example content. The theme ships with example content. To see it, do the following:
+**Note**: The above will install the theme but you'll have no example content. The theme ships with some you can use. To see it, run the following commands:
 
 ```text
 cp -r themes/ananke/exampleSite/content/ content/
