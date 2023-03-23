@@ -70,7 +70,7 @@ Step 6
 
 {{< code file=".github/workflows/hugo.yaml" >}}
 # Sample workflow for building and deploying a Hugo site to GitHub Pages
-name: Deploy Hugo site to Pages
+name: Deploy Hugo site to GitHub Pages
 
 on:
   # Runs on pushes targeting the default branch
