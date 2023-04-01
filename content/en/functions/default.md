@@ -58,7 +58,7 @@ A `default` value, however, does not need to be hard coded like the previous exa
 
 Which would return:
 
-```go-html-template
+```html
 <p>The default function helps make your templating DRYer.</p>
 ```
 
