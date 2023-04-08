@@ -16,6 +16,10 @@ relatedfuncs: []
 hugo.Generator
 : `<meta>` tag for the version of Hugo that generated the site. `hugo.Generator` outputs a *complete* HTML tag; e.g. `<meta name="generator" content="Hugo 0.63.2">`
 
+{{% note %}}
+We highly recommend using `hugo.Generator` in your website's `<head>`. `hugo.Generator` is included by default in all themes hosted on [themes.gohugo.io](https://themes.gohugo.io). The generator tag allows the Hugo team to track the usage and popularity of Hugo.
+{{% /note %}}
+
 hugo.Version
 : the current version of the Hugo binary you are using e.g. `0.99.1`
 
@@ -36,10 +40,6 @@ hugo.IsExtended
 
 hugo.IsProduction
 : returns true if `hugo.Environment` is set to the production environment
-
-{{% note %}}
-We highly recommend using `hugo.Generator` in your website's `<head>`. `hugo.Generator` is included by default in all themes hosted on [themes.gohugo.io](https://themes.gohugo.io). The generator tag allows the Hugo team to track the usage and popularity of Hugo.
-{{% /note %}}
 
 hugo.Deps
 : See [hugo.Deps](#hugodeps)
