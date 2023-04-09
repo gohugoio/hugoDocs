@@ -39,7 +39,11 @@ weight: 20
 .InnerDeindent {{< new-in "0.100.0" >}}
 : Gets the `.Inner` with any indentation removed. This is what's used in the built-in `{{</* highlight */>}}` shortcode.
 
+.Params
+: Contains the list of parameters passed to the shortcode for [different use cases][paramshortcode].
+
 [getfunction]: /functions/get/
 [markdownshortcode]: /content-management/shortcodes/#shortcodes-with-markdown
 [shortcodes]: /templates/shortcode-templates/
 [scratch]: /functions/scratch
+[paramshortcode]: /templates/shortcode-templates/#params
