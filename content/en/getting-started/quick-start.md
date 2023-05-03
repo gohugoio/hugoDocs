@@ -36,10 +36,10 @@ You must also be comfortable working from the command line.
 **If you are a Windows user:**
 
 - Do not use the Command Prompt
-- Do not use Windows PowerShell
-- Run these commands from [PowerShell] or a Linux terminal such as WSL or Git Bash
+- Do not use the older Windows PowerShell. Use the newer open source, cross platform PowerShell, or PowerShell Core
+- Run these commands from PowerShell or a Linux terminal such as WSL or Git Bash
 
-PowerShell and Windows PowerShell are different applications.
+'PowerShell' and 'Windows PowerShell' are different applications. If you enter the command `$PSVersionTable` and in the output table the `PSEdition` value is `Core` then you are using the correct version. If the value for `PSEdition` is `Desktop` then you are still using the older Windows PowerShell version. You can get the latest, required version at [PowerShell]
 
 [PowerShell]: https://learn.microsoft.com/en-us/powershell/scripting/install/installing-powershell-on-windows
 {{% /note %}}
