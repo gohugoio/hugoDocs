@@ -121,9 +121,9 @@ When you add a mount, the default mount for the concerned target root is ignored
 ```yaml
 module:
   mounts:
-    - source: assets
-      target: assets
     - source: node_modules
+      target: assets
+    - source: assets
       target: assets
 ```
 {{% /note %}}
