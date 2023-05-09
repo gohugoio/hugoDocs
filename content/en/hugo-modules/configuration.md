@@ -116,16 +116,7 @@ When the `mounts` config was introduced in Hugo 0.56.0, we were careful to prese
 {{% /note %}}
 
 {{% note %}}
-When you add a mount, the default mount for the concerned target root is ignored: be sure to explicitly add it. E.g.
-
-```yaml
-module:
-  mounts:
-    - source: node_modules
-      target: assets
-    - source: assets
-      target: assets
-```
+When you add a mount, the default mount for the concerned target root is ignored: be sure to explicitly add it.
 {{% /note %}}
 
 **Default mounts**
@@ -180,4 +171,10 @@ excludeFiles (string or slice)
     source="content"
     target="content"
     excludeFiles="docs/*"
+[[module.mounts]]
+    source="node_modules"
+    target="assets"
+[[module.mounts]]
+    source="assets"
+    target="assets"
 {{< /code-toggle >}}
