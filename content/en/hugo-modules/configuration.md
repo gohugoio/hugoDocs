@@ -116,7 +116,16 @@ When the `mounts` config was introduced in Hugo 0.56.0, we were careful to prese
 {{% /note %}}
 
 {{% note %}}
-When you add a mount, the default mount for the concerned target root is ignored: be sure to explicitly add it.
+When you add a mount, the default mount for the concerned target root is ignored: be sure to explicitly add it. E.g.
+
+```yaml
+module:
+  mounts:
+    - source: assets
+      target: assets
+    - source: node_modules
+      target: assets
+```
 {{% /note %}}
 
 **Default mounts**
