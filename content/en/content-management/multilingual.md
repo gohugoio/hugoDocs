@@ -19,55 +19,84 @@ Also See [Hugo Multilingual Part 1: Content translation].
 
 ## Configure Languages
 
-The following is an example of a site configuration for a multilingual Hugo project:
+The following is an example of a site configuration for a multilingual project. Any key not defined in a `languages` object will fall back to the global value in the root of your site configuration:
 
 {{< code-toggle file="hugo" >}}
-defaultContentLanguage = "en"
-copyright = "Everything is mine"
+defaultContentLanguage = 'de'
+defaultContentLanguageInSubdir = true
 
-[params]
-[params.navigation]
-help  = "Help"
-
-[languages]
-[languages.en]
-title = "My blog"
+[languages.de]
+contentDir = 'content/de'
+languageCode = 'de-DE'
+languageName = 'Deutsch'
+title = 'Beispielseite'
 weight = 1
+[languages.de.params]
+phone = '+49 69 86 799 799'
+
+[languages.en]
+contentDir = 'content/en'
+languageCode = 'en-US'
+languageName = 'English'
+title = 'Example site'
+weight = 2
 [languages.en.params]
-linkedin = "https://linkedin.com/whoever"
+phone = '+1 516 738 4422'
 
-[languages.fr]
-title = "Mon blogue"
-weight = 2
-[languages.fr.params]
-linkedin = "https://linkedin.com/fr/whoever"
-[languages.fr.params.navigation]
-help  = "Aide"
-
-[languages.ar]
-title = "مدونتي"
-weight = 2
-languagedirection = "rtl"
-
-[languages.pt-pt]
-title = "O meu blog"
+[languages.es]
+contentDir = 'content/es'
+languageCode = 'es_ES'
+languageName = 'Español'
+title = 'Sitio de ejemplo'
 weight = 3
+disabled = true
+[languages.es.params]
+phone = '+34 90 003 1081'
+
+[languages.iw]
+contentDir = 'content/iw'
+languageCode = 'iw_IL'
+languageDirection = 'rtl'
+languageName = 'עִברִית'
+title = 'אתר לדוגמה'
+weight = 4
+[languages.iw.params]
+phone = '+972 3 905 8049'
 {{< /code-toggle >}}
 
-Anything not defined in a `languages` block will fall back to the global value for that key (e.g., `copyright` for the English `en` language). This also works for `params`, as demonstrated with `help` above: You will get the value `Aide` in French and `Help` in all the languages without this parameter set.
+`defaultContentLanguage`
+: (`string`) The project's default language tag as defined by [RFC 5646]. Must be lower case, and must match one of the defined language keys. Default is `en`. Examples:
 
-With the configuration above, all content, sitemap, RSS feeds, pagination,
-and taxonomy pages will be rendered below `/` in English (your default content language) and then below `/fr` in French.
+- `en`
+- `en-gb`
+- `pt-br`
 
-When working with front matter `Params` in [single page templates], omit the `params` in the key for the translation.
 
-`defaultContentLanguage` sets the project's default language. If not set, the default language will be `en`.
+`defaultContentLanguageInSubdir`
+: (`boolean`)  If `true`, Hugo renders the default language site in a subdirectory matching the `defaultContentLanguage`. Default is `false`.
 
-If the default language needs to be rendered below its own language code (`/en`) like the others, set `defaultContentLanguageInSubdir: true`.
+`contentDir`
+: (`string`) xxx.
 
-Only the obvious non-global options can be overridden per language. Examples of global options are `baseURL`, `buildDrafts`, etc.
+`languageCode`
+: (`string`) The language tag as defined by [RFC 5646]. This value may include upper and lower case characters, and does not affect localization or URLs. Hugo uses this value to populate the `language` element in the [built-in RSS template], and the `lang` attribute of the `html` element in the [built-in alias template]. Examples:
 
-**Please note:** use lowercase language codes, even when using regional languages (ie. use pt-pt instead of pt-PT). Currently Hugo language internals lowercase language codes, which can cause conflicts with settings like `defaultContentLanguage` which are not lowercased. Please track the evolution of this issue in [Hugo repository issue tracker](https://github.com/gohugoio/hugo/issues/7344)
+- `en`
+- `en-GB`
+- `pt-BR`
+
+[built-in RSS template]: https://github.com/gohugoio/hugo/blob/master/tpl/tplimpl/embedded/templates/_default/rss.xml
+[built-in alias template]: https://github.com/gohugoio/hugo/blob/master/tpl/tplimpl/embedded/templates/alias.html
+[RFC 5646]: https://datatracker.ietf.org/doc/html/rfc5646
+
+`languageDirection`
+: (`string`) xxx. 
+
+`languageName`
+: (`string`) xxx.
+
+`weight`
+: (`int`) xxx. 
 
 ### Changes in Hugo 0.112.0
 
@@ -100,24 +129,33 @@ In the example above, all settings except `color` below `params` map to predefin
 
 ### Disable a Language
 
-You can disable one or more languages. This can be useful when working on a new translation.
+To disable a language within a `languages` object in your site configuration:
 
-{{< code-toggle file="hugo" >}}
-disableLanguages = ["fr", "ja"]
+{{< code-toggle file="hugo" copy=false >}}
+[languages.es]
+contentDir = 'content/es'
+disabled = true
 {{< /code-toggle >}}
 
-Note that you cannot disable the default content language.
+To disable one or more languages in the root of your site configuration:
 
-We kept this as a standalone setting to make it easier to set via [OS environment]:
+{{< code-toggle file="hugo" copy=false >}}
+disableLanguages = ["es", "iw"]
+{{< /code-toggle >}}
+
+To disable one or more languages using an environment variable:
 
 ```bash
-HUGO_DISABLELANGUAGES="fr ja" hugo
+HUGO_DISABLELANGUAGES="es iw" hugo
 ```
 
-If you have already a list of disabled languages in `hugo.toml`, you can enable them in development like this:
+Note that this will override the `disableLanguages` key in your site configuration, but it will not override the `disabled` key within a `languages` object.
+
+To enable all languages disabled by the `disableLanguages` key in your site configuration:
+
 
 ```bash
-HUGO_DISABLELANGUAGES=" " hugo server
+HUGO_DISABLELANGUAGES="" hugo
 ```
 
 ### Configure Multilingual Multihost
