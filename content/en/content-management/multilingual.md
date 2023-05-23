@@ -90,7 +90,7 @@ languageCode = "sv"
 color = "blue"
 ```
 
-In the example above, all the settings exept the `color` below `params` maps to predefined configuration options in Hugo for the site and its language and should be accessed via the documented accessors:
+In the example above, all settings except `color` below `params` map to predefined configuration options in Hugo for the site and its language, and should be accessed via the documented accessors:
 
 ```
 {{ site.Title }}
