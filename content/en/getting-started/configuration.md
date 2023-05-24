@@ -378,7 +378,7 @@ The directory to where Hugo will write the final static site (the HTML files etc
 
 ### related
 
-: See [Related Content](/content-management/related/#configure-related-content).
+See [Related Content](/content-management/related/#configure-related-content).
 
 ### relativeURLs
 
