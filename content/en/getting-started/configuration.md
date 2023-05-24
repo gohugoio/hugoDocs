@@ -494,7 +494,7 @@ enableemoji: true
 
 The `build` configuration section contains global build-related configuration options.
 
-{{< code-toggle file="hugo">}}
+{{< code-toggle file="hugo" >}}
 [build]
 useResourceCacheWhen="fallback"
 writeStats = false
@@ -518,7 +518,7 @@ noJSConfigInAssets
 This is only relevant when running `hugo server`, and it allows to set HTTP headers during development, which allows you to test out your Content Security Policy and similar. The configuration format matches [Netlify's](https://docs.netlify.com/routing/headers/#syntax-for-the-netlify-configuration-file) with slightly more powerful [Glob matching](https://github.com/gobwas/glob):
 
 
-{{< code-toggle file="hugo">}}
+{{< code-toggle file="hugo" >}}
 [server]
 [[server.headers]]
 for = "/**"
@@ -603,7 +603,7 @@ In your configuration file, you can direct Hugo as to how you want your website 
 
 The following is a typical example of a configuration file. The values nested under `params:` will populate the [`.Site.Params`] variable for use in [templates]:
 
-{{< code-toggle file="hugo">}}
+{{< code-toggle file="hugo" >}}
 baseURL: "https://yoursite.example.com/"
 title: "My Hugo Site"
 permalinks:

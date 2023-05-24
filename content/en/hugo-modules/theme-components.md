@@ -17,7 +17,7 @@ This section contain information that may be outdated and is in the process of b
 {{% /note %}}
 Since Hugo `0.42` a project can configure a theme as a composite of as many theme components you need:
 
-{{< code-toggle file="hugo">}}
+{{< code-toggle file="hugo" >}}
 theme = ["my-shortcodes", "base-theme", "hyde"]
 {{< /code-toggle >}}
 
