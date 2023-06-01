@@ -35,7 +35,7 @@ The Hugo community uses a wide range of preferred tools and has developed plug-i
 ## Vim
 
 * [Vim Hugo Helper](https://github.com/robertbasic/vim-hugo-helper). A small Vim plugin to help me with writing posts with Hugo.
-* [vim-hugo](https://github.com/phelipetls/vim-hugo). vim plugin with syntax highlighting for templates and few other features.
+* [vim-hugo](https://github.com/phelipetls/vim-hugo). A Vim plugin with syntax highlighting for templates and a few other features.
 
 ## Atom
 
