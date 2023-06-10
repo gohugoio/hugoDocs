@@ -24,9 +24,15 @@ GitHub provides free and fast static hosting over SSL for personal, organization
 [Install Git]: https://git-scm.com/book/en/v2/Getting-Started-Installing-Git
 [Create a Hugo site]: /getting-started/quick-start/
 
-## Types of sites
+## BaseURL
 
-There are three types of GitHub Pages sites: project, user, and organization. Project sites are connected to a specific project hosted on GitHub. User and organization sites are connected to a specific account on GitHub.com.
+There are three types of GitHub Pages sites: project, user, and organization. Unless you're using a custom domain, your GitHub Pages site will be available at one of the addresses depending on the type:
+
+1. Project: `http(s)://<username>.github.io/<repository>`, `http(s)://<organization>.github.io/<repository>`
+2. User: `http(s)://<username>.github.io`
+3. Organization: `http(s)://<organization>.github.io`
+
+The `baseURL` in your [site configuration](/getting-started/configuration/) (`hugo.toml`, `hugo.yaml`, or `hugo.json` by default, or `config.toml` in older versions of Hugo) must reflect the full URL of your GitHub pages site.
 
 {{% note %}}
 See the [GitHub Pages documentation] to understand the requirements for repository ownership and naming.
