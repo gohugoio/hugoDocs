@@ -30,5 +30,5 @@ relatedfuncs: []
 | `math.Max`   | Returns the greater of two or more numbers.                                 | `{{ math.Max 12 3 2 }}` &rarr; `12` |  
 | `math.Min`   | Returns the smaller of two or more numbers.                                 | `{{ math.Min 12 3 2 }}` &rarr; `2`  |
 | `math.Pow`   | Returns the first number raised to the power of the second number.          | `{{ math.Pow 2 3 }}` &rarr; `8`     |
-| `math.Round` | Returns the nearest integer, rounding half away from zero.                  | `{{ math.Round 1.5 }}` &rarr; `2`   |
+| `math.Round` | Returns the nearest integer, rounding half away from zero.                  | `{{ math.Round 1.5 }}` &rarr; `2.0  |
 | `math.Sqrt`  | Returns the square root of the given number.                                | `{{ math.Sqrt 81 }}` &rarr; `9`     |
