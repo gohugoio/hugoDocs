@@ -10,6 +10,8 @@ signature: ["safeHTML INPUT"]
 relatedfuncs: []
 ---
 
+It converts values of type `string` to values of type `"html/template".HTML`. Since `markdownify` produces values of type `"html/template".HTML`, you don't need to pipe its output values through `safeHTML`.
+
 It should not be used for HTML from a third-party, or HTML with unclosed tags or comments.
 
 Given a site-wide [`hugo.toml`][config] with the following `copyright` value:
