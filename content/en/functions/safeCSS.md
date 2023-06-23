@@ -21,6 +21,8 @@ Example: Given `style = "color: red;"` defined in the front matter of your `.md`
 
 * <span class="good">`<p style="{{ .Params.style | safeCSS }}">…</p>` &rarr; `<p style="color: red;">…</p>`</span>
 * <span class="bad">`<p style="{{ .Params.style }}">…</p>` &rarr; `<p style="ZgotmplZ">…</p>`</span>
+* <span class="good">`<style>p { {{ .Params.style | safeCSS }} }</style>` &rarr; `<style>p { color: red; }</style>`</span>
+* <span class="bad">`<style>p { {{ .Params.style }} }></style>` &rarr; `<style>p { ZgotmplZ }</style>`</span>
 
 {{% note %}}
 "ZgotmplZ" is a special value that indicates that unsafe content reached a CSS or URL context.
