@@ -20,6 +20,7 @@ The following starter kits are developed by active members of the Hugo community
 * [Hugo Wrapper][hugow]. Hugo Wrapper is a POSIX-style shell script which acts as a wrapper to download and run Hugo binary for your platform. It can be executed in variety of [Operating Systems][hugow-test] and [Command Shells][hugow-test].
 * [GOHUGO AMP]. GoHugo AMP is a starter theme that aims to make it easy to adopt [Google's AMP Project][amp]. The starter kit comes with 40+ shortcodes and partials plus automatic structured data. The project also includes a [separate site with extensive documentation][gohugodocs].
 * [Hyas]. Hyas is a Hugo starter helping you build modern websites that are secure, fast, and SEO-ready — by default. It is Netlify-ready (functions, redirects, headers) and comes with [documentation](https://gethyas.com/) to easily make it your own.
+* [Hugoplate]. Hugoplate is a free, open-source starter template built with of Hugo and TailwindCSS. Designed to provide you with almost everything you need to jumpstart your Hugo project. Hugoplate comes with 15+ pre-designed pages, 20+ modules, and shortcodes.
 
 [Wowchemy]: https://github.com/wowchemy/wowchemy-hugo-modules
 [addkit]: https://github.com/gohugoio/hugo/edit/master/docs/content/en/tools/starter-kits.md
@@ -29,3 +30,4 @@ The following starter kits are developed by active members of the Hugo community
 [hugow]: https://github.com/khos2ow/hugo-wrapper
 [hugow-test]: https://github.com/khos2ow/hugo-wrapper#tested-on
 [Hyas]: https://github.com/h-enk/hyas
+[Hugoplate]: https://github.com/zeon-studio/hugoplate
