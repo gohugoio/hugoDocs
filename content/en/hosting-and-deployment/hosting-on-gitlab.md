@@ -28,9 +28,6 @@ Define your [CI/CD](https://docs.gitlab.com/ee/ci/quick_start/) jobs by creating
 {{< code file=".gitlab-ci.yml" >}}
 image: registry.gitlab.com/pages/hugo/hugo_extended:latest
 
-variables:
-  GIT_SUBMODULE_STRATEGY: recursive
-
 pages:
   script:
   - hugo
@@ -39,6 +36,36 @@ pages:
     - public
   rules:
   - if: $CI_COMMIT_BRANCH == $CI_DEFAULT_BRANCH
+
+
+variables:
+  HUGO_ENV: production
+  THEME_URL: "github.com/google/docsy@v0.7.1" #could be another theme too
+
+default:
+  before_script:
+    #- apk update && apk upgrade
+    - apk add --no-cache git go npm brotli #go curl bash nodejs
+    - hugo mod get $THEME_URL
+    - npm install postcss postcss-cli autoprefixer
+    
+test:
+  script:
+    - hugo
+  rules:
+    - if: $CI_COMMIT_REF_NAME != $CI_DEFAULT_BRANCH
+
+pages:
+  script:
+    - hugo --minify
+    - find public -type f -regex '.*\.\(htm\|html\|txt\|text\|js\|css\|json\)$' -exec brotli -f -k {} \;
+    - find public -type f -regex '.*\.\(xml\|ttf\|svg\)$' -exec brotli -f -k {} \;
+
+  artifacts:
+    paths:
+      - public
+  rules:
+    - if: $CI_COMMIT_REF_NAME == $CI_DEFAULT_BRANCH
 {{< /code >}}
 
 {{% note %}}
