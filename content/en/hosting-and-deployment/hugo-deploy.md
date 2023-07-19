@@ -32,9 +32,9 @@ You can use the "hugo deploy" command to upload your site directly to a Google C
 
 ## Configuring your first deployment
 
-In the configuration file for your site, add a `[deployment]` section with one
-or more `[[deployment.targets]]` section, one for each deployment target. The
-only required parameters are the name and URL:
+In the configuration file for your site, add a `[deployment]` section
+and a `[[deployment.targets]]` subsection. The only required parameters are
+the name and URL:
 
 ```toml
 [deployment]
@@ -83,14 +83,14 @@ traversing the local publish directory and remote bucket.
 
 For both local and remote, the file list includes and excludes files according to
 the [deployment target's configuration][config] --
-* If the configuration includes an `exclude` directive, files matching the
+* If the configuration specifies an `include` pattern, all files
+  are skipped by default except those matching the pattern.
+* If the configuration specifies an `exclude` pattern, files matching the
   pattern are skipped.
-* If the configuration includes an `include` directive, remaining files
-  matching the pattern are included.
 
 
 {{% note %}}
-When creating the local file list, a few special cases apply: first, Hugo always
+When creating the local file list, a few additional skips apply: first, Hugo always
 skips files named `.DS_Store`. 
 
 Second, Hugo always skips local hidden directories
@@ -128,7 +128,8 @@ what differences it has found and either pauses or stops here.
 
 Hugo applies the list of changes to the remote storage bucket. Missing and/or
 changed files are uploaded, and files missing locally but present remotely are
-deleted. 
+deleted. As files are uploaded, their headers are also configured on the remote
+according to the matchers configuration.
 
 {{% note %}}
 As a safety measure to help prevent accidents, if there are more than 256 files
@@ -150,6 +151,9 @@ order = [".jpg$", ".gif$"]
 
 
 [[deployment.targets]]
+# Define one or more targets, e.g., staging and production.
+# Each target gets its own [[deployment.targets]] section.
+
 # An arbitrary name for this target.
 name = "mydeployment"
 # The Go Cloud Development Kit URL to deploy to. Examples:
