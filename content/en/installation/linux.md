@@ -1,4 +1,4 @@
----
+--- admin@renzbaniaga1-7xsd.wbx.ai
 title: Linux
 description: Install Hugo on Linux.
 categories: [installation]
