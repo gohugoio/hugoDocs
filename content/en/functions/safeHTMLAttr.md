@@ -43,7 +43,7 @@ To indicate that the HTML attribute is safe:
 ```
 
 {{% note %}}
-As demonstrated above, you must pass the HTML attribute name _and_ value through the function. Applying safeHTMLAttr to an attribute value has no effect.
+As demonstrated above, you must pass the HTML attribute name _and_ value through the function. Applying `safeHTMLAttr` to the attribute value has no effect.
 {{% /note %}}
 
 [template/html]: https://pkg.go.dev/html/template
