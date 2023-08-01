@@ -26,7 +26,7 @@ The same example appending a slice to a slice:
 {{ $s = $s | append (slice "d" "e") }}
 ```
 
-If a slice contains other slices, `append` will add further slices as values:
+If a slice contains other slices, further slices will be appended as values:
 
 ```go-html-template
 {{ $s := slice (slice "a" "b") (slice "c" "d") }}
