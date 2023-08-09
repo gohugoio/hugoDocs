@@ -97,9 +97,9 @@ This is how you need to configure your `hugo.toml` files considering the above s
 Default environments are __development__ with `hugo server` and __production__ with `hugo`.
 {{%/ note %}}
 
-## Merge configuration from themes
+## Configuration merge strategy
 
-The configuration value for `_merge` can be one of:
+Configuration from [themes](/hugo-modules/theme-components/) as well as [language-specific configuration](/content-management/multilingual/#configure-languages) is merged with the main [site configuration](#configuration-file) according to the respective `_merge` strategy, which can be one of:
 
 none
 : No merge.
@@ -110,7 +110,7 @@ shallow
 deep
 : Add values for new keys, merge existing.
 
-Note that you don't need to be so verbose as in the default setup below; a `_merge` value higher up will be inherited if not set.
+The default values of `_merge` for the different configuration objects are as follows. Note that you don't need to be so verbose, a `_merge` value higher up will be inherited if not set.
 
 {{< code-toggle file="hugo" dataKey="config_helpers.mergeStrategy" skipHeader=true />}}
 
