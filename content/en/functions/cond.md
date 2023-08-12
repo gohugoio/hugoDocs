@@ -1,6 +1,6 @@
 ---
 title: cond
-description: "Return one of two arguments, depending on the value of a third argument."
+description: "Return one of two arguments, depending on the value of a control argument."
 categories: [functions]
 menu:
   docs:
@@ -17,10 +17,15 @@ Example:
 {{ cond (eq (len $geese) 1) "goose" "geese" }}
 ```
 
-Would emit "goose" if the `$geese` array has exactly 1 item, or "geese" otherwise.
+This emits "goose" if the `$geese` array has exactly 1 item, or "geese" otherwise.
 
 {{% note %}}
-Whenever you use a `cond` function, *both* variable expressions are *always* evaluated. This means that a usage like `cond false (div 1 0) 27` will throw an error because `div 1 0` will be evaluated *even though the condition is false*.
+The `cond` function always evaluates *both* variable expressions, even if the control expression in the first argument is false.
 
-In other words, the `cond` function does *not* provide [short-circuit evaluation](https://en.wikipedia.org/wiki/Short-circuit_evaluation) and does *not* work like a normal [ternary operator](https://en.wikipedia.org/wiki/%3F:) that will pass over the first expression if the condition returns `false`.
+For example, `cond false (div 1 0) 27` will throw an error. The first argument (`false`) is obviously false. However, `div 1 0` is evaluated anyway, which results in the `cond` function throwing an error.
+
+As a result, the `cond` function does *not* provide [short-circuit evaluation](https://en.wikipedia.org/wiki/Short-circuit_evaluation), and does *not* work like a normal [ternary operator](https://en.wikipedia.org/wiki/%3F:) that will pass over the first expression if the condition returns `false`.
+
+For situations where a default value should be returned if *CONTROL* is not set, see the [`default`](/functions/default/) function.
+
 {{% /note %}}
