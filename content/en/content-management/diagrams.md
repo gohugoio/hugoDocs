@@ -14,7 +14,7 @@ weight: 50
 
 ## GoAT diagrams (Ascii)
 
-Hugo supports [GoAT](https://github.com/bep/goat) natively. This means that this code block:
+Hugo supports [GoAT](https://github.com/blampe/goat) natively. This means that this code block:
 
 ````txt
 ```goat
