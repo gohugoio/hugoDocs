@@ -1,4 +1,4 @@
----
+haha---
 title: Configure Hugo modules
 description: This page describes the configuration options for a module.
 categories: [hugo modules]
