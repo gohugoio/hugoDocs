@@ -171,6 +171,9 @@ Under the deploy step, you will see a link to your live site.
 
 In the future, whenever you push a change from your local repository, GitHub will rebuild your site and deploy the changes.
 
+Step 11
+: If you aren't using your own SCSS, you won't need dart-sass or NodeJS installed. You can comment out the steps named "Install Dart Sass" and "Install Node.js dependencies". These steps add a significant amount of the time to the build process and will cause more load on those projects' resources. It also makes your own builds more likely to fail if, for example, the Snap store is unavailable.
+
 ## Additional resources
 
 - [Learn more about GitHub Actions](https://docs.github.com/en/actions)
