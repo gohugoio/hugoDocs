@@ -52,17 +52,21 @@ If the `.GitInfo` feature is enabled, `.Lastmod` (on `Page`) is fetched from Git
 
 ## Hosting Considerations
 
-On the site host, your repository must be "deep-cloned," so the returned `.GitInfo` data will be accurate. Otherwise, your site may display only data from your latest commit. Controlling the cloning level isn't possible in most hosts' native interfaces but, instead, must be done through CI/CD (*e.g.*, a GitHub Action or GitLab CI/CD). See the following table:
+On the site host, your repository must be "deep-cloned," so the returned `.GitInfo` data will be accurate. Otherwise, your site may display only data from your latest commit. Where it's not possible to configure a host's cloning depth, you must handle this through CI/CD (*e.g.*, a 
+GitHub Action or GitLab CI/CD). See the following table:
 
-| Hosting service | Clone depth |
-| :-------------- | :---------: |
-| Cloudflare Pages | Shallow[^CFP] |
-| DigitalOcean App Platform | Deep |
-| GitHub Pages | Deep |
-| GitLab Pages | Shallow[^GLP] |
-| Netlify | Deep |
-| Vercel | Shallow |
+| Hosting service | Clone depth | Configurable? |
+| :-------------- | :---------: | :-----------: |
+| Cloudflare Pages | Shallow | ✔️ [^CFP] |
+| DigitalOcean App Platform | Deep | ❌ |
+| GitHub Pages | Shallow | ✔️ [^GHP] |
+| GitLab Pages | Shallow | ✔️ [^GLP] |
+| Netlify | Deep | ❌ |
+| Render | Shallow | ❌ |
+| Vercel | Shallow | ❌ |
 
 [^CFP]: To configure a Cloudflare Pages site for deep cloning, preface the site's normal Hugo build command with `git fetch --unshallow &&` (*e.g.*, `git fetch --unshallow && hugo`).
+
+[^GHP]: You can configure the GitHub Runner to do a deep clone by specifying `fetch-depth: 0` in the applicable "checkout" step of your workflow file, as shown in the Hugo documentation's [example workflow file](/hosting-and-deployment/hosting-on-github/#procedure).
 
 [^GLP]: You can configure the GitLab Runner's clone depth [as explained in the GitLab documentation](https://docs.gitlab.com/ee/ci/large_repositories/#shallow-cloning).
