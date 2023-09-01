@@ -67,6 +67,6 @@ GitHub Action or GitLab CI/CD). See the following table:
 
 [^CFP]: To configure a Cloudflare Pages site for deep cloning, preface the site's normal Hugo build command with `git fetch --unshallow &&` (*e.g.*, `git fetch --unshallow && hugo`).
 
-[^GHP]: You can configure the GitHub Runner to do a deep clone by specifying `fetch-depth: 0` in the applicable "checkout" step of your workflow file, as shown in the Hugo documentation's [example workflow file](/hosting-and-deployment/hosting-on-github/#procedure).
+[^GHP]: You can configure the GitHub Action to do a deep clone by specifying `fetch-depth: 0` in the applicable "checkout" step of your workflow file, as shown in the Hugo documentation's [example workflow file](/hosting-and-deployment/hosting-on-github/#procedure).
 
-[^GLP]: You can configure the GitLab Runner's clone depth [as explained in the GitLab documentation](https://docs.gitlab.com/ee/ci/large_repositories/#shallow-cloning).
+[^GLP]: You can configure the GitLab Runner's clone depth [as explained in the GitLab documentation](https://docs.gitlab.com/ee/ci/large_repositories/#shallow-cloning); see also the Hugo documentation's [example workflow file](https://gohugo.io/hosting-and-deployment/hosting-on-gitlab/#configure-gitlab-cicd).
