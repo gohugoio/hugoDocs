@@ -310,9 +310,6 @@ chroma:
     - go-html-template
     Name: Go HTML Template
   - Aliases:
-    - go-html-template
-    Name: Go HTML Template
-  - Aliases:
     - go-text-template
     Name: Go Text Template
   - Aliases:
