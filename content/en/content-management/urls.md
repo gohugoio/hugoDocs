@@ -197,7 +197,7 @@ books = "/books/:slug/"
 books = "/books/"
 
 [languages.es]
-contentDir = 'content/de'
+contentDir = 'content/es'
 languageCode = 'es-ES'
 languageDirection = 'ltr'
 languageName = 'Español'
