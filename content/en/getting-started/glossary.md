@@ -192,7 +192,7 @@ A [template](#template) that overrides standard markdown rendering. See [details
 
 ### resource
 
-Any file consumed by the build process to augment or generate content, structure, behavior, or presentation. For example: images, videos, content snippets, CSS, Sass/SCSS, JavaScript, and data.
+Any file consumed by the build process to augment or generate content, structure, behavior, or presentation. For example: images, videos, content snippets, CSS, Sass, JavaScript, and data.
 
 Hugo supports three types of resources: page resources (located in a [page bundle](/getting-started/glossary/#page-bundle)), global resources (located in the assets directory), and remote resources (typically accessed via HTTPS).
 
