@@ -15,6 +15,8 @@ By default, `replaceRE` replaces all matches. You can limit the number of matche
 
 {{% readfile file="/functions/common/regular-expressions.md" %}}
 
+The result is not safe for rendering.
+
 This example replaces two or more consecutive hyphens with a single hyphen:
 
 ```go-html-template
