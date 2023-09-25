@@ -20,6 +20,8 @@ To keep the wrapping `p` tags for a single paragraph, use the [`.Page.RenderStri
 
 If the resulting HTML is two or more paragraphs, Hugo leaves the wrapping `p` tags in place.
 
+The result is marked as safe for rendering.
+
 [`.Page.RenderString`]: /functions/renderstring/
 
 {{% note %}}
