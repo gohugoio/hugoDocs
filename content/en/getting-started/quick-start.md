@@ -153,7 +153,7 @@ Hugo's rendering engine conforms to the CommonMark [specification] for markdown.
 
 ## Configure the site
 
-With your editor, open the [site configuration] file (`hugo.toml`) in the root of your project.
+With your editor, open the [site configuration] file (`config.toml`) in the root of your project.
 
 ```text
 baseURL = 'http://example.org/'
