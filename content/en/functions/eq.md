@@ -1,24 +1,30 @@
 ---
 title: eq
-linktitle: eq
-description: Returns the boolean truth of arg1 == arg2.
-date: 2017-02-01
-publishdate: 2017-02-01
-lastmod: 2017-02-01
+description: Returns the boolean truth of arg1 == arg2 || arg1 == arg3.
 categories: [functions]
 menu:
   docs:
-    parent: "functions"
-keywords: [operators,logic]
-signature: ["eq ARG1 ARG2"]
-workson: []
-hugoversion:
-relatedfuncs: []
-deprecated: false
-aliases: []
+    parent: functions
+keywords: []
+namespace: compare
+relatedFuncs:
+  - compare.Eq
+  - compare.Ge
+  - compare.Gt
+  - compare.Le
+  - compare.Lt
+  - compare.Ne
+signature:
+  - compare.Eq ARG1 ARG2 [ARG...]
+  - eq ARG1 ARG2 [ARG...]
 ---
 
+```go-html-template
+{{ eq 1 1 }} → true
+{{ eq 1 2 }} → false
 
-```
-{{ if eq .Section "blog" }}current{{ end }}
+{{ eq 1 1 1 }} → true
+{{ eq 1 1 2 }} → true
+{{ eq 1 2 1 }} → true
+{{ eq 1 2 2 }} → false
 ```

@@ -1,19 +1,22 @@
 ---
 title: path.Ext
 description: Ext returns the file name extension of a path.
-date: 2018-11-28
-publishdate: 2018-11-28
-lastmod: 2018-11-28
 categories: [functions]
 menu:
   docs:
-    parent: "functions"
-keywords: [path, ext, extension]
-signature: ["path.Ext PATH"]
-workson: []
-hugoversion: "0.40"
-relatedfuncs: [path.Base, path.BaseName, path.Clean, path.Dir, path.Join, path.Split]
-deprecated: false
+    parent: functions
+keywords: []
+namespace: path
+relatedFuncs:
+  - path.Base
+  - path.BaseName
+  - path.Clean
+  - path.Dir
+  - path.Ext
+  - path.Join
+  - path.Split
+signature:
+  - path.Ext PATH
 ---
 
 `path.Ext` returns the file name extension `PATH`.
@@ -23,6 +26,6 @@ it is empty if there is no dot.
 
 **Note:** On Windows, `PATH` is converted to slash (`/`) separators.
 
-```
+```go-html-template
 {{ path.Ext "a/b/c/news.html" }} → ".html"
 ```

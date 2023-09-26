@@ -1,21 +1,16 @@
 ---
 title: .Scratch
 description: Acts as a "scratchpad" to store and manipulate data.
-date: 2017-02-01
-publishdate: 2017-02-01
-lastmod: 2017-02-01
-keywords: [iteration]
 categories: [functions]
 menu:
   docs:
-    parent: "functions"
-toc:
-signature: []
-workson: []
-hugoversion:
-relatedfuncs: []
-deprecated: false
-draft: false
+    parent: functions
+keywords: []
+namespace:
+relatedFuncs:
+  - .Store
+  - .Scratch
+signature:
 aliases: [/extras/scratch/,/doc/scratch/]
 ---
 
@@ -79,7 +74,7 @@ Get the value of a given key.
 
 Add a given value to existing value(s) of the given key.
 
-For single values, `Add` accepts values that support Go's `+` operator. If the first `Add` for a key is an array or slice, the following adds will be appended to that list.
+For single values, `Add` accepts values that support Go's `+` operator. If the first `Add` for a key is an array or slice, the following adds will be [appended](/functions/append/) to that list.
 
 ```go-html-template
 {{ $scratch.Add "greetings" "Hello" }}

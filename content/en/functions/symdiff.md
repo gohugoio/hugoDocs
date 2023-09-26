@@ -1,15 +1,20 @@
 ---
-title: "symdiff"
+title: symdiff
 description: "`collections.SymDiff` (alias `symdiff`) returns the symmetric difference of two collections."
-date: 2018-11-07
 categories: [functions]
 menu:
   docs:
-    parent: "functions"
-keywords: [collections,intersect,union,complement]
-signature: ["COLLECTION | symdiff COLLECTION" ]
-hugoversion: "0.51"
-aliases: []
+    parent: functions
+keywords: []
+namespace: collections
+relatedFuncs:
+  - collections.Complement
+  - collections.Intersect
+  - collections.SymDiff
+  - collections.Union
+signature: 
+  - COLLECTION | collections.SymDiff COLLECTION
+  - COLLECTION | symdiff COLLECTION
 ---
 
 Example:

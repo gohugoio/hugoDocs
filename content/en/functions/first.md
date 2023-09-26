@@ -1,21 +1,17 @@
 ---
 title: first
-linktitle: first
-description: "Slices an array to only the first _N_ elements."
-date: 2017-02-01
-publishdate: 2017-02-01
-lastmod: 2017-02-01
+description: Slices an array to the first N elements.
 categories: [functions]
 menu:
   docs:
-    parent: "functions"
-keywords: [iteration]
-signature: ["first LIMIT COLLECTION"]
-workson: [lists,taxonomies,terms,groups]
-hugoversion:
-relatedfuncs: [after,last]
-deprecated: false
-aliases: []
+    parent: functions
+keywords: []
+namespace: collections
+relatedFuncs:
+  - collections.After
+  - collections.First
+  - collections.Last
+signature: [first LIMIT COLLECTION]
 ---
 
 `first` works in a similar manner to the [`limit` keyword in

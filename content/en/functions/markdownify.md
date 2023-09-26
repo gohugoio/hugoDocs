@@ -1,28 +1,33 @@
 ---
 title: markdownify
-linktitle: markdownify
-description: Runs the provided string through the Markdown processor.
-date: 2017-02-01
-publishdate: 2017-02-01
-lastmod: 2017-02-01
-keywords: [markdown,content]
+description: Renders markdown to HTML.
 categories: [functions]
 menu:
   docs:
-    parent: "functions"
-signature: ["markdownify INPUT"]
-workson: []
-hugoversion:
-relatedfuncs: []
-deprecated: false
-aliases: []
+    parent: functions
+keywords: []
+namespace: transform
+relatedFuncs: []
+signature:
+  - transform.Markdownify INPUT
+  - markdownify INPUT
 ---
 
-
-```
+```go-html-template
 {{ .Title | markdownify }}
 ```
 
-{{< new-in "0.93.0" >}} **Note**: `markdownify` now supports [Render Hooks] just like [.RenderString](/functions/renderstring/).
+If the resulting HTML is a single paragraph, Hugo removes the wrapping `p` tags to produce inline HTML as required per the example above.
 
-[Render Hooks]: /templates/render-hooks/
+To keep the wrapping `p` tags for a single paragraph, use the [`.Page.RenderString`] method, setting the `display` option to `block`.
+
+If the resulting HTML is two or more paragraphs, Hugo leaves the wrapping `p` tags in place.
+
+[`.Page.RenderString`]: /functions/renderstring/
+
+{{% note %}}
+Although the `markdownify` function honors [markdown render hooks] when rendering markdown to HTML, use the `.Page.RenderString` method instead of `markdownify` if a render hook accesses `.Page` context. See issue [#9692] for details.
+
+[markdown render hooks]: /templates/render-hooks/
+[#9692]: https://github.com/gohugoio/hugo/issues/9692
+{{% /note %}}

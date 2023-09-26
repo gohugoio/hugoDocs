@@ -1,22 +1,17 @@
 ---
 title: .IsMenuCurrent
 description:
-date: 2017-02-01
-publishdate: 2017-02-01
-lastmod: 2017-02-01
 categories: [functions]
 menu:
   docs:
-    parent: "functions"
-keywords: [menus]
-signature: ["PAGE.IsMenuCurrent MENU MENUENTRY"]
-workson: [menus]
-hugoversion:
-relatedfuncs: ["HasMenuCurrent"]
-deprecated: false
-draft: false
-aliases: []
-needsexample: true
+    parent: functions
+keywords: []
+namespace:
+relatedFuncs:
+  - .HasMenuCurrent
+  - .IsMenuCurrent
+signature:
+  - PAGE.IsMenuCurrent MENU MENUENTRY
 ---
 
 `.IsMenuCurrent` is a method in `Page` object returning a _boolean_ value. It

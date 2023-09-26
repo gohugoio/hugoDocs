@@ -1,25 +1,23 @@
 ---
 title: uniq
-linktitle: uniq
-description: Takes in a slice or array and returns a slice with subsequent duplicate elements removed.
-date: 2017-02-01
-publishdate: 2017-02-01
-lastmod: 2017-02-01
+description: Takes in a slice or array and returns a slice with duplicate elements removed.
 categories: [functions]
 menu:
   docs:
-    parent: "functions"
-keywords: [multilingual,i18n,urls]
-signature: ["uniq SET"]
-workson: []
-hugoversion:
-relatedfuncs: []
-deprecated: false
-aliases: []
+    parent: functions
+keywords: []
+namespace: collections
+relatedFuncs:
+  - collections.Reverse
+  - collections.Shuffle
+  - collections.Sort
+  - collections.Uniq
+signature:
+  - collections.Uniq COLLECTION
+  - uniq COLLECTION
 ---
 
-```
-{{ uniq (slice 1 2 3 2) }}
-{{ slice 1 2 3 2 | uniq }}
-<!-- both return [1 2 3] -->
+
+```go-html-template
+{{ slice 1 3 2 1 | uniq }} → [1 3 2]
 ```

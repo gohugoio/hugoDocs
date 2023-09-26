@@ -1,24 +1,35 @@
 ---
 title: le
-linktitle: le
-description: Returns the boolean truth of arg1 <= arg2.
-date: 2017-07-26
-publishdate: 2017-07-26
-lastmod: 2017-07-26
+description: Returns the boolean truth of arg1 <= arg2 && arg1 <= arg3.
 categories: [functions]
 menu:
   docs:
-    parent: "functions"
-keywords: [operators,logic]
-signature: ["le ARG1 ARG2"]
-workson: []
-hugoversion:
-relatedfuncs: []
-deprecated: false
-aliases: []
+    parent: functions
+keywords: []
+namespace: compare
+relatedFuncs:
+  - compare.Eq
+  - compare.Ge
+  - compare.Gt
+  - compare.Le
+  - compare.Lt
+  - compare.Ne
+signature:
+  - compare.Le ARG1 ARG2 [ARG...]
+  - le ARG1 ARG2 [ARG...]
 ---
 
+```go-html-template
+{{ le 1 1 }} → true
+{{ le 1 2 }} → true
+{{ le 2 1 }} → false
 
-```
-{{ if le 5 10 }}true{{ end }}
+{{ le 1 1 1 }} → true
+{{ le 1 1 2 }} → true
+{{ le 1 2 1 }} → true
+{{ le 1 2 2 }} → true
+
+{{ le 2 1 1 }} → false
+{{ le 2 1 2 }} → false
+{{ le 2 2 1 }} → false
 ```

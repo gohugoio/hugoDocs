@@ -1,20 +1,21 @@
 ---
 title: strings.TrimRight
 description: Returns a slice of a given string with all trailing characters contained in the cutset removed.
-date: 2017-02-01
-publishdate: 2017-02-01
-lastmod: 2017-02-01
 categories: [functions]
 menu:
   docs:
-    parent: "functions"
-keywords: [strings]
-signature: ["strings.TrimRight CUTSET STRING"]
-workson: []
-hugoversion:
-relatedfuncs: [strings.TrimRight]
-deprecated: false
-aliases: []
+    parent: functions
+keywords: []
+namespace: strings
+relatedFuncs:
+  - strings.Chomp
+  - strings.Trim
+  - strings.TrimLeft
+  - strings.TrimPrefix
+  - strings.TrimRight
+  - strings.TrimSuffix
+signature:
+  - strings.TrimRight CUTSET STRING
 ---
 
 Given the string `"abba"`, trailing `"a"`'s can be removed a follows:

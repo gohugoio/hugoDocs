@@ -1,27 +1,21 @@
 ---
 title: truncate
-# linktitle: truncate
 description: Truncates a text to a max length without cutting words or leaving unclosed HTML tags.
-date: 2017-02-01
-publishdate: 2017-02-01
-lastmod: 2017-02-01
 categories: [functions]
 menu:
   docs:
-    parent: "functions"
-keywords: [strings]
+    parent: functions
+keywords: []
+namespace: strings
+relatedFuncs: []
 signature:
-  - "truncate SIZE [ELLIPSIS] INPUT"
-  - "strings.Truncate SIZE [ELLIPSIS] INPUT"
-workson: []
-hugoversion: 19
-relatedfuncs: []
-deprecated: false
+  - strings.Truncate SIZE [ELLIPSIS] INPUT
+  - truncate SIZE [ELLIPSIS] INPUT
 ---
 
 Since Go templates are HTML-aware, `truncate` will intelligently handle normal strings vs HTML strings:
 
-```
+```go-html-template
 {{ "<em>Keep my HTML</em>" | safeHTML | truncate 10 }}` → <em>Keep my …</em>`
 ```
 

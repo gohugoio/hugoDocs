@@ -4,11 +4,17 @@ description: Parses a given duration string into a `time.Duration` structure.
 categories: [functions]
 menu:
   docs:
-    parent: "functions"
-keywords: [time parse duration]
-signature: ["time.ParseDuration DURATION"]
-hugoversion:
-aliases: []
+    parent: functions
+keywords: []
+namespace: time
+relatedFuncs:
+  - time.AsTime
+  - time.Duration
+  - time.Format
+  - time.Now
+  - time.ParseDuration
+signature:
+  - time.ParseDuration DURATION
 ---
 
 `time.ParseDuration` parses a duration string into a [`time.Duration`](https://pkg.go.dev/time#Duration) structure so you can access its fields.

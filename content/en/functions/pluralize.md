@@ -1,23 +1,21 @@
 ---
 title: pluralize
-linktitle: pluralize
 description: Pluralizes the given word according to a set of common English pluralization rules
-date: 2017-02-01
-publishdate: 2017-02-01
-lastmod: 2017-02-01
 categories: [functions]
 menu:
   docs:
-    parent: "functions"
-keywords: [strings]
-signature: ["pluralize INPUT"]
-workson: []
-hugoversion:
-relatedfuncs: []
-deprecated: false
-aliases: []
+    parent: functions
+keywords: []
+namespace: inflect
+relatedFuncs:
+  - inflect.Humanize
+  - inflect.Pluralize
+  - inflect.Singularize
+signature:
+  - inflect.Pluralize INPUT
+  - pluralize INPUT
 ---
 
-```
+```go-html-template
 {{ "cat" | pluralize }} → "cats"
 ```

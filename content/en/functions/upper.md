@@ -1,25 +1,21 @@
 ---
 title: upper
-# linktitle: upper
 description: Converts all characters in a string to uppercase
-date: 2017-02-01
-publishdate: 2017-02-01
-lastmod: 2017-02-01
-keywords: []
+
 categories: [functions]
 menu:
   docs:
-    parent: "functions"
-toc:
+    parent: functions
+keywords: []
+namespace: strings
+relatedFuncs:
+  - strings.FirstUpper
+  - strings.Title
+  - strings.ToLower
+  - strings.ToUpper
 signature:
-  - "upper INPUT"
-  - "strings.ToUpper INPUT"
-workson: []
-hugoversion:
-relatedfuncs: []
-deprecated: false
-draft: false
-aliases: []
+  - strings.ToUpper INPUT
+  - upper INPUT
 ---
 
 Note that `upper` can be applied in your templates in more than one way:

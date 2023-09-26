@@ -5,19 +5,22 @@ categories: [functions]
 menu:
   docs:
     parent: functions
-keywords: [collections]
+namespace: collections
+relatedFuncs:
+  - collections.Complement
+  - collections.Intersect
+  - collections.SymDiff
+  - collections.Union
 signature:
-- "complement COLLECTION [COLLECTION]..."
-- "collections.Complement COLLECTION [COLLECTION]..."
-relatedfuncs: [intersect,symdiff,union]
-aliases: []
+  - collections.Complement COLLECTION [COLLECTION]...
+  - complement COLLECTION [COLLECTION]...
 ---
 
 To find the elements within `$c3` that do not exist in `$c1` or `$c2`:
 
 ```go-html-template
 {{ $c1 := slice 3 }}
-{{ $c2 := slice 4 5  }}
+{{ $c2 := slice 4 5 }}
 {{ $c3 := slice 1 2 3 4 5 }}
 
 {{ complement $c1 $c2 $c3 }} → [1 2]
