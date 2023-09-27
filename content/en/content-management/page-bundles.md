@@ -31,8 +31,10 @@ A Page Bundle can be one of:
 
 ## Leaf bundles
 
-A _Leaf Bundle_ is a directory at any hierarchy within the `content/`
-directory, that contains an **`index.md`** file.
+- A _Leaf Bundle_ is a directory in your content folder that contains a single piece of content, such as a blog post, a page, or any other kind of content file.
+- Leaf Bundles are typically used when you have a piece of content that needs to be associated with additional related files, like images or additional data.
+- The primary content file within a Leaf Bundle is often an `index.md` (Markdown) file, but it could be another supported content format, depending on your configuration.
+- Leaf Bundles are useful for structuring content with associated media files, additional metadata, or attachments.
 
 ### Examples of leaf bundle organization {#examples-of-leaf-bundle-organization}
 
@@ -139,10 +141,11 @@ There are many use cases of such headless page bundles:
 
 ## Branch bundles
 
-A _Branch Bundle_ is any directory at any hierarchy within the
-`content/` directory, that contains at least an **`_index.md`** file.
-
-This `_index.md` can also be directly under the `content/` directory.
+- A _Branch Bundle_ is any directory at any hierarchy within the `content/` directory, that contains at least an **`_index.md`** file.
+- A Branch Bundle doesn't contain a piece of content itself but serves as a container for other content files and directories.
+- Branch Bundles are typically used when you want to group related content together, like organizing a section of your website with subsections and their respective content.
+- Branch Bundles often contain an `_index.md` file, which can be used to provide metadata or a description for the branch itself.
+- This `_index.md` can also be directly under the `content/` directory.
 
 {{% note %}}
 Here `md` (markdown) is used just as an example. You can use any file
