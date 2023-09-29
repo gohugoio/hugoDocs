@@ -15,6 +15,8 @@ relatedFuncs:
 signature: [relLangURL INPUT]
 ---
 
+The result type is [template.HTML](https://pkg.go.dev/html/template#HTML).
+
 Use this function with both monolingual and multilingual configurations. The URL returned by this function depends on:
 
 - Whether the input begins with a slash
