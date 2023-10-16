@@ -90,7 +90,7 @@ format [string]
   One of: `iife`, `cjs`, `esm`.
   Default is `iife`, a self-executing function, suitable for inclusion as a <script> tag.
 
-sourceMap [string]
+sourcemap [string]
 : Whether to generate `inline` or `external` source maps from esbuild. External source maps will be written to the target with the output file name + ".map". Input source maps can be read from js.Build and node modules and combined into the output source maps. By default, source maps are not created.
 
 ### Import JS code from /assets
