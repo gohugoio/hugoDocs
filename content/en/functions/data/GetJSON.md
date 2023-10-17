@@ -28,15 +28,15 @@ my-project/
 Access the data with either of the following:
 
 ```go-html-template
-{{ $data := getCSV "," "other-files/books.json" }}
-{{ $data := getCSV "," "other-files/" "books.json" }}
+{{ $data := getJSON "," "other-files/books.json" }}
+{{ $data := getJSON "," "other-files/" "books.json" }}
 ```
 
 Access remote data with either of the following:
 
 ```go-html-template
-{{ $data := getCSV "," "https://example.org/books.json" }}
-{{ $data := getCSV "," "https://example.org/" "books.json" }}
+{{ $data := getJSON "," "https://example.org/books.json" }}
+{{ $data := getJSON "," "https://example.org/" "books.json" }}
 ```
 
 The resulting data structure is a JSON object:
