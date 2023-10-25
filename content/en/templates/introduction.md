@@ -114,6 +114,9 @@ all other pages:
 Var is {{ $var }}
 ```
 
+Custom variable names must conform to Go's [variable naming
+rules](https://www.w3schools.com/go/go_variable_naming_rules.php).
+
 ## Functions
 
 Go Templates only ship with a few basic functions but also provide a mechanism for applications to extend the original set.
