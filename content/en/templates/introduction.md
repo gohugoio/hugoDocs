@@ -114,8 +114,7 @@ all other pages:
 Var is {{ $var }}
 ```
 
-Custom variable names must conform to Go's [variable naming
-rules](https://www.w3schools.com/go/go_variable_naming_rules.php).
+Variable names must conform to Go's naming rules for [identifiers][identifier].
 
 ## Functions
 
@@ -663,6 +662,7 @@ If you restrict front matter to the TOML format, and omit quotation marks surrou
 [dotdoc]: https://golang.org/pkg/text/template/#hdr-Variables
 [front matter]: /content-management/front-matter
 [functions]: /functions
+[identifier]: /getting-started/glossary/#identifier
 [internal templates]: /templates/internal
 [math]: /functions/math
 [pagevars]: /variables/page
