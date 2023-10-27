@@ -1,4 +1,4 @@
----
+hugoDocs---
 title: Quick start
 description: Learn to create a Hugo site in minutes.
 categories: [getting started]
