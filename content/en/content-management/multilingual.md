@@ -530,7 +530,7 @@ Localization of menu entries depends on how you define them:
 
 - When you define menu entries [automatically] using the section pages menu, you must use translation tables to localize each entry.
 - When you define menu entries [in front matter], they are already localized based on the front matter itself. If the front matter values are insufficient, use translation tables to localize each entry.
-- When you define menu entries [in site configuration], you must create language-specific menu entries under each language key. If the names of the menu entries are insufficent, use translation tables to localize each entry.
+- When you define menu entries [in site configuration], you must create language-specific menu entries under each language key. If the names of the menu entries are insufficient, use translation tables to localize each entry.
 
 ### Create language-specific menu entries
 
