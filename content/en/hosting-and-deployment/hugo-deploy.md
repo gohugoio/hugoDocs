@@ -1,21 +1,13 @@
 ---
 title: Hugo Deploy
-linktitle: Hugo Deploy
 description: You can upload your site to GCS, S3, or Azure using the Hugo CLI.
-date: 2019-05-30
-publishdate: 2019-05-30
-lastmod: 2021-05-03
 categories: [hosting and deployment]
-keywords: [s3,gcs,azure,hosting,deployment]
-authors: [Robert van Gent]
+keywords: [deployment,s3,gcs,azure]
 menu:
   docs:
-    parent: "hosting-and-deployment"
-    weight: 2
-weight: 2
-sections_weight: 2
-draft: false
-aliases: []
+    parent: hosting-and-deployment
+    weight: 20
+weight: 20
 toc: true
 ---
 
@@ -23,7 +15,7 @@ You can use the "hugo deploy" command to upload your site directly to a Google C
 
 ## Assumptions
 
-* You have completed the [Quick Start][] or have a Hugo website you are ready to deploy and share with the world.
+* You have completed the [Quick Start] or have a Hugo website you are ready to deploy and share with the world.
 * You have an account with the service provider ([Google Cloud](https://cloud.google.com/), [AWS](https://aws.amazon.com), or [Azure](https://azure.microsoft.com)) that you want to deploy to.
 * You have authenticated.
   * Google Cloud: [Install the CLI](https://cloud.google.com/sdk) and run [`gcloud auth login`](https://cloud.google.com/sdk/gcloud/reference/auth/login).
@@ -61,7 +53,6 @@ a detailed example:
 # will be uploaded first, in the listed order.
 order = [".jpg$", ".gif$"]
 
-
 [[deployment.targets]]
 # An arbitrary name for this target.
 name = "mydeployment"
@@ -92,7 +83,6 @@ cloudFrontDistributionID = <ID>
 # and remote files that don't pass the include/exclude filters are not deleted.
 # include = "**.html" # would only include files with ".html" suffix
 # exclude = "**.{jpg, png}" # would exclude files with ".jpg" or ".png" suffix
-
 
 # [[deployment.matchers]] configure behavior for files that match the Pattern.
 # See https://golang.org/pkg/regexp/syntax/ for pattern syntax.
@@ -126,7 +116,7 @@ gzip = true
 
 To deploy to a target:
 
-```bash
+```sh
 hugo deploy [--target=<target name>, defaults to first target]
 ```
 
@@ -140,4 +130,3 @@ See `hugo help deploy` for more command-line options.
 [Google Cloud]: [https://cloud.google.com]
 [AWS]: [https://aws.amazon.com]
 [Azure]: [https://azure.microsoft.com]
-

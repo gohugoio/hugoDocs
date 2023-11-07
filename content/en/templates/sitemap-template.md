@@ -1,106 +1,79 @@
 ---
-title: Sitemap Template
-# linktitle: Sitemap
-description: Hugo ships with a built-in template file observing the v0.9 of the Sitemap Protocol, but you can override this template if needed.
-date: 2017-02-01
-publishdate: 2017-02-01
-lastmod: 2017-02-01
+title: Sitemap templates
+description: Hugo provides built-in sitemap templates.
 categories: [templates]
-keywords: [sitemap, xml, templates]
+keywords: [sitemap,xml,templates]
 menu:
   docs:
-    parent: "templates"
-    weight: 160
-weight: 160
-sections_weight: 160
-draft: false
+    parent: templates
+    weight: 170
+weight: 170
+toc: true
 aliases: [/layout/sitemap/,/templates/sitemap/]
-toc: false
 ---
 
-A single Sitemap template is used to generate the `sitemap.xml` file.
-Hugo automatically comes with this template file. *No work is needed on
-the users' part unless they want to customize `sitemap.xml`.*
+## Overview
 
-A sitemap is a `Page` and therefore has all the [page variables][pagevars] available to use in this template along with Sitemap-specific ones:
+Hugo's built-in sitemap templates conform to v0.9 of the [sitemap protocol].
 
-`.Sitemap.ChangeFreq`
-: The page change frequency
+With a monolingual project, Hugo generates a sitemap.xml file in the root of the [`publishDir`] using the built-in [sitemap.xml] template.
 
-`.Sitemap.Priority`
-: The priority of the page
+With a multilingual project, Hugo generates:
 
-`.Sitemap.Filename`
-: The sitemap filename
+- A sitemap.xml file in the root of each site (language) using the built-in [sitemap.xml] template
+- A sitemap.xml file in the root of the [`publishDir`] using the built-in [sitemapindex.xml] template
 
-If provided, Hugo will use `/layouts/sitemap.xml` instead of the internal `sitemap.xml` template that ships with Hugo.
+## Configuration
 
-## Sitemap Templates
+Set the default values for [change frequency] and [priority], and the name of the generated file, in your site configuration.
 
-Hugo has built-on Sitemap templates, but you can provide your own if needed, in either `layouts/sitemap.xml` or `layouts/_default/sitemap.xml`.
+{{< code-toggle config="sitemap" />}}
 
-For multilingual sites, we also create a Sitemap index. You can provide a custom layout for that in either `layouts/sitemapindex.xml` or `layouts/_default/sitemapindex.xml`.
+changefreq
+: How frequently a page is likely to change. Valid values are `always`, `hourly`, `daily`, `weekly`, `monthly`, `yearly`, and `never`. Default is `""` (change frequency omitted from rendered sitemap).
 
-## Hugo’s sitemap.xml
+filename
+: The name of the generated file. Default is `sitemap.xml`.
 
-This template respects the version 0.9 of the [Sitemap Protocol](https://www.sitemaps.org/protocol.html).
+priority
+: The priority of a page relative to any other page on the site. Valid values range from 0.0 to 1.0. Default is `-1` (priority omitted from rendered sitemap).
 
-```xml
-{{ printf "<?xml version=\"1.0\" encoding=\"utf-8\" standalone=\"yes\" ?>" | safeHTML }}
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
-  xmlns:xhtml="http://www.w3.org/1999/xhtml">
-  {{ range .Data.Pages }}
-  <url>
-    <loc>{{ .Permalink }}</loc>{{ if not .Lastmod.IsZero }}
-    <lastmod>{{ safeHTML ( .Lastmod.Format "2006-01-02T15:04:05-07:00" ) }}</lastmod>{{ end }}{{ with .Sitemap.ChangeFreq }}
-    <changefreq>{{ . }}</changefreq>{{ end }}{{ if ge .Sitemap.Priority 0.0 }}
-    <priority>{{ .Sitemap.Priority }}</priority>{{ end }}{{ if .IsTranslated }}{{ range .Translations }}
-    <xhtml:link
-                rel="alternate"
-                hreflang="{{ .Lang }}"
-                href="{{ .Permalink }}"
-                />{{ end }}
-    <xhtml:link
-                rel="alternate"
-                hreflang="{{ .Lang }}"
-                href="{{ .Permalink }}"
-                />{{ end }}
-  </url>
-  {{ end }}
-</urlset>
-```
+## Override default values
 
-## Hugo's sitemapindex.xml
+Override the default values for a given page in front matter.
 
-This is used to create a Sitemap index in multilingual mode:
-
-```xml
-{{ printf "<?xml version=\"1.0\" encoding=\"utf-8\" standalone=\"yes\" ?>" | safeHTML }}
-<sitemapindex xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-	{{ range . }}
-	<sitemap>
-	   	<loc>{{ .SitemapAbsURL }}</loc>
-		{{ if not .LastChange.IsZero }}
-	   	<lastmod>{{ .LastChange.Format "2006-01-02T15:04:05-07:00" | safeHTML }}</lastmod>
-		{{ end }}
-	</sitemap>
-	{{ end }}
-</sitemapindex>
-```
-
-## Configure `sitemap.xml`
-
-Defaults for `<changefreq>`, `<priority>` and `filename` values can be set in the site's config file, e.g.:
-
-{{< code-toggle file="config" >}}
+{{< code-toggle file="news.md" fm=true >}}
+title = 'News'
 [sitemap]
-  changefreq = "monthly"
-  priority = 0.5
-  filename = "sitemap.xml"
+  changefreq = 'weekly'
+  priority = 0.8
 {{</ code-toggle >}}
 
-The same fields can be specified in an individual content file's front matter in order to override the value assigned to that piece of content at render time.
+## Override built-in templates
 
+To override the built-in sitemap.xml template, create a new file in either of these locations:
 
+- layouts/sitemap.xml
+- layouts/_default/sitemap.xml
 
-[pagevars]: /variables/page/
+When ranging through the page collection, access the _change frequency_ and _priority_ with `.Sitemap.ChangeFreq` and `.Sitemap.Priority` respectively.
+
+To override the built-in sitemapindex.xml template, create a new file in either of these locations:
+
+- layouts/sitemapindex.xml
+- layouts/_default/sitemapindex.xml
+
+## Disable sitemap generation
+
+You may disable sitemap generation in your site configuration:
+
+{{< code-toggle file=hugo >}}
+disableKinds = ['sitemap']
+{{</ code-toggle >}}
+
+[`publishDir`]: /getting-started/configuration#publishdir
+[change frequency]: <https://www.sitemaps.org/protocol.html#changefreqdef>
+[priority]: <https://www.sitemaps.org/protocol.html#priority>
+[sitemap protocol]: <https://www.sitemaps.org/protocol.html>
+[sitemap.xml]: <https://github.com/gohugoio/hugo/blob/master/tpl/tplimpl/embedded/templates/_default/sitemap.xml>
+[sitemapindex.xml]: <https://github.com/gohugoio/hugo/blob/master/tpl/tplimpl/embedded/templates/_default/sitemapindex.xml>

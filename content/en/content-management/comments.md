@@ -1,20 +1,15 @@
 ---
 title: Comments
-linktitle: Comments
 description: Hugo ships with an internal Disqus template, but this isn't the only commenting system that will work with your new Hugo website.
-date: 2017-02-01
-publishdate: 2017-02-01
-lastmod: 2017-03-09
+categories: [content management]
 keywords: [sections,content,organization]
-categories: [project organization, fundamentals]
 menu:
   docs:
-    parent: "content-management"
-    weight: 140
-weight: 140	#rem
-draft: false
-aliases: [/extras/comments/]
+    parent: content-management
+    weight: 220
+weight: 220
 toc: true
+aliases: [/extras/comments/]
 ---
 
 Hugo ships with support for [Disqus](https://disqus.com/), a third-party service that provides comment and community capabilities to websites via JavaScript.
@@ -29,21 +24,21 @@ Hugo comes with all the code you need to load Disqus into your templates. Before
 
 Disqus comments require you set a single value in your [site's configuration file][configuration] like so:
 
-{{< code-toggle copy="false" >}}
+{{< code-toggle file=hugo >}}
 disqusShortname = "yourDisqusShortname"
 {{</ code-toggle >}}
 
-For many websites, this is enough configuration. However, you also have the option to set the following in the [front matter][] of a single content file:
+For many websites, this is enough configuration. However, you also have the option to set the following in the [front matter] of a single content file:
 
 * `disqus_identifier`
 * `disqus_title`
 * `disqus_url`
 
-### Render Hugo's Built-in Disqus Partial Template
+### Render Hugo's built-in Disqus partial template
 
-Disqus has its own [internal template](https://gohugo.io/templates/internal/#disqus) available, to render it add the following code where you want comments to appear:
+Disqus has its own [internal template](/templates/internal/#disqus) available, to render it add the following code where you want comments to appear:
 
-```
+```go-html-template
 {{ template "_internal/disqus.html" . }}
 ```
 
@@ -53,18 +48,20 @@ These are some alternatives to Disqus:
 
 * [Cactus Comments](https://cactus.chat/docs/integrations/hugo/) (Open Source, Matrix appservice, Docker install)
 * [Commento](https://commento.io/) (Open Source, available as a service, local install, or docker image)
+* [Giscus](https://giscus.app/) (Open source, comments system powered by GitHub Discussions)
 * [Graph Comment](https://graphcomment.com/)
 * [Hyvor Talk](https://talk.hyvor.com/) (Available as a service)
 * [IntenseDebate](https://intensedebate.com/)
-* [Isso](https://posativ.org/isso/) (Self-hosted, Python) ([tutorial][issotutorial])
+* [Isso](https://isso-comments.de/) (Self-hosted, Python) ([tutorial][issotutorial])
 * [Muut](https://muut.com/)
 * [Remark42](https://remark42.com/) (Open source, Golang, Easy to run docker)
+* [ReplyBox](https://getreplybox.com/)
 * [Staticman](https://staticman.net/)
-* [Talkyard](https://www.talkyard.io/blog-comments) (Open source, & serverless hosting)
+* [Talkyard](https://blog-comments.talkyard.io/) (Open source, & serverless hosting)
 * [Utterances](https://utteranc.es/) (Open source, GitHub comments widget built on GitHub issues)
 
 [configuration]: /getting-started/configuration/
-[disquspartial]: /templates/partials/#disqus
+[disquspartial]: /templates/internal/#disqus
 [disqussetup]: https://disqus.com/profile/signup/
 [forum]: https://discourse.gohugo.io
 [front matter]: /content-management/front-matter/
