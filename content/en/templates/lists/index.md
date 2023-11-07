@@ -9,8 +9,8 @@ menu:
     parent: templates
     weight: 60
 weight: 60
-aliases: [/templates/list/,/layout/indexes/]
 toc: true
+aliases: [/templates/list/,/layout/indexes/]
 ---
 
 ## What is a list page template?
@@ -88,42 +88,42 @@ You can now access this `_index.md`'s' content in your list template:
 
 {{< code file="layouts/_default/list.html" >}}
 {{ define "main" }}
-<main>
-  <article>
-    <header>
-      <h1>{{ .Title }}</h1>
-    </header>
-    <!-- "{{ .Content }}" pulls from the markdown content of the corresponding _index.md -->
-    {{ .Content }}
-  </article>
-  <ul>
-    <!-- Ranges through content/posts/*.md -->
-    {{ range .Pages }}
-      <li>
-        <a href="{{ .Permalink }}">{{ .Date.Format "2006-01-02" }} | {{ .Title }}</a>
-      </li>
-    {{ end }}
-  </ul>
-</main>
+  <main>
+    <article>
+      <header>
+        <h1>{{ .Title }}</h1>
+      </header>
+      <!-- "{{ .Content }}" pulls from the markdown content of the corresponding _index.md -->
+      {{ .Content }}
+    </article>
+    <ul>
+      <!-- Ranges through content/posts/*.md -->
+      {{ range .Pages }}
+        <li>
+          <a href="{{ .Permalink }}">{{ .Date.Format "2006-01-02" }} | {{ .Title }}</a>
+        </li>
+      {{ end }}
+    </ul>
+  </main>
 {{ end }}
 {{< /code >}}
 
 This above will output the following HTML:
 
-{{< code file="example.com/posts/index.html" copy=false >}}
+{{< code file="example.com/posts/index.html" >}}
 <!--top of your baseof code-->
 <main>
-    <article>
-        <header>
-            <h1>My Go Journey</h1>
-        </header>
-        <p>I decided to start learning Go in March 2017.</p>
-        <p>Follow my journey through this new blog.</p>
-    </article>
-    <ul>
-        <li><a href="/posts/post-01/">Post 1</a></li>
-        <li><a href="/posts/post-02/">Post 2</a></li>
-    </ul>
+  <article>
+    <header>
+      <h1>My Go Journey</h1>
+    </header>
+    <p>I decided to start learning Go in March 2017.</p>
+    <p>Follow my journey through this new blog.</p>
+  </article>
+  <ul>
+    <li><a href="/posts/post-01/">Post 1</a></li>
+    <li><a href="/posts/post-02/">Post 2</a></li>
+  </ul>
 </main>
 <!--bottom of your baseof-->
 {{< /code >}}
@@ -134,19 +134,19 @@ You do *not* have to create an `_index.md` file for every list page (i.e. sectio
 
 Using this same `layouts/_default/list.html` template and applying it to the `quotes` section above will render the following output. Note that `quotes` does not have an `_index.md` file to pull from:
 
-{{< code file="example.com/quote/index.html" copy=false >}}
+{{< code file="example.com/quote/index.html" >}}
 <!--baseof-->
 <main>
-    <article>
-        <header>
-        <!-- Hugo assumes that .Title is the name of the section since there is no _index.md content file from which to pull a "title:" field -->
-            <h1>Quotes</h1>
-        </header>
-    </article>
-    <ul>
-        <li><a href="https://example.com/quote/quotes-01/">Quote 1</a></li>
-        <li><a href="https://example.com/quote/quotes-02/">Quote 2</a></li>
-    </ul>
+  <article>
+    <header>
+      <!-- Hugo assumes that .Title is the name of the section since there is no _index.md content file from which to pull a "title:" field -->
+      <h1>Quotes</h1>
+    </header>
+  </article>
+  <ul>
+    <li><a href="https://example.org/quote/quotes-01/">Quote 1</a></li>
+    <li><a href="https://example.org/quote/quotes-02/">Quote 2</a></li>
+  </ul>
 </main>
 <!--baseof-->
 {{< /code >}}
@@ -166,13 +166,13 @@ This list template has been modified slightly from a template originally used in
 {{ partial "subheader.html" . }}
 <main>
   <div>
-   <h1>{{ .Title }}</h1>
-        <ul>
-        <!-- Renders the li.html content view for each content/posts/*.md -->
-            {{ range .Pages }}
-                {{ .Render "li" }}
-            {{ end }}
-        </ul>
+    <h1>{{ .Title }}</h1>
+    <ul>
+      <!-- Renders the li.html content view for each content/posts/*.md -->
+      {{ range .Pages }}
+        {{ .Render "li" }}
+      {{ end }}
+    </ul>
   </div>
 </main>
 {{ partial "footer.html" . }}
@@ -184,407 +184,60 @@ This list template has been modified slightly from a template originally used in
 {{ define "main" }}
 <main>
   <div>
-   <h1>{{ .Title }}</h1>
-   <!-- ranges through each of the content files associated with a particular taxonomy term and renders the summary.html content view -->
+    <h1>{{ .Title }}</h1>
+    <!-- ranges through each of the content files associated with a particular taxonomy term and renders the summary.html content view -->
     {{ range .Pages }}
-        {{ .Render "summary" }}
+      {{ .Render "summary" }}
     {{ end }}
   </div>
 </main>
 {{ end }}
 {{< /code >}}
 
-## Order content
+## Sort content
 
-Hugo lists render the content based on metadata you provide in [front matter]. In addition to sane defaults, Hugo also ships with multiple methods to make quick work of ordering content inside list templates:
+By default, Hugo sorts page collections by:
 
-### Default: Weight > Date > LinkTitle > FilePath
+1. Page [weight]
+2. Page [date] (descending)
+3. Page [linkTitle], falling back to page [title]
+4. Page file path if the page is backed by a file
 
-{{< code file="layouts/partials/default-order.html" >}}
-<ul>
-    {{ range .Pages }}
-        <li>
-            <h1><a href="{{ .Permalink }}">{{ .Title }}</a></h1>
-            <time>{{ .Date.Format "Mon, Jan 2, 2006" }}</time>
-        </li>
-    {{ end }}
-</ul>
-{{< /code >}}
+[date]: /methods/page/date
+[weight]: /methods/page/weight
+[linkTitle]: /methods/page/linktitle
+[title]: /methods/page/title
 
-### By weight
+Change the sort order using any of the methods below.
 
-Lower weight gets higher precedence. So content with lower weight will come first.
-
-{{< code file="layouts/partials/by-weight.html" >}}
-<ul>
-    {{ range .Pages.ByWeight }}
-        <li>
-            <h1><a href="{{ .Permalink }}">{{ .Title }}</a></h1>
-            <time>{{ .Date.Format "Mon, Jan 2, 2006" }}</time>
-        </li>
-    {{ end }}
-</ul>
-{{< /code >}}
-
-### By date
-
-{{< code file="layouts/partials/by-date.html" >}}
-<ul>
-    <!-- orders content according to the "date" field in front matter -->
-    {{ range .Pages.ByDate }}
-        <li>
-            <h1><a href="{{ .Permalink }}">{{ .Title }}</a></h1>
-            <time>{{ .Date.Format "Mon, Jan 2, 2006" }}</time>
-        </li>
-    {{ end }}
-</ul>
-{{< /code >}}
-
-### By publish date
-
-{{< code file="layouts/partials/by-publish-date.html" >}}
-<ul>
-    <!-- orders content according to the "publishdate" field in front matter -->
-    {{ range .Pages.ByPublishDate }}
-        <li>
-            <h1><a href="{{ .Permalink }}">{{ .Title }}</a></h1>
-            <time>{{ .Date.Format "Mon, Jan 2, 2006" }}</time>
-        </li>
-    {{ end }}
-</ul>
-{{< /code >}}
-
-### By expiration date
-
-{{< code file="layouts/partials/by-expiry-date.html" >}}
-<ul>
-    {{ range .Pages.ByExpiryDate }}
-        <li>
-            <h1><a href="{{ .Permalink }}">{{ .Title }}</a></h1>
-            <time>{{ .Date.Format "Mon, Jan 2, 2006" }}</time>
-        </li>
-    {{ end }}
-</ul>
-{{< /code >}}
-
-### By last modified date
-
-{{< code file="layouts/partials/by-last-mod.html" >}}
-<ul>
-    <!-- orders content according to the "lastmod" field in front matter -->
-    {{ range .Pages.ByLastmod }}
-        <li>
-            <h1><a href="{{ .Permalink }}">{{ .Title }}</a></h1>
-            <time>{{ .Date.Format "Mon, Jan 2, 2006" }}</time>
-        </li>
-    {{ end }}
-</ul>
-{{< /code >}}
-
-### By length
-
-{{< code file="layouts/partials/by-length.html" >}}
-<ul>
-    <!-- orders content according to content length in ascending order (i.e., the shortest content will be listed first) -->
-    {{ range .Pages.ByLength }}
-        <li>
-            <h1><a href="{{ .Permalink }}">{{ .Title }}</a></h1>
-            <time>{{ .Date.Format "Mon, Jan 2, 2006" }}</time>
-        </li>
-    {{ end }}
-</ul>
-{{< /code >}}
-
-### By title
-
-{{< code file="layouts/partials/by-title.html" >}}
-<ul>
-    <!-- ranges through content in ascending order according to the "title" field set in front matter -->
-    {{ range .Pages.ByTitle }}
-        <li>
-            <h1><a href="{{ .Permalink }}">{{ .Title }}</a></h1>
-            <time>{{ .Date.Format "Mon, Jan 2, 2006" }}</time>
-        </li>
-    {{ end }}
-</ul>
-{{< /code >}}
-
-### By link title
-
-{{< code file="layouts/partials/by-link-title.html" >}}
-<ul>
-    <!-- ranges through content in ascending order according to the "linktitle" field in front matter. If a "linktitle" field is not set, the range will start with content that only has a "title" field and use that value for .LinkTitle -->
-    {{ range .Pages.ByLinkTitle }}
-        <li>
-            <h1><a href="{{ .Permalink }}">{{ .LinkTitle }}</a></h1>
-            <time>{{ .Date.Format "Mon, Jan 2, 2006" }}</time>
-        </li>
-    {{ end }}
-</ul>
-{{< /code >}}
-
-### By page parameter
-
-Order based on the specified front matter parameter. Content that does not have the specified front matter field  will use the site's `.Site.Params` default. If the parameter is not found at all in some entries, those entries will appear together at the end of the ordering.
-
-{{< code file="layouts/partials/by-rating.html" >}}
-<!-- Ranges through content according to the "rating" field set in front matter -->
-{{ range (.Pages.ByParam "rating") }}
-  <!-- ... -->
-{{ end }}
-{{< /code >}}
-
-If the targeted front matter field is nested beneath another field, you can access the field using dot notation.
-
-{{< code file="layouts/partials/by-nested-param.html" >}}
-{{ range (.Pages.ByParam "author.last_name") }}
-  <!-- ... -->
-{{ end }}
-{{< /code >}}
-
-### Reverse order
-
-Reversing order can be applied to any of the above methods. The following uses `ByDate` as an example:
-
-{{< code file="layouts/partials/by-date-reverse.html" >}}
-<ul>
-    {{ range .Pages.ByDate.Reverse }}
-        <li>
-            <h1><a href="{{ .Permalink }}">{{ .Title }}</a></h1>
-            <time>{{ .Date.Format "Mon, Jan 2, 2006" }}</time>
-        </li>
-    {{ end }}
-</ul>
-{{< /code >}}
+{{< list-pages-in-section path=/methods/pages filter=methods_pages_sort filterType=include titlePrefix=. omitElementIDs=true >}}
 
 ## Group content
 
-Hugo provides some functions for grouping pages by Section, Type, Date, etc.
+Group your content by field, parameter, or date using any of the methods below.
 
-### By page field
-
-{{< code file="layouts/partials/by-page-field.html" >}}
-<!-- Groups content according to content section. The ".Key" in this instance will be the section's title. -->
-{{ range .Pages.GroupBy "Section" }}
-<h3>{{ .Key }}</h3>
-<ul>
-    {{ range .Pages }}
-    <li>
-    <a href="{{ .Permalink }}">{{ .Title }}</a>
-    <div class="meta">{{ .Date.Format "Mon, Jan 2, 2006" }}</div>
-    </li>
-    {{ end }}
-</ul>
-{{ end }}
-{{< /code >}}
-
-In the above example, you may want `{{ .Title }}` to point the `title` field you have added to your `_index.md` file instead. You can access this value using the [`.GetPage` function][getpage]:
-
-{{< code file="layouts/partials/by-page-field.html" >}}
-<!-- Groups content according to content section.-->
-{{ range .Pages.GroupBy "Section" }}
-<!-- Checks for existence of _index.md for a section; if available, pulls from "title" in front matter -->
-{{ with $.Site.GetPage "section" .Key }}
-<h3>{{ .Title }}</h3>
-{{ else }}
-<!-- If no _index.md is available, ".Key" defaults to the section title and filters to title casing -->
-<h3>{{ .Key | title }}</h3>
-{{ end }}
-<ul>
-    {{ range .Pages }}
-    <li>
-    <a href="{{ .Permalink }}">{{ .Title }}</a>
-    <div class="meta">{{ .Date.Format "Mon, Jan 2, 2006" }}</div>
-    </li>
-    {{ end }}
-</ul>
-{{ end }}
-{{< /code >}}
-
-### By date
-
-{{< code file="layouts/partials/by-page-date.html" >}}
-<!-- Groups content by month according to the "date" field in front matter -->
-{{ range .Pages.GroupByDate "2006-01" }}
-<h3>{{ .Key }}</h3>
-<ul>
-    {{ range .Pages }}
-    <li>
-    <a href="{{ .Permalink }}">{{ .Title }}</a>
-    <div class="meta">{{ .Date.Format "Mon, Jan 2, 2006" }}</div>
-    </li>
-    {{ end }}
-</ul>
-{{ end }}
-{{< /code >}}
-
-{{< new-in "0.97.0" >}} `GroupByDate` accepts the same time layouts as in [time.Format](/functions/dateformat/) and The `.Key` in the result will be localized for the current language.
-
-### By publish date
-
-{{< code file="layouts/partials/by-page-publish-date.html" >}}
-<!-- Groups content by month according to the "publishDate" field in front matter -->
-{{ range .Pages.GroupByPublishDate "2006-01" }}
-<h3>{{ .Key }}</h3>
-<ul>
-    {{ range .Pages }}
-    <li>
-    <a href="{{ .Permalink }}">{{ .Title }}</a>
-    <div class="meta">{{ .PublishDate.Format "Mon, Jan 2, 2006" }}</div>
-    </li>
-    {{ end }}
-</ul>
-{{ end }}
-{{< /code >}}
-
-{{< new-in "0.97.0" >}} `GroupByDate` accepts the same time layouts as in [time.Format](/functions/dateformat/) and The `.Key` in the result will be localized for the current language.
-
-
-### By expiration date
-
-{{< code file="layouts/partials/by-page-expiry-date.html" >}}
-<!-- Groups content by month according to the "expiryDate" field in front matter -->
-{{ range .Pages.GroupByExpiryDate "2006-01" }}
-<h3>{{ .Key }}</h3>
-<ul>
-    {{ range .Pages }}
-    <li>
-    <a href="{{ .Permalink }}">{{ .Title }}</a>
-    <div class="meta">{{ .ExpiryDate.Format "Mon, Jan 2, 2006" }}</div>
-    </li>
-    {{ end }}
-</ul>
-{{ end }}
-{{< /code >}}
-
-{{< new-in "0.97.0" >}} `GroupByDate` accepts the same time layouts as in [time.Format](/functions/dateformat/) and The `.Key` in the result will be localized for the current language.
-
-### By last modified date
-
-{{< code file="layouts/partials/by-page-lastmod.html" >}}
-<!-- Groups content by month according to the "lastMod" field in front matter -->
-{{ range .Pages.GroupByLastmod "2006-01" }}
-<h3>{{ .Key }}</h3>
-<ul>
-    {{ range .Pages }}
-    <li>
-    <a href="{{ .Permalink }}">{{ .Title }}</a>
-    <div class="meta">{{ .Lastmod.Format "Mon, Jan 2, 2006" }}</div>
-    </li>
-    {{ end }}
-</ul>
-{{ end }}
-{{< /code >}}
-
-{{< new-in "0.97.0" >}} `GroupByDate` accepts the same time layouts as in [time.Format](/functions/dateformat/) and The `.Key` in the result will be localized for the current language.
-
-### By page parameter
-
-{{< code file="layouts/partials/by-page-param.html" >}}
-<!-- Groups content according to the "param_key" field in front matter -->
-{{ range .Pages.GroupByParam "param_key" }}
-<h3>{{ .Key }}</h3>
-<ul>
-    {{ range .Pages }}
-    <li>
-    <a href="{{ .Permalink }}">{{ .Title }}</a>
-    <div class="meta">{{ .Date.Format "Mon, Jan 2, 2006" }}</div>
-    </li>
-    {{ end }}
-</ul>
-{{ end }}
-{{< /code >}}
-
-### By page parameter in date format
-
-The following template takes grouping by `date` a step further and uses Go's layout string. See the [`Format` function] for more examples of how to use Go's layout string to format dates in Hugo.
-
-{{< code file="layouts/partials/by-page-param-as-date.html" >}}
-<!-- Groups content by month according to the "param_key" field in front matter -->
-{{ range .Pages.GroupByParamDate "param_key" "2006-01" }}
-<h3>{{ .Key }}</h3>
-<ul>
-    {{ range .Pages }}
-    <li>
-    <a href="{{ .Permalink }}">{{ .Title }}</a>
-    <div class="meta">{{ .Date.Format "Mon, Jan 2, 2006" }}</div>
-    </li>
-    {{ end }}
-</ul>
-{{ end }}
-{{< /code >}}
-
-### Reverse key order
-
-Ordering of groups is performed by keys in alphanumeric order (A–Z, 1–100) and in reverse chronological order (i.e., with the newest first) for dates.
-
-While these are logical defaults, they are not always the desired order. There are two different syntaxes to change Hugo's default ordering for groups, both of which work the same way.
-
-#### 1. Adding the reverse method
-
-```go-html-template
-{{ range (.Pages.GroupBy "Section").Reverse }}
-```
-
-```go-html-template
-{{ range (.Pages.GroupByDate "2006-01").Reverse }}
-```
-
-#### 2. Providing the alternate direction
-
-```go-html-template
-{{ range .Pages.GroupByDate "2006-01" "asc" }}
-```
-
-```go-html-template
-{{ range .Pages.GroupBy "Section" "desc" }}
-```
-
-### Order within groups
-
-Because Grouping returns a `{{ .Key }}` and a slice of pages, all the ordering methods listed above are available.
-
-Here is the ordering for the example that follows:
-
-1. Content is grouped by month according to the `date` field in front matter.
-2. Groups are listed in ascending order (i.e., the oldest groups first)
-3. Pages within each respective group are ordered alphabetically according to the `title`.
-
-{{< code file="layouts/partials/by-group-by-page.html" >}}
-{{ range .Pages.GroupByDate "2006-01" "asc" }}
-<h3>{{ .Key }}</h3>
-<ul>
-    {{ range .Pages.ByTitle }}
-    <li>
-    <a href="{{ .Permalink }}">{{ .Title }}</a>
-    <div class="meta">{{ .Date.Format "Mon, Jan 2, 2006" }}</div>
-    </li>
-    {{ end }}
-</ul>
-{{ end }}
-{{< /code >}}
+{{< list-pages-in-section path=/methods/pages filter=methods_pages_group filterType=include titlePrefix=. omitElementIDs=true >}}
 
 ## Filtering and limiting lists
 
 Sometimes you only want to list a subset of the available content. A
-common is to only display posts from [**main sections**][mainsections]
+common is to only display posts from [main sections]
 on the blog's homepage.
 
-See the documentation on [`where` function][wherefunction] and
-[`first` function][firstfunction] for further details.
+See the documentation on [`where`] and
+[`first`] for further details.
 
 [base]: /templates/base/
 [bepsays]: https://bepsays.com/en/2016/12/19/hugo-018/
 [directorystructure]: /getting-started/directory-structure/
-[`Format` function]: /functions/format/
+[`Format` function]: /methods/time/format/
 [front matter]: /content-management/front-matter/
-[getpage]: /functions/getpage/
-[homepage]: /templates/homepage/
+[getpage]: /methods/page/getpage/
 [homepage]: /templates/homepage/
 [mentalmodel]: https://webstyleguide.com/wsg3/3-information-architecture/3-site-structure.html
 [pagevars]: /variables/page/
 [partials]: /templates/partials/
-[RSS 2.0]: https://cyber.harvard.edu/rss/rss.html "RSS 2.0 Specification"
+[RSS 2.0]: https://cyber.harvard.edu/rss/rss.html
 [rss]: /templates/rss/
 [sections]: /content-management/sections/
 [sectiontemps]: /templates/section-templates/
@@ -593,6 +246,7 @@ See the documentation on [`where` function][wherefunction] and
 [taxterms]: /templates/taxonomy-templates/#taxonomy-terms-templates
 [taxvars]: /variables/taxonomy/
 [views]: /templates/views/
-[wherefunction]: /functions/where/
-[firstfunction]: /functions/first/
-[mainsections]: /functions/where/#mainsections
+[`where`]: /functions/collections/where
+[`first`]: /functions/collections/first/
+[main sections]: /functions/collections/where#mainsections
+[`time.Format`]: /functions/time/format

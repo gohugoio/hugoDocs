@@ -1,14 +1,14 @@
 ---
 title: Syntax highlighting
 description: Hugo comes with really fast syntax highlighting from Chroma.
-keywords: [highlighting,chroma,code blocks,syntax]
 categories: [content management]
+keywords: [highlighting,chroma,code blocks,syntax]
 menu:
   docs:
     parent: content-management
     weight: 240
-toc: true
 weight: 240
+toc: true
 aliases: [/extras/highlighting/,/extras/highlight/,/tools/syntax-highlighting/]
 ---
 
@@ -24,7 +24,7 @@ If you run with `markup.highlight.noClasses=false` in your site configuration, y
 
 You can generate one with Hugo:
 
-```bash
+```sh
 hugo gen chromastyles --style=monokai > syntax.css
 ```
 
@@ -92,7 +92,7 @@ Gives this:
 
 ## Highlight template function
 
-See [Highlight](/functions/highlight/).
+See [Highlight](/functions/transform/highlight/).
 
 ## Highlighting in code fences
 
@@ -103,7 +103,6 @@ Highlighting in code fences is enabled by default.
 // ... code
 ```
 ````
-
 
 Gives this:
 

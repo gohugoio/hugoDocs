@@ -2,7 +2,7 @@
 title: Hugo Deploy
 description: Upload your site to GCS, S3, or Azure
 categories: [hosting and deployment]
-keywords: [s3,gcs,azure,hosting,deployment]
+keywords: [deployment,s3,gcs,azure]
 menu:
   docs:
     parent: hosting-and-deployment
@@ -149,7 +149,6 @@ Here's a full example deployment configuration:
 # in this list will be uploaded first, in the specified order.
 order = [".jpg$", ".gif$"]
 
-
 [[deployment.targets]]
 # Define one or more targets, e.g., staging and production.
 # Each target gets its own [[deployment.targets]] section.
@@ -194,9 +193,6 @@ URL = "<FILL ME IN>"
 # specified file types. You can include any number of matcher blocks; the first one
 # matching a given file pattern will be used.
 
-# Here are the options you can place into a matcher block:
-
-# REQUIRED: regex describing files that this matcher applies to
 # See https://golang.org/pkg/regexp/syntax/ for pattern syntax.
 # Pattern searching is stopped on first match.
 pattern = "<FILL ME IN>"
@@ -247,7 +243,6 @@ gzip = true
 pattern = "^.+\\.(html|xml|json)$"
 gzip = true
 ```
-
 
 [Quick Start]: /getting-started/quick-start/
 [commandline]: /commands/hugo_deploy/

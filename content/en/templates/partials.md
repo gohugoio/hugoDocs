@@ -8,8 +8,8 @@ menu:
     parent: templates
     weight: 120
 weight: 120
-aliases: [/templates/partial/,/layout/chrome/,/extras/analytics/]
 toc: true
+aliases: [/templates/partial/,/layout/chrome/,/extras/analytics/]
 ---
 
 {{< youtube pjS4pOLyB7c >}}
@@ -128,29 +128,11 @@ Value: {{ partial "my-inline-partial.html" . }}
 
 ## Cached partials
 
-The [`partialCached` template function][partialcached] can offer significant performance gains for complex templates that don't need to be re-rendered on every invocation. The simplest usage is as follows:
+The `partialCached` template function provides significant performance gains for complex templates that don't need to be re-rendered on every invocation. See&nbsp;[details][partialcached].
 
-```go-html-template
-{{ partialCached "footer.html" . }}
-```
+## Examples
 
-You can also pass additional parameters to `partialCached` to create *variants* of the cached partial.
-
-For example, you can tell Hugo to only render the partial `footer.html` once per section:
-
-```go-html-template
-{{ partialCached "footer.html" . .Section }}
-```
-
-If you need to pass additional parameters to create unique variants, you can pass as many variant parameters as you need:
-
-```go-html-template
-{{ partialCached "footer.html" . .Params.country .Params.province }}
-```
-
-Note that the variant parameters are not made available to the underlying partial template. They are only use to create a unique cache key.
-
-### Example `header.html`
+### `header.html`
 
 The following `header.html` partial template is used for [spf13.com](https://spf13.com/):
 
@@ -175,7 +157,7 @@ The following `header.html` partial template is used for [spf13.com](https://spf
 The `header.html` example partial was built before the introduction of block templates to Hugo. Read more on [base templates and blocks](/templates/base/) for defining the outer chrome or shell of your master templates (i.e., your site's head, header, and footer). You can even combine blocks and partials for added flexibility.
 {{% /note %}}
 
-### Example `footer.html`
+### `footer.html`
 
 The following `footer.html` partial template is used for [spf13.com](https://spf13.com/):
 
@@ -195,6 +177,6 @@ The following `footer.html` partial template is used for [spf13.com](https://spf
 [customize]: /hugo-modules/theme-components/
 [listtemps]: /templates/lists/
 [lookup order]: /templates/lookup-order/
-[partialcached]: /functions/partialcached/
+[partialcached]: /functions/partials/includecached
 [singletemps]: /templates/single-page-templates/
 [themes]: /themes/

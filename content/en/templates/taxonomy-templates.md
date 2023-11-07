@@ -8,8 +8,8 @@ menu:
     parent: templates
     weight: 90
 weight: 90
-aliases: [/taxonomies/displaying/,/templates/terms/,/indexes/displaying/,/taxonomies/templates/,/indexes/ordering/, /templates/taxonomies/, /templates/taxonomy/]
 toc: true
+aliases: [/taxonomies/displaying/,/templates/terms/,/indexes/displaying/,/taxonomies/templates/,/indexes/ordering/, /templates/taxonomies/, /templates/taxonomy/]
 ---
 
 <!-- NOTE! Check on https://github.com/gohugoio/hugo/issues/2826 for shifting of terms' pages to .Data.Pages AND
@@ -41,14 +41,16 @@ See [Template Lookup](/templates/lookup-order/).
 
 A Taxonomy is a `map[string]WeightedPages`.
 
-.Get(term)
-: Returns the WeightedPages for a term.
+.Get TERM
+: Returns the WeightedPages for a given term. For example: ;
+`site.Taxonomies.tags.Get "tag-a"`.
 
-.Count(term)
-: The number of pieces of content assigned to this term.
+.Count TERM
+: The number of pieces of content assigned to the given term. For example: \
+`site.Taxonomies.tags.Count "tag-a"`.
 
 .Alphabetical
-: Returns an OrderedTaxonomy (slice) ordered by Term.
+: Returns an OrderedTaxonomy (slice) ordered by term.
 
 .ByCount
 : Returns an OrderedTaxonomy (slice) ordered by number of entries.
@@ -78,6 +80,9 @@ Each element of the slice has:
 .Count
 : The number of pieces of content assigned to this term.
 
+.Page
+: Returns a page reference for this term.
+
 .Pages
 : All Pages assigned to this term. All [list methods][renderlists] are available to this.
 
@@ -89,8 +94,11 @@ WeightedPages is simply a slice of WeightedPage.
 type WeightedPages []WeightedPage
 ```
 
-.Count(term)
+.Count
 : The number of pieces of content assigned to this term.
+
+.Page
+: Returns a page reference for this term.
 
 .Pages
 : Returns a slice of pages, which then can be ordered using any of the [list methods][renderlists].
@@ -144,7 +152,7 @@ Weights of zero are thus treated specially: if two pages have unequal weights, a
 
 Content can be assigned weight for each taxonomy that it's assigned to.
 
-{{< code-toggle file="content/example.md" fm=true copy=false >}}
+{{< code-toggle file="content/example.md" fm=true >}}
 tags = [ "a", "b", "c" ]
 tags_weight = 22
 categories = ["d"]
@@ -197,7 +205,7 @@ To render an unordered list:
   <p>{{ (site.GetPage $taxonomy).LinkTitle }}:</p>
   <ul>
     {{ range . }}
-      <li><a href="{{ .RelPermalink }}">{{ .LinkTitle }}</a></li>
+      <li><a href="{{ .RelPermalink }}">{{ .Title }}</a></li>
     {{ end }}
   </ul>
 {{ end }}
@@ -212,7 +220,7 @@ To render a comma-delimited list:
     {{ (site.GetPage $taxonomy).LinkTitle }}:
     {{ range $k, $_ := . -}}
       {{ if $k }}, {{ end }}
-      <a href="{{ .RelPermalink }}">{{ .LinkTitle }}</a>
+      <a href="{{ .RelPermalink }}">{{ .Title }}</a>
     {{- end }}
   </p>
 {{ end }}
@@ -245,7 +253,7 @@ This would be very useful in a sidebar as “featured content”. You could even
       <li>{{ $key }}</li>
       <ul>
         {{ range $taxonomy.Pages }}
-          <li hugo-nav="{{ .RelPermalink }}"><a href="{{ .Permalink }}">{{ .LinkTitle }}</a></li>
+          <li hugo-nav="{{ .RelPermalink }}"><a href="{{ .Permalink }}">{{ .Title }}</a></li>
         {{ end }}
       </ul>
     {{ end }}
@@ -261,7 +269,7 @@ This may take the form of a tag cloud, a menu, or simply a list.
 
 The following example displays all terms in a site's tags taxonomy:
 
-### Example: list all site tags 
+### Example: list all site tags
 
 ```go-html-template
 <ul>
@@ -280,7 +288,7 @@ This example will list all taxonomies and their terms, as well as all the conten
   {{ range $taxonomy, $terms := site.Taxonomies }}
     <li>
       {{ with site.GetPage $taxonomy }}
-        <a href="{{ .RelPermalink }}">{{ .LinkTitle }}</a>
+        <a href="{{ .RelPermalink }}">{{ .Title }}</a>
       {{ end }}
       <ul>
         {{ range $term, $weightedPages := $terms }}
@@ -288,7 +296,7 @@ This example will list all taxonomies and their terms, as well as all the conten
             <a href="{{ .Page.RelPermalink }}">{{ .Page.LinkTitle }}</a>
             <ul>
               {{ range $weightedPages }}
-                <li><a href="{{ .RelPermalink }}">{{ .LinkTitle }}</a></li>
+                <li><a href="{{ .RelPermalink }}">{{ .Title }}</a></li>
               {{ end }}
             </ul>
           </li>
@@ -314,13 +322,7 @@ Because taxonomies are lists, the [`.GetPage` function][getpage] can be used to 
 </ul>
 {{< /code >}}
 
-<!-- TODO: ### `.Site.GetPage` Taxonomy List Example -->
-
-<!-- TODO: ### `.Site.GetPage` Taxonomy Terms Example -->
-
-
-[delimit]: /functions/delimit/
-[getpage]: /functions/getpage/
+[getpage]: /methods/page/getpage
 [lists]: /templates/lists/
 [renderlists]: /templates/lists/
 [single page template]: /templates/single-page-templates/

@@ -8,8 +8,8 @@ menu:
   docs:
     parent: content-management
     weight: 160
-toc: true
 weight: 160
+toc: true
 aliases: [/content/summaries/,/content-management/content-summaries/]
 ---
 
@@ -53,7 +53,7 @@ Pros
 Cons
 : Extra work for content authors, since they need to remember to type <code>&#60;&#33;&#45;&#45;more&#45;&#45;&#62;</code> (or `# more` for [org content][org]) in each content file. This can be automated by adding the summary divider below the front matter of an [archetype](/content-management/archetypes/).
 
-{{% warning "Be Precise with the Summary Divider" %}}
+{{% note %}}
 Be careful to enter <code>&#60;&#33;&#45;&#45;more&#45;&#45;&#62;</code> exactly; i.e., all lowercase and with no whitespace.
 {{% /note %}}
 
@@ -75,7 +75,7 @@ Because there are multiple ways in which a summary can be specified it is useful
 2. If there is a `summary` variable in the article front matter the value of the variable will be provided as per the front matter summary method
 3. The text at the start of the article will be provided as per the automatic summary split method
 
-{{% warning "Competing selections" %}}
+{{% note %}}
 Hugo uses the _first_ of the above steps that returns text.  So if, for example, your article has both `summary` variable in its front matter and a <code>&#60;&#33;&#45;&#45;more&#45;&#45;&#62;</code> summary divider Hugo will use the manual summary split method.
 {{% /note %}}
 
@@ -85,19 +85,19 @@ You can show content summaries with the following code. You could use the follow
 
 {{< code file="page-list-with-summaries.html" >}}
 {{ range first 10 .Pages }}
-    <article>
-      <!-- this <div> includes the title summary -->
-      <div>
-        <h2><a href="{{ .RelPermalink }}">{{ .Title }}</a></h2>
-        {{ .Summary }}
-      </div>
-      {{ if .Truncated }}
+  <article>
+    <!-- this <div> includes the title summary -->
+    <div>
+      <h2><a href="{{ .RelPermalink }}">{{ .Title }}</a></h2>
+      {{ .Summary }}
+    </div>
+    {{ if .Truncated }}
       <!-- This <div> includes a read more link, but only if the summary is truncated... -->
       <div>
         <a href="{{ .RelPermalink }}">Read More…</a>
       </div>
-      {{ end }}
-    </article>
+    {{ end }}
+  </article>
 {{ end }}
 {{< /code >}}
 

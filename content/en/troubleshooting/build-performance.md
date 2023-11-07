@@ -1,6 +1,8 @@
 ---
 title: Build performance
 description: An overview of features used for diagnosing and improving performance issues in site builds.
+categories: [troubleshooting]
+keywords: []
 menu:
   docs:
     parent: troubleshooting
@@ -85,4 +87,4 @@ parameters to `partialCached` beyond the initial context. See the
 `partialCached` documentation for more details.
 {{% /note %}}
 
-[partialCached]: /functions/partialcached
+[partialCached]: /functions/partials/includecached

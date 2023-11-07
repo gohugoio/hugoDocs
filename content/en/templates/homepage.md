@@ -8,8 +8,8 @@ menu:
     parent: templates
     weight: 70
 weight: 70
-aliases: [/layout/homepage/,/templates/homepage-template/]
 toc: true
+aliases: [/layout/homepage/,/templates/homepage-template/]
 ---
 
 Homepage is a `Page` and therefore has all the [page variables][pagevars] and [site variables][sitevars] available for use.
@@ -40,7 +40,7 @@ The following is an example of a homepage template that uses [partial][partials]
     <header class="homepage-header">
       <h1>{{ .Title }}</h1>
       {{ with .Params.subtitle }}
-      <span class="subtitle">{{ . }}</span>
+        <span class="subtitle">{{ . }}</span>
       {{ end }}
     </header>
     <div class="homepage-content">
@@ -49,7 +49,7 @@ The following is an example of a homepage template that uses [partial][partials]
     </div>
     <div>
       {{ range first 10 .Site.RegularPages }}
-          {{ .Render "summary" }}
+        {{ .Render "summary" }}
       {{ end }}
     </div>
   </main>

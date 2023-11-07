@@ -3,21 +3,21 @@ title: Frequently asked questions
 linkTitle: Frequently asked questions
 description: Solutions to some common Hugo problems.
 categories: [troubleshooting]
+keywords: [faqs]
 menu:
   docs:
     parent: troubleshooting
     weight: 20
 weight: 20
-keywords: [faqs]
 toc: true
 aliases: [/faq/]
 ---
 
 {{% note %}}
-**Note:** The answers/solutions presented below are short, and may not be enough to solve your problem. Visit [Hugo Discourse](https://discourse.gohugo.io/) and use the search. It that does not help, start a new topic and ask your questions.
+The answers/solutions presented below are short, and may not be enough to solve your problem. Visit [Hugo Discourse](https://discourse.gohugo.io/) and use the search. It that does not help, start a new topic and ask your questions.
 {{% /note %}}
 
-## I can't see my content!
+## I can't see my content
 
 Is your Markdown file [in draft mode](/content-management/front-matter/#front-matter-variables)? When testing, run `hugo server` with the `-D` or `--buildDrafts` [switch](/getting-started/usage/#draft-future-and-expired-content).
 
@@ -36,7 +36,7 @@ How to automate the "publish at intervals" part depends on your situation:
 
 * If you deploy from your own PC/server, you can automate with [Cron](https://en.wikipedia.org/wiki/Cron) or similar.
 * If your site is hosted on a service similar to [Netlify](https://www.netlify.com/) you can:
-  * Use a service such as [ifttt](https://ifttt.com/date_and_time) to schedule the updates
+  * Use a service such as [ifttt](https://ifttt.com/date_and_time) to schedule the updates; or
   * Set up a deploy hook which you can run with a cron service to deploy your site at intervals, such as [cron-job.org](https://cron-job.org/) (both Netlify and Cloudflare Pages support deploy hooks)
 
 Also see this Twitter thread:
@@ -47,13 +47,13 @@ Also see this Twitter thread:
 
 ## Can I use the latest Hugo version on Netlify?
 
-Yes you can! Read [this](/hosting-and-deployment/hosting-on-netlify/#configure-hugo-version-in-netlify).
+[Yes you can](/hosting-and-deployment/hosting-on-netlify/#configure-hugo-version-in-netlify)!.
 
 ## I get "... this feature is not available in your current Hugo version"
 
 If you process `SCSS` or `Sass` to `CSS` in your Hugo project with `libsass` as the transpiler or if you convert images to the `webp` format, you need the Hugo `extended` version, or else you may see an error message similar to the below:
 
-```bash
+```sh
 error: failed to transform resource: TOCSS: failed to transform "scss/main.scss" (text/x-scss): this feature is not available in your current Hugo version
 ```
 

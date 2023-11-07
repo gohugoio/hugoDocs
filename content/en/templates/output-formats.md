@@ -1,26 +1,26 @@
 ---
 title: Custom output formats
 description: Hugo can output content in multiple formats, including calendar events, e-book formats, Google AMP, and JSON search indexes, or any custom text format.
-categories: [fundamentals,templates]
+categories: [templates,fundamentals]
 keywords: ["amp", "outputs", "rss"]
 menu:
   docs:
     parent: templates
     weight: 210
 weight: 210
-aliases: [/templates/outputs/,/extras/output-formats/,/content-management/custom-outputs/]
 toc: true
+aliases: [/templates/outputs/,/extras/output-formats/,/content-management/custom-outputs/]
 ---
 
 This page describes how to properly configure your site with the media types and output formats, as well as where to create your templates for your custom outputs.
 
 ## Media types
 
-A [media type] (also known as _MIME type_ and _content type_) is a two-part identifier for file formats and format contents transmitted on the internet.
+A [media type] (formerly known as a MIME type) is a two-part identifier for file formats and format contents transmitted on the internet.
 
 This is the full set of built-in media types in Hugo:
 
-{{< datatable "media" "types" "type" "suffixes" >}}
+{{< datatable "config" "mediaTypes" "_key" "suffixes" >}}
 
 **Note:**
 
@@ -31,7 +31,7 @@ This is the full set of built-in media types in Hugo:
 
 To add or modify a media type, define it in a `mediaTypes` section in your [site configuration], either for all sites or for a given language.
 
-{{< code-toggle file="hugo" >}}
+{{< code-toggle file=hugo >}}
 [mediaTypes]
   [mediaTypes."text/enriched"]
   suffixes = ["enr"]
@@ -43,17 +43,19 @@ The above example adds one new media type, `text/enriched`, and changes the suff
 
 **Note:** these media types are configured for **your output formats**. If you want to redefine one of Hugo's default output formats (e.g. `HTML`), you also need to redefine the media type. So, if you want to change the suffix of the `HTML` output format from `html` (default) to `htm`:
 
-{{< code-toggle file="hugo" >}}
+{{< code-toggle file=hugo >}}
 [mediaTypes]
   [mediaTypes."text/html"]
     suffixes = ["htm"]
 
 [outputFormats]
-  [outputFormats.HTML]
+  [outputFormats.html]
     mediaType = "text/html"
 {{</ code-toggle >}}
 
-**Note** that for the above to work, you also need to add an `outputs` definition in your site configuration.
+{{% note %}}
+For the above to work, you also need to add an `outputs` definition in your site configuration.
+{{% /note %}}
 
 ## Output format definitions
 
@@ -61,15 +63,15 @@ Given a media type and some additional configuration, you get an **Output Format
 
 This is the full set of Hugo's built-in output formats:
 
-{{< datatable "output" "formats" "name" "mediaType" "path" "baseName" "rel" "protocol" "isPlainText" "isHTML" "noUgly" "permalinkable" >}}
+{{< datatable "config" "outputFormats" "name" "mediaType" "path" "baseName" "rel" "protocol" "isPlainText" "isHTML" "noUgly" "permalinkable" >}}
 
-- A page can be output in as many output formats as you want, and you can have an infinite amount of output formats defined **as long as they resolve to a unique path on the file system**. In the above table, the best example of this is `AMP` vs. `HTML`. `AMP` has the value `amp` for `Path` so it doesn't overwrite the `HTML` version; e.g. we can now have both `/index.html` and `/amp/index.html`.
-- The `MediaType` must match the `Type` of an already defined media type.
-- You can define new output formats or redefine built-in output formats; e.g., if you want to put `AMP` pages in a different path.
+- A page can be output in as many output formats as you want, and you can have an infinite amount of output formats defined **as long as they resolve to a unique path on the file system**. In the above table, the best example of this is `amp` vs. `html`. `amp` has the value `amp` for `path` so it doesn't overwrite the `html` version; e.g. we can now have both `/index.html` and `/amp/index.html`.
+- The `mediaType` must match a defined media type.
+- You can define new output formats or redefine built-in output formats; e.g., if you want to put `amp` pages in a different path.
 
 To add or modify an output format, define it in an `outputFormats` section in your site's [configuration file](/getting-started/configuration/), either for all sites or for a given language.
 
-{{< code-toggle file="hugo" >}}
+{{< code-toggle file=hugo >}}
 [outputFormats.MyEnrichedFormat]
 mediaType = "text/enriched"
 baseName = "myindex"
@@ -129,13 +131,7 @@ system.
 Every `Page` has a [`Kind`][page_kinds] attribute, and the default Output
 Formats are set based on that.
 
-| Kind       | Default Output Formats |
-| ---------- | ---------------------- |
-| `page`     | HTML                   |
-| `home`     | HTML, RSS              |
-| `section`  | HTML, RSS              |
-| `taxonomy` | HTML, RSS              |
-| `term`     | HTML, RSS              |
+{{< code-toggle config="outputs" />}}
 
 ### Customizing output formats
 
@@ -145,25 +141,21 @@ per language).
 
 Example from site configuration file:
 
-{{< code-toggle file="hugo" >}}
+{{< code-toggle file=hugo >}}
 [outputs]
-  home = ["HTML", "AMP", "RSS"]
-  page = ["HTML"]
+  home = ["html", "amp", "rss"]
+  page = ["html"]
 {{</ code-toggle >}}
 
 Note that in the above examples, the _output formats_ for `section`,
-`taxonomy` and `term` will stay at their default value `["HTML", "RSS"]`.
+`taxonomy` and `term` will stay at their default value `['html','rss']`.
 
-{{% page-kinds %}}
-
-* The `outputs` definition is per [`Page` `Kind`][page_kinds] (`page`, `home`, `section`, `taxonomy`, or `term`).
-* The names (e.g. `HTML`, `AMP`) used must match the `Name` of a defined *Output Format*.
-  * These names are case insensitive.
-* These can be overridden per `Page` in the front matter of content files.
+* The `outputs` definition is per page [`Kind`][page_kinds].
+* The names (e.g. `html`, `amp`) must match the `name` of a defined output format, and can be overridden per page in front matter.
 
 The following is an example of front matter in a content file that defines output formats for the rendered `Page`:
 
-{{< code-toggle file="content/example.md" fm=true copy=false >}}
+{{< code-toggle file="content/example.md" fm=true >}}
 title: Example
 outputs:
 - html
@@ -177,8 +169,8 @@ Each `Page` has both an `.OutputFormats` (all formats, including the current) an
 
 ```go-html-template
 {{ range .AlternativeOutputFormats -}}
-<link rel="{{ .Rel }}" type="{{ .MediaType.Type }}" href="{{ .Permalink | safeURL }}">
-{{ end -}}
+  <link rel="{{ .Rel }}" type="{{ .MediaType.Type }}" href="{{ .Permalink | safeURL }}">
+{{ end }}
 ```
 
 ## Link to output formats
@@ -187,10 +179,10 @@ Each `Page` has both an `.OutputFormats` (all formats, including the current) an
 
 __from `single.json.json`:__
 ```go-html-template
-{{ .RelPermalink }} > /that-page/
-{{ with  .OutputFormats.Get "json" -}}
-{{ .RelPermalink }} > /that-page/index.json
-{{- end }}
+{{ .RelPermalink }} → /that-page/
+{{ with .OutputFormats.Get "json" }}
+  {{ .RelPermalink }} → /that-page/index.json
+{{ end }}
 ```
 
 In order for them to return the output format of the current template file instead, the given output format should have its `permalinkable` setting set to true.
@@ -198,10 +190,10 @@ In order for them to return the output format of the current template file inste
 **Same template file as above with json output format's `permalinkable` set to true:**
 
 ```go-html-template
-{{ .RelPermalink }} > /that-page/index.json
-{{ with  .OutputFormats.Get "html" -}}
-{{ .RelPermalink }} > /that-page/
-{{- end }}
+{{ .RelPermalink }} → /that-page/index.json
+{{ with  .OutputFormats.Get "html" }}
+  {{ .RelPermalink }} → /that-page/
+{{ end }}
 ```
 
 From content files, you can use the [`ref` or `relref` shortcodes](/content-management/shortcodes/#ref-and-relref):
@@ -213,18 +205,9 @@ From content files, you can use the [`ref` or `relref` shortcodes](/content-mana
 
 ## Templates for your output formats
 
-A new output format needs a corresponding template in order to render anything useful.
+Each output format requires a corresponding template conforming to the [template lookup order](/templates/lookup-order/). Hugo considers both output format and suffix when selecting a template.
 
-{{% note %}}
-The key distinction for Hugo versions 0.20 and newer is that Hugo looks at an output format's `Name` and MediaType's `Suffixes` when choosing the template used to render a given `Page`.
-{{% /note %}}
-
-The following table shows examples of different output formats, the suffix used, and Hugo's respective template [lookup order]. All the examples in the table can:
-
-* Use a [base template][base].
-* Include [partial templates][partials]
-
-{{< datatable "output" "layouts" "Example" "OutputFormat" "Suffix" "Template Lookup Order" >}}
+For example, to generate a JSON file for the home page, the template with highest specificity is `layouts/index.json.json`.
 
 Hugo will now also detect the media type and output format of partials, if possible, and use that information to decide if the partial should be parsed as a plain text template or not.
 
@@ -234,7 +217,7 @@ Hugo will look for the name given, so you can name it whatever you want. But if 
 [partial name].[OutputFormat].[suffix]
 ```
 
-The partial below is a plain text template (Output Format is `CSV`, and since this is the only output format with the suffix `csv`, we don't need to include the Output Format's `Name`):
+The partial below is a plain text template . The output format is `csv`, and since this is the only output format with the suffix `csv`, we don't need to include the output format `name`):
 
 ```go-html-template
 {{ partial "mytextpartial.csv" . }}

@@ -1,11 +1,11 @@
 ---
-title: {{ replace .Name "-" " " | title }}
-description: ""
-signature: []
-categories: [functions]
+title: {{ replace .File.ContentBaseName "-" " " | title }}
+description:
+categories: []
 keywords: []
-menu:
-  docs:
-    parent: functions
-relatedfuncs: []
+action:
+  aliases: []
+  related: []
+  returnType:
+  signatures: []
 ---

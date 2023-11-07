@@ -8,8 +8,8 @@ menu:
     parent: templates
     weight: 50
 weight: 50
-aliases: [/layout/content/]
 toc: true
+aliases: [/layout/content/]
 ---
 
 ## Single page template lookup order
@@ -36,21 +36,21 @@ This single page template makes use of Hugo [base templates], the [`.Format` fun
   </section>
   <aside id="meta">
     <div>
-    <section>
-      <h4 id="date"> {{ .Date.Format "Mon Jan 2, 2006" }} </h4>
-      <h5 id="wordcount"> {{ .WordCount }} Words </h5>
-    </section>
+      <section>
+        <h4 id="date"> {{ .Date.Format "Mon Jan 2, 2006" }} </h4>
+        <h5 id="wordcount"> {{ .WordCount }} Words </h5>
+      </section>
       {{ with .GetTerms "topics" }}
         <ul id="topics">
           {{ range . }}
-            <li><a href="{{ .RelPermalink }}">{{ .LinkTitle }}</a></li>
+            <li><a href="{{ .RelPermalink }}">{{ .Title }}</a></li>
           {{ end }}
         </ul>
       {{ end }}
       {{ with .GetTerms "tags" }}
         <ul id="tags">
           {{ range . }}
-            <li><a href="{{ .RelPermalink }}">{{ .LinkTitle }}</a></li>
+            <li><a href="{{ .RelPermalink }}">{{ .Title }}</a></li>
           {{ end }}
         </ul>
       {{ end }}
@@ -74,7 +74,7 @@ To easily generate new instances of a content type (e.g., new `.md` files in a s
 [content type]: /content-management/types/
 [directory structure]: /getting-started/directory-structure/
 [dry]: https://en.wikipedia.org/wiki/Don%27t_repeat_yourself
-[`.format` function]: /functions/format/
+[`.format` function]: /methods/time/format/
 [front matter]: /content-management/front-matter/
 [pagetaxonomy]: /templates/taxonomy-templates/#list-terms-assigned-to-a-page
 [pagevars]: /variables/page/
@@ -82,4 +82,4 @@ To easily generate new instances of a content type (e.g., new `.md` files in a s
 [section]: /content-management/sections/
 [site variables]: /variables/site/
 [spf13]: https://spf13.com/
-[`with`]: /functions/with/
+[`with`]: /functions/go-template/with/

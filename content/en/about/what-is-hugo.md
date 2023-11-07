@@ -1,14 +1,15 @@
 ---
 title: What is Hugo
 description: Hugo is a fast and modern static site generator written in Go, and designed to make website creation fun again.
-layout: single
+categories: [about]
+keywords: []
 menu:
   docs:
     parent: about
     weight: 20
 weight: 20
-aliases: [/overview/introduction/,/about/why-i-built-hugo/]
 toc: true
+aliases: [/overview/introduction/,/about/why-i-built-hugo/]
 ---
 
 Hugo is a general-purpose website framework. Technically speaking, Hugo is a [static site generator]. Unlike systems that dynamically build a page with each visitor request, Hugo builds pages when you create or update your content. Since websites are viewed far more often than they are edited, Hugo is designed to provide an optimal viewing experience for your website's end users and an ideal writing experience for website authors.
@@ -36,13 +37,13 @@ Hugo is for people building a blog, a company site, a portfolio site, documentat
 [@spf13]: https://twitter.com/spf13
 [Amazon S3]: https://aws.amazon.com/s3/
 [Azure]: https://docs.microsoft.com/en-us/azure/storage/blobs/storage-blob-static-website
-[CloudFront]: https://aws.amazon.com/cloudfront/ "Amazon CloudFront"
+[CloudFront]: https://aws.amazon.com/cloudfront/
 [DreamHost]: https://www.dreamhost.com/
-[Firebase]: https://firebase.google.com/docs/hosting/ "Firebase static hosting"
+[Firebase]: https://firebase.google.com/docs/hosting/
 [GitHub Pages]: https://pages.github.com/
 [GitLab Pages]: https://about.gitlab.com/features/pages/
 [Go language]: https://go.dev/
-[GoDaddy]: https://www.godaddy.com/ "GoDaddy.com Hosting"
+[GoDaddy]: https://www.godaddy.com/
 [Google Cloud Storage]: https://cloud.google.com/storage/
 [Heroku]: https://www.heroku.com/
 [Jekyll]: https://jekyllrb.com/

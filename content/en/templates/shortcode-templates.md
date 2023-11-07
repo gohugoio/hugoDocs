@@ -9,10 +9,11 @@ menu:
     parent: templates
     weight: 130
 weight: 130
+aliases: [/functions/get]
 toc: true
 ---
 
-Shortcodes are a means to consolidate templating into small, reusable snippets that you can embed directly inside your content. In this sense, you can think of shortcodes as the intermediary between [page and list templates][templates] and [basic content files].
+Shortcodes are a means to consolidate templating into small, reusable snippets that you can embed directly inside your content.
 
 {{% note %}}
 Hugo also ships with built-in shortcodes for common use cases. (See [Content Management: Shortcodes](/content-management/shortcodes/).)
@@ -28,7 +29,7 @@ Hugo's built-in shortcodes cover many common, but not all, use cases. Luckily, H
 
 To create a shortcode, place an HTML template in the `layouts/shortcodes` directory of your [source organization]. Consider the file name carefully since the shortcode name will mirror that of the file but without the `.html` extension. For example, `layouts/shortcodes/myshortcode.html` will be called with either `{{</* myshortcode /*/>}}` or `{{%/* myshortcode /*/%}}`.
 
-You can organize your shortcodes in subfolders, e.g. in `layouts/shortcodes/boxes`. These shortcodes would then be accessible with their relative path, e.g:
+You can organize your shortcodes in subdirectories, e.g. in `layouts/shortcodes/boxes`. These shortcodes would then be accessible with their relative path, e.g:
 
 ```go-html-template
 {{</* boxes/square */>}}
@@ -94,7 +95,13 @@ most helpful when the condition depends on either of the values, or both:
 
 #### `.Inner`
 
-If a closing shortcode is used, the `.Inner` variable will be populated with the content between the opening and closing shortcodes. If a closing shortcode is required, you can check the length of `.Inner` as an indicator of its existence.
+If a closing shortcode is used, the `.Inner` variable will be populated with the content between the opening and closing shortcodes. To check if `.Inner` contains anything other than white space:
+
+```go-html-template
+{{ if strings.ContainsNonSpace .Inner }}
+  Inner is not empty
+{{ end }}
+```
 
 A shortcode with content declared via the `.Inner` variable can also be declared without the content and without the closing tag by using the self-closing syntax:
 
@@ -187,7 +194,7 @@ Would load the template at `/layouts/shortcodes/youtube.html`:
 </div>
 {{< /code >}}
 
-{{< code file="youtube-embed.html" copy=false >}}
+{{< code file="youtube-embed.html" >}}
 <div class="embed video-player">
     <iframe class="youtube-player" type="text/html"
         width="640" height="385"
@@ -230,7 +237,7 @@ You have created the shortcode at `/layouts/shortcodes/img.html`, which loads th
 
 Would be rendered as:
 
-{{< code file="img-output.html" copy=false >}}
+{{< code file="img-output.html" >}}
 <figure>
   <img src="/media/spf13.jpg"  />
   <figcaption>
@@ -262,7 +269,7 @@ Would load the template found at `/layouts/shortcodes/vimeo.html`:
 
 Would be rendered as:
 
-{{< code file="vimeo-iframes.html" copy=false >}}
+{{< code file="vimeo-iframes.html" >}}
 <div class="vimeo-container">
   <iframe src="https://player.vimeo.com/video/49718712" allowfullscreen></iframe>
 </div>
@@ -291,7 +298,7 @@ The template for the `highlight` shortcode uses the following code, which is alr
 
 The rendered output of the HTML example code block will be as follows:
 
-{{< code file="syntax-highlighted.html" copy=false >}}
+{{< code file="syntax-highlighted.html" >}}
 <div class="highlight" style="background: #272822"><pre style="line-height: 125%"><span style="color: #f92672">&lt;html&gt;</span>
     <span style="color: #f92672">&lt;body&gt;</span> This HTML <span style="color: #f92672">&lt;/body&gt;</span>
 <span style="color: #f92672">&lt;/html&gt;</span>
@@ -343,9 +350,9 @@ This will output the following HTML. Note how the first two `img` shortcodes inh
 
 ## Error handling in shortcodes
 
-Use the [errorf](/functions/errorf) template func and [.Position](/variables/shortcodes/) variable to get useful error messages in shortcodes:
+Use the [errorf](/functions/fmt/errorf) template func and [.Position](/variables/shortcode/) variable to get useful error messages in shortcodes:
 
-```bash
+```sh
 {{ with .Get "name" }}
 {{ else }}
 {{ errorf "missing value for parameter 'name': %s" .Position }}
@@ -354,7 +361,7 @@ Use the [errorf](/functions/errorf) template func and [.Position](/variables/sho
 
 When the above fails, you will see an `ERROR` log similar to the below:
 
-```bash
+```sh
 ERROR 2018/11/07 10:05:55 missing value for parameter name: "/Users/bep/dev/go/gohugoio/hugo/docs/content/en/variables/shortcodes.md:32:1"
 ```
 
@@ -368,7 +375,7 @@ You can also implement your shortcodes inline -- e.g. where you use them in the 
 
 This feature is disabled by default, but can be enabled in your site configuration:
 
-{{< code-toggle file="hugo" >}}
+{{< code-toggle file=hugo >}}
 enableInlineShortcodes = true
 {{< /code-toggle >}}
 
@@ -376,7 +383,7 @@ It is disabled by default for security reasons. The security model used by Hugo'
 
 And once enabled, you can do this in your content files:
 
- ```go-text-template
+ ```go-html-template
  {{</* time.inline */>}}{{ now }}{{</* /time.inline */>}}
  ```
 
@@ -388,7 +395,7 @@ This means that the current page can be accessed via `.Page.Title` etc. This als
 
 The same inline shortcode can be reused later in the same content file, with different parameters if needed, using the self-closing syntax:
 
- ```go-text-template
+ ```go-html-template
 {{</* time.inline /*/>}}
 ```
 
@@ -396,14 +403,14 @@ The same inline shortcode can be reused later in the same content file, with dif
 [built-in shortcode]: /content-management/shortcodes/
 [config]: /getting-started/configuration/
 [Content Management: Shortcodes]: /content-management/shortcodes/#using-hugo-s-built-in-shortcodes
-[source organization]: /getting-started/directory-structure/#directory-structure-explained
+[source organization]: /getting-started/directory-structure/
 [docsshortcodes]: https://github.com/gohugoio/hugo/tree/master/docs/layouts/shortcodes
 [figure]: /content-management/shortcodes/#figure
 [hugosc]: /content-management/shortcodes/#using-hugo-s-built-in-shortcodes
 [lookup order]: /templates/lookup-order/
 [pagevars]: /variables/page/
-[parent]: /variables/shortcodes/
-[shortcodesvars]: /variables/shortcodes/
-[spfscs]: https://github.com/spf13/spf13.com/tree/master/layouts/shortcodes 
+[parent]: /variables/shortcode/
+[shortcodesvars]: /variables/shortcode/
+[spfscs]: https://github.com/spf13/spf13.com/tree/master/layouts/shortcodes
 [vimeoexample]: #single-flexible-example-vimeo
 [youtubeshortcode]: /content-management/shortcodes/#youtube

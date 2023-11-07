@@ -2,15 +2,15 @@
 title: Templating
 linkTitle: Templating
 description: Hugo uses Go's `html/template` and `text/template` libraries as the basis for the templating.
-categories: [fundamentals,templates]
+categories: [templates,fundamentals]
 keywords: [go]
 menu:
   docs:
     parent: templates
     weight: 20
 weight: 20
-aliases: [/layouts/introduction/,/layout/introduction/, /templates/go-templates/]
 toc: true
+aliases: [/layouts/introduction/,/layout/introduction/, /templates/go-templates/]
 ---
 
 {{% note %}}
@@ -28,7 +28,6 @@ Go Templates are HTML files with the addition of [variables][variables] and [fun
 A _predefined variable_ could be a variable already existing in the
 current scope (like the `.Title` example in the [Variables](#variables) section below) or a custom variable (like the
 `$address` example in that same section).
-
 
 ```go-html-template
 {{ .Title }}
@@ -113,6 +112,8 @@ all other pages:
 {{ end }}
 Var is {{ $var }}
 ```
+
+Variable names must conform to Go's naming rules for [identifiers][identifier].
 
 ## Functions
 
@@ -214,7 +215,7 @@ element's index.
 
 ```go-html-template
 {{ range $elem_index, $elem_val := $array }}
-   {{ $elem_index }} -- {{ $elem_val }}
+  {{ $elem_index }} -- {{ $elem_val }}
 {{ end }}
 ```
 
@@ -225,7 +226,7 @@ key.
 
 ```go-html-template
 {{ range $elem_key, $elem_val := $map }}
-   {{ $elem_key }} -- {{ $elem_val }}
+  {{ $elem_key }} -- {{ $elem_val }}
 {{ end }}
 ```
 
@@ -274,7 +275,6 @@ It skips the block if the variable is absent, or if it evaluates to
 Below snippet uses the "description" front-matter parameter's value if
 set, else uses the default `.Summary` [Page variable][pagevars]:
 
-
 ```go-html-template
 {{ with .Param "description" }}
     {{ . }}
@@ -301,7 +301,7 @@ Below example is "Example 1" rewritten using `if`:
 #### Example 4: `if` .. `else`
 
 Below example is "Example 2" rewritten using `if` .. `else`, and using
-[`isset` function][isset] + `.Params` variable (different from the
+[`isset`] + `.Params` variable (different from the
 [`.Param` **function**][param]) instead:
 
 ```go-html-template
@@ -348,14 +348,13 @@ The following two examples are functionally the same:
 {{ shuffle (seq 1 5) }}
 ```
 
-
 ```go-html-template
 {{ (seq 1 5) | shuffle }}
 ```
 
 ### Example 2: `index`
 
-The following accesses the page parameter called "disqus_url" and escapes the HTML. This example also uses the [`index` function](/functions/index-function/), which is built into Go Templates:
+The following accesses the page parameter called "disqus_url" and escapes the HTML. This example also uses the [`index`] function, which is built into Go Templates:
 
 ```go-html-template
 {{ index .Params "disqus_url" | html }}
@@ -427,7 +426,7 @@ Notice how once we have entered the loop (i.e. `range`), the value of `{{ . }}` 
 </ul>
 {{< /code >}}
 
-{{% warning "Don't Redefine the Dot" %}}
+{{% note %}}
 The built-in magic of `$` would cease to work if someone were to mischievously redefine the special character; e.g. `{{ $ := .Site }}`. *Don't do it.* You may, of course, recover from this mischief by using `{{ $ := . }}` in a global context to reset `$` to its default value.
 {{% /note %}}
 
@@ -533,7 +532,7 @@ An example of this is used in the Hugo docs. Most of the pages benefit from havi
 
 Here is the example front matter:
 
-{{< code-toggle file="content/example.md" fm=true copy=false >}}
+{{< code-toggle file="content/example.md" fm=true >}}
 title: Example
 notoc: true
 {{< /code-toggle >}}
@@ -562,14 +561,14 @@ You can arbitrarily define as many site-level parameters as you want in your [si
 
 For instance, you might declare the following:
 
-{{< code-toggle file="hugo" >}}
+{{< code-toggle file=hugo >}}
 params:
   copyrighthtml: "Copyright &#xA9; 2017 John Doe. All Rights Reserved."
   twitteruser: "spf13"
   sidebarrecentlimit: 5
 {{< /code >}}
 
-Within a footer layout, you might then declare a `<footer>` that is only rendered if the `copyrighthtml` parameter is provided. If it *is* provided, you will then need to declare the string is safe to use via the [`safeHTML` function][safehtml] so that the HTML entity is not escaped again. This would let you easily update just your top-level configuration file each January 1st, instead of hunting through your templates.
+Within a footer layout, you might then declare a `<footer>` that is only rendered if the `copyrighthtml` parameter is provided. If it *is* provided, you will then need to declare the string is safe to use via the [`safeHTML`] function so that the HTML entity is not escaped again. This would let you easily update just your top-level configuration file each January 1st, instead of hunting through your templates.
 
 ```go-html-template
 {{ if .Site.Params.copyrighthtml }}
@@ -579,7 +578,7 @@ Within a footer layout, you might then declare a `<footer>` that is only rendere
 {{ end }}
 ```
 
-An alternative way of writing the "`if`" and then referencing the same value is to use [`with`][with] instead. `with` rebinds the context (`.`) within its scope and skips the block if the variable is absent:
+An alternative way of writing the "`if`" and then referencing the same value is to use [`with`] instead. `with` rebinds the context (`.`) within its scope and skips the block if the variable is absent:
 
 {{< code file="layouts/partials/twitter.html" >}}
 {{ with .Site.Params.twitteruser }}
@@ -590,7 +589,7 @@ An alternative way of writing the "`if`" and then referencing the same value is 
 {{ end }}
 {{< /code >}}
 
-Finally, you can pull "magic constants" out of your layouts as well. The following uses the [`first`][first] function, as well as the [`.RelPermalink`][relpermalink] page variable and the [`.Site.Pages`][sitevars] site variable.
+Finally, you can pull "magic constants" out of your layouts as well. The following uses the [`first`] function, as well as the [`.RelPermalink`][relpermalink] page variable and the [`.Site.Pages`][sitevars] site variable.
 
 ```go-html-template
 <nav>
@@ -615,7 +614,7 @@ content/
     └── event-3.md
 ```
 
-{{< code-toggle file="content/events/event-1.md" copy=false >}}
+{{< code-toggle file="content/events/event-1.md" >}}
 title = 'Event 1'
 date = 2021-12-06T10:37:16-08:00
 draft = false
@@ -632,7 +631,7 @@ This [partial template][partials] renders future events:
     {{ if gt (.Params.start_date | time.AsTime) now }}
       {{ $startDate := .Params.start_date | time.Format ":date_medium" }}
       <li>
-        <a href="{{ .RelPermalink }}">{{ .LinkTitle }}</a> - {{ $startDate }}
+        <a href="{{ .RelPermalink }}">{{ .Title }}</a> - {{ $startDate }}
       </li>
     {{ end }}
   {{ end }}
@@ -647,25 +646,27 @@ If you restrict front matter to the TOML format, and omit quotation marks surrou
   {{ range where (where site.RegularPages "Type" "events") "Params.start_date" "gt" now }}
     {{ $startDate := .Params.start_date | time.Format ":date_medium" }}
     <li>
-      <a href="{{ .RelPermalink }}">{{ .LinkTitle }}</a> - {{ $startDate }}
+      <a href="{{ .RelPermalink }}">{{ .Title }}</a> - {{ $startDate }}
     </li>
   {{ end }}
 </ul>
 {{< /code >}}
 
-[dotdoc]: https://golang.org/pkg/text/template/#hdr-Variables
+[`first`]: /functions/collections/first
+[`index`]: /functions/collections/indexfunction
+[`isset`]: /functions/collections/isset
 [config]: /getting-started/configuration
-[first]: /functions/first
+[dotdoc]: https://golang.org/pkg/text/template/#hdr-Variables
 [front matter]: /content-management/front-matter
 [functions]: /functions
+[identifier]: /getting-started/glossary/#identifier
 [internal templates]: /templates/internal
-[isset]: /functions/isset
 [math]: /functions/math
 [pagevars]: /variables/page
-[param]: /functions/param
+[param]: /methods/page/param
 [partials]: /templates/partials
-[relpermalink]: /variables/page#page-variables
-[safehtml]: /functions/safehtml
+[relpermalink]: /variables/page
+[`safehtml`]: /functions/safe/html
 [sitevars]: /variables/site
 [variables]: /variables
-[with]: /functions/with
+[`with`]: /functions/go-template/with

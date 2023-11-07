@@ -7,9 +7,12 @@ menu:
   docs:
     parent: hugo-pipes
     weight: 40
-toc: true
 weight: 40
-signature: ["resources.PostCSS RESOURCE [OPTIONS]", "postCSS RESOURCE [OPTIONS]"]
+toc: true
+action:
+  aliases: [postCSS]
+  returnType: resource.Resource
+  signatures: ['resources.PostCSS [OPTIONS] RESOURCE']
 ---
 
 ## Setup
@@ -22,8 +25,8 @@ Step 1
 Step 2
 : Install the required Node.js packages in the root of your project. For example, to add vendor prefixes to CSS rules:
 
-```bash
-npm install postcss postcss-cli autoprefixer
+```sh
+npm i -D postcss postcss-cli autoprefixer
 ```
 
 Step 3

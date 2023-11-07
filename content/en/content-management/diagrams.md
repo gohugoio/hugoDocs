@@ -7,8 +7,8 @@ menu:
   docs:
     parent: content-management
     weight: 50
-toc: true
 weight: 50
+toc: true
 ---
 {{< new-in "0.93.0" >}}
 
@@ -165,7 +165,6 @@ Created from <https://arthursonzogni.com/Diagon/#Tree>
          └─Fedora
 ```
 
-
 ### Sequence diagram
 
 <https://arthursonzogni.com/Diagon/#Sequence>
@@ -185,7 +184,6 @@ Created from <https://arthursonzogni.com/Diagon/#Tree>
 └─────┘       └───┘
 
 ```
-
 
 ### Flowchart
 
@@ -231,7 +229,6 @@ Created from <https://arthursonzogni.com/Diagon/#Tree>
                                                              └───────────────────┘
 
 ```
-
 
 ### Table
 

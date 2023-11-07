@@ -8,11 +8,11 @@ menu:
     parent: templates
     weight: 100
 weight: 100
-aliases: [/extras/pagination,/doc/pagination/]
 toc: true
+aliases: [/extras/pagination,/doc/pagination/]
 ---
 
-The real power of Hugo pagination shines when combined with the [`where` function][where] and its SQL-like operators: [`first`], [`last`], and [`after`]. You can even [order the content][lists] the way you've become used to with Hugo.
+The real power of Hugo pagination shines when combined with the [`where`] function and its SQL-like operators: [`first`], [`last`], and [`after`]. You can even [order the content][lists] the way you've become used to with Hugo.
 
 ## Configure pagination
 
@@ -78,7 +78,7 @@ The following example shows how to create `.Paginator` before its used:
 {{ $paginator := .Paginate (where .Pages "Type" "posts") }}
 {{ template "_internal/pagination.html" . }}
 {{ range $paginator.Pages }}
-   {{ .Title }}
+  {{ .Title }}
 {{ end }}
 ```
 
@@ -87,7 +87,7 @@ Without the `where` filter, the above example is even simpler:
 ```go-html-template
 {{ template "_internal/pagination.html" . }}
 {{ range .Paginator.Pages }}
-   {{ .Title }}
+  {{ .Title }}
 {{ end }}
 ```
 
@@ -146,9 +146,9 @@ The pages are built on the following form (`BLANK` means no value):
 ....
 ```
 
-[`first`]: /functions/first/
-[`last`]: /functions/last/
-[`after`]: /functions/after/
+[`first`]: /functions/collections/first/
+[`last`]: /functions/collections/last/
+[`after`]: /functions/collections/after/
 [configuration]: /getting-started/configuration/
 [lists]: /templates/lists/
-[where]: /functions/where/
+[`where`]: /functions/collections/where

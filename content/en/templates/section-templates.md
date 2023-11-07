@@ -9,8 +9,8 @@ menu:
     parent: templates
     weight: 80
 weight: 80
-aliases: [/templates/sections/]
 toc: true
+aliases: [/templates/sections/]
 ---
 
 ## Add content and front matter to section templates
@@ -25,11 +25,11 @@ See [Template Lookup](/templates/lookup-order/).
 
 Every `Page` in Hugo has a `.Kind` attribute.
 
-{{% page-kinds %}}
+{{% include "content-management/_common/page-kinds.md" %}}
 
 ## `.Site.GetPage` with sections
 
-`Kind` can easily be combined with the [`where` function][where] in your templates to create kind-specific lists of content. This method is ideal for creating lists, but there are times where you may want to fetch just the index page of a single section via the section's path.
+`Kind` can easily be combined with the [`where`] function in your templates to create kind-specific lists of content. This method is ideal for creating lists, but there are times where you may want to fetch just the index page of a single section via the section's path.
 
 The [`.GetPage` function][getpage] looks up an index page of a given `Kind` and `path`.
 
@@ -46,17 +46,17 @@ Examples:
 {{< code file="layouts/_default/section.html" >}}
 {{ define "main" }}
   <main>
-      {{ .Content }}
-          <ul class="contents">
-          {{ range .Paginator.Pages }}
-              <li>{{ .Title }}
-                  <div>
-                    {{ partial "summary.html" . }}
-                  </div>
-              </li>
-          {{ end }}
-          </ul>
-      {{ partial "pagination.html" . }}
+    {{ .Content }}
+      <ul class="contents">
+        {{ range .Paginator.Pages }}
+          <li>{{ .Title }}
+            <div>
+              {{ partial "summary.html" . }}
+            </div>
+          </li>
+        {{ end }}
+      </ul>
+    {{ partial "pagination.html" . }}
   </main>
 {{ end }}
 {{< /code >}}
@@ -69,10 +69,10 @@ The `.Site.GetPage` example that follows assumes the following project directory
 .
 └── content
     ├── blog
-    │   ├── _index.md # "title: My Hugo Blog" in the front matter
-    │   ├── post-1.md
-    │   ├── post-2.md
-    │   └── post-3.md
+    │   ├── _index.md # "title: My Hugo Blog" in the front matter
+    │   ├── post-1.md
+    │   ├── post-2.md
+    │   └── post-3.md
     └── events #Note there is no _index.md file in "events"
         ├── event-1.md
         └── event-2.md
@@ -103,8 +103,8 @@ Which then returns the following:
 ```
 
 [contentorg]: /content-management/organization/
-[getpage]: /functions/getpage/
+[getpage]: /methods/page/getpage
 [lists]: /templates/lists/
 [lookup]: /templates/lookup-order/
-[where]: /functions/where/
+[`where`]: /functions/collections/where
 [sections]: /content-management/sections/
