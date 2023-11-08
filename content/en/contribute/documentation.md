@@ -96,7 +96,7 @@ lang
 : (`string`) The code language. Default is `text`.
 
 ````text
-{{</* code file="layouts/_default_/single.html" */>}}
+{{</* code file=layouts/_default_/single.html */>}}
 {{ if eq $foo "bar" }}
   {{ print "foo is bar" }}
 {{ end }}
@@ -106,7 +106,7 @@ lang
 
 Rendered:
 
-{{< code file="layouts/_default_/single.html" >}}
+{{< code file=layouts/_default_/single.html >}}
 {{ if eq $foo "bar" }}
   {{ print "foo is bar" }}
 {{ end }}
@@ -146,7 +146,7 @@ title = "Example Site"
 #### Front matter example
 
 ```text
-{{</* code-toggle file="content/about.md" fm=true */>}}
+{{</* code-toggle file=content/about.md fm=true */>}}
 title = "About"
 date = 2023-04-02T12:47:24-07:00
 draft = false
@@ -155,7 +155,7 @@ draft = false
 
 Rendered:
 
-{{< code-toggle file="content/about.md" fm=true >}}
+{{< code-toggle file=content/about.md fm=true >}}
 title = "About"
 date = 2023-04-02T12:47:24-07:00
 draft = false
