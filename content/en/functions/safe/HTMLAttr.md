@@ -52,4 +52,35 @@ To indicate that the HTML attribute is safe:
 As demonstrated above, you must pass the HTML attribute name _and_ value through the function. Applying `safeHTMLAttr` to the attribute value has no effect.
 {{% /note %}}
 
+## Inside partial template
+
+Even if you mark the attribute is safe with `safeHTMLAttr` inside a partial template, you still have to do it again when calling the template.
+
+```go-html-template
+<!-- partials/a-href.html -->
+{{ printf "href=%q" . | safeHTMLAttr }}
+```
+
+```go-html-template
+<!-- index.html -->
+{{ range site.Menus.main }}
+  <a href="{{ partial "a-href.html" .URL | safeHTMLAttr }}">{{ .Name }}</a>
+{{ end }}
+```
+
+So a good practice is never make a partial template for an attribute, instead, go for at least 1 element.
+
+```go-html-template
+<!-- partials/li.html -->
+<a {{ printf "href=%q" .URL | safeHTMLAttr }}>{{ .Name }}</a>
+```
+
+```go-html-template
+<!-- index.html -->
+{{ range site.Menus.main }}
+  {{ partial "li.html" . }}
+{{ end }}
+```
+
+
 [template/html]: https://pkg.go.dev/html/template
