@@ -12,7 +12,7 @@ toc: true
 aliases: [/quickstart/,/overview/quickstart/]
 ---
 
-In this tutorial you will:
+In this tutorial, you will:
 
 1. Create a site
 2. Add content
@@ -21,12 +21,12 @@ In this tutorial you will:
 
 ## Prerequisites
 
-Before you begin this tutorial you must:
+Before you begin this tutorial, you must:
 
 1. [Install Hugo] (extended edition, v0.112.0 or later)
 1. [Install Git]
 
-You must also be comfortable working from the command line.
+You must also be comfortable working on the command line.
 
 ## Create a site
 
