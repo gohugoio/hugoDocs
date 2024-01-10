@@ -64,7 +64,7 @@ And this template:
   <ul>
     {{ range . }}
       {{ $lang := .Language.LanguageName}}
-      <li><a href="{{ .RelPermalink }}" hreflang=".Language.LanguageCode">{{ .LinkTitle }} ({{ $lang }})</a></li>
+      <li><a href="{{ .RelPermalink }}" hreflang="{{ .Language.LanguageCode }}">{{ .LinkTitle }} ({{ $lang }})</a></li>
     {{ end }}
   </ul>
 {{ end }}
