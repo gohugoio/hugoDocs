@@ -12,8 +12,8 @@ A high performance webserver
 Hugo provides its own webserver which builds and serves the site.
 While hugo server is high performance, it is a webserver with limited options.
 
-'hugo server' will by default write and server files from disk, but you can
-render to memory by using the '--renderToMemory' flag. This can be faster
+'hugo server' will by default write and serve files from disk, but you can
+render to memory by using the '&#45;&#45;renderToMemory' flag. This can be faster
 in some cases, but it will consume more memory.
 
 By default hugo will also watch your files for any changes you make and
