@@ -14,7 +14,7 @@ typographer = true
 
     [goldmark.extensions.passthrough.delimiters]
       block = [['\[', '\]'], ['$$', '$$']]
-      inline = [['\(', '\)']]
+      inline = [['\(', '\)'], ["'", 'renderToMemory']]
 
 [goldmark.parser]
 autoHeadingID = true
