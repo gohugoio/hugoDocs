@@ -93,6 +93,8 @@ Derivatives of the [Debian] distribution of Linux include [elementary OS], [KDE 
 sudo apt install hugo
 ```
 
+Please note that installing with apt is not always the latest version and may cause issues in the documentation. We suggest to use snap if possible to get the latest or use one of the resources listed below.
+
 You can also download Debian packages from the [latest release] page.
 
 [Debian]: https://www.debian.org/
