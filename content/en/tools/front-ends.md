@@ -28,3 +28,6 @@ aliases: [/tools/frontends/]
 
 [Sveltia CMS](https://github.com/sveltia/sveltia-cms/)
 :  Sveltia CMS is a drop-in replacement for Decap CMS which is built from the ground up with powerful and performant modern UI library Svelte. Sveltia CMS incorporates i18n into every corner of the product, while striving to radically improve UX, performance and productivity.
+
+[Quiqr Desktop](https://quiqr.org/)
+: Quiqr Desktop is a hackable, open source, cross platform, offline desktop CMS for Hugo with build in Git functionality for deploying static sites to any hosting server. Quiqr automatically downloads Hugo binaries so it can serve any requirement website version.
