@@ -150,7 +150,6 @@ Note that you cannot disable the default content language.
 
 ### Configure multilingual multihost
 
-{{< new-in 0.31 >}}
 
 Hugo supports multiple languages in a multihost configuration. See [this issue](https://github.com/gohugoio/hugo/issues/4027) for details.
 
