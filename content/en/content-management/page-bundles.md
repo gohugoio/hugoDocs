@@ -98,7 +98,7 @@ anywhere:
 - It will have no `Permalink` and no rendered HTML in `public/`.
 - It will not be part of `.Site.RegularPages`, etc.
 
-But you can get it by `.Site.GetPage`. Here is an example:
+But you can get it by [.Site.GetPage](https://gohugo.io/methods/site/getpage/). Here is an example:
 
 ```go-html-template
 {{ $headless := .Site.GetPage "/some-headless-bundle" }}
