@@ -151,7 +151,7 @@ Note that you cannot disable the default content language.
 ### Configure multilingual multihost
 
 
-Hugo supports multiple languages in a multihost configuration. See [this issue](https://github.com/gohugoio/hugo/issues/4027) for details.
+Hugo supports multiple languages in a multihost configuration.
 
 This means you can configure a `baseURL` per `language`:
 
