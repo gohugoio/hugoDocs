@@ -151,9 +151,7 @@ Note that you cannot disable the default content language.
 ### Configure multilingual multihost
 
 
-Hugo supports multiple languages in a multihost configuration.
-
-This means you can configure a `baseURL` per `language`:
+Hugo supports multiple languages in a multihost configuration. This means you can configure a `baseURL` per `language`.
 
 {{% note %}}
 If a `baseURL` is set on the `language` level, then all languages must have one and they must all be different.
