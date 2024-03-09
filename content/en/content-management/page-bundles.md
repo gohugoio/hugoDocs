@@ -131,7 +131,7 @@ A leaf bundle can be made headless by adding below in the front matter
 headless = true
 {{< /code-toggle >}}
 
-There are many use cases of such headless page bundles:
+There are many use cases of such headless page bundles, such as:
 
 - Shared media galleries
 - Reusable page content "snippets"
