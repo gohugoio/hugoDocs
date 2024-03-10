@@ -5,7 +5,8 @@ categories: []
 keywords: []
 action:
   aliases: []
-  related: []
+  related:
+    - /functions/hugo/IsMultiLingual
   returnType: bool
   signatures: [hugo.IsMultihost]
 ---
