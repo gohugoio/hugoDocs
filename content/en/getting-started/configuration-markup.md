@@ -58,23 +58,20 @@ This is the default configuration for the Goldmark Markdown renderer:
 
 ### Goldmark extensions
 
-The extensions below, excluding passthrough, are enabled by default.
+The extensions below, excluding Extras and Passthrough, are enabled by default.
 
-Enable the passthrough extension if you include mathematical equations and expressions in your Markdown using LaTeX or TeX typesetting syntax. See [mathematics in Markdown] for details.
-
-[mathematics in Markdown]: content-management/mathematics/
-
-Extension|Documentation
-:--|:--
-cjk|[Goldmark Extensions: CJK]
-definitionList|[PHP Markdown Extra: Definition lists]
-footnote|[PHP Markdown Extra: Footnotes]
-linkify|[GitHub Flavored Markdown: Autolinks]
-passthrough|[Hugo Goldmark Extensions: Passthrough]
-strikethrough|[GitHub Flavored Markdown: Strikethrough]
-table|[GitHub Flavored Markdown: Tables]
-taskList|[GitHub Flavored Markdown: Task list items]
-typographer|[Goldmark Extensions: Typographer]
+Extension|Documentation|Enabled
+:--|:--|:-:
+cjk|[Goldmark Extensions: CJK]|:heavy_check_mark:
+definitionList|[PHP Markdown Extra: Definition lists]|:heavy_check_mark:
+extras|[Hugo Goldmark Extensions: Extras]|
+footnote|[PHP Markdown Extra: Footnotes]|:heavy_check_mark:
+linkify|[GitHub Flavored Markdown: Autolinks]|:heavy_check_mark:
+passthrough|[Hugo Goldmark Extensions: Passthrough]|
+strikethrough|[GitHub Flavored Markdown: Strikethrough]|:heavy_check_mark:
+table|[GitHub Flavored Markdown: Tables]|:heavy_check_mark:
+taskList|[GitHub Flavored Markdown: Task list items]|:heavy_check_mark:
+typographer|[Goldmark Extensions: Typographer]|:heavy_check_mark:
 
 [GitHub Flavored Markdown: Autolinks]: https://github.github.com/gfm/#autolinks-extension-
 [GitHub Flavored Markdown: Strikethrough]: https://github.github.com/gfm/#strikethrough-extension-
@@ -82,11 +79,34 @@ typographer|[Goldmark Extensions: Typographer]
 [GitHub Flavored Markdown: Task list items]: https://github.github.com/gfm/#task-list-items-extension-
 [Goldmark Extensions: CJK]: https://github.com/yuin/goldmark?tab=readme-ov-file#cjk-extension
 [Goldmark Extensions: Typographer]: https://github.com/yuin/goldmark?tab=readme-ov-file#typographer-extension
+[Hugo Goldmark Extensions: Extras]: https://github.com/gohugoio/hugo-goldmark-extensions?tab=readme-ov-file#extras-extension
 [Hugo Goldmark Extensions: Passthrough]: https://github.com/gohugoio/hugo-goldmark-extensions?tab=readme-ov-file#passthrough-extension
 [PHP Markdown Extra: Definition lists]: https://michelf.ca/projects/php-markdown/extra/#def-list
 [PHP Markdown Extra: Footnotes]: https://michelf.ca/projects/php-markdown/extra/#footnotes
 
-The typographer extension replaces certain character combinations with HTML entities as specified below:
+#### Extras extension
+
+Use the Extras extension to enable [subscript] (`<sub>`), [superscript] (`<sup>`), and [inserted text] (`<ins>`) elements in Markdown. Wrap subscripts with a tilde (`~`), superscripts with a caret (`^`), and inserted text with two plus signs (`++`). For example:
+
+```text
+Hydrogen (H) is the 1^st^ element in the periodic table.
+Water (H~2~O) is a liquid.
+Water (H~2~O) is a ++transparent++ liquid.
+```
+
+[subscript]: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/sub
+[superscript]: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/sup
+[inserted text ]: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/ins
+
+#### Passthrough extension
+
+Enable the passthrough extension if you include mathematical equations and expressions in your Markdown using LaTeX or TeX typesetting syntax. See [mathematics in Markdown] for details.
+
+[mathematics in Markdown]: content-management/mathematics/
+
+#### Typographer extension
+
+The Typographer extension replaces certain character combinations with HTML entities as specified below:
 
 Markdown|Replaced by|Description
 :--|:--|:--
