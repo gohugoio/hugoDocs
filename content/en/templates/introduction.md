@@ -179,7 +179,7 @@ Within a template action you may [pipe] a value to function or method. The piped
 You can pipe the result of one function or method into another. For example, these are equivalent:
 
 ```go-html-template
-{{ strings.TrimSuffix "o" (strings.ToLower "Hugo") }} → Hug
+{{ strings.TrimSuffix "o" (strings.ToLower "Hugo") }} → hug
 {{ "Hugo" | strings.ToLower | strings.TrimSuffix "o" }} → hug
 ```
 
