@@ -187,7 +187,7 @@ These are also equivalent:
 
 ```go-html-template
 {{ mul 6 (add 2 5) }} → 42
-{{ 2 | add 5 | mul 6 }} → 42
+{{ 5 | add 2 | mul 6 }} → 42
 ```
 
 {{% note %}}
