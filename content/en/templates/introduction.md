@@ -180,7 +180,7 @@ You can pipe the result of one function or method into another. For example, the
 
 ```go-html-template
 {{ strings.TrimSuffix "o" (strings.ToLower "Hugo") }} → Hug
-{{ "Hugo" | strings.ToLower | strings.TrimSuffix "o" }} → Hug
+{{ "Hugo" | strings.ToLower | strings.TrimSuffix "o" }} → hug
 ```
 
 These are also equivalent:
