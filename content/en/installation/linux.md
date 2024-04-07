@@ -105,6 +105,21 @@ You can also download Debian packages from the [latest release] page.
 [Ubuntu]: https://ubuntu.com/
 [Zorin OS]: https://zorin.com/os/
 
+### Exherbo Linux
+
+To install the `extended` edition, add this line to `/etc/paludis/options.conf`:
+
+```
+www-apps/hugo extended
+```
+
+To install Hugo on [Exherbo Linux]:
+
+```sh
+cave resolve -x repository/heirecka
+cave resolve -x hugo
+```
+
 ### Fedora
 
 Derivatives of the [Fedora] distribution of Linux include [CentOS], [Red Hat Enterprise Linux], and others. To install the extended edition of Hugo:
