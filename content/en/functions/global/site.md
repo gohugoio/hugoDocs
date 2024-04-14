@@ -19,7 +19,8 @@ At the top level of a template that receives the `Site` object in context, these
 {{ site.Params.foo }}
 ```
 
-When the `Site` object is not in context, use the global `site` function:
+When the `Site` object is not in context, only the global `site` function is guaranteed to return
+the current site:
 
 ```go-html-template
 {{ site.Params.foo }}
