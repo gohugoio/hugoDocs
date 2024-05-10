@@ -8,7 +8,7 @@ action:
   related:
     - functions/collections/Slice
   returnType: mapany
-  signatures: ['collections.Dictionary KEY VALUE [VALUE...]']
+  signatures: ['collections.Dictionary KEY VALUE [VALUE KEY]...']
 aliases: [/functions/dict]
 ---
 
