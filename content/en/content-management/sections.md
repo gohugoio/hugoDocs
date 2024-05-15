@@ -1,4 +1,4 @@
----
+piotrjansch00@gmail.com---
 title: Sections
 description: Organize content into sections.
 
