@@ -14,17 +14,31 @@ aliases: [/troubleshooting/build-performance/]
 
 ## Virus scanning
 
-Virus scanners are an essential component of system protection, but the performance impact can be severe for applications like Hugo that frequently read and write to disk. For example, with Microsoft Defender Antivirus, build times for some sites may increase by 400% or more.
+{{% note %}}
+**Be vigliant**
 
-Before building a site, your virus scanner has already evaluated the files in your project directory. Scanning them again while building the site is superfluous. To improve performance, add Hugo's executable to your virus scanner's process exclusion list.
+Virus scanners are an essential component of system protection. Fiddling around with these settings may harm your overall system security.
+So only do this if you are aware of the impact and are willing to take the risk.
+{{% /note %}}
+
+Applications like Hugo that frequently read and write to disk may be heavily affected by the permanent scanning of the accessed files. For example, with Microsoft Defender Antivirus, build times for some sites may increase by 400% or more.
+
+Before building a site, your virus scanner has already evaluated the files in your project directory. Scanning them again while building the site is superfluous.
+
+Most Virus scanners provide options to skip dedicated folders or applications while scanning. You could for example create an exclusion for the hugo binary executable.
 
 For example, with Microsoft Defender Antivirus:
 
-**Start**&nbsp;> **Settings**&nbsp;> **Privacy&nbsp;&&nbsp;security**&nbsp;> **Windows&nbsp;Security**&nbsp;> **Open&nbsp;Windows&nbsp;Security**&nbsp;> **Virus&nbsp;&&nbsp;threat&nbsp;protection**&nbsp;> **Manage&nbsp;settings**&nbsp;> **Add&nbsp;or&nbsp;remove&nbsp;exclusions**&nbsp;> **Add&nbsp;an&nbsp;exclusion**&nbsp;> **Process**
+1. *Start*&nbsp;> *Settings*&nbsp;> *Privacy&nbsp;&&nbsp;security*&nbsp;> *Windows&nbsp;Security*
+1. open&nbsp;*Windows&nbsp;Security*&nbsp;> *Virus&nbsp;&&nbsp;threat&nbsp;protection*&nbsp;> *Manage&nbsp;settings*
+1. select&nbsp;*Add&nbsp;or&nbsp;remove&nbsp;exclusions*&nbsp;> *Add&nbsp;an&nbsp;exclusion*&nbsp;> *Process*
+1. type the full path to the hugo executable `hugo.exe` and press the *Add* button.
 
-Then type `hugo.exe` add press the **Add** button.
+{{% note %}}
+We recommend to use the _full path_ to the executable to lower the security impact.
+{{% /note %}}
 
-Other virus scanners have similar exclusion mechanisms. See documentation.
+Other virus scanners have similar exclusion mechanisms. For details please check out their documentation.
 
 ## Template metrics
 
