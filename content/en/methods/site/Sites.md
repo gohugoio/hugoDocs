@@ -49,7 +49,7 @@ Produces a list of links to each home page:
 </ul>
 ```
 
-To render a link to home page of the primary (first) language:
+To render a link to home page of the default content (first) language:
 
 ```go-html-template
 {{ with .Site.Sites.First }}
