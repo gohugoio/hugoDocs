@@ -71,6 +71,7 @@
     "attrlink",
     "canonify",
     "codeowners",
+    "dynacache",
     "eturl",
     "getenv",
     "gohugo",
