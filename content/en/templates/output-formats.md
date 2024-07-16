@@ -51,6 +51,10 @@ The above example adds one new media type, `text/enriched`, and changes the suff
 [outputFormats]
   [outputFormats.htm]
     mediaType = "text/html"
+    isHTML = true
+    permalinkable = true
+    rel = 'canonical'
+    weight = 10
 {{</ code-toggle >}}
 
 {{% note %}}
