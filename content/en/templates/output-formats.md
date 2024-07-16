@@ -49,7 +49,7 @@ The above example adds one new media type, `text/enriched`, and changes the suff
     suffixes = ["htm"]
 
 [outputFormats]
-  [outputFormats.html]
+  [outputFormats.htm]
     mediaType = "text/html"
 {{</ code-toggle >}}
 
