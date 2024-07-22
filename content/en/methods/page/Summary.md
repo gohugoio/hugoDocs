@@ -30,4 +30,6 @@ To list the pages in a section with a summary beneath each link:
 {{ end }}
 ```
 
+When you invoke `{{ .Summary }}`, the summary text is wrapped in a paragraph tag (`<p>`).
+
 [content summary]: /content-management/summaries/
