@@ -39,10 +39,14 @@ Note the forward slash.
 
 ### Shortcode template lookup order
 
-Shortcode templates have a simple [lookup order]:
+Shortcode templates have a simple [lookup order], which first looks for a shortcode unique to the [output format] and then falls back to a generic HTML version.
 
-1. `/layouts/shortcodes/<SHORTCODE>.html`
-2. `/themes/<THEME>/layouts/shortcodes/<SHORTCODE>.html`
+1. `/layouts/shortcodes/<SHORTCODE>.<OUTPUT-BASENAME>.<OUTPUT-SUFFIX>`
+2. `/themes/<THEME>/layouts/shortcodes/<OUTPUT-BASENAME>.<OUTPUT-SUFFIX>`
+3. `/layouts/shortcodes/<SHORTCODE>.html`
+4. `/themes/<THEME>/layouts/shortcodes/<SHORTCODE>.html`
+
+For example, the built-in RSS output format uses a baseName of `index` and suffix of `xml` by default. When calling a shortcut via `{{< example >}}`, the RSS template will first look for a file `example.index.xml` and if one doesn't exist will fall back to `example.html`.
 
 ### Positional vs. named arguments
 
@@ -400,6 +404,7 @@ The same inline shortcode can be reused later in the same content file, with dif
 [built-in shortcode]: /content-management/shortcodes/
 [figure]: /content-management/shortcodes/#figure
 [lookup order]: /templates/lookup-order/
+[output format]: templates/output-formats/
 [source organization]: /getting-started/directory-structure/
 [vimeoexample]: #single-flexible-example-vimeo
 [youtubeshortcode]: /content-management/shortcodes/#youtube
