@@ -41,12 +41,12 @@ Note the forward slash.
 
 Shortcode templates have a simple [lookup order], which first looks for a shortcode unique to the [output format] and then falls back to a generic HTML version.
 
-1. `/layouts/shortcodes/<SHORTCODE>.<OUTPUT-BASENAME>.<OUTPUT-SUFFIX>`
-2. `/themes/<THEME>/layouts/shortcodes/<OUTPUT-BASENAME>.<OUTPUT-SUFFIX>`
+1. `/layouts/shortcodes/<SHORTCODE>.<OUTPUT-NAME>.<OUTPUT-SUFFIX>`
+2. `/themes/<THEME>/layouts/shortcodes/<OUTPUT-NAME>.<OUTPUT-SUFFIX>`
 3. `/layouts/shortcodes/<SHORTCODE>.html`
 4. `/themes/<THEME>/layouts/shortcodes/<SHORTCODE>.html`
 
-For example, the built-in RSS output format uses a baseName of `index` and suffix of `xml` by default. When calling a shortcut via `{{</* example */>}}`, the RSS template will first look for a file `example.index.xml` and if one doesn't exist will fall back to `example.html`.
+For example, the built-in feed output format is called `rss` and uses a suffix of `xml` by default. When calling a shortcut via `{{</* example */>}}`, the RSS template will first look for a file `example.rss.xml` and if one doesn't exist will fall back to `example.html`.
 
 ### Positional vs. named arguments
 
