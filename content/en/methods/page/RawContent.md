@@ -6,8 +6,8 @@ keywords: []
 action:
   related:
     - methods/page/Content
-    - methods/page/Plain
-    - methods/page/PlainWords
+    - methods/page/markup/Plain
+    - methods/page/markup/PlainWords
     - methods/page/RenderShortcodes
   returnType: string
   signatures: [PAGE.RawContent]

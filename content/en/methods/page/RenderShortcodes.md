@@ -8,8 +8,8 @@ action:
     - methods/page/RenderString
     - methods/page/Content
     - methods/page/RawContent
-    - methods/page/Plain
-    - methods/page/PlainWords
+    - methods/page/markup/Plain
+    - methods/page/markup/PlainWords
   returnType: template.HTML
   signatures: [PAGE.RenderShortcodes]
 toc: true

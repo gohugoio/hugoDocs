@@ -7,7 +7,7 @@ action:
   related:
     - methods/page/Content
     - methods/page/RawContent
-    - methods/page/PlainWords
+    - methods/page/markup/PlainWords
     - methods/page/RenderShortcodes
   returnType: string
   signatures: [PAGE.Plain]

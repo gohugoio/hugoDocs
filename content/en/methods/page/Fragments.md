@@ -5,7 +5,7 @@ categories: []
 keywords: []
 action:
   related:
-    - methods/page/TableOfContents
+    - methods/page/markup/TableOfContents
   returnType: tableofcontents.Fragments
   signatures: [PAGE.Fragments]
 toc: true
@@ -100,7 +100,7 @@ When using the `Fragments` methods within a shortcode, call the shortcode using 
 [fragment]: /getting-started/glossary/#fragment
 [markdown attribute]: /getting-started/glossary/#markdown-attribute
 [setext]: https://spec.commonmark.org/0.30/#setext-headings
-[table of contents]: /methods/page/tableofcontents/
+[table of contents]: /methods/page/markup/TableOfContents/
 [walking]: /getting-started/glossary/#walk
-[`tableofcontents`]: /methods/page/tableofcontents/
+[`tableofcontents`]: /methods/page/markup/TableOfContents/
 [render hook]: /getting-started/glossary/#render-hook

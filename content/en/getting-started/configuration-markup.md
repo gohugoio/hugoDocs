@@ -266,7 +266,7 @@ To mitigate security risks, entries in the extension array may not contain forwa
 
 (`bool`) If `true`, preserves the table of contents (TOC) rendered by Asciidoctor. By default, to make the TOC compatible with existing themes, Hugo removes the TOC rendered by Asciidoctor. To render the TOC, use the [`TableOfContents`] method on a `Page` object in your templates. Default is `false`.
 
-[`TableOfContents`]: /methods/page/tableofcontents/
+[`TableOfContents`]: /methods/page/markup/TableOfContents/
 
 ###### safeMode
 

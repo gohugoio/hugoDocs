@@ -7,7 +7,7 @@ action:
   related:
     - methods/page/Content
     - methods/page/RawContent
-    - methods/page/Plain
+    - methods/page/markup/Plain
   returnType: '[]string'
   signatures: [PAGE.PlainWords]
 ---
@@ -32,5 +32,5 @@ To determine the approximate number of unique words on a page:
 {{ .PlainWords | uniq }} → 42
 ```
 
-[`Plain`]: /methods/page/plain/
+[`Plain`]: /methods/page/markup/Plain/
 [`strings.Fields`]: https://pkg.go.dev/strings#Fields
