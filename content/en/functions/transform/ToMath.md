@@ -101,7 +101,7 @@ There are 3 ways to handle errors from KaTeX:
   {{ with .Err }}
     {{ errorf "Failed to render KaTeX: %q. See %s" . $.Position }}
   {{ else }}
-    {{ . }}
+    {{- . }}
   {{ end }}
 {{ end }}
 {{- /* chomp trailing newline */ -}}

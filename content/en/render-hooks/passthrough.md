@@ -106,9 +106,9 @@ As an alternative to rendering mathematical expressions with the MathJax or KaTe
 {{< code file=layouts/_default/_markup/render-passthrough.html copy=true >}}
 {{ if eq .Type "block" }}
   {{ $opts := dict "displayMode" true }}
-  {{ transform.ToMath .Inner $opts }}
+  {{- transform.ToMath .Inner $opts -}}
 {{ else }}
-  {{ transform.ToMath .Inner }}
+  {{- transform.ToMath .Inner -}}
 {{ end }}
 {{< /code >}}
 
