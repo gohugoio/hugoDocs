@@ -59,7 +59,7 @@ hugo new site quickstart
 cd quickstart
 git init
 git submodule add https://github.com/theNewDynamic/gohugo-theme-ananke.git themes/ananke
-echo "theme = 'ananke'" >> hugo.toml
+echo theme = 'ananke' >> hugo.toml
 hugo server
 ```
 
@@ -94,7 +94,7 @@ git submodule add https://github.com/theNewDynamic/gohugo-theme-ananke.git theme
 Append a line to the site configuration file, indicating the current theme.
 
 ```text
-echo "theme = 'ananke'" >> hugo.toml
+echo theme = 'ananke' >> hugo.toml
 ```
 
 Start Hugo's development server to view the site.
