@@ -203,7 +203,7 @@ description = "Text about this post"
 images = ["post-cover.png"]
 {{</ code-toggle >}}
 
-If `images` aren't specified in the page front-matter, then hugo searches for [image page resources](/content-management/image-processing/) with `*feature*`, `*cover*`, or `*thumbnail*` in their name.
+If [page bundles](/content-management/page-bundles/) are used and the `images` array is empty or undefined, images with file names matching `*feature*`, `*cover*`, or `*thumbnail*` are used for image metadata.
 If no image resources with those names are found, the images defined in the [site config](/getting-started/configuration/) are used instead.
 If no images are found at all, then an image-less Twitter `summary` card is used instead of `summary_large_image`.
 
