@@ -13,7 +13,7 @@ toc: true
 aliases: [/developer-tools/migrations/, /developer-tools/migrated/]
 ---
 
-This section highlights some independently developed projects around Hugo. These tools try to extend the functionality of our static site generator or help you get started.
+This section highlights some independently developed projects related to Hugo. These tools extend functionality or help you to get started.
 
 Take a look at this list of migration tools if you currently use other blogging tools like Jekyll or WordPress but intend to switch to Hugo instead. They'll help you export your content into Hugo-friendly formats.
 
