@@ -68,7 +68,7 @@ Alternatively, you can use the [Jekyll import command](/commands/hugo_import_jek
 : Export all your Tumblr content to Hugo Markdown files with preserved original formatting.
 
 [Tumblr to Hugo](https://github.com/jipiboily/tumblr-to-hugo)
-: A migration tool that converts each of your Tumblr posts to a content file with a proper title and path. Furthermore, "Tumblr to Hugo" creates a CSV file with the original URL and the new path on Hugo, to help you set up the redirections.
+: A migration tool that converts each of your Tumblr posts to a content file with a proper title and path. It also generates a  CSV file to help you set up URL redirects.
 
 ## Drupal
 
