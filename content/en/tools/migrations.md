@@ -39,6 +39,9 @@ Alternatively, you can use the [Jekyll import command](/commands/hugo_import_jek
 
 ## WordPress
 
+[wp2hugo](https://github.com/ashishb/wp2hugo)
+: A Go-based CLI tool to migrate WordPress website to Hugo while preserving original URLs, GUIDs (for feeds), image URLs, code highlights, table of contents, YouTube embeds, Google Maps embeds, and original WordPress navigation categories. Most featureful and actively maintained migration tool.
+
 [wordpress-to-hugo-exporter](https://github.com/SchumacherFM/wordpress-to-hugo-exporter)
 : A one-click WordPress plugin that converts all posts, pages, taxonomies, metadata, and settings to Markdown and YAML which can be dropped into Hugo. (Note: If you have trouble using this plugin, you can [export your site for Jekyll](https://wordpress.org/plugins/jekyll-exporter/) and use Hugo's built-in Jekyll converter listed above.)
 
@@ -47,9 +50,6 @@ Alternatively, you can use the [Jekyll import command](/commands/hugo_import_jek
 
 [wordhugopress](https://github.com/nantipov/wordhugopress)
 : A small utility written in Java that exports the entire WordPress site from the database and resource (e.g., images) files stored locally or remotely. Therefore, migration from the backup files is possible. Supports merging multiple WordPress sites into a single Hugo site.
-
-[wp2hugo](https://github.com/ashishb/wp2hugo)
-: A Go-based CLI tool to migrate WordPress website to Hugo while preserving original URLs, GUIDs (for feeds), image URLs, code highlights, table of contents, YouTube embeds, Google Maps embeds, and original WordPress navigation categories. 
 
 ## Medium
 
