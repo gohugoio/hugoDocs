@@ -28,7 +28,7 @@ Blockquote render hook templates receive the following [context]:
 
 {{< new-in 0.134.0 >}}
 
-(`hstring.HTML`) Applicable when [`Type`](#type) is `alert` when using [Obsidian callouts] syntax, this is the alert title converted to HTML. 
+(`template.HTML`) Applicable when [`Type`](#type) is `alert` when using [Obsidian callouts] syntax, this is the alert title converted to HTML. 
 
 ###### AlertSign
 
