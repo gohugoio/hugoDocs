@@ -331,9 +331,15 @@ See [Front matter Configuration](#configure-front-matter).
 
 (`bool`) Ignore the cache directory. Default is `false`.
 
+###### ignoreLogs
+(`string slice`) A slice of message identifiers corresponding to warnings and errors you wish to suppress. See [`erroridf`] and [`warnidf`].
+
+[`erroridf`]: /functions/fmt/erroridf/
+[`warnidf`]: /functions/fmt/warnidf/
+
 ###### ignoreVendorPaths
 
-(`string`) Ignore vendored modules that match the given [Glob] pattern within the `_vendor` directory .
+(`string`) Ignore vendored modules that match the given [Glob] pattern within the `_vendor` directory.
 
 [Glob]: https://github.com/gobwas/glob?tab=readme-ov-file#example]
 
@@ -385,7 +391,7 @@ Module configuration see [module configuration](/hugo-modules/configuration/).
 
 ###### noBuildLock
 
-(`bool`) Don't create .hugo_build.lock file. Default is `false`.
+(`bool`) Don't create `.hugo_build.lock` file. Default is `false`.
 
 ###### noChmod
 
@@ -494,12 +500,16 @@ See [Configure Taxonomies](/content-management/taxonomies#configure-taxonomies).
 
 ###### templateMetrics
 
-(`bool`) Whether to print template execution metrics to the console. Default is `false.
+<<<<<<< HEAD
+(`bool`) Whether to print template execution metrics to the console. Default is `false`.
 See [Template metrics](/troubleshooting/performance/#template-metrics)
+=======
+(`bool`) Whether to print template execution metrics to the console. Default is `false. See [Template metrics](/troubleshooting/performance/#template-metrics).
+>>>>>>> d9a68a39e (Document ignoreLogs configuration setting)
 
 ###### templateMetricsHints
 
-(`bool`) Whether to print template execution improvement hints to the console. Applicable when `templateMetrics` is `true`. Default is `false`. See [template metrics](/troubleshooting/performance/#template-metrics).
+(`bool`) Whether to print template execution improvement hints to the console. Applicable when `templateMetrics` is `true`. Default is `false`. See [Template metrics](/troubleshooting/performance/#template-metrics).
 
 ###### theme
 
