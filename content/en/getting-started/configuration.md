@@ -1,7 +1,15 @@
 ---
 title: Configure Hugo
 linkTitle: Configuration
-description: How to configure your Hugo site.
+description: |
+  How to configure your Hugo site.
+  Foo **bar**.
+  Lorem ipsum dolor sit amet, consectetur adipiscing elit:
+  - Cras condimentum vestibulum accumsan.
+  - Duis nibh mauris, fringilla in sapien at, rutrum condimentum est.
+  - Sed porttitor urna metus, a efficitur justo volutpat sit amet
+
+  This is another paragraph.
 categories: [getting started,fundamentals]
 keywords: [configuration,toml,yaml,json]
 menu:
