@@ -20,8 +20,6 @@ Unless your specific deployment needs require the extended/deploy edition, we re
 
 Most BSD derivatives maintain a repository for commonly installed applications. Please note that these repositories may not contain the [latest release].
 
-[latest release]: https://github.com/gohugoio/hugo/releases/latest
-
 ### DragonFly BSD
 
 [DragonFly BSD] includes Hugo in its package repository. To install the extended edition of Hugo:
@@ -29,8 +27,6 @@ Most BSD derivatives maintain a repository for commonly installed applications. 
 ```sh
 sudo pkg install gohugo
 ```
-
-[DragonFly BSD]: https://www.dragonflybsd.org/
 
 ### FreeBSD
 
@@ -40,8 +36,6 @@ sudo pkg install gohugo
 sudo pkg install gohugo
 ```
 
-[FreeBSD]: https://www.freebsd.org/
-
 ### NetBSD
 
 [NetBSD] includes Hugo in its package repository. To install the extended edition of Hugo:
@@ -50,8 +44,6 @@ sudo pkg install gohugo
 sudo pkgin install go-hugo
 ```
 
-[NetBSD]: https://www.netbsd.org/
-
 ### OpenBSD
 
 [OpenBSD] includes Hugo in its package repository. This will prompt you to select which edition of Hugo to install:
@@ -59,8 +51,6 @@ sudo pkgin install go-hugo
 ```sh
 doas pkg_add hugo
 ```
-
-[OpenBSD]: https://www.openbsd.org/
 
 {{% include "/_common/installation/04-build-from-source.md" %}}
 
