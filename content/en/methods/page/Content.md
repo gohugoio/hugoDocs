@@ -14,3 +14,7 @@ The `Content` method on a `Page` object renders Markdown and shortcodes to HTML.
 ```go-html-template
 {{ .Content }}
 ```
+
+To render the content in a named scope, call [`Markup.Render.Content`][] on a `Page` object.
+
+[`Markup.Render.Content`]: /methods/page/markup/#content

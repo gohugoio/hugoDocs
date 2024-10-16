@@ -21,6 +21,8 @@ Hugo assigns an `id` attribute to each Markdown [ATX][] and [setext][] heading w
 
 Use the `Fragments` method on a `Page` object to create a table of contents with the `Fragments.ToHTML` method, or by [walking](g) the `Fragments.Map` data structure. Use the methods below to inspect, validate, and render page fragments.
 
+To get the fragments of content rendered in a named scope, call [`Markup.Fragments`][] on a `Page` object.
+
 ## Methods
 
 Use these methods on the `Fragments` object.
@@ -98,10 +100,11 @@ It is safe to use the `Fragments` methods within a render hook, even for the cur
 
 When using the `Fragments` methods within a shortcode, call the shortcode using [standard notation][]. If you use [Markdown notation][] the rendered shortcode is included in the creation of the fragments map, resulting in a circular loop.
 
-[ATX]: https://spec.commonmark.org/current/#atx-headings
-[Markdown notation]: /content-management/shortcodes/#notation
+[`Markup.Fragments`]: /methods/page/markup/#fragments
 [`TableOfContents`]: /methods/page/tableofcontents/
+[ATX]: https://spec.commonmark.org/current/#atx-headings
 [configure Markup]: /configuration/markup/#parserautodefinitiontermid
+[Markdown notation]: /content-management/shortcodes/#notation
 [setext]: https://spec.commonmark.org/current/#setext-headings
 [standard notation]: /content-management/shortcodes/#notation
 [table of contents]: /methods/page/tableofcontents/
