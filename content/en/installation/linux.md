@@ -172,6 +172,46 @@ sudo xbps-install -S hugo
 
 {{% include "/_common/installation/04-build-from-source.md" %}}
 
+## Docker container
+
+### Prerequisites {#docker-prerequisites}
+
+Before running the Docker container locally you must install Docker Desktop or Docker Engine. See the installation instructions for either [Docker Desktop] or [Docker Engine].
+
+When building your production site in a [CI/CD](g) workflow, whether you can run the Docker container depends on the service provider. For example, GitHub Pages and GitLab Pages allow you to run the Docker container.
+
+To prevent ownership and permission problems, create the Hugo [cache directory](#cache-directory) and ignore the error if the directory already exists:
+
+```text
+mkdir -p $HOME/.cache/hugo_cache
+```
+
+### Commands
+
+To build your site using the latest version:
+
+```sh {copy=true}
+docker run --rm -v .:/project -v $HOME/.cache/hugo_cache:/cache ghcr.io/gohugoio/hugo:latest build
+```
+
+To build your site and start the embedded web server using the latest version:
+
+```sh {copy=true}
+docker run --rm -v .:/project -v $HOME/.cache/hugo_cache:/cache -p 1313:1313 ghcr.io/gohugoio/hugo:latest server --bind="0.0.0.0"
+```
+
+To use a specific version, in the commands above replace `latest` with any of the [tagged image versions]. For example, to build your site using v0.136.1:
+
+```sh {copy=true}
+docker run --rm -v .:/project -v $HOME/.cache/hugo_cache:/cache ghcr.io/gohugoio/hugo:v0.136.1 build
+```
+
+### Cache directory
+
+Attaching the host's Hugo cache directory to the container can significantly enhance performance, particularly for large and image-heavy sites. This allows Hugo to reuse previously generated content, reducing the need for repeated processing and transpilation.
+
+If you are using a custom Hugo cache directory, in the commands above replace `$HOME/.cache/hugo_cache` with the absolute path to your cache directory.
+
 ## Comparison
 
 &nbsp;|Prebuilt binaries|Package managers|Repository packages|Build from source
@@ -190,6 +230,8 @@ Latest version available?|:heavy_check_mark:|:heavy_check_mark:|varies|:heavy_ch
 [Calculate Linux]: https://www.calculate-linux.org/
 [CentOS]: https://www.centos.org/
 [Debian]: https://www.debian.org/
+[Docker Desktop]: https://docs.docker.com/desktop/setup/install/linux/
+[Docker Engine]: https://docs.docker.com/engine/install/
 [elementary OS]: https://elementary.io/
 [EndeavourOS]: https://endeavouros.com/
 [Exherbo]: https://www.exherbolinux.org/
@@ -210,6 +252,7 @@ Latest version available?|:heavy_check_mark:|:heavy_check_mark:|varies|:heavy_ch
 [Pop!_OS]: https://pop.system76.com/
 [Red Hat Enterprise Linux]: https://www.redhat.com/
 [Solus]: https://getsol.us/
+[tagged image versions]: https://github.com/gohugoio/hugo/pkgs/container/hugo/versions?filters%5Bversion_type%5D=tagged
 [Ubuntu]: https://ubuntu.com/
 [USE]: https://packages.gentoo.org/packages/www-apps/hugo
 [Void Linux]: https://voidlinux.org/
