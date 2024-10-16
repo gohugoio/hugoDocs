@@ -35,6 +35,8 @@ Then call the shortcode in your Markdown:
 
 Each of the included Markdown files can contain calls to other shortcodes.
 
+To render the shortcodes within a named scope, call the `RenderShortcodes` method on the `Markup` object returned by `.Markup`. See the [`Markup`][] method on a `Page` object.
+
 ## Shortcode notation
 
 In the example above it's important to understand the difference between the two delimiters used when calling a shortcode:
@@ -85,3 +87,5 @@ WARN .RenderShortcodes detected inside HTML block in "/content/mypost.md"; this 
 ```
 
 The above warning can be turned off is this is what you really want.
+
+[`Markup`]: /methods/page/markup/

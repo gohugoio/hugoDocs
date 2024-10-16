@@ -17,4 +17,7 @@ Applicable when using manual or automatic [content summaries][], the `ContentWit
 
 The `ContentWithoutSummary` method returns the same as `Content` if you define the content summary in front matter.
 
+To render the content within a named scope, call the `ContentWithoutSummary` method on the `Content` object returned by `.Markup.Render`. See the [`Markup`][] method on a `Page` object.
+
+[`Markup`]: /methods/page/markup/
 [content summaries]: /content-management/summaries/#manual-summary

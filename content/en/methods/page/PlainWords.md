@@ -23,6 +23,9 @@ To determine the approximate number of unique words on a page:
 {{ .PlainWords | uniq }} → 42
 ```
 
+To render the content within a named scope, call the `PlainWords` method on the `Content` object returned by `.Markup.Render`. See the [`Markup`][] method on a `Page` object.
+
+[`Markup`]: /methods/page/markup/
 [`Plain`]: /methods/page/plain/
 [`strings.Fields`]: https://pkg.go.dev/strings#Fields
 [`unicode.IsSpace`]: https://pkg.go.dev/unicode#IsSpace

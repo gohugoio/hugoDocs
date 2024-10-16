@@ -18,12 +18,15 @@ To get the exact word count, use the `WordCount` method. To count the words in a
 > [!NOTE]
 > For content in [CJK](g) languages, set [`hasCJKLanguage`][] to `true` in your project configuration. When enabled, Hugo applies CJK word counting rules to pages containing CJK characters. To override this behavior on a given page, set the [`isCJKLanguage`][] field in its front matter.
 
+To render the content within a named scope, call the `FuzzyWordCount` method on the `Content` object returned by `.Markup.Render`. See the [`Markup`][] method on a `Page` object.
+
 ## Examples
 
 ```go-html-template
 {{ .FuzzyWordCount }} → 200
 ```
 
+[`Markup`]: /methods/page/markup/
 [`WordCount`]: /methods/page/wordcount/
 [`hasCJKLanguage`]: /configuration/all/#hascjklanguage
 [`isCJKLanguage`]: /content-management/front-matter/#iscjklanguage
