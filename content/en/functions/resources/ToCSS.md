@@ -225,6 +225,7 @@ If you build Hugo from source and run `mage test -v`, the test will fail if you 
 [libsass]: https://sass-lang.com/libsass
 [prebuilt binaries]: https://github.com/sass/dart-sass/releases/latest
 [scoop.sh]: https://scoop.sh/#/apps?q=sass
+[nixos.org]: [https://scoop.sh/#/apps?q=sass](https://search.nixos.org/packages?channel=24.05&show=dart-sass&from=0&size=50&sort=relevance&type=packages&query=sass)
 [site configuration]: /getting-started/configuration/#configure-build
 [snap package]: /installation/linux/#snap
 [snapcraft.io]: https://snapcraft.io/dart-sass
