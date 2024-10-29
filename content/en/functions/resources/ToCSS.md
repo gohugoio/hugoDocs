@@ -117,6 +117,7 @@ Linux|Snap|[snapcraft.io]|`sudo snap install dart-sass`
 macOS|Homebrew|[brew.sh]|`brew install sass/sass/sass`
 Windows|Chocolatey|[chocolatey.org]|`choco install sass`
 Windows|Scoop|[scoop.sh]|`scoop install sass`
+Nixos|Nix|[nixos.org]|`nix-env -iA nixos.dart-sass`
 
 You may also install [prebuilt binaries] for Linux, macOS, and Windows.
 
