@@ -60,7 +60,7 @@ A data type with two possible values, either `true` or `false`.
 
 ###### branch bundle
 
-A directory that contains an _index.md file and zero or more [resources](#resource). Analogous to a physical branch, a branch bundle may have descendants including leaf bundles and other branch bundles. Top level directories with or without _index.md files are also branch bundles. This includes the home page. See&nbsp;[details](/content-management/page-bundles/).
+A directory that contains an `_index.md` file and zero or more [resources](#resource). Analogous to a physical branch, a branch bundle may have descendants including [leaf bundles](#leaf-bundle) and other branch bundles. Top level directories with or without `_index.md` files are also branch bundles. This includes the home page. See&nbsp;[details](/content-management/page-bundles/).
 
 ###### build
 
@@ -167,7 +167,7 @@ A file within the assets directory, or within any directory [mounted](/hugo-modu
 
 ###### headless bundle
 
-An unpublished leaf or branch bundle whose content and resources you can include in other pages. See [build options](/content-management/build-options/).
+An unpublished [leaf](#leaf-bundle) or [branch bundle](#branch-bundle) whose content and resources you can include in other pages. See [build options](/content-management/build-options/).
 
 ###### identifier
 
@@ -205,7 +205,7 @@ See [template](#template).
 
 ###### leaf bundle
 
-A directory that contains an index.md file and zero or more [resources](#resource). Analogous to a physical leaf, a leaf bundle is at the end of a branch. It has no descendants. See&nbsp;[details](/content-management/page-bundles/).
+A directory that contains an `index.md` file and zero or more [resources](#resource). Analogous to a physical leaf, a leaf bundle is at the end of a [branch](#branch-bundle). It has no descendants. See&nbsp;[details](/content-management/page-bundles/).
 
 ###### list page
 
@@ -373,7 +373,7 @@ Conceptually, a [map](#map) with [methods](#method) to set, get, update, and del
 
 ###### section
 
-A top-level content directory, or any content directory with an&nbsp;_index.md file. A content directory with an&nbsp;_index.md file is also known as a [branch bundle](/getting-started/glossary/#branch-bundle). Section templates receive one or more page [collections](#collection) in [context](#context). See&nbsp;[details](/content-management/sections/).
+A top-level content directory, or any content directory with an&nbsp;`_index.md` file. A content directory with an&nbsp;`_index.md` file is also known as a [branch bundle](/getting-started/glossary/#branch-bundle). Section templates receive one or more page [collections](#collection) in [context](#context). See&nbsp;[details](/content-management/sections/).
 
 ###### section page
 
