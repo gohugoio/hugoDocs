@@ -32,6 +32,28 @@ AWS Amplify is a combination of client library, CLI toolchain, and a Console for
 
 1. Review your changes and then choose **Save and deploy**. The Amplify Console will pull code from your repository, build changes to the backend and frontend, and deploy your build artifacts at `https://master.unique-id.amplifyapp.com`. Bonus: Screenshots of your app on different devices to find layout issues.
 
+1. In case Amplify failed to detect your config, either :
+    - inside the Amplify dashboard, on the left column, choose "Hosting > Build Settings", edit the file `amplify.yml`, by adding `/public` to `baseDirectory` ; or
+    - add a file named `amplify.yml` to override the build settings in Amplify ;
+
+1. the default `amplify.yml` ( with `baseDirectory` modifed ) looks like this :
+```
+version: 1
+frontend:
+  phases:
+    # IMPORTANT - Please verify your build commands
+    build:
+      commands: []
+  artifacts:
+    # IMPORTANT - Please verify your build output directory
+    baseDirectory: /public
+    files:
+      - '**/*'
+  cache:
+    paths: []
+```
+
+
 ## Using a newer version of Hugo
 
 If you need to use a different, perhaps newer, version of Hugo than the version currently supported by AWS Amplify:
