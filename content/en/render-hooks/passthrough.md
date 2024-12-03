@@ -45,11 +45,10 @@ inline = [['\(', '\)']]
 
 In the example above there are two sets of `block` delimiters. You may use either one in your Markdown.
 
-The Goldmark passthrough extension is often used in conjunction with the MathJax or KaTeX display engine to render [mathematical expressions] written in [LaTeX] or [Tex].
+The Goldmark passthrough extension is often used in conjunction with the MathJax or KaTeX display engine to render [mathematical expressions] written in the [LaTeX] markup language.
 
 [mathematical expressions]: /content-management/mathematics/
 [LaTeX]: https://www.latex-project.org/
-[Tex]: https://en.wikipedia.org/wiki/TeX
 
 To enable custom rendering of passthrough elements, create a render hook.
 
@@ -99,17 +98,19 @@ Hugo populates the `Attributes` map for _block_ passthrough elements. Markdown a
 
 ## Example
 
-As an alternative to rendering mathematical expressions with the MathJax or KaTeX display engine, create a passthrough render hook which calls the [`transform.ToMath`] function:
+As an alternative to rendering mathematical markup on the client side using the MathJax or KaTeX display engine, create a passthrough render hook which calls the [`transform.ToMath`] function:
 
 [`transform.ToMath`]: /functions/transform/tomath/
 
 {{< code file=layouts/_default/_markup/render-passthrough.html copy=true >}}
-{{ if eq .Type "block" }}
-  {{ $opts := dict "displayMode" true }}
-  {{ transform.ToMath .Inner $opts }}
-{{ else }}
-  {{ transform.ToMath .Inner }}
-{{ end }}
+{{- $opts := dict "displayMode" (eq .Type "block") }}
+{{- with transform.ToMath .Inner $opts }}
+  {{- with .Err }}
+    {{ errorf "Unable to render mathematical markup to HTML using the transform.ToMath template function. The KaTeX display engine threw the following error: %s. See %s." . $.Position }}
+  {{- else }}
+    {{- . }}
+  {{- end }}
+{{- end -}}
 {{< /code >}}
 
 Although you can use one template with conditional logic as shown above, you can also create separate templates for each [`Type`](#type) of passthrough element:
