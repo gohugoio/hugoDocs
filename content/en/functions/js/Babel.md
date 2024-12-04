@@ -3,6 +3,7 @@ title: js.Babel
 description: Compiles the given JavaScript resource with Babel.
 categories: []
 keywords: []
+weight: 100
 action:
   aliases: [babel]
   related:
