@@ -51,19 +51,23 @@ See the [configure build] documentation for details and options.
 `postcss.config.js`
 
 ```js
-const purgecss = require('@fullhuman/postcss-purgecss')({
-    content: [ './hugo_stats.json' ],
-    defaultExtractor: (content) => {
-        let els = JSON.parse(content).htmlElements;
-        return els.tags.concat(els.classes, els.ids);
-    }
-});
+const { purgeCSSPlugin } = require('@fullhuman/postcss-purgecss');
 
-module.exports = {
-     plugins: [
-         ...(process.env.HUGO_ENVIRONMENT === 'production' ? [ purgecss ] : [])
-     ]
- };
+const purgecssConfig = {
+  content: ["./hugo_stats.json"],
+  defaultExtractor: (content) => {
+    let els = JSON.parse(content).htmlElements;
+    return els.tags.concat(els.classes, els.ids);
+  },
+};
+
+module.exports = (env) => {
+  return {
+    plugins: [
+      ...(env === "production" ? [purgeCSSPlugin(purgecssConfig)] : []),
+    ],
+  };
+};
 ```
 
 Note that in the example above, the "CSS purge step" will only be applied to the production build. This means that you need to do something like this in your head template to build and include your CSS:
