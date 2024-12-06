@@ -61,12 +61,12 @@ const purgecssConfig = {
   },
 };
 
-module.exports = (env) => {
-  return {
-    plugins: [
-      ...(env === "production" ? [purgeCSSPlugin(purgecssConfig)] : []),
-    ],
-  };
+module.exports = {
+  plugins: [
+    ...(process.env.NODE_ENV === 'production' 
+      ? [purgeCSSPlugin(purgecssConfig)] 
+      : [])
+  ]
 };
 ```
 
