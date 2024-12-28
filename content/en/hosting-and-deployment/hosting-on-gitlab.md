@@ -21,13 +21,11 @@ aliases: [/tutorials/hosting-on-gitlab/]
 
 The `baseURL` in your [site configuration](/getting-started/configuration/) must reflect the full URL of your GitLab pages repository if you are using the default GitLab Pages URL (e.g., `https://<YourUsername>.gitlab.io/<your-hugo-site>/`) and not a custom domain.
 
-A consistent way to acheive this is by executing the following script fragment in your pages deployment job (assumes you are using a TOML based config file)
+A consistent way to acheive this is by using the --baseURL option to the Hugo generate command.
 
 ```sh
-script:
-  # Configure the Hugo website with the correct public URL
-  - sed -i -e '\|^.*baseURL.*=.*$|s||baseURL = "'${CI_PAGES_URL}'"|' hugo.toml
-...
+# Build
+  - hugo --gc --minify  --baseURL="${CI_PAGES_URL}" ...
 ```
 
 ## Configure GitLab CI/CD
