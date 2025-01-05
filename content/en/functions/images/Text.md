@@ -37,6 +37,10 @@ x
 y
 : (`int`) The vertical offset, in pixels, relative to the top of the image. Default is `10`.
 
+alignx
+ {{< new-in 0.141.0 >}}
+: (`string`) The horizontal alignment of the text relative to the `x` position. One of `left`, `center`, or `right`. Default is `left`.
+
 [global resource]: /getting-started/glossary/#global-resource
 [page resource]: /getting-started/glossary/#page-resource
 [remote resource]: /getting-started/glossary/#remote-resource
@@ -48,14 +52,14 @@ Capture the font as a resource:
 ```go-html-template
 {{ $font := "" }}
 {{ $path := "https://github.com/google/fonts/raw/main/ofl/lato/Lato-Regular.ttf" }}
-{{ with resources.GetRemote $path }}
+{{ with try (resources.GetRemote $path) }}
   {{ with .Err }}
     {{ errorf "%s" . }}
-  {{ else }}
+  {{ else with .Value }}
     {{ $font = . }}
+  {{ else }}
+    {{ errorf "Unable to get resource %q" $path }}
   {{ end }}
-{{ else }}
-  {{ errorf "Unable to get resource %q" $path }}
 {{ end }}
 ```
 
