@@ -7,16 +7,13 @@ action:
   related: []
   returnType: page.SiteConfig
   signatures: [SITE.Config]
-toc: true
 ---
 
 The `Config` method on a `Site` object provides access to a subset of the site configuration, specifically the `services` and `privacy` keys.
 
 ## Services
 
-These are the default service settings, typically used by Hugo's built-in templates and shortcodes.
-
-{{< code-toggle config=services />}}
+See [configure services](/configuration/services).
 
 For example, to use Hugo's built-in Google Analytics template you must add a [Google tag ID]:
 
@@ -37,9 +34,7 @@ You must capitalize each identifier as shown above.
 
 ## Privacy
 
-These are the default privacy settings, typically used by Hugo's built-in templates and shortcodes:
-
-{{< code-toggle config=privacy />}}
+See [configure privacy](/configuration/privacy).
 
 For example, to disable usage of the built-in YouTube shortcode:
 

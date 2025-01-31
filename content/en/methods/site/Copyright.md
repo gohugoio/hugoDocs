@@ -1,6 +1,6 @@
 ---
 title: Copyright
-description:  Returns the copyright notice as defined in the site configuration.
+description: Returns the copyright notice as defined in the site configuration.
 categories: []
 keywords: []
 action:

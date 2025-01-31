@@ -12,7 +12,6 @@ action:
     - functions/encoding/Jsonify
   returnType: any
   signatures: ['transform.Unmarshal [OPTIONS] INPUT']
-toc: true
 aliases: [/functions/transform.unmarshal]
 ---
 

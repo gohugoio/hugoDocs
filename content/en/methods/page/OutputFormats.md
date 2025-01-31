@@ -8,7 +8,6 @@ action:
     - methods/page/AlternativeOutputFormats
   returnType: '[]OutputFormat'
   signatures: [PAGE.OutputFormats]
-toc: true
 ---
 
 {{% glossary-term "output format" %}}
@@ -17,7 +16,7 @@ The `OutputFormats` method on a `Page` object returns a slice of `OutputFormat` 
 
 ## Methods
 
-{{% include "methods/page/_common/output-format-methods.md" %}}
+{{% include "/_common/methods/page/output-format-methods.md" %}}
 
 ## Example
 

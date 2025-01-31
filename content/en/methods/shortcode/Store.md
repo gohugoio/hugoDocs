@@ -11,7 +11,6 @@ action:
     - functions/collections/NewScratch
   returnType: maps.Scratch
   signatures: [SHORTCODE.Store]
-toc: true
 ---
 
 {{< new-in 0.139.0 />}}
@@ -21,7 +20,7 @@ Use the `Store` method to create a [scratch pad](g) to store and manipulate data
 {{< note >}}
 With the introduction of the [`newScratch`] function, and the ability to [assign values to template variables] after initialization, the `Store` method within a shortcode is mostly obsolete.
 
-[assign values to template variables]: https://go.dev/doc/go1.11#text/template
+[assign values to template variables]: https://go.dev/doc/go1.11#texttemplatepkgtexttemplate
 [`newScratch`]: /functions/collections/newScratch/
 {{< /note >}}
 

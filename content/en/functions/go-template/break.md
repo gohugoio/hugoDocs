@@ -30,4 +30,4 @@ Is rendered to:
 <p>foo</p>
 ```
 
-{{% include "functions/go-template/_common/text-template.md" %}}
+{{% include "/_common/functions/go-template/text-template.md" %}}

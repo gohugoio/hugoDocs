@@ -35,6 +35,6 @@ titleCaseStyle = "firstupper"
 
  See&nbsp;[details].
 
-[`capitalizeListTitles`]: /getting-started/configuration/#capitalizelisttitles
-[`pluralizeListTitles`]: /getting-started/configuration/#pluralizelisttitles
-[details]: /getting-started/configuration/#configure-title-case
+[`capitalizeListTitles`]: /configuration/all/#capitalizelisttitles
+[`pluralizeListTitles`]: /configuration/all/#pluralizelisttitles
+[details]: /configuration/all/#title-case-style

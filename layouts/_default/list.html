@@ -55,6 +55,9 @@
               {{ (or .Params.description .Summary) | plainify | safeHTML }}
             {{ end }}
           </p>
+          {{ if and hugo.IsDevelopment site.Params.debug.display_list_item_metadata }}
+            {{ partial "helpers/debug/list-item-metadata.html" . }}
+          {{ end }}
         </a>
       {{ end }}
     </div>

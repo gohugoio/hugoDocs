@@ -1,6 +1,6 @@
 ---
 title: hash.FNV32a
-description: Returns the 32-bit FNV (Fowler–Noll–Vo) non-cryptographic hash of the given string.
+description: Returns the 32-bit FNV (Fowler-Noll-Vo) non-cryptographic hash of the given string.
 categories: []
 keywords: []
 action:

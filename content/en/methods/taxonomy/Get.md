@@ -7,12 +7,11 @@ action:
   related: []
   returnType: page.WeightedPages
   signatures: [TAXONOMY.Get TERM]
-toc: true
 ---
 
 The `Get` method on a `Taxonomy` object returns a slice of [weighted pages](g) to which the given [term](g) has been assigned.
 
-{{% include "methods/taxonomy/_common/get-a-taxonomy-object.md" %}}
+{{% include "/_common/methods/taxonomy/get-a-taxonomy-object.md" %}}
 
 ## Get the weighted pages
 

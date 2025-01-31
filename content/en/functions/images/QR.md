@@ -7,8 +7,6 @@ action:
   related: []
   returnType: images.ImageResource
   signatures: ['images.QR TEXT [OPTIONS]']
-toc: true
-math: true
 ---
 
 {{< new-in 0.141.0 />}}
@@ -41,7 +39,7 @@ scale
 targetDir
 : (`string`) The subdirectory within the [`publishDir`] where Hugo will place the generated image. Use Unix-style slashes (`/`) to separarate path segments. If empty or not provided, the image is placed directly in the `publishDir` root. Hugo automatically creates the necessary subdirectories if they don't exist.
 
-[`publishDir`]: /getting-started/configuration/#publishdir
+[`publishDir`]: /configuration/all/#publishdir
 
 ## Examples
 

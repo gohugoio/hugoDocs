@@ -1,6 +1,6 @@
 ---
 title: UnixMicro
-description: Returns the given time.Time value expressed as the number of microseconds elapsed since January 1, 1970 UTC. 
+description: Returns the given time.Time value expressed as the number of microseconds elapsed since January 1, 1970 UTC.
 categories: []
 keywords: []
 action:

@@ -14,12 +14,13 @@ action:
     - methods/page/Sections
   returnType: bool
   signatures: [PAGE.InSection SECTION]
-toc: true
 ---
+
+{{% glossary-term section %}}
 
 The `InSection` method on a `Page` object reports whether the given page is in the given section. Note that the method returns `true` when comparing a page to a sibling.
 
-{{% glossary-term section %}}
+
 
 With this content structure:
 

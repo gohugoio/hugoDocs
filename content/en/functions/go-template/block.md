@@ -52,4 +52,4 @@ The typical use is to define a set of root templates that are then customized by
 {{ end }}
 {{< /code >}}
 
-{{% include "functions/go-template/_common/text-template.md" %}}
+{{% include "/_common/functions/go-template/text-template.md" %}}

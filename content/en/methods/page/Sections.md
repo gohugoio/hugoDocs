@@ -16,7 +16,7 @@ action:
   signatures: [PAGE.Sections]
 ---
 
-{{% glossary-term section %}}
+The `Sections` method on a `Page` object is available to these [page kinds](g): `home`, `section`, and `taxonomy`. The templates for these page kinds receive a page [collection](g) in [context](g), in the [default sort order](g).
 
 With this content structure:
 

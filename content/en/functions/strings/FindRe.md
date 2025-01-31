@@ -15,7 +15,7 @@ aliases: [/functions/findre]
 ---
 By default, `findRE` finds all matches. You can limit the number of matches with an optional LIMIT argument.
 
-{{% include "functions/_common/regular-expressions.md" %}}
+{{% include "/_common/functions/regular-expressions.md" %}}
 
 This example returns a slice of all second level headings (`h2` elements) within the rendered `.Content`:
 

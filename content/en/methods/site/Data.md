@@ -15,7 +15,7 @@ action:
 
 Use the `Data` method on a `Site` object to access data within the `data` directory, or within any directory [mounted] to the `data` directory. Supported data formats include JSON, TOML, YAML, and XML.
 
-[mounted]: /hugo-modules/configuration/#module-configuration-mounts
+[mounted]: /configuration/module/#mounts
 
 {{< note >}}
 Although Hugo can unmarshal CSV files with the [`transform.Unmarshal`] function, do not place CSV files in the `data` directory. You cannot access data within CSV files using this method.

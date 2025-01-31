@@ -1,6 +1,6 @@
 ---
 title: GetPage
-description: Returns a Page object from the given path. 
+description: Returns a Page object from the given path.
 categories: []
 keywords: []
 action:

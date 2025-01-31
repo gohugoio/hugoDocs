@@ -14,4 +14,4 @@ action:
   signatures: [PAGE.Next]
 ---
 
-{{% include "methods/page/_common/next-and-prev.md" %}}
+{{% include "/_common/methods/page/next-and-prev.md" %}}

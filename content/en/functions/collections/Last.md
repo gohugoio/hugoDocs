@@ -22,7 +22,7 @@ aliases: [/functions/last]
 Set `N` to zero to return an empty collection.
 
 ```go-html-template
-{{ $emptyPageCollection := last 0 .Pages}}
+{{ $emptyPageCollection := last 0 .Pages }}
 ```
 
 Use `last` and [`where`] together.

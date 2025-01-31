@@ -1,6 +1,6 @@
 ---
 title: FirstSection
-description: Returns the Page object of the top level section of which the given page is a descendant.
+description: Returns the Page object of the top-level section of which the given page is a descendant.
 categories: []
 keywords: []
 action:
@@ -49,7 +49,7 @@ content/
 └── _index.md             <-- first section: home
 ```
 
-To link to the top level section of which the current page is a descendant:
+To link to the top-level section of which the current page is a descendant:
 
 ```go-html-template
 <a href="{{ .FirstSection.RelPermalink }}">{{ .FirstSection.LinkTitle }}</a>

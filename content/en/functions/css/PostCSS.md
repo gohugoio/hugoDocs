@@ -10,7 +10,6 @@ action:
     - functions/css/TailwindCSS
   returnType: resource.Resource
   signatures: ['css.PostCSS [OPTIONS] RESOURCE']
-toc: true
 ---
 
 {{< new-in 0.128.0 />}}
@@ -27,20 +26,23 @@ Follow the steps below to transform CSS using any of the available [PostCSS plug
 
 [postcss plugins]: https://postcss.org/docs/postcss-plugins
 
-Step 1
-: Install [Node.js].
+### Step 1
+
+Install [Node.js].
 
 [node.js]: https://nodejs.org/en/download
 
-Step 2
-: Install the required Node.js packages in the root of your project. For example, to add vendor prefixes to your CSS rules:
+### Step 2
+
+Install the required Node.js packages in the root of your project. For example, to add vendor prefixes to your CSS rules:
 
 ```sh
 npm i -D postcss postcss-cli autoprefixer
 ```
 
-Step 3
-: Create a PostCSS configuration file in the root of your project.
+### Step 3
+
+Create a PostCSS configuration file in the root of your project.
 
 {{< code file=postcss.config.js >}}
 module.exports = {
@@ -51,14 +53,16 @@ module.exports = {
 {{< /code >}}
 
 {{< note >}}
-{{% include "functions/resources/_common/postcss-windows-warning.md" %}}
+{{% include "/_common/functions/postcss-windows-warning.md" %}}
 {{< /note >}}
 
-Step 4
-: Place your CSS file within the `assets/css` directory.
+### Step 4
 
-Step 5
-: Process the resource with PostCSS:
+Place your CSS file within the `assets/css` directory.
+
+### Step 5
+
+Process the resource with PostCSS:
 
 ```go-html-template
 {{ with resources.Get "css/main.css" | postCSS }}

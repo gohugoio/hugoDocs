@@ -12,12 +12,12 @@ action:
 The `Ordinal` method returns the zero-based ordinal of the shortcode in relation to its parent. If the parent is the page itself, the ordinal represents the position of this shortcode in the page content.
 
 {{< note >}}
-Hugo  increments the ordinal with each shortcode call, regardless of the specific shortcode type. This means that the ordinal value is tracked sequentially across all shortcodes within a given page.
+Hugo increments the ordinal with each shortcode call, regardless of the specific shortcode type. This means that the ordinal value is tracked sequentially across all shortcodes within a given page.
 {{< /note >}}
 
 This method is useful for, among other things, assigning unique element IDs when a shortcode is called two or more times from the same page. For example:
 
-{{< code file=content/about.md lang=md >}}
+{{< code file=content/about.md lang=text >}}
 {{</* img src="images/a.jpg" */>}}
 
 {{</* img src="images/b.jpg" */>}}
@@ -25,7 +25,7 @@ This method is useful for, among other things, assigning unique element IDs when
 
 This shortcode performs error checking, then renders an HTML `img` element with a unique `id` attribute:
 
-{{< code file=layouts/shortcodes/img.html  >}}
+{{< code file=layouts/shortcodes/img.html >}}
 {{ $src := "" }}
 {{ with .Get "src" }}
   {{ $src = . }}
@@ -48,7 +48,7 @@ Hugo renders the page to:
 ```
 
 {{< note >}}
-In the shortcode template above, the [`with`] statement is used to create conditional blocks. Remember that the `with` statement binds context (the dot) to its expression. Inside of a `with` block, preface shortcode method calls with a `$` to access the top level context passed into the template.
+In the shortcode template above, the [`with`] statement is used to create conditional blocks. Remember that the `with` statement binds context (the dot) to its expression. Inside of a `with` block, preface shortcode method calls with a `$` to access the top-level context passed into the template.
 
 [`with`]: /functions/go-template/with/
 {{< /note >}}

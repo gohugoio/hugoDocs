@@ -12,11 +12,11 @@ action:
 
 {{% glossary-term "output format" %}}
 
-The `AlternativeOutputFormats` method on a `Page` object returns a slice of `OutputFormat` objects, excluding the current output format, each representing one of the output formats enabled for the given page.. See&nbsp;[details](/templates/output-formats/).
+The `AlternativeOutputFormats` method on a `Page` object returns a slice of `OutputFormat` objects, excluding the current output format, each representing one of the output formats enabled for the given page. See&nbsp;[details](/templates/output-formats/).
 
 ## Methods
 
-{{% include "methods/page/_common/output-format-methods.md" %}}
+{{% include "/_common/methods/page/output-format-methods.md" %}}
 
 ## Example
 

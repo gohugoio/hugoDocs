@@ -2,14 +2,9 @@
 title: Template lookup order
 linkTitle: Lookup order
 description: Hugo uses the rules below to select a template for a given page, starting from the most specific.
-categories: [templates,fundamentals]
+categories: []
 keywords: []
-menu:
-  docs:
-    parent: templates
-    weight: 40
-weight: 40
-toc: true
+weight: 20
 ---
 
 ## Lookup rules

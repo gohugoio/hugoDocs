@@ -1,6 +1,6 @@
 ---
 title: UnixNano
-description: Returns the given time.Time value expressed as the number of nanoseconds elapsed since January 1, 1970 UTC. 
+description: Returns the given time.Time value expressed as the number of nanoseconds elapsed since January 1, 1970 UTC.
 categories: []
 keywords: []
 action:

@@ -16,8 +16,6 @@ action:
   signatures: [PAGE1.IsDescendant PAGE2]
 ---
 
-{{% glossary-term section %}}
-
 With this content structure:
 
 ```text

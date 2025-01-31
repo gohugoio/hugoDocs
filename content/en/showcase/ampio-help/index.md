@@ -1,7 +1,6 @@
 ---
 title: Ampio Knowledge Base
 date: 2022-10-30
-
 description: "Knowledge base for the Ampio building automation system."
 siteURL: https://help.ampio.com/
 ---
@@ -66,7 +65,7 @@ Total in 1096 ms
 
 Very quickly it became apparent that our initial concerns about the adaptation of the workflow among contributors were grossly exaggerated. Markdown is fairly straightforward and did not cause any trouble for the contributors.
 
-We recommended that our colleagues use Visual Studio Code as a tool for content creation. The project’s repository tracks project-scoped configuration of the editor, which includes a set of _tasks_ allowing to run a live server from the GUI level. This is very useful for those who are easily frightened when faced with the mighty terminal.
+We recommended that our colleagues use Visual Studio Code as a tool for content creation. The project's repository tracks project-scoped configuration of the editor, which includes a set of _tasks_ allowing to run a live server from the GUI level. This is very useful for those who are easily frightened when faced with the mighty terminal.
 
 The basic skills of the Git workflow were also easily acquired. At the end of the day, builds and deployments are fully managed by CI/CD processes, so the administration of the service drills down to reviewing and accepting merge requests in the Git frontend. As a side effect, we receive a full and clear history of contributions, which is well appreciated by our quality assurance auditors.
 
