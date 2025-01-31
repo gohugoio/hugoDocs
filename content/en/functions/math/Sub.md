@@ -1,6 +1,6 @@
 ---
 title: math.Sub
-description: Subtracts one or more numbers from the first number. 
+description: Subtracts one or more numbers from the first number.
 categories: []
 keywords: []
 action:

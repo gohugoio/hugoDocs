@@ -18,4 +18,4 @@ action:
 {{ 512.5032 | lang.FormatPercent 2 }} → 512.50%
 ```
 
-{{% include "functions/_common/locales.md" %}}
+{{% include "/_common/functions/locales.md" %}}

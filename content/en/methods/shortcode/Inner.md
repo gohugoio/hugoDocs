@@ -11,12 +11,11 @@ action:
     - methods/shortcode/InnerDeindent
   returnType: template.HTML
   signatures: [SHORTCODE.Inner]
-toc: true
 ---
 
 This content:
 
-{{< code file=content/services.md lang=md >}}
+{{< code file=content/services.md lang=text >}}
 {{</* card title="Product Design" */>}}
 We design the **best** widgets in the world.
 {{</* /card */>}}
@@ -24,7 +23,7 @@ We design the **best** widgets in the world.
 
 With this shortcode:
 
-{{< code file=layouts/shortcodes/card.html  >}}
+{{< code file=layouts/shortcodes/card.html >}}
 <div class="card">
   {{ with .Get "title" }}
     <div class="card-title">{{ . }}</div>
@@ -62,7 +61,7 @@ Let's modify the example above to pass the value returned by `Inner` through the
 
 [`RenderString`]: /methods/page/renderstring/
 
-{{< code file=layouts/shortcodes/card.html  >}}
+{{< code file=layouts/shortcodes/card.html >}}
 <div class="card">
   {{ with .Get "title" }}
     <div class="card-title">{{ . }}</div>
@@ -93,7 +92,7 @@ You can use the [`markdownify`] function instead of the `RenderString` method, b
 
 Instead of calling the shortcode with the `{{</* */>}}` notation, use the `{{%/* */%}}` notation:
 
-{{< code file=content/services.md lang=md >}}
+{{< code file=content/services.md lang=text >}}
 {{%/* card title="Product Design" */%}}
 We design the **best** widgets in the world.
 {{%/* /card */%}}
@@ -112,7 +111,7 @@ This configuration is not unsafe if _you_ control the content. Read more about H
 
 Second, because we are rendering the entire shortcode as Markdown, we must adhere to the rules governing [indentation] and inclusion of [raw HTML blocks] as provided in the [CommonMark] specification.
 
-{{< code file=layouts/shortcodes/card.html  >}}
+{{< code file=layouts/shortcodes/card.html >}}
 <div class="card">
   {{ with .Get "title" }}
   <div class="card-title">{{ . }}</div>

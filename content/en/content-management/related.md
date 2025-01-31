@@ -1,14 +1,8 @@
 ---
 title: Related content
 description: List related content in "See Also" sections.
-categories: [content management]
-keywords: [content]
-menu:
-  docs:
-    parent: content-management
-    weight: 110
-weight: 110
-toc: true
+categories: []
+keywords: []
 aliases: [/content/related/,/related/]
 ---
 
@@ -78,8 +72,8 @@ applyFilter = true
 weight      = 80
 {{< /code-toggle >}}
 
-* The `name` maps to a optional front matter slice attribute that can be used to link from the page level down to the fragment/heading level.
-* If `applyFilter` is enabled, the `.HeadingsFiltered` on each page in the result will reflect the filtered headings. This is useful if you want to show the headings in the related content listing:
+- The `name` maps to a optional front matter slice attribute that can be used to link from the page level down to the fragment/heading level.
+- If `applyFilter` is enabled, the `.HeadingsFiltered` on each page in the result will reflect the filtered headings. This is useful if you want to show the headings in the related content listing:
 
 ```go-html-template
 {{ $related := .Site.RegularPages.Related . | first 5 }}
@@ -118,19 +112,19 @@ Without any `related` configuration set on the project, Hugo's Related Content m
 Custom configuration should be set using the same syntax.
 
 {{< note >}}
-If you add a `related` configuration section, you need to add a complete configuration. It is not possible to just set, say, `includeNewer` and use the rest  from the Hugo defaults.
+If you add a `related` configuration section, you need to add a complete configuration. It is not possible to just set, say, `includeNewer` and use the rest from the Hugo defaults.
 {{< /note >}}
 
-### Top level configuration options
+### Top-level options
 
 threshold
 : (`int`) A value between 0-100. Lower value will give more, but maybe not so relevant, matches.
 
 includeNewer
-: (`bool`) Set to `true` to include **pages newer than the current page** in the related content listing. This will mean that the output for older posts may change as new related content gets added.
+: (`bool`) Whether to include **pages newer than the current page** in the related content listing. This will mean that the output for older posts may change as new related content gets added. Default is `false`.
 
 toLower
-: (`bool`) Set to `true` to lower case keywords in both the indexes and the queries. This may give more accurate results at a slight performance penalty. Note that this can also be set per index.
+: (`bool`) Whether to transform keywords in both the indexes and the queries to lower case. This may give more accurate results at a slight performance penalty. Default is `false`.
 
 ### Configuration options per index
 
@@ -153,4 +147,4 @@ pattern
 : (`string`) This is currently only relevant for dates. When listing related content, we may want to list content that is also close in time. Setting "2006" (default value for date indexes) as the pattern for a date index will add weight to pages published in the same year. For busier blogs, "200601" (year and month) may be a better default.
 
 toLower
-: (`bool`) See above.
+: (`bool`) Whether to transform keywords in both the indexes and the queries to lower case. This may give more accurate results at a slight performance penalty. Default is `false`.

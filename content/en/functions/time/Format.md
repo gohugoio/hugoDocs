@@ -13,7 +13,6 @@ action:
   returnType: string
   signatures: [time.Format LAYOUT INPUT]
 aliases: [/functions/dateformat]
-toc: true
 ---
 
 Use the `time.Format` function with `time.Time` values:
@@ -32,7 +31,7 @@ Or use `time.Format` with a parsable string representation of a date/time value:
 
 Examples of parsable string representations:
 
-{{% include "functions/time/_common/parsable-date-time-strings.md" %}}
+{{% include "/_common/parsable-date-time-strings.md" %}}
 
 To override the default time zone, set the [`timeZone`] in your site configuration. The order of precedence for determining the time zone is:
 
@@ -40,17 +39,17 @@ To override the default time zone, set the [`timeZone`] in your site configurati
 1. The time zone specified in your site configuration
 1. The `Etc/UTC` time zone
 
-[`timeZone`]: /getting-started/configuration/#timezone
+[`timeZone`]: /configuration/all/#timezone
 
 ## Layout string
 
-{{% include "functions/_common/time-layout-string.md" %}}
+{{% include "/_common/time-layout-string.md" %}}
 
 ## Localization
 
 Use the `time.Format` function to localize `time.Time` values for the current language and region.
 
-{{% include "functions/_common/locales.md" %}}
+{{% include "/_common/functions/locales.md" %}}
 
 Use the layout string as described above, or one of the tokens below. For example:
 

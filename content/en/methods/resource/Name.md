@@ -8,7 +8,6 @@ action:
     - methods/resource/Title
   returnType: string
   signatures: [RESOURCE.Name]
-toc: true
 ---
 
 The value returned by the `Name` method on a `Resource` object depends on the resource type.

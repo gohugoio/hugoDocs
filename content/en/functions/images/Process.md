@@ -11,7 +11,6 @@ action:
     - methods/resource/Process
   returnType: images.filter
   signatures: [images.Process SPEC]
-toc: true
 ---
 
 {{< new-in 0.119.0 />}}
@@ -101,7 +100,7 @@ Create a filter:
 {{ $filter := images.Process "resize 256x q40 webp" }}
 ```
 
-{{% include "functions/images/_common/apply-image-filter.md" %}}
+{{% include "/_common/functions/images/apply-image-filter.md" %}}
 
 ## Example
 

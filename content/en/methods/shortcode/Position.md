@@ -1,6 +1,6 @@
 ---
 title: Position
-description: Returns the filename and position from which the shortcode was called.
+description: Returns the file name and position from which the shortcode was called.
 categories: []
 keywords: []
 action:
@@ -13,7 +13,7 @@ action:
 
 The `Position` method is useful for error reporting. For example, if your shortcode requires a "greeting" argument:
 
-{{< code file=layouts/shortcodes/myshortcode.html  >}}
+{{< code file=layouts/shortcodes/myshortcode.html >}}
 {{ $greeting := "" }}
 {{ with .Get "greeting" }}
   {{ $greeting = . }}

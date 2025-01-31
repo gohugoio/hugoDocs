@@ -1,6 +1,6 @@
 ---
 title: Ancestors
-description: Returns a collection of Page objects, one for each ancestor section of the given page. 
+description: Returns a collection of Page objects, one for each ancestor section of the given page.
 categories: []
 keywords: []
 action:
@@ -15,8 +15,6 @@ action:
   returnType: page.Pages
   signatures: [PAGE.Ancestors]
 ---
-
-{{% glossary-term section %}}
 
 With this content structure:
 

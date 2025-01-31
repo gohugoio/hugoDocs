@@ -1,6 +1,6 @@
 ---
 title: Language
-description: Returns the language object for the given site. 
+description: Returns the language object for the given site.
 categories: []
 keywords: []
 action:
@@ -8,7 +8,6 @@ action:
     - methods/page/language
   returnType: langs.Language
   signatures: [SITE.Language]
-toc: true
 ---
 
 The `Language` method on a `Site` object returns the language object for the given site. The language object points to the language definition in the site configuration.
@@ -27,7 +26,7 @@ languageName = 'Deutsch'
 weight = 1
 {{< /code-toggle >}}
 
-###### Lang
+### Lang
 
 (`string`) The language tag as defined by [RFC 5646].
 
@@ -35,7 +34,7 @@ weight = 1
 {{ .Site.Language.Lang }} → de
 ```
 
-###### LanguageCode
+### LanguageCode
 
 (`string`) The language code from the site configuration. Falls back to `Lang` if not defined.
 
@@ -43,7 +42,7 @@ weight = 1
 {{ .Site.Language.LanguageCode }} → de-DE
 ```
 
-###### LanguageDirection
+### LanguageDirection
 
 (`string`) The language direction from the site configuration, either `ltr` or `rtl`.
 
@@ -51,7 +50,7 @@ weight = 1
 {{ .Site.Language.LanguageDirection }} → ltr
 ```
 
-###### LanguageName
+### LanguageName
 
 (`string`) The language name from the site configuration.
 
@@ -59,7 +58,7 @@ weight = 1
 {{ .Site.Language.LanguageName }} → Deutsch
 ```
 
-###### Weight
+### Weight
 
 (`int`) The language weight from the site configuration which determines its order in the slice of languages returned by the `Languages` method on a `Site` object.
 

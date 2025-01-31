@@ -10,7 +10,6 @@ action:
     - methods/resource/Filter
   returnType: images.filter
   signatures: [images.Opacity OPACITY]
-toc: true
 ---
 
 {{< new-in 0.119.0 />}}
@@ -25,7 +24,7 @@ Create the filter:
 {{ $filter := images.Opacity 0.65 }}
 ```
 
-{{% include "functions/images/_common/apply-image-filter.md" %}}
+{{% include "/_common/functions/images/apply-image-filter.md" %}}
 
 The `images.Opacity` filter is most useful for target formats such as PNG and WebP that support transparency. If the source image does not support transparency, combine this filter with the `images.Process` filter:
 

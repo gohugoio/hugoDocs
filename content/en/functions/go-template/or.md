@@ -12,7 +12,7 @@ action:
   signatures: [or VALUE...]
 ---
 
-{{% include "functions/go-template/_common/truthy-falsy.md" %}}
+{{% include "/_common/functions/truthy-falsy.md" %}}
 
 ```go-html-template
 {{ or 0 1 2 }} → 1
@@ -23,4 +23,4 @@ action:
 {{ or 0 "" false }} → false
 ```
 
-{{% include "functions/go-template/_common/text-template.md" %}}
+{{% include "/_common/functions/go-template/text-template.md" %}}

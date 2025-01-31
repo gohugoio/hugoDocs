@@ -1,6 +1,6 @@
 ---
 title: time.Duration
-description: Returns a time.Duration value using the given time unit and  number.
+description: Returns a time.Duration value using the given time unit and number.
 categories: []
 keywords: []
 action:

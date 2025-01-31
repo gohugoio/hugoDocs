@@ -52,4 +52,4 @@ Use with the [`template`] function:
 [`template`]: /functions/go-template/block/
 [`partial`]: /functions/partials/include/
 
-{{% include "functions/go-template/_common/text-template.md" %}}
+{{% include "/_common/functions/go-template/text-template.md" %}}

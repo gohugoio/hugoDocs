@@ -13,7 +13,7 @@ action:
 aliases: [/functions/printf]
 ---
 
-{{% include "functions/fmt/_common/fmt-layout.md" %}}
+{{% include "/_common/functions/fmt/format-string.md" %}}
 
 ```go-html-template
 {{ $var := "world" }}

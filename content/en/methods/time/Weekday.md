@@ -1,6 +1,6 @@
 ---
 title: Weekday
-description:  Returns the day of the week of the given time.Time value.
+description: Returns the day of the week of the given time.Time value.
 categories: []
 keywords: []
 action:

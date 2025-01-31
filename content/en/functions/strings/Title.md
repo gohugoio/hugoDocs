@@ -29,4 +29,4 @@ The last option is useful if your theme uses the `title` function, and you would
 
 [Associated Press Stylebook]: https://www.apstylebook.com/
 [Chicago Manual of Style]: https://www.chicagomanualofstyle.org/home.html
-[site configuration]: /getting-started/configuration/#configure-title-case
+[site configuration]: /configuration/all/#title-case-style

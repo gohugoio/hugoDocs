@@ -23,7 +23,7 @@ aliases: [/functions/first]
 Set `N` to zero to return an empty collection.
 
 ```go-html-template
-{{ $emptyPageCollection := first 0 .Pages}}
+{{ $emptyPageCollection := first 0 .Pages }}
 ```
 
 Use `first` and [`where`] together.

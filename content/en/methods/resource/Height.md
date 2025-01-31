@@ -10,6 +10,8 @@ action:
   signatures: [RESOURCE.Height]
 ---
 
+{{% include "/_common/methods/resource/global-page-remote-resources.md" %}}
+
 ```go-html-template
 {{ with resources.Get "images/a.jpg" }}
   {{ .Height }} → 400
@@ -23,5 +25,3 @@ Use the `Width` and `Height` methods together when rendering an `img` element:
   <img src="{{ .RelPermalink }}" width="{{ .Width }}" height="{{ .Height }}">
 {{ end }}
 ```
-
-{{% include "methods/resource/_common/global-page-remote-resources.md" %}}

@@ -7,8 +7,9 @@ action:
   related: []
   returnType: any
   signatures: [RESOURCE.Content]
-toc:
 ---
+
+{{% include "/_common/methods/resource/global-page-remote-resources.md" %}}
 
 The `Content` method on a `Resource` object returns `template.HTML` when the resource type is `page`, otherwise it returns a `string`.
 
@@ -57,5 +58,3 @@ To create inline JavaScript:
   <script>{{ .Content | safeJS }}</script>
 {{ end }}
 ```
-
-{{% include "methods/resource/_common/global-page-remote-resources.md" %}}

@@ -10,7 +10,6 @@ action:
     - methods/resource/Filter
   returnType: images.filter
   signatures: [images.Sepia PERCENTAGE]
-toc: true
 ---
 
 The percentage must be in the range [0, 100] where 0 has no effect.
@@ -23,7 +22,7 @@ Create the filter:
 {{ $filter := images.Sepia 75 }}
 ```
 
-{{% include "functions/images/_common/apply-image-filter.md" %}}
+{{% include "/_common/functions/images/apply-image-filter.md" %}}
 
 ## Example
 

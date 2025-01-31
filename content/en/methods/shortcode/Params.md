@@ -12,22 +12,22 @@ action:
 
 When you call a shortcode using positional arguments, the `Params` method returns a slice.
 
-{{< code file=content/about.md lang=md >}}
+{{< code file=content/about.md lang=text >}}
 {{</* myshortcode "Hello" "world" */>}}
 {{< /code >}}
 
-{{< code file=layouts/shortcodes/myshortcode.html  >}}
+{{< code file=layouts/shortcodes/myshortcode.html >}}
 {{ index .Params 0 }} → Hello
 {{ index .Params 1 }} → world
 {{< /code >}}
 
 When you call a shortcode using named arguments, the `Params` method returns a map.
 
-{{< code file=content/about.md lang=md >}}
+{{< code file=content/about.md lang=text >}}
 {{</* myshortcode greeting="Hello" name="world" */>}}
 {{< /code >}}
 
-{{< code file=layouts/shortcodes/myshortcode.html  >}}
+{{< code file=layouts/shortcodes/myshortcode.html >}}
 {{ .Params.greeting }} → Hello
 {{ .Params.name }} → world
 {{< /code >}}

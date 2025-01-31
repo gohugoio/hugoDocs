@@ -11,7 +11,6 @@ action:
     - functions/collections/NewScratch
   returnType: maps.Scratch
   signatures: [PAGE.Store]
-toc: true
 aliases: [/functions/store/,/extras/scratch/,/doc/scratch/,/functions/scratch]
 ---
 

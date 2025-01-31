@@ -1,14 +1,8 @@
 ---
 title: Menus
-description:  Create menus by defining entries, localizing each entry, and rendering the resulting data structure.
-categories: [content management]
-keywords: [menus]
-menu:
-  docs:
-    parent: content-management
-    weight: 190
-weight: 190
-toc: true
+description: Create menus by defining entries, localizing each entry, and rendering the resulting data structure.
+categories: []
+keywords: []
 aliases: [/extras/menus/]
 ---
 
@@ -169,13 +163,13 @@ Each menu entry defined in site configuration requires two or more properties:
 pageRef
 : (`string`) The logical path of the target page, relative to the `content` directory. Omit language code and file extension. Required for *internal* links.
 
-Kind|pageRef
-:--|:--
-home|`/`
-page|`/books/book-1`
-section|`/books`
-taxonomy|`/tags`
-term|`/tags/foo`
+  Kind|pageRef
+  :--|:--
+  home|`/`
+  page|`/books/book-1`
+  section|`/books`
+  taxonomy|`/tags`
+  term|`/tags/foo`
 
 url
 : (`string`) Required for *external* links.
