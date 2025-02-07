@@ -104,10 +104,10 @@ Superscript|`1^st^`|`1<sup>st</sup>`
 [subscript]: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/sub
 [superscript]: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/sup
 
-To avoid a conflict when enabling the Hugo Goldmark Extras "subscript" extension, if you want to render subscript and strikethrough text concurrently you must:
+To avoid a conflict when enabling the Hugo Goldmark Extras "subscript" feature, if you want to render subscript and strikethrough text concurrently you must:
 
-1. Disable the Goldmark "strikethrough" extension
-1. Enable the Hugo Goldmark Extras "delete" extension
+1. Disable the Goldmark Strikethrough extension
+1. Enable the Hugo Goldmark Extras Delete extension
 
 For example:
 
@@ -126,7 +126,7 @@ enable = true
 
 {{< new-in 0.122.0 />}}
 
-Enable the "passthrough" extension to include mathematical equations and expressions in Markdown using LaTeX markup. See [mathematics in Markdown] for details.
+Enable the Passthrough extension to include mathematical equations and expressions in Markdown using LaTeX markup. See [mathematics in Markdown] for details.
 
 [mathematics in Markdown]: content-management/mathematics/
 
