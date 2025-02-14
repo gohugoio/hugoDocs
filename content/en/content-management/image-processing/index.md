@@ -108,6 +108,10 @@ The `image` resource implements the  [`Process`],  [`Resize`], [`Fit`], [`Fill`]
 Metadata (EXIF, IPTC, XMP, etc.) is not preserved during image transformation. Use the `Exif` method with the _original_ image to extract EXIF metadata from JPEG, PNG, TIFF, and WebP images.
 {{% /note %}}
 
+{{% warning %}}
+AVIF image format is not supported.
+{{% /warning %}}
+
 ### Process
 
 {{< new-in 0.119.0 />}}
