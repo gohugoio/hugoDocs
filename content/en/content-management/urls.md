@@ -397,7 +397,8 @@ canonifyURLs = true
 #### Relative URLs
 
 {{< note >}}
-Do not enable this option unless you are creating a serverless site, navigable via the file system.
+Do not enable this option unless you are creating a serverless site, navigable via the file system. 
+This conflicts with `baseURL`. Setting `baseURL` will override this setting.
 {{< /note >}}
 
 If enabled, Hugo performs a search and replace _after_ it renders the page. It searches for site-relative URLs (those with a leading slash) associated with `action`, `href`, `src`, `srcset`, and `url` attributes. It then transforms the URL to be relative to the current page.
