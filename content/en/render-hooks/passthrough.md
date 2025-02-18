@@ -1,7 +1,7 @@
 ---
 title: Passthrough render hooks
 linkTitle: Passthrough
-description: Create a passthrough render hook to override the rendering of text snippets captured by the Goldmark passthrough extension.
+description: Create a passthrough render hook to override the rendering of text snippets captured by the Goldmark Passthrough extension.
 categories: [render hooks]
 keywords: []
 menu:
@@ -16,7 +16,7 @@ toc: true
 
 ## Overview
 
-Hugo uses [Goldmark] to render Markdown to HTML. Goldmark supports custom extensions to extend its core functionality. The Goldmark [passthrough extension] captures and preserves raw Markdown within delimited snippets of text, including the delimiters themselves. These are known as _passthrough elements_.
+Hugo uses [Goldmark] to render Markdown to HTML. Goldmark supports custom extensions to extend its core functionality. The Goldmark [Passthrough extension] captures and preserves raw Markdown within delimited snippets of text, including the delimiters themselves. These are known as _passthrough elements_.
 
 [Goldmark]: https://github.com/yuin/goldmark
 [passthrough extension]: /getting-started/configuration-markup/#passthrough
@@ -33,7 +33,7 @@ passthrough element with opening and closing block delimiters.
 This is an \(inline\) passthrough element with opening and closing inline delimiters.
 {{< /code >}}
 
-Update your site configuration to enable the passthrough extension and define  opening and closing delimiters for each passthrough element type, either `block` or `inline`. For example:
+Update your site configuration to enable the Passthrough extension and define opening and closing delimiters for each passthrough element type, either `block` or `inline`. For example:
 
 {{< code-toggle file=hugo >}}
 [markup.goldmark.extensions.passthrough]
@@ -45,7 +45,7 @@ inline = [['\(', '\)']]
 
 In the example above there are two sets of `block` delimiters. You may use either one in your Markdown.
 
-The Goldmark passthrough extension is often used in conjunction with the MathJax or KaTeX display engine to render [mathematical expressions] written in the LaTeX markup language.
+The Goldmark Passthrough extension is often used in conjunction with the MathJax or KaTeX display engine to render [mathematical expressions] written in the LaTeX markup language.
 
 [mathematical expressions]: /content-management/mathematics/
 
