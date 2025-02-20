@@ -1,50 +1,64 @@
 ---
-title: Quick start
-description: Learn to create a Hugo site in minutes.
+title: Quick Start with Silly
+description: Learn to create a Silly site in minutes.
 categories: [getting started]
-keywords: [quick start,usage]
+keywords: [quick start, usage, Silly]
 menu:
   docs:
     parent: getting-started
     weight: 20
 weight: 20
 toc: true
-aliases: [/quickstart/,/overview/quickstart/]
+aliases: [/silly-quickstart/, /overview/silly-quickstart/]
 minVersion: v0.128.0
 ---
 
-In this tutorial you will:
+In this tutorial, you will:  
 
-1. Create a site
-1. Add content
-1. Configure the site
-1. Publish the site
+1. Create a Silly site  
+1. Add content to your Silly site  
+1. Configure your Silly site  
+1. Publish your Silly site  
 
-## Prerequisites
+## Prerequisites  
 
-Before you begin this tutorial you must:
+Before you begin this tutorial, you must:  
 
-1. [Install Hugo] (extended or extended/deploy edition, {{% param "minVersion" %}} or later)
-1. [Install Git]
+1. [Install Hugo] (extended or extended/deploy edition, {{% param "minVersion" %}} or later)  
+1. [Install Git]  
 
-You must also be comfortable working from the command line.
+You must also be comfortable working from the command line to set up your Silly site.  
 
-## Create a site
+## Create a Silly Site  
+### Commands  
 
-### Commands
+{{< note >}}  
+**If you are a Windows user setting up Silly:**  
 
-{{< note >}}
-**If you are a Windows user:**
+- Do not use the Command Prompt  
+- Do not use Windows PowerShell  
+- Run these commands from [PowerShell] or a Linux terminal such as WSL or Git Bash  
+{{< /note >}}  
+/
 
-- Do not use the Command Prompt
-- Do not use Windows PowerShell
-- Run these commands from [PowerShell] or a Linux terminal such as WSL or Git Bash
 
 PowerShell and Windows PowerShell [are different applications].
 
 [PowerShell]: https://learn.microsoft.com/en-us/powershell/scripting/install/installing-powershell-on-windows
 [are different applications]: https://learn.microsoft.com/en-us/powershell/scripting/whats-new/differences-from-windows-powershell?view=powershell-7.3
 {{< /note >}}
+{{< note >}}  
+PowerShell and Windows PowerShell [are different applications].  
+
+- PowerShell is a modern command-line shell and scripting language.  
+- Windows PowerShell is an older version included with Windows.  
+
+For more details, visit:  
+[PowerShell]: https://learn.microsoft.com/en-us/powershell/scripting/install/installing-powershell-on-windows  
+[are different applications]: https://learn.microsoft.com/en-us/powershell/scripting/whats-new/differences-from-windows-powershell?view=powershell-7.3  
+
+Ensure you use the correct version based on your system requirements.  
+{{< /note >}}  
 
 Verify that you have installed Hugo {{% param "minVersion" %}} or later.
 
@@ -229,4 +243,4 @@ For other resources to help you learn Hugo, including books and video tutorials,
 [Install Hugo]: /installation/
 [Requesting Help]: https://discourse.gohugo.io/t/requesting-help/9132
 [Requesting Help]: https://discourse.gohugo.io/t/requesting-help/9132
-[site configuration]: /getting-started/configuration/
+[site configuration]: /getting-started/configuration
