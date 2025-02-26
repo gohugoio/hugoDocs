@@ -60,14 +60,14 @@
 {{ end }}
 
 {{ define "rightsidebar_content" }}
-  {{/* in-this-section.html depends on these being reneredc first. */}}
-  {{ $related := partial "layouts/related.html" . }}
-  {{ $toc := partial "layouts/toc.html" . }}
-  {{ if not .Params.hide_in_this_section }}
-    {{ partial "layouts/in-this-section.html" . }}
-  {{ end }}
-  {{ $related }}
-  {{ if $.Store.Get "hasToc" }}
-    {{ $toc }}
-  {{ end }}
+  <div class="sticky top-[8rem] h-screen overflow-y-auto">
+    {{ $toc := partial "layouts/toc.html" . }}
+    {{ if $.Store.Get "hasToc" }}
+      {{ $toc }}
+    {{ end }}
+    {{ if not .Params.hide_in_this_section }}
+      {{ partial "layouts/in-this-section.html" . }}
+    {{ end }}
+    {{ partial "layouts/related.html" . }}
+  </div>
 {{ end }}
