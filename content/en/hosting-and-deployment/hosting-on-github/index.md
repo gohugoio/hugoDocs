@@ -55,17 +55,17 @@ Step 4
 {style="max-width: 280px"}
 
 Step 5
-: Create a file named `hugo.yaml` in a directory named `.github/workflows`.
+: Create a file named `hugo.yml` in a directory named `.github/workflows`.
 
 ```text
 mkdir -p .github/workflows
-touch .github/workflows/hugo.yaml
+touch .github/workflows/hugo.yml
 ```
 
 Step 6
 : Copy and paste the YAML below into the file you created. Change the branch name and Hugo version as needed.
 
-{{< code file=.github/workflows/hugo.yaml copy=true >}}
+{{< code file=.github/workflows/hugo.yml copy=true >}}
 # Sample workflow for building and deploying a Hugo site to GitHub Pages
 name: Deploy Hugo site to Pages
 
@@ -151,7 +151,7 @@ Step 7
 
 ```sh
 git add -A
-git commit -m "Create hugo.yaml"
+git commit -m "Create hugo.yml"
 git push
 ```
 
