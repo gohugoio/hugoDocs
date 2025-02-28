@@ -18,9 +18,8 @@
 {{/* Avoid repeating pages that's listed in In this section. */}}
 {{- $related = $related | complement .CurrentSection.RegularPages | first 7 }}
 {{- with $related }}
-  {{ $.Store.Set "hasRelated" true }}
   <h2
-    class="text-base font-semibold tracking-tight text-gray-600  dark:text-gray-400">
+    class="text-base font-semibold tracking-tight text-gray-600  dark:text-gray-400 mt-8">
     {{ $heading }}
   </h2>
   <ul class="mt-2 mb-8">
