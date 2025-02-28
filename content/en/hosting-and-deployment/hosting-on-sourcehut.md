@@ -14,7 +14,7 @@ aliases: [/tutorials/hosting-on-sourcehut/]
 
 * Working familiarity with [Git](https://git-scm.com/) or [Mercurial](https://www.mercurial-scm.org/) for version control
 * Completion of the Hugo [Quick Start]
-* A [SourceHut account]([https://meta.sr.ht/login)
+* A [SourceHut account](https://meta.sr.ht/login)
 * A Hugo website on your local machine that you are ready to publish
 
 Any and all mentions of `<YourUsername>` refer to your actual SourceHut username and must be substituted accordingly.
