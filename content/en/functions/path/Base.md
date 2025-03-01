@@ -1,6 +1,6 @@
 ---
 title: path.Base
-description: Replaces path separators with slashes (`/`) and returns the last element of the given path. 
+description: Replaces path separators with slashes (`/`) and returns the last element of the given path.
 categories: []
 keywords: []
 action:

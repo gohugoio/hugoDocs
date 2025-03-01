@@ -12,8 +12,9 @@ action:
     - functions/images/Process
   returnType: images.ImageResource
   signatures: [RESOURCE.Crop SPEC]
-toc: true
 ---
+
+{{% include "/_common/methods/resource/global-page-remote-resources.md" %}}
 
 Crop an image to match the given dimensions without resizing. You must provide both width and height.
 
@@ -25,9 +26,7 @@ Crop an image to match the given dimensions without resizing. You must provide b
 {{ end }}
 ```
 
-{{% include "methods/resource/_common/global-page-remote-resources.md" %}}
-
-{{% include "/methods/resource/_common/processing-spec.md" %}}
+{{% include "/_common/methods/resource/processing-spec.md" %}}
 
 ## Example
 

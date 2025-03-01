@@ -13,7 +13,6 @@ action:
   returnType: string
   signatures: [os.Getenv VARIABLE]
 aliases: [/functions/getenv]
-toc: true
 ---
 
 ## Security
@@ -30,9 +29,7 @@ To access other environment variables, adjust your site configuration. For examp
 getenv = ['^HUGO_', '^CI$', '^USER$', '^HOME$']
 {{< /code-toggle >}}
 
-Read more about Hugo's [security policy].
-
-[security policy]: /about/security/#security-policy
+For more information see [configure security](/configuration/security).
 
 ## Examples
 

@@ -13,10 +13,9 @@ action:
   returnType:
   signatures: [with EXPR]
 aliases: [/functions/with]
-toc: true
 ---
 
-{{% include "functions/go-template/_common/truthy-falsy.md" %}}
+{{% include "/_common/functions/truthy-falsy.md" %}}
 
 ```go-html-template
 {{ $var := "foo" }}
@@ -94,6 +93,6 @@ This template will render the page title as desired:
 Gaining a thorough understanding of context is critical for anyone writing template code.
 {{< /note >}}
 
-{{% include "functions/go-template/_common/text-template.md" %}}
+{{% include "/_common/functions/go-template/text-template.md" %}}
 
 [`else`]: /functions/go-template/else/

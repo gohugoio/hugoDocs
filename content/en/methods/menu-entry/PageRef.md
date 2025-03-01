@@ -8,7 +8,6 @@ action:
     - /methods/menu-entry/URL
   returnType: string
   signatures: [MENUENTRY.PageRef]
-toc: true
 ---
 
 The use case for this method is rare.

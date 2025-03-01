@@ -12,8 +12,9 @@ action:
     - functions/images/Process
   returnType: images.ImageResource
   signatures: [RESOURCE.Process SPEC]
-toc: true
 ---
+
+{{% include "/_common/methods/resource/global-page-remote-resources.md" %}}
 
 Process an image with the given specification. The specification can contain an optional action, one of `crop`, `fill`, `fit`, or `resize`. This means that you can use this method instead of [`Crop`], [`Fill`], [`Fit`], or [`Resize`].
 
@@ -37,9 +38,7 @@ You can also use this method to apply simple transformations such as rotation an
 
 The `Process` method is also available as a filter, which is more effective if you need to apply multiple filters to an image. See [`images.Process`].
 
-{{% include "methods/resource/_common/global-page-remote-resources.md" %}}
-
-{{% include "/methods/resource/_common/processing-spec.md" %}}
+{{% include "/_common/methods/resource/processing-spec.md" %}}
 
 ## Example
 

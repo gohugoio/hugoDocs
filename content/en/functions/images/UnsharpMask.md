@@ -10,7 +10,6 @@ action:
     - methods/resource/Filter
   returnType: images.filter
   signatures: [images.UnsharpMask SIGMA AMOUNT THRESHOLD]
-toc: true
 ---
 
 The sigma argument is used in a gaussian function and affects the radius of effect. Sigma must be positive. The sharpen radius is approximately 3 times the sigma value.
@@ -27,7 +26,7 @@ Create the filter:
 {{ $filter := images.UnsharpMask 10 0.4 0.03 }}
 ```
 
-{{% include "functions/images/_common/apply-image-filter.md" %}}
+{{% include "/_common/functions/images/apply-image-filter.md" %}}
 
 ## Example
 

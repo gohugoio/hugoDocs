@@ -1,6 +1,6 @@
 ---
 title: NextInSection
-description: Returns the next regular page in a section, relative to the given page. 
+description: Returns the next regular page in a section, relative to the given page.
 categories: []
 keywords: []
 action:
@@ -12,4 +12,4 @@ action:
   signatures: [PAGE.NextInSection]
 ---
 
-{{% include "methods/page/_common/nextinsection-and-previnsection.md" %}}
+{{% include "/_common/methods/page/nextinsection-and-previnsection.md" %}}

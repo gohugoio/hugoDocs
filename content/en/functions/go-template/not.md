@@ -32,4 +32,4 @@ Use the `not` operator, twice in succession, to cast any value to a boolean valu
 {{ "" | not | not }} → false
 ```
 
-{{% include "functions/go-template/_common/text-template.md" %}}
+{{% include "/_common/functions/go-template/text-template.md" %}}

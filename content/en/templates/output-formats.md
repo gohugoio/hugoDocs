@@ -1,14 +1,9 @@
 ---
 title: Custom output formats
 description: Hugo can output content in multiple formats, including calendar events, e-book formats, Google AMP, and JSON search indexes, or any custom text format.
-categories: [templates,fundamentals]
+categories: []
 keywords: []
-menu:
-  docs:
-    parent: templates
-    weight: 210
-weight: 210
-toc: true
+weight: 200
 aliases: [/templates/outputs/,/extras/output-formats/,/content-management/custom-outputs/]
 ---
 
@@ -66,11 +61,10 @@ This is the full set of Hugo's built-in output formats:
 {{< datatable "config" "outputFormats" "_key" "baseName" "isHTML" "isPlainText" "mediaType" "noUgly"  "path" "permalinkable" "protocol"  "rel" >}}
 
 - A page can be output in as many output formats as you want, and you can have an infinite amount of output formats defined as long as they resolve to a unique path on the file system. In the above table, the best example of this is `amp` vs. `html`. `amp` has the value `amp` for `path` so it doesn't overwrite the `html` version; e.g. we can now have both `/index.html` and `/amp/index.html`.
-
 - The `mediaType` must match a defined media type.
 - You can define new output formats or redefine built-in output formats; e.g., if you want to put `amp` pages in a different path.
 
-To add or modify an output format, define it in an `outputFormats` section in your site's [configuration file](/getting-started/configuration/), either for all sites or for a given language.
+To add or modify an output format, define it in an `outputFormats` section in your site's [configuration file](/configuration/), either for all sites or for a given language.
 
 {{< code-toggle file=hugo >}}
 [outputFormats.MyEnrichedFormat]
@@ -137,45 +131,7 @@ weight
 
 ## Output formats for pages
 
-A `Page` in Hugo can be rendered to multiple _output formats_ on the file
-system.
-
-### Default output formats
-
-Every `Page` has a [`Kind`] attribute, and the default Output
-Formats are set based on that.
-
-{{< code-toggle config=outputs />}}
-
-### Customizing output formats
-
-This can be changed by defining an `outputs` list of output formats in either
-the `Page` front matter or in the site configuration (either for all sites or
-per language).
-
-Example from site configuration file:
-
-{{< code-toggle file=hugo >}}
-[outputs]
-  home = ["html", "amp", "rss"]
-  page = ["html"]
-{{</ code-toggle >}}
-
-Note that in the examples above, the output formats for `section`,
-`taxonomy` and `term` will stay at their default value `['html','rss']`.
-
-- The `outputs` definition is per page [`Kind`].
-- The names (e.g. `html`, `amp`) must match the `name` of a defined output format, and can be overridden per page in front matter.
-
-The following is an example of front matter in a content file that defines output formats for the rendered `Page`:
-
-{{< code-toggle file=content/example.md fm=true >}}
-title: Example
-outputs:
-- html
-- amp
-- json
-{{< /code-toggle >}}
+See [configure outputs](/configuration/outputs/).
 
 ## List output formats
 
@@ -237,5 +193,5 @@ Output format|Template path
 `json`|`layouts/_default/section.json.json`
 `rss`|`layouts/_default/section.rss.xml`
 
-[site configuration]: /getting-started/configuration/
+[site configuration]: /configuration/
 [`kind`]: /methods/page/kind/

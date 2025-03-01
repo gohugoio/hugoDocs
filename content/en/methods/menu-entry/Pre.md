@@ -1,6 +1,6 @@
 ---
 title: Pre
-description:  Returns the `pre` property of the given menu entry. 
+description: Returns the `pre` property of the given menu entry.
 categories: []
 keywords: []
 action:
@@ -10,4 +10,4 @@ action:
   signatures: [MENUENTRY.Pre]
 ---
 
-{{% include "methods/menu-entry/_common/pre-post.md" %}}
+{{% include "/_common/menu-entries/pre-and-post.md" %}}

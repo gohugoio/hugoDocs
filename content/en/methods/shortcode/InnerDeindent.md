@@ -1,6 +1,6 @@
 ---
 title: InnerDeindent
-description: Returns the content between opening and closing shortcode tags, with indentation removed, applicable when the shortcode call includes a closing tag. 
+description: Returns the content between opening and closing shortcode tags, with indentation removed, applicable when the shortcode call includes a closing tag.
 categories: []
 keywords: []
 action:
@@ -16,7 +16,7 @@ This allows us to effectively bypass the rules governing [indentation] as provid
 
 Consider this Markdown, an unordered list with a small gallery of thumbnail images within each list item:
 
-{{< code file=content/about.md lang=md >}}
+{{< code file=content/about.md lang=text >}}
 - Gallery one
 
     {{</* gallery */>}}
@@ -36,7 +36,7 @@ In the example above, notice that the content between the opening and closing sh
 
 With this shortcode, calling `Inner` instead of `InnerDeindent`:
 
-{{< code file=layouts/shortcodes/gallery.html  >}}
+{{< code file=layouts/shortcodes/gallery.html >}}
 <div class="gallery">
   {{ .Inner | strings.TrimSpace | .Page.RenderString }}
 </div>
@@ -67,7 +67,7 @@ Hugo renders the Markdown to:
 
 Although technically correct per the CommonMark specification, this is not what we want. If we remove the indentation using the `InnerDeindent` method:
 
-{{< code file=layouts/shortcodes/gallery.html  >}}
+{{< code file=layouts/shortcodes/gallery.html >}}
 <div class="gallery">
   {{ .InnerDeindent | strings.TrimSpace | .Page.RenderString }}
 </div>

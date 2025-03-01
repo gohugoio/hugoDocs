@@ -10,7 +10,6 @@ action:
     - methods/resource/Filter
   returnType: images.filter
   signatures: [images.AutoOrient]
-toc: true
 ---
 
 {{< new-in 0.121.2 />}}
@@ -23,7 +22,8 @@ Create the filter:
 {{ $filter := images.AutoOrient }}
 ```
 
-{{% include "functions/images/_common/apply-image-filter.md" %}}
+
+{{% include "/_common/functions/images/apply-image-filter.md" %}}
 
 {{< note >}}
 When using with other filters, specify `images.AutoOrient` first.

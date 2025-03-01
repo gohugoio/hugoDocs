@@ -2,7 +2,7 @@
 title: transform.ToMath
 description: Renders mathematical equations and expressions written in the LaTeX markup language.
 categories: []
-keywords: [katex,latex,math,typesetting]
+keywords: []
 action:
   aliases: []
   related:
@@ -10,7 +10,6 @@ action:
   returnType: types.Result[template.HTML]
   signatures: ['transform.ToMath INPUT [OPTIONS]']
 aliases: [/functions/tomath]
-toc: true
 ---
 
 {{< new-in 0.132.0 />}}
@@ -94,11 +93,11 @@ The example below demonstrates error handing within a template.
 
 Instead of client-side JavaScript rendering of mathematical markup using MathJax or KaTeX, create a passthrough render hook which calls the `transform.ToMath` function.
 
-###### Step 1
+### Step 1
 
 Enable and configure the Goldmark [passthrough extension] in your site configuration. The passthrough extension preserves raw Markdown within delimited snippets of text, including the delimiters themselves.
 
-[passthrough extension]: /getting-started/configuration-markup/#passthrough
+[passthrough extension]: /configuration/markup/#passthrough
 
 {{< code-toggle file=hugo copy=true >}}
 [markup.goldmark.extensions.passthrough]
@@ -113,7 +112,7 @@ inline = [['\(', '\)']]
 The configuration above precludes the use of the `$...$` delimiter pair for inline equations. Although you can add this delimiter pair to the configuration, you will need to double-escape the `$` symbol when used outside of math contexts to avoid unintended formatting.
 {{< /note >}}
 
-###### Step 2
+### Step 2
 
 Create a [passthrough render hook] to capture and render the LaTeX markup.
 
@@ -131,7 +130,7 @@ Create a [passthrough render hook] to capture and render the LaTeX markup.
 {{- end -}}
 {{< /code >}}
 
-###### Step 3
+### Step 3
 
 In your base template, conditionally include the KaTeX CSS within the head element.
 
@@ -146,7 +145,7 @@ In your base template, conditionally include the KaTeX CSS within the head eleme
 
 In the above, note the use of a [noop](g) statement to force content rendering before we check the value of `hasMath` with the `Store.Get` method.
 
-###### Step 4
+### Step 4
 
 Add some mathematical markup to your content, then test.
 

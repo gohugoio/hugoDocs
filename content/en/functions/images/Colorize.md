@@ -10,7 +10,6 @@ action:
     - methods/resource/Filter
   returnType: images.filter
   signatures: [images.Colorize HUE SATURATION PERCENTAGE]
-toc: true
 ---
 
 The hue is the angle on the color wheel, typically in the range [0, 360].
@@ -27,7 +26,7 @@ Create the filter:
 {{ $filter := images.Colorize 180 50 20 }}
 ```
 
-{{% include "functions/images/_common/apply-image-filter.md" %}}
+{{% include "/_common/functions/images/apply-image-filter.md" %}}
 
 ## Example
 

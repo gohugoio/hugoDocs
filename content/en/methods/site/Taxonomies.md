@@ -11,7 +11,7 @@ action:
 
 Conceptually, the `Taxonomies` method on a `Site` object returns a data structure such&nbsp;as:
 
-{{< code-toggle >}}
+{{< code-toggle file=hugo >}}
 taxonomy a:
   - term 1:
     - page 1
@@ -50,7 +50,7 @@ content/
 
 Conceptually, the taxonomies data structure looks like:
 
-{{< code-toggle >}}
+{{< code-toggle file=hugo >}}
 genres:
   - suspense:
     - And Then There Were None

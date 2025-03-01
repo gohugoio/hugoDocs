@@ -14,7 +14,6 @@ action:
     - methods/page/RenderString
   returnType: template.HTML
   signatures: [PAGE.RenderShortcodes]
-toc: true
 ---
 
 {{< new-in 0.117.0 />}}
@@ -37,7 +36,7 @@ For example:
 
 Then call the shortcode in your Markdown:
 
-{{< code file=content/about.md lang=md >}}
+{{< code file=content/about.md lang=text >}}
 {{%/* include "/snippets/services" */%}}
 {{%/* include "/snippets/values" */%}}
 {{%/* include "/snippets/leadership" */%}}
@@ -90,7 +89,7 @@ Note that the shortcode within the content file was rendered, but the surroundin
 
 The primary use case for `.RenderShortcodes` is inclusion of Markdown content. If you try to use `.RenderShortcodes` inside `HTML` blocks when inside Markdown, you will get a warning similar to this:
 
-```
+```text
 WARN .RenderShortcodes detected inside HTML block in "/content/mypost.md"; this may not be what you intended ...
 ```
 

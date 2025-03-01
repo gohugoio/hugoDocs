@@ -12,7 +12,6 @@ action:
     - methods/resource/Filter
   returnType: images.filter
   signatures: ['images.Dither [OPTIONS]']
-toc: true
 ---
 
 {{< new-in 0.123.0 />}}
@@ -57,13 +56,13 @@ Or create the filter using the default settings:
 {{ $filter := images.Dither }}
 ```
 
-{{% include "functions/images/_common/apply-image-filter.md" %}}
+{{% include "/_common/functions/images/apply-image-filter.md" %}}
 
 ## Dithering methods
 
 See the [Go documentation] for descriptions of each of the dithering methods below.
 
-[Go documentation]: https://pkg.go.dev/github.com/makeworld-the-better-one/dither/v2#pkg-variables 
+[Go documentation]: https://pkg.go.dev/github.com/makeworld-the-better-one/dither/v2#pkg-variables
 
 Error diffusion dithering methods:
 

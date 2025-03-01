@@ -26,6 +26,7 @@ The `urls.Parse` function parses a URL into a [URL structure](https://godoc.org/
 {{ $u.Hostname }} → example.org
 {{ $u.RequestURI }} → /foo?a=6&b=7
 {{ $u.Path }} → /foo
+{{ $u.RawQuery }} → a=6&b=7
 {{ $u.Query }} → map[a:[6] b:[7]]
 {{ $u.Query.a }} → [6]
 {{ $u.Query.Get "a" }} → 6

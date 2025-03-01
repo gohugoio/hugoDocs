@@ -12,7 +12,7 @@ action:
 aliases: [/functions/urlize]
 ---
 
-{{% include "/functions/urls/_common/anchorize-vs-urlize.md" %}}
+{{% include "/_common/functions/urls/anchorize-vs-urlize.md" %}}
 
 ## Example
 

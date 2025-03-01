@@ -12,7 +12,7 @@ action:
   signatures: [and VALUE...]
 ---
 
-{{% include "functions/go-template/_common/truthy-falsy.md" %}}
+{{% include "/_common/functions/truthy-falsy.md" %}}
 
 ```go-html-template
 {{ and 1 0 "" }} → 0 (int)
@@ -22,5 +22,3 @@ action:
 {{ and "a" "b" "c" }} → c (string)
 {{ and "a" 1 true }} → true (bool)
 ```
-
-{{% include "functions/go-template/_common/text-template.md" %}}

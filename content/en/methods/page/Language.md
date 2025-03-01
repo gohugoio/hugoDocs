@@ -26,7 +26,7 @@ languageName = 'Deutsch'
 weight = 2
 {{< /code-toggle >}}
 
-###### Lang
+### Lang
 
 (`string`) The language tag as defined by [RFC 5646].
 
@@ -34,7 +34,7 @@ weight = 2
 {{ .Language.Lang }} → de
 ```
 
-###### LanguageCode
+### LanguageCode
 
 (`string`) The language code from the site configuration. Falls back to `Lang` if not defined.
 
@@ -42,7 +42,7 @@ weight = 2
 {{ .Language.LanguageCode }} → de-DE
 ```
 
-###### LanguageDirection
+### LanguageDirection
 
 (`string`) The language direction from the site configuration, either `ltr` or `rtl`.
 
@@ -50,7 +50,7 @@ weight = 2
 {{ .Language.LanguageDirection }} → ltr
 ```
 
-###### LanguageName
+### LanguageName
 
 (`string`) The language name from the site configuration.
 
@@ -58,7 +58,7 @@ weight = 2
 {{ .Language.LanguageName }} → Deutsch
 ```
 
-###### Weight
+### Weight
 
 (`int`) The language weight from the site configuration which determines its order in the slice of languages returned by the `Languages` method on a `Site` object.
 

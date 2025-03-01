@@ -9,7 +9,7 @@ action:
   signatures: ['PAGES.GroupBy FIELD [SORT]']
 ---
 
-{{% include "methods/pages/_common/group-sort-order.md" %}}
+{{% include "/_common/methods/pages/group-sort-order.md" %}}
 
 ```go-html-template
 {{ range .Pages.GroupBy "Section" }}

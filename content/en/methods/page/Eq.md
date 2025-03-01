@@ -13,7 +13,7 @@ In this contrived example from a single template, we list all pages in the curre
 
 ```go-html-template
 {{ $currentPage := . }}
-{{ range .CurrentSection.Pages  }}
+{{ range .CurrentSection.Pages }}
   {{ if not (.Eq $currentPage) }}
     <a href="{{ .RelPermalink }}">{{ .LinkTitle }}</a>
   {{ end }}

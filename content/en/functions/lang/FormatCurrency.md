@@ -18,4 +18,4 @@ action:
 {{ 512.5032 | lang.FormatCurrency 2 "USD" }} → $512.50
 ```
 
-{{% include "functions/_common/locales.md" %}}
+{{% include "/_common/functions/locales.md" %}}

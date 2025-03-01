@@ -8,8 +8,7 @@
     {{- with or (site.GetPage $path) ($.GetPage $path) }}
       {{- $related = $related | append . }}
     {{- else }}
-      {{/* TODO1 make error */}}
-      {{- warnf "The 'related' partial was unable to get page %s" . }}
+      {{- errorf "The 'related' partial was unable to get page %s" . }}
     {{- end }}
   {{- end }}
 {{- else }}

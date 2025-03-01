@@ -7,7 +7,6 @@ action:
   related: []
   returnType: page.Data
   signatures: [PAGE.Data]
-toc: true
 ---
 
 The `Data` method on a `Page` object returns a unique data object for each [page kind](g).

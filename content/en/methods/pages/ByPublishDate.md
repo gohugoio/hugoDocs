@@ -14,7 +14,7 @@ action:
 
 When sorting by publish date, the value is determined by your [site configuration], defaulting to the `publishDate` field in front matter.
 
-[site configuration]: /getting-started/configuration/#configure-dates
+[site configuration]: /configuration/frontmatter/#dates
 
 ```go-html-template
 {{ range .Pages.ByPublishDate }}
