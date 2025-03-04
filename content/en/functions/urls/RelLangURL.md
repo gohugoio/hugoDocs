@@ -33,6 +33,7 @@ With `baseURL = https://example.org/`
 {{ relLangURL "articles" }}                → /en/articles
 {{ relLangURL "style.css" }}               → /en/style.css
 {{ relLangURL "https://example.org/foo" }} → /en/foo
+{{ relLangURL "https://foo.example.org" }} → https://foo.example.org
 ```
 
 With `baseURL = https://example.org/docs/`
@@ -42,6 +43,7 @@ With `baseURL = https://example.org/docs/`
 {{ relLangURL "articles" }}                     → /docs/en/articles
 {{ relLangURL "style.css" }}                    → /docs/en/style.css
 {{ relLangURL "https://example.org/docs/foo" }} → /docs/en/foo
+{{ relLangURL "https://docs.example.org/foo" }} → https://docs.example.org/foo
 ```
 
 #### Input begins with a slash
