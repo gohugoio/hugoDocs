@@ -14,7 +14,7 @@ action:
 
 When sorting by expiration date, the value is determined by your [site configuration], defaulting to the `expiryDate` field in front matter.
 
-[site configuration]: /getting-started/configuration/#configure-dates
+[site configuration]: /configuration/front-matter/#dates
 
 ```go-html-template
 {{ range .Pages.ByExpiryDate }}

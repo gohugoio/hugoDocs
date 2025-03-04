@@ -10,7 +10,6 @@ action:
     - methods/resource/Filter
   returnType: images.filter
   signatures: ['images.Text TEXT [OPTIONS]']
-toc: true
 ---
 
 ## Options

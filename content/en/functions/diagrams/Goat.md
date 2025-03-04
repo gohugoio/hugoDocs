@@ -8,7 +8,6 @@ action:
   related: []
   returnType: diagrams.goatDiagram
   signatures: ['diagrams.Goat INPUT']
-toc: true
 ---
 
 Useful in a [code block render hook], the `diagram.Goat` function converts ASCII art to an SVG diagram, returning a [GoAT] diagram object with the following methods:

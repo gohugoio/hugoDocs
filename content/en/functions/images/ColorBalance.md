@@ -10,7 +10,6 @@ action:
     - methods/resource/Filter
   returnType: images.filter
   signatures: [images.ColorBalance PCTRED PCTGREEN PCTBLUE]
-toc: true
 ---
 
 The percentage for each channel (red, green, blue) must be in the range [-100, 500].
@@ -23,7 +22,7 @@ Create the filter:
 {{ $filter := images.ColorBalance -10 10 50 }}
 ```
 
-{{% include "functions/images/_common/apply-image-filter.md" %}}
+{{% include "/_common/functions/images/apply-image-filter.md" %}}
 
 ## Example
 

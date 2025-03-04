@@ -62,7 +62,7 @@ Use `else if` to check multiple conditions.
 {{ end }}
 ```
 
-{{% include "functions/go-template/_common/text-template.md" %}}
+{{% include "/_common/functions/go-template/text-template.md" %}}
 
 [`if`]: /functions/go-template/if/
 [`with`]: /functions/go-template/with/

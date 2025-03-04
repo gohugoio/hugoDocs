@@ -1,6 +1,6 @@
 ---
 title: PrevInSection
-description: Returns the previous regular page in a section, relative to the given page. 
+description: Returns the previous regular page in a section, relative to the given page.
 categories: []
 keywords: []
 action:
@@ -12,4 +12,4 @@ action:
   signatures: [PAGE.PrevInSection]
 ---
 
-{{% include "methods/page/_common/nextinsection-and-previnsection.md" %}}
+{{% include "/_common/methods/page/nextinsection-and-previnsection.md" %}}

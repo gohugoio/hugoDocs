@@ -1,6 +1,6 @@
 ---
 title: path.Split
-description: Replaces path separators with slashes (`/`) and splits the resulting path immediately following the final slash, separating it into a directory and file name component. 
+description: Replaces path separators with slashes (`/`) and splits the resulting path immediately following the final slash, separating it into a directory and file name component.
 categories: []
 keywords: []
 action:

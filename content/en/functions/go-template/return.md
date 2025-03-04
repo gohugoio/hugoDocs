@@ -10,7 +10,6 @@ action:
     - functions/partials/IncludeCached
   returnType: any
   signatures: ['return [VALUE]']
-toc: true
 ---
 
 The `return` statement is a non-standard extension to Go's [text/template package]. Used within partial templates, the `return` statement terminates template execution and returns the given value, if any.

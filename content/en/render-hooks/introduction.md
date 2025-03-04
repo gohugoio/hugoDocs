@@ -1,14 +1,9 @@
 ---
 title: Introduction
 description: An introduction to Hugo's render hooks.
-categories: [render hooks]
+categories: []
 keywords: []
-menu:
-  docs:
-    identifier: render-hooks-introduction
-    parent: render-hooks
-    weight: 20
-weight: 20
+weight: 10
 ---
 
 When rendering Markdown to HTML, render hooks override the conversion. Each render hook is a template, with one template for each supported element type:

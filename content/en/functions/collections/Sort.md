@@ -11,7 +11,6 @@ action:
     - functions/collections/Uniq
   returnType: any
   signatures: ['collections.Sort COLLECTION [KEY] [ORDER]']
-toc: true
 aliases: [/functions/sort]
 ---
 

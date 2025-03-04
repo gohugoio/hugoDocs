@@ -15,6 +15,8 @@ The `Data` method on a resource returned by the [`resources.GetRemote`] function
 
 [`resources.GetRemote`]: /functions/resources/getremote/
 
+## Example
+
 ```go-html-template
 {{ $url := "https://example.org/images/a.jpg" }}
 {{ $opts := dict "responseHeaders" (slice "Server") }}
@@ -36,30 +38,31 @@ The `Data` method on a resource returned by the [`resources.GetRemote`] function
 {{ end }}
 ```
 
-###### ContentLength
+## Methods
+
+### ContentLength
 
 (`int`) The content length in bytes.
 
-###### ContentType
+### ContentType
 
 (`string`) The content type.
 
-###### Headers
+### Headers
 
 (`map[string][]string`) A map of response headers matching those requested in the [`responseHeaders`] option passed to the `resources.GetRemote` function. The header name matching is case-insensitive. In most cases there will be one value per header key.
 
-[`responseHeaders`]: /functions/resources/getremote/#responseheaders
-
-###### Status
+### Status
 
 (`string`) The HTTP status text.
 
-###### StatusCode
+### StatusCode
 
 (`int`) The HTTP status code.
 
-###### TransferEncoding
+### TransferEncoding
 
 (`string`) The transfer encoding.
 
 [`resources.GetRemote`]: /functions/resources/getremote/
+[`responseHeaders`]: /functions/resources/getremote/#responseheaders

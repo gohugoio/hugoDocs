@@ -1,6 +1,6 @@
 ---
 title: Err
-description: Applicable to resources returned by the resources.GetRemote function, returns an error message if the HTTP request fails, else nil. 
+description: Applicable to resources returned by the resources.GetRemote function, returns an error message if the HTTP request fails, else nil.
 categories: []
 keywords: []
 action:

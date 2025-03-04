@@ -12,7 +12,6 @@ action:
     - functions/encoding/Jsonify
   returnType: any
   signatures: ['transform.Unmarshal [OPTIONS] INPUT']
-toc: true
 aliases: [/functions/transform.unmarshal]
 ---
 
@@ -133,7 +132,7 @@ comment
 : (`string`) The comment character used in the CSV. If set, lines beginning with the comment character without preceding whitespace are ignored.
 
 lazyQuotes {{< new-in 0.122.0 />}}
-: (`bool`) If true, a quote may appear in an unquoted field and a non-doubled quote may appear in a quoted field. Default is `false`.
+: (`bool`) Whether to allow a quote in an unquoted field, or to allow a non-doubled quote in a quoted field. Default is `false`.
 
 ```go-html-template
 {{ $csv := "a;b;c" | transform.Unmarshal (dict "delimiter" ";") }}

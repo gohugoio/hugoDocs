@@ -7,12 +7,11 @@ action:
   related: []
   returnType: int
   signatures: [TAXONOMY.Count TERM]
-toc: true
 ---
 
 The `Count` method on a `Taxonomy` object returns the number of number of [weighted pages](g) to which the given [term](g) has been assigned.
 
-{{% include "methods/taxonomy/_common/get-a-taxonomy-object.md" %}}
+{{% include "/_common/methods/taxonomy/get-a-taxonomy-object.md" %}}
 
 ## Count the weighted pages
 

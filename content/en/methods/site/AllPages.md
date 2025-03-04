@@ -12,7 +12,7 @@ action:
   signatures: [SITE.AllPages]
 ---
 
-This method returns all page [kinds](g) in all languages. That includes the home page, section pages, taxonomy pages, term pages, and regular pages.
+This method returns all page [kinds](g) in all languages, in the [default sort order](g). That includes the home page, section pages, taxonomy pages, term pages, and regular pages.
 
 In most cases you should use the [`RegularPages`] method instead.
 

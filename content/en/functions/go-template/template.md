@@ -42,7 +42,7 @@ The example above can be rewritten using an [inline partial] template:
 {{ end }}
 ```
 
-{{% include "functions/go-template/_common/text-template.md" %}}
+{{% include "/_common/functions/go-template/text-template.md" %}}
 
 [`partial`]: /functions/partials/include/
 [inline partial]: /templates/partial/#inline-partials

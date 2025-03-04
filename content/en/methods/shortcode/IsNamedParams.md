@@ -14,7 +14,7 @@ To support both positional and named arguments when calling a shortcode, use the
 
 With this shortcode template:
 
-{{< code file=layouts/shortcodes/myshortcode.html  >}}
+{{< code file=layouts/shortcodes/myshortcode.html >}}
 {{ if .IsNamedParams }}
   {{ printf "%s %s." (.Get "greeting") (.Get "firstName") }}
 {{ else }}
@@ -24,7 +24,7 @@ With this shortcode template:
 
 Both of these calls return the same value:
 
-{{< code file=content/about.md lang=md >}}
+{{< code file=content/about.md lang=text >}}
 {{</* myshortcode greeting="Hello" firstName="world" */>}}
 {{</* myshortcode "Hello" "world" */>}}
 {{< /code >}}

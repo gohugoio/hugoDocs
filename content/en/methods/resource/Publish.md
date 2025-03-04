@@ -11,6 +11,8 @@ action:
   signatures: [RESOURCE.Publish]
 ---
 
+{{% include "/_common/methods/resource/global-page-remote-resources.md" %}}
+
 The `Publish` method on a `Resource` object writes the resource to the publish directory, typically `public`.
 
 ```go-html-template
@@ -30,5 +32,3 @@ Instead of this:
 ```go-html-template
 {{ $noop := $resource.Permalink }}
 ```
-
-{{% include "methods/resource/_common/global-page-remote-resources.md" %}}

@@ -13,10 +13,9 @@ action:
   returnType: 
   signatures: [range COLLECTION]
 aliases: [/functions/range]
-toc: true
 ---
 
-{{% include "functions/go-template/_common/truthy-falsy.md" %}}
+{{% include "/_common/functions/truthy-falsy.md" %}}
 
 ```go-html-template
 {{ $s := slice "foo" "bar" "baz" }}
@@ -191,7 +190,7 @@ Is rendered to:
 
 Unlike ranging over an array or slice, Hugo sorts by key when ranging over a map.
 
-{{% include "functions/go-template/_common/text-template.md" %}}
+{{% include "/_common/functions/go-template/text-template.md" %}}
 
 [`else`]: /functions/go-template/else/
 [`break`]: /functions/go-template/break/

@@ -10,7 +10,6 @@ action:
     - methods/resource/Filter
   returnType: images.filter
   signatures: [images.Invert]
-toc: true
 ---
 
 ## Usage
@@ -21,7 +20,7 @@ Create the filter:
 {{ $filter := images.Invert }}
 ```
 
-{{% include "functions/images/_common/apply-image-filter.md" %}}
+{{% include "/_common/functions/images/apply-image-filter.md" %}}
 
 ## Example
 

@@ -11,7 +11,7 @@ action:
   signatures: [PAGE.RegularPages]
 ---
 
-The `RegularPages` method on a `Page` object is available to these [page kinds](g): `home`, `section`, `taxonomy`, and `term`. The templates for these page kinds receive a page [collection](g) in [context](g).
+The `RegularPages` method on a `Page` object is available to these [page kinds](g): `home`, `section`, `taxonomy`, and `term`. The templates for these page kinds receive a page [collection](g) in [context](g), in the [default sort order](g).
 
 Range through the page collection in your template:
 

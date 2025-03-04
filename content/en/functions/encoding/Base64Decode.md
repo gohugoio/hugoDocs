@@ -29,7 +29,7 @@ To retrieve and render the content:
 {{ with try (resources.GetRemote $url) }}
   {{ with .Err }}
     {{ errorf "%s" . }}
-  {{ else with .Value}}
+  {{ else with .Value }}
     {{ with . | transform.Unmarshal }}
       {{ .content | base64Decode | markdownify }}
     {{ end }}

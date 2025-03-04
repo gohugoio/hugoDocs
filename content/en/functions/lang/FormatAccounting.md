@@ -18,4 +18,4 @@ action:
 {{ 512.5032 | lang.FormatAccounting 2 "NOK" }} → NOK512.50
 ```
 
-{{% include "functions/_common/locales.md" %}}
+{{% include "/_common/functions/locales.md" %}}

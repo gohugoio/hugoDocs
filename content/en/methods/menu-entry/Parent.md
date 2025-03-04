@@ -40,7 +40,7 @@ This template renders the nested menu, listing the `parent` property next each o
       {{ if .HasChildren }}
         <ul>
           {{ range .Children }}
-            <li><a href="{{ .URL }}">{{ .Name }}</a> ({{ .Parent  }})</li>
+            <li><a href="{{ .URL }}">{{ .Name }}</a> ({{ .Parent }})</li>
           {{ end }}
         </ul>
       {{ end }}

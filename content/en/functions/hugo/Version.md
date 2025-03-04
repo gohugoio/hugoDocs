@@ -11,5 +11,5 @@ action:
 ---
 
 ```go-html-template
-{{ hugo.Version }} → 0.141.0
+{{ hugo.Version }} → 0.144.2
 ```

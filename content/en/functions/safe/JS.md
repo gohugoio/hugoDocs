@@ -13,13 +13,12 @@ action:
     - functions/safe/URL
   returnType: template.JS
   signatures: [safe.JS INPUT]
-toc: true
 aliases: [/functions/safejs]
 ---
 
 ## Introduction
 
-{{% include "functions/_common/go-html-template-package.md" %}}
+{{% include "/_common/functions/go-html-template-package.md" %}}
 
 ## Usage
 
