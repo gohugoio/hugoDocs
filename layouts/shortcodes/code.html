@@ -21,7 +21,7 @@
   {{- end -}}
 
 
-  <div class="" x-ref="code">
+  <div x-ref="code">
     {{ $inner := trim .Inner "\n" | safeHTML }}
     {{ if .Get "nocode" }}
       {{ $inner }}
