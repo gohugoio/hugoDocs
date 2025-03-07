@@ -120,6 +120,14 @@ jobs:
         uses: actions/configure-pages@v5
       - name: Install Node.js dependencies
         run: "[[ -f package-lock.json || -f npm-shrinkwrap.json ]] && npm ci || true"
+      - name: Restore resources
+        uses: actions/cache/restore@v4
+        with:
+          path: |
+            resources
+          key: ${{ runner.os }}-resources-${{ github.run_id }}
+          restore-keys: |
+            ${{ runner.os }}-resources-
       - name: Build with Hugo
         env:
           HUGO_CACHEDIR: ${{ runner.temp }}/hugo_cache
@@ -130,6 +138,12 @@ jobs:
             --gc \
             --minify \
             --baseURL "${{ steps.pages.outputs.base_url }}/"
+      - name: Save resources
+        uses: actions/cache/save@v4
+        with:
+          path: |
+            resources
+          key: ${{ runner.os }}-resources-${{ github.run_id }}
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
