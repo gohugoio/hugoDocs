@@ -1,0 +1,15 @@
+Term,Definition,Alternative terms,Rejected terms,Related terms,Part of speech,Source,Notes for translation and localization,Do not translate,Updated on,Description of update
+access control list,"An access control list (ACL), with respect to a computer file system, is a list of permissions attached to an object. An ACL specifies which users or system processes are granted access to objects, as well as what operations are allowed on given objects.",ACL,,,Noun,Wikipedia.org,,"When you have enabled access control on client data, the access control lists (ACLs) for the data are also included in the backup.",,
+"allowlist, allow list",,,"* whitelist
+* white list",denylist,Noun,,,,,
+application programming interface,A set of definitions and protocols for building and integrating application software.,API,,,Noun,,,"Representational State Transfer, or REST, is a software architecture style for building scalable web services, and an application programming interface, or API, is a set of routines, protocols, and tools for building software applications.",,
+autoscaling,Adding or removing computing resources to account for processing load.,,,,Noun,,,,,
+binary large objects,,BLOBs,blobs,,Noun,,," SharePoint Storage Manager manages content database growth in SharePoint by storing Binary Large Objects (BLOBs) in a BLOB storage location, leaving only the corresponding metadata in the content database. ",,
+"denylist, deny list",,,"* blacklist, blocklist
+* black list, block list""",allowlist,Noun,,,,,
+box,A text box in a UI.,,"* field
+* spin box",,Noun,,,"In the User Name box, type the Active Directory user account.",,
+command line interface,"A form of interface between the operating system and the user in which the user types commands, using a special command language.",,"* command-line interface
+* Command Line Interface",,Noun,Microsoft Language Portal,,The script can later be executed from the [command line interface].,,
+air-gapped,a physically isolated computer from unsecured networks,,,,Noun,,,,,
+application programming interface,"An API specifies how software components can be interacted with programmatically. Veritone's primary application programming interface (API) is a GraphQL interface. It can be accessed just like other HTTP APIs (e.g., REST) with POST requests.","API, after first ref in each doc",,,Noun,,"Representational State Transfer, or REST, is a software architecture style for building scalable web services, and an application programming interface, or API, is a set of routines, protocols, and tools for building software applications.",,,
