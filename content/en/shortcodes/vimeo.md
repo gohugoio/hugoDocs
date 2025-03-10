@@ -35,6 +35,10 @@ class
 id
 : (`string`) The `id` of the Vimeo video
 
+loading
+: {{< new-in 0.146.0 />}}
+: (`string`) The loading attribute of the `iframe` element, either `eager` or `lazy`. Default is `eager`.
+
 title
 : (`string`) The `title` attribute of the `iframe` element.
 
