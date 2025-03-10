@@ -49,14 +49,16 @@
       {{ $t.Stop }}
 
       {{ if .Params.functions_and_methods.signatures }}
-        <div class="mb-4 not-prose">
+        <div class="mb-6 not-prose">
           {{- partial "docs/functions-signatures.html" . -}}
           {{- partial "docs/functions-return-type.html" . -}}
           {{- partial "docs/functions-aliases.html" . -}}
         </div>
       {{ end }}
       {{ $t := debug.Timer "single.content" }}
-      {{ .Content }}
+      <div class="border-t-1 border-gray-400 dark:border-gray-600 pt-1">
+        {{ .Content }}
+      </div>
       {{ $t.Stop }}
       {{ $t := debug.Timer "single.page-edit" }}
       {{ partial "layouts/page-edit.html" . }}
