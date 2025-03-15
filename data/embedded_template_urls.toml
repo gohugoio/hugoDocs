@@ -33,8 +33,6 @@
 'qr' = 'shortcodes/qr.html'
 'ref' = 'shortcodes/ref.html'
 'relref' = 'shortcodes/relref.html'
-'twitter' = 'shortcodes/twitter.html'
-'twitter_simple' = 'shortcodes/twitter_simple.html'
 'vimeo' = 'shortcodes/vimeo.html'
 'vimeo_simple' = 'shortcodes/vimeo_simple.html'
 'x' = 'shortcodes/x.html'
