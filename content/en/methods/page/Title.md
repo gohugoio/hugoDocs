@@ -19,7 +19,7 @@ title = 'About us'
 {{ .Title }} → About us
 ```
 
-With section, taxonomy, and term pages not backed by a file, the `Title` method returns the section name, capitalized and pluralized. You can disable these transformations by setting [`capitalizeListTitles`] and [`pluralizeListTitles`] in your site configuration. For example:
+With section, taxonomy, and term pages not backed by a file, the `Title` method returns the section title. With home pages not backed by a file, the `Title` method returns the site title. These default values are capitalized and pluralized. You can disable these transformations by setting [`capitalizeListTitles`] and [`pluralizeListTitles`] in your site configuration. For example:
 
 {{< code-toggle file=hugo >}}
 capitalizeListTitles = false
