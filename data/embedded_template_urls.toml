@@ -6,16 +6,16 @@
 
 # Templates
 'alias' = 'alias.html'
-'disqus' = 'disqus.html'
-'google_analytics' = 'google_analytics.html'
-'opengraph' = 'opengraph.html'
-'pagination' = 'pagination.html'
+'disqus' = '_partials/disqus.html'
+'google_analytics' = '_partials/google_analytics.html'
+'opengraph' = '_partials/opengraph.html'
+'pagination' = '_partials/pagination.html'
 'robots' = '_default/robots.txt'
 'rss' = '_default/rss.xml'
-'schema' = 'schema.html'
+'schema' = '_partials/schema.html'
 'sitemap' = '_default/sitemap.xml'
 'sitemapindex' = '_default/sitemapindex.xml'
-'twitter_cards' = 'twitter_cards.html'
+'twitter_cards' = '_partials/twitter_cards.html'
 
 # Render hooks
 'render-codeblock-goat' = '_default/_markup/render-codeblock-goat.html'
