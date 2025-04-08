@@ -58,13 +58,13 @@ target
 
 platform
 : {{< new-in 0.140.0 />}}
-: (`string`) One of `browser`, `node`, `neutral`. The default is `browser`. See https://esbuild.github.io/api/#platform.
+: (`string`) One of `browser`, `node`, `neutral`. Default is `browser`. See https://esbuild.github.io/api/#platform.
 
 externals
 : (`slice`) External dependencies. Use this to trim dependencies you know will never be executed. See https://esbuild.github.io/api/#external.
 
 defines
-: (`map`) This option allows to define a set of string replacements to be performed when building. It should be a map where each key will be replaced by its value.
+: (`map`) This option allows you to define a set of string replacements to be performed when building. It must be a map where each key will be replaced by its value.
 
   ```go-html-template
   {{ $defines := dict "process.env.NODE_ENV" `"development"` }}
@@ -84,7 +84,7 @@ sourcesContent
 
 JSX
 : {{< new-in 0.124.0 />}}
-: (`string`) How to handle/transform JSX syntax. One of: `transform`, `preserve`, `automatic`. The default is `transform`. Notably, the `automatic` transform was introduced in React 17+ and will cause the necessary JSX helper functions to be imported automatically. See https://esbuild.github.io/api/#jsx.
+: (`string`) How to handle/transform JSX syntax. One of: `transform`, `preserve`, `automatic`. Default is `transform`. Notably, the `automatic` transform was introduced in React 17+ and will cause the necessary JSX helper functions to be imported automatically. See https://esbuild.github.io/api/#jsx.
 
 JSXImportSource
 : {{< new-in 0.124.0 />}}
