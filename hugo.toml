@@ -142,6 +142,10 @@ category = 'categories'
 
 ######## GLOBAL ITEMS TO BE SHARED WITH THE HUGO SITES ########
 [menus]
+    [[menus.hugo]]
+        identifier = 'Hugo'
+        name       = 'HUGO'
+        pageRef    = '/'
     [[menus.global]]
         identifier = 'news'
         name       = 'News'
