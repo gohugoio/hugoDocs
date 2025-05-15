@@ -41,9 +41,10 @@
     </div>
   </div>
 
-  <div class="-my-5 pl-2 grow-0">
-    {{/* Search. */}}
-    {{ partial "layouts/search/input.html" . }}
+  <div class="-my-5 pl-2 grow-0 flex space-x-2">
+    {{ partial "dimensionselector.html" (dict "title" "Versions" "dimension" "version" "page" . ) }}
+    {{ partial "dimensionselector.html" (dict "title" "Languages" "dimension" "language" "page" . ) }}
+
   </div>
   <div
     class="relative ml-0 md:ml-8 flex content-center basis-0 justify-end gap-0 sm:gap-1 xl:grow-1">
@@ -57,8 +58,7 @@
       class="hidden sm:block ml-2 sm:ml-6 h-6 fill-slate-400 group-hover:fill-slate-500 dark:group-hover:fill-slate-300">
       {{ partial "layouts/header/githubstars.html" . }}
     </div>
-    <div
-      class="hidden sm:block ml-2 sm:ml-6 h-6">
+    <div class="hidden sm:block ml-2 sm:ml-6 h-6">
       {{ partial "layouts/header/mastodon.html" . }}
     </div>
   </div>
