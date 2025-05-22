@@ -70,7 +70,7 @@ touch .github/workflows/hugo.yaml
 > [!note]
 > The workflow below ensures Hugo's `cacheDir` is persistent, preserving modules, processed images, and [`resources.GetRemote`] data between builds.
 
-Copy and paste the YAML below into the file you created. Change the branch name and Hugo version as needed.
+Copy and paste the YAML below into the file you created. To ensure accuracy, do not use the Copy code icon (use your mouse/touchpad to select and paste the code). Change the branch name and Hugo version as needed.
 
 ```yaml {file=".github/workflows/hugo.yaml" copy=true}
 # Sample workflow for building and deploying a Hugo site to GitHub Pages
