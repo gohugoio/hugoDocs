@@ -57,22 +57,7 @@ layouts/
       └── render-table.html
 ```
 
-The template lookup order allows you to create different render hooks for each page [type](g), [kind](g), language, and [output format](g). For example:
-
-```tree
-layouts/
-├── _markup/
-│   ├── render-link.html
-│   └── render-link.rss.xml
-├── books/
-│   └── _markup/
-│       ├── render-link.html
-│       └── render-link.rss.xml
-└── films/
-    └── _markup/
-        ├── render-link.html
-        └── render-link.rss.xml
-```
+See [template lookup order][] to learn how to target render hook templates by content path, page kind, language, and output format.
 
 The remaining pages in this section describe each type of render hook, including examples and the context received by each template.
 
@@ -84,3 +69,4 @@ The remaining pages in this section describe each type of render hook, including
 [Passthrough elements]: /render-hooks/passthrough/
 [Tables]: /render-hooks/tables/
 [content formats]: /content-management/formats/
+[template lookup order]: /templates/lookup-order/

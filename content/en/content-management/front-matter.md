@@ -72,7 +72,7 @@ The most common front matter fields are `date`, `draft`, `title`, and `weight`, 
 : (`string`) The date that the page was last modified. Note that the TOML format also supports unquoted date/time values. See the [dates](#dates) section for examples. Access this value from a template using the [`Lastmod`][] method on a `Page` object.
 
 `layout`
-: (`string`) Provide a template name to [target a specific template][],  overriding the default [template lookup order][]. Set the value to the base file name of the template, excluding its extension. Access this value from a template using the [`Layout`][] method on a `Page` object.
+: (`string`) A custom layout name to target a specific template. Access this value from a template using the [`Layout`][] method on a `Page` object. See [layout details][] for information on how this field affects template selection.
 
 `linkTitle`
 : (`string`) Typically a shorter version of the `title`. Access this value from a template using the [`LinkTitle`][] method on a `Page` object.
@@ -138,7 +138,7 @@ The most common front matter fields are `date`, `draft`, `title`, and `weight`, 
 : (`string`) An arbitrary value used to relate two or more translations of the same page, useful when the translated pages do not share a common path. Access this value from a template using the [`TranslationKey`][] method on a `Page` object.
 
 `type`
-: (`string`) The [content type](g), overriding the value derived from the top-level section in which the page resides. Access this value from a template using the [`Type`][] method on a `Page` object.
+: (`string`) The [content type](g), overriding the value derived from the top-level section in which the page resides. Access this value from a template using the [`Type`][] method on a `Page` object. See [type details][] for information on how this field affects template selection.
 
 `unpublishdate`
 : Alias to [expirydate](#expirydate).
@@ -332,10 +332,10 @@ To override the default time zone, set the [`timeZone`][] in your project config
 [content format]: /content-management/formats/
 [content formats]: /content-management/formats/#classification
 [details]: /configuration/cascade/
+[layout details]: /templates/lookup-order/#using-layout
 [leaf bundles]: /content-management/page-bundles/#leaf-bundles
 [menus]: /content-management/menus/#define-in-front-matter
 [output formats]: /configuration/output-formats/
 [page resources]: /content-management/page-resources/#metadata
 [sitemap templates]: /templates/sitemap/
-[target a specific template]: /templates/lookup-order/#target-a-template
-[template lookup order]: /templates/lookup-order/
+[type details]: /templates/lookup-order/#using-type
