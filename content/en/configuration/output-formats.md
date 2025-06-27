@@ -172,21 +172,7 @@ With `permalinkable` set to true for `json` in the same `page.json.json` templat
 
 ## Template lookup order
 
-Each output format requires a template conforming to the [template lookup order][].
-
-For the highest specificity in the template lookup order, include the page kind, output format, and suffix in the file name:
-
-```text
-[page kind].[output format].[suffix]
-```
-
-For example, for section pages:
-
-Output format|Template path
-:--|:--
-`html`|`layouts/section.html.html`
-`json`|`layouts/section.json.json`
-`rss`|`layouts/section.rss.xml`
+Each output format requires a template. See [template lookup order][] for template naming and selection rules, including output-format-specific examples.
 
 [`AlternativeOutputFormats`]: /methods/page/alternativeoutputformats/
 [`OutputFormats`]: /methods/page/outputformats/
