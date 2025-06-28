@@ -59,10 +59,26 @@ dataDir
 : (`string`) The designated directory for data files. Default is `data`. {{% module-mounts-note %}}
 
 defaultContentLanguage
-: (`string`) The project's default language key, conforming to the syntax described in [RFC 5646]. This value must match one of the defined language keys. Default is `en`.
+: (`string`) The projects's default content language, conforming to the syntax described in [RFC 5646]. This value must match one of the defined [language keys][]. Default is `en`.
 
 defaultContentLanguageInSubdir
-: (`bool`) Whether to publish the default language site to a subdirectory matching the `defaultContentLanguage`. Default is `false`.
+: (`bool`) Whether to publish the default content language to a subdirectory matching the `defaultContentLanguage`. Default is `false`.
+
+defaultContentRole
+: {{< new-in 0.153.0 />}}
+: (`string`) The project's default content [role](g). Default is `guest`.
+
+defaultContentRoleInSubdir
+: {{< new-in 0.153.0 />}}
+: (`bool`) Whether to publish the default content [role](g) to a subdirectory matching the `defaultContentRole`. Default is `false`.
+
+defaultContentVersion
+: {{< new-in 0.153.0 />}}
+: (`string`) The project's default content version. Default is `v1.0.0`.
+
+defaultContentVersionInSubdir
+: {{< new-in 0.153.0 />}}
+: (`bool`) Whether to publish the default content version to a subdirectory matching the `defaultContentVersion`. Default is `false`.
 
 defaultOutputFormat
 : (`string`) The default output format for the site. If unspecified, the first available format in the defined order (by weight, then alphabetically) will be used.
@@ -240,6 +256,9 @@ renderSegments
 resourceDir
 : (`string`) The designated directory for caching output from [asset pipelines](g). Default is `resources`.
 
+roles
+: See [configure roles](/configuration/roles/).
+
 security
 : See [configure security](/configuration/security/).
 
@@ -293,6 +312,9 @@ titleCaseStyle
 
 uglyurls
 : See [configure ugly URLs](/configuration/ugly-urls/).
+
+versions
+: See [configure versions](/configuration/versions/).
 
 ## Cache directory
 
@@ -354,6 +376,7 @@ Some configuration settings, such as menus and custom parameters, can be defined
 [embedded Open Graph template]: <{{% eturl opengraph %}}>
 [embedded RSS template]: <{{% eturl rss %}}>
 [IANA Time Zone Database]: https://en.wikipedia.org/wiki/List_of_tz_database_time_zones
+[language keys]: /configuration/languages/#language-keys
 [module mounts]: /configuration/module/#mounts
 [os.UserCacheDir]: https://pkg.go.dev/os#UserCacheDir
 [RFC 5646]: https://datatracker.ietf.org/doc/html/rfc5646#section-2.1

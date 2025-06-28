@@ -18,10 +18,10 @@ disableLanguages = []
 {{< /code-toggle >}}
 
 defaultContentLanguage
-: (`string`) The project's default language key, conforming to the syntax described in [RFC 5646]. This value must match one of the defined [language keys](#language-keys). Default is `en`.
+: (`string`) The project's default content language, conforming to the syntax described in [RFC 5646]. This value must match one of the defined [language keys](#language-keys). Default is `en`.
 
 defaultContentLanguageInSubdir
-: (`bool`) Whether to publish the default language site to a subdirectory matching the `defaultContentLanguage`. Default is `false`.
+: (`bool`) Whether to publish the default content language to a subdirectory matching the `defaultContentLanguage`. Default is `false`.
 
 disableDefaultLanguageRedirect
 : {{< new-in 0.140.0 />}}
