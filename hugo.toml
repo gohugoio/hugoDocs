@@ -67,6 +67,7 @@ disableAliases = true
           inline = [['\(', '\)']]
     [markup.goldmark.parser]
       autoDefinitionTermID = true
+      wrapStandAloneImageWithinParagraph = false
       [markup.goldmark.parser.attribute]
         block = true
   [markup.highlight]
