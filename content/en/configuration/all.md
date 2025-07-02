@@ -59,10 +59,26 @@ dataDir
 : (`string`) The designated directory for data files. Default is `data`. {{% module-mounts-note %}}
 
 defaultContentLanguage
-: (`string`) The project's default language key, conforming to the syntax described in [RFC 5646]. This value must match one of the defined language keys. Default is `en`.
+: (`string`) The project's default content language key, conforming to the syntax described in [RFC 5646]. This value must match one of the defined language keys. Default is `en`.
 
 defaultContentLanguageInSubdir
-: (`bool`) Whether to publish the default language site to a subdirectory matching the `defaultContentLanguage`. Default is `false`.
+: (`bool`) Whether to publish the default content language site to a subdirectory matching the `defaultContentLanguage`. Default is `false`.
+
+defaultContentRole
+: {{< new-in 0.148.0 />}}
+: (`string`) The site's default content role. Default is `guest`.
+
+defaultContentRoleInSubdir
+: {{< new-in 0.148.0 />}}
+: (`bool`) Whether to publish the default content role to a subdirectory matching the `defaultContentRole`. Default is `false`.
+
+defaultContentVersion
+: {{< new-in 0.148.0 />}}
+: (`string`) The site's default content version. Default is `TODO`.
+
+defaultContentVersionInSubdir
+: {{< new-in 0.148.0 />}}
+: (`bool`) Whether to publish the default content version to a subdirectory matching the `defaultContentVersion`. Default is `false`.
 
 defaultOutputFormat
 : (`string`) The default output format for the site. If unspecified, the first available format in the defined order (by weight, then alphabetically) will be used.
@@ -240,6 +256,9 @@ renderSegments
 resourceDir
 : (`string`) The designated directory for caching output from [asset pipelines](g). Default is `resources`.
 
+roles
+: See [configure roles](/configuration/roles/).
+
 security
 : See [configure security](/configuration/security/).
 
@@ -293,6 +312,9 @@ titleCaseStyle
 
 uglyurls
 : See [configure ugly URLs](/configuration/ugly-urls/).
+
+versions
+: See [configure versions](/configuration/versions/).
 
 ## Cache directory
 
