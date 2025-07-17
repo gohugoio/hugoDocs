@@ -142,7 +142,7 @@ public/
 
 In a simple hosting environment, where you typically `ftp`, `rsync`, or `scp` your files to the root of a virtual host, the contents of the `public` directory are all that you need.
 
-Most of our users deploy their sites using a [CI/CD](g) workflow, where a push[^1] to their GitHub or GitLab repository triggers a build and deployment. Popular providers include [AWS Amplify], [CloudCannon], [Cloudflare Pages], [GitHub Pages], [GitLab Pages], and [Netlify].
+Most of our users deploy their sites on [a regular web server], or using a [CI/CD](g) workflow, where a push[^1] to their GitHub or GitLab repository triggers a build and deployment. Popular providers include [AWS Amplify], [CloudCannon], [Cloudflare Pages], [GitHub Pages], [GitLab Pages], and [Netlify].
 
 Learn more in the [host and deploy] section.
 
@@ -153,6 +153,7 @@ Learn more in the [host and deploy] section.
 [`hugo server`]: /commands/hugo_server/
 [`hugo`]: /commands/hugo/
 [`publishDir`]: /configuration/all/#publishdir
+[a regular web server]: /host-and-deploy/host-on-a-regular-web-server
 [AWS Amplify]: https://aws.amazon.com/amplify/
 [build options]: /content-management/build-options/
 [CloudCannon]: https://cloudcannon.com/

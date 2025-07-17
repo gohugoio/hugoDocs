@@ -12,7 +12,7 @@ Git is required to:
 - Use the [Hugo Modules] feature
 - Install a theme as a Git submodule
 - Access [commit information] from a local Git repository
-- Host your site with services such as [CloudCannon], [Cloudflare Pages], [GitHub Pages], [GitLab Pages], and [Netlify]
+- Host your site on [a regular web server], or with services such as [CloudCannon], [Cloudflare Pages], [GitHub Pages], [GitLab Pages], and [Netlify]
 
 Go is required to:
 
@@ -27,6 +27,7 @@ Please refer to the relevant documentation for installation instructions:
 - [Go][go install]
 - [Dart Sass][dart sass install]
 
+[a regular web server]: /host-and-deploy/host-on-a-regular-web-server
 [cloudcannon]: https://cloudcannon.com/
 [cloudflare pages]: https://pages.cloudflare.com/
 [dart sass install]: /functions/css/sass/#dart-sass
