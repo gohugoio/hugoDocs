@@ -156,23 +156,7 @@ jobs:
           git commit --allow-empty --message "Codeberg build for ${GITHUB_SHA}" && \
           git push origin pages
 ```
-Note that if you are using a custom domain, you should make sure that `.domains` file is included in the uploaded artifacts. Therefore, you should place it under `static` directory of your source branch, and a small modification should be made in the `Checkout the target branch and clean it up` section:
 
-```yaml {copy=true}
-      - name: Checkout the target branch, backup .domains and clean it up
-              run: |
-                git checkout pages || git switch --orphan pages && \
-               [ -f .domains ] && cp .domains /tmp/.domains || true && \
-                rm -Rfv $(ls -A | egrep -v '^(\.git|LICENSE)$')
-```
-And make sure to add another step between "download generated files" and "publish the website":
-
-```yaml {copy=true}
-      - name: Restore .domains
-        run: |
-            echo "Restoring .domains from backup"
-            cp /tmp/.domains .domains
-```
 The second file implements a more complex scenario: having your website sources in one repository and the resulting static website in another repository (in this case, `pages`). If you want Codeberg to make your website available at the root of your pages subdomain (`https://<YourUsername>.codeberg.page/`), you have to push that website to the default branch of your repository named `pages`.
 
 Since this action involves more than one repository, it will require a bit more preparation:
@@ -264,7 +248,6 @@ jobs:
 ```
 
 Once you commit one of the two files to your website source repository, you should see your first automated build firing up pretty soon. You can also trigger it manually by navigating to the **Actions** section of your repository web page, choosing **hugo.yaml** on the left and clicking on **Run workflow**.
-
 
 ## Other resources
 
