@@ -265,6 +265,7 @@ Nevertheless, it's worth noticing that in the example `.forgejo/workflows/hugo.y
           path: public/
           include-hidden-files: true # Prevents excluding .domains from uploading
 ```
+
 It is important to modify the workflow file accordingly if you are using a custom domain.
 
 
