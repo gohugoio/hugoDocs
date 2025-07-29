@@ -1,72 +1,98 @@
----
-title: "hugo build"
-slug: hugo_build
-url: /commands/hugo_build/
----
-## hugo build
+# Hugo Build Command
 
-Build your site
+Build your Hugo site with speed and flexibility.
 
-### Synopsis
+## Overview
 
-build is the main command, used to build your Hugo site.
+The `hugo build` command generates your static site, transforming your content and templates into a ready-to-deploy set of files. Hugo, a fast and flexible static site generator built in Go, makes this process efficient and customizable.
 
-Hugo is a Fast and Flexible Static Site Generator
-built with love by spf13 and friends in Go.
+For full documentation, visit [gohugo.io](https://gohugo.io)
 
-Complete documentation is available at https://gohugo.io/.
+## Usage
 
-```
+```bash
 hugo build [flags]
 ```
 
-### Options
+## Key Features
 
+- ⚡ **Fast Builds**: Generate your site in milliseconds
+- 🛠️ **Flexible Options**: Customize the build process with flags for drafts, caching, minification, and more
+- 🔄 **Watch Mode**: Rebuild automatically when files change using the `--watch` flag
+- 🌐 **Environment Support**: Tailor builds for different environments (e.g., development, production)
+
+## Command Line Options
+
+| Flag | Description | Example |
+|------|-------------|---------|
+| `-b, --baseURL` | Set the hostname (and path) for the site root | `--baseURL https://example.com/` |
+| `-D, --buildDrafts` | Include draft content in the build | `--buildDrafts` |
+| `-E, --buildExpired` | Include expired content in the build | `--buildExpired` |
+| `-F, --buildFuture` | Include content with a future publish date | `--buildFuture` |
+| `--cacheDir` | Specify the cache directory path | `--cacheDir /path/to/cache` |
+| `--cleanDestinationDir` | Remove files in destination not found in static directories | `--cleanDestinationDir` |
+| `--clock` | Set a custom time for Hugo (e.g., for testing) | `--clock 2021-11-06T22:30:00.00+09:00` |
+| `--config` | Specify a custom config file | `--config custom.yaml` |
+| `--configDir` | Set the config directory | `--configDir myconfig` |
+| `-c, --contentDir` | Specify the content directory path | `--contentDir content` |
+| `-d, --destination` | Set the output directory | `--destination public` |
+| `--disableKinds` | Disable specific page types (e.g., home, RSS) | `--disableKinds home,rss` |
+| `--enableGitInfo` | Add Git revision, date, author info to pages | `--enableGitInfo` |
+| `-e, --environment` | Specify the build environment | `--environment production` |
+| `--forceSyncStatic` | Copy all static files when changes are detected | `--forceSyncStatic` |
+| `--gc` | Run cleanup tasks to remove unused cache files | `--gc` |
+| `-h, --help` | Display help for the build command | `--help` |
+| `--ignoreCache` | Bypass the cache directory | `--ignoreCache` |
+| `--ignoreVendorPaths` | Ignore vendor paths matching Glob pattern | `--ignoreVendorPaths **/vendor/**` |
+| `-l, --layoutDir` | Specify the layout directory path | `--layoutDir layouts` |
+| `--logLevel` | Set the log level (debug, info, warn, error) | `--logLevel debug` |
+| `--minify` | Minify supported output formats (e.g., HTML) | `--minify` |
+| `--noBuildLock` | Prevent creation of .hugo_build.lock file | `--noBuildLock` |
+| `--noChmod` | Disable syncing file permission modes | `--noChmod` |
+| `--noTimes` | Disable syncing file modification times | `--noTimes` |
+| `--panicOnWarning` | Stop the build on first WARNING | `--panicOnWarning` |
+| `--poll` | Set polling interval for file system changes | `--poll 700ms` |
+| `--printI18nWarnings` | Print missing translation warnings | `--printI18nWarnings` |
+| `--printMemoryUsage` | Display memory usage during the build | `--printMemoryUsage` |
+| `--printPathWarnings` | Show warnings for duplicate target paths | `--printPathWarnings` |
+| `--printUnusedTemplates` | Show warnings for unused templates | `--printUnusedTemplates` |
+| `--quiet` | Run build in quiet mode (minimal output) | `--quiet` |
+| `--renderSegments` | Render specific named segments | `--renderSegments segment1,segment2` |
+| `-M, --renderToMemory` | Render to memory (useful for servers) | `--renderToMemory` |
+| `-s, --source` | Set source directory for reading files | `--source src` |
+| `--templateMetrics` | Display template execution metrics | `--templateMetrics` |
+| `--templateMetricsHints` | Suggest improvements via template metrics | `--templateMetricsHints` |
+| `-t, --theme` | Specify themes to use | `--theme mytheme` |
+| `--themesDir` | Set themes directory path | `--themesDir themes` |
+| `--trace` | Write trace output to a file | `--trace trace.log` |
+| `-w, --watch` | Watch for file changes and rebuild | `--watch` |
+
+## Examples
+
+### Basic build
+```bash
+# Build the site with default settings
+hugo build
 ```
-  -b, --baseURL string             hostname (and path) to the root, e.g. https://spf13.com/
-  -D, --buildDrafts                include content marked as draft
-  -E, --buildExpired               include expired content
-  -F, --buildFuture                include content with publishdate in the future
-      --cacheDir string            filesystem path to cache directory
-      --cleanDestinationDir        remove files from destination not found in static directories
-      --clock string               set the clock used by Hugo, e.g. --clock 2021-11-06T22:30:00.00+09:00
-      --config string              config file (default is hugo.yaml|json|toml)
-      --configDir string           config dir (default "config")
-  -c, --contentDir string          filesystem path to content directory
-  -d, --destination string         filesystem path to write files to
-      --disableKinds strings       disable different kind of pages (home, RSS etc.)
-      --enableGitInfo              add Git revision, date, author, and CODEOWNERS info to the pages
-  -e, --environment string         build environment
-      --forceSyncStatic            copy all files when static is changed.
-      --gc                         enable to run some cleanup tasks (remove unused cache files) after the build
-  -h, --help                       help for build
-      --ignoreCache                ignores the cache directory
-      --ignoreVendorPaths string   ignores any _vendor for module paths matching the given Glob pattern
-  -l, --layoutDir string           filesystem path to layout directory
-      --logLevel string            log level (debug|info|warn|error)
-      --minify                     minify any supported output format (HTML, XML etc.)
-      --noBuildLock                don't create .hugo_build.lock file
-      --noChmod                    don't sync permission mode of files
-      --noTimes                    don't sync modification time of files
-      --panicOnWarning             panic on first WARNING log
-      --poll string                set this to a poll interval, e.g --poll 700ms, to use a poll based approach to watch for file system changes
-      --printI18nWarnings          print missing translations
-      --printMemoryUsage           print memory usage to screen at intervals
-      --printPathWarnings          print warnings on duplicate target paths etc.
-      --printUnusedTemplates       print warnings on unused templates.
-      --quiet                      build in quiet mode
-      --renderSegments strings     named segments to render (configured in the segments config)
-  -M, --renderToMemory             render to memory (mostly useful when running the server)
-  -s, --source string              filesystem path to read files relative from
-      --templateMetrics            display metrics about template executions
-      --templateMetricsHints       calculate some improvement hints when combined with --templateMetrics
-  -t, --theme strings              themes to use (located in /themes/THEMENAME/)
-      --themesDir string           filesystem path to themes directory
-      --trace file                 write trace to file (not useful in general)
-  -w, --watch                      watch filesystem for changes and recreate as needed
+
+### Build with drafts and minification
+```bash
+# Include drafts and minify output
+hugo build --buildDrafts --minify
 ```
 
-### SEE ALSO
+### Watch mode for development
+```bash
+# Watch for file changes and rebuild
+hugo build --watch
+```
 
-* [hugo](/commands/hugo/)	 - Build your site
+### Production build
+```bash
+# Build for production with custom base URL
+hugo build --environment production --baseURL https://example.com/
+```
 
+## See Also
+
+- [hugo](https://gohugo.io) - Learn more about the root command and Hugo documentation
