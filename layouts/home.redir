@@ -1,6 +1,9 @@
 # Netlify redirects. See https://www.netlify.com/docs/redirects/
+
+/commands/* /docs/reference/commands/:splat
+
 {{ range $p := .Site.Pages -}}
 {{ range .Aliases }}
-{{ . | printf "%-35s" }}	{{ $p.RelPermalink -}}
+{{ . | printf "%-50s" }}  {{ $p.RelPermalink -}}
 {{ end -}}
 {{- end -}}

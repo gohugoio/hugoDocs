@@ -1,17 +1,15 @@
 ---
 title: "hugo new site"
 slug: hugo_new_site
-url: /commands/hugo_new_site/
+url: /docs/reference/commands/hugo_new_site/
 ---
 ## hugo new site
 
-Create a new site (skeleton)
+Create a new site
 
 ### Synopsis
 
-Create a new site in the provided directory.
-The new site will have the correct structure, but no content or theme yet.
-Use `hugo new [contentPath]` to create new content.
+Create a new site at the specified path.
 
 ```
 hugo new site [path] [flags]
@@ -44,5 +42,5 @@ hugo new site [path] [flags]
 
 ### SEE ALSO
 
-* [hugo new](/commands/hugo_new/)	 - Create new content
+* [hugo new](/docs/reference/commands/hugo_new/)	 - Create new content
 

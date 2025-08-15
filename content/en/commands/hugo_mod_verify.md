@@ -1,7 +1,7 @@
 ---
 title: "hugo mod verify"
 slug: hugo_mod_verify
-url: /commands/hugo_mod_verify/
+url: /docs/reference/commands/hugo_mod_verify/
 ---
 ## hugo mod verify
 
@@ -46,5 +46,5 @@ hugo mod verify [flags] [args]
 
 ### SEE ALSO
 
-* [hugo mod](/commands/hugo_mod/)	 - Manage modules
+* [hugo mod](/docs/reference/commands/hugo_mod/)	 - Manage modules
 

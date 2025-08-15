@@ -1,7 +1,7 @@
 ---
 title: "hugo convert"
 slug: hugo_convert
-url: /commands/hugo_convert/
+url: /docs/reference/commands/hugo_convert/
 ---
 ## hugo convert
 
@@ -40,8 +40,8 @@ See convert's subcommands toJSON, toTOML and toYAML for more information.
 
 ### SEE ALSO
 
-* [hugo](/commands/hugo/)	 - Build your site
-* [hugo convert toJSON](/commands/hugo_convert_tojson/)	 - Convert front matter to JSON
-* [hugo convert toTOML](/commands/hugo_convert_totoml/)	 - Convert front matter to TOML
-* [hugo convert toYAML](/commands/hugo_convert_toyaml/)	 - Convert front matter to YAML
+* [hugo](/docs/reference/commands/hugo/)	 - Build your site
+* [hugo convert toJSON](/docs/reference/commands/hugo_convert_tojson/)	 - Convert front matter to JSON
+* [hugo convert toTOML](/docs/reference/commands/hugo_convert_totoml/)	 - Convert front matter to TOML
+* [hugo convert toYAML](/docs/reference/commands/hugo_convert_toyaml/)	 - Convert front matter to YAML
 

@@ -1,7 +1,7 @@
 ---
 title: "hugo mod vendor"
 slug: hugo_mod_vendor
-url: /commands/hugo_mod_vendor/
+url: /docs/reference/commands/hugo_mod_vendor/
 ---
 ## hugo mod vendor
 
@@ -47,5 +47,5 @@ hugo mod vendor [flags] [args]
 
 ### SEE ALSO
 
-* [hugo mod](/commands/hugo_mod/)	 - Manage modules
+* [hugo mod](/docs/reference/commands/hugo_mod/)	 - Manage modules
 

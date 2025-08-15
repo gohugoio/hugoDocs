@@ -1,7 +1,7 @@
 ---
 title: "hugo gen"
 slug: hugo_gen
-url: /commands/hugo_gen/
+url: /docs/reference/commands/hugo_gen/
 ---
 ## hugo gen
 
@@ -36,8 +36,8 @@ Generate documentation for your project using Hugo's documentation engine, inclu
 
 ### SEE ALSO
 
-* [hugo](/commands/hugo/)	 - Build your site
-* [hugo gen chromastyles](/commands/hugo_gen_chromastyles/)	 - Generate CSS stylesheet for the Chroma code highlighter
-* [hugo gen doc](/commands/hugo_gen_doc/)	 - Generate Markdown documentation for the Hugo CLI
-* [hugo gen man](/commands/hugo_gen_man/)	 - Generate man pages for the Hugo CLI
+* [hugo](/docs/reference/commands/hugo/)	 - Build your site
+* [hugo gen chromastyles](/docs/reference/commands/hugo_gen_chromastyles/)	 - Generate CSS stylesheet for the Chroma code highlighter
+* [hugo gen doc](/docs/reference/commands/hugo_gen_doc/)	 - Generate Markdown documentation for the Hugo CLI
+* [hugo gen man](/docs/reference/commands/hugo_gen_man/)	 - Generate man pages for the Hugo CLI
 

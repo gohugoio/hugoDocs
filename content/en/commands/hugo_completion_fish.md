@@ -1,7 +1,7 @@
 ---
 title: "hugo completion fish"
 slug: hugo_completion_fish
-url: /commands/hugo_completion_fish/
+url: /docs/reference/commands/hugo_completion_fish/
 ---
 ## hugo completion fish
 
@@ -52,5 +52,5 @@ hugo completion fish [flags]
 
 ### SEE ALSO
 
-* [hugo completion](/commands/hugo_completion/)	 - Generate the autocompletion script for the specified shell
+* [hugo completion](/docs/reference/commands/hugo_completion/)	 - Generate the autocompletion script for the specified shell
 

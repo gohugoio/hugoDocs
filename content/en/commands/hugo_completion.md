@@ -1,7 +1,7 @@
 ---
 title: "hugo completion"
 slug: hugo_completion
-url: /commands/hugo_completion/
+url: /docs/reference/commands/hugo_completion/
 ---
 ## hugo completion
 
@@ -38,9 +38,9 @@ See each sub-command's help for details on how to use the generated script.
 
 ### SEE ALSO
 
-* [hugo](/commands/hugo/)	 - Build your site
-* [hugo completion bash](/commands/hugo_completion_bash/)	 - Generate the autocompletion script for bash
-* [hugo completion fish](/commands/hugo_completion_fish/)	 - Generate the autocompletion script for fish
-* [hugo completion powershell](/commands/hugo_completion_powershell/)	 - Generate the autocompletion script for powershell
-* [hugo completion zsh](/commands/hugo_completion_zsh/)	 - Generate the autocompletion script for zsh
+* [hugo](/docs/reference/commands/hugo/)	 - Build your site
+* [hugo completion bash](/docs/reference/commands/hugo_completion_bash/)	 - Generate the autocompletion script for bash
+* [hugo completion fish](/docs/reference/commands/hugo_completion_fish/)	 - Generate the autocompletion script for fish
+* [hugo completion powershell](/docs/reference/commands/hugo_completion_powershell/)	 - Generate the autocompletion script for powershell
+* [hugo completion zsh](/docs/reference/commands/hugo_completion_zsh/)	 - Generate the autocompletion script for zsh
 

@@ -1,7 +1,7 @@
 ---
 title: "hugo mod npm pack"
 slug: hugo_mod_npm_pack
-url: /commands/hugo_mod_npm_pack/
+url: /docs/reference/commands/hugo_mod_npm_pack/
 ---
 ## hugo mod npm pack
 
@@ -55,5 +55,5 @@ hugo mod npm pack [flags] [args]
 
 ### SEE ALSO
 
-* [hugo mod npm](/commands/hugo_mod_npm/)	 - Various npm helpers
+* [hugo mod npm](/docs/reference/commands/hugo_mod_npm/)	 - Various npm helpers
 

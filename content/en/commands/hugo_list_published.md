@@ -1,7 +1,7 @@
 ---
 title: "hugo list published"
 slug: hugo_list_published
-url: /commands/hugo_list_published/
+url: /docs/reference/commands/hugo_list_published/
 ---
 ## hugo list published
 
@@ -40,5 +40,5 @@ hugo list published [flags] [args]
 
 ### SEE ALSO
 
-* [hugo list](/commands/hugo_list/)	 - List content
+* [hugo list](/docs/reference/commands/hugo_list/)	 - List content
 

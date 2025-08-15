@@ -1,7 +1,7 @@
 ---
 title: "hugo list drafts"
 slug: hugo_list_drafts
-url: /commands/hugo_list_drafts/
+url: /docs/reference/commands/hugo_list_drafts/
 ---
 ## hugo list drafts
 
@@ -40,5 +40,5 @@ hugo list drafts [flags] [args]
 
 ### SEE ALSO
 
-* [hugo list](/commands/hugo_list/)	 - List content
+* [hugo list](/docs/reference/commands/hugo_list/)	 - List content
 

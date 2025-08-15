@@ -1,7 +1,7 @@
 ---
 title: "hugo convert toYAML"
 slug: hugo_convert_toYAML
-url: /commands/hugo_convert_toyaml/
+url: /docs/reference/commands/hugo_convert_toyaml/
 ---
 ## hugo convert toYAML
 
@@ -43,5 +43,5 @@ hugo convert toYAML [flags] [args]
 
 ### SEE ALSO
 
-* [hugo convert](/commands/hugo_convert/)	 - Convert front matter to another format
+* [hugo convert](/docs/reference/commands/hugo_convert/)	 - Convert front matter to another format
 

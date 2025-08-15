@@ -1,7 +1,7 @@
 ---
 title: "hugo mod tidy"
 slug: hugo_mod_tidy
-url: /commands/hugo_mod_tidy/
+url: /docs/reference/commands/hugo_mod_tidy/
 ---
 ## hugo mod tidy
 
@@ -41,5 +41,5 @@ hugo mod tidy [flags] [args]
 
 ### SEE ALSO
 
-* [hugo mod](/commands/hugo_mod/)	 - Manage modules
+* [hugo mod](/docs/reference/commands/hugo_mod/)	 - Manage modules
 

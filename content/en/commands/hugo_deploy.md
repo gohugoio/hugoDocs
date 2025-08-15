@@ -1,7 +1,7 @@
 ---
 title: "hugo deploy"
 slug: hugo_deploy
-url: /commands/hugo_deploy/
+url: /docs/reference/commands/hugo_deploy/
 ---
 ## hugo deploy
 
@@ -51,5 +51,5 @@ hugo deploy [flags] [args]
 
 ### SEE ALSO
 
-* [hugo](/commands/hugo/)	 - Build your site
+* [hugo](/docs/reference/commands/hugo/)	 - Build your site
 

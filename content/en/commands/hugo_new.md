@@ -1,7 +1,7 @@
 ---
 title: "hugo new"
 slug: hugo_new
-url: /commands/hugo_new/
+url: /docs/reference/commands/hugo_new/
 ---
 ## hugo new
 
@@ -43,8 +43,8 @@ Ensure you run this within the root directory of your site.
 
 ### SEE ALSO
 
-* [hugo](/commands/hugo/)	 - Build your site
-* [hugo new content](/commands/hugo_new_content/)	 - Create new content
-* [hugo new site](/commands/hugo_new_site/)	 - Create a new site (skeleton)
-* [hugo new theme](/commands/hugo_new_theme/)	 - Create a new theme (skeleton)
+* [hugo](/docs/reference/commands/hugo/)	 - Build your site
+* [hugo new content](/docs/reference/commands/hugo_new_content/)	 - Create new content
+* [hugo new site](/docs/reference/commands/hugo_new_site/)	 - Create a new site
+* [hugo new theme](/docs/reference/commands/hugo_new_theme/)	 - Create a new theme
 

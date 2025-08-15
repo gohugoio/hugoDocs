@@ -1,7 +1,7 @@
 ---
 title: "hugo list future"
 slug: hugo_list_future
-url: /commands/hugo_list_future/
+url: /docs/reference/commands/hugo_list_future/
 ---
 ## hugo list future
 
@@ -40,5 +40,5 @@ hugo list future [flags] [args]
 
 ### SEE ALSO
 
-* [hugo list](/commands/hugo_list/)	 - List content
+* [hugo list](/docs/reference/commands/hugo_list/)	 - List content
 

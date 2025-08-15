@@ -1,7 +1,7 @@
 ---
 title: "hugo convert toTOML"
 slug: hugo_convert_toTOML
-url: /commands/hugo_convert_totoml/
+url: /docs/reference/commands/hugo_convert_totoml/
 ---
 ## hugo convert toTOML
 
@@ -43,5 +43,5 @@ hugo convert toTOML [flags] [args]
 
 ### SEE ALSO
 
-* [hugo convert](/commands/hugo_convert/)	 - Convert front matter to another format
+* [hugo convert](/docs/reference/commands/hugo_convert/)	 - Convert front matter to another format
 

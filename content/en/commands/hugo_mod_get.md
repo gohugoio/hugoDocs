@@ -1,7 +1,7 @@
 ---
 title: "hugo mod get"
 slug: hugo_mod_get
-url: /commands/hugo_mod_get/
+url: /docs/reference/commands/hugo_mod_get/
 ---
 ## hugo mod get
 
@@ -71,5 +71,5 @@ hugo mod get [flags] [args]
 
 ### SEE ALSO
 
-* [hugo mod](/commands/hugo_mod/)	 - Manage modules
+* [hugo mod](/docs/reference/commands/hugo_mod/)	 - Manage modules
 

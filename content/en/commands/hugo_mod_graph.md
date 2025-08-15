@@ -1,7 +1,7 @@
 ---
 title: "hugo mod graph"
 slug: hugo_mod_graph
-url: /commands/hugo_mod_graph/
+url: /docs/reference/commands/hugo_mod_graph/
 ---
 ## hugo mod graph
 
@@ -48,5 +48,5 @@ hugo mod graph [flags] [args]
 
 ### SEE ALSO
 
-* [hugo mod](/commands/hugo_mod/)	 - Manage modules
+* [hugo mod](/docs/reference/commands/hugo_mod/)	 - Manage modules
 

@@ -1,7 +1,7 @@
 ---
 title: "hugo mod npm"
 slug: hugo_mod_npm
-url: /commands/hugo_mod_npm/
+url: /docs/reference/commands/hugo_mod_npm/
 ---
 ## hugo mod npm
 
@@ -40,6 +40,6 @@ hugo mod npm [command] [flags]
 
 ### SEE ALSO
 
-* [hugo mod](/commands/hugo_mod/)	 - Manage modules
-* [hugo mod npm pack](/commands/hugo_mod_npm_pack/)	 - Experimental: Prepares and writes a composite package.json file for your project
+* [hugo mod](/docs/reference/commands/hugo_mod/)	 - Manage modules
+* [hugo mod npm pack](/docs/reference/commands/hugo_mod_npm_pack/)	 - Experimental: Prepares and writes a composite package.json file for your project
 

@@ -1,7 +1,7 @@
 ---
 title: "hugo import jekyll"
 slug: hugo_import_jekyll
-url: /commands/hugo_import_jekyll/
+url: /docs/reference/commands/hugo_import_jekyll/
 ---
 ## hugo import jekyll
 
@@ -43,5 +43,5 @@ hugo import jekyll [flags] [args]
 
 ### SEE ALSO
 
-* [hugo import](/commands/hugo_import/)	 - Import a site from another system
+* [hugo import](/docs/reference/commands/hugo_import/)	 - Import a site from another system
 

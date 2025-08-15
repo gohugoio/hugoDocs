@@ -1,7 +1,7 @@
 ---
 title: "hugo list expired"
 slug: hugo_list_expired
-url: /commands/hugo_list_expired/
+url: /docs/reference/commands/hugo_list_expired/
 ---
 ## hugo list expired
 
@@ -40,5 +40,5 @@ hugo list expired [flags] [args]
 
 ### SEE ALSO
 
-* [hugo list](/commands/hugo_list/)	 - List content
+* [hugo list](/docs/reference/commands/hugo_list/)	 - List content
 

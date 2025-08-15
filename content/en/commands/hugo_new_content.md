@@ -1,7 +1,7 @@
 ---
 title: "hugo new content"
 slug: hugo_new_content
-url: /commands/hugo_new_content/
+url: /docs/reference/commands/hugo_new_content/
 ---
 ## hugo new content
 
@@ -55,5 +55,5 @@ hugo new content [path] [flags]
 
 ### SEE ALSO
 
-* [hugo new](/commands/hugo_new/)	 - Create new content
+* [hugo new](/docs/reference/commands/hugo_new/)	 - Create new content
 

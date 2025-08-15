@@ -1,7 +1,7 @@
 ---
 title: "hugo server trust"
 slug: hugo_server_trust
-url: /commands/hugo_server_trust/
+url: /docs/reference/commands/hugo_server_trust/
 ---
 ## hugo server trust
 
@@ -37,5 +37,5 @@ hugo server trust [flags] [args]
 
 ### SEE ALSO
 
-* [hugo server](/commands/hugo_server/)	 - Start the embedded web server
+* [hugo server](/docs/reference/commands/hugo_server/)	 - Start the embedded web server
 

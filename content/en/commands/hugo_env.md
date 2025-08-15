@@ -1,7 +1,7 @@
 ---
 title: "hugo env"
 slug: hugo_env
-url: /commands/hugo_env/
+url: /docs/reference/commands/hugo_env/
 ---
 ## hugo env
 
@@ -40,5 +40,5 @@ hugo env [flags] [args]
 
 ### SEE ALSO
 
-* [hugo](/commands/hugo/)	 - Build your site
+* [hugo](/docs/reference/commands/hugo/)	 - Build your site
 

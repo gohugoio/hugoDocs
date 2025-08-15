@@ -1,7 +1,7 @@
 ---
 title: "hugo convert toJSON"
 slug: hugo_convert_toJSON
-url: /commands/hugo_convert_tojson/
+url: /docs/reference/commands/hugo_convert_tojson/
 ---
 ## hugo convert toJSON
 
@@ -43,5 +43,5 @@ hugo convert toJSON [flags] [args]
 
 ### SEE ALSO
 
-* [hugo convert](/commands/hugo_convert/)	 - Convert front matter to another format
+* [hugo convert](/docs/reference/commands/hugo_convert/)	 - Convert front matter to another format
 

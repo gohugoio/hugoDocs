@@ -1,7 +1,7 @@
 ---
 title: "hugo"
 slug: hugo
-url: /commands/hugo/
+url: /docs/reference/commands/hugo/
 ---
 ## hugo
 
@@ -68,17 +68,17 @@ hugo [flags]
 
 ### SEE ALSO
 
-* [hugo build](/commands/hugo_build/)	 - Build your site
-* [hugo completion](/commands/hugo_completion/)	 - Generate the autocompletion script for the specified shell
-* [hugo config](/commands/hugo_config/)	 - Display site configuration
-* [hugo convert](/commands/hugo_convert/)	 - Convert front matter to another format
-* [hugo deploy](/commands/hugo_deploy/)	 - Deploy your site to a cloud provider
-* [hugo env](/commands/hugo_env/)	 - Display version and environment info
-* [hugo gen](/commands/hugo_gen/)	 - Generate documentation and syntax highlighting styles
-* [hugo import](/commands/hugo_import/)	 - Import a site from another system
-* [hugo list](/commands/hugo_list/)	 - List content
-* [hugo mod](/commands/hugo_mod/)	 - Manage modules
-* [hugo new](/commands/hugo_new/)	 - Create new content
-* [hugo server](/commands/hugo_server/)	 - Start the embedded web server
-* [hugo version](/commands/hugo_version/)	 - Display version
+* [hugo build](/docs/reference/commands/hugo_build/)	 - Build your site
+* [hugo completion](/docs/reference/commands/hugo_completion/)	 - Generate the autocompletion script for the specified shell
+* [hugo config](/docs/reference/commands/hugo_config/)	 - Display site configuration
+* [hugo convert](/docs/reference/commands/hugo_convert/)	 - Convert front matter to another format
+* [hugo deploy](/docs/reference/commands/hugo_deploy/)	 - Deploy your site to a cloud provider
+* [hugo env](/docs/reference/commands/hugo_env/)	 - Display version and environment info
+* [hugo gen](/docs/reference/commands/hugo_gen/)	 - Generate documentation and syntax highlighting styles
+* [hugo import](/docs/reference/commands/hugo_import/)	 - Import a site from another system
+* [hugo list](/docs/reference/commands/hugo_list/)	 - List content
+* [hugo mod](/docs/reference/commands/hugo_mod/)	 - Manage modules
+* [hugo new](/docs/reference/commands/hugo_new/)	 - Create new content
+* [hugo server](/docs/reference/commands/hugo_server/)	 - Start the embedded web server
+* [hugo version](/docs/reference/commands/hugo_version/)	 - Display version
 

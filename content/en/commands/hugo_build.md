@@ -1,7 +1,7 @@
 ---
 title: "hugo build"
 slug: hugo_build
-url: /commands/hugo_build/
+url: /docs/reference/commands/hugo_build/
 ---
 ## hugo build
 
@@ -68,5 +68,5 @@ hugo build [flags]
 
 ### SEE ALSO
 
-* [hugo](/commands/hugo/)	 - Build your site
+* [hugo](/docs/reference/commands/hugo/)	 - Build your site
 

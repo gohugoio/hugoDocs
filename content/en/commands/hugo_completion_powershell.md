@@ -1,7 +1,7 @@
 ---
 title: "hugo completion powershell"
 slug: hugo_completion_powershell
-url: /commands/hugo_completion_powershell/
+url: /docs/reference/commands/hugo_completion_powershell/
 ---
 ## hugo completion powershell
 
@@ -49,5 +49,5 @@ hugo completion powershell [flags]
 
 ### SEE ALSO
 
-* [hugo completion](/commands/hugo_completion/)	 - Generate the autocompletion script for the specified shell
+* [hugo completion](/docs/reference/commands/hugo_completion/)	 - Generate the autocompletion script for the specified shell
 

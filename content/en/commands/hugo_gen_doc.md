@@ -1,7 +1,7 @@
 ---
 title: "hugo gen doc"
 slug: hugo_gen_doc
-url: /commands/hugo_gen_doc/
+url: /docs/reference/commands/hugo_gen_doc/
 ---
 ## hugo gen doc
 
@@ -46,5 +46,5 @@ hugo gen doc [flags] [args]
 
 ### SEE ALSO
 
-* [hugo gen](/commands/hugo_gen/)	 - Generate documentation and syntax highlighting styles
+* [hugo gen](/docs/reference/commands/hugo_gen/)	 - Generate documentation and syntax highlighting styles
 

@@ -1,7 +1,7 @@
 ---
 title: "hugo server"
 slug: hugo_server
-url: /commands/hugo_server/
+url: /docs/reference/commands/hugo_server/
 ---
 ## hugo server
 
@@ -93,6 +93,6 @@ hugo server [command] [flags]
 
 ### SEE ALSO
 
-* [hugo](/commands/hugo/)	 - Build your site
-* [hugo server trust](/commands/hugo_server_trust/)	 - Install the local CA in the system trust store
+* [hugo](/docs/reference/commands/hugo/)	 - Build your site
+* [hugo server trust](/docs/reference/commands/hugo_server_trust/)	 - Install the local CA in the system trust store
 

@@ -1,7 +1,7 @@
 ---
 title: "hugo list all"
 slug: hugo_list_all
-url: /commands/hugo_list_all/
+url: /docs/reference/commands/hugo_list_all/
 ---
 ## hugo list all
 
@@ -40,5 +40,5 @@ hugo list all [flags] [args]
 
 ### SEE ALSO
 
-* [hugo list](/commands/hugo_list/)	 - List content
+* [hugo list](/docs/reference/commands/hugo_list/)	 - List content
 

@@ -1,7 +1,7 @@
 ---
 title: "hugo config mounts"
 slug: hugo_config_mounts
-url: /commands/hugo_config_mounts/
+url: /docs/reference/commands/hugo_config_mounts/
 ---
 ## hugo config mounts
 
@@ -41,5 +41,5 @@ hugo config mounts [flags] [args]
 
 ### SEE ALSO
 
-* [hugo config](/commands/hugo_config/)	 - Display site configuration
+* [hugo config](/docs/reference/commands/hugo_config/)	 - Display site configuration
 

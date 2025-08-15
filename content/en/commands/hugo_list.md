@@ -1,7 +1,7 @@
 ---
 title: "hugo list"
 slug: hugo_list
-url: /commands/hugo_list/
+url: /docs/reference/commands/hugo_list/
 ---
 ## hugo list
 
@@ -38,10 +38,10 @@ List requires a subcommand, e.g. hugo list drafts
 
 ### SEE ALSO
 
-* [hugo](/commands/hugo/)	 - Build your site
-* [hugo list all](/commands/hugo_list_all/)	 - List all content
-* [hugo list drafts](/commands/hugo_list_drafts/)	 - List draft content
-* [hugo list expired](/commands/hugo_list_expired/)	 - List expired content
-* [hugo list future](/commands/hugo_list_future/)	 - List future content
-* [hugo list published](/commands/hugo_list_published/)	 - List published content
+* [hugo](/docs/reference/commands/hugo/)	 - Build your site
+* [hugo list all](/docs/reference/commands/hugo_list_all/)	 - List all content
+* [hugo list drafts](/docs/reference/commands/hugo_list_drafts/)	 - List draft content
+* [hugo list expired](/docs/reference/commands/hugo_list_expired/)	 - List expired content
+* [hugo list future](/docs/reference/commands/hugo_list_future/)	 - List future content
+* [hugo list published](/docs/reference/commands/hugo_list_published/)	 - List published content
 

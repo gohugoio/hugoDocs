@@ -1,7 +1,7 @@
 ---
 title: "hugo config"
 slug: hugo_config
-url: /commands/hugo_config/
+url: /docs/reference/commands/hugo_config/
 ---
 ## hugo config
 
@@ -48,6 +48,6 @@ hugo config [command] [flags]
 
 ### SEE ALSO
 
-* [hugo](/commands/hugo/)	 - Build your site
-* [hugo config mounts](/commands/hugo_config_mounts/)	 - Print the configured file mounts
+* [hugo](/docs/reference/commands/hugo/)	 - Build your site
+* [hugo config mounts](/docs/reference/commands/hugo_config_mounts/)	 - Print the configured file mounts
 

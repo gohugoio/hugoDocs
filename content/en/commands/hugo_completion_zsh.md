@@ -1,7 +1,7 @@
 ---
 title: "hugo completion zsh"
 slug: hugo_completion_zsh
-url: /commands/hugo_completion_zsh/
+url: /docs/reference/commands/hugo_completion_zsh/
 ---
 ## hugo completion zsh
 
@@ -63,5 +63,5 @@ hugo completion zsh [flags]
 
 ### SEE ALSO
 
-* [hugo completion](/commands/hugo_completion/)	 - Generate the autocompletion script for the specified shell
+* [hugo completion](/docs/reference/commands/hugo_completion/)	 - Generate the autocompletion script for the specified shell
 
