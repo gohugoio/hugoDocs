@@ -70,6 +70,14 @@ isCJKLanguage
 keywords
 : (`string array`) An array of keywords, typically rendered within a `meta` element within the `head` element of the published HTML file, or used as a [taxonomy](g) to classify content. Access these values from a template using the [`Keywords`] method on a `Page` object.
 
+languageDelegees
+: {{< new-in 0.150.0 />}}
+: (`TODO`) TODO.
+
+languages
+: {{< new-in 0.150.0 />}}
+: (`TODO`) TODO.
+
 lastmod
 : (`string`) The date that the page was last modified. Note that the TOML format also supports unquoted date/time values. See the [dates](#dates) section for examples. Access this value from a template using the [`Lastmod`] method on a `Page` object.
 
@@ -107,6 +115,14 @@ published
 resources
 : (`map array`) An array of maps to provide metadata for [page resources].
 
+roleDelegees
+: {{< new-in 0.150.0 />}}
+: (`TODO`) TODO.
+
+roles
+: {{< new-in 0.150.0 />}}
+: (`TODO`) TODO.
+
 sitemap
 : (`map`) A map of sitemap options. See the [sitemap templates] page for details. Access these values from a template using the [`Sitemap`] method on a `Page` object.
 
@@ -130,6 +146,14 @@ unpublishdate
 
 url
 : (`string`) Overrides the entire URL path. Applicable to regular pages and section pages. See the [URL management] page for details.
+
+versionDelegees
+: {{< new-in 0.150.0 />}}
+: (`TODO`) TODO.
+
+versions
+: {{< new-in 0.150.0 />}}
+: (`TODO`) TODO.
 
 weight
 : (`int`) The page [weight](g), used to order the page within a [page collection](g). Access this value from a template using the [`Weight`] method on a `Page` object.
