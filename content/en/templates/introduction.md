@@ -328,11 +328,11 @@ To render an HTML comment, pass a string through the [`safeHTML`] template funct
 Use the [`template`] function to include one or more of Hugo's [embedded templates]:
 
 ```go-html-template
-{{ partial "google_analytics.html" . }}
-{{ partial "opengraph" . }}
-{{ partial "pagination.html" . }}
-{{ partial "schema.html" . }}
-{{ partial "twitter_cards.html" . }}
+{{ template "google_analytics.html" . }}
+{{ template "opengraph" . }}
+{{ template "pagination.html" . }}
+{{ template "schema.html" . }}
+{{ template "twitter_cards.html" . }}
 ```
 
 Use the [`partial`] or [`partialCached`] function to include one or more [partial templates]:
