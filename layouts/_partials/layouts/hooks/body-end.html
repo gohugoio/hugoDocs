@@ -1,3 +1,6 @@
+{{ with resources.Get "js/body-end.js" | js.Build (dict "minify" true) }}
+  {{ partial "helpers/linkjs.html" (dict "r" . "attributes" (dict "" "")) }}
+{{ end }}
 {{- if .IsHome }}
   {{- partial "helpers/validation/validate-keywords.html" }}
 {{- end }}

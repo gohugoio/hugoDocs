@@ -74,6 +74,10 @@ function isDark(colorScheme) {
 }
 
 export function initColorScheme() {
+	if (window.colorSchemeInitialized) {
+		return;
+	}
+	window.colorSchemeInitialized = true;
 	// The AlpineJS store has not have been initialized yet, so access the
 	// localStorage directly.
 	let settingsJSON = localStorage[localStorageUserSettingsKey];

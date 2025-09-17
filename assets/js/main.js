@@ -1,20 +1,12 @@
 import Alpine from 'alpinejs';
 import { registerMagics } from './alpinejs/magics/index';
 import { navbar, search, toc } from './alpinejs/data/index';
-import { navStore, initColorScheme } from './alpinejs/stores/index';
+import { navStore } from './alpinejs/stores/index';
 import { bridgeTurboAndAlpine } from './helpers/index';
 import persist from '@alpinejs/persist';
 import focus from '@alpinejs/focus';
 
 var debug = 0 ? console.log.bind(console, '[index]') : function () {};
-
-// Turbolinks init.
-(function () {
-	document.addEventListener('turbo:render', function (e) {
-		// This is also called right after the body start. This is added to prevent flicker on navigation.
-		initColorScheme();
-	});
-})();
 
 // Set up and start Alpine.
 (function () {
