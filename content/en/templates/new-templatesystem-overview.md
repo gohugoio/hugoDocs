@@ -61,7 +61,7 @@ layouts
 ├── baseof.term.html
 ├── home.html
 ├── page.html
-├── section.html
+├── list.html
 ├── taxonomy.html
 ├── term.html
 ├── term.mylayout.en.rss.xml
