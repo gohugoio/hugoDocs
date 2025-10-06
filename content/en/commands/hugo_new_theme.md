@@ -21,6 +21,7 @@ hugo new theme [name] [flags]
 ### Options
 
 ```
+      --format string   preferred file format (toml, yaml or json) (default "toml")
   -h, --help   help for theme
 ```
 
