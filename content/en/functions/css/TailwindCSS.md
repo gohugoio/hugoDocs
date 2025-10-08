@@ -94,7 +94,7 @@ Step 5
   <head>
     ...
     {{ with (templates.Defer (dict "key" "global")) }}
-      {{ partial "css.html" . }}
+      {{ partial "head/css.html" . }}
     {{ end }}
     ...
   </head>
