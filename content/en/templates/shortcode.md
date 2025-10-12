@@ -68,6 +68,9 @@ foo|json|en|`layouts/_shortcodes/foo.json`
 foo|json|en|`layouts/_shortcodes/foo.json.json`
 foo|json|en|`layouts/_shortcodes/foo.json.en.json`
 
+> [!note]
+> When Hugo makes an RSS feed, it uses an `.xml` output format. So to vary the output of a shortcode within your RSS content, use `foo.xml` which will be used in preference to the `foo.html` version that the web would use.
+
 ## Methods
 
 Use these methods in your _shortcode_ templates. Refer to each methods's documentation for details and examples.
