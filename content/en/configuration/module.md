@@ -139,11 +139,11 @@ version
 
 ### Default mounts
 
-Within a project, if you define a mount to map a file system path to a component path, the corresponding default mount for that component will be removed. This action essentially overwrites the standard, automatic mapping for that specific component with your custom one.
+Defining a mount for a component within a project configuration removes the default mount for that component.
 
-Within a module, if you define a mount to map a file system path to a component path, all of the default mounts will be removed. Defining a mount at the module level is a more sweeping change, causing all default mappings within that module to be discarded.
+Defining a mount for a component within a module configuration removes all default mounts for that module.
 
-In either case, if you still need one of the default mounts, you must explicitly add it along with the new mount. Because custom mounts override defaults, any necessary default mappings must be re-added manually after you introduce your custom configuration.
+If you still need any of the default mounts, you must explicitly add them along with the new mount.
 
 These are the default mounts:
 
