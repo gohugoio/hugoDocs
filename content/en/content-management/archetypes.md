@@ -53,11 +53,16 @@ hugo new content posts/my-first-post.md
 The archetype lookup order is:
 
 1. `archetypes/posts.md`
-1. `archetypes/default.md`
 1. `themes/my-theme/archetypes/posts.md`
+1. `archetypes/default.md`
 1. `themes/my-theme/archetypes/default.md`
 
 If none of these exists, Hugo uses a built-in default archetype.
+
+> [!note]
+> Hugo has a [theme components] feature. This means that if the project has its `theme` set as a composite, the second and fourth items will use Hugo's lookup rules and check all themes specified in the composite before moving further down the list.
+>
+> If you're running Hugo without a theme, second and fourth items are skipped.
 
 ## Functions and context
 
@@ -184,3 +189,5 @@ To create an article using the tutorials archetype:
 ```sh
 hugo new content --kind tutorials articles/something.md
 ```
+
+[theme components]: /hugo-modules/theme-components/
