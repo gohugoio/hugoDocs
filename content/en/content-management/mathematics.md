@@ -116,6 +116,16 @@ Step 3
 
   The example above loads the _partial_ template if you have set the `math` parameter in front matter to `true`. If you have not set the `math` parameter in front matter, the conditional statement falls back to the `math` parameter in your site configuration.
 
+  If you have used external themes, you might not have the file `layouts/baseof.html`. Under this scenario, you may need to call the the _partial_ template from the extended head.
+
+  ```go-html-template {file="layout/_partials/extend_head.html"}
+  {{ if or .Params.math .Site.Params.math }}
+    {{ partial "math.html" . }}
+  {{ end }}
+  ```
+
+  where the `.Params.math` indicates the `math` parameter in front matter and `Site.Params.math` the site configuration, and you can adjust them accordingly.
+
 Step 4
 : If you set the `math` parameter to `false` in your site configuration, you must set the `math` parameter to `true` in front matter. For example:
 
