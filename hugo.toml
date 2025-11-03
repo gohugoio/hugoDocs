@@ -98,17 +98,18 @@ disableKinds = ["rss"]
     source = "assets"
     target = "assets"
   [[module.mounts]]
-    source = 'content/en'
-    target = 'content'
-    [module.mounts.sites.matrix]
-      languages = ["**"]
-      versions  = ["**"]
-  [[module.mounts]]
     source = 'content/nn'
     target = 'content'
     [module.mounts.sites.matrix]
       languages = ["nn"]
       versions  = ["**"]
+  [[module.mounts]]
+    source = 'content/en'
+    target = 'content'
+    [module.mounts.sites.matrix]
+      languages = ["**"]
+      versions  = ["**"]
+
   [[module.mounts]]
     disableWatch = true
     source       = "hugo_stats.json"

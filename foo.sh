@@ -1,0 +1,1 @@
+cp content/en/configuration/privacy.md content/nn/configuration/privacy.md
