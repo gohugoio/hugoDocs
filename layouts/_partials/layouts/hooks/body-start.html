@@ -1,0 +1,3 @@
+{{ if or hugo.IsProduction (not hugo.IsDevelopment) }}
+  {{ partial "minimalanalytics.html" . }}
+{{ end }}
