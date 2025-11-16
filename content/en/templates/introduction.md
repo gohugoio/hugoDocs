@@ -541,6 +541,7 @@ In the template example above, each of the keys is a valid identifier. For examp
 [`template`]: /functions/go-template/template/
 [`Title`]: /methods/page/title
 [`with`]: /functions/go-template/with/
+[current context]: #current-context
 [embedded templates]: /templates/embedded/
 [front matter fields]: /content-management/front-matter/#fields
 [front matter]: /content-management/front-matter/

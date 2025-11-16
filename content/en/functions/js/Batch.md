@@ -295,6 +295,8 @@ console.log('entrypoints-workaround.js');
 [code splitting]: https://esbuild.github.io/api/#splitting
 [config]: #config
 [ESBuild]: https://github.com/evanw/esbuild
+[group]: #group
+[instance]: #instance
 [JavaScript import]: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/import
 [js.Batch Demo Repo]: https://github.com/bep/hugojsbatchdemo/
 [OptionsSetter]: #optionssetter
