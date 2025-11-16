@@ -36,6 +36,57 @@ Section
 > [!note]
 > Templates can live in either the project's or the themes' `layout` directories, and the most specific templates will be chosen. Hugo will interleave the lookups listed below, finding the most specific one either in the project or themes.
 
+## Template File Name Identifiers
+
+Starting with Hugo v0.146.0, template file name segments (identifiers separated by dots) must correspond to recognized Hugo parameters. These segments are parsed according to the lookup rules above.
+
+### Recognized Identifiers
+
+Hugo recognizes the following identifiers in template file names:
+
+- **Layout name**: The base name of the template (e.g., `single`, `list`, `index`)
+- **Output format**: Valid format names like `html`, `rss`, `json`, `xml`, `amp`
+- **Language code**: Valid language tags (e.g., `en`, `fr`, `de`)
+- **Page kind**: Values like `home`, `section`, `taxonomy`, `term`
+- **Type**: The content type (e.g., `post`, `page`)
+- **Section**: Section names for section-specific templates
+
+### Fallback Behavior
+
+If a template file name contains an **unrecognized identifier**, Hugo will fall back to a less specific template that matches the recognized segments.
+
+For example:
+
+| Template File Name | Recognized By Hugo | Fallback Behavior |
+|-------------------|-------------------|-------------------|
+| `single.html` | ✓ Standard match | Used as-is |
+| `single.json.html` | ✓ Valid output format | Used as-is |
+| `single.en.html` | ✓ Valid language code | Used as-is |
+| `single.blog.html` | ✗ "blog" unrecognized | Falls back to `single.html` |
+| `single.foo.html` | ✗ "foo" unrecognized | Falls back to `single.html` |
+| `single.green.json.html` | Partial - "green" unrecognized | May fall back to `single.json.html` |
+
+The same logic applies to partials:
+
+| Partial Call | File Name | Result |
+|-------------|-----------|--------|
+| `{{ partial "header.html" . }}` | `header.html` | ✓ Direct match |
+| `{{ partial "header.json" . }}` | `header.json` | ✓ Valid format |
+| `{{ partial "header.blog.html" . }}` | `header.blog.html` | ✗ Falls back to `header.html` |
+
+### Best Practices
+
+To avoid unexpected fallback behavior:
+
+1. **Use recognized identifiers only**: Stick to output formats, language codes, and valid Hugo parameters
+2. **Test custom naming conventions**: Verify that your template naming scheme produces the expected results
+3. **Prefer explicit targeting**: Use front matter (`type`, `layout`) to explicitly target templates rather than relying on complex file name patterns
+
+> [!tip]
+> If you need template variations based on custom criteria, use front matter parameters and conditional logic within your templates rather than encoding these variations in file names.
+
+For more details on the template system changes, see the [Hugo v0.146.0 release notes](https://github.com/gohugoio/hugo/releases/tag/v0.146.0).
+
 ## Target a template
 
 You cannot change the lookup order to target a content page, but you can change a content page to target a template. Specify `type`, `layout`, or both in front matter.
