@@ -134,3 +134,9 @@ body {
 :not(pre) > code {
   white-space: nowrap;
 }
+
+/* Utility class for tables to prevent word wrapping in the first column. */
+.no-wrap-first-col td:first-child,
+.no-wrap-first-col th:first-child {
+  white-space: nowrap;
+}

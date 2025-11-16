@@ -10,9 +10,10 @@ params:
     signatures: ['css.Sass [OPTIONS] RESOURCE']
 ---
 
-{{< new-in 0.128.0 />}}
-
 Transpile Sass to CSS using the LibSass transpiler included in Hugo's extended and extended/deploy editions, or [install Dart Sass](#dart-sass) to use the latest features of the Sass language.
+
+> [!warning]
+> The embedded LibSass transpiler was deprecated in [v0.153.0][] and will be removed in a future release. Use the Dart Sass transpiler instead.
 
 Sass has two forms of syntax: [SCSS][] and [indented][]. Hugo supports both.
 
@@ -46,6 +47,9 @@ targetPath
 
 transpiler
 : (`string`) The transpiler to use, either `libsass` or `dartsass`. Hugo's extended and extended/deploy editions include the LibSass transpiler. To use the Dart Sass transpiler, see the [installation instructions](#dart-sass). Default is `libsass`.
+
+  > [!warning]
+  > The embedded LibSass transpiler was deprecated in [v0.153.0][] and will be removed in a future release. Use the Dart Sass transpiler instead.
 
 vars
 : (`map`) A map of key-value pairs that will be available in the `hugo:vars` namespace. Useful for [initializing Sass variables from Hugo templates](https://discourse.gohugo.io/t/42053/).
@@ -132,12 +136,12 @@ By committing the `resources` directory, you're providing the pre-built CSS file
 
 For examples of how to install Dart Sass in a production environment, see these hosting guides:
 
-- [Cloudflare]
-- [GitHub Pages]
-- [GitLab Pages]
-- [Netlify]
-- [Render]
-- [Vercel]
+- [Cloudflare][]
+- [GitHub Pages][]
+- [GitLab Pages][]
+- [Netlify][]
+- [Render][]
+- [Vercel][]
 
 [`css.Quoted`]: /functions/css/quoted/
 [`css.Unquoted`]: /functions/css/unquoted/
@@ -157,3 +161,4 @@ For examples of how to install Dart Sass in a production environment, see these 
 [SCSS]: https://sass-lang.com/documentation/syntax#scss
 [snapcraft.io]: https://snapcraft.io/dart-sass
 [Vercel]: /host-and-deploy/host-on-vercel/
+[v0.153.0]: https://github.com/gohugoio/hugo/releases/tag/v0.153.0
