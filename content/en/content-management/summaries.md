@@ -36,7 +36,7 @@ This is the second paragraph.
 > [!NOTE]
 > Place the summary divider on its own line. Do not place it inline with other content.
 
-**Correct placement:**
+Correct placement:
 
 ```text {file="content/example.md"}
 ---
@@ -50,7 +50,7 @@ This is an example of **strong text** in a sentence. This is another sentence.
 This is another paragraph.
 ```
 
-**Incorrect placement:**
+Incorrect placement:
 
 ```text {file="content/example.md"}
 ---
