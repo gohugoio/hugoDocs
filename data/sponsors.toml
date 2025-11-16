@@ -4,6 +4,7 @@
   logo         = "images/sponsors/linode-logo.svg"
   utm_campaign = "hugosponsor"
   bgcolor      = "#ffffff"
+  alt          = "Linode logo"
 
 [[banners]]
   name            = "GoLand"
@@ -12,6 +13,7 @@
   link            = "https://www.jetbrains.com/go/?utm_source=OSS&utm_medium=referral&utm_campaign=hugo"
   logo            = "images/sponsors/goland.svg"
   bgcolor         = "#f4f4f4"
+  alt             = "GoLand IDE logo"
 
 [[banners]]
   name            = "CloudCannon"
