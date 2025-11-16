@@ -20,9 +20,13 @@ To load completions in your current shell session:
 
 To load completions for every new session, execute once:
 
-#### Linux:
+#### Linux (Debian/Ubuntu):
 
 	hugo completion bash > /etc/bash_completion.d/hugo
+
+#### Linux (Fedora/RHEL):
+    
+    hugo completion bash > /usr/share/bash-completion/completions/hugo
 
 #### macOS:
 
@@ -42,6 +46,8 @@ hugo completion bash
       --no-descriptions   disable completion descriptions
 ```
 
+
+
 ### Options inherited from parent commands
 
 ```
@@ -58,6 +64,15 @@ hugo completion bash
   -s, --source string              filesystem path to read files relative from
       --themesDir string           filesystem path to themes directory
 ```
+
+
+### Troubleshooting
+
+If completions don't load:
+1. Verify bash-completion is installed
+2. Restart your shell: `exec bash`
+3. Check file permissions in the completion directory
+
 
 ### SEE ALSO
 
