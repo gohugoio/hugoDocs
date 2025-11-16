@@ -81,6 +81,44 @@ When taxonomies are used Hugo will automatically create both a page listing all 
 See [configure taxonomies](/configuration/taxonomies/).
 
 ## Assign terms to content
+## Data Format and Multi-value Support in Taxonomies
+
+Hugo taxonomies can be specified using the full YAML, TOML, or JSON front matter formats. Taxonomies accept multi-value inputs as lists or arrays of terms, allowing you to assign multiple values to a taxonomy in your content files.
+
+### Examples of Multi-valued Taxonomies in Content Front Matter
+
+{{< code-toggle language="yaml" file="content/example.yaml" fm=true >}}
+title: "Example Post"
+tags:
+  - Tag A
+  - Tag B
+categories:
+  - Category A
+  - Category B
+{{< /code-toggle >}}
+
+{{< code-toggle language="toml" file="content/example.toml" fm=true >}}
+title = "Example Post"
+tags = ["Tag A", "Tag B"]
+categories = ["Category A", "Category B"]
+{{< /code-toggle >}}
+
+{{< code-toggle language="json" file="content/example.json" fm=true >}}
+{
+  "title": "Example Post",
+  "tags": ["Tag A", "Tag B"],
+  "categories": ["Category A", "Category B"]
+}
+{{< /code-toggle >}}
+
+### Limitations on Complexity
+
+Taxonomies are limited to simple key:value or term:list structures. They **do not support nested or complex data structures** such as collections of objects inside a taxonomy term.
+
+If you require hierarchical data, metadata, or complex collections associated with your content, use Hugo’s [Data Templates](https://gohugo.io/templates/data-templates/) feature by placing YAML, JSON, or TOML files in the `data/` directory.
+
+This allows you to manage rich data structures separate from taxonomies while leveraging taxonomies for classification and organization.
+
 
 To assign one or more terms to a page, create a front matter field using the plural name of the taxonomy, then add terms to the corresponding array. For example:
 
