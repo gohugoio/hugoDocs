@@ -216,7 +216,7 @@ backend
 : (`string`) The backend output file format. Default is `html5`.
 
 extensions
-: (`string array`) An array of enabled extensions, one or more of `asciidoctor-html5s`, `asciidoctor-bibtex`, `asciidoctor-diagram`, `asciidoctor-interdoc-reftext`, `asciidoctor-katex`, `asciidoctor-latex`, `asciidoctor-mathematical`, or `asciidoctor-question`.
+: (`string array`) An array of enabled extensions, such as `asciidoctor-html5s`, `asciidoctor-bibtex`, or `asciidoctor-diagram`.
 
   > [!note]
   > To mitigate security risks, entries in the extension array may not contain forward slashes (`/`), backslashes (`\`), or periods. Due to this restriction, extensions must be in Ruby's `$LOAD_PATH`.
