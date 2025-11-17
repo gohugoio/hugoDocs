@@ -15,7 +15,7 @@ After [installing] Hugo, test your installation by running:
 hugo version
 ```
 
-You should see something like:
+You should see output similar to:
 
 ```text
 hugo v0.152.2-6abdacad3f3fe944ea42177844469139e81feda6+extended linux/amd64 BuildDate=2025-10-24T15:31:49Z VendorInfo=gohugoio
@@ -23,7 +23,7 @@ hugo v0.152.2-6abdacad3f3fe944ea42177844469139e81feda6+extended linux/amd64 Buil
 
 ## Display available commands
 
-To see a list of the available commands and flags:
+To see a list of available commands and flags:
 
 ```sh
 hugo help
@@ -43,12 +43,12 @@ To build your site, `cd` into your project directory and run:
 hugo
 ```
 
-The [`hugo`] command builds your site, publishing the files to the `public` directory. To publish your site to a different directory, use the [`--destination`] flag or set [`publishDir`] in your site configuration.
+The [`hugo`] command builds your site and publishes the files to the `public` directory. To publish your site to a different directory, use the [`--destination`] flag or set [`publishDir`] in your site configuration.
 
 > [!note]
-> Hugo does not clear the `public` directory before building your site. Existing files are overwritten, but not deleted. This behavior is intentional to prevent the inadvertent removal of files that you may have added to the `public` directory after the build.
+> Hugo does not clear the `public` directory before building your site. Existing files are overwritten, but not deleted. This behavior is intentional to prevent the inadvertent removal of files you may have added to the `public` directory after the build.
 >
-> Depending on your needs, you may wish to manually clear the contents of the `public` directory before every build.
+> Depending on your needs, you may wish to manually clear the contents of the `public` directory before each build.
 
 ## Draft, future, and expired content
 
@@ -64,7 +64,7 @@ Hugo allows you to set `draft`, `date`, `publishDate`, and `expiryDate` in the [
 > [!note]
 > Hugo publishes descendants of draft, future, and expired [node](g) pages. To prevent publication of these descendants, use the [`cascade`] front matter field to cascade [build options] to the descendant pages.
 
-You can override the default behavior when running `hugo` or `hugo server` with command line flags:
+You can override the default behavior when running `hugo` or `hugo server` with command-line flags:
 
 ```sh
 hugo --buildDrafts    # or -D
@@ -72,10 +72,10 @@ hugo --buildExpired   # or -E
 hugo --buildFuture    # or -F
 ```
 
-Although you can also set these values in your site configuration, it can lead to unwanted results unless all content authors are aware of, and understand, the settings.
+Although you can also set these values in your site configuration, this can lead to unwanted results unless all content authors are aware of, and understand, the settings.
 
 > [!note]
-> As noted above, Hugo does not clear the `public` directory before building your site. Depending on the _current_ evaluation of the four conditions above, after the build your `public` directory may contain extraneous files from a previous build.
+> As noted above, Hugo does not clear the `public` directory before building your site. Depending on the current evaluation of the four conditions above, after the build your `public` directory may contain extraneous files from a previous build.
 >
 > A common practice is to manually clear the contents of the `public` directory before each build to remove draft, expired, and future content.
 
@@ -87,10 +87,10 @@ To view your site while developing layouts or creating content, `cd` into your p
 hugo server
 ```
 
-The [`hugo server`] command builds your site and serves your pages using a minimal HTTP server. When you run `hugo server` it will display the URL of your local site:
+The [`hugo server`] command builds your site and serves your pages using a minimal HTTP server. When you run `hugo server`, it will display the URL of your local site:
 
 ```text
-Web Server is available at http://localhost:1313/ 
+Web Server is available at http://localhost:1313/
 ```
 
 While the server is running, it watches your project directory for changes to assets, configuration, content, data, layouts, translations, and static files. When it detects a change, the server rebuilds your site and refreshes your browser using [LiveReload].
@@ -120,7 +120,7 @@ When you are ready to deploy your site, run:
 hugo
 ```
 
-This builds your site, publishing the files to the `public` directory. The directory structure will look something like this:
+This builds your site and publishes the files to the `public` directory. The directory structure will look something like this:
 
 ```text
 public/
@@ -140,27 +140,27 @@ public/
 └── sitemap.xml
 ```
 
-In a simple hosting environment, where you typically `ftp`, `rsync`, or `scp` your files to the root of a virtual host, the contents of the `public` directory are all that you need.
+In a simple hosting environment, where you typically use `ftp`, `rsync`, or `scp` to upload files to the root of a virtual host, the contents of the `public` directory are all that you need.
 
-Most of our users deploy their sites using a [CI/CD](g) workflow, where a push[^1] to their GitHub or GitLab repository triggers a build and deployment. Popular providers include [AWS Amplify], [CloudCannon], [Cloudflare Pages], [GitHub Pages], [GitLab Pages], and [Netlify].
+Most users deploy their sites using a [CI/CD](g) workflow, where a push[^1] to their GitHub or GitLab repository triggers a build and deployment. Popular providers include [AWS Amplify], [CloudCannon], [Cloudflare Pages], [GitHub Pages], [GitLab Pages], and [Netlify].
 
 Learn more in the [host and deploy] section.
 
-[^1]: The Git repository contains the entire project directory, typically excluding the `public` directory because the site is built _after_ the push.
+[^1]: The Git repository contains the entire project directory, typically excluding the `public` directory because the site is built after the push.
 
-[`--destination`]: /commands/hugo/#options
-[`cascade`]: /content-management/front-matter/#cascade
-[`hugo server`]: /commands/hugo_server/
-[`hugo`]: /commands/hugo/
-[`publishDir`]: /configuration/all/#publishdir
-[AWS Amplify]: https://aws.amazon.com/amplify/
-[build options]: /content-management/build-options/
-[CloudCannon]: https://cloudcannon.com/
-[Cloudflare Pages]: https://pages.cloudflare.com/
-[front matter]: /content-management/front-matter/
-[GitHub Pages]: https://pages.github.com/
-[GitLab Pages]: https://docs.gitlab.com/ee/user/project/pages/
-[host and deploy]: /host-and-deploy/
-[installing]: /installation/
-[LiveReload]: https://github.com/livereload/livereload-js
+[`--destination`]: /commands/hugo/#options  
+[`cascade`]: /content-management/front-matter/#cascade  
+[`hugo server`]: /commands/hugo_server/  
+[`hugo`]: /commands/hugo/  
+[`publishDir`]: /configuration/all/#publishdir  
+[AWS Amplify]: https://aws.amazon.com/amplify/  
+[build options]: /content-management/build-options/  
+[CloudCannon]: https://cloudcannon.com/  
+[Cloudflare Pages]: https://pages.cloudflare.com/  
+[front matter]: /content-management/front-matter/  
+[GitHub Pages]: https://pages.github.com/  
+[GitLab Pages]: https://docs.gitlab.com/ee/user/project/pages/  
+[host and deploy]: /host-and-deploy/  
+[installing]: /installation/  
+[LiveReload]: https://github.com/livereload/livereload-js  
 [Netlify]: https://www.netlify.com/
