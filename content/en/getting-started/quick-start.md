@@ -60,6 +60,7 @@ View your site at the URL displayed in your terminal. Press `Ctrl + C` to stop H
 ### Explanation of commands
 
 Create the [directory structure] for your project in the `quickstart` directory.
+This command creates a new directory named `quickstart` containing several subdirectories and a default configuration file (`hugo.toml`).
 
 ```text
 hugo new site quickstart
