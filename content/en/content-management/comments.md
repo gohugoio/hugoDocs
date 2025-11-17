@@ -1,67 +1,105 @@
 ---
 title: Comments
-description: Hugo ships with an internal Disqus template, but this isn't the only commenting system that will work with your new Hugo website.
-categories: []
-keywords: []
+description: Add commenting to your Hugo website with Disqus or a wide range of open-source and commercial alternatives.
+categories: ["extras"]
+keywords: ["comments", "Disqus", "comment systems", "Hugo"]
 aliases: [/extras/comments/]
 ---
 
-Hugo ships with support for [Disqus](https://disqus.com/), a third-party service that provides comment and community capabilities to websites via JavaScript.
+## Overview
 
-Your theme may already support Disqus, but if not, it is easy to add to your templates via [Hugo's built-in Disqus partial][disquspartial].
+Adding comments to your Hugo site promotes discussion, gathers feedback, and builds community. Hugo natively supports Disqus, a popular third-party commenting system, but you can integrate many other commercial or open-source solutions.
 
-## Add Disqus
+This guide covers:
+- Setting up Disqus (quick start)
+- Advanced Disqus usage
+- Alternatives with pros/cons
+- Troubleshooting and best practices
 
-Hugo comes with all the code you need to load Disqus into your templates. Before adding Disqus to your site, you'll need to [set up an account][disqussetup].
+---
 
-### Configure Disqus
+## Quick Start: Disqus Setup
 
-Disqus comments require you set a single value in your [site's configuration file][configuration] like so:
+1. **Create a Disqus Account**  
+   Sign up at [Disqus](https://disqus.com/profile/signup/).
 
-{{< code-toggle file=hugo >}}
-[services.disqus]
-shortname = 'your-disqus-shortname'
-{{</ code-toggle >}}
+2. **Note your site shortname** during setup.
 
-For many websites, this is enough configuration. However, you also have the option to set the following in the [front matter] of a single content file:
+3. **Configure Hugo for Disqus:**  
+   In your `config.toml` file, add:
 
-- `disqus_identifier`
-- `disqus_title`
-- `disqus_url`
+4. **Render the Disqus partial in your template:**  
+Add this to your post/page template (`layouts/_default/single.html` or similar):
+*Note: Many themes already include this. Check your theme before adding.*
 
-### Render Hugo's built-in Disqus partial template
+---
 
-Disqus has its own [internal template](/templates/embedded/#disqus) available, to render it add the following code where you want comments to appear:
+## Disqus Front Matter Options
 
-```go-html-template
-{{ partial "disqus.html" . }}
-```
+On individual posts, you can specify these optional fields to help Disqus group and display comments:
 
-## Alternatives
 
-Commercial commenting systems:
+---
 
-- [Emote](https://emote.com/)
-- [Graph Comment](https://graphcomment.com/)
-- [Hyvor Talk](https://talk.hyvor.com/)
-- [IntenseDebate](https://intensedebate.com/)
-- [ReplyBox](https://getreplybox.com/)
+## Alternatives to Disqus
 
-Open-source commenting systems:
+### Commercial Commenting Systems
 
-- [Cactus Comments](https://cactus.chat/docs/integrations/hugo/)
-- [Comentario](https://gitlab.com/comentario/comentario/)
-- [Comma](https://github.com/Dieterbe/comma/)
-- [Commento](https://commento.io/)
-- [Discourse](https://meta.discourse.org/t/embed-discourse-comments-on-another-website-via-javascript/31963)
-- [Giscus](https://giscus.app/)
-- [Isso](https://isso-comments.de/)
-- [Remark42](https://remark42.com/)
-- [Staticman](https://staticman.net/)
-- [Talkyard](https://blog-comments.talkyard.io/)
-- [Utterances](https://utteranc.es/)
+- **Emote:** Real-time moderation, privacy-focused.
+- **Graph Comment:** Advanced threading and reaction features.
+- **Hyvor Talk:** Simple setup, GDPR compliant.
+- **IntenseDebate:** Customizable widget, spam protection.
+- **ReplyBox:** Lightweight, fast, no tracking.
 
-[configuration]: /configuration/
-[disquspartial]: /templates/embedded/#disqus
-[disqussetup]: https://disqus.com/profile/signup/
-[front matter]: /content-management/front-matter/
+### Open Source Commenting Systems
+
+- **Cactus Comments:** Decentralized, Matrix protocol integration ([read docs](https://cactus.chat/docs/integrations/hugo/)).
+- **Comentario:** Modern, self-hosted, supports moderation ([GitLab](https://gitlab.com/comentario/comentario/)).
+- **Comma:** Minimalist, easy self-host ([GitHub](https://github.com/Dieterbe/comma/)).
+- **Commento:** Privacy focused, easy deploy ([commento.io](https://commento.io/)).
+- **Discourse:** Use as an embedded comment engine ([how-to](https://meta.discourse.org/t/embed-discourse-comments-on-another-website-via-javascript/31963)).
+- **Giscus:** GitHub Issues as comments ([giscus.app](https://giscus.app/)).
+- **Isso:** Lightweight, no database required, easy deploy ([de](https://isso-comments.de/)).
+- **Remark42:** Self-hosted, social login support ([remark42.com](https://remark42.com/)).
+- **Staticman:** Generates comments as static files ([staticman.net](https://staticman.net/)).
+- **Talkyard:** Advanced moderation, SSO ([talkyard.io](https://blog-comments.talkyard.io/)).
+- **Utterances:** Uses GitHub Issues, no server needed ([utteranc.es](https://utteranc.es/)).
+
+---
+
+## Troubleshooting & FAQ
+
+**Comments not appearing?**
+- Make sure your Disqus shortname exactly matches your Disqus account.
+- Your site must be publicly accessible for comments to load.
+- Ad blockers, privacy extensions, or strict Content Security Policy settings may block comment scripts.
+- For open-source alternatives, double-check your embed code and service URL.
+
+**Privacy Concerns?**
+- Avoid third-party trackers by using open-source comment engines like Commento, Isso, or Cactus Comments.
+
+**Migrating from Disqus?**
+- Most open-source systems support comment import or manual migration. See their docs for details.
+
+---
+
+## Best Practices
+
+- Always check theme documentation for comment integration; many themes provide their own comment partials or support multiple providers.
+- Clearly inform site visitors which system you use and any data policy implications (especially for GDPR).
+
+---
+
+## Need Help?
+
+For further questions or setup help, visit the [Hugo community forums](https://discourse.gohugo.io/) or open an [issue on GitHub](https://github.com/gohugoio/hugo/issues).
+
+---
+
+## Additional Resources
+
+- [Hugo Templates Guide](https://gohugo.io/templates/)
+- [Front Matter Reference](https://gohugo.io/content-management/front-matter/)
+- [Disqus User Guide](https://help.disqus.com/en/collections/191787-users)
+- [Community Forum](https://discourse.gohugo.io/)
+
