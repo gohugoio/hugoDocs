@@ -3661,8 +3661,8 @@ tpl:
         - s
         Description: URL returns the string s as html/template URL content.
         Examples:
-        - - '{{ "https://gohugo.io" | safeURL | safeURL }}'
-          - https://gohugo.io
+        - - '{{ "http://gohugo.io" | safeURL | safeURL }}'
+          - http://gohugo.io
     site:
       AllPages:
         Aliases: null

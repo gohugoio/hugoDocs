@@ -28,7 +28,7 @@ Limit the number of replacements using the LIMIT argument:
 Use `$1`, `$2`, etc. within the replacement string to insert the content of each capturing group within the regular expression:
 
 ```go-html-template
-{{ $s := "https://gohugo.io/docs" }}
+{{ $s := "http://gohugo.io/docs" }}
 {{ replaceRE "^https?://([^/]+).*" "$1" $s }} → gohugo.io
 ```
 

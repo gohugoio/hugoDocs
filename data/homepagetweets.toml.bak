@@ -64,7 +64,7 @@ date = 2017-03-01T00:00:00Z
 [[tweet]]
 name = "Alan Richardson"
 twitter_handle = "@eviltester"
-quote = "I migrated the <a href='https://x.com/BlackOpsTesting' target='_blank' rel='noopener noreferrer'> @BlackOpsTesting </a>.com website from docpad to Hugo last weekend. https://gohugo.io/ Super Fast HTML Generation <a href='https://x.com/spf13' target='_blank' rel='noopener noreferrer'> @spf13 </a>"
+quote = "I migrated the <a href='https://x.com/BlackOpsTesting' target='_blank' rel='noopener noreferrer'> @BlackOpsTesting </a>.com website from docpad to Hugo last weekend. http://gohugo.io/ Super Fast HTML Generation <a href='https://x.com/spf13' target='_blank' rel='noopener noreferrer'> @spf13 </a>"
 link = "https://x.com/eviltester/status/553520335115808768"
 date = 2015-01-09T00:00:00Z
 
@@ -239,7 +239,7 @@ date = 2014-05-31T00:00:00Z
 [[tweet]]
 name = "Ryan Martinsen"
 twitter_handle = "@popthestack"
-quote = "Also, I re-launched my blog (it looks the same as before) using Hugo, a *fast* static engine. Very happy with it.  <a href='https://gohugo.io/'>gohugo.io</a>"
+quote = "Also, I re-launched my blog (it looks the same as before) using Hugo, a *fast* static engine. Very happy with it.  <a href='http://gohugo.io/'>gohugo.io</a>"
 link = "https://x.com/popthestack/status/549972754125307904"
 date = 2014-12-30T00:00:00Z
 
@@ -260,6 +260,6 @@ date = 2014-08-02T00:00:00Z
 [[tweet]]
 name = "WorkHTML"
 twitter_handle = "@workhtml"
-quote = "<a href='https://x.com/hashtag/Hugo?src=hash'> #Hugo </a> A very good alternative for <a href='https://x.com/hashtag/wordpress?src=hash'> #wordpress </a> !!! A fast and modern static website engine <a href='https://gohugo.io/'> gohugo.io </a>"
+quote = "<a href='https://x.com/hashtag/Hugo?src=hash'> #Hugo </a> A very good alternative for <a href='https://x.com/hashtag/wordpress?src=hash'> #wordpress </a> !!! A fast and modern static website engine <a href='http://gohugo.io/'> gohugo.io </a>"
 link = "https://x.com/workhtml/status/563064361301053440"
 date = 2015-02-04T00:00:00Z
