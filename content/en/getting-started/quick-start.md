@@ -9,6 +9,15 @@ weight: 10
 aliases: [/quickstart/,/overview/quickstart/]
 ---
 
+## Table of Contents
+1. [Prerequisites](#prerequisites)
+2. [Create a Site](#create-a-site)
+3. [Add Content](#add-content)
+4. [Configure the Site](#configure-the-site)
+5. [Publish the Site](#publish-the-site)
+6. [Ask for Help](#ask-for-help)
+
+
 In this tutorial you will:
 
 1. Create a site
@@ -20,10 +29,23 @@ In this tutorial you will:
 
 Before you begin this tutorial you must:
 
-1. [Install Hugo] (extended or extended/deploy edition, {{% param "minVersion" %}} or later)
-1. [Install Git]
+1. [Install Hugo](https://gohugo.io/getting-started/install/) (extended or extended/deploy edition, {{% param "minVersion" %}} or later)
+1. [Install Git](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git)
 
 You must also be comfortable working from the command line.
+
+> [!note]
+> If you are using Windows, prefer PowerShell or Git Bash instead of Command Prompt.
+
+> [!tip]
+> **Using VS Code?**
+> Install the "Hugo Language and Syntax Support" extension for better front-matter highlighting, Markdown previews, and quick navigation.  
+> You can also open your project with:
+> ```
+> code .
+> ```
+> to start editing immediately from the terminal.
+
 
 ## Create a site
 
@@ -32,21 +54,21 @@ You must also be comfortable working from the command line.
 > [!note]
 > **If you are a Windows user:**
 >
-> - Do not use the Command Prompt
-> - Do not use Windows PowerShell
-> - Run these commands from [PowerShell] or a Linux terminal such as WSL or Git > Bash
+> - Do not use **Command Prompt**
+> - Do not use **Windows PowerShell** (the legacy blue one)
+> - Use **PowerShell 7+**, **WSL**, or **Git Bash**
 >
-> PowerShell and Windows PowerShell [are different applications].
+> PowerShell and Windows PowerShell are different applications.
 
 Verify that you have installed Hugo {{% param "minVersion" %}} or later.
 
-```text
+```bash
 hugo version
 ```
 
 Run these commands to create a Hugo site with the [Ananke] theme. The next section provides an explanation of each command.
 
-```text
+```bash
 hugo new site quickstart
 cd quickstart
 git init
@@ -59,39 +81,39 @@ View your site at the URL displayed in your terminal. Press `Ctrl + C` to stop H
 
 ### Explanation of commands
 
-Create the [directory structure] for your project in the `quickstart` directory.
 
-```text
+Creates a new Hugo site named quickstart with the default folder structure.
+
+```bash
 hugo new site quickstart
 ```
 
-Change the current directory to the root of your project.
-
-```text
+Move into the project folder.
+```bash
 cd quickstart
 ```
 
-Initialize an empty Git repository in the current directory.
-
-```text
+Initialize a Git repository for version control.
+```bash
 git init
 ```
 
 Clone the [Ananke] theme into the `themes` directory, adding it to your project as a [Git submodule].
 
-```text
+```bash
 git submodule add https://github.com/theNewDynamic/gohugo-theme-ananke.git themes/ananke
 ```
 
-Append a line to the site configuration file, indicating the current theme.
+Append the theme setting to the site configuration file.
 
-```text
+
+```bash
 echo "theme = 'ananke'" >> hugo.toml
 ```
 
 Start Hugo's development server to view the site.
 
-```text
+```bash
 hugo server
 ```
 
@@ -101,13 +123,13 @@ Press `Ctrl + C` to stop Hugo's development server.
 
 Add a new page to your site.
 
-```text
-hugo new content content/posts/my-first-post.md
+```bash
+hugo new posts/my-first-post.md
 ```
 
 Hugo created the file in the `content/posts` directory. Open the file with your editor.
 
-```text
+```toml
 +++
 title = 'My First Post'
 date = 2024-01-14T07:07:07+01:00
@@ -119,7 +141,7 @@ Notice the `draft` value in the [front matter] is `true`. By default, Hugo does 
 
 Add some [Markdown] to the body of the post, but do not change the `draft` value.
 
-```text
+```toml
 +++
 title = 'My First Post'
 date = 2024-01-14T07:07:07+01:00
@@ -134,11 +156,10 @@ Visit the [Hugo](https://gohugo.io) website!
 
 Save the file, then start Hugo's development server to view the site. You can run either of the following commands to include draft content.
 
-```text
+```bash
 hugo server --buildDrafts
 hugo server -D
 ```
-
 View your site at the URL displayed in your terminal. Keep the development server running as you continue to add and change content.
 
 When satisfied with your new content, set the front matter `draft` parameter to `false`.
@@ -150,7 +171,7 @@ When satisfied with your new content, set the front matter `draft` parameter to 
 
 With your editor, open the [site configuration] file (`hugo.toml`) in the root of your project.
 
-```text
+```toml
 baseURL = 'https://example.org/'
 languageCode = 'en-us'
 title = 'My New Hugo Site'
@@ -165,7 +186,7 @@ Make the following changes:
 
 Start Hugo's development server to see your changes, remembering to include draft content.
 
-```text
+```bash
 hugo server -D
 ```
 
@@ -182,7 +203,7 @@ When you _publish_ your site, Hugo creates the entire static site in the `public
 
 When you publish your site, you typically do _not_ want to include [draft, future, or expired content]. The command is simple.
 
-```text
+```bash
 hugo
 ```
 
