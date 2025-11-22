@@ -47,7 +47,7 @@ cascade
 : See [configure cascade](/configuration/cascade/).
 
 cleanDestinationDir
-: (`bool`) Whether to remove files from the [`publishDir`](#publishdir) that do not exist in the [`staticDir`](#staticdir) when building the site. This setting is disabled by default (`false`) and will not take effect if the `staticDir` does not exist. Note that `.gitignore` and `.gitattributes` files, along with directories named `.git`, are always preserved in the `publishDir`.
+: (`bool`) Whether to remove files from the [`publishDir`](#publishdir) that do not exist in the [`staticDir`](#staticdir) when building the site. This setting will not take effect if the `staticDir` does not exist. Note that `.gitignore` and `.gitattributes` files, along with directories named `.git`, are always preserved in the `publishDir`. Default is `false`.
 
 contentDir
 : (`string`) The designated directory for content files. Default is `content`. {{% module-mounts-note %}}
