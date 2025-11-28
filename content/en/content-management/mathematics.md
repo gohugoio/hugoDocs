@@ -83,7 +83,7 @@ Step 1
 Step 2
 : Create a _partial_ template to load MathJax or KaTeX. The example below loads MathJax, or you can use KaTeX as described in the [engines][] section.
 
-  ```go-html-template {file="layouts/_partials/math.html" copy=true}
+  ```go-html-template {file="layouts/partials/math.html" copy=true}
   <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@4/tex-mml-chtml.js"></script>
 
   <script>
