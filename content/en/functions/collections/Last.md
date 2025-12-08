@@ -12,18 +12,28 @@ aliases: [/functions/last]
 ---
 
 ```go-html-template
-{{ range last 10 .Pages }}
+{{ slice "a" "b" "c" | last 1 }} → [c]
+{{ slice "a" "b" "c" | last 2 }} → [b c]
+
+{{ "abc" | last 1 }} → c
+{{ "abc" | last 2 }} → bc
+```
+
+To use the `colllections.Last` function with a page collection:
+
+```go-html-template
+{{ range last 5 .Pages }}
   {{ .Render "summary" }}
 {{ end }}
 ```
 
-Set `N` to zero to return an empty collection.
+Set `N` to zero to return an empty collection:
 
 ```go-html-template
 {{ $emptyPageCollection := last 0 .Pages }}
 ```
 
-Use `last` and [`where`] together.
+Use `last` and [`where`] together:
 
 [`where`]: /functions/collections/where/
 
