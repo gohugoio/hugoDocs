@@ -23,7 +23,8 @@
     "**/emojis.md",
     "**/commands/*",
     "**/showcase/*",
-    "**/tools/*"
+    "**/tools/*",
+    "data/docs.yaml"
   ],
   "ignoreRegExpList": [
     "# cspell: ignore fenced code blocks",
