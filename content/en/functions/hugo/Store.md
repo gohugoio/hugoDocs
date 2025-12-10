@@ -115,3 +115,7 @@ You can also trigger content rendering with the `ContentWithoutSummary`, `FuzzyW
 {{ $noop := .WordCount }}
 {{ hugo.Store.Get "mykey" }}
 ```
+
+> [!note]
+> Likewise indirectly using a `Store` (for example by rendering a Markdown snippet including a _shortcode_  or a content element triggering a render hook using `markdownify`) won't pass the page context on its own. In this case make sure to pass it to `.Page.RenderString`.
+
