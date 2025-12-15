@@ -77,10 +77,10 @@ Step 4
     build:
       runs-on: ubuntu-latest
       env:
-        DART_SASS_VERSION: 1.93.2
-        GO_VERSION: 1.25.3
+        DART_SASS_VERSION: 1.96.0
+        GO_VERSION: 1.25.5
         HUGO_VERSION: 0.152.2
-        NODE_VERSION: 22.20.0
+        NODE_VERSION: 24.12.0
         TZ: Europe/Oslo
       steps:
         - name: Checkout
