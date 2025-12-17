@@ -20,7 +20,7 @@ descriptive text and call the shortcode with a self-closing tag.
   {{- $text := printf "Deprecated in [v%s](%s)\n\n%s" $version $href $inner | $.Page.RenderString (dict "display" "block") }}
   {{- partial "layouts/blocks/alert.html" (dict
     "color" "orange"
-    "icon" "exclamation"
+    "icon" "exclamation-circle"
     "text" $text
     )
   }}

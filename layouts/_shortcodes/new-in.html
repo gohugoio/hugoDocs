@@ -39,7 +39,7 @@ button will be hidden if any of the following conditions is true:
       {{- $text := printf "New in [v%s](%s)\n\n%s" $version $href $inner | $.Page.RenderString (dict "display" "block") }}
       {{ partial "layouts/blocks/alert.html" (dict
         "color" "green"
-        "icon" "exclamation"
+        "icon" "exclamation-circle"
         "text" $text
         )
       }}

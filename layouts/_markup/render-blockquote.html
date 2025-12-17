@@ -1,10 +1,10 @@
 {{- if eq .Type "alert" }}
   {{- $alerts := dict
-    "caution" (dict "color" "red" "icon" "exclamation-triangle")
+    "caution" (dict "color" "red" "icon" "info-triangle")
     "important" (dict "color" "blue" "icon" "exclamation-circle")
-    "note" (dict "color" "blue" "icon" "information-circle")
-    "tip" (dict "color" "green" "icon" "light-bulb")
-    "warning" (dict "color" "orange" "icon" "exclamation-triangle")
+    "note" (dict "color" "blue" "icon" "info-circle")
+    "tip" (dict "color" "green" "icon" "bulb")
+    "warning" (dict "color" "orange" "icon" "message-exclamation")
   }}
 
   {{- $alertTypes := slice }}
@@ -17,7 +17,7 @@
   {{- if in $alertTypes $alertType }}
     {{- partial "layouts/blocks/alert.html" (dict
       "color" (or ((index $alerts $alertType).color) "blue")
-      "icon" (or ((index $alerts $alertType).icon) "information-circle")
+      "icon" (or ((index $alerts $alertType).icon) "exclamation-circle")
       "text" .Text
       "title" .AlertTitle
       "class" .Attributes.class

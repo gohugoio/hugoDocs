@@ -84,11 +84,9 @@ may also specify the following parameters:
   {{- $fileSelectClass := "select-none" }}
   {{- if $copy }}
     {{- $fileSelectClass = "select-text" }}
-    <svg
-      class="absolute right-4 top-2 z-30 text-blue-600 hover:text-blue-500 dark:text-gray-400 dark:hover:text-gray-300 cursor-pointer w-6 h-6"
-      @click="$copy($refs.code)">
-      <use href="#icon--copy"></use>
-    </svg>
+      <i
+      @click="$copy($refs.code)"
+      class="tabler-copy-outline absolute right-4 top-2 z-30 text-blue-600 hover:text-blue-500 dark:text-gray-400 dark:hover:text-gray-300 cursor-pointer w-6 h-6"></i>
   {{- end }}
   {{- with $file }}
     <div
