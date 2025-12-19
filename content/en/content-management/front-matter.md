@@ -110,6 +110,20 @@ resources
 sitemap
 : (`map`) A map of sitemap options. See the [sitemap templates] page for details. Access these values from a template using the [`Sitemap`] method on a `Page` object.
 
+sites
+: {{< new-in 0.153.0 />}}
+: (`map`) A map to define [sites matrix](/quick-reference/glossary/#sites-matrix) and [sites complements](/quick-reference/glossary/#sites-complements) for the page.
+
+{{< code-toggle file=content/_index.md fm=true >}}
+title = 'Home'
+[sites.matrix]
+languages = ["en","fr"]
+versions = ["v1.2.*","v2.*.*"]
+roles = ["**"]
+[sites.complements]
+versions = ["v3.*.*"]
+{{< /code-toggle >}}
+
 slug
 : (`string`) Overrides the last segment of the URL path. Not applicable to `home`, `section`, `taxonomy`, or `term` pages. See the [URL management] page for details. Access this value from a template using the [`Slug`] method on a `Page` object.
 
@@ -219,6 +233,9 @@ title = 'Home'
 color = 'red'
 {{< /code-toggle >}}
 
+{{< new-in 0.153.0 />}}
+From Hugo 0.153.0, you can also set the [sites](#sites) front matter as cascade front matter values, which means that you can e.g. apply one or more languages to the `target` pages.
+
 ### Target
 
 <!-- TODO
@@ -237,6 +254,8 @@ title = 'Home'
 color = 'red'
 [cascade.target]
 path = '{/articles,/articles/**}'
+[cascade.target.sites.matrix]
+languages = ['en','fr']
 {{< /code-toggle >}}
 
 Use any combination of these keywords to target pages and/or environments:
@@ -249,6 +268,10 @@ kind
 
 path
 : (`string`) A [glob](g) pattern matching the page's [logical path](g). For example: `{/books,/books/**}`.
+
+sites
+: {{< new-in 0.153.0 />}}
+: (`map`) A map to define [sites matrix](/quick-reference/glossary/#sites-matrix) for the target, as in: Which sites should receive the cascaded values.
 
 ### Array
 

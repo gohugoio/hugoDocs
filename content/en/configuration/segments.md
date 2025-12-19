@@ -33,8 +33,9 @@ Available fields for filtering:
 kind
 : (`string`) A [glob](g) pattern matching the [page kind](g). For example: `{taxonomy,term}`.
 
-lang
-: (`string`) A [glob](g) pattern matching the [page language]. For example: `{en,de}`.
+sites
+: {{< new-in 0.153.0 />}}
+: (`map`) : (`map`) A map to define [sites matrix](/quick-reference/glossary/#sites-matrix) .
 
 output
 : (`string`) A [glob](g) pattern matching the [output format](g) of the page. For example: `{html,json}`.
@@ -74,4 +75,3 @@ hugo --renderSegments segment1,segment2
 ```
 
 [`renderSegments`]: /configuration/all/#rendersegments
-[page language]: /methods/page/language/
