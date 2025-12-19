@@ -153,16 +153,13 @@ disableWatch
 : {{< new-in 0.128.0 />}}
 : (`bool`) Whether to disable watching in watch mode for this mount. Default is `false`.
 
-lang
-: (`string`) The language code, e.g. "en". Relevant for `content` mounts, and `static` mounts when in multihost mode.
+files
+: {{< new-in 0.153.0 />}}
+: (`string` or `[]string`) A [glob slice](g) defining the files to include or exclude.
 
-includeFiles
-: (`string` or `[]string`) One or more [glob](g) patterns matching files or directories to include. If `excludeFiles` is not set, the files matching `includeFiles` will be the files mounted.
-
-  The glob patterns are matched against file names relative to the source root. Use Unix-style forward slashes (`/`), even on Windows. A single forward slash (`/`) matches the mount root, and double asterisks (`**`) act as a recursive wildcard, matching all directories and files beneath a given point (e.g., `/posts/**.jpg`). The search is case-insensitive.
-
-excludeFiles
-: (`string` or `[]string`) One or more [glob](g) patterns matching files to exclude.
+sites
+: {{< new-in 0.153.0 />}}
+: (`map`) : (`map`) A map to define [sites matrix](/quick-reference/glossary/#sites-matrix) and [sites complements](/quick-reference/glossary/#sites-complements) for the mount. Relevant for `content` and `layouts` mounts, and `static` mounts when in multihost mode. For `static` and `layouts`, only the `matrix` keyword is supported .
 
 ### Example
 
