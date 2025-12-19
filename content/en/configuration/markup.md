@@ -136,7 +136,6 @@ Markdown|Replaced by|Description
 Most of the Goldmark settings above are self-explanatory, but some require explanation.
 
 duplicateResourceFiles
-: {{< new-in 0.123.0 />}}
 : (`bool`) Whether to duplicate shared page resources for each language on multilingual single-host sites. See [multilingual page resources] for details. Default is `false`.
 
   > [!note]
@@ -169,7 +168,6 @@ parser.attribute.title
 
 <!-- TODO: delete this on or after July 1, 2027. -->
 renderHooks.image.enableDefault
-: {{< new-in 0.123.0 />}}
 : Deprecated in v0.148.0. Use `renderHooks.image.useEmbedded` instead.
 
 renderHooks.image.useEmbedded
@@ -183,11 +181,9 @@ renderHooks.image.useEmbedded
 
 <!-- TODO: delete this on or after July 1, 2027. -->
 renderHooks.link.enableDefault
-: {{< new-in 0.123.0 />}}
 : Deprecated in v0.148.0. Use `renderHooks.link.useEmbedded` instead.
 
 renderHooks.link.useEmbedded
-: {{< new-in 0.148.0 />}}
 : (`string`) When to use the [embedded link render hook]. One of `auto`, `never`, `always`, or `fallback`. Default is `auto`.
 
   - `auto`: Automatically use the embedded link render hook for multilingual single-host sites, specifically when the [duplication of shared page resources] feature is disabled. This is the default behavior for such sites. If custom link render hooks are defined by your project, modules, or themes, these will be used instead.

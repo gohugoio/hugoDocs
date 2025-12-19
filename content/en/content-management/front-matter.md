@@ -92,7 +92,6 @@ outputs
 : (`string array`) The [output formats] to render. See [configure outputs] for more information.
 
 params
-: {{< new-in 0.123.0 />}}
 : (`map`) A map of custom [page parameters].
 
 pubdate
@@ -149,8 +148,6 @@ weight
 : (`int`) The page [weight](g), used to order the page within a [page collection](g). Access this value from a template using the [`Weight`] method on a `Page` object.
 
 ## Parameters
-
-{{< new-in 0.123.0 />}}
 
 Specify custom page parameters under the `params` key in front matter:
 

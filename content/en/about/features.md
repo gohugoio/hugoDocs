@@ -61,7 +61,7 @@ weight: 20
 ## Content management
 
 [Multi-dimensional content model]
-: Leverage a 3D content matrix to generate pages across any combination of language, role, and version from a single source. This model allows you to broadcast content across multiple site targets by defining specific intersections of these dimensions, moving beyond traditional flat structures to support complex, multi-contextual site architectures.
+: Leverage a content matrix to generate pages across any combination of language, role, and version from a single source. This model allows you to broadcast content across multiple site targets by defining specific intersections of these dimensions, moving beyond traditional flat structures to support complex, multi-contextual site architectures.
 
 [Content adapters]
 : Create content adapters to dynamically add content when building your site. For example, use a content adapter to create pages from a remote data source such as JSON, TOML, YAML, or XML.

@@ -10,8 +10,6 @@ params:
     signatures: ['images.Dither [OPTIONS]']
 ---
 
-{{< new-in 0.123.0 />}}
-
 ## Options
 
 colors

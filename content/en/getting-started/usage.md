@@ -18,7 +18,7 @@ hugo version
 You should see something like:
 
 ```text
-hugo v0.152.2-6abdacad3f3fe944ea42177844469139e81feda6+extended linux/amd64 BuildDate=2025-10-24T15:31:49Z VendorInfo=gohugoio
+hugo v0.153.0-b4128babb839feaa962c00e777f0d2fe8d811f7d+extended linux/amd64 BuildDate=2025-12-19T10:14:01Z VendorInfo=gohugoio
 ```
 
 ## Display available commands
@@ -58,8 +58,6 @@ Hugo allows you to set `draft`, `date`, `publishDate`, and `expiryDate` in the [
 - The `date` is in the future
 - The `publishDate` is in the future
 - The `expiryDate` is in the past
-
-{{< new-in 0.123.0 />}}
 
 > [!note]
 > Hugo publishes descendants of draft, future, and expired [node](g) pages. To prevent publication of these descendants, use the [`cascade`] front matter field to cascade [build options] to the descendant pages.
