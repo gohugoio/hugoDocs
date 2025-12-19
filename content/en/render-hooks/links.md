@@ -72,8 +72,6 @@ To include a `rel` attribute set to `external` for external links:
 
 ## Embedded
 
-{{< new-in 0.123.0 />}}
-
 Hugo includes an [embedded link render hook] to resolve Markdown link destinations. You can adjust its behavior in your site configuration. This is the default setting:
 
 {{< code-toggle file=hugo >}}

@@ -193,8 +193,6 @@ the `Name` and `Title` will be assigned to the resource files as follows:
 
 ## Multilingual
 
-{{< new-in 0.123.0 />}}
-
 By default, with a multilingual single-host site, Hugo does not duplicate shared page resources when building the site.
 
 > [!note]

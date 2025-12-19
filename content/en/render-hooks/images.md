@@ -99,8 +99,6 @@ wrapStandAloneImageWithinParagraph = false
 
 ## Embedded
 
-{{< new-in 0.123.0 />}}
-
 Hugo includes an [embedded image render hook] to resolve Markdown image destinations. You can adjust its behavior in your site configuration. This is the default setting:
 
 {{< code-toggle file=hugo >}}
