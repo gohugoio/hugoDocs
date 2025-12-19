@@ -188,8 +188,8 @@ the `Name` and `Title` will be assigned to the resource files as follows:
 |-------------------|-------------------|-----------------------|
 | checklist.pdf     | `"pdf-file-1.pdf` | `"checklist.pdf"`     |
 | guide.pdf         | `"pdf-file-2.pdf` | `"guide.pdf"`         |
-| other\_specs.pdf  | `"pdf-file-3.pdf` | `"Specification #1"` |
-| photo\_specs.pdf  | `"pdf-file-4.pdf` | `"Specification #2"` |
+| other\_specs.pdf  | `"pdf-file-3.pdf` | `"Specification #1"`  |
+| photo\_specs.pdf  | `"pdf-file-4.pdf` | `"Specification #2"`  |
 
 ## Multilingual
 

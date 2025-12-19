@@ -6,7 +6,6 @@ globs:
 ignores:
   - "content/**/commands/**"
   - "content/en/about/license.md"
-  - content/en/content-management/front-matter.md
   - "content/LICENSE.md"
 
 # Markdownlint rules and configuration
@@ -90,3 +89,6 @@ config:
       - here
       - link
       - more
+  MD060:
+    aligned_delimiter: false
+    style: any

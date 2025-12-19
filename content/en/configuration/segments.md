@@ -35,7 +35,7 @@ kind
 
 sites
 : {{< new-in 0.153.0 />}}
-: (`map`) : (`map`) A map to define [sites matrix](/quick-reference/glossary/#sites-matrix) .
+: (`map`) A map to define [sites matrix](g).
 
 output
 : (`string`) A [glob](g) pattern matching the [output format](g) of the page. For example: `{html,json}`.

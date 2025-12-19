@@ -9,7 +9,7 @@ jobs:
     - name: Checkout repository
       uses: actions/checkout@v5
     - name: Run Markdown linter
-      uses: DavidAnson/markdownlint-cli2-action@v20
+      uses: DavidAnson/markdownlint-cli2-action@v22
       with:
         globs: # set to null to override default of *.{md,markdown}
       continue-on-error: false

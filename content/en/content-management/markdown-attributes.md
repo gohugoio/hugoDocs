@@ -82,14 +82,14 @@ In most cases, place the attribute list beneath the markup element. For headings
 
 Element|Position of attribute list
 :--|:--
-blockquote | bottom
-fenced code block | right
-heading | right
-horizontal rule | bottom
-image | bottom
-list  | bottom
-paragraph | bottom
-table | bottom
+blockquote|bottom
+fenced code block|right
+heading|right
+horizontal rule|bottom
+image|bottom
+list|bottom
+paragraph|bottom
+table|bottom
 
 For example:
 
