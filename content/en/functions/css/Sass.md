@@ -141,6 +141,7 @@ For examples of how to install Dart Sass in a production environment, see these 
 - [GitLab Pages][]
 - [Netlify][]
 - [Render][]
+- [SourceHut][]
 - [Vercel][]
 
 [`css.Quoted`]: /functions/css/quoted/
@@ -160,5 +161,6 @@ For examples of how to install Dart Sass in a production environment, see these 
 [scoop.sh]: https://scoop.sh/#/apps?q=sass
 [SCSS]: https://sass-lang.com/documentation/syntax#scss
 [snapcraft.io]: https://snapcraft.io/dart-sass
+[SourceHut]: /host-and-deploy/host-on-sourcehut-pages/
 [Vercel]: /host-and-deploy/host-on-vercel/
 [v0.153.0]: https://github.com/gohugoio/hugo/releases/tag/v0.153.0
