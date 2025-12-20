@@ -111,17 +111,21 @@ sitemap
 
 sites
 : {{< new-in 0.153.0 />}}
-: (`map`) A map to define [sites matrix](/quick-reference/glossary/#sites-matrix) and [sites complements](/quick-reference/glossary/#sites-complements) for the page.
+: (`map`) A map to define [sites matrix](g) and [sites complements](g) for the page.
 
-{{< code-toggle file=content/_index.md fm=true >}}
-title = 'Home'
-[sites.matrix]
-languages = ["en","fr"]
-versions = ["v1.2.*","v2.*.*"]
-roles = ["**"]
-[sites.complements]
-versions = ["v3.*.*"]
-{{< /code-toggle >}}
+  <!-- markdownlint-disable MD049 -->
+  
+  {{< code-toggle file=content/_index.md fm=true >}}
+  title = 'Home'
+  [sites.matrix]
+  languages = ["en","fr"]
+  versions = ["v1.2.*","v2.*.*"]
+  roles = ["**"]
+  [sites.complements]
+  versions = ["v3.*.*"]
+  {{< /code-toggle >}}
+
+  <!-- markdownlint-enable MD049 -->
 
 slug
 : (`string`) Overrides the last segment of the URL path. Not applicable to `home`, `section`, `taxonomy`, or `term` pages. See the [URL management] page for details. Access this value from a template using the [`Slug`] method on a `Page` object.
@@ -268,7 +272,7 @@ path
 
 sites
 : {{< new-in 0.153.0 />}}
-: (`map`) A map to define [sites matrix](/quick-reference/glossary/#sites-matrix) for the target, as in: Which sites should receive the cascaded values.
+: (`map`) A map to define [sites matrix](g) for the target, as in: Which sites should receive the cascaded values.
 
 ### Array
 

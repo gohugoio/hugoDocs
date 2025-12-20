@@ -159,7 +159,7 @@ files
 
 sites
 : {{< new-in 0.153.0 />}}
-: (`map`) : (`map`) A map to define [sites matrix](/quick-reference/glossary/#sites-matrix) and [sites complements](/quick-reference/glossary/#sites-complements) for the mount. Relevant for `content` and `layouts` mounts, and `static` mounts when in multihost mode. For `static` and `layouts`, only the `matrix` keyword is supported .
+: (`map`) A map to define [sites matrix](g) and [sites complements](g) for the mount. Relevant for `content` and `layouts` mounts, and `static` mounts when in multihost mode. For `static` and `layouts`, only the `matrix` keyword is supported .
 
 ### Example
 
