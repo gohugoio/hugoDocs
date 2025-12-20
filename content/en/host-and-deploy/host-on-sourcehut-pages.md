@@ -69,7 +69,7 @@ tasks:
     hut pages publish -d $site site.tar.gz
 ```
 
-If your site requires [Dart Sass][] to transpile Sass to CSS, set the DART_SASS_VERSION to the [latest version number][] and include the Dart Sass installation lines before running the Hugo build step. 
+If your site requires [Dart Sass][] to transpile Sass to CSS, set the DART_SASS_VERSION to the [latest version number][] and include the Dart Sass installation lines before running the Hugo build step.
 
 [Dart Sass]: https://gohugo.io/functions/css/sass/#dart-sass
 [latest version number]: https://github.com/sass/dart-sass/releases
