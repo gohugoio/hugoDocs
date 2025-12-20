@@ -8,9 +8,9 @@ aliases: [/hosting-and-deployment/hosting-on-sourcehut/]
 
 ## Assumptions
 
-- Working familiarity with [Git] or [Mercurial] for version control
-- Completion of the Hugo [Quick Start]
-- A [SourceHut account]
+- Working familiarity with [Git][] or [Mercurial][] for version control
+- Completion of the Hugo [Quick Start][]
+- A [SourceHut account][]
 - A Hugo website on your local machine that you are ready to publish
 
 [Git]: https://git-scm.com/
@@ -22,14 +22,14 @@ Any and all mentions of `<YourUsername>` refer to your actual SourceHut username
 
 ## BaseURL
 
-The [`baseURL`] in your site configuration must reflect the full URL provided by SourceHut Pages if you are using the default address (e.g. `https://<YourUsername>.srht.site/`). If you want to use another domain, check the [custom domain section] of the official documentation.
+The [`baseURL`][] in your site configuration must reflect the full URL provided by SourceHut Pages if you are using the default address (e.g. `https://<YourUsername>.srht.site/`). If you want to use another domain, check the [custom domain section][] of the official documentation.
 
 [`baseURL`]: /configuration/all/#baseurl
 [custom domain section]: https://srht.site/custom-domains
 
 ## Manual deployment
 
-This method does not require a paid account. To proceed you will need to create a [SourceHut personal access token] and install and configure the [hut] CLI tool:
+This method does not require a paid account. To proceed you will need to create a [SourceHut personal access token][] and install and configure the [hut][] CLI tool:
 
 [SourceHut personal access token]: https://meta.sr.ht/oauth2/personal-token
 [hut]: https://sr.ht/~xenrox/hut/
@@ -47,7 +47,7 @@ A TLS certificate will be automatically obtained for you, and your new website w
 
 This method requires a paid account and relies on the SourceHut build system.
 
-First, define your [build manifest] by creating a `.build.yml` file in the root of your project. The following is a bare-bones template:
+First, define your [build manifest][] by creating a `.build.yml` file in the root of your project. The following is a bare-bones template:
 
 [build manifest]: https://man.sr.ht/builds.sr.ht/#build-manifests
 
@@ -69,7 +69,10 @@ tasks:
     hut pages publish -d $site site.tar.gz
 ```
 
-If your site requires [Dart Sass](/functions/css/sass/#dart-sass) to transpile Sass to CSS, set the DART_SASS_VERSION to the [latest version number](https://github.com/sass/dart-sass/releases) and include the Dart Sass installation lines before running the Hugo build step. 
+If your site requires [Dart Sass][] to transpile Sass to CSS, set the DART_SASS_VERSION to the [latest version number][] and include the Dart Sass installation lines before running the Hugo build step. 
+
+[Dart Sass]: https://gohugo.io/functions/css/sass/#dart-sass
+[latest version number]: https://github.com/sass/dart-sass/releases
 
 ```yaml {file=".build.yml" copy=true}
 tasks:
