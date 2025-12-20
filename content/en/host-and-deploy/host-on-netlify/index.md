@@ -30,9 +30,9 @@ Step 1
 
   ```text {file="netlify.toml" copy=true}
   [build.environment]
-  DART_SASS_VERSION = "1.97.0"
+  DART_SASS_VERSION = "1.97.1"
   GO_VERSION = "1.25.5"
-  HUGO_VERSION = "0.153.0"
+  HUGO_VERSION = "0.153.1"
   NODE_VERSION = "24.12.0"
   TZ = "Europe/Oslo"
 
@@ -48,9 +48,9 @@ Step 1
 
   ```text {file="netlify.toml" copy=true}
   [build.environment]
-  DART_SASS_VERSION = "1.97.0"
+  DART_SASS_VERSION = "1.97.1"
   GO_VERSION = "1.25.5"
-  HUGO_VERSION = "0.153.0"
+  HUGO_VERSION = "0.153.1"
   NODE_VERSION = "24.12.0"
   TZ = "Europe/Oslo"
 
