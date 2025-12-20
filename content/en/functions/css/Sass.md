@@ -90,7 +90,7 @@ vars
 
 ## Dart Sass
 
-Hugo's extended and extended/deploy editions include [LibSass][] to transpile Sass to CSS. In 2020, the Sass team deprecated LibSass in favor of [Dart Sass].
+Hugo's extended and extended/deploy editions include [LibSass][] to transpile Sass to CSS. In 2020, the Sass team deprecated LibSass in favor of [Dart Sass][].
 
 Use the latest features of the Sass language by installing Dart Sass in your development and production environments.
 
@@ -100,7 +100,7 @@ Dart Sass is compatible with Hugo v0.114.0 and later.
 
 If you have been using Embedded Dart Sass[^1] with Hugo v0.113.0 and earlier, uninstall Embedded Dart Sass, then install Dart Sass. If you have installed both, Hugo will use Dart Sass.
 
-If you install Hugo as a [Snap package] there is no need to install Dart Sass. The Hugo Snap package includes Dart Sass.
+If you install Hugo as a [Snap package][] there is no need to install Dart Sass. The Hugo Snap package includes Dart Sass.
 
 [^1]: In 2023, the Sass team deprecated Embedded Dart Sass in favor of Dart Sass.
 
@@ -150,6 +150,7 @@ For examples of how to install Dart Sass in a production environment, see these 
 [brew.sh]: https://brew.sh/
 [chocolatey.org]: https://community.chocolatey.org/packages/sass
 [Cloudflare]: /host-and-deploy/host-on-cloudflare/
+[Dart Sass]: https://sass-lang.com/dart-sass/
 [GitHub Pages]: /host-and-deploy/host-on-github-pages/
 [GitLab Pages]: /host-and-deploy/host-on-gitlab-pages/
 [indented]: https://sass-lang.com/documentation/syntax#the-indented-syntax
@@ -159,6 +160,7 @@ For examples of how to install Dart Sass in a production environment, see these 
 [Render]: /host-and-deploy/host-on-render/
 [scoop.sh]: https://scoop.sh/#/apps?q=sass
 [SCSS]: https://sass-lang.com/documentation/syntax#scss
+[Snap package]: https://snapcraft.io/hugo
 [snapcraft.io]: https://snapcraft.io/dart-sass
-[Vercel]: /host-and-deploy/host-on-vercel/
 [v0.153.0]: https://github.com/gohugoio/hugo/releases/tag/v0.153.0
+[Vercel]: /host-and-deploy/host-on-vercel/
