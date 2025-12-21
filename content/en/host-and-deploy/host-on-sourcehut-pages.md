@@ -69,24 +69,35 @@ tasks:
     hut pages publish -d $site site.tar.gz
 ```
 
-If your site requires [Dart Sass][] to transpile Sass to CSS, set the DART_SASS_VERSION to the [latest version number][] and include the Dart Sass installation lines before running the Hugo build step.
+If your site requires [Dart Sass][] to transpile Sass to CSS, set the DART_SASS_VERSION to the [latest version number][] and include the Dart Sass installation lines before running the Hugo build step. Note that for Alpine, the `linux-x64-musl` version is used. 
 
 [Dart Sass]: https://gohugo.io/functions/css/sass/#dart-sass
 [latest version number]: https://github.com/sass/dart-sass/releases
 
 ```yaml {file=".build.yml" copy=true}
+image: alpine/edge
+packages:
+  - hugo
+  - hut
+  - curl # For Dart Sass installation
+oauth: pages.sr.ht/PAGES:RW
+environment:
+  site: <YourUsername>.srht.site
 tasks:
 - package: |
     DART_SASS_VERSION=1.97.1 # Latest version as of 2025/Dec
     mkdir -p $HOME/.local
-    # Use the linux x64 musl version for Alpine
     curl -L https://github.com/sass/dart-sass/releases/download/${DART_SASS_VERSION}/dart-sass-${DART_SASS_VERSION}-linux-x64-musl.tar.gz -o dart-sass.tar.gz
     tar -xzf dart-sass.tar.gz -C $HOME/.local
     rm dart-sass.tar.gz
     chmod -R +x $HOME/.local/dart-sass/src
     export PATH="$HOME/.local/dart-sass:$PATH"
-    sass --version # Verify
-    # ... (rest of the existing build.yml below)
+    sass --version # Verify installation
+    cd $site
+    hugo
+    tar -C public -cvz . > ../site.tar.gz
+- upload: |
+    hut pages publish -d $site site.tar.gz
 ```
 
 Now what's left is creating a repository titled `<YourUsername>.srht.site` (or your custom domain, if applicable) and pushing your local project. Here's an example using Git:
