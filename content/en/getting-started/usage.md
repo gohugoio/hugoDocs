@@ -18,7 +18,7 @@ hugo version
 You should see something like:
 
 ```text
-hugo v0.153.1-8e6cac8462d210f611154068eaa24c4461357653+extended linux/amd64 BuildDate=2025-12-20T15:15:53Z VendorInfo=gohugoio
+hugo v0.153.2-798533a2013eab97198b0a155a8f4afab7e79865+extended linux/amd64 BuildDate=2025-12-22T16:53:01Z VendorInfo=gohugoio
 ```
 
 ## Display available commands
@@ -140,9 +140,7 @@ public/
 
 In a simple hosting environment, where you typically `ftp`, `rsync`, or `scp` your files to the root of a virtual host, the contents of the `public` directory are all that you need.
 
-Most of our users deploy their sites using a [CI/CD](g) workflow, where a push[^1] to their GitHub or GitLab repository triggers a build and deployment. Popular providers include [AWS Amplify], [CloudCannon], [Cloudflare Pages], [GitHub Pages], [GitLab Pages], and [Netlify].
-
-Learn more in the [host and deploy] section.
+Most of our users deploy their sites to a [CI/CD](g) platform, where a push[^1] to their remote Git repository triggers a build and deployment. Learn more in the [host and deploy] section.
 
 [^1]: The Git repository contains the entire project directory, typically excluding the `public` directory because the site is built _after_ the push.
 
@@ -151,14 +149,8 @@ Learn more in the [host and deploy] section.
 [`hugo server`]: /commands/hugo_server/
 [`hugo`]: /commands/hugo/
 [`publishDir`]: /configuration/all/#publishdir
-[AWS Amplify]: https://aws.amazon.com/amplify/
 [build options]: /content-management/build-options/
-[CloudCannon]: https://cloudcannon.com/
-[Cloudflare Pages]: https://pages.cloudflare.com/
 [front matter]: /content-management/front-matter/
-[GitHub Pages]: https://pages.github.com/
-[GitLab Pages]: https://docs.gitlab.com/ee/user/project/pages/
 [host and deploy]: /host-and-deploy/
 [installing]: /installation/
 [LiveReload]: https://github.com/livereload/livereload-js
-[Netlify]: https://www.netlify.com/
