@@ -76,6 +76,16 @@ You can omit any of the settings above.
 extended
 : (`bool`) Whether the extended edition of Hugo is required, satisfied by installing either the extended or extended/deploy edition.
 
+  > [!note]
+  > The extended version check is disabled in v0.153.2 and later.
+  >
+  > Historically, certain features—specifically WebP encoding and LibSass—required the Hugo Extended binary. However, as of v0.153.0:
+  >
+  > - WebP encoding is now supported in all Hugo editions.
+  > - LibSass has been deprecated in favor of [Dart Sass][], which is compatible with any Hugo edition.
+  >
+  > Because these dependencies no longer require a specialized binary, the internal enforcement check for the extended version has been removed. Site and theme authors are encouraged to use Dart Sass to ensure cross-edition compatibility.
+
 max
 : (`string`) The maximum Hugo version supported, for example `0.153.0`.
 
@@ -123,14 +133,6 @@ version
 > [!important]
 > If you define one or more mounts to map a file system path to a component path, do not use these legacy configuration settings: [`archetypeDir`][], [`assetDir`][], [`contentDir`][], [`dataDir`][], [`i18nDir`][], [`layoutDir`][], or [`staticDir`][].
 
-[`archetypeDir`]: /configuration/all/#archetypedir
-[`assetDir`]: /configuration/all/#assetdir
-[`contentDir`]: /configuration/all/#contentdir
-[`dataDir`]: /configuration/all/#datadir
-[`i18nDir`]: /configuration/all/#i18ndir
-[`layoutDir`]: /configuration/all/#layoutdir
-[`staticDir`]: /configuration/all/#staticdir
-
 ### Default mounts
 
 Within a project, if you define a mount to map a file system path to a component path, the corresponding default mount for that component will be removed. This action essentially overwrites the standard, automatic mapping for that specific component with your custom one.
@@ -177,4 +179,12 @@ sites
     target="assets"
 {{< /code-toggle >}}
 
+[`archetypeDir`]: /configuration/all/#archetypedir
+[`assetDir`]: /configuration/all/#assetdir
+[`contentDir`]: /configuration/all/#contentdir
+[`dataDir`]: /configuration/all/#datadir
+[`i18nDir`]: /configuration/all/#i18ndir
+[`layoutDir`]: /configuration/all/#layoutdir
+[`staticDir`]: /configuration/all/#staticdir
 [`themesDir`]: /configuration/all/#themesdir
+[Dart Sass]: /functions/css/sass/#dart-sass
