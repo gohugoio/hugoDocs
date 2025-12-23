@@ -32,7 +32,7 @@ Step 1
   [build.environment]
   DART_SASS_VERSION = "1.97.1"
   GO_VERSION = "1.25.5"
-  HUGO_VERSION = "0.153.1"
+  HUGO_VERSION = "0.153.2"
   NODE_VERSION = "24.12.0"
   TZ = "Europe/Oslo"
 
@@ -50,7 +50,7 @@ Step 1
   [build.environment]
   DART_SASS_VERSION = "1.97.1"
   GO_VERSION = "1.25.5"
-  HUGO_VERSION = "0.153.1"
+  HUGO_VERSION = "0.153.2"
   NODE_VERSION = "24.12.0"
   TZ = "Europe/Oslo"
 

@@ -125,14 +125,14 @@ Run `hugo env` to list the active transpilers.
 
 ### Installing in a production environment
 
-To use Dart Sass with Hugo on a CI/CD platform like GitHub Pages, GitLab Pages, or Netlify, you typically must modify your build workflow to install Dart Sass before the Hugo site build begins. This is because these platforms don't have Dart Sass pre-installed, and Hugo needs it to process your Sass files.
+To use Dart Sass with Hugo on a [CI/CD](g) platform, you typically must modify your build workflow to install Dart Sass before the Hugo site build begins. This is because these platforms don't have Dart Sass pre-installed, and Hugo needs it to process your Sass files.
 
 There's one key exception where you can skip this step: you have committed your `resources` directory to your repository. This is only possible if:
 
 - You have not changed Hugo's default asset cache location.
 - You have not set [`useResourceCacheWhen`][] to never in your sites configuration.
 
-By committing the `resources` directory, you're providing the pre-built CSS files directly to your CI/CD service, so it doesn't need to run the Sass compilation itself.
+By committing the `resources` directory, you're providing the pre-built CSS files directly to your CI/CD platform, so it doesn't need to run the Sass compilation itself.
 
 For examples of how to install Dart Sass in a production environment, see these hosting guides:
 
