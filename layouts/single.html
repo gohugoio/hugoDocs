@@ -1,7 +1,6 @@
 {{ define "main" }}
   {{ $ttop := debug.Timer "single" }}
-  <article class="max-w-5xl lg:max-w-3xl" id="article">
-    {{ partial "layouts/docsheader.html" . }}
+  {{ with partial "layouts/decorators/docsarticle.html"  (dict "page" $ "class" "max-w-5xl lg:max-w-3xl") }}
     <div class="content">
       {{ with .Params.description }}
         <div class="lead">
@@ -62,7 +61,8 @@
       {{ partial "layouts/page-edit.html" . }}
       {{ $t.Stop }}
     </div>
-  </article>
+  {{ end }}
+
   {{ $ttop.Stop }}
 {{ end }}
 

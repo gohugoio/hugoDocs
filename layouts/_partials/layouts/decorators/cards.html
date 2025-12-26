@@ -1,0 +1,9 @@
+<div class="mt-6 sm:mt-8 grid grid-cols-2 xl:grid-cols-3 gap-4 min-h-40">
+  {{ range . }}
+    <a
+      class="flex col-span-1 a--block cursor-pointer flex-col group border p-3 sm:p-4 hover:shadow-md dark:shadow-slate-800 border-gray-300 dark:border-gray-800 m-0"
+      href="{{ or .Params.permalink .RelPermalink }}">
+      {{ inner . }}
+    </a>
+  {{ end }}
+</div>
