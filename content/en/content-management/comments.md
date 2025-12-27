@@ -60,6 +60,7 @@ Open-source commenting systems:
 - [Staticman](https://staticman.net/)
 - [Talkyard](https://blog-comments.talkyard.io/)
 - [Utterances](https://utteranc.es/)
+- [Zoomment](https://zoomment.com/)
 
 [configuration]: /configuration/
 [disquspartial]: /templates/embedded/#disqus
