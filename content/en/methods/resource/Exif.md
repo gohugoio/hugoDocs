@@ -1,6 +1,6 @@
 ---
 title: Exif
-description: Applicable to JPEG, PNG, TIFF, and WebP images, returns an EXIF object containing image metadata.
+description: Applicable to JPEG, PNG, TIFF, and WebP images, returns an object containing image metadata.
 categories: []
 keywords: []
 params:
