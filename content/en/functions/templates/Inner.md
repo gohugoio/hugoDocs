@@ -12,7 +12,19 @@ params:
 
 {{< new-in 0.154.0 />}}
 
-> [!note]
-> Note that there is only one inner block per [partial decorator](g), but `templates.Inner` may be called multiple times with, typically, different data.
+`templates.Inner` can be called zero or more times in a partial template, typically with different data (e.g. pages in a range), and its presence signals a reversal of the execution -- the callee becomes the caller. This only works for partials wrapped in a `with` block (see example). Decorators can be deeply nested, see [this PR](https://github.com/gohugoio/hugoDocs/pull/3330) for an example.
 
-<!-- TODO -->
+A very simple (and not ver useful) example of a [partial decorator](g):
+
+
+```go-html-template
+{{ with partial "b.html" "World" }}Hello {{ . }}{{ end }}
+{{ define "_partials/b.html" }}<b>{{ inner . }}</b>{{ end }}
+```
+
+The above renders to:
+
+```handlebars
+<b>Hello World</b>
+```
+
