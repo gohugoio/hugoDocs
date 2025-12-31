@@ -6,8 +6,6 @@ categories: []
 keywords: []
 ---
 
-{{< new-in 0.124.0 />}}
-
 > [!note]
 > The `segments` configuration applies only to segmented rendering. While it controls when content is rendered, it doesn't restrict access to Hugo's complete object graph (sites and pages), which remains fully available.
 

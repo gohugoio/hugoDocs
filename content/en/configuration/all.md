@@ -249,7 +249,6 @@ removePathAccents
 : (`bool`) Whether to remove [non-spacing marks](https://www.compart.com/en/unicode/category/Mn) from [composite characters](https://en.wikipedia.org/wiki/Precomposed_character) in content paths. Default is `false`.
 
 renderSegments
-: {{< new-in 0.124.0 />}}
 : (`[]string`) A slice of [segments](g) to render. If omitted, all segments are rendered. This option is typically set via a command-line flag, such as `hugo --renderSegments segment1,segment2`. The provided segment names must correspond to those defined in the [`segments`] configuration.
 
 resourceDir
