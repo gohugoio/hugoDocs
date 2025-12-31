@@ -198,7 +198,7 @@ For other resources to help you learn Hugo, including books and video tutorials,
 
 [Ananke]: https://github.com/theNewDynamic/gohugo-theme-ananke
 [are different applications]: https://learn.microsoft.com/en-us/powershell/scripting/whats-new/differences-from-windows-powershell?view=powershell-7.3
-[demonstration site]: https://gohugo-ananke-theme-demo.netlify.app/
+[demonstration site]: https://ananke-theme.netlify.app/
 [site skeleton]: /getting-started/directory-structure/#site-skeleton
 [documentation]: https://github.com/theNewDynamic/gohugo-theme-ananke#readme
 [draft, future, and expired content]: /getting-started/usage/#draft-future-and-expired-content
