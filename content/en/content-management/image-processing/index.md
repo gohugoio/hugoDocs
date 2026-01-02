@@ -326,9 +326,9 @@ To convert an image without scaling, use the dimensions of the original image:
 
 ### Quality
 
-Applicable to JPEG and WebP images, the `q` value determines the quality of the converted image. Higher values produce better quality images, while lower values produce smaller files. Set this value to a whole number between 1 and 100, inclusive.
+Applicable to JPEG and WebP images, the `q` value determines the quality of the converted image. Higher values produce better quality images, while lower values produce smaller files. Set this value to a whole number between `1` and `100`, inclusive.
 
-The default value is 75. You may override the default value in the [site configuration].
+The default value is `75`. You may override the default value in the [site configuration].
 
 ```go-html-template
 {{ $image.Resize "600x webp q50" }}

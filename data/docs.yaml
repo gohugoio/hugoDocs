@@ -1229,6 +1229,7 @@ config:
   ignoreVendorPaths: ''
   imaging:
     bgColor: '#ffffff'
+    compression: lossy
     hint: photo
     quality: 75
     resampleFilter: box
