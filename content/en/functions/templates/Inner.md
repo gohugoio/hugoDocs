@@ -19,7 +19,6 @@ params:
 
 A very simple (and not very useful) example of a [partial decorator](g):
 
-
 ```go-html-template
 {{ with partial "b.html" "World" }}Hello {{ . }}{{ end }}
 {{ define "_partials/b.html" }}<b>{{ inner . }}</b>{{ end }}
@@ -30,4 +29,3 @@ The above renders to:
 ```handlebars
 <b>Hello World</b>
 ```
-
