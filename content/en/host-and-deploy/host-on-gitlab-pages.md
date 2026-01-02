@@ -25,7 +25,7 @@ Define your [CI/CD](g) jobs by creating a `.gitlab-ci.yml` file in the root of y
 variables:
   # Application versions
   DART_SASS_VERSION: 1.97.1
-  HUGO_VERSION: 0.153.2
+  HUGO_VERSION: 0.154.2
   NODE_VERSION: 24.12.0
   # Git
   GIT_DEPTH: 0
