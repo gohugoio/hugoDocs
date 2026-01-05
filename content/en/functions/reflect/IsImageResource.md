@@ -24,7 +24,7 @@ project/
 │   └── c.jpg
 └── content/
     └── example/
-        ├── index.md/
+        ├── index.md
         ├── d.json
         ├── e.avif
         └── f.jpg
