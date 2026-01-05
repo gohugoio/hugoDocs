@@ -46,7 +46,7 @@ These are the values returned by the `reflect.IsImageResource` function:
 {{ end }}
 ```
 
-In the example above, the `b.avif` image is not a processable because Hugo can neither decode nor encode the AVIF image format.
+In the example above, the `b.avif` image is not a processable image because Hugo can neither decode nor encode the AVIF image format.
 
 ```go-html-template {file="layouts/page.html"}
 {{ with .Resources.Get "d.json" }}
@@ -62,7 +62,7 @@ In the example above, the `b.avif` image is not a processable because Hugo can n
 {{ end }}
 ```
 
-In the example above, the `e.avif` image is not a processable because Hugo can neither decode nor encode the AVIF image format.
+In the example above, the `e.avif` image is not a processable image because Hugo can neither decode nor encode the AVIF image format.
 
 ```go-html-template {file="layouts/page.html"}
 {{ with site.GetPage "/example" }}
