@@ -2,6 +2,16 @@
 _comment: Do not remove front matter.
 ---
 
+### Canonical
+
+{{< new-in "0.154.4" />}}
+
+(`any`) Returns the [canonical](https://en.wikipedia.org/wiki/Canonical_link_element) `OutputFormat`, if defined. With this, you can link to the canonical version of a page when multiple output formats are defined, e.g.:
+
+```go-html-template
+{{ with .OutputFormats.Canonical }}<link rel="{{ .Rel }}" href="{{ .Permalink }}">{{ end }}
+```
+
 ### Get IDENTIFIER
 
 (`any`) Returns the `OutputFormat` object with the given identifier.
