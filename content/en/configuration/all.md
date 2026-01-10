@@ -90,7 +90,12 @@ disableAliases
 
 disableDefaultLanguageRedirect
 : {{< new-in 0.140.0 />}}
-: (`bool`) Whether to disable generation of the alias redirect to the default language when `DefaultContentLanguageInSubdir` is `true`. Default is `false`.
+: (`bool`) Whether to disable generation of the alias redirect to the default language when `DefaultContentLanguageInSubdir` is `true`. Default is `false`. Note that from `v0.154.4`, this setting is superseded by the more general `disableDefaultDimensionRedirect`.
+
+disableDefaultDimensionRedirect
+: {{< new-in 0.154.4 />}}
+: (`bool`) Whether to disable generation of the alias redirect to the default dimension when one of  `DefaultContentLanguageInSubdir`, `DefaultVersionInSubdir`, `DefaultContentRoleInSubdir` is `true`. Default is `false`.
+
 
 disableHugoGeneratorInject
 : (`bool`) Whether to disable injection of a `<meta name="generator">` tag into the home page. Default is `false`.
