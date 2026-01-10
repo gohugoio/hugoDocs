@@ -18,14 +18,14 @@ disableLanguages = []
 {{< /code-toggle >}}
 
 defaultContentLanguage
-: (`string`) The project's default content language, conforming to the syntax described in [RFC 5646]. This value must match one of the defined [language keys](#language-keys). Default is `en`.
+: (`string`) The projects's default content language, conforming to the syntax described in [RFC 5646][]. This value must match one of the defined [language keys][]. Default is `en`.
 
 defaultContentLanguageInSubdir
-: (`bool`) Whether to publish the default content language to a subdirectory matching the `defaultContentLanguage`. Default is `false`.
+: (`bool`) Whether to publish the default content language to a subdirectory matching the [`defaultContentLanguage`][]. Default is `false`.
 
 disableDefaultLanguageRedirect
 : {{< new-in 0.140.0 />}}
-: (`bool`) Whether to disable the generation of the alias redirect for the default language. When `defaultContentLanguageInSubdir` is `true`, this setting prevents the root directory from redirecting to the language subdirectory. Conversely, when `defaultContentLanguageInSubdir` is `false`, this setting prevents the language subdirectory from redirecting to the root directory. Default is `false`.
+: (`bool`) Whether to disable generation of the alias redirect for the default content language. When [`defaultContentLanguageInSubdir`][] is `true`, this setting prevents the root directory from redirecting to the language subdirectory. Conversely, when `defaultContentLanguageInSubdir` is `false`, this setting prevents the language subdirectory from redirecting to the root directory. This is superseded by the more general [`disableDefaultSiteRedirect`][] setting. Default is `false`.
 
 disableLanguages
 : (`[]string]`) A slice of language keys representing the languages to disable during the build process. Although this is functional, consider using the [`disabled`](#disabled) key under each language instead.
@@ -150,7 +150,7 @@ subtitle = 'Reference, Tutorials, and Explanations'
 {{< /code-toggle >}}
 
 > [!note]
-> In the example above, omit `contentDir` if [translating by file name].
+> In the example above, omit `contentDir` if [translating by file name][].
 
 ## Multihost
 
@@ -184,7 +184,10 @@ public
 └── fr
 ```
 
+[`defaultContentLanguage`]: #defaultcontentlanguage
+[`defaultContentLanguageInSubdir`]: #defaultcontentlanguageinsubdir
 [`dir`]: https://developer.mozilla.org/en-US/docs/Web/HTML/Global_attributes/dir
+[`disableDefaultSiteRedirect`]: /configuration/all/#disabledefaultsiteredirect
 [`Language.LanguageCode`]: /methods/site/language/#languagecode
 [`Language.LanguageDirection`]: /methods/site/language/#languagedirection
 [`Language.LanguageName`]: /methods/site/language/#languagename
@@ -194,6 +197,7 @@ public
 [embedded alias template]: <{{% eturl alias %}}>
 [embedded OpenGraph template]: <{{% eturl opengraph %}}>
 [embedded RSS template]: <{{% eturl rss %}}>
+[language keys]: #language-keys
 [RFC 5646 § 2.2.7]: https://datatracker.ietf.org/doc/html/rfc5646#section-2.2.7
 [RFC 5646]: https://datatracker.ietf.org/doc/html/rfc5646#section-2.1
 [translating by file name]: /content-management/multilingual/#translation-by-file-name
