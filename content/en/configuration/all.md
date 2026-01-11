@@ -96,7 +96,6 @@ disableDefaultDimensionRedirect
 : {{< new-in 0.154.4 />}}
 : (`bool`) Whether to disable generation of the alias redirect to the default dimension when one of  `DefaultContentLanguageInSubdir`, `DefaultVersionInSubdir`, `DefaultContentRoleInSubdir` is `true`. Default is `false`.
 
-
 disableHugoGeneratorInject
 : (`bool`) Whether to disable injection of a `<meta name="generator">` tag into the home page. Default is `false`.
 
