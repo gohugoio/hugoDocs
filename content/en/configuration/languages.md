@@ -25,7 +25,7 @@ defaultContentLanguageInSubdir
 
 disableDefaultLanguageRedirect
 : {{< new-in 0.140.0 />}}
-: (`bool`) Whether to disable generation of the alias redirect to the default language when `DefaultContentLanguageInSubdir` is `true`. Default is `false`.
+: (`bool`) Whether to disable generation of the alias redirect to the default language when `DefaultContentLanguageInSubdir` is `false`. Default is `false`.
 
 disableLanguages
 : (`[]string]`) A slice of language keys representing the languages to disable during the build process. Although this is functional, consider using the [`disabled`](#disabled) key under each language instead.
