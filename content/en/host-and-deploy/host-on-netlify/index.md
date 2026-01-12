@@ -1,3 +1,4 @@
+![Screenshot_20260112-160613_Google](https://github.com/user-attachments/assets/71665e7d-255b-4fb7-99ff-07941589fed4)
 ---
 title: Host on Netlify
 description: Host your site on Netlify.
