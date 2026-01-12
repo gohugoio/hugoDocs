@@ -231,7 +231,7 @@ The alias from the previous URL to the new URL is a client-side redirect:
 
 ```html {file="posts/previous-file-name/index.html"}
 <!DOCTYPE html>
-<html lang="en-us">
+<html lang="en-US">
   <head>
     <title>https://example.org/posts/new-file-name/</title>
     <link rel="canonical" href="https://example.org/posts/new-file-name/">

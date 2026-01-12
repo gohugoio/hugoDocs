@@ -9,7 +9,9 @@ _comment: Do not remove front matter.
 (`any`) Returns the [canonical](https://en.wikipedia.org/wiki/Canonical_link_element) `OutputFormat`, if defined. With this, you can link to the canonical version of a page when multiple output formats are defined, e.g.:
 
 ```go-html-template
-{{ with .OutputFormats.Canonical }}<link rel="{{ .Rel }}" href="{{ .Permalink }}">{{ end }}
+{{ with .OutputFormats.Canonical }}
+  <link rel="{{ .Rel }}" href="{{ .Permalink }}">
+{{ end }}
 ```
 
 ### Get IDENTIFIER
