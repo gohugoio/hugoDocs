@@ -41,7 +41,7 @@ The most common front matter fields are `date`, `draft`, `title`, and `weight`, 
 [parameters]: #parameters
 
 aliases
-: (`string array`) An array of one or more aliases, where each alias is a relative URL that will redirect the browser to the current location. Access these values from a template using the [`Aliases`] method on a `Page` object. See the [aliases] section for details.
+: (`string array`) An array of one or more [page-relative](g) or [site-relative](g) paths that should redirect to the current page. Hugo resolves these to [server-relative](g) URLs during the build process. Access these values from a template using the [`Aliases`] method on a `Page` object. See the [aliases] section for details.
 
 build
 : (`map`) A map of [build options].
@@ -262,13 +262,13 @@ languages = ['en','fr']
 Use any combination of these keywords to target pages and/or environments:
 
 environment
-: (`string`) A [glob](g) pattern matching the build [environment](g). For example: `{staging,production}`.
+: (`string`) A [glob pattern](g) matching the build [environment](g). For example: `{staging,production}`.
 
 kind
-: (`string`) A [glob](g) pattern matching the [page kind](g). For example: `{taxonomy,term}`.
+: (`string`) A [glob pattern](g) matching the [page kind](g). For example: `{taxonomy,term}`.
 
 path
-: (`string`) A [glob](g) pattern matching the page's [logical path](g). For example: `{/books,/books/**}`.
+: (`string`) A [glob pattern](g) matching the page's [logical path](g). For example: `{/books,/books/**}`.
 
 sites
 : {{< new-in 0.153.0 />}}

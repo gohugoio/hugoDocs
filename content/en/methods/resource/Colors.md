@@ -11,7 +11,7 @@ params:
 
 {{% include "/_common/methods/resource/global-page-remote-resources.md" %}}
 
-The `Resources.Colors` method returns a slice of the most dominant colors in an image, ordered from most dominant to least dominant. This method is fast, but if you also downsize your image you can improve performance by extracting the colors from the scaled image.
+The `Colors` method on a `Resource` image object returns a slice of the most dominant colors in an image, ordered from most dominant to least dominant. This method is fast, but if you also downsize your image you can improve performance by extracting the colors from the scaled image.
 
 ## Methods
 

@@ -21,7 +21,7 @@ Segmented rendering offers several advantages:
 Each segment is defined by include and exclude filters:
 
 - Filters: Each segment has zero or more exclude filters and zero or more include filters.
-- Matchers: Each filter contains one or more field [glob](g) matchers.
+- Matchers: Each filter contains one or more field [glob pattern](g) matchers.
 - Logic: Matchers within a filter use AND logic. Filters within a section (include or exclude) use OR logic.
 
 ## Filter fields
@@ -29,17 +29,17 @@ Each segment is defined by include and exclude filters:
 Available fields for filtering:
 
 kind
-: (`string`) A [glob](g) pattern matching the [page kind](g). For example: `{taxonomy,term}`.
+: (`string`) A [glob pattern](g) matching the [page kind](g). For example: `{taxonomy,term}`.
 
 sites
 : {{< new-in 0.153.0 />}}
 : (`map`) A map to define [sites matrix](g).
 
 output
-: (`string`) A [glob](g) pattern matching the [output format](g) of the page. For example: `{html,json}`.
+: (`string`) A [glob pattern](g) matching the [output format](g) of the page. For example: `{html,json}`.
 
 path
-: (`string`) A [glob](g) pattern matching the page's [logical path](g). For example: `{/books,/books/**}`.
+: (`string`) A [glob pattern](g) matching the page's [logical path](g). For example: `{/books,/books/**}`.
 
 ## Example
 

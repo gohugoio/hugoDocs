@@ -40,16 +40,16 @@ path = '{/articles,/articles/**}'
 Use any combination of these keywords to target pages and/or environments:
 
 environment
-: (`string`) A [glob](g) pattern matching the build [environment](g). For example: `{staging,production}`.
+: (`string`) A [glob pattern](g) matching the build [environment](g). For example: `{staging,production}`.
 
 kind
-: (`string`) A [glob](g) pattern matching the [page kind](g). For example: `{taxonomy,term}`.
+: (`string`) A [glob pattern](g) matching the [page kind](g). For example: `{taxonomy,term}`.
 
 lang
-: (`string`) A [glob](g) pattern matching the [page language]. For example: `{en,de}`.
+: (`string`) A [glob pattern](g) matching the [page language]. For example: `{en,de}`.
 
 path
-: (`string`) A [glob](g) pattern matching the page's [logical path](g). For example: `{/books,/books/**}`.
+: (`string`) A [glob pattern](g) matching the page's [logical path](g). For example: `{/books,/books/**}`.
 
 ## Array
 

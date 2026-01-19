@@ -62,7 +62,7 @@ vars
   @use "hugo:vars" as v;
   ```
 
-  When when passing a `vars` map to the `css.Sass` function, Hugo detects common typed CSS values such as `24px` or `#FF0000` using regular expression matching. If necessary, you can bypass automatic type inference by using the [`css.Quoted`][] or [`css.Unquoted`][] function to explicitly indicate a value's type.
+  When passing a `vars` map to the `css.Sass` function, Hugo detects common typed CSS values such as `24px` or `#FF0000` using regular expression matching. If necessary, you can bypass automatic type inference by using the [`css.Quoted`][] or [`css.Unquoted`][] function to explicitly indicate a value's type.
 
 ## Example
 

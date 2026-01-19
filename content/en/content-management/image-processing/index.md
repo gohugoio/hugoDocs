@@ -111,20 +111,22 @@ To transform an image, apply a processing method to the image resource. Hugo gen
 ```
 
 > [!note]
-> Metadata (EXIF, IPTC, XMP, etc.) is not preserved during image transformation. Use the `Exif` method with the original image to extract EXIF metadata from JPEG, PNG, TIFF, and WebP images.
+> Metadata is not preserved during image transformation. Use the `Exif` or `Meta` methods with the _original_ image resource to extract metadata from JPEG, PNG, TIFF, and WebP images.
 
 Each method serves a specific transformation or metadata requirement:
 
 Method|Description
 :--|:--
-[`Colors`]|Returns a slice of the most dominant colors using a simple histogram method
-[`Crop`]|Returns a new image resource cropped according to the given processing specification
-[`Exif`]|Applicable to JPEG, PNG, TIFF, and WebP images, returns an object containing image metadata
-[`Fill`]|Returns a new image resource cropped and resized according to the given processing specification
-[`Filter`]|Applies one or more image filters to the given image resource
-[`Fit`]|Returns a new image resource downscaled to fit according to the given processing specification
-[`Process`]|Returns a new image resource processed according to the given processing specification
-[`Resize`]|Returns a new image resource resized according to the given processing specification
+[`Colors`]|Returns a slice of the most dominant colors using a simple histogram method.
+[`Crop`]|Returns a new image resource cropped according to the given processing specification.
+[`Exif`]|Applicable to JPEG, PNG, TIFF, and WebP images, returns an object containing Exif metadata.
+[`Fill`]|Returns a new image resource cropped and resized according to the given processing specification.
+[`Filter`]|Applies one or more image filters to the given image resource.
+[`Fit`]|Returns a new image resource downscaled to fit according to the given processing specification.
+[`Meta`]|Applicable to JPEG, PNG, TIFF, and WebP images, returns an object containing Exif, IPTC, and XMP metadata.
+[`Process`]|Returns a new image resource processed according to the given processing specification.
+[`Resize`]|Returns a new image resource resized according to the given processing specification.
+{class="!mt-0"}
 
 Select a method from the table above for syntax and usage examples.
 
@@ -167,9 +169,9 @@ See [configure imaging](/configuration/imaging).
 [`Filter`]: /methods/resource/filter/
 [`Fit`]: /methods/resource/fit/
 [`Height`]: /methods/resource/height/
+[`Meta`]: /methods/resource/meta/
 [`Permalink`]: /methods/resource/permalink/
 [`Process`]: /methods/resource/process/
 [`RelPermalink`]: /methods/resource/relpermalink/
 [`Resize`]: /methods/resource/resize/
 [`Width`]: /methods/resource/width/
-[file cache]: /configuration/caches/

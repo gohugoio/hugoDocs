@@ -30,13 +30,13 @@ auth
 : (`string`) Configures `GOAUTH` when running the Go command for module operations. This is a semicolon-separated list of authentication commands for go-import and HTTPS module mirror interactions. This is useful for private repositories. See `go help goauth` for more information.
 
 noProxy
-: (`string`) A comma-separated list of [glob](g) patterns matching paths that should not use the [configured proxy server](#proxy).
+: (`string`) A comma-separated list of [glob patterns](g),s matching paths that should not use the [configured proxy server](#proxy).
 
 noVendor
-: (`string`) A [glob](g) pattern matching module paths to skip when vendoring.
+: (`string`) A [glob pattern](g) matching module paths to skip when vendoring.
 
 private
-: (`string`) A comma-separated list of [glob](g) patterns matching paths that should be treated as private.
+: (`string`) A comma-separated list of [glob patterns](g),s matching paths that should be treated as private.
 
 proxy
 : (`string`) The proxy server to use to download remote modules. Default is `direct`, which means `git clone` and similar.
