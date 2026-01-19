@@ -11,5 +11,5 @@ params:
 ---
 
 ```go-html-template
-{{ hugo.Version }} → 0.154.4
+{{ hugo.Version }} → 0.155.0
 ```

@@ -23,7 +23,7 @@ Let's say you need to publish a file named "site.json" in the root of your `publ
 ```json
 {
   "build_date": "2026-01-11T11:27:49-08:00",
-  "hugo_version": "0.154.4",
+  "hugo_version": "0.155.0",
   "last_modified": "2026-01-11T11:27:59-08:00"
 }
 ```
