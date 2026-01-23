@@ -119,6 +119,30 @@ Hugo renders the above to:
   
 ```
 
+### Quote characters
+
+Hugo templates use different quote characters to define how text and characters are processed.
+
+Use double quotes for [interpreted string literals](g). These interpret backslashes as special instructions:
+
+```go-html-template
+{{ print "Hello world\u0021" }} → Hello world!
+```
+
+Use backticks for [raw string literals](g). These ignore backslashes and treat every character literally:
+
+```go-html-template
+{{ print `Hello world\u0021` }} → Hello world\u0021
+```
+
+Use single quotes for [rune literals](g). Unlike strings, these represent a single character as its numerical Unicode value:
+
+```go-html-template
+{{ print '!' }} → 33
+```
+
+In practical terms, you will rarely, if ever, use rune literals in your template code. They are most commonly used in low-level programming; in a Hugo template, you will almost always want a string instead.
+
 ### Whitespace
 
 Notice the blank lines and indentation in the previous example? Although irrelevant in production when you typically minify the output, you can remove the adjacent whitespace by using template action delimiters with hyphens:
