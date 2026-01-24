@@ -119,6 +119,25 @@ Hugo renders the above to:
   
 ```
 
+### Whitespace
+
+Notice the blank lines and indentation in the previous example? Although irrelevant in production when you typically minify the output, you can remove the adjacent whitespace by using template action delimiters with hyphens:
+
+```go-html-template {file="layouts/page.html"}
+{{- $convertToLower := true -}}
+{{- if $convertToLower -}}
+  <h2>{{ strings.ToLower .Title }}</h2>
+{{- end -}}
+```
+
+Hugo renders this to:
+
+```html
+<h2>my page title</h2>
+```
+
+Whitespace includes spaces, horizontal tabs, carriage returns, and newlines.
+
 ### Quote characters
 
 Hugo templates use different quote characters to define how text and characters are processed.
@@ -142,25 +161,6 @@ Use single quotes for [rune literals](g). Unlike strings, these represent a sing
 ```
 
 In practical terms, you will rarely, if ever, use rune literals in your template code. They are most commonly used in low-level programming; in a Hugo template, you will almost always want a string instead.
-
-### Whitespace
-
-Notice the blank lines and indentation in the previous example? Although irrelevant in production when you typically minify the output, you can remove the adjacent whitespace by using template action delimiters with hyphens:
-
-```go-html-template {file="layouts/page.html"}
-{{- $convertToLower := true -}}
-{{- if $convertToLower -}}
-  <h2>{{ strings.ToLower .Title }}</h2>
-{{- end -}}
-```
-
-Hugo renders this to:
-
-```html
-<h2>my page title</h2>
-```
-
-Whitespace includes spaces, horizontal tabs, carriage returns, and newlines.
 
 ### Pipes
 
