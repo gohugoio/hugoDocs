@@ -12,9 +12,9 @@ weight: 20
 
 {{% include "/_common/installation/03-prebuilt-binaries.md" %}}
 
-<!--
 ## Package managers
 
+<!--
 ### Snap
 
 [Snap] is a free and open-source package manager for Linux. Available for [most distributions], snap packages are simple to install and are automatically updated.
@@ -57,8 +57,12 @@ sudo snap connect hugo:ssh-keys
 sudo snap disconnect hugo:ssh-keys
 ```
 
-{{% include "/_common/installation/homebrew.md" %}}
+[strictly confined]: https://snapcraft.io/docs/snap-confinement
+[most distributions]: https://snapcraft.io/docs/installing-snapd
+[Snap]: https://snapcraft.io/
 -->
+
+{{% include "/_common/installation/homebrew.md" %}}
 
 ## Repository packages
 
@@ -203,14 +207,11 @@ Latest version available?|:heavy_check_mark:|:heavy_check_mark:|varies|:heavy_ch
 [Linux Lite]: https://www.linuxliteos.com/
 [Linux Mint]: https://linuxmint.com/
 [Manjaro]: https://manjaro.org/
-[most distributions]: https://snapcraft.io/docs/installing-snapd
 [MX Linux]: https://mxlinux.org/
 [openSUSE]: https://www.opensuse.org/
 [Pop!_OS]: https://pop.system76.com/
 [Red Hat Enterprise Linux]: https://www.redhat.com/
-[Snap]: https://snapcraft.io/
 [Solus]: https://getsol.us/
-[strictly confined]: https://snapcraft.io/docs/snap-confinement
 [Ubuntu]: https://ubuntu.com/
 [USE]: https://packages.gentoo.org/packages/www-apps/hugo
 [Void Linux]: https://voidlinux.org/
