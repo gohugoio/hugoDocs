@@ -12,6 +12,7 @@ weight: 20
 
 {{% include "/_common/installation/03-prebuilt-binaries.md" %}}
 
+<!--
 ## Package managers
 
 ### Snap
@@ -57,6 +58,7 @@ sudo snap disconnect hugo:ssh-keys
 ```
 
 {{% include "/_common/installation/homebrew.md" %}}
+-->
 
 ## Repository packages
 
