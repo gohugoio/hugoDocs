@@ -87,9 +87,10 @@ disableAliases = true
     source = "assets"
     target = "assets"
   [[module.mounts]]
-    lang   = 'en'
     source = 'content/en'
     target = 'content'
+    [module.mounts.sites.matrix]
+      languages = ['en']
   [[module.mounts]]
     disableWatch = true
     source       = "hugo_stats.json"
