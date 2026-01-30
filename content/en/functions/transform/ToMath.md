@@ -150,6 +150,9 @@ Step 3
 
   In the above, note the use of a [noop](g) statement to force content rendering before we check the value of `hasMath` with the `Store.Get` method.
 
+  > [!note]
+  > Conditionally including KaTeX CSS in this way only affects pages whose content has the configured delimiters. It does not necessarily affect all pages that display the rendered math. For example, if a page displays the `.Summary` of another page with math, this approach will not lead it to have the necessary CSS. For themes and websites where this is possible, consider including KaTeX CSS unconditionally.
+
 Step 4
 : Add some mathematical markup to your content, then test.
 
