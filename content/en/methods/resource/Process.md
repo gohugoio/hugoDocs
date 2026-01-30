@@ -2,8 +2,9 @@
 title: Process
 description: Applicable to images, returns a new image resource processed according to the given processing specification.
 categories: []
-keywords: []
+keywords: [process]
 params:
+  alt_title: RESOURCE.Process
   functions_and_methods:
     returnType: images.ImageResource
     signatures: [RESOURCE.Process SPECIFICATION]

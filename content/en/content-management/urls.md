@@ -183,8 +183,10 @@ relativeURLs = true
 
 Create redirects from old URLs to new URLs with aliases:
 
-- An alias with a leading slash is relative to the `baseURL`
-- An alias without a leading slash is relative to the current directory
+- An alias without a leading slash is relative to the current directory.
+- An alias with a leading slash is relative to the [site root](g). If a [`path`][] is set for the current output format, it will be relative to the site root plus the `path`.
+
+[`path`]: /configuration/output-formats/#path
 
 ### Examples {#alias-examples}
 

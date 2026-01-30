@@ -41,7 +41,7 @@ The most common front matter fields are `date`, `draft`, `title`, and `weight`, 
 [parameters]: #parameters
 
 aliases
-: (`string array`) An array of one or more aliases, where each alias is a relative URL that will redirect the browser to the current location. Access these values from a template using the [`Aliases`] method on a `Page` object. See the [aliases] section for details.
+: (`string array`) An array of one or more URLs that should redirect to the current page. Access these values from a template using the [`Aliases`] method on a `Page` object. See the [aliases] section for details.
 
 build
 : (`map`) A map of [build options].
