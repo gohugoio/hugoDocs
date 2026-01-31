@@ -1,6 +1,5 @@
 {{/* Mobile menu overlay and panel - only visible on small screens */}}
 <div
-  x-data
   x-show="$store.nav.mobileMenu.open"
   x-transition:enter="transition-opacity ease-out duration-200"
   x-transition:enter-start="opacity-0"
@@ -15,7 +14,6 @@
 
 {{/* Mobile menu panel */}}
 <div
-  x-data
   x-show="$store.nav.mobileMenu.open"
   x-transition:enter="transition ease-out duration-200"
   x-transition:enter-start="translate-x-full"
