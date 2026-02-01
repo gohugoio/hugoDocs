@@ -149,10 +149,18 @@ Step 4
           with:
             path: ${{ runner.temp }}/hugo_cache
             key: ${{ steps.cache-restore.outputs.cache-primary-key }}
-        - name: Upload artifact
-          uses: actions/upload-pages-artifact@v4
-          with:
-            path: ./public
+        - name: Create Pages artifact (keep .well-known)
+        run: |
+          tar \
+            --dereference --hard-dereference \
+            -cvf $RUNNER_TEMP/artifact.tar \
+            -C public \
+            .
+      - name: Upload artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: github-pages
+          path: ${{ runner.temp }}/artifact.tar
     deploy:
       environment:
         name: github-pages
