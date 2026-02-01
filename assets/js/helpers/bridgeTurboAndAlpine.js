@@ -1,4 +1,10 @@
 export function bridgeTurboAndAlpine(Alpine) {
+	let isNavigating = false;
+
+	document.addEventListener('turbo:before-visit', () => {
+		isNavigating = true;
+	});
+
 	document.addEventListener('turbo:before-render', (event) => {
 		event.detail.newBody.querySelectorAll('[data-alpine-generated]').forEach((el) => {
 			if (el.hasAttribute('data-alpine-generated')) {
@@ -26,12 +32,16 @@ export function bridgeTurboAndAlpine(Alpine) {
 		});
 
 		Alpine.startObservingMutations();
+		isNavigating = false;
 	});
 
 	// Cleanup Alpine state on navigation.
 	document.addEventListener('turbo:before-cache', () => {
-		// This will be restarted in turbo:render.
-		Alpine.stopObservingMutations();
+		// Only stop observing mutations during actual page navigations, not for same-page anchors.
+		if (isNavigating) {
+			// This will be restarted in turbo:render.
+			Alpine.stopObservingMutations();
+		}
 
 		document.body.querySelectorAll('[data-turbo-permanent]').forEach((el) => {
 			if (!el.hasAttribute('x-ignore')) {
