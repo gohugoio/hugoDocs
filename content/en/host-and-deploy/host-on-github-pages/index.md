@@ -149,7 +149,7 @@ Step 4
           with:
             path: ${{ runner.temp }}/hugo_cache
             key: ${{ steps.cache-restore.outputs.cache-primary-key }}
-        - name: Create Pages artifact (keep .well-known)
+        - name: Create Pages artifact
         run: |
           tar \
             --dereference --hard-dereference \
