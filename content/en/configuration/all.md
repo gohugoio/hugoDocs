@@ -148,7 +148,7 @@ ignoreLogs
 : (`[]string`) A slice of message identifiers corresponding to warnings and errors you wish to suppress. See [`erroridf`][] and [`warnidf`][].
 
 ignoreVendorPaths
-: (`string`) A [glob](g) pattern matching the module paths to exclude from the `_vendor` directory.
+: (`string`) A [glob pattern](g) matching the module paths to exclude from the `_vendor` directory.
 
 imaging
 : See [configure imaging][].

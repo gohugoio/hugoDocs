@@ -2,7 +2,9 @@
 title: glob slice
 ---
 
-A _glob slice_ is a slice of strings where each string is a [glob pattern](https://en.wikipedia.org/wiki/Glob_(programming)). Glob slices are e.g. used in Hugo's multi-dimensional content model to define configurations such as [_sites matrix_](g) and [_sites complements_](g). A pattern can be negated by prefixing it with an exclamation mark and one space.
+A _glob slice_ is a [_slice_](g) of [_glob patterns_](g). Within the _slice_, a _glob_ can be negated by prefixing it with an exclamation mark (`!`) and one space. Matches in negated patterns short-circuit the evaluation of the rest of the _slice_, and are useful for early coarse grained exclusions.
+
+  The following example illustrates how to use _glob slices_ to define a [_sites matrix_](g) in your site configuration:
 
   ```toml
   [sites.matrix]
@@ -11,4 +13,4 @@ A _glob slice_ is a slice of strings where each string is a [glob pattern](https
   roles = [ "{member, guest}" ]
   ```
 
-  Matches in negated patterns short-circuit the evaluation of the rest of the slice, and are useful for early coarse grained exclusions. The `versions` example above can logically be read as `(not version 1.2.) AND (any v1 OR v2 version)`.
+  The `versions` example above evaluates as: `(not v1.2.3) AND (v1.*.* OR v2.*.*)`.
