@@ -102,13 +102,18 @@ Next, create a home page template specifically for the `redirects` output format
 To ensure the resulting `_redirects` file is valid, the template uses the [`strings.FindRE`][] function to check for whitespace such as tabs or newlines within the alias string. If whitespace is detected, Hugo will throw an error and fail the build to prevent generating an invalid file.
 
 ```go-html-template {file="layouts/home.redirects" copy=true}
-{{- range $p := .Site.AllPages -}}
-  {{- range .Aliases -}}
-    {{- if findRE `\s` . -}}
-      {{- errorf "One of the front matter aliases in %q contains whitespace" $p.String -}}
+{{- if not (hugo.Store.Get "has_printed_redirects") -}}
+  {{- range .Sites -}}
+    {{- range $p := .Pages -}}
+      {{- range .Aliases -}}
+        {{- if findRE `\s` . -}}
+          {{- errorf "One of the front matter aliases in %q contains whitespace" $p.String -}}
+        {{- end -}}
+        {{- printf "%s %s 301\n" . $p.RelPermalink -}}
+      {{- end -}}
     {{- end -}}
-    {{- printf "%s %s 301\n" . $p.RelPermalink -}}
   {{- end -}}
+  {{- hugo.Store.Set "has_printed_redirects" true -}}
 {{- end -}}
 ```
 
