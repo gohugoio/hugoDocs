@@ -32,7 +32,7 @@ Example|Returns|Equivalent to
 
 {{ $versionObject := .Site.Dimension "version" }}
 {{ $versionObject.IsDefault }} → true
-{{ $versionObject.Name }} → v1.0.0z
+{{ $versionObject.Name }} → v1.0.0
 ```
 
 [`.Site.Language`]: /methods/site/language/
