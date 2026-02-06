@@ -121,7 +121,7 @@ To ensure the resulting `_redirects` file is valid, the template uses the [`stri
 
 Once Hugo processes the template, it produces a clean list of redirect rules. Each line follows the required format: the source URL, the destination URL, and the HTTP status code.
 
-The resulting _redirects file looks like this:
+The resulting `_redirects` file looks like this:
 
 ```text
 /de/examples/a-old /de/examples/a/ 301
