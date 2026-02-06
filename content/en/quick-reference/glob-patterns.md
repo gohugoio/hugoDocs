@@ -28,3 +28,11 @@ The table below details the supported glob pattern syntax and its matching behav
 | Negated range | `[!a-c]at` | `fat` | `true` |
 | Pattern alternates | `{cat,bat,[fr]at}` | `rat` | `true` |
 | No match | `{cat,bat,[fr]at}` | `zat` | `false` |
+
+The matching logic follows these rules:
+
+- Standard wildcard (`*`) matches any character except for a path separator.
+- Super wildcard (`**`) matches any character including path separators.
+- Single character (`?`) matches exactly one character.
+- Negation (`!`) excludes specific characters or ranges when used inside brackets.
+- Character ranges (`[a-z]`) match any single character within the specified range.
