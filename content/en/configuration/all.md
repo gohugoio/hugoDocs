@@ -86,7 +86,7 @@ deployment
 : See [configure deployment][].
 
 disableAliases
-: (`bool`) Whether to disable generation of alias redirects. Even if this option is enabled, the defined aliases will still be present on the page. This allows you to manage redirects separately, for example, by generating 301 redirects in an `.htaccess` file or a Netlify `_redirects` file using a custom output format. Default is `false`.
+: (`bool`) Whether to disable the generation of HTML redirect files for each path defined in the [`aliases`][aliases_front_matter] front matter field. When `true`, Hugo will not create physical files for [client-side redirection][], but the alias data remains available via the [`Aliases`][aliases_page_method] method on a `Page` object. Default is `false`.
 
 disableDefaultLanguageRedirect
 : {{< new-in 0.140.0 />}}
@@ -378,9 +378,12 @@ Some configuration settings, such as menus and custom parameters, can be defined
 [`titleCaseStyle`]: #titlecasestyle
 [`warnidf`]: /functions/fmt/warnidf/
 [`WordCount`]: /methods/page/wordcount/
+[aliases_front_matter]: /content-management/front-matter/#aliases
+[aliases_page_method]: /methods/page/aliases/
 [Associated Press Stylebook]: https://www.apstylebook.com/
 [automatic summaries]: /content-management/summaries/#automatic-summary
 [Chicago Manual of Style]: https://www.chicagomanualofstyle.org/home.html
+[client-side redirection]: /content-management/urls/#client-side-redirection
 [composite characters]: https://en.wikipedia.org/wiki/Precomposed_character
 [configure build]: /configuration/build/
 [configure cascade]: /configuration/cascade/
