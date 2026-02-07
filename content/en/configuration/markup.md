@@ -174,9 +174,9 @@ renderHooks.image.useEmbedded
 : {{< new-in 0.148.0 />}}
 : (`string`) When to use the [embedded image render hook]. One of `auto`, `never`, `always`, or `fallback`. Default is `auto`.
 
-  - `auto`: Automatically use the embedded image render hook for multilingual single-host sites, specifically when the [duplication of shared page resources] feature is disabled. This is the default behavior for such sites. If custom image render hooks are defined by your project, modules, or themes, these will be used instead.
+  - `auto`: Use the embedded image render hook only for multilingual single-host projects where the [duplication of shared page resources] feature is disabled. If custom image render hooks are defined by your project, modules, or themes, these will be used instead.
   - `never`: Never use the embedded image render hook. If custom image render hooks are defined by your project, modules, or themes, these will be used instead.
-  - `always`: Always use the embedded image render hook, even if custom image render hooks are provided by your project, modules, or themes. In this case, the embedded hook takes precedence.
+  - `always`: Always use the embedded image render hook, even if custom image render hooks are provided by your project, modules, or themes.
   - `fallback`: Use the embedded image render hook only if custom image render hooks are not provided by your project, modules, or themes. If custom image render hooks exist, these will be used instead.
 
 <!-- TODO: delete this on or after July 1, 2027. -->
@@ -186,9 +186,9 @@ renderHooks.link.enableDefault
 renderHooks.link.useEmbedded
 : (`string`) When to use the [embedded link render hook]. One of `auto`, `never`, `always`, or `fallback`. Default is `auto`.
 
-  - `auto`: Automatically use the embedded link render hook for multilingual single-host sites, specifically when the [duplication of shared page resources] feature is disabled. This is the default behavior for such sites. If custom link render hooks are defined by your project, modules, or themes, these will be used instead.
+  - `auto`: Use the embedded link render hook only for multilingual single-host projects where the [duplication of shared page resources] feature is disabled. If custom link render hooks are defined by your project, modules, or themes, these will be used instead.
   - `never`: Never use the embedded link render hook. If custom link render hooks are defined by your project, modules, or themes, these will be used instead.
-  - `always`: Always use the embedded link render hook, even if custom link render hooks are provided by your project, modules, or themes. In this case, the embedded hook takes precedence.
+  - `always`: Always use the embedded link render hook, even if custom link render hooks are provided by your project, modules, or themes.
   - `fallback`: Use the embedded link render hook only if custom link render hooks are not provided by your project, modules, or themes. If custom link render hooks exist, these will be used instead.
 
 renderer.hardWraps
