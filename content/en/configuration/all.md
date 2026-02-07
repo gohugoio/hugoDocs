@@ -109,7 +109,7 @@ disableLiveReload
 : (`bool`) Whether to disable automatic live reloading of the browser window. Default is `false`.
 
 disablePathToLower
-: (`bool`) Whether to disable transformation of page URLs to lower case.
+: (`bool`) Whether to disable transformation of page URLs to lower case. Default is `false`.
 
 enableEmoji
 : (`bool`) Whether to allow emoji in Markdown. Default is `false`.
