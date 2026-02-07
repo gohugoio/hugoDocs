@@ -11,28 +11,28 @@ The table below details the supported glob pattern syntax and its matching behav
 
 | Match type | Glob pattern | Test string | Match? |
 | :--- | :--- | :--- | :--- |
-| Simple wildcard | `*.github.com` | `api.github.com` | `true` |
-| Literal match (quoted) | `*.github.com` | `*.github.com` | `true` |
-| Dot delimiter (single level) | `api.*.com` | `api.github.com` | `true` |
-| Dot delimiter (fails on nested) | `api.*.com` | `api.gi.hub.com` | `false` |
-| Super wildcard (multi-level) | `api.**.com` | `api.gi.hub.com` | `true` |
-| Single character | `?at` | `cat` | `true` |
-| Single character | `?at` | `fat` | `true` |
-| Single character (too short) | `?at` | `at` | `false` |
-| Delimiter exclusion | `?at` | `fat` | `false` |
-| Character list | `[abc]at` | `cat` | `true` |
-| Character list | `[abc]at` | `bat` | `true` |
-| Negated list | `[!abc]at` | `fat` | `true` |
-| Character range | `[a-c]at` | `cat` | `true` |
-| Character range | `[a-c]at` | `bat` | `true` |
-| Negated range | `[!a-c]at` | `fat` | `true` |
-| Pattern alternates | `{cat,bat,[fr]at}` | `rat` | `true` |
-| No match | `{cat,bat,[fr]at}` | `zat` | `false` |
+| Simple wildcard | `a/*.md` | `a/page.md` | true |
+| Literal match | `'a/*.md'` | `a/*.md` | true |
+| Single-level wildcard | `a/*/page.md` | `a/b/page.md` | true |
+| Single-level wildcard | `a/*/page.md` | `a/b/c/page.md` | false |
+| Multi-level wildcard | `a/**/page.md` | `a/b/c/page.md` | true |
+| Single character | `file.???` | `file.txt` | true |
+| Single character | `file.???` | `file.js` | false |
+| Delimiter exclusion | `?at` | `f/at` | false |
+| Character list | `f.[jt]xt` | `f.txt` | true |
+| Negated list | `f.[!j]xt` | `f.txt` | true |
+| Character range | `f.[a-c].txt` | `f.b.txt` | true |
+| Character range | `f.[a-c].txt` | `f.z.txt` | false |
+| Negated range | `f.[!a-c].txt` | `f.z.txt` | true |
+| Pattern alternates | `*.{jpg,png}` | `logo.png` | true |
+| No match | `*.{jpg,png}` | `logo.webp` | false |
 
 The matching logic follows these rules:
 
-- Standard wildcard (`*`) matches any character except for a path separator.
-- Super wildcard (`**`) matches any character including path separators.
-- Single character (`?`) matches exactly one character.
-- Negation (`!`) excludes specific characters or ranges when used inside brackets.
+- Standard wildcard (`*`) matches any character except for a delimiter.
+- Super wildcard (`**`) matches any character including delimiters.
+- Single character (`?`) matches exactly one character, excluding delimiters.
+- Negation (`!`) matches any character except those specified in a list or range when used inside brackets.
 - Character ranges (`[a-z]`) match any single character within the specified range.
+
+The delimiter is a slash (`/`), except when matching semantic version strings, where the delimiter is a dot&nbsp;(`.`).
