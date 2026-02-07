@@ -65,7 +65,7 @@ protocol
 : (`string`) The protocol (scheme) of the URL for this output format. For example, `https://` or `webcal://`. Default is the scheme of the [`baseURL`][] parameter in your site configuration, typically `https://`.
 
 rel
-: (`string`) If provided, you can assign this value to `rel` attributes in `link` elements when iterating over output formats in your templates. Default is `alternate`.
+: (`string`) The relationship of the output format to the current page. Hugo uses this property to determine the [canonical output format](g) of the current page. For the predefined `html` output format, the default value is `canonical`; for all other predefined output formats, the default value is `alternate`.
 
 root
 : (`bool`) Whether to publish files to the root of the publish directory. Default is `false`.

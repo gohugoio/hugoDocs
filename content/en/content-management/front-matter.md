@@ -41,7 +41,7 @@ The most common front matter fields are `date`, `draft`, `title`, and `weight`, 
 [parameters]: #parameters
 
 aliases
-: (`string array`) An array of one or more [page-relative](g) or [site-relative](g) paths that should redirect to the current page. Hugo resolves these to [server-relative](g) URLs during the build process. Access these values from a template using the [`Aliases`] method on a `Page` object. See the [aliases] section for details.
+: (`[]string`) An array of one or more [page-relative](g) or [site-relative](g) paths that should redirect to the current page. Hugo resolves these to [server-relative](g) URLs during the build process. Access these values from a template using the [`Aliases`] method on a `Page` object. See the [aliases] section for details.
 
 build
 : (`map`) A map of [build options].
@@ -68,7 +68,7 @@ isCJKLanguage
 : (`bool`) Whether the content language is in the [CJK](g) family. This value determines how Hugo calculates word count, and affects the values returned by the [`WordCount`], [`FuzzyWordCount`], [`ReadingTime`], and [`Summary`] methods on a `Page` object.
 
 keywords
-: (`string array`) An array of keywords, typically rendered within a `meta` element within the `head` element of the published HTML file, or used as a [taxonomy](g) to classify content. Access these values from a template using the [`Keywords`] method on a `Page` object.
+: (`[]string`) An array of keywords, typically rendered within a `meta` element within the `head` element of the published HTML file, or used as a [taxonomy](g) to classify content. Access these values from a template using the [`Keywords`] method on a `Page` object.
 
 lastmod
 : (`string`) The date that the page was last modified. Note that the TOML format also supports unquoted date/time values. See the [dates](#dates) section for examples. Access this value from a template using the [`Lastmod`] method on a `Page` object.
@@ -83,13 +83,13 @@ markup
 : (`string`) An identifier corresponding to one of the supported [content formats]. If not provided, Hugo determines the content renderer based on the file extension.
 
 menus
-: (`string`, `string array`, or `map`) If set, Hugo adds the page to the given menu or menus. See the [menus] page for details.
+: (`string`, `[]string`, or `map`) If set, Hugo adds the page to the given menu or menus. See the [menus] page for details.
 
 modified
 : Alias to [lastmod](#lastmod).
 
 outputs
-: (`string array`) The [output formats] to render. See [configure outputs] for more information.
+: (`[]string`) The [output formats] to render. See [configure outputs] for more information.
 
 params
 : (`map`) A map of custom [page parameters].

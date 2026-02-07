@@ -94,7 +94,7 @@ disableDefaultLanguageRedirect
 
 disableDefaultSiteRedirect
 : {{< new-in 0.154.5 />}}
-: (bool) Whether to disable generation of the alias redirect to the default site. When [`defaultContentLanguageInSubdir`][], [`defaultContentRoleInSubdir`][], or [`defaultContentVersionInSubdir`][] is `true`, this prevents the root directory from redirecting to the default site's subdirectory. Conversely, when these are `false`, it prevents the subdirectories from redirecting back to the root. The default site is the site with the default content language, version, and role. Default is `false`.
+: (bool) Whether to disable generation of the alias redirect to the [default site](g). When [`defaultContentLanguageInSubdir`][], [`defaultContentRoleInSubdir`][], or [`defaultContentVersionInSubdir`][] is `true`, this prevents the root directory from redirecting to the default site's subdirectory. Conversely, when these are `false`, it prevents the subdirectories from redirecting back to the root. The default site is the site with the default content language, version, and role. Default is `false`.
 
 disableHugoGeneratorInject
 : (`bool`) Whether to disable injection of a `<meta name="generator">` tag into the home page. Default is `false`.
