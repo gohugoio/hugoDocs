@@ -24,9 +24,9 @@ Define your [CI/CD](g) jobs by creating a `.gitlab-ci.yml` file in the root of y
 ```yaml {file=".gitlab-ci.yml" copy=true}
 variables:
   # Application versions
-  DART_SASS_VERSION: 1.93.2
-  HUGO_VERSION: 0.151.0
-  NODE_VERSION: 22.18.0
+  DART_SASS_VERSION: 1.97.3
+  HUGO_VERSION: 0.155.0
+  NODE_VERSION: 24.13.0
   # Git
   GIT_DEPTH: 0
   GIT_STRATEGY: clone
@@ -35,7 +35,7 @@ variables:
   TZ: Europe/Oslo
 
 image:
-  name: golang:1.25.1-bookworm
+  name: golang:1.25.6-bookworm
 
 pages:
   stage: deploy

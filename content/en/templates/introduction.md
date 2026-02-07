@@ -90,9 +90,9 @@ Hugo renders this to:
 
 ## Actions
 
-In the examples above the paired opening and closing braces represent the beginning and end of a template action, a data evaluation or control structure within a template.
+In the examples above, the paired opening and closing braces represent the beginning and end of a template action, a data evaluation or control structure within a template.
 
-A template action may contain literal values ([boolean](g), [string](g), [integer](g), and [float](g)), variables, functions, and methods.
+A template action may contain literal values ([boolean](g), [string](g), [integer](g), and [float](g)), the [current context](#current-context), [variables](#variables), [functions](#functions), [methods](#methods), and the [`nil`](#nil) keyword.
 
 ```go-html-template {file="layouts/page.html"}
 {{ $convertToLower := true }}
@@ -105,8 +105,10 @@ In the example above:
 
 - `$convertToLower` is a variable
 - `true` is a literal boolean value
+- `if` is the beginning of a control structure
 - `strings.ToLower` is a function that converts all characters to lowercase
 - `Title` is a method on a the `Page` object
+- `end` is the end of a control structure
 
 Hugo renders the above to:
 
@@ -135,6 +137,30 @@ Hugo renders this to:
 ```
 
 Whitespace includes spaces, horizontal tabs, carriage returns, and newlines.
+
+### Quote characters
+
+Hugo templates use different quote characters to define how text and characters are processed.
+
+Use double quotes for [interpreted string literals](g). These interpret backslashes as special instructions:
+
+```go-html-template
+{{ print "Hello world\u0021" }} → Hello world!
+```
+
+Use backticks for [raw string literals](g). These ignore backslashes and treat every character literally:
+
+```go-html-template
+{{ print `Hello world\u0021` }} → Hello world\u0021
+```
+
+Use single quotes for [rune literals](g). Unlike strings, these represent a single character as its numerical Unicode value:
+
+```go-html-template
+{{ print '!' }} → 33
+```
+
+In practical terms, you will rarely, if ever, use rune literals in your template code. They are most commonly used in low-level programming; in a Hugo template, you will almost always want a string instead.
 
 ### Pipes
 
@@ -184,6 +210,28 @@ You can also split [raw string literals](g) over two or more lines. For example,
 This is line two.`
 }}
 ```
+
+### Nil
+
+Other than using the `nil` keyword in comparisons, you may not use it as an argument to any function or method, nor may you assign it to a variable. For example, these are valid uses of the `nil` keyword:
+
+```go-html-template
+{{ if gt 42 nil }}
+  <p>42 is greater than nil</p>
+{{ end }}
+
+{{ $pages := where .Site.RegularPages "Params.color" "ne" nil }}
+```
+
+These, on the other hand, are invalid:
+
+```go-html-template
+{{ $a := nil }} 
+{{ add 3 nil }} 
+{{ nil | print}}
+```
+
+The actions above throw an error.
 
 ## Variables
 
@@ -519,8 +567,8 @@ In the template example above, each of the keys is a valid identifier. For examp
 [`with`]: /functions/go-template/with/
 [current context]: #current-context
 [embedded templates]: /templates/embedded/
-[front matter]: /content-management/front-matter/
 [front matter fields]: /content-management/front-matter/#fields
+[front matter]: /content-management/front-matter/
 [functions]: /functions/
 [go-templates]: /functions/go-template/
 [html/template]: https://pkg.go.dev/html/template

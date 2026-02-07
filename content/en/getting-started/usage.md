@@ -18,7 +18,7 @@ hugo version
 You should see something like:
 
 ```text
-hugo v0.151.0-c70ab27ceb841fc9404eab5d2c985ff7595034b7+extended linux/amd64 BuildDate=2025-10-02T13:30:36Z VendorInfo=gohugoio
+hugo v0.155.0-74c0bbfc6abce6a4f568c2b8c593a7fca9710e3f+extended linux/amd64 BuildDate=2026-01-28T16:28:23Z VendorInfo=gohugoio
 ```
 
 ## Display available commands
@@ -58,8 +58,6 @@ Hugo allows you to set `draft`, `date`, `publishDate`, and `expiryDate` in the [
 - The `date` is in the future
 - The `publishDate` is in the future
 - The `expiryDate` is in the past
-
-{{< new-in 0.123.0 />}}
 
 > [!note]
 > Hugo publishes descendants of draft, future, and expired [node](g) pages. To prevent publication of these descendants, use the [`cascade`] front matter field to cascade [build options] to the descendant pages.
@@ -142,9 +140,7 @@ public/
 
 In a simple hosting environment, where you typically `ftp`, `rsync`, or `scp` your files to the root of a virtual host, the contents of the `public` directory are all that you need.
 
-Most of our users deploy their sites using a [CI/CD](g) workflow, where a push[^1] to their GitHub or GitLab repository triggers a build and deployment. Popular providers include [AWS Amplify], [CloudCannon], [Cloudflare Pages], [GitHub Pages], [GitLab Pages], and [Netlify].
-
-Learn more in the [host and deploy] section.
+Most of our users deploy their sites to a [CI/CD](g) platform, where a push[^1] to their remote Git repository triggers a build and deployment. Learn more in the [host and deploy] section.
 
 [^1]: The Git repository contains the entire project directory, typically excluding the `public` directory because the site is built _after_ the push.
 
@@ -153,14 +149,8 @@ Learn more in the [host and deploy] section.
 [`hugo server`]: /commands/hugo_server/
 [`hugo`]: /commands/hugo/
 [`publishDir`]: /configuration/all/#publishdir
-[AWS Amplify]: https://aws.amazon.com/amplify/
 [build options]: /content-management/build-options/
-[CloudCannon]: https://cloudcannon.com/
-[Cloudflare Pages]: https://pages.cloudflare.com/
 [front matter]: /content-management/front-matter/
-[GitHub Pages]: https://pages.github.com/
-[GitLab Pages]: https://docs.gitlab.com/ee/user/project/pages/
 [host and deploy]: /host-and-deploy/
 [installing]: /installation/
 [LiveReload]: https://github.com/livereload/livereload-js
-[Netlify]: https://www.netlify.com/
