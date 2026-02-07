@@ -17,9 +17,9 @@ The `DIMENSION` argument must be one of `language`, `role`, or `version`.
 
 Example|Returns|Equivalent to
 :--|:--|:--
-`.Site.Dimension "language"`|`langs.Language`|[`.Site.Language`][]
-`.Site.Dimension "role"`|`roles.Role`|[`.Site.Role`][]
-`.Site.Dimension "version"`|`version.Version`|[`.Site.Version`][]
+`{{ .Site.Dimension "language" }}`|`langs.Language`|`{{ .Site.Language }}`
+`{{ .Site.Dimension "role" }}`|`roles.Role`|`{{ .Site.Role }}`
+`{{ .Site.Dimension "version" }}`|`version.Version`|`{{ .Site.Version }}`
 
 ```go-html-template
 {{ $languageObject := .Site.Dimension "language" }}
@@ -34,7 +34,3 @@ Example|Returns|Equivalent to
 {{ $versionObject.IsDefault }} → true
 {{ $versionObject.Name }} → v1.0.0
 ```
-
-[`.Site.Language`]: /methods/site/language/
-[`.Site.Role`]: /methods/site/role/
-[`.Site.Version`]: /methods/site/version/

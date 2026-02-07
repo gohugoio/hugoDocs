@@ -60,7 +60,7 @@ weight: 20
 
 ## Content management
 
-[Multi-dimensional content model]
+[Multidimensional content model]
 : Generate pages across any combination of language, role, and version from a single source. This allows a single piece of content to be published to multiple [sites](g) within your project, removing the need to duplicate files for different audiences or versions.
 
 [Content adapters]
@@ -123,7 +123,7 @@ weight: 20
 [Syntax highlighting]: /content-management/syntax-highlighting/
 [Shortcodes]: /content-management/shortcodes/
 
-[Multi-dimensional content model]: /quick-reference/glossary/#sites-matrix
+[Multidimensional content model]: /quick-reference/glossary/#sites-matrix
 [Content adapters]: /content-management/content-adapters/
 [Taxonomies]: /content-management/taxonomies/
 [Data]: /content-management/data-sources/
