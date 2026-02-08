@@ -53,7 +53,7 @@ Step 2
 
     DART_SASS_VERSION=1.97.3
     GO_VERSION=1.25.6
-    HUGO_VERSION=0.155.0
+    HUGO_VERSION=0.155.3
     NODE_VERSION=24.13.0
 
     export TZ=Europe/Oslo
