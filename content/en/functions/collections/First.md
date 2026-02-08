@@ -1,13 +1,13 @@
 ---
 title: collections.First
-description: Returns the given collection, limited to the first N elements.
+description: Returns the first N elements of the given slice or string.
 categories: []
 keywords: []
 params:
   functions_and_methods:
     aliases: [first]
-    returnType: any
-    signatures: [collections.First N COLLECTION]
+    returnType: 'any'
+    signatures: [collections.First N SLICE|STRING]
 aliases: [/functions/first]
 ---
 
