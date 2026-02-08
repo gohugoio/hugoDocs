@@ -1,13 +1,13 @@
 ---
 title: collections.Apply
-description: Returns a new collection with each element transformed by the given function.
+description: Returns a slice by transforming each element of the given slice using a specific function and parameters.
 categories: []
 keywords: []
 params:
   functions_and_methods:
     aliases: [apply]
     returnType: '[]any'
-    signatures: [collections.Apply COLLECTION FUNCTION PARAM...]
+    signatures: [collections.Apply SLICE FUNCTION PARAM...]
 aliases: [/functions/apply]
 ---
 

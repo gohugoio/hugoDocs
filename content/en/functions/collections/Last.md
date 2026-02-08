@@ -1,13 +1,13 @@
 ---
 title: collections.Last
-description: Returns the given collection, limited to the last N elements.
+description: Returns the last N elements of the given slice or string.
 categories: []
 keywords: []
 params:
   functions_and_methods:
     aliases: [last]
-    returnType: any
-    signatures: [collections.Last N COLLECTION]
+    returnType: 'any'
+    signatures: [collections.Last N SLICE|STRING]
 aliases: [/functions/last]
 ---
 
