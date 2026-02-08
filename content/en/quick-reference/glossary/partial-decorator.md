@@ -1,7 +1,8 @@
 ---
 title: partial decorator
+reference: /templates/partial-decorators/
 ---
 
-A _partial decorator_ is a [_partial_](g) template called from any other template including [_shortcodes_](g), [render hooks](g), and other partials.
+A _partial decorator_ is specific type of [_partial_](g) that functions as a [_wrapper component_](g). While a standard partial simply renders data within a fixed template, a decorator uses composition to enclose an entire block of content. It utilizes the [`templates.Inner`][] function as a placeholder to define exactly where that external content should be injected within the wrapper's layout.
 
-  See [templates.Inner](/functions/templates/inner/) for more information.
+  [`templates.Inner`]: /functions/templates/inner/
