@@ -9,7 +9,7 @@ params:
     signatures: [RESOURCE.Meta]
 ---
 
-{{< new-in 0.155.0 />}}
+{{< new-in 0.155.3 />}}
 
 {{% include "/_common/methods/resource/global-page-remote-resources.md" %}}
 
