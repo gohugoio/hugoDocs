@@ -39,7 +39,7 @@ To use the `collections.Last` function with a page collection:
 {{ end }}
 ```
 
-Set `N` to zero to return an empty collection:
+Set `N` to zero to return an empty slice:
 
 ```go-html-template
 {{ $emptyPageCollection := last 0 .Pages }}
