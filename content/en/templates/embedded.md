@@ -90,7 +90,7 @@ disable
 : (`bool`) Whether to disable the template. Default is `false`.
 
 respectDoNotTrack
-: (`bool`) Whether to respect the browser's "do not track" setting. Default is `false`.
+: (`bool`) Whether to respect the browser's "do not track" setting. Default is `true`.
 
 ## Open Graph
 
