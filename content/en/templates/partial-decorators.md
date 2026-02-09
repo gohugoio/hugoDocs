@@ -6,6 +6,8 @@ keywords: [decorator]
 weight: 170
 ---
 
+{{< new-in "0.154.0" />}}
+
 ## Overview
 
 {{% glossary-term "partial decorator" %}}
