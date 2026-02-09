@@ -17,12 +17,6 @@ Hugo uses file caches to store data on disk, avoiding repeated operations within
 assets
 : Caches processed CSS and Sass resources.
 
-getcsv
-: Caches the results of the [`data.GetCSV`][] function. Note that the `data.GetCSV` function was deprecated in v0.123.0 in favor of the [`resources.GetRemote`][] function.
-
-getjson
-: Caches the results of the [`data.GetJSON`][] function. Note that the `data.GetJSON` function was deprecated in v0.123.0 in favor of the [`resources.GetRemote`][] function.
-
 getresource
 : Caches files fetched from remote URLs via the [`resources.GetRemote`][] function.
 
@@ -61,6 +55,4 @@ maxAge
 
 As you modify your site or change your configuration, cached files from previous builds may remain on disk, consuming unnecessary space. Use the `hugo --gc` command to remove these expired or unused entries from the file cache.
 
-[`data.GetJSON`]: /functions/data/getjson/
-[`data.GetCSV`]: /functions/data/getcsv/
 [`resources.GetRemote`]: /functions/resources/getremote/
