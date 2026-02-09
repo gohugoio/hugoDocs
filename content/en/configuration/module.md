@@ -170,7 +170,7 @@ sites
 [[module.mounts]]
     source="content"
     target="content"
-    excludeFiles="docs/*"
+    files=["! docs/*"]
 [[module.mounts]]
     source="node_modules"
     target="assets"
