@@ -1,6 +1,6 @@
 ---
 title: Glob patterns
-description: # TODO
+description: A quick reference guide to glob pattern syntax and matching rules for wildcards, character sets, and delimiters, featuring illustrative examples.
 categories: []
 keywords: []
 ---
