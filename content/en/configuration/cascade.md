@@ -23,7 +23,7 @@ color = 'red'
 <!-- TODO
 Update the <version> and <date> below when we actually get around to deprecating _target.
 
-We deprecated the `_target` front matter key in favor of `target` in <version> on <date>. Remove footnote #1 on or after 2026-03-10 (15 months after deprecation).
+We deprecated the `_target` front matter key in favor of `target` in <version> on <date>. Remove footnote #1 on or after 2027-05-01 (15 months after deprecation).
 -->
 
 The `target`[^1] keyword allows you to target specific pages or [environments](g). For example, to cascade a "color" parameter to pages within the "articles" section, including the "articles" section page itself:
