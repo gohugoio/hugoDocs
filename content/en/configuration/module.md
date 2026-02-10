@@ -157,7 +157,7 @@ disableWatch
 
 files
 : {{< new-in 0.153.0 />}}
-: (`string` or `[]string`) A [glob slice](g) defining the files to include or exclude.
+: (`[]string`) A [glob slice](g) defining the files to include or exclude.
 
 sites
 : {{< new-in 0.153.0 />}}
