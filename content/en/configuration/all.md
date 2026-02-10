@@ -40,7 +40,7 @@ canonifyURLs
 : (`bool`) See&nbsp;[details](/content-management/urls/#canonical-urls) before enabling this feature. Default is `false`.
 
 capitalizeListTitles
-: (`bool`) Whether to capitalize automatic list titles. Applicable to section, taxonomy, and term pages. Default is `true`. Use the [`titleCaseStyle`][] setting to configure capitalization rules.
+: (`bool`) Whether to capitalize automatic list titles. Applicable to section, taxonomy, and term pages. Use the [`titleCaseStyle`][] setting to configure capitalization rules. Default is `true`.
 
 cascade
 : See [configure cascade][].
