@@ -291,7 +291,7 @@ Use this syntax :
 ```
 ````
 
-### Site configuration
+### Project configuration
 
 Use the [code-toggle shortcode](#code-toggle) to include site configuration examples:
 

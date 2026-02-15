@@ -9,7 +9,7 @@ params:
     signatures: [SITE.BaseURL]
 ---
 
-Site configuration:
+Project configuration:
 
 {{< code-toggle file=hugo >}}
 baseURL = 'https://example.org/docs/'

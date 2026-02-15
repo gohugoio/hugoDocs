@@ -50,7 +50,7 @@ Page-relative paths can also include directory traversal:
 | page-relative | `content/examples/a.en.md` | `../a-old` | `/en/a-old/` |
 | site-relative | `content/examples/a.en.md` | `/a-old` | `/en/a-old/` |
 
-### Site configuration
+### Project configuration
 
 To implement this, you must update your site configuration to:
 

@@ -9,7 +9,7 @@ params:
     signatures: [SITE.Title]
 ---
 
-Site configuration:
+Project configuration:
 
 {{< code-toggle file=hugo >}}
 title = 'My Documentation Site'
