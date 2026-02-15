@@ -134,9 +134,7 @@ series = []
 tags = []
 {{</ code-toggle >}}
 
-Hugo uses the page title and description for the title and description metadata.
-The first 6 URLs from the `images` array are used for image metadata.
-If [page bundles](/content-management/page-bundles/) are used and the `images` array is empty or undefined, images with file names matching `*feature*`, `*cover*`, or `*thumbnail*` are used for image metadata.
+Hugo uses the page title and description for the title and description metadata. The first 6 URLs from the `images` array are used for image metadata. If [page bundles](/content-management/page-bundles/) are used and the `images` array is empty or undefined, images with file names matching `*feature*`, `*cover*`, or `*thumbnail*` are used for image metadata.
 
 Various optional metadata can also be set:
 
@@ -173,8 +171,7 @@ To include the embedded template:
 >
 > `{{ partial "twitter_cards.html" . }}`
 
-Hugo includes an embedded template for [X (Twitter) Cards](https://developer.x.com/en/docs/twitter-for-websites/cards/overview/abouts-cards),
-metadata used to attach rich media to Tweets linking to your site.
+Hugo includes an embedded template for [X (Twitter) Cards](https://developer.x.com/en/docs/twitter-for-websites/cards/overview/abouts-cards), metadata used to attach rich media to Tweets linking to your site.
 
 To include the embedded template:
 
@@ -198,9 +195,7 @@ description = "Text about this post"
 images = ["post-cover.png"]
 {{</ code-toggle >}}
 
-If [page bundles](/content-management/page-bundles/) are used and the `images` array is empty or undefined, images with file names matching `*feature*`, `*cover*`, or `*thumbnail*` are used for image metadata.
-If no image resources with those names are found, the images defined in the [site config](/configuration/) are used instead.
-If no images are found at all, then an image-less Twitter `summary` card is used instead of `summary_large_image`.
+If [page bundles](/content-management/page-bundles/) are used and the `images` array is empty or undefined, images with file names matching `*feature*`, `*cover*`, or `*thumbnail*` are used for image metadata. If no image resources with those names are found, the images defined in the [site configuration](/configuration/) are used instead. If no images are found at all, then an image-less Twitter `summary` card is used instead of `summary_large_image`.
 
 Hugo uses the page title and description for the card's title and description fields. The page summary is used if no description is given.
 
