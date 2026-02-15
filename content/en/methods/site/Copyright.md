@@ -9,7 +9,7 @@ params:
     signatures: [SITE.Copyright]
 ---
 
-Site configuration:
+Project configuration:
 
 {{< code-toggle file=hugo >}}
 copyright = '© 2023 ABC Widgets, Inc.'

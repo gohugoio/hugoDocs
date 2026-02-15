@@ -121,7 +121,7 @@ Use any of these tokens:
 
 {{% include "/_common/permalink-tokens.md" %}}
 
-## Site configuration
+## Project configuration
 
 ### Permalinks
 

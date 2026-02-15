@@ -9,7 +9,7 @@ params:
     signatures: [SITE.MainSections]
 ---
 
-Site configuration:
+Project configuration:
 
 {{< code-toggle file=hugo >}}
 mainSections = ['books','films']
