@@ -103,7 +103,7 @@ For example:
 ````text
 ## Section 1 {class=foo}
 
-```bash {class=foo linenos=inline}
+```sh {class=foo linenos=inline}
 declare a=1
 echo "${a}"
 ```

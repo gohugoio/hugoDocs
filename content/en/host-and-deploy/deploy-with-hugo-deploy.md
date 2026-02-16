@@ -44,7 +44,7 @@ Create a deployment target in your [site configuration]. The only required param
 
 To deploy to a target:
 
-```bash
+```sh
 hugo deploy [--target=<target name>]
 ```
 
