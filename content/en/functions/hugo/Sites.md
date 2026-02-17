@@ -1,20 +1,16 @@
 ---
-title: Sites
+title: hugo.Sites
 description: Returns a collection of all sites for all dimensions.
 categories: []
 keywords: []
 params:
   functions_and_methods:
+    aliases: []
     returnType: page.Sites
-    signatures: [PAGE.Sites]
-expiryDate: '2028-02-18' # deprecated 2026-02-18 in v0.156.0
+    signatures: [hugo.Sites]
 ---
 
-{{< deprecated-in 0.156.0 >}}
-Use [`hugo.Sites`] instead.
-
-[`hugo.Sites`]: /functions/hugo/sites/
-{{< /deprecated-in >}}
+{{< new-in 0.156.0 />}}
 
 {{% include "/_common/functions/hugo/sites-collection.md" %}}
 
@@ -50,7 +46,7 @@ This template:
 
 ```go-html-template
 <ul>
-  {{ range .Sites }}
+  {{ range hugo.Sites }}
     <li><a href="{{ .Home.RelPermalink }}">{{ .Title }} {{ .Version.Name }}</a></li>
   {{ end }}
 </ul>
@@ -72,7 +68,7 @@ Produces a list of links to each home page:
 To render a link to the home page of the [default site](g):
 
 ```go-html-template
-{{ with .Sites.Default }}
+{{ with hugo.Sites.Default }}
   <a href="{{ .Home.RelPermalink }}">{{ .Title }}</a>
 {{ end }}
 ```
@@ -80,7 +76,7 @@ To render a link to the home page of the [default site](g):
 This is equivalent to:
 
 ```go-html-template
-{{ with index .Sites 0 }}
+{{ with index hugo.Sites 0 }}
   <a href="{{ .Home.RelPermalink }}">{{ .Title }}</a>
 {{ end }}
 ```
