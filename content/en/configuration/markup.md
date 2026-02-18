@@ -58,8 +58,6 @@ Extension|Documentation|Enabled
 
 #### Extras
 
-{{< new-in 0.126.0 />}}
-
 Enable [deleted text], [inserted text], [mark text], [subscript], and [superscript] elements in Markdown.
 
 Element|Markdown|Rendered
