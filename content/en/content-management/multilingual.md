@@ -379,7 +379,7 @@ For merging of content from other languages (i.e. missing content translations),
 To track down missing translation strings, run Hugo with the `--printI18nWarnings` flag:
 
 ```sh
-hugo --printI18nWarnings | grep i18n
+hugo build --printI18nWarnings | grep i18n
 i18n|MISSING_TRANSLATION|en|wordCount
 ```
 

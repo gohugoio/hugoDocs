@@ -12,7 +12,7 @@ params:
 By default, draft pages are not published when building a site. You can change this behavior with a command line flag:
 
 ```sh
-hugo --buildDrafts
+hugo build --buildDrafts
 ```
 
 Or by setting `buildDrafts` to `true` in your site configuration:

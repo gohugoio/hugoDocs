@@ -27,7 +27,7 @@ enableGitInfo = true
 Alternatively, use the command line flag when building your site:
 
 ```sh
-hugo --enableGitInfo
+hugo build --enableGitInfo
 ```
 
 > [!note]

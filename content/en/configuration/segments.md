@@ -63,13 +63,13 @@ Place broad filters, such as those for language or output format, in the exclude
 Render specific segments using the [`renderSegments`] configuration or the `--renderSegments` flag:
 
 ```sh
-hugo --renderSegments segment1
+hugo build --renderSegments segment1
 ```
 
 You can configure multiple segments and use a comma-separated list with `--renderSegments` to render them all.
 
 ```sh
-hugo --renderSegments segment1,segment2
+hugo build --renderSegments segment1,segment2
 ```
 
 [`renderSegments`]: /configuration/all/#rendersegments

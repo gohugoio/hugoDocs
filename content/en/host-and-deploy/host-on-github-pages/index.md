@@ -138,7 +138,7 @@ Step 4
               hugo-
         - name: Build the site
           run: |
-            hugo \
+            hugo build \
               --gc \
               --minify \
               --baseURL "${{ steps.pages.outputs.base_url }}/" \

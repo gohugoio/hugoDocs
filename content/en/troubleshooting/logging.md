@@ -15,28 +15,28 @@ error
 : Display error messages only.
 
   ```sh
-  hugo --logLevel error
+  hugo build --logLevel error
   ```
 
 warn
 : Display warning and error messages.
 
   ```sh
-  hugo --logLevel warn
+  hugo build --logLevel warn
   ```
 
 info
 : Display information, warning, and error messages.
 
   ```sh
-  hugo --logLevel info
+  hugo build --logLevel info
   ```
 
 debug
 : Display debug, information, warning, and error messages.
 
   ```sh
-  hugo --logLevel debug
+  hugo build --logLevel debug
   ```
 
 > [!note]

@@ -88,7 +88,7 @@ In its default configuration, Hugo passes these CLI flags when calling the Ascii
 The CLI flags passed to the Asciidoctor executable depend on configuration. You may inspect the flags when building your site:
 
 ```text
-hugo --logLevel info
+hugo build --logLevel info
 ```
 
 [AsciiDoc]: https://asciidoc.org/
