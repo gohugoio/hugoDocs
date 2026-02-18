@@ -51,7 +51,7 @@ And these data files:
 Access the data by [chaining](g) the [identifiers](g):
 
 ```go-html-template
-{{ range $category, $books := .Site.Data.books }}
+{{ range $category, $books := hugo.Data.books }}
   <p>{{ $category | title }}</p>
   <ul>
     {{ range $books }}
@@ -80,7 +80,7 @@ To limit the listing to fiction, and sort by title:
 
 ```go-html-template
 <ul>
-  {{ range sort .Site.Data.books.fiction "title" }}
+  {{ range sort hugo.Data.books.fiction "title" }}
     <li>{{ .title }} ({{ .author }})</li>
   {{ end }}
 </ul>
@@ -89,7 +89,7 @@ To limit the listing to fiction, and sort by title:
 To find a fiction book by ISBN:
 
 ```go-html-template
-{{ range where .Site.Data.books.fiction "isbn" "978-0140443530" }}
+{{ range where hugo.Data.books.fiction "isbn" "978-0140443530" }}
   <li>{{ .title }} ({{ .author }})</li>
 {{ end }}
 ```
@@ -97,7 +97,7 @@ To find a fiction book by ISBN:
 In the template examples above, each of the keys is a valid identifier. For example, none of the keys contains a hyphen. To access a key that is not a valid identifier, use the [`index`] function. For example:
 
 ```go-html-template
-{{ index .Site.Data.books "historical-fiction" }}
+{{ index hugo.Data.books "historical-fiction" }}
 ```
 
 [`index`]: /functions/collections/indexfunction/

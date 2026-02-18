@@ -374,13 +374,13 @@ These shortcodes are commonly used throughout the documentation. Other shortcode
 Use the `code-toggle` shortcode to display examples of site configuration, front matter, or data files. This shortcode takes these arguments:
 
 config
-: (`string`) The section of `site.Data.docs.config` to render.
+: (`string`) The section of `hugo.Data.docs.config` to render.
 
 copy
 : (`bool`) Whether to display a copy-to-clipboard button. Default is `false`.
 
 datakey:
-: (`string`) The section of `site.Data.docs` to render.
+: (`string`) The section of `hugo.Data.docs` to render.
 
 file
 : (`string`) The file name to display above the rendered code. Omit the file extension for site configuration examples.
@@ -389,7 +389,7 @@ fm
 : (`bool`) Whether to render the code as front matter. Default is `false`.
 
 skipHeader
-: (`bool`) Whether to omit top-level key(s) when rendering a section of `site.Data.docs.config`.
+: (`bool`) Whether to omit top-level key(s) when rendering a section of `hugo.Data.docs.config`.
 
 ```text
 {{</* code-toggle file=hugo copy=true */>}}
