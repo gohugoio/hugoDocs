@@ -1,20 +1,17 @@
 ---
-title: Data
+title: hugo.Data
 description: Returns a data structure composed from the files in the data directory.
 categories: []
 keywords: []
 params:
   functions_and_methods:
     returnType: map
-    signatures: [SITE.Data]
-expiryDate: '2028-02-18' # deprecated 2026-02-18 in v0.156.0
+    signatures: [hugo.Data]
 ---
 
-{{< deprecated-in 0.156.0 >}}
-Use [`hugo.Data`](/functions/hugo/data/) instead.
-{{< /deprecated-in >}}
+{{< new-in 0.156.0 />}}
 
-Use the `Data` method on a `Site` object to access data within the `data` directory, or within any directory [mounted] to the `data` directory. Supported data formats include JSON, TOML, YAML, and XML.
+Use the `hugo.Data` function to access data within the `data` directory, or within any directory [mounted] to the `data` directory. Supported data formats include JSON, TOML, YAML, and XML.
 
 > [!note]
 > Although Hugo can unmarshal CSV files with the [`transform.Unmarshal`] function, do not place CSV files in the `data` directory. You cannot access data within CSV files using this method.
