@@ -23,7 +23,7 @@ Hugo will test for equality if you do not provide an `OPERATOR` argument. For ex
 
 ```go-html-template
 {{ $pages := where .Site.RegularPages "Section" "books" }}
-{{ $books := where .Site.Data.books "genres" "suspense" }}
+{{ $books := where hugo.Data.books "genres" "suspense" }}
 ```
 
 ## Arguments
