@@ -149,7 +149,7 @@ If you host your site with Netlify, include the following in your site configura
 If you change image processing methods, or rename/remove images, the cache will eventually contain unused files. To remove them and reclaim disk space, run Hugo's garbage collection:
 
 ```text
-hugo --gc
+hugo build --gc
 ```
 
 ### Resource usage

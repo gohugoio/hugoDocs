@@ -35,7 +35,7 @@ This method does not require a paid account. To proceed you will need to create 
 [hut]: https://sr.ht/~xenrox/hut/
 
 ```sh
-hugo
+hugo build
 tar -C public -cvz . > site.tar.gz
 hut init
 hut pages publish -d <YourUsername>.srht.site site.tar.gz
@@ -62,7 +62,7 @@ environment:
 tasks:
 - package: |
     cd $site
-    hugo
+    hugo build
     tar -C public -cvz . > ../site.tar.gz
 - upload: |
     hut pages publish -d $site site.tar.gz
@@ -93,7 +93,7 @@ tasks:
     export PATH="$HOME/.local/dart-sass:$PATH"
     sass --version # Verify installation
     cd $site
-    hugo
+    hugo build
     tar -C public -cvz . > ../site.tar.gz
 - upload: |
     hut pages publish -d $site site.tar.gz

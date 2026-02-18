@@ -91,7 +91,7 @@ pages:
 
     # Build site
     - echo "Building site..."
-    - hugo --gc --minify --baseURL "${CI_PAGES_URL}"
+    - hugo build --gc --minify --baseURL "${CI_PAGES_URL}"
 
     # Compress published files
     - echo "Compressing published files..."

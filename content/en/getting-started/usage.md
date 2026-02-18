@@ -43,7 +43,7 @@ To build your site, `cd` into your project directory and run:
 hugo
 ```
 
-The [`hugo`] command builds your site, publishing the files to the `public` directory. To publish your site to a different directory, use the [`--destination`] flag or set [`publishDir`] in your site configuration.
+The [`hugo build`] command builds your site, publishing the files to the `public` directory. To publish your site to a different directory, use the [`--destination`] flag or set [`publishDir`] in your site configuration.
 
 > [!note]
 > Hugo does not clear the `public` directory before building your site. Existing files are overwritten, but not deleted. This behavior is intentional to prevent the inadvertent removal of files that you may have added to the `public` directory after the build.
@@ -62,12 +62,12 @@ Hugo allows you to set `draft`, `date`, `publishDate`, and `expiryDate` in the [
 > [!note]
 > Hugo publishes descendants of draft, future, and expired [node](g) pages. To prevent publication of these descendants, use the [`cascade`] front matter field to cascade [build options] to the descendant pages.
 
-You can override the default behavior when running `hugo` or `hugo server` with command line flags:
+You can override the default behavior when running `hugo build` or `hugo server` with command line flags:
 
 ```sh
-hugo --buildDrafts    # or -D
-hugo --buildExpired   # or -E
-hugo --buildFuture    # or -F
+hugo build --buildDrafts    # or -D
+hugo build --buildExpired   # or -E
+hugo build --buildFuture    # or -F
 ```
 
 Although you can also set these values in your site configuration, it can lead to unwanted results unless all content authors are aware of, and understand, the settings.
@@ -147,7 +147,7 @@ Most of our users deploy their sites to a [CI/CD](g) platform, where a push[^1] 
 [`--destination`]: /commands/hugo/#options
 [`cascade`]: /content-management/front-matter/#cascade
 [`hugo server`]: /commands/hugo_server/
-[`hugo`]: /commands/hugo/
+[`hugo build`]: /commands/hugo/
 [`publishDir`]: /configuration/all/#publishdir
 [build options]: /content-management/build-options/
 [front matter]: /content-management/front-matter/

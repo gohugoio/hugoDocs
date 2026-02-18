@@ -97,10 +97,10 @@ layouts
 : The `layouts` directory contains templates to transform content, data, and resources into a complete website. See&nbsp;[details](/templates/).
 
 public
-: The `public` directory contains the published website, generated when you run the `hugo` or `hugo server` commands. Hugo recreates this directory and its content as needed. See&nbsp;[details](/getting-started/usage/#build-your-site).
+: The `public` directory contains the published website, generated when you run the `hugo build` or `hugo server` commands. Hugo recreates this directory and its content as needed. See&nbsp;[details](/getting-started/usage/#build-your-site).
 
 resources
-: The `resources` directory contains cached output from Hugo's asset pipelines, generated when you run the `hugo` or `hugo server` commands. By default this cache directory includes CSS and images. Hugo recreates this directory and its content as needed.
+: The `resources` directory contains cached output from Hugo's asset pipelines, generated when you run the `hugo build` or `hugo server` commands. By default this cache directory includes CSS and images. Hugo recreates this directory and its content as needed.
 
 static
 : The `static` directory contains files that will be copied to the `public` directory when you build your site. For example: `favicon.ico`, `robots.txt`, and files that verify site ownership. Before the introduction of [page bundles](g) and [asset pipelines](/hugo-pipes/introduction/), the `static` directory was also used for images, CSS, and JavaScript.

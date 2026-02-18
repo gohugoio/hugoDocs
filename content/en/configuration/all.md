@@ -124,7 +124,7 @@ enableRobotsTXT
 : (`bool`) Whether to enable generation of a `robots.txt` file. Default is `false`.
 
 environment
-: (`string`) The build environment. Default is `production` when running `hugo` and `development` when running `hugo server`.
+: (`string`) The build environment. Default is `production` when running `hugo build` and `development` when running `hugo server`.
 
 frontmatter
 : See [configure front matter][].
@@ -253,7 +253,7 @@ removePathAccents
 : (`bool`) Whether to remove [non-spacing marks][] from [composite characters][] in content paths. Default is `false`.
 
 renderSegments
-: (`[]string`) A slice of [segments](g) to render. If omitted, all segments are rendered. This option is typically set via a command-line flag, such as `hugo --renderSegments segment1,segment2`. The provided segment names must correspond to those defined in the [`segments`][] configuration.
+: (`[]string`) A slice of [segments](g) to render. If omitted, all segments are rendered. This option is typically set via a command-line flag, such as `hugo build --renderSegments segment1,segment2`. The provided segment names must correspond to those defined in the [`segments`][] configuration.
 
 resourceDir
 : (`string`) The designated directory for caching output from [asset pipelines](g). Default is `resources`.

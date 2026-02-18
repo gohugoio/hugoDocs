@@ -300,7 +300,7 @@ Step 4
 
 ### Troubleshooting
 
-Run `hugo --logLevel debug` to examine Hugo's call to the Asciidoctor executable:
+Run `hugo build --logLevel debug` to examine Hugo's call to the Asciidoctor executable:
 
 ```txt
 INFO 2019/12/22 09:08:48 Rendering book-as-pdf.adoc with C:\Ruby26-x64\bin\asciidoctor.bat using asciidoc args [--no-header-footer -r asciidoctor-html5s -b html5s -r asciidoctor-diagram --base-dir D:\prototypes\hugo_asciidoc_ddd\docs -a outdir=D:\prototypes\hugo_asciidoc_ddd\build -] ...

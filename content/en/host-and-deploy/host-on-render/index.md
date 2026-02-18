@@ -103,7 +103,7 @@ Step 2
 
     # Build the site
     echo "Building the site..."
-    hugo --gc --minify --baseURL "${RENDER_EXTERNAL_URL}"
+    hugo build --gc --minify --baseURL "${RENDER_EXTERNAL_URL}"
 
   }
 

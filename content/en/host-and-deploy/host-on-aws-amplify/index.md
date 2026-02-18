@@ -95,7 +95,7 @@ Step 2
       build:
         commands:
           - echo "Building site..."
-          - hugo --gc --minify
+          - hugo build --gc --minify
     artifacts:
       baseDirectory: public
       files:
