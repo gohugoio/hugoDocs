@@ -118,7 +118,7 @@ For more fine-grained control, define a `sites.matrix` in front matter or in a c
 
 ### EnableAllDimensions
 
-By default, Hugo executes the content adapter only once for the first matching site in the [sites matrix](g). Use this method to expand execution to every possible combination of language, role, and version.
+By default, Hugo executes the content adapter only once for the first matching site in the [sites matrix](g). Use this method to expand execution to every possible combination of language, version, and role.
 
 For more fine-grained control, define a `sites.matrix` in front matter or in a content mount.
 

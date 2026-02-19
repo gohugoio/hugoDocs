@@ -185,7 +185,7 @@ Aliases allow you to redirect old URLs to new URLs. This is essential for preven
 
 ### Defining aliases
 
-To add redirects to a page, list the previous paths in the [`aliases`][aliases_field] field in your front matter. Hugo resolves these to [server-relative](g) paths during the build process, accounting for the [`baseURL`][] and [content dimension](g) prefixes such as language, role, or version.
+To add redirects to a page, list the previous paths in the [`aliases`][aliases_field] field in your front matter. Hugo resolves these to [server-relative](g) paths during the build process, accounting for the [`baseURL`][] and [content dimension](g) prefixes such as language, version, or role.
 
 {{< code-toggle file=content/examples/example-1.en.md fm=true >}}
 title = 'Example 1'
