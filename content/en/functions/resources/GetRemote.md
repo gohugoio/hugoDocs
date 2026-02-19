@@ -15,7 +15,6 @@ params:
 >
 > Use the [`try`] statement instead, as shown in the [error handling] example below.
 
-
 ```go-html-template
 {{ $url := "https://example.org/images/a.jpg" }}
 {{ with try (resources.GetRemote $url) }}
