@@ -1,6 +1,6 @@
 ---
 title: Rotate
-description: Returns a collection of all pages sharing the same identity across the specified dimension, including the current page, sorted by the dimension's weight.
+description: Returns a collection of pages that vary along the specified dimension while sharing the current page's values for the other dimensions, including the current page, sorted by the dimension's weight.
 categories: []
 keywords: []
 params:
@@ -11,7 +11,7 @@ params:
 
 {{< new-in 0.153.0 />}}
 
-The `Rotate` method on a `Page` object returns a collection of all pages sharing the same identity across the specified [dimension](g), including the current page, sorted by the dimension's weight.
+The `Rotate` method on a `Page` object returns a collection of pages that vary along the specified [dimension](g), while holding the other dimensions constant. The result includes the current page and is sorted by the dimension's weight. For example, rotating along `language` returns all language variants that share the current page's version and role.
 
 The `DIMENSION` argument must be one of `language`, `version`, or `role`.
 
