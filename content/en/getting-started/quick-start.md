@@ -34,9 +34,9 @@ You must also be comfortable working from the command line.
 >
 > - Do not use the Command Prompt
 > - Do not use Windows PowerShell
-> - Run these commands from [PowerShell] or a Linux terminal such as WSL or Git > Bash
+> - Run these commands from [PowerShell][] or a Linux terminal such as WSL or Git > Bash
 >
-> PowerShell and Windows PowerShell [are different applications].
+> PowerShell and Windows PowerShell [are different applications][].
 
 Verify that you have installed Hugo {{% param "minVersion" %}} or later.
 
@@ -44,7 +44,7 @@ Verify that you have installed Hugo {{% param "minVersion" %}} or later.
 hugo version
 ```
 
-Run these commands to create a Hugo project with the [Ananke] theme. The next section provides an explanation of each command.
+Run these commands to create a Hugo project with the [Ananke][] theme. The next section provides an explanation of each command.
 
 ```text
 hugo new project quickstart
@@ -59,7 +59,7 @@ View your project at the URL displayed in your terminal. Press `Ctrl + C` to sto
 
 ### Explanation of commands
 
-Create the [project skeleton] for your project in the `quickstart` directory.
+Create the [project skeleton][] for your project in the `quickstart` directory.
 
 ```text
 hugo new project quickstart
@@ -77,7 +77,7 @@ Initialize an empty Git repository in the current directory.
 git init
 ```
 
-Clone the [Ananke] theme into the `themes` directory, adding it to your project as a [Git submodule].
+Clone the [Ananke][] theme into the `themes` directory, adding it to your project as a [Git submodule][].
 
 ```text
 git submodule add https://github.com/theNewDynamic/gohugo-theme-ananke.git themes/ananke
@@ -115,9 +115,9 @@ draft = true
 +++
 ```
 
-Notice the `draft` value in the [front matter] is `true`. By default, Hugo does not publish draft content when you build the project. Learn more about [draft, future, and expired content].
+Notice the `draft` value in the [front matter][] is `true`. By default, Hugo does not publish draft content when you build the project. Learn more about [draft, future, and expired content][].
 
-Add some [Markdown] to the body of the post, but do not change the `draft` value.
+Add some [Markdown][] to the body of the post, but do not change the `draft` value.
 
 ```text
 +++
@@ -144,11 +144,11 @@ View your project at the URL displayed in your terminal. Keep the development se
 When satisfied with your new content, set the front matter `draft` parameter to `false`.
 
 > [!note]
-> Hugo's rendering engine conforms to the CommonMark [specification] for Markdown. The CommonMark organization provides a useful [live testing tool] powered by the reference implementation.
+> Hugo's rendering engine conforms to the CommonMark [specification][] for Markdown. The CommonMark organization provides a useful [live testing tool][] powered by the reference implementation.
 
 ## Configure the project
 
-With your editor, open the [project configuration] file (`hugo.toml`) in the root of your project.
+With your editor, open the [project configuration][] file (`hugo.toml`) in the root of your project.
 
 ```text
 baseURL = 'https://example.org/'
@@ -172,7 +172,7 @@ hugo server -D
 > [!note]
 > Most theme authors provide configuration guidelines and options. Make sure to visit your theme's repository or documentation site for details.
 >
-> [The New Dynamic], authors of the Ananke theme, provide [documentation] for configuration and usage. They also provide a [demonstration site].
+> [The New Dynamic][], authors of the Ananke theme, provide [documentation][] for configuration and usage. They also provide a [demonstration site][].
 
 ## Publish the project
 
@@ -184,21 +184,22 @@ When you publish your project, Hugo renders all build artifacts to the `public` 
 hugo
 ```
 
-To learn how to _deploy_ your project, see the [host and deploy] section.
+To learn how to _deploy_ your project, see the [host and deploy][] section.
 
 ## Ask for help
 
-Hugo's [forum] is an active community of users and developers who answer questions, share knowledge, and provide examples. A quick search of over 20,000 topics will often answer your question. Please be sure to read about [requesting help] before asking your first question.
+Hugo's [forum][] is an active community of users and developers who answer questions, share knowledge, and provide examples. A quick search of over 20,000 topics will often answer your question. Please be sure to read about [requesting help] before asking your first question.
 
 ## Other resources
 
-For other resources to help you learn Hugo, including books and video tutorials, see the [external learning resources](/getting-started/external-learning-resources/) page.
+For other resources to help you learn Hugo, including books and video tutorials, see the [external learning resources][] page.
 
 [Ananke]: https://github.com/theNewDynamic/gohugo-theme-ananke
 [are different applications]: https://learn.microsoft.com/en-us/powershell/scripting/whats-new/differences-from-windows-powershell?view=powershell-7.3
 [demonstration site]: https://gohugo-ananke-theme-demo.netlify.app/
 [documentation]: https://github.com/theNewDynamic/gohugo-theme-ananke#readme
 [draft, future, and expired content]: /getting-started/usage/#draft-future-and-expired-content
+[external learning resources]: /getting-started/external-learning-resources/
 [forum]: https://discourse.gohugo.io/
 [front matter]: /content-management/front-matter/
 [Git submodule]: https://git-scm.com/book/en/v2/Git-Tools-Submodules
