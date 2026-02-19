@@ -2,10 +2,8 @@
 _comment: Do not remove front matter.
 ---
 
-The returned collection follows a tiered sort based on the [dimensions](g) of your project where each dimension is evaluated according to the following priority.
+The returned collection follows a hierarchical sort where each subsequent dimension acts as a tie-breaker for the one above it.
 
-1. [Language](g) sorted by [weight](g) in ascending order. If weights are tied or undefined Hugo defaults to lexicographical order.
-1. [Role](g) sorted by weight in ascending order. If weights are tied or undefined Hugo defaults to lexicographical order.
-1. [Version](g) sorted by weight in ascending order. If weights are tied or undefined Hugo defaults to sorting semantically in descending order.
-
-The logic follows a hierarchical structure where each subsequent dimension acts as a tie-breaker for the one above it.
+1. [Language](g) is sorted by [weight](g) in ascending order, falling back to lexicographical order if weights are tied or undefined.
+1. [Version](g) is then sorted by weight in ascending order, with Hugo defaulting to a descending semantic sort for any ties.
+1. [Role](g) is finally sorted by weight in ascending order, using lexicographical order as the final fallback.
