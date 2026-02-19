@@ -46,7 +46,7 @@ email = 'info@example.org'
 phone = '+1 202-555-1212'
 {{< /code-toggle >}}
 
-To use a different configuration file when building your site, use the `--config` flag:
+To use a different configuration file when building your project, use the `--config` flag:
 
 ```sh
 hugo build --config other.toml

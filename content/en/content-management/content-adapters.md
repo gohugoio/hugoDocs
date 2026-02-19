@@ -1,6 +1,6 @@
 ---
 title: Content adapters
-description: Create content adapters to dynamically add content when building your site.
+description: Create content adapters to dynamically add content when building your project.
 categories: []
 keywords: []
 ---
@@ -345,7 +345,7 @@ content/
 
 If the content adapter also creates `books/the-hunchback-of-notre-dame`, the content of the published page is indeterminate. You can not define the processing order.
 
-To detect page collisions, use the `--printPathWarnings` flag when building your site.
+To detect page collisions, use the `--printPathWarnings` flag when building your project.
 
 [content formats]: /content-management/formats/#classification
 [front matter field]: /content-management/front-matter/#fields

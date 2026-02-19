@@ -81,7 +81,7 @@ Hugo provides the following [tokens](g) to help you configure your front matter:
   For example, if you name your file `2025-02-01-article.md`, Hugo will set the date to `2025-02-01` and the slug to `article`.
 
 `:git`
-: The Git author date for the file's last revision. To enable access to the Git author date, set [`enableGitInfo`] to `true`, or use the `--enableGitInfo` flag when building your site.
+: The Git author date for the file's last revision. To enable access to the Git author date, set [`enableGitInfo`] to `true`, or use the `--enableGitInfo` flag when building your project.
 
 ## Example
 

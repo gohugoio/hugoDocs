@@ -24,7 +24,7 @@ You must also allow Hugo to access your repository. In your site configuration:
 enableGitInfo = true
 {{< /code-toggle >}}
 
-Alternatively, use the command line flag when building your site:
+Alternatively, use the command line flag when building your project:
 
 ```sh
 hugo build --enableGitInfo

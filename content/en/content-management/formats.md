@@ -85,7 +85,7 @@ In its default configuration, Hugo passes these CLI flags when calling the Ascii
 --no-header-footer
 ```
 
-The CLI flags passed to the Asciidoctor executable depend on configuration. You may inspect the flags when building your site:
+The CLI flags passed to the Asciidoctor executable depend on configuration. You may inspect the flags when building your project:
 
 ```text
 hugo build --logLevel info

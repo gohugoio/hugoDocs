@@ -1,6 +1,6 @@
 ---
 title: Logging
-description: Enable logging to inspect events while building your site.
+description: Enable logging to inspect events while building your project.
 categories: []
 keywords: []
 ---
