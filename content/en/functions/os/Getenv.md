@@ -34,7 +34,7 @@ For more information see [configure security](/configuration/security).
 {{ getenv "USER" }} → victor
 ```
 
-You can pass values when building your site:
+You can pass values when building your project:
 
 ```sh
 MY_VAR1=foo MY_VAR2=bar hugo

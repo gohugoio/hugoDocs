@@ -18,7 +18,7 @@ If the key is not found in the translation table for the current language, the `
 If the key is not found in the translation table for the `defaultContentLanguage`, the `lang.Translate` function returns an empty string.
 
 > [!note]
-> To list missing and fallback translations, set [`printI18nWarnings`][] to `true` in your site configuration, or use the `--printI18nWarnings` flag when building your site.
+> To list missing and fallback translations, set [`printI18nWarnings`][] to `true` in your site configuration, or use the `--printI18nWarnings` flag when building your project.
 >
 > To render placeholders for missing and fallback translations, set [`enableMissingTranslationPlaceholders`][] to `true` in your site configuration.
 
