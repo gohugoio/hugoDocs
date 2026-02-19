@@ -10,12 +10,11 @@ params:
     signatures: ['resources.GetRemote URL [OPTIONS]']
 ---
 
-{{< new-in 0.141.0 >}}
-The `Err` method on the returned resource was removed in v0.141.0.
+> [!NOTE]
+> The `Err` method on the returned resource was removed in v0.141.0.
+>
+> Use the [`try`] statement instead, as shown in the [error handling] example below.
 
-Use the [`try`] statement instead, as shown in the [error handling] example below.
-
-{{< /new-in >}}
 
 ```go-html-template
 {{ $url := "https://example.org/images/a.jpg" }}
