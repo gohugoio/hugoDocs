@@ -176,4 +176,3 @@ See [configure imaging](/configuration/imaging).
 [`Resize`]: /methods/resource/resize/
 [`Width`]: /methods/resource/width/
 [file cache]: /configuration/caches/
-
