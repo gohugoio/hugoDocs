@@ -83,7 +83,7 @@ Clone the [Ananke][] theme into the `themes` directory, adding it to your projec
 git submodule add https://github.com/theNewDynamic/gohugo-theme-ananke.git themes/ananke
 ```
 
-Append a line to the project configuration file, indicating the current theme.
+Append a line to your project configuration file, indicating the current theme.
 
 ```text
 echo "theme = 'ananke'" >> hugo.toml
