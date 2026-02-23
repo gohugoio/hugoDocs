@@ -10,10 +10,11 @@ params:
     signatures: ['resources.GetRemote URL [OPTIONS]']
 ---
 
-> [!NOTE]
-> The `Err` method on the returned resource was removed in v0.141.0.
->
-> Use the [`try`] statement instead, as shown in the [error handling] example below.
+{{< new-in 0.141.0 >}}
+The `Err` method on the returned resource was removed in v0.141.0.
+
+Use the [`try`](/functions/go-template/try) statement instead, as shown in the [error handling](#error-handling) example below.
+{{< /new-in >}}
 
 ```go-html-template
 {{ $url := "https://example.org/images/a.jpg" }}
@@ -217,9 +218,8 @@ Note that the entry above is:
 - An _addition_ to the allowlist; it does not _replace_ the allowlist
 - An array of [regular expressions](g)
 
-[allowlist]: https://en.wikipedia.org/wiki/Whitelist
-[Content-Type]: https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Content-Type
-
 [`try`]: /functions/go-template/try
+[allowlist]: https://en.wikipedia.org/wiki/Whitelist
 [configure file caches]: /configuration/caches/
+[Content-Type]: https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Content-Type
 [error handling]: #error-handling
