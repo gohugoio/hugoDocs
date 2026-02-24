@@ -1157,6 +1157,9 @@ config:
     misc:
       dir: :cacheDir/:project
       maxAge: -1
+    modulegitinfo:
+      dir: :cacheDir/modules
+      maxAge: 24h
     modulequeries:
       dir: :cacheDir/modules
       maxAge: 24h
@@ -1239,14 +1242,26 @@ config:
   ignoreLogs: null
   ignoreVendorPaths: ''
   imaging:
-    bgColor: '#ffffff'
+    anchor: smart
+    bgColor: ffffff
     compression: lossy
-    hint: photo
+    exif:
+      disableDate: false
+      disableLatLong: false
+      excludeFields: GPS|Exif|Exposure[M|P|B]|Contrast|Resolution|Sharp|JPEG|Metering|Sensing|Saturation|ColorSpace|Flash|WhiteBalance
+      includeFields: ''
+    meta:
+      fields:
+      - '! *{GPS,Exif,Exposure[MPB],Contrast,Resolution,Sharp,JPEG,Metering,Sensing,Saturation,ColorSpace,Flash,WhiteBalance}*'
+      sources:
+      - exif
+      - iptc
     quality: 75
     resampleFilter: box
     webp:
-      method: 4
-      useSharpYuv: true
+      hint: photo
+      method: 2
+      useSharpYuv: false
   languageCode: ''
   languages:
     en:
@@ -1400,6 +1415,10 @@ config:
       delimiter: .
       suffixes:
       - ttf
+    image/avif:
+      delimiter: .
+      suffixes:
+      - avif
     image/bmp:
       delimiter: .
       suffixes:
@@ -1408,6 +1427,14 @@ config:
       delimiter: .
       suffixes:
       - gif
+    image/heic:
+      delimiter: .
+      suffixes:
+      - heic
+    image/heif:
+      delimiter: .
+      suffixes:
+      - heif
     image/jpeg:
       delimiter: .
       suffixes:
@@ -2847,7 +2874,17 @@ tpl:
         - - '{{ hash.XxHash "The quick brown fox jumps over the lazy dog" }}'
           - 0b242d361fda71bc
     hugo:
+      Data:
+        Aliases: null
+        Args: null
+        Description: ''
+        Examples: null
       Deps:
+        Aliases: null
+        Args: null
+        Description: ''
+        Examples: null
+      Environment:
         Aliases: null
         Args: null
         Description: ''
@@ -2888,6 +2925,11 @@ tpl:
         Description: ''
         Examples: null
       IsServer:
+        Aliases: null
+        Args: null
+        Description: ''
+        Examples: null
+      Sites:
         Aliases: null
         Args: null
         Description: ''
@@ -3617,6 +3659,16 @@ tpl:
         Args: null
         Description: ''
         Examples: null
+      IsImageResourceProcessable:
+        Aliases: null
+        Args: null
+        Description: ''
+        Examples: null
+      IsImageResourceWithMeta:
+        Aliases: null
+        Args: null
+        Description: ''
+        Examples: null
       IsMap:
         Aliases: null
         Args:
@@ -3867,6 +3919,11 @@ tpl:
         Description: ''
         Examples: null
       Hugo:
+        Aliases: null
+        Args: null
+        Description: ''
+        Examples: null
+      IsDefault:
         Aliases: null
         Args: null
         Description: ''

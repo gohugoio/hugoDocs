@@ -1,28 +1,47 @@
 ---
 title: Exif
-description: Applicable to JPEG, PNG, TIFF, and WebP images, returns an object containing Exif metadata.
+description: Returns an object containing Exif metadata for supported image formats.
 categories: []
 keywords: ['metadata']
 params:
   functions_and_methods:
     returnType: meta.ExifInfo
     signatures: [RESOURCE.Exif]
+expiryDate: 2028-01-28 # deprecated 2026-01-28 in v0.155.0
 ---
+
+{{< deprecated-in 0.155.0 >}}
+Use [`Meta`](/methods/resource/meta/) instead.
+{{< /deprecated-in >}}
 
 {{% include "/_common/methods/resource/global-page-remote-resources.md" %}}
 
-Applicable to JPEG, PNG, TIFF, and WebP images, the `Exif` method on an image `Resource` object returns an object containing [Exif][Exif_Definition] metadata.
+The `Exif` method on an image `Resource` object returns an object containing [Exif][Exif_Definition] metadata. Supported formats include AVIF, HEIC, HEIF, JPEG, PNG, TIFF, and WebP.
 
-To extract [Exif][Exif_Definition], [IPTC][IPTC_Definition], and [XMP][XMP_Definition] metadata, use the [`Meta`] method instead.
+To extract [Exif][Exif_Definition], [IPTC][IPTC_Definition], and [XMP][XMP_Definition] metadata, use the [`Meta`][] method instead.
 
 > [!note]
-> Metadata is not preserved during image transformation. Use this method with the _original_ image resource to extract metadata from JPEG, PNG, TIFF, and WebP images.
+> Metadata is not preserved during image transformation. Use this method with the _original_ image resource to extract metadata from supported formats.
+
+## Usage
+
+Use the [`reflect.IsImageResourceWithMeta`][] function to verify that a resource supports metadata extraction before calling the `Exif` method.
+
+```go-html-template
+{{ with resources.GetMatch "images/featured.*" }}
+  {{ if reflect.IsImageResourceWithMeta . }}
+    {{ with .Exif }}
+      {{ .Date.Format "2006-01-02" }}
+    {{ end }}
+  {{ end }}
+{{ end }}
+```
 
 ## Methods
 
 ### Date
 
-(`time.Time`) Returns the image creation date/time. Format with the [`time.Format`] function.
+(`time.Time`) Returns the image creation date/time. Format with the [`time.Format`][] function.
 
 ### Lat
 
@@ -41,13 +60,15 @@ To extract [Exif][Exif_Definition], [IPTC][IPTC_Definition], and [XMP][XMP_Defin
 To list the creation date, latitude, and longitude:
 
 ```go-html-template
-{{ with resources.Get "images/a.jpg" }}
-  {{ with .Exif }}
-    <pre>
-      {{ printf "%-25s %v\n" "Date" .Date }}
-      {{ printf "%-25s %v\n" "Latitude" .Lat }}
-      {{ printf "%-25s %v\n" "Longitude" .Long }}
-    </pre>
+{{ with resources.GetMatch "images/featured.*" }}
+  {{ if reflect.IsImageResourceWithMeta . }}
+    {{ with .Exif }}
+      <pre>
+        {{ printf "%-25s %v\n" "Date" .Date }}
+        {{ printf "%-25s %v\n" "Latitude" .Lat }}
+        {{ printf "%-25s %v\n" "Longitude" .Long }}
+      </pre>
+    {{ end }}
   {{ end }}
 {{ end }}
 ```
@@ -55,13 +76,15 @@ To list the creation date, latitude, and longitude:
 To list the available Exif fields:
 
 ```go-html-template
-{{ with resources.Get "images/a.jpg" }}
-  {{ with .Exif }}
-    <pre>
-      {{ range $k, $v := .Tags -}}
-        {{ printf "%-25s %v\n" $k $v }}
-      {{ end }}
-    </pre>
+{{ with resources.GetMatch "images/featured.*" }}
+  {{ if reflect.IsImageResourceWithMeta . }}
+    {{ with .Exif }}
+      <pre>
+        {{ range $k, $v := .Tags -}}
+          {{ printf "%-25s %v\n" $k $v }}
+        {{ end }}
+      </pre>
+    {{ end }}
   {{ end }}
 {{ end }}
 ```
@@ -69,20 +92,27 @@ To list the available Exif fields:
 To list specific Exif fields:
 
 ```go-html-template
-{{ with resources.Get "images/a.jpg" }}
-  {{ with .Exif }}
-    <pre>
-      {{ with .Tags.ApertureValue }}{{ printf "%-25s %v\n" "ApertureValue" . }}{{ end }}
-      {{ with .Tags.BrightnessValue }}{{ printf "%-25s %v\n" "BrightnessValue" . }}{{ end }}
-    </pre>
+{{ with resources.GetMatch "images/featured.*" }}
+  {{ if reflect.IsImageResourceWithMeta . }}
+    {{ with .Exif }}
+      <pre>
+        {{ with .Tags.ApertureValue }}{{ printf "%-25s %v\n" "ApertureValue" . }}{{ end }}
+        {{ with .Tags.BrightnessValue }}{{ printf "%-25s %v\n" "BrightnessValue" . }}{{ end }}
+      </pre>
+    {{ end }}
   {{ end }}
 {{ end }}
 ```
 
-[`excludeFields`]: /configuration/imaging/#excludefields
-[`includeFields`]: /configuration/imaging/#includefields
-[`Meta`]: /methods/resource/meta/
-[`time.Format`]: /functions/time/format/
+## Image operations
+
+{{% include "/_common/functions/reflect/image-reflection-functions.md" %}}
+
 [Exif_Definition]: https://en.wikipedia.org/wiki/Exif
 [IPTC_Definition]: https://en.wikipedia.org/wiki/IPTC_Information_Interchange_Model
 [XMP_Definition]: https://en.wikipedia.org/wiki/Extensible_Metadata_Platform
+[`Meta`]: /methods/resource/meta/
+[`excludeFields`]: /configuration/imaging/#excludefields
+[`includeFields`]: /configuration/imaging/#includefields
+[`reflect.IsImageResourceWithMeta`]: /functions/reflect/isimageresourcewithmeta/
+[`time.Format`]: /functions/time/format/
