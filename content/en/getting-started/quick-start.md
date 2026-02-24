@@ -148,7 +148,7 @@ When satisfied with your new content, set the front matter `draft` parameter to 
 
 ## Configure the project
 
-With your editor, open the [project configuration][] file (`hugo.toml`) in the root of your project.
+With your editor, open your [project configuration][] file (`hugo.toml`) in the root of your project.
 
 ```text
 baseURL = 'https://example.org/'
@@ -210,7 +210,7 @@ For other resources to help you learn Hugo, including books and video tutorials,
 [Markdown]: https://daringfireball.net/projects/markdown
 [PowerShell]: https://learn.microsoft.com/en-us/powershell/scripting/install/installing-powershell-on-windows
 [project configuration]: /configuration/
-[project skeleton]: /getting-started/directory-structure/#site-skeleton
+[project skeleton]: /getting-started/directory-structure/#project-skeleton
 [requesting help]: https://discourse.gohugo.io/t/requesting-help/9132
 [specification]: https://spec.commonmark.org/
 [The New Dynamic]: https://www.thenewdynamic.com/

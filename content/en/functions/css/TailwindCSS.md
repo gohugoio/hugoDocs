@@ -37,7 +37,7 @@ Step 1
   [standalone executable]: https://github.com/tailwindlabs/tailwindcss/releases/latest
 
 Step 2
-: Add this to your site configuration:
+: Add this to your project configuration:
 
   {{< code-toggle file=hugo copy=true >}}
   [build]

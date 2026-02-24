@@ -11,7 +11,7 @@ params:
 
 {{< new-in 0.153.0 />}}
 
-The `Version` method on a `Site` object returns the `Version` object for the given site, derived from the version definition in your site configuration.
+The `Version` method on a `Site` object returns the `Version` object for the given site, derived from the version definition in your project configuration.
 
 ## Methods
 
@@ -25,7 +25,7 @@ The `Version` method on a `Site` object returns the `Version` object for the giv
 
 ### Name
 
-(`string`) Returns the version name. This is the lowercased key from your site configuration.
+(`string`) Returns the version name. This is the lowercased key from your project configuration.
 
 ```go-html-template
 {{ .Site.Version.Name }} → v1.0.0

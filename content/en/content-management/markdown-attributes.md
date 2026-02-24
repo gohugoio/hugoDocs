@@ -38,7 +38,7 @@ With `class` and `id` attributes, whether you use long-form or short-form notati
 
 ## Block elements
 
-Update your site configuration to enable Markdown attributes for block-level elements.
+Update your project configuration to enable Markdown attributes for block-level elements.
 
 {{< code-toggle file=hugo >}}
 [markup.goldmark.parser.attribute]

@@ -178,7 +178,7 @@ The embedded templates will skip a parameter if not provided in front matter, bu
 
 ## Taxonomies
 
-Classify content by adding taxonomy terms to front matter. For example, with this site configuration:
+Classify content by adding taxonomy terms to front matter. For example, with this project configuration:
 
 {{< code-toggle file=hugo >}}
 [taxonomies]
@@ -293,7 +293,7 @@ kind = 'page'
 {{< /code-toggle >}}
 
 > [!note]
-> For multilingual sites, defining cascade values in your site configuration is often more efficient. This avoids repeating the same cascade values on the home, section, taxonomy, or term page for each language. See&nbsp;[details](/configuration/cascade/).
+> For multilingual sites, defining cascade values in your project configuration is often more efficient. This avoids repeating the same cascade values on the home, section, taxonomy, or term page for each language. See&nbsp;[details](/configuration/cascade/).
 >
 > If you choose to define cascade values in front matter for a multilingual site, you must create a corresponding home, section, taxonomy, or term page for every language.
 
@@ -328,10 +328,10 @@ When populating a date field, whether a [custom page parameter](#parameters) or 
 
 {{% include "/_common/parsable-date-time-strings.md" %}}
 
-To override the default time zone, set the [`timeZone`](/configuration/all/#timezone) in your site configuration. The order of precedence for determining the time zone is:
+To override the default time zone, set the [`timeZone`](/configuration/all/#timezone) in your project configuration. The order of precedence for determining the time zone is:
 
 1. The time zone offset in the date/time string
-1. The time zone specified in your site configuration
+1. The time zone specified in your project configuration
 1. The `Etc/UTC` time zone
 
 [`aliases`]: /methods/page/aliases/

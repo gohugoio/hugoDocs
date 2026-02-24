@@ -15,7 +15,7 @@ aliases: [/hosting-and-deployment/hosting-on-gitlab/]
 
 ## BaseURL
 
-The `baseURL` in your [site configuration](/configuration/) must reflect the full URL of your GitLab pages repository if you are using the default GitLab Pages URL (e.g., `https://<YourUsername>.gitlab.io/<your-hugo-site>/`) and not a custom domain.
+The `baseURL` in your [project configuration](/configuration/) must reflect the full URL of your GitLab pages repository if you are using the default GitLab Pages URL (e.g., `https://<YourUsername>.gitlab.io/<your-hugo-site>/`) and not a custom domain.
 
 ## Configure GitLab CI/CD
 

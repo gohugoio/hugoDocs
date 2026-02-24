@@ -22,7 +22,7 @@ Any and all mentions of `<YourUsername>` refer to your actual SourceHut username
 
 ## BaseURL
 
-The [`baseURL`][] in your site configuration must reflect the full URL provided by SourceHut Pages if you are using the default address (e.g. `https://<YourUsername>.srht.site/`). If you want to use another domain, check the [custom domain section][] of the official documentation.
+The [`baseURL`][] in your project configuration must reflect the full URL provided by SourceHut Pages if you are using the default address (e.g. `https://<YourUsername>.srht.site/`). If you want to use another domain, check the [custom domain section][] of the official documentation.
 
 [`baseURL`]: /configuration/all/#baseurl
 [custom domain section]: https://srht.site/custom-domains

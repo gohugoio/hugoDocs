@@ -18,7 +18,7 @@ defaultMarkdownHandler = 'goldmark'
 
 Files with ending with `.md`, `.mdown`, or `.markdown` are processed as Markdown, unless you've explicitly set a different format using the `markup` field in your front matter.
 
-To use a different renderer for Markdown files, specify one of `asciidocext`, `org`, `pandoc`, or `rst` in your site configuration.
+To use a different renderer for Markdown files, specify one of `asciidocext`, `org`, `pandoc`, or `rst` in your project configuration.
 
 `defaultMarkdownHandler`|Renderer
 :--|:--
@@ -255,7 +255,7 @@ workingFolderCurrent
 Follow the steps below to enable syntax highlighting.
 
 Step 1
-: Set the `source-highlighter` attribute in your site configuration. For example:
+: Set the `source-highlighter` attribute in your project configuration. For example:
 
   {{< code-toggle file=hugo >}}
   [markup.asciidocExt.attributes]

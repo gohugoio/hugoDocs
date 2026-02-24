@@ -18,7 +18,7 @@ Use [`hugo.Sites`] instead.
 
 {{% include "/_common/functions/hugo/sites-collection.md" %}}
 
-With this site configuration:
+With this project configuration:
 
 {{< code-toggle file=hugo >}}
 defaultContentLanguage = 'de'

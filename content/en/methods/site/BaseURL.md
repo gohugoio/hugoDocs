@@ -1,6 +1,6 @@
 ---
 title: BaseURL
-description: Returns the base URL as defined in the site configuration.
+description: Returns the base URL as defined in your project configuration.
 categories: []
 keywords: []
 params:

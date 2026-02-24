@@ -23,7 +23,7 @@ Only define settings that deviate from the defaults. A smaller configuration fil
 
 ## Configuration file
 
-Create a site configuration file in the root of your project directory, naming it `hugo.toml`, `hugo.yaml`, or `hugo.json`, with that order of precedence.
+Create a project configuration file in the root of your project directory, naming it `hugo.toml`, `hugo.yaml`, or `hugo.json`, with that order of precedence.
 
 ```text
 my-project/
@@ -31,7 +31,7 @@ my-project/
 ```
 
 > [!note]
-> For versions v0.109.0 and earlier, the site configuration file was named `config`. While you can still use this name, it's recommended to switch to the newer naming convention, `hugo`.
+> For versions v0.109.0 and earlier, the project configuration file was named `config`. While you can still use this name, it's recommended to switch to the newer naming convention, `hugo`.
 
 A simple example:
 
@@ -63,7 +63,7 @@ hugo build --config a.toml,b.yaml,c.json
 
 ## Configuration directory
 
-Instead of a single site configuration file, split your configuration by [environment](g), root configuration key, and language. For example:
+Instead of a single project configuration file, split your configuration by [environment](g), root configuration key, and language. For example:
 
 ```text
 my-project/
@@ -131,7 +131,7 @@ my-project/
 
 Considering the structure above, when running `hugo build --environment staging`, Hugo will use every setting from `config/_default` and merge `staging`'s on top of those.
 
-Let's take an example to understand this better. Let's say you are using Google Analytics for your website. This requires you to specify a [Google tag ID] in your site configuration:
+Let's take an example to understand this better. Let's say you are using Google Analytics for your website. This requires you to specify a [Google tag ID] in your project configuration:
 
 {{< code-toggle file=hugo >}}
 [services.googleAnalytics]
@@ -260,7 +260,7 @@ HUGO_NUMWORKERMULTIPLIER
 
 ## Current configuration
 
-Display the complete site configuration with:
+Display the complete project configuration with:
 
 ```sh
 hugo config
