@@ -138,7 +138,7 @@ Step 4
 
 ## List output formats
 
-To access output formats, each `Page` object provides two methods: [`OutputFormats`][] (for all formats, including the current one) and [`AlternativeOutputFormats`][]. Use `AlternativeOutputFormats` to create a link `rel` list within your site's `head` element, as shown below:
+To access output formats, each `Page` object provides two methods: [`OutputFormats`][] (for all formats, including the current one) and [`AlternativeOutputFormats`][]. Use `AlternativeOutputFormats` to create a link `rel` list within a `head` element, as shown below:
 
 ```go-html-template
 {{ range .AlternativeOutputFormats }}
