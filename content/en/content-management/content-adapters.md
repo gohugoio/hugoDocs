@@ -282,7 +282,7 @@ With multilingual sites you can:
 
 ### Translations by file name
 
-With this site configuration:
+With this project configuration:
 
 {{< code-toggle file=hugo >}}
 [languages.en]
@@ -305,7 +305,7 @@ content/
 
 ### Translations by content directory
 
-With this site configuration:
+With this project configuration:
 
 {{< code-toggle file=hugo >}}
 [languages.en]

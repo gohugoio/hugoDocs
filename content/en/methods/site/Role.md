@@ -11,7 +11,7 @@ params:
 
 {{< new-in 0.153.0 />}}
 
-The `Role` method on a `Site` object returns the `Role` object for the given site, derived from the role definition in your site configuration.
+The `Role` method on a `Site` object returns the `Role` object for the given site, derived from the role definition in your project configuration.
 
 ## Methods
 
@@ -25,7 +25,7 @@ The `Role` method on a `Site` object returns the `Role` object for the given sit
 
 ### Name
 
-(`string`) Returns the role name. This is the lowercased key from your site configuration.
+(`string`) Returns the role name. This is the lowercased key from your project configuration.
 
 ```go-html-template
 {{ .Site.Role.Name }} → guest

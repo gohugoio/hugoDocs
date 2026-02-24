@@ -20,7 +20,7 @@ By default, draft pages are not published when building a site. You can change t
 hugo build --buildDrafts
 ```
 
-Or by setting `buildDrafts` to `true` in your site configuration:
+Or by setting `buildDrafts` to `true` in your project configuration:
 
 {{< code-toggle file=hugo >}}
 buildDrafts = true

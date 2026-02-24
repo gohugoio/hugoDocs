@@ -52,7 +52,7 @@ Page-relative paths can also include directory traversal:
 
 ### Project configuration
 
-To implement this, you must update your site configuration to:
+To implement this, you must update your project configuration to:
 
 1. Disable the generation of default HTML redirect files by setting `disableAliases` to `true`.
 1. Define a [media type][] named `text/redirects` to handle the file format.

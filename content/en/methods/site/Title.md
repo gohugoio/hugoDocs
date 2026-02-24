@@ -1,6 +1,6 @@
 ---
 title: Title
-description: Returns the title as defined in the site configuration.
+description: Returns the title as defined in your project configuration.
 categories: []
 keywords: []
 params:

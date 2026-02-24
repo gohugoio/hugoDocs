@@ -32,7 +32,7 @@ This will generate a [`go.mod`][] file in the project root.
 > [!note]
 > The module name is a unique identifier rather than a hosting requirement. Using a name like `github.com/user/project` is a common convention but it does not mean you must use Git or host your code on GitHub. You can use any name you like if you do not plan to have others import your project as a module. For example, you could use a simple name such as `my-project` when you run the initialization command.
 
-Then define one or more imports in your site configuration. This contrived example imports three modules, each containing custom shortcodes:
+Then define one or more imports in your project configuration. This contrived example imports three modules, each containing custom shortcodes:
 
 {{< code-toggle file=hugo >}}
 [module]
@@ -49,7 +49,7 @@ Import precedence is top-down. For example, if `shortcodes-a`, `shortcodes-b`, a
 > [!note]
 > If multiple modules contain data files or [translation tables](g) with identical paths, the data is deeply merged, following top-down precedence.
 
-When you build your site, Hugo will:
+When you build your project, Hugo will:
 
 1. Download the modules
 1. Cache them for future use
@@ -140,7 +140,7 @@ For local module development, use a `replace` directive in `go.mod` pointing to 
 replace github.com/user/module => /home/user/projects/module
 ```
 
-With `hugo serve`r running, this change will trigger a configuration reload and add the local directory to the watch list. Alternatively, configure replacements by setting the [`replacements`][] parameter in your site configuration.
+With `hugo serve`r running, this change will trigger a configuration reload and add the local directory to the watch list. Alternatively, configure replacements by setting the [`replacements`][] parameter in your project configuration.
 
 ## Workspace
 

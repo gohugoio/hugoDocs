@@ -36,7 +36,7 @@ Step 1
   ![screen capture](gh-pages-02.png)
 
 Step 2
-: In your site configuration, change the location of the image cache to the [`cacheDir`] as shown below:
+: In your project configuration, change the location of the image cache to the [`cacheDir`] as shown below:
 
   {{< code-toggle file=hugo copy=true >}}
   [caches.images]

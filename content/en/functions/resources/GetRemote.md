@@ -206,7 +206,7 @@ ERROR error calling resources.GetRemote: failed to resolve media type...
 
 For example, you will see the error above if you attempt to download an executable.
 
-Although the allowlist contains entries for common media types, you may encounter situations where Hugo is unable to resolve the media type of a file that you know to be safe. In these situations, edit your site configuration to add the media type to the allowlist. For example:
+Although the allowlist contains entries for common media types, you may encounter situations where Hugo is unable to resolve the media type of a file that you know to be safe. In these situations, edit your project configuration to add the media type to the allowlist. For example:
 
 {{< code-toggle file=hugo >}}
 [security.http]

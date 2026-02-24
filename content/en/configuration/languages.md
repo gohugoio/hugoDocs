@@ -92,7 +92,7 @@ The following configuration keys can be defined separately for each language:
 
 {{< per-lang-config-keys >}}
 
-Any key not defined in a `languages` object will fall back to the global value in the root of the site configuration.
+Any key not defined in a `languages` object will fall back to the global value in the root of your project configuration.
 
 ## Language keys
 
