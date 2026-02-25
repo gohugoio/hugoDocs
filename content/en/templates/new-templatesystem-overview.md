@@ -53,6 +53,69 @@ For templates placed in a `layouts` folder partly or completely matching a [Page
 - `layouts/docs/baseof.html` will be used as the base template for the Page path `/docs` and below.
 - `layouts/tags/term.html` will be used for all `term` rendering in the `tags` taxonomy, except for the `blue` term, which will use `layouts/tags/blue/list.html`.
 
+## Template File Name Identifiers and Resolution
+
+Template file names in Hugo use dot-separated identifiers to specify various parameters. Understanding which identifiers are valid is crucial to avoid unexpected fallback behavior.
+
+### Valid Identifiers
+
+Only the following identifiers are recognized in template file names:
+
+- **Layout custom**: Custom layout names defined in front matter (e.g., `mylayout`)
+- **Page kinds**: `home`, `page`, `section`, `taxonomy`, `term`
+- **Standard layouts**: `list`, `single`, `all`
+- **Output format**: `html`, `rss`, `json`, `xml`, `amp`, etc.
+- **Language code**: Valid language tags like `en`, `fr`, `de`, `es`
+- **Media type suffix**: `.html`, `.xml`, `.json`, etc.
+
+### Fallback Behavior with Unrecognized Identifiers
+
+If a template file name contains an **unrecognized identifier** (any token not listed above), Hugo will fall back to a less specific template that matches only the recognized segments.
+
+> [!warning]
+> Using arbitrary or custom tokens in template file names (e.g., `home.foo.html`, `single.blog.html`, `term.green.html`) will cause Hugo to ignore those tokens and fall back to simpler templates. This can lead to unexpected template selection.
+
+#### Examples: Template File Name Resolution
+
+| Template File Name | Result | Explanation |
+|-------------------|--------|-------------|
+| `home.html` | ✓ Used as-is | All identifiers valid |
+| `home.en.html` | ✓ Used as-is | Valid language code |
+| `home.rss.xml` | ✓ Used as-is | Valid output format and suffix |
+| `term.mylayout.en.rss.xml` | ✓ Used as-is | All identifiers valid (matches example in folder structure) |
+| `home.foo.html` | ✗ Falls back to `home.html` | "foo" is unrecognized |
+| `single.blog.html` | ✗ Falls back to `single.html` | "blog" is unrecognized |
+| `taxonomy.green.html` | ✗ Falls back to `taxonomy.html` | "green" is unrecognized |
+| `section.custom.en.html` | Partial fallback | "custom" ignored, may use `section.en.html` |
+
+#### Examples: Partial File Name Resolution
+
+The same rules apply to partials:
+
+| Partial Call | File Name Available | File Used | Explanation |
+|-------------|---------------------|-----------|-------------|
+| `{{ partial "header.html" . }}` | `header.html` | `header.html` | Direct match |
+| `{{ partial "header.json" . }}` | `header.json` | `header.json` | Valid output format |
+| `{{ partial "header.html" . }}` | `header.blog.html` | `header.html` (fallback) | "blog" unrecognized, falls back |
+| `{{ partial "nav.html" . }}` | `nav.mobile.html` | `nav.html` (fallback) | "mobile" unrecognized, falls back |
+
+### Best Practices
+
+1. **Only use recognized identifiers**: Stick to documented Hugo parameters when naming templates
+2. **Avoid custom tokens**: Don't invent your own identifiers like "mobile," "dark," "v2," etc.
+3. **Use front matter for variations**: Instead of encoding variations in file names, use front matter parameters and conditional logic within templates
+4. **Test thoroughly**: After renaming templates, verify that Hugo selects the expected template for each page
+
+> [!tip]
+> If you need template variations based on custom criteria (e.g., page theme, layout version, device type), define these as front matter parameters and use conditional logic inside your templates rather than trying to encode them in file names.
+
+### Related Resources
+
+For more information on this behavior and its implementation, see:
+
+- [Hugo v0.146.0 release notes](https://github.com/gohugoio/hugo/releases/tag/v0.146.0)
+- [GitHub Issue #13248](https://github.com/gohugoio/hugo/issues/13248) - Discussion on template identifier behavior
+
 ## Example folder structure
 
 ```text
