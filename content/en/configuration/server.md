@@ -95,7 +95,7 @@ to     = "/404.html"
 status = 404
 {{< /code-toggle >}}
 
-For multilingual sites, ensure the default language 404 redirect is defined last:
+For multilingual projects, ensure the default language 404 redirect is defined last:
 
 {{< code-toggle file=config/development/server >}}
 defaultContentLanguage = 'en'

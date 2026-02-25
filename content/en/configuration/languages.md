@@ -1,14 +1,14 @@
 ---
 title: Configure languages
 linkTitle: Languages
-description: Configure the languages in your multilingual site.
+description: Configure the languages in your multilingual project.
 categories: []
 keywords: []
 ---
 
 ## Base settings
 
-Configure the following base settings within the site's root configuration:
+Configure the following base settings:
 
 {{< code-toggle file=hugo >}}
 defaultContentLanguage = 'en'

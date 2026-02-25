@@ -17,7 +17,7 @@ By default, Hugo assumes a reading speed of 212 words per minute. For CJK langua
 {{ printf "Estimated reading time: %d minutes" .ReadingTime }}
 ```
 
-Reading speed varies by language. Create language-specific estimated reading times on your multilingual site using site parameters.
+Reading speed varies by language. Create language-specific estimated reading times on your multilingual project using site parameters.
 
 {{< code-toggle file=hugo >}}
 [languages]

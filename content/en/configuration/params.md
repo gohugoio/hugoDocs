@@ -43,9 +43,9 @@ But you cannot do this:
 {{ .Site.params.kebab-case.foo }}
 ```
 
-## Multilingual sites
+## Multilingual projects
 
-For multilingual sites, create a `params` key under each language:
+For multilingual projects, create a `params` key under each language:
 
 {{< code-toggle file=hugo >}}
 baseURL = 'https://example.org/'

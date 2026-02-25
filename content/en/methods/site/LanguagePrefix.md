@@ -48,4 +48,4 @@ If you change `defaultContentLanguageInSubdir` to `true`, when visiting the Germ
 {{ .Site.LanguagePrefix }} → /de
 ```
 
-You may use the `LanguagePrefix` method with both monolingual and multilingual sites.
+You may use the `LanguagePrefix` method with both monolingual and multilingual projects.
