@@ -109,6 +109,20 @@ To extract specific headers from the server's response:
 {{ $resource := resources.GetRemote $url $opts }}
 ```
 
+To set a per-request timeout (e.g. when fetching many feeds where a few slow ones should not stall the build):
+
+```go-html-template
+{{ $url := "https://example.org/feed.rss" }}
+{{ $opts := dict "timeout" "10s" }}
+{{ with try (resources.GetRemote $url $opts) }}
+  {{ with .Err }}
+    {{ warnf "Failed to fetch feed: %s" . }}
+  {{ else with .Value }}
+    {{ $data = . | transform.Unmarshal }}
+  {{ end }}
+{{ end }}
+```
+
 ## Remote data
 
 When retrieving remote data, use the [`transform.Unmarshal`] function to [unmarshal](g) the response.
