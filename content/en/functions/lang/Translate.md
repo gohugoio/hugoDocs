@@ -45,7 +45,7 @@ i18n/hugolang.toml
 
 ## Simple translations
 
-Let's say your multilingual site supports two languages, English and Polish. Create a translation table for each language in the `i18n` directory.
+Let's say your multilingual project supports two languages, English and Polish. Create a translation table for each language in the `i18n` directory.
 
 ```text
 i18n/
@@ -86,7 +86,7 @@ When viewing the Polish language site:
 
 ## Translations with pluralization
 
-Let's say your multilingual site supports two languages, English and Polish. Create a translation table for each language in the `i18n` directory.
+Let's say your multilingual project supports two languages, English and Polish. Create a translation table for each language in the `i18n` directory.
 
 ```text
 i18n/

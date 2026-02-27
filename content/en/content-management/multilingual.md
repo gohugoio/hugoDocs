@@ -149,7 +149,7 @@ See the [`lang.Translate`] template function.
 
 ## Localization
 
-The following localization examples assume your site's primary language is English, with translations to French and German.
+The following localization examples assume your project's primary language is English, with translations to French and German.
 
 {{< code-toggle file=hugo >}}
 defaultContentLanguage = 'en'

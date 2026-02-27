@@ -96,7 +96,7 @@ https://example.org/articles/my-first-article.html
 
 #### Leading slashes
 
-With monolingual sites, `url` values with or without a leading slash are relative to the [`baseURL`][]. With multilingual sites, `url` values with a leading slash are relative to the `baseURL`, and  `url` values without a leading slash are relative to the `baseURL` plus the language prefix.
+With monolingual projects, `url` values with or without a leading slash are relative to the [`baseURL`][]. With multilingual projects, `url` values with a leading slash are relative to the `baseURL`, and  `url` values without a leading slash are relative to the `baseURL` plus the language prefix.
 
 Site type|Front matter `url`|Resulting URL
 :--|:--|:--

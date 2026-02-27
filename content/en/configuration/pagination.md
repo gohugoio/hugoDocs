@@ -19,7 +19,7 @@ pagerSize
 path
 : (`string`) The segment of each pager URL indicating that the target page is a pager. Default is `page`.
 
-With multilingual sites you can define the pagination behavior for each language:
+With multilingual projects you can define the pagination behavior for each language:
 
 {{< code-toggle file=hugo >}}
 [languages.en]
