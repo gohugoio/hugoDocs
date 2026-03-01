@@ -10,8 +10,8 @@ Use the `params` key for custom parameters:
 
 {{< code-toggle file=hugo >}}
 baseURL = 'https://example.org/'
+locale = 'en-US'
 title = 'Project Documentation'
-languageCode = 'en-US'
 [params]
 subtitle = 'Reference, Tutorials, and Explanations'
 [params.contact]
@@ -52,9 +52,9 @@ baseURL = 'https://example.org/'
 defaultContentLanguage = 'en'
 
 [languages.de]
-languageCode = 'de-DE'
-languageDirection = 'ltr'
-languageName = 'Deutsch'
+direction = 'ltr'
+label = 'Deutsch'
+locale = 'de-DE'
 title = 'Projekt Dokumentation'
 weight = 1
 
@@ -66,9 +66,9 @@ email = 'info@de.example.org'
 phone = '+49 30 1234567'
 
 [languages.en]
-languageCode = 'en-US'
-languageDirection = 'ltr'
-languageName = 'English'
+direction = 'ltr'
+label = 'English'
+locale = 'en-US'
 title = 'Project Documentation'
 weight = 2
 
