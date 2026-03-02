@@ -404,11 +404,14 @@ title = 'My Site'
 Use the `deprecated-in` shortcode to indicate that a feature is deprecated:
 
 ```text
+{{</* deprecated-in 0.144.0 /*/>}}
+```
+
+You can also include details:
+
+```text
 {{</* deprecated-in 0.144.0 */>}}
-
-Use [`hugo.IsServer`] instead.
-
-[`hugo.IsServer`]: /functions/hugo/isserver/
+Use [`hugo.IsServer`](/functions/hugo/isserver/) instead.
 {{</* /deprecated-in */>}}
 ```
 
@@ -458,23 +461,11 @@ This is a new feature.
 
 Use the [new-in shortcode](#new-in) to indicate a new feature:
 
-```text
-{{</* new-in 0.144.0 */>}}
-```
-
 The "new in" label will be hidden if the specified version is older than a predefined threshold, based on differences in major and minor versions. See&nbsp;[details](https://github.com/gohugoio/hugoDocs/blob/master/_vendor/github.com/gohugoio/gohugoioTheme/layouts/_shortcodes/new-in.html).
 
 ## Deprecated features
 
 Use the [deprecated-in shorcode](#deprecated-in) shortcode to indicate that a feature is deprecated:
-
-```text
-{{</* deprecated-in 0.144.0 */>}}
-Use [`hugo.IsServer`] instead.
-
-[`hugo.IsServer`]: /functions/hugo/isserver/
-{{</* /deprecated-in */>}}
-```
 
 When deprecating a function or method, add something like this to front matter:
 

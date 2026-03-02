@@ -86,7 +86,6 @@ useSharpYuv
 : (`bool`) The conversion method used for RGB-to-YUV encoding, equivalent to the `-sharp_yuv` flag for the [`cwebp`][] CLI. Enabling this prioritizes image sharpness at the expense of processing speed. Default is `false`.
 
 [`cwebp`]: https://developers.google.com/speed/webp/docs/cwebp
-[`Exif`]: /methods/resource/exif/
 [`muesli/smartcrop`]: https://github.com/muesli/smartcrop
 [hexadecimal color]: https://developer.mozilla.org/en-US/docs/Web/CSS/hex-color
 [source documentation]: https://github.com/disintegration/imaging#image-resizing

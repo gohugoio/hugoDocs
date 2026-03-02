@@ -1,0 +1,79 @@
+{{/* prettier-ignore-start */ -}}
+{{- /*
+This must be used in conjunction with the "deprecated-in" and "new-in"
+shortcodes. The "deprecated-in" shortcode should be used to indicate when a
+feature was deprecated, and the "new-in" shortcode should be used to indicate
+when a feature was introduced. This template will render the appropriate
+admonition or badge based on the feature status and version information provided
+by the shortcodes.
+
+@param {string} inner The inner content of the shortcode, if any.
+@param {string} name The name of the shortcode.
+@param {string} page The page context in which the shortcode is used.
+@param {string} position The position of the shortcode in the source file.
+@param {string} status The feature status, either "deprecated" or "new".
+@param {string} version The version in which the feature was deprecated or introduced.
+
+@example
+
+  {{- partial "layouts/blocks/feature-state.html" (dict
+    "inner" (strings.TrimSpace $.Inner)
+    "name" $.Name
+    "page" $.Page
+    "position" $.Position
+    "status" "deprecated"
+    "version" $version
+    )
+  }}
+
+*/ -}}
+{{/* prettier-ignore-end */ -}}
+
+{{- $classAnchor := "dark:text-black no-underline" }}
+{{- $classSpan := "not-prose inline-flex items-center px-2 mr-1 rounded text-sm font-medium" }}
+{{- $color := "" }}
+{{- $icon := "" }}
+{{- $text := "" }}
+{{- $validStatusValues := slice "deprecated" "new" }}
+
+{{- $majorVersionDiffThreshold := 0 }}
+{{- $minorVersionDiffThreshold := 30 }}
+
+{{- if and $.name $.page $.position $.status $.version }}
+  {{- if in $validStatusValues $.status }}
+    {{- if eq $.status "deprecated" }}
+      {{- $classAnchor = printf "text-orange-800 hover:text-orange-600 %s" $classAnchor }}
+      {{- $classSpan = printf "bg-orange-200 dark:bg-orange-400 fill-orange-600 %s" $classSpan }}
+      {{- $color = "orange" }}
+      {{- $icon = "exclamation" }}
+      {{- $text = "Deprecated in" }}
+    {{- else if eq $.status "new" }}
+      {{- $classAnchor = printf "text-green-800 hover:text-green-600 %s" $classAnchor }}
+      {{- $classSpan = printf "bg-green-200 dark:bg-green-400 fill-green-600 %s" $classSpan }}
+      {{- $color = "green" }}
+      {{- $icon = "exclamation" }}
+      {{- $text = "New in" }}
+
+      {{- $majorVersionDiff := sub (index (split hugo.Version ".") 0 | int) (index (split $.version ".") 0 | int) }}
+      {{- $minorVersionDiff := sub (index (split hugo.Version ".") 1 | int) (index (split $.version ".") 1 | int) }}
+      {{- if or (gt $majorVersionDiff $majorVersionDiffThreshold) (gt $minorVersionDiff $minorVersionDiffThreshold) }}
+        {{- warnf "This call to the %q shortcode should be removed: %s. The specified version (%s) is older than the display threshold." $.name $.position $.version }}
+      {{- end }}
+    {{- else }}
+      {{- errorf "BUG: The %q template does not support the %q feature status: see %s" templates.Current.Name $.status $.position }}
+    {{- end }}
+
+    {{- $href := printf "https://github.com/gohugoio/hugo/releases/tag/v%s" $.version }}
+    {{- if $.inner }}
+      {{- $text = printf "%s [v%s](%s)\n\n%s" $text $.version $href $.inner  | $.page.RenderString (dict "display" "block") }}
+      {{- partial "layouts/blocks/alert.html" (dict "color" $color "icon" $icon "text" $text) }}
+    {{- else }}
+      {{- $target := "_blank"}}
+      {{- printf "<span class=%q><a class=%q href=%q target=%q>%s v%s</a></span>" $classSpan $classAnchor $href $target $text $.version | safeHTML }}
+    {{- end }}
+  {{- else }}
+    {{- errorf "The %q template does not support the %q feature status: see %s" templates.Current.Name $.status $.position }}
+  {{- end }}
+{{- else }}
+  {{- errorf "The %q template requires the following context: name, page, position, status, version: see %s" templates.Current.Name $.position }}
+{{- end }}
