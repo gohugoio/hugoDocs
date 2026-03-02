@@ -47,23 +47,6 @@ resampleFilter
 Use [`Meta`](/methods/resource/meta/) instead.
 {{< /deprecated-in >}}
 
-The following parameters allow you to control how Hugo extracts and filters metadata when using the [`Exif`][] method, helping you balance data granularity with build performance.
-
-disableDate
-: (`bool`) Whether to disable the [`Date`][] method by returning its zero value. Default is `false`.
-
-disableLatLong
-: (`bool`) Whether to disable the [`Lat`][] and [`Long`][] methods by returning their zero values. Default is `false`.
-
-excludeFields
-: (`string`) A [regular expression](g) matching the fields to exclude when extracting metadata.
-
-  > [!note]
-  > By default, to improve performance and decrease cache size, Hugo excludes the following fields: `ColorSpace`, `Contrast`, `Exif`, `ExposureBias`, `ExposureMode`, `ExposureProgram`, `Flash`, `GPS`, `JPEG`, `Metering`, `Resolution`, `Saturation`, `Sensing`, `Sharp`, and `WhiteBalance`.
-
-includeFields
-: (`string`) A [regular expression](g) matching the fields to include when extracting metadata. If empty, a default set excluding technical metadata is used. Set&nbsp;to&nbsp;`'.*'`&nbsp;to include all fields.
-
 ## Meta method
 
 {{< new-in 0.155.0 />}}
