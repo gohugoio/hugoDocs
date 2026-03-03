@@ -14,6 +14,13 @@ by the shortcodes.
 @param {string} status The feature status, either "deprecated" or "new".
 @param {string} version The version in which the feature was deprecated or introduced.
 
+@config {int} majorVersionDiffThreshold The major version difference before warning.
+@config {int} minorVersionDiffThresholdDeprecatedFeature Minor versions to wait before warning about a deprecated feature.
+@config {int} minorVersionDiffThresholdNewFeature Minor versions to wait before warning about a "new" feature.
+@config {slice} validStatusValues Allowed values for the status parameter.
+@config {string} classAnchorBase Base classes for the anchor element.
+@config {string} classSpanBase Base classes for the span/badge element.
+
 @example
 
   {{- partial "layouts/blocks/feature-state.html" (dict
@@ -29,15 +36,22 @@ by the shortcodes.
 */ -}}
 {{/* prettier-ignore-end */ -}}
 
-{{- $classAnchor := "dark:text-black no-underline" }}
-{{- $classSpan := "not-prose inline-flex items-center px-2 mr-1 rounded text-sm font-medium" }}
-{{- $color := "" }}
-{{- $icon := "" }}
-{{- $text := "" }}
-{{- $validStatusValues := slice "deprecated" "new" }}
-
+{{- /* Configuration */ -}}
 {{- $majorVersionDiffThreshold := 0 }}
-{{- $minorVersionDiffThreshold := 30 }}
+{{- $minorVersionDiffThresholdDeprecatedFeature := 30 }}
+{{- $minorVersionDiffThresholdNewFeature := 30 }}
+{{- $validStatusValues := slice "deprecated" "new" }}
+{{- $classAnchorBase := "dark:text-black no-underline" }}
+{{- $classSpanBase := "not-prose inline-flex items-center px-2 mr-1 rounded text-sm font-medium" }}
+
+{{- /* Initialization */ -}}
+{{- $classAnchor := $classAnchorBase }}
+{{- $classSpan := $classSpanBase }}
+{{- $color := "" }}
+{{- $expiryMessage := "" }}
+{{- $icon := "" }}
+{{- $minorVersionDiffThreshold := 0 }}
+{{- $text := "" }}
 
 {{- if and $.name $.page $.position $.status $.version }}
   {{- if in $validStatusValues $.status }}
@@ -45,22 +59,29 @@ by the shortcodes.
       {{- $classAnchor = printf "text-orange-800 hover:text-orange-600 %s" $classAnchor }}
       {{- $classSpan = printf "bg-orange-200 dark:bg-orange-400 fill-orange-600 %s" $classSpan }}
       {{- $color = "orange" }}
+      {{- $expiryMessage = "The deprecation period has ended. Remove this shortcode call and the associated content" }}
       {{- $icon = "exclamation" }}
+      {{- $minorVersionDiffThreshold = $minorVersionDiffThresholdDeprecatedFeature }}
       {{- $text = "Deprecated in" }}
     {{- else if eq $.status "new" }}
       {{- $classAnchor = printf "text-green-800 hover:text-green-600 %s" $classAnchor }}
       {{- $classSpan = printf "bg-green-200 dark:bg-green-400 fill-green-600 %s" $classSpan }}
       {{- $color = "green" }}
+      {{- $expiryMessage = "This feature is no longer new. Remove this shortcode call" }}
       {{- $icon = "exclamation" }}
+      {{- $minorVersionDiffThreshold = $minorVersionDiffThresholdNewFeature }}
       {{- $text = "New in" }}
-
-      {{- $majorVersionDiff := sub (index (split hugo.Version ".") 0 | int) (index (split $.version ".") 0 | int) }}
-      {{- $minorVersionDiff := sub (index (split hugo.Version ".") 1 | int) (index (split $.version ".") 1 | int) }}
-      {{- if or (gt $majorVersionDiff $majorVersionDiffThreshold) (gt $minorVersionDiff $minorVersionDiffThreshold) }}
-        {{- warnf "This call to the %q shortcode should be removed: %s. The specified version (%s) is older than the display threshold." $.name $.position $.version }}
-      {{- end }}
     {{- else }}
       {{- errorf "BUG: The %q template does not support the %q feature status: see %s" templates.Current.Name $.status $.position }}
+    {{- end }}
+
+    {{- $hv := split hugo.Version "." }}
+    {{- $sv := split $.version "." }}
+    {{- $majorDiff := sub (index $hv 0 | int) (index $sv 0 | int) }}
+    {{- $minorDiff := sub (index $hv 1 | int) (index $sv 1 | int) }}
+
+    {{- if or (gt $majorDiff $majorVersionDiffThreshold) (gt $minorDiff $minorVersionDiffThreshold) }}
+      {{- warnf "%s: %s" $expiryMessage $.position }}
     {{- end }}
 
     {{- $href := printf "https://github.com/gohugoio/hugo/releases/tag/v%s" $.version }}
