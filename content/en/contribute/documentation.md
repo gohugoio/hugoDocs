@@ -459,21 +459,21 @@ This is a new feature.
 
 ## New features
 
-Use the [new-in shortcode](#new-in) to indicate a new feature:
+Use the [new-in](#new-in) shortcode to indicate a new feature.
 
-The "new in" label will be hidden if the specified version is older than a predefined threshold, based on differences in major and minor versions. See&nbsp;[details](https://github.com/gohugoio/hugoDocs/blob/master/_vendor/github.com/gohugoio/gohugoioTheme/layouts/_shortcodes/new-in.html).
+The new-in shortcode will trigger a build warning if the specified version is older than a predefined threshold, based on differences in major and minor versions. This serves as a reminder to remove this shortcode call. See&nbsp;[details](https://github.com/gohugoio/hugoDocs/blob/master/layouts/_partials/layouts/blocks/feature-state.html).
 
 ## Deprecated features
 
-Use the [deprecated-in shorcode](#deprecated-in) shortcode to indicate that a feature is deprecated:
+Use the [deprecated-in](#deprecated-in) shortcode to indicate that a feature is deprecated.
 
-When deprecating a function or method, add something like this to front matter:
+The deprecated-in shortcode will trigger a build warning if the specified version is older than a predefined threshold, based on differences in major and minor versions. This serves as a reminder to remove this shortcode call and the associated content. See&nbsp;[details](https://github.com/gohugoio/hugoDocs/blob/master/layouts/_partials/layouts/blocks/feature-state.html).
 
-{{< code-toggle file=content/something/foo.md fm=true >}}
-expiryDate: 2027-02-17 # deprecated 2025-02-17 in v0.144.0
-{{< /code-toggle >}}
+When deprecating a feature that has its own page, also set the `expiryDate` in front matter to two years from the date of deprecation. Include a brief comment to explain the setting:
 
-Set the `expiryDate` to two years from the date of deprecation, and add a brief front matter comment to explain the setting.
+```yaml
+expiryDate: 2028-03-03 # deprecated 2026-03-03 in v0.157.0
+```
 
 ## GitHub workflow
 
