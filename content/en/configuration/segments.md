@@ -21,16 +21,16 @@ Segmented rendering offers several advantages:
 Each segment is defined by include and exclude filters:
 
 - Filters: Each segment has zero or more exclude filters and zero or more include filters.
-  
+
   Filters within a section (include or exclude) use OR logic.
   - Matchers: Each filter contains one or more field [glob pattern](g) matchers.
-    
-    Matchers within a filter use AND logic. 
 
-Initially a segment holds *no* pages.
+    Matchers within a filter use AND logic.
 
-- Some matchers are applied to filter coarsely (**site**, **kind**, **output**): *Don't render if excluded*.
-- Other matchers are applied to filter finely (**path**): *Don't render if either excluded or not included* (which means *render if included and not excluded*).
+Initially a segment holds _no_ pages.
+
+- Some matchers are applied to filter coarsely (**site**, **kind**, **output**): _Don't render if excluded_.
+- Other matchers are applied to filter finely (**path**): _Don't render if either excluded or not included_ (which means _render if included and not excluded_).
 
 ## Filter fields
 
