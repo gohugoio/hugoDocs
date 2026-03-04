@@ -23,15 +23,15 @@ Reading speed varies by language. Create language-specific estimated reading tim
 [languages]
   [languages.de]
     contentDir = 'content/de'
-    languageCode = 'de-DE'
-    languageName = 'Deutsch'
+    label = 'Deutsch'
+    locale = 'de-DE'
     weight = 2
     [languages.de.params]
     reading_speed = 179
   [languages.en]
     contentDir = 'content/en'
-    languageCode = 'en-US'
-    languageName = 'English'
+    label = 'English'
+    locale = 'en-US'
     weight = 1
     [languages.en.params]
       reading_speed = 228
