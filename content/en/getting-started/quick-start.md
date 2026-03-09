@@ -47,7 +47,7 @@ hugo version
 Run these commands to create a Hugo project with the [Ananke][] theme. The next section provides an explanation of each command.
 
 ```text
-hugo new project quickstart
+hugo new site quickstart
 cd quickstart
 git init
 git submodule add https://github.com/theNewDynamic/gohugo-theme-ananke.git themes/ananke
