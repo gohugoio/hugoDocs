@@ -17,8 +17,9 @@
     {{ with (templates.Defer (dict "key" "global")) }}
       {{ $t := debug.Timer "tailwindcss" }}
       {{ with resources.Get "css/styles.css" }}
-        {{ $opts := dict "minify" (not hugo.IsDevelopment) }}
-        {{ with . | css.TailwindCSS $opts }}
+        {{ $opts1 := (dict "externals" (slice "*.ttf" "tailwindcss")) }}
+        {{ $opts2 := dict "minify" (not hugo.IsDevelopment) "disableInlineImports" true }}
+        {{ with . | js.Build $opts1 | css.TailwindCSS $opts2 }}
           {{ partial "helpers/linkcss.html" (dict "r" .) }}
         {{ end }}
       {{ end }}
@@ -30,8 +31,7 @@
         rel="stylesheet"
         href="https://cdn.jsdelivr.net/npm/katex@0.16.25/dist/katex.min.css"
         integrity="sha384-WcoG4HRXMzYzfCgiyfrySxx90XSl2rxY5mnVY5TwtWE6KLrArNKn0T/mOgNL0Mmi"
-        crossorigin="anonymous"
-      >
+        crossorigin="anonymous">
     {{ end }}
     {{ partial "layouts/head/head.html" . }}
   </head>
@@ -40,6 +40,7 @@
   {{ if .Params.searchable }}
     {{ $bodyClass = printf "%s searchable" $bodyClass }}
   {{ end }}
+
 
   <body class="{{ $bodyClass }}">
     {{ partial "layouts/hooks/body-start.html" . }}

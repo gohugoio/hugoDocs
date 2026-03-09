@@ -1,8 +1,7 @@
 @import "tailwindcss";
+@import "./components/all.css";
 @plugin "@tailwindcss/typography";
 @variant dark (&:where(.dark, .dark *));
-
-@import "components/all.css";
 
 /* TailwindCSS ignores files in .gitignore, so make it explicit. */
 @source "hugo_stats.json";
@@ -105,14 +104,14 @@ body {
   padding-right: max(env(safe-area-inset-right), 1rem);
 }
 
-@media (min-width: theme('--breakpoint-md')) {
+@media (min-width: theme("--breakpoint-md")) {
   .px-main {
     padding-left: max(env(safe-area-inset-left), 2rem);
     padding-right: max(env(safe-area-inset-right), 2rem);
   }
 }
 
-@media (min-width: theme('--breakpoint-lg')) {
+@media (min-width: theme("--breakpoint-lg")) {
   .px-main {
     padding-left: max(env(safe-area-inset-left), 3rem);
     padding-right: max(env(safe-area-inset-right), 3rem);
@@ -128,7 +127,7 @@ body {
 .footnote-backref,
 .footnote-ref {
   text-decoration: none;
-  padding-left: .0625em;
+  padding-left: 0.0625em;
 }
 
 /* Code spans within paragraphs, tables cells, list items, etc. */
