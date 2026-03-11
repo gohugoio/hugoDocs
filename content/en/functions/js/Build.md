@@ -49,7 +49,7 @@ format
 
 ## Import JS code from the assets directory
 
-`js.Build` has full support for the virtual union file system in [Hugo Modules](/hugo-modules/). You can see some simple examples in this [test project](https://github.com/gohugoio/hugoTestProjectJSModImports), but in short this means that you can do this:
+`js.Build` has full support for Hugo's [unified file system](g). You can see some simple examples in this [test project](https://github.com/gohugoio/hugoTestProjectJSModImports), but in short this means that you can do this:
 
 ```js
 import { hello } from 'my/module';
