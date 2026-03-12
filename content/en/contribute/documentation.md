@@ -77,6 +77,7 @@ Link to the [glossary] as needed and use terms consistently. Pay particular atte
 - "server side" (noun), "server-side" (adjective)
 - "Markdown" (capitalized)
 - "open-source" (hyphenated adjective)
+- "Node.js" (first mention per page), "Node" (subsequent mentions), "node" (for the executable), "npm" (always lowercase)
 
 ### Template types
 

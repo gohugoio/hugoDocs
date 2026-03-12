@@ -35,7 +35,7 @@ Step 1
 : Install [Node.js](https://nodejs.org/en/download)
 
 Step 2
-: Install the required Node.js packages in the root of your project.
+: Install the required Node packages in the root of your project.
 
   ```sh
   npm install --save-dev @babel/core @babel/cli
