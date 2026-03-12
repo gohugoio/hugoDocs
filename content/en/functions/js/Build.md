@@ -93,7 +93,7 @@ Hugo will, by default, generate a `assets/jsconfig.json` file that maps the impo
 
 ## Node.js dependencies
 
-Use the `js.Build` function to include Node.js dependencies.
+Use the `js.Build` function to include Node dependencies.
 
 Any imports in a file outside `assets` or that does not resolve to a component inside `assets` will be resolved by [esbuild](https://esbuild.github.io/) with the **project directory** as the resolve directory (used as the starting point when looking for `node_modules` etc.). Also see [hugo mod npm pack](/commands/hugo_mod_npm_pack/). If you have any imported npm dependencies in your project, you need to make sure to run `npm install` before you run `hugo build`.
 
