@@ -51,10 +51,10 @@ Step 2
 
   main() {
 
-    DART_SASS_VERSION=1.97.3
-    GO_VERSION=1.26.0
-    HUGO_VERSION=0.156.0
-    NODE_VERSION=24.13.1
+    DART_SASS_VERSION=1.98.0
+    GO_VERSION=1.26.1
+    HUGO_VERSION=0.157.0
+    NODE_VERSION=24.14.0
 
     export TZ=Europe/Oslo
 
