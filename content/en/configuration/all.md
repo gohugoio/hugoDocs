@@ -153,7 +153,7 @@ ignoreVendorPaths
 imaging
 : See [configure imaging][].
 
-languageCode
+locale
 : (`string`) The site's language tag, conforming to the syntax described in [RFC 5646][]. This value does not affect translations or localization. Hugo uses this value to populate:
 
   - The `language` element in the [embedded RSS template][]
