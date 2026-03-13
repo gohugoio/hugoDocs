@@ -21,8 +21,16 @@ Segmented rendering offers several advantages:
 Each segment is defined by include and exclude filters:
 
 - Filters: Each segment has zero or more exclude filters and zero or more include filters.
-- Matchers: Each filter contains one or more field [glob pattern](g) matchers.
-- Logic: Matchers within a filter use AND logic. Filters within a section (include or exclude) use OR logic.
+
+  Filters within a section (include or exclude) use OR logic.
+  - Matchers: Each filter contains one or more field [glob pattern](g) matchers.
+
+    Matchers within a filter use AND logic.
+
+Initially a segment holds _no_ pages.
+
+- Some matchers are applied to filter coarsely (**site**, **kind**, **output**): _Don't render if excluded_.
+- Other matchers are applied to filter finely (**path**): _Don't render if either excluded or not included_ (which means _render if included and not excluded_).
 
 ## Filter fields
 
@@ -48,14 +56,14 @@ Place broad filters, such as those for language or output format, in the exclude
 {{< code-toggle file=hugo >}}
 [segments.segment1]
   [[segments.segment1.excludes]]
-    lang = "n*"
+    sites.languages = "n*"
   [[segments.segment1.excludes]]
-    lang   = "en"
+    sites.languages   = ["en", "es"]
     output = "rss"
   [[segments.segment1.includes]]
     kind = "{home,term,taxonomy}"
   [[segments.segment1.includes]]
-    path = "{/docs,/docs/**}"
+    path = "/docs{,/**}"
 {{< /code-toggle >}}
 
 ## Rendering segments
