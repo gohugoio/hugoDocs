@@ -193,5 +193,4 @@ In the future, whenever you push a change from your local Git repository, GitHub
 
 [`cacheDir`]: /configuration/all/#cachedir
 [configure file caches]: /configuration/caches/
-[Dart Sass]: /functions/css/sass/#dart-sass
 [GitHub Pages documentation]: https://docs.github.com/en/pages/getting-started-with-github-pages/about-github-pages#types-of-github-pages-sites
