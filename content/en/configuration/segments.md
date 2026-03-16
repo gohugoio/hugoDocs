@@ -56,9 +56,13 @@ Place broad filters, such as those for language or output format, in the exclude
 {{< code-toggle file=hugo >}}
 [segments.segment1]
   [[segments.segment1.excludes]]
-    sites.languages = 'n*'
+    [segments.segment1.excludes.sites]
+      [segments.segment1.excludes.sites.matrix]
+        languages = 'n*'
   [[segments.segment1.excludes]]
-    sites.languages = ['en', 'es']
+    [segments.segment1.excludes.sites]
+      [segments.segment1.excludes.sites.matrix]
+        languages = ['en', 'es']
     output = 'rss'
   [[segments.segment1.includes]]
     kind = '{home,term,taxonomy}'
