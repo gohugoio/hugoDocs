@@ -112,9 +112,9 @@ multilingual|`about`|`https://example.org/de/about/`
 You can also use tokens when setting the `url` value. This is typically used in `cascade` sections:
 
 {{< code-toggle file=content/foo/bar/_index.md fm=true >}}
-title ="Bar"
+title ='Bar'
 [[cascade]]
-  url = "/:sections[last]/:slug"
+  url = '/:sections[last]/:slug'
 {{< /code-toggle >}}
 
 Use any of these tokens:
@@ -218,7 +218,7 @@ Unless you provide a custom layout, Hugo uses its [embedded alias template][] to
 
 ```go-html-template
 <!DOCTYPE html>
-<html lang="{{ site.Language.LanguageCode }}">
+<html lang="{{ site.Language.Locale }}">
   <head>
     <title>{{ .Permalink }}</title>
     {{ with .OutputFormats.Canonical }}<link rel="{{ .Rel }}" href="{{ .Permalink }}">{{ end }}

@@ -77,6 +77,7 @@ Link to the [glossary] as needed and use terms consistently. Pay particular atte
 - "server side" (noun), "server-side" (adjective)
 - "Markdown" (capitalized)
 - "open-source" (hyphenated adjective)
+- "Node.js" (first mention per page), "Node" (subsequent mentions), "node" (for the executable), "npm" (always lowercase)
 
 ### Template types
 
@@ -207,10 +208,10 @@ When available, the "See also" sidebar displays related pages using Hugo's [rela
 If the title in the "See also" sidebar is ambiguous or the same as another page, you can define an alternate title in the front matter:
 
 {{< code-toggle file=hugo >}}
-title = "Long descriptive title"
-linkTitle = "Short title"
+title = 'Long descriptive title'
+linkTitle = 'Short title'
 [params]
-alt_title = "Whatever you want"
+alt_title = 'Whatever you want'
 {{< /code-toggle >}}
 
 Use of the alternate title is limited to the "See also" sidebar.
@@ -298,7 +299,7 @@ Use the [code-toggle shortcode](#code-toggle) to include project configuration e
 ```text
 {{</* code-toggle file=hugo */>}}
 baseURL = 'https://example.org/'
-languageCode = 'en-US'
+locale = 'en-US'
 title = 'My Site'
 {{</* /code-toggle */>}}
 ```
@@ -394,7 +395,7 @@ skipHeader
 ```text
 {{</* code-toggle file=hugo copy=true */>}}
 baseURL = 'https://example.org/'
-languageCode = 'en-US'
+locale = 'en-US'
 title = 'My Site'
 {{</* /code-toggle */>}}
 ```

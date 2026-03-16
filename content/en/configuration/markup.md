@@ -243,11 +243,11 @@ workingFolderCurrent
 
 {{< code-toggle file=hugo >}}
 [markup.asciidocExt]
-    extensions = ["asciidoctor-html5s", "asciidoctor-diagram"]
-    workingFolderCurrent = true
-    [markup.asciidocExt.attributes]
-        my-base-url = "https://example.com/"
-        my-attribute-name = "my value"
+extensions = ['asciidoctor-html5s','asciidoctor-diagram']
+workingFolderCurrent = true
+[markup.asciidocExt.attributes]
+my-base-url = 'https://example.com/'
+my-attribute-name = 'my value'
 {{< /code-toggle >}}
 
 ### Syntax highlighting

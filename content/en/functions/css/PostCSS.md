@@ -26,7 +26,7 @@ Step 1
 : Install [Node.js].
 
 Step 2
-: Install the required Node.js packages in the root of your project. For example, to add vendor prefixes to your CSS rules:
+: Install the required Node packages in the root of your project. For example, to add vendor prefixes to your CSS rules:
 
   ```sh
   npm i -D postcss postcss-cli autoprefixer

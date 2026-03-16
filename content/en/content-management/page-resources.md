@@ -175,11 +175,11 @@ For example, if a bundle has the resources `photo_specs.pdf`, `other_specs.pdf`,
 {{< code-toggle file=content/inspections/engine/index.md fm=true >}}
 title = 'Engine inspections'
 [[resources]]
-  src = "*specs.pdf"
-  title = "Specification #:counter"
+  src = '*specs.pdf'
+  title = 'Specification #:counter'
 [[resources]]
-  src = "**.pdf"
-  name = "pdf-file-:counter"
+  src = '**.pdf'
+  name = 'pdf-file-:counter'
 {{</ code-toggle >}}
 
 the `Name` and `Title` will be assigned to the resource files as follows:
@@ -205,13 +205,13 @@ defaultContentLanguage = 'de'
 defaultContentLanguageInSubdir = true
 
 [languages.de]
-languageCode = 'de-DE'
-languageName = 'Deutsch'
+label = 'Deutsch'
+locale = 'de-DE'
 weight = 1
 
 [languages.en]
-languageCode = 'en-US'
-languageName = 'English'
+label = 'English'
+locale = 'en-US'
 weight = 2
 {{< /code-toggle >}}
 

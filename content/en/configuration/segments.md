@@ -56,14 +56,14 @@ Place broad filters, such as those for language or output format, in the exclude
 {{< code-toggle file=hugo >}}
 [segments.segment1]
   [[segments.segment1.excludes]]
-    sites.languages = "n*"
+    lang = 'n*'
   [[segments.segment1.excludes]]
-    sites.languages   = ["en", "es"]
-    output = "rss"
+    lang   = 'en'
+    output = 'rss'
   [[segments.segment1.includes]]
-    kind = "{home,term,taxonomy}"
+    kind = '{home,term,taxonomy}'
   [[segments.segment1.includes]]
-    path = "/docs{,/**}"
+    path = '{/docs,/docs/**}'
 {{< /code-toggle >}}
 
 ## Rendering segments
