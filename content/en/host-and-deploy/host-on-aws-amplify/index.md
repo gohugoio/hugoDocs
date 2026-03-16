@@ -42,7 +42,7 @@ Step 2
       # Application versions
       DART_SASS_VERSION: 1.98.0
       GO_VERSION: 1.26.1
-      HUGO_VERSION: 0.157.0
+      HUGO_VERSION: 0.158.0
       # Time zone
       TZ: Europe/Oslo
       # Cache
