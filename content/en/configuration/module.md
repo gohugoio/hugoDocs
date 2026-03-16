@@ -99,9 +99,9 @@ min
 disable = false
 ignoreConfig = false
 ignoreImports = false
-path = "github.com/gohugoio/hugoTestModules1_linux/modh1_2_1v"
+path = 'github.com/gohugoio/hugoTestModules1_linux/modh1_2_1v'
 [[module.imports]]
-path = "my-shortcodes"
+path = 'my-shortcodes'
 {{< /code-toggle >}}
 
 disable
@@ -168,15 +168,15 @@ sites
 {{< code-toggle file=hugo >}}
 [module]
 [[module.mounts]]
-    source="content"
-    target="content"
-    files=["! docs/*"]
+source = 'content'
+target = 'content'
+files = ['! docs/*']
 [[module.mounts]]
-    source="node_modules"
-    target="assets"
+source = 'node_modules'
+target = 'assets'
 [[module.mounts]]
-    source="assets"
-    target="assets"
+source = 'assets'
+target = 'assets'
 {{< /code-toggle >}}
 
 [`archetypeDir`]: /configuration/all/#archetypedir

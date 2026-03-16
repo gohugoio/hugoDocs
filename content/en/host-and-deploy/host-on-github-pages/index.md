@@ -40,7 +40,7 @@ Step 2
 
   {{< code-toggle file=hugo copy=true >}}
   [caches.images]
-  dir = ":cacheDir/images"
+  dir = ':cacheDir/images'
   {{< /code-toggle >}}
 
   See [configure file caches] for more information.
