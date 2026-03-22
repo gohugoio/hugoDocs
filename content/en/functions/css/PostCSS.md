@@ -8,6 +8,7 @@ params:
     aliases: [postCSS]
     returnType: resource.Resource
     signatures: ['css.PostCSS [OPTIONS] RESOURCE']
+aliases: [/functions/resources/postcss/]
 ---
 
 ```go-html-template
