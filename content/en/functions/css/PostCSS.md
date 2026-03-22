@@ -10,8 +10,6 @@ params:
     signatures: ['css.PostCSS [OPTIONS] RESOURCE']
 ---
 
-{{< new-in 0.128.0 />}}
-
 ```go-html-template
 {{ with resources.Get "css/main.css" | postCSS }}
   <link rel="stylesheet" href="{{ .RelPermalink }}">
