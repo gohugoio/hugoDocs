@@ -2630,6 +2630,14 @@ tpl:
         - - '{{ sha256 "Hello world, gophers!" }}'
           - 6ec43b78da9669f50e4e422575c54bf87536954ccd58280219c393f2ce352b46
     css:
+      Build:
+        Aliases: null
+        Args:
+        - args
+        Description: |-
+          Build processes the given CSS Resource with ESBuild.
+          Note that this method is identical to the one in the js Namespace.
+        Examples: []
       PostCSS:
         Aliases:
         - postCSS
@@ -2889,6 +2897,11 @@ tpl:
         Args: null
         Description: ''
         Examples: null
+      ForEeachIdentityByName:
+        Aliases: null
+        Args: null
+        Description: ''
+        Examples: null
       Generator:
         Aliases: null
         Args: null
@@ -3143,7 +3156,7 @@ tpl:
         Aliases: null
         Args:
         - args
-        Description: Build processes the given Resource with ESBuild.
+        Description: Build processes the given JavaScript Resource with ESBuild.
         Examples: []
     lang:
       FormatAccounting:
@@ -4197,6 +4210,19 @@ tpl:
           - Batman and Catwoman
         - - '{{ replace "aabbaabb" "a" "z" 2 }}'
           - zzbbaabb
+      ReplacePairs:
+        Aliases: null
+        Args:
+        - args
+        Description: |-
+          ReplacePairs returns a copy of a string with multiple replacements performed
+          in a single pass. The last argument is the source string. Preceding arguments
+          are old/new string pairs, either as a slice or as individual arguments.
+        Examples:
+        - - '{{ "aab" | strings.ReplacePairs "a" "b" "b" "c" }}'
+          - bbc
+        - - '{{ "aab" | strings.ReplacePairs (slice "a" "b" "b" "c") }}'
+          - bbc
       ReplaceRE:
         Aliases:
         - replaceRE
