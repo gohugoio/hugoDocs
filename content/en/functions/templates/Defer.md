@@ -11,8 +11,6 @@ params:
 aliases: [/functions/templates.defer]
 ---
 
-{{< new-in 0.128.0 />}}
-
 > [!note]
 > This feature should only be used in the main template, typically `layouts/baseof.html`. Using it in _shortcode_, _partial_, or _render hook_ templates may lead to unpredictable results. For further details, please refer to [this issue].
 
