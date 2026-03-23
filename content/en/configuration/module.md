@@ -120,6 +120,7 @@ noVendor
 : (`bool`) Whether to disable vendoring for this import. This setting is restricted to the main project. Default is `false`.
 
 usePackageJSON
+: {{< new-in 0.159.0 />}}
 : (`string`) Whether to use the import's npm dependencies in [hugo mod npm pack](commands/hugo_mod_npm_pack/). One of `auto` (default), `always` or `never`. When set to `auto`, Hugo will enable this if either there is a Hugo config file (e.g. `hugo.toml`) or a `package.hugo.json` file in the module root.
 
 path
