@@ -16,7 +16,7 @@ Hugo Modules that need Node packages (e.g. for Tailwind CSS) can declare those d
 Each Hugo Module declares its Node dependencies in a `package.json` file in its root directory, using the standard `dependencies` and `devDependencies` fields.
 
 > [!note]
-> We improved this setup greatly in Hugo [v0.159.0](https://github.com/gohugoio/hugo/releases/tag/v0.158.0), but we kept the old `package.hugo.json` in the search path. Mostly to preserve as much backward compatibility as possible, but it may also be useful in some situations to reserve a separate set of Node dependencies for Hugo.
+> We improved this setup greatly in Hugo [v0.159.0](https://github.com/gohugoio/hugo/releases/tag/v0.159.0), but we kept the old `package.hugo.json` in the search path. Mostly to preserve as much backward compatibility as possible, but it may also be useful in some situations to reserve a separate set of Node dependencies for Hugo.
 
 ## Consolidating with `hugo mod npm pack`
 
@@ -41,10 +41,10 @@ When merging, the **topmost version, starting from the project, take precedence*
 
 ## Staleness detection
 
-When Hugo detects that the npm dependency configuration has changed in one or more of the modules in use,  you will get a warning in the console:
+When Hugo detects that the npm dependency configuration has changed in one or more of the modules in use, you will get a warning in the console:
 
 ```text
-WARN  npm dependencies are out of sync, please run "hugo mod npm pack" (you may also want to run "npm install" after that)"
+WARN  npm dependencies are out of sync, please run "hugo mod npm pack" (you may also want to run "npm install" after that)
 ```
 
 This ensures you don't forget to re-run `hugo mod npm pack` after updating module versions.
