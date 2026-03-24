@@ -172,6 +172,41 @@ targetPath
   {{ $r := resources.Get "css/main.css" | css.Build $opts }}
   ```
 
+vars
+: {{< new-in v0.160.0 />}}
+: (`map`) A map of key-value pairs used to generate CSS variables. The `css.Build` function injects these variables into the stylesheet when it encounters the `hugo:vars` internal identifier within an `@import` statement.
+
+  ```go-html-template
+  {{ $opts := dict "vars" (dict "primary-color" "blue" "font-size" "24px") }}
+  {{ $r := resources.Get "css/main.css" | css.Build $opts }}
+  ```
+
+  In the example above, using the identifier in your CSS allows you to access the values using standard CSS variable syntax.
+
+  ```css
+  @import 'hugo:vars';
+
+  .element {
+    color: var(--primary-color);
+    font-size: var(--font-size);
+  }
+  ```
+
+  The `vars` option is useful for setting CSS variables within your project configuration.
+
+  {{< code-toggle file=hugo >}}
+  [params.theme.style]
+  primary-color = 'blue'
+  font-size = '24px'
+  {{< /code-toggle >}}
+
+  ```go-html-template
+  {{ $opts := dict "vars" site.Params.theme.style }}
+  {{ $r := resources.Get "css/main.css" | css.Build $opts }}
+  ```
+
+  When passing a `vars` map to the css.Build function, you can use the [`css.Quoted`][] function to explicitly indicate that a value must be treated as a quoted string, most commonly for `font-family` names or the `content` property.
+
 ## Example
 
 The example below uses several of the [options](#options) described above to bundle, transform, and minify CSS code.
@@ -183,6 +218,7 @@ The example below uses several of the [options](#options) described above to bun
     "minify" (cond hugo.IsDevelopment false true)
     "sourceMap" (cond hugo.IsDevelopment "linked" "none")
     "target" (slice "chrome115" "edge115" "firefox116" "ios16.4" "opera101" "safari16.4")
+    "targetPath" "css/styles.css"
   }}
   {{ with . | css.Build $opts }}
     {{ if hugo.IsDevelopment }}
@@ -247,6 +283,7 @@ To reference a specific file within a Node package, provide the path starting wi
 @import "bootstrap/dist/css/bootstrap-grid.css";
 ```
 
+[`css.Quoted`]: /functions/css/quoted/
 [`evanw/esbuild`]: https://github.com/evanw/esbuild
 [`publishDir`]: /configuration/all/#publishdir
 [browserlist]: https://browsersl.ist
