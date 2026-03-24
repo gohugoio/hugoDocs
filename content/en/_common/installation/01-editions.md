@@ -12,7 +12,7 @@ Core features|:heavy_check_mark:|:heavy_check_mark:|:heavy_check_mark:|:heavy_ch
 Direct cloud deployment (2)|:x:|:heavy_check_mark:|:x:|:heavy_check_mark:
 LibSass support (3)|:x:|:x:|:heavy_check_mark:|:heavy_check_mark:
 
-(1)   {{< new-in v0.159.2 />}}
+(1) {{< new-in v0.159.2 />}}
 
 (2) Deploy your site directly to a Google Cloud Storage bucket, an AWS S3 bucket, or an Azure Storage container. See&nbsp;[details].
 
