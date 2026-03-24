@@ -12,6 +12,9 @@ params:
 
 {{< new-in 0.158.0 />}}
 
+> [!note]
+> The `css.Build` function is backed by the [`evanw/esbuild`][] package, providing a mature, high-performance foundation for bundling, transformation, and minification.
+
 Use the `css.Build` function to:
 
 - Recursively replace `@import` statements in CSS files with the content of the imported files
@@ -90,7 +93,7 @@ To minify the generated CSS code, use the [`minify`](#minify) option as describe
 
 ## Options
 
-The `css.Build` function takes an optional map of options based on the underlying [`esbuild`] package. Use these options to fine-tune bundling, minification, and browser compatibility.
+The `css.Build` function takes an optional map of options to fine-tune bundling, minification, and browser compatibility.
 
 externals
 : (`[]string`) A slice of path patterns to exclude from bundling. The `@import` statements for these patterns remain as-is in the generated CSS code. See&nbsp;[details][esb_external].
@@ -203,17 +206,6 @@ Using the options above, Hugo does the following:
 - Publishes the generated CSS code to `css/styles.css`
 - In production, adds an SRI hash and inserts a file hash into the filename
 
-[`esbuild`]: https://github.com/evanw/esbuild
-[`publishDir`]: /configuration/all/#publishdir
-[browserlist]: https://browsersl.ist
-[esb_external]: https://esbuild.github.io/api/#external
-[esb_loader]: https://esbuild.github.io/api/#loader
-[esb_mainfields]: https://esbuild.github.io/api/#main-fields
-[esb_minify]: https://esbuild.github.io/api/#minify
-[esb_sourcemap]: https://esbuild.github.io/api/#sourcemap
-[esb_sourcesContent]: https://esbuild.github.io/api/#sources-content
-[esb_target]: https://esbuild.github.io/api/#target
-
 ## Common patterns
 
 The examples below cover the most frequent use cases for referencing resources within your project or within Node packages. These patterns apply to both `@import` statements and the `url()` functional notation used for images and fonts.
@@ -254,3 +246,14 @@ To reference a specific file within a Node package, provide the path starting wi
 ```css {file="/assets/css/main.css"}
 @import "bootstrap/dist/css/bootstrap-grid.css";
 ```
+
+[`evanw/esbuild`]: https://github.com/evanw/esbuild
+[`publishDir`]: /configuration/all/#publishdir
+[browserlist]: https://browsersl.ist
+[esb_external]: https://esbuild.github.io/api/#external
+[esb_loader]: https://esbuild.github.io/api/#loader
+[esb_mainfields]: https://esbuild.github.io/api/#main-fields
+[esb_minify]: https://esbuild.github.io/api/#minify
+[esb_sourcemap]: https://esbuild.github.io/api/#sourcemap
+[esb_sourcesContent]: https://esbuild.github.io/api/#sources-content
+[esb_target]: https://esbuild.github.io/api/#target
