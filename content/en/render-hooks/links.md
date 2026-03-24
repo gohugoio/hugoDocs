@@ -34,6 +34,10 @@ PageInner
 PlainText
 : (`string`) The link description as plain text.
 
+Position
+: {{< new-in 0.160.0 />}}
+: (`string`) The position of the link within the page content.
+
 Text
 : (`template.HTML`) The link description.
 
