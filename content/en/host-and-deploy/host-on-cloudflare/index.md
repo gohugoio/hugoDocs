@@ -56,8 +56,8 @@ Step 2
 
   # Perform cleanup
   cleanup() {
-    if [[ -n "${build_temp_dir:-}" && -d "$build_temp_dir" ]]; then
-      rm -rf "$build_temp_dir"
+    if [[ -n "${build_temp_dir:-}" && -d "${build_temp_dir}" ]]; then
+      rm -rf "${build_temp_dir}"
     fi
   }
 
@@ -76,7 +76,7 @@ Step 2
 
     # Create and move into a temporary directory for downloads
     build_temp_dir=$(mktemp -d)
-    pushd "$build_temp_dir" > /dev/null
+    pushd "${build_temp_dir}" > /dev/null
 
     # Create the local tools directory
     mkdir -p "${HOME}/.local"
