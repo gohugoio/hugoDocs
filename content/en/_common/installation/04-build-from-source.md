@@ -11,10 +11,20 @@ To build Hugo from source you must install:
 
 ### Standard edition
 
-To build and install the standard edition, run the following command.
+To build and install the standard edition:
 
 ```sh
 CGO_ENABLED=0 go install github.com/gohugoio/hugo@latest
+```
+
+### Deploy edition
+
+{{< new-in v0.159.2 />}}
+
+To build and install the deploy edition:
+
+```sh
+CGO_ENABLED=0 go install -tags withdeploy github.com/gohugoio/hugo@latest
 ```
 
 ### Extended edition
