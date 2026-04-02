@@ -81,7 +81,7 @@ weight: 20
 ## Asset pipelines
 
 [CSS Processing]
-: Bundle, transform, and minify CSS resources.
+: Bundle, transform, minify, create source maps, perform SRI hashing, and integrate with PostCSS.
 
 [Image processing]
 : Convert, resize, crop, rotate, adjust colors, apply filters, overlay text and images, and extract metadata.
