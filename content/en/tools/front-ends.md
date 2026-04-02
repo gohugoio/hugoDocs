@@ -27,6 +27,9 @@ aliases: [/tools/frontends/]
 [Decap CMS](https://decapcms.org/)
 : Decap CMS is an open-source, serverless solution for managing Git based content in static sites, and it works on any platform that can host static sites. A [Hugo/Decap CMS starter](https://github.com/decaporg/one-click-hugo-cms) is available to get new projects running quickly.
 
+[Pages CMS](https://pagescms.org/)
+: Pages CMS is an open-source, Git-based CMS for static sites and apps. It lets you edit Hugo content stored in a GitHub repository through a web interface, with support for front matter fields, media management, rich text editing, etc.
+
 [Quiqr Desktop](https://quiqr.org/)
 : Quiqr Desktop is a open-source, cross-platform, offline desktop CMS for Hugo with built-in Git functionality for deploying static sites to any hosting server.
 
