@@ -68,7 +68,7 @@ Step 4
 Step 5
 : Build and install.
 
-  To build and install the deploy edition:
+  To build and install the standard edition:
 
   ```sh
   CGO_ENABLED=0 go install
