@@ -68,22 +68,28 @@ Step 4
 Step 5
 : Build and install.
 
-  To build and install the standard edition, run the following command.
+  To build and install the deploy edition:
 
   ```sh
-  CGO_ENABLED=0 go install github.com/gohugoio/hugo@latest
+  CGO_ENABLED=0 go install
   ```
 
-  To build and install the extended edition, first install a C compiler such as [GCC] or [Clang] and then run the following command.
+  {{< new-in v0.159.2 />}} To build and install the deploy edition:
 
   ```sh
-  CGO_ENABLED=1 go install -tags extended github.com/gohugoio/hugo@latest
+  CGO_ENABLED=0 go install -tags withdeploy
   ```
 
-  To build and install the extended/deploy edition, first install a C compiler such as [GCC] or [Clang] and then run the following command.
+  To build and install the extended edition, first install a C compiler such as [GCC] or [Clang] and then run the following command:
 
   ```sh
-  CGO_ENABLED=1 go install -tags extended,withdeploy github.com/gohugoio/hugo@latest
+  CGO_ENABLED=1 go install -tags extended
+  ```
+
+  To build and install the extended/deploy edition, first install a C compiler such as [GCC] or [Clang] and then run the following command:
+
+  ```sh
+  CGO_ENABLED=1 go install -tags extended,withdeploy
   ```
 
 Step 6
@@ -124,34 +130,6 @@ Step 9
 
 Step 10
 : A project maintainer will review your PR and may request changes. You may delete your branch after the maintainer merges your PR.
-
-## Building from source
-
-You can build, install, and test Hugo at any point in its development history. The examples below build and install the extended edition of Hugo.
-
-To build and install the latest release:
-
-```sh
-CGO_ENABLED=1 go install -tags extended github.com/gohugoio/hugo@latest
-```
-
-To build and install a specific release:
-
-```sh
-CGO_ENABLED=1 go install -tags extended github.com/gohugoio/hugo@v0.158.0
-```
-
-To build and install at the latest commit on the master branch:
-
-```sh
-CGO_ENABLED=1 go install -tags extended github.com/gohugoio/hugo@master
-```
-
-To build and install at a specific commit:
-
-```sh
-CGO_ENABLED=1 go install -tags extended github.com/gohugoio/hugo@c0d9beb
-```
 
 [Clang]: https://clang.llvm.org/
 [Contribution Guide]: https://github.com/gohugoio/hugo/blob/master/CONTRIBUTING.md
