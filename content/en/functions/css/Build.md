@@ -175,9 +175,9 @@ targetPath
 vars
 : {{< new-in v0.160.0 />}}
 : (`map`) A map of key-value pairs used to generate CSS variables. The `css.Build` function injects these variables into the stylesheet when it encounters the `hugo:vars` internal identifier within an `@import` statement.
-
+  
   ```go-html-template
-  {{ $opts := dict "vars" (dict "primary-color" "blue" "font-size" "24px") }}
+  {{ $opts := dict "vars" (dict "primary-color" "blue" "font-size" "24px" "font-family" "\"Times New Roman\", Times, serif") }}
   {{ $r := resources.Get "css/main.css" | css.Build $opts }}
   ```
 
