@@ -16,6 +16,9 @@ aliases: [/tools/frontends/]
 [DatoCMS](https://www.datocms.com)
 : DatoCMS is a fully customizable administrative area for your static websites. Use your favorite website generator, let your clients publish new content independently, and the host the site anywhere you like.
 
+[GitCMS](https://gitcms.dev)
+: GitCMS is an AI-focused CMS for markdown-based content sites that brings together Content Agents for ChatGPT and Claude using MCP app, a friendly notion-like interface for non-technical team members, and a structured editorial publishing workflow. It is built for teams that want to manage blogs, documentation, changelogs, and other markdown content with the speed of AI assistance and the reliability of a review-driven publishing process.
+
 [PubCrank](https://www.pubcrank.com/)
 : PubCrank is a static site editor which lets you define templates for different front matter layouts in your site. This gives writers an easy-to-use visual interface to create and edit content while maintaining the guardrails that the developer has created. PubCrank is free for local editing.
 
