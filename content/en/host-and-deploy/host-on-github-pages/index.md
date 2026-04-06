@@ -99,7 +99,7 @@ Step 4
             node-version: ${{ env.NODE_VERSION }}
         - name: Setup Pages
           id: pages
-          uses: actions/configure-pages@v5
+          uses: actions/configure-pages@v6
         - name: Create directory for user-specific executable files
           run: |
             mkdir -p "${HOME}/.local"
@@ -162,7 +162,7 @@ Step 4
       steps:
         - name: Deploy to GitHub Pages
           id: deployment
-          uses: actions/deploy-pages@v4
+          uses: actions/deploy-pages@v5
   ```
 
 Step 5
