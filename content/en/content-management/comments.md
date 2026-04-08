@@ -47,6 +47,7 @@ Commercial commenting systems:
 - [Hyvor Talk](https://talk.hyvor.com/)
 - [IntenseDebate](https://intensedebate.com/)
 - [ReplyBox](https://getreplybox.com/)
+- [EchoThread](https://echothread.io/)
 
 Open-source commenting systems:
 
