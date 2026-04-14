@@ -150,7 +150,7 @@ Step 4
             path: ${{ runner.temp }}/hugo_cache
             key: ${{ steps.cache-restore.outputs.cache-primary-key }}
         - name: Upload artifact
-          uses: actions/upload-pages-artifact@v3
+          uses: actions/upload-pages-artifact@v5
           with:
             path: ./public
     deploy:
