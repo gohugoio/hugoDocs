@@ -31,6 +31,21 @@ To append a query string to a URL:
 Hugo renders this to:
 
 ```html
+<a href="https://example.org?a=1&b=2">Link</a>
+```
+
+To append a query string to a URL and escape the result:
+
+```go-html-template
+{{ $qs := collections.Querify (dict "a" 1 "b" 2) }}
+{{ $href := printf "https://example.org?%s" $qs | htmlEscape }}
+
+<a href="{{ $href }}">Link</a>
+```
+
+Hugo renders this to:
+
+```html
 <a href="https://example.org?a=1&amp;b=2">Link</a>
 ```
 
