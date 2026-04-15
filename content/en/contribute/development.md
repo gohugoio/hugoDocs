@@ -82,11 +82,15 @@ Step 5
 
   To build and install the extended edition, first install a C compiler such as [GCC] or [Clang] and then run the following command:
 
+  {{< deprecated-in v0.161.0 />}} Build and install the standard edition instead.
+
   ```sh
   CGO_ENABLED=1 go install -tags extended
   ```
 
   To build and install the extended/deploy edition, first install a C compiler such as [GCC] or [Clang] and then run the following command:
+
+  {{< deprecated-in v0.161.0 />}} Build and install the deploy edition instead.
 
   ```sh
   CGO_ENABLED=1 go install -tags extended,withdeploy

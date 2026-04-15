@@ -19,32 +19,26 @@ weight: 30
 
 ### Chocolatey
 
-[Chocolatey] is a free and open-source package manager for Windows. To install the extended edition of Hugo:
+[Chocolatey] is a free and open-source package manager for Windows. To install the standard edition:
 
 ```sh
-choco install hugo-extended
+choco install hugo
 ```
 
 ### Scoop
 
-[Scoop] is a free and open-source package manager for Windows. To install the extended edition of Hugo:
+[Scoop] is a free and open-source package manager for Windows. To install the standard edition:
 
 ```sh
-scoop install hugo-extended
+scoop install hugo
 ```
 
 ### Winget
 
-[Winget] is Microsoft's official free and open-source package manager for Windows. To install the extended edition of Hugo:
+[Winget] is Microsoft's official free and open-source package manager for Windows. To install the standard edition:
 
 ```sh
-winget install Hugo.Hugo.Extended
-```
-
-To uninstall the extended edition of Hugo:
-
-```sh
-winget uninstall --name "Hugo (Extended)"
+winget install Hugo.Hugo
 ```
 
 {{% include "/_common/installation/04-build-from-source.md" %}}

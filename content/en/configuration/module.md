@@ -73,6 +73,8 @@ This is the default configuration:
 
 You can omit any of the settings above.
 
+<!-- TODO: remove the "extended" bit somewhere around April 15, 2027 -->
+
 extended
 : (`bool`) Whether the extended edition of Hugo is required, satisfied by installing either the extended or extended/deploy edition.
 
