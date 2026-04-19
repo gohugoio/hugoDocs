@@ -39,9 +39,9 @@ Step 1
         - key: GO_VERSION
           value: 1.26.1
         - key: HUGO_VERSION
-          value: 0.160.0
+          value: 0.161.0
         - key: NODE_VERSION
-          value: 24.14.1
+          value: 24.15.0
         - key: TZ
           value: Europe/Oslo
   ```

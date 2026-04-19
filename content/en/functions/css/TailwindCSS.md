@@ -24,15 +24,18 @@ Use the `css.TailwindCSS` function to process your Tailwind CSS files. This func
 ## Setup
 
 Step 1
-: Install the Tailwind CSS CLI v4.0 or later:
+: Install Tailwind CSS v4.0 or later:
 
   ```sh {copy=true}
   npm install --save-dev tailwindcss @tailwindcss/cli @tailwindcss/typography
   ```
 
-  The Tailwind CSS CLI is also available as a [standalone executable]. You must install it outside of your project directory and ensure its path is included in your system's `PATH` environment variable.
+  <!-- TODO: remove the admonition below somewhere after v0.172.0 -->
+  
+  > [!note]
+  > As of v0.161.0, Hugo no longer supports the Tailwind [standalone binary]. You must now install the Tailwind CSS CLI via `npm` as shown above.
 
-  [standalone executable]: https://github.com/tailwindlabs/tailwindcss/releases/latest
+  [standalone binary]: https://github.com/tailwindlabs/tailwindcss/releases/latest
 
 Step 2
 : Add this to your project configuration:
