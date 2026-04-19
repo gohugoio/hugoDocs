@@ -45,7 +45,7 @@ noClasses
   ```
 
 style
-: (`string`) The CSS styles to apply to the highlighted code. The value is case-sensitive. Default is `monokai`. See [syntax highlighting styles][].
+: (`string`) The CSS styles to apply to the highlighted code. This value is case-insensitive. Default is `monokai`. See [syntax highlighting styles][].
 
 tabWidth
 : (`int`) Substitute this number of spaces for each tab character in your highlighted code. Irrelevant if `noClasses` is `false`. Default is `4`.
