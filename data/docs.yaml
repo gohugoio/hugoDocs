@@ -1951,11 +1951,7 @@ config:
     path: page
   panicOnWarning: false
   params: {}
-  permalinks:
-    page: {}
-    section: {}
-    taxonomy: {}
-    term: {}
+  permalinks: null
   pluralizeListTitles: true
   printI18nWarnings: false
   printPathWarnings: false
@@ -2024,7 +2020,7 @@ config:
       - ^(dart-)?sass(-embedded)?$
       - ^go$
       - ^git$
-      - ^npx$
+      - ^node$
       - ^postcss$
       - ^tailwindcss$
       osEnv:
@@ -2038,7 +2034,19 @@ config:
       methods:
       - (?i)GET|POST
       urls:
-      - .*
+      - (?i)^https?://[a-z]
+      - '! (?i)localhost'
+      - '! @'
+    node:
+      permissions:
+        allowAddons:
+        - tailwindcss
+        allowRead:
+        - .
+        allowWorker:
+        - tailwindcss
+        allowWrite: []
+        disable: false
   segments: {}
   server:
     headers: null
