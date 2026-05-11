@@ -8,6 +8,13 @@ weight: 30
 aliases: [/about/security-model/]
 ---
 
+## Security Boundaries
+
+* The templates inside `layouts` are trusted.
+* The assets inside `archetypes`, `assets`, `resources`, `data`, `i18n` and `static` are trusted.
+* The content and the content produced by content adpaters inside `content` is not trusted. The one exception here is if [inline shortcodes] is enabled. Note that for content adapters, this is scoped to the result of the adapter.
+* The development server, `hugo server`, and its livereload script is trusted and meant for _local_ development only.
+
 ## Runtime security
 
 Hugo generates static websites, meaning the final output runs directly in the browser and interacts with any integrated APIs. However, during development and site building, the `hugo` executable itself is the runtime environment.
