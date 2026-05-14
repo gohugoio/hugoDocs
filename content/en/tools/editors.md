@@ -29,6 +29,9 @@ weight: 10
 [Syntax Highlighting for Hugo Shortcodes](https://marketplace.visualstudio.com/items?itemName=kaellarkin.hugo-shortcode-syntax)
 : This extension adds some syntax highlighting for Shortcodes, making visual identification of individual pieces easier.
 
+[Hugo Shortcodes](https://marketplace.visualstudio.com/items?itemName=thuliteio.hugo-shortcodes)
+: Hugo Shortcodes is a Visual Studio Code extension that adds syntax highlighting and intelligent completions for Hugo shortcodes in Markdown, including shortcode names and arguments discovered from workspace templates. The source code can be found on its [GitHub repository](https://github.com/thuliteio/hugo-shortcodes).
+
 ## JetBrains IDEs
 
 [Smart Hugo](https://smarthugo.dev)
