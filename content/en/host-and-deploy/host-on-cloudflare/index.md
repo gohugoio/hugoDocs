@@ -140,12 +140,12 @@ Step 4
   ![screen capture](cloudflare-01.png)
 
 Step 5
-: On the "Workers" tab, press the **Get started** button to the right of the "Import a repository" item.
+: Verify your account if prompted.
 
   ![screen capture](cloudflare-02.png)
 
 Step 6
-: Connect to GitHub.
+: On the "Create a Worker" page, under the "Ship something new" heading, press the **Connect GitHub** button.
 
   ![screen capture](cloudflare-03.png)
 
@@ -159,25 +159,18 @@ Step 8
 
   ![screen capture](cloudflare-05.png)
 
-  Your browser will be redirected to the Cloudflare dashboard.
-
 Step 9
-: On the "Workers" tab, press the **Get started** button to the right of the "Import a repository" item.
-
-  ![screen capture](cloudflare-02.png)
-
-Step 10
-: Select the repository to import.
+: On the "Create a Worker" page, under the "Select a repository" heading, select the repository to deploy, then press the **Next** button.
 
   ![screen capture](cloudflare-06.png)
 
-Step 11
-: On the "Set up your application" screen, provide a project name, leave the build command blank, then press the **Create and deploy** button.
+Step 10
+: On the "Create a Worker" page, under the "Set up your application" heading, provide a project name, leave the build command blank, then press the **Deploy** button.
 
   ![screen capture](cloudflare-07.png)
 
-Step 12
-: Wait for the site to build and deploy, then visit your site.
+Step 11
+: Wait for the site to build and deploy, then press the **Visit** button in the upper left corner of your screen.
 
   ![screen capture](cloudflare-08.png)
 
