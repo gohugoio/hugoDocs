@@ -14,7 +14,7 @@ aliases: [/functions/resources/tocss/]
 Transpile Sass to CSS using the LibSass transpiler included in Hugo's extended and extended/deploy editions, or [install Dart Sass](#dart-sass) to use the latest features of the Sass language.
 
 > [!warning]
-> The embedded LibSass transpiler was deprecated in [v0.153.0][] and will be removed in a future release. Use the Dart Sass transpiler instead.
+> The embedded LibSass transpiler was deprecated in [v0.153.0][] and will be removed in a future release. Use the Dart Sass transpiler instead by setting the `transpiler` option to `dartsass` as shown in the examples below.
 
 Sass has two forms of syntax: [SCSS][] and [indented][]. Hugo supports both.
 
@@ -24,7 +24,10 @@ enableSourceMap
 : (`bool`) Whether to generate a source map. Default is `false`.
 
   ```go-html-template
-  {{ $opts := dict "enableSourceMap" true }}
+  {{ $opts := dict
+    "transpiler" "dartsass"
+    "enableSourceMap" true 
+  }}
   {{ $r := resources.Get "sass/main.scss" | css.Sass $opts }}
   ```
 
@@ -32,7 +35,10 @@ includePaths
 : (`slice`) A slice of paths, relative to the project root, that the transpiler will use when resolving `@use` and `@import` statements.
 
   ```go-html-template
-  {{ $opts := dict "includePaths" (slice "node_modules/bootstrap/scss") }}
+  {{ $opts := dict
+    "transpiler" "dartsass"
+    "includePaths" (slice "node_modules/bootstrap/scss")
+  }}
   {{ $r := resources.Get "sass/main.scss" | css.Sass $opts }}
   ```
 
@@ -40,7 +46,10 @@ outputStyle
 : (`string`) The output style of the resulting CSS. With LibSass, one of `nested` (default), `expanded`, `compact`, or `compressed`. With Dart Sass, either `expanded` (default) or `compressed`.
 
   ```go-html-template
-  {{ $opts := dict "outputStyle" "compressed" }}
+  {{ $opts := dict
+    "transpiler" "dartsass"
+    "outputStyle" "compressed"
+  }}
   {{ $r := resources.Get "sass/main.scss" | css.Sass $opts }}
   ```
 
@@ -48,7 +57,10 @@ precision
 : (`int`) The precision of floating point math. Applicable to LibSass. Default is `8`.
 
   ```go-html-template
-  {{ $opts := dict "precision" 10 }}
+  {{ $opts := dict
+    "transpiler" "dartsass"
+    "precision" 10 
+  }}
   {{ $r := resources.Get "sass/main.scss" | css.Sass $opts }}
   ```
 
@@ -57,7 +69,10 @@ silenceDeprecations
 : (`slice`) A slice of deprecation IDs to silence. IDs are enclosed in brackets within Dart Sass warning messages (e.g., `import` in `WARN Dart Sass: DEPRECATED [import]`). Applicable to Dart Sass.
 
   ```go-html-template
-  {{ $opts := dict "silenceDeprecations" (slice "import") }}
+  {{ $opts := dict
+    "transpiler" "dartsass"
+    "silenceDeprecations" (slice "import")
+  }}
   {{ $r := resources.Get "sass/main.scss" | css.Sass $opts }}
   ```
 
@@ -66,7 +81,10 @@ silenceDependencyDeprecations
 : (`bool`) Whether to silence deprecation warnings from dependencies, where a dependency is considered any file transitively imported through a load path. This does not apply to `@warn` or `@debug` rules. Default is `false`.
 
   ```go-html-template
-  {{ $opts := dict "silenceDependencyDeprecations" true }}
+  {{ $opts := dict
+    "transpiler" "dartsass"
+    "silenceDependencyDeprecations" true
+  }}
   {{ $r := resources.Get "sass/main.scss" | css.Sass $opts }}
   ```
 
@@ -74,7 +92,10 @@ sourceMapIncludeSources
 : (`bool`) Whether to embed sources in the generated source map. Applicable to Dart Sass. Default is `false`.
 
   ```go-html-template
-  {{ $opts := dict "enableSourceMap" true "sourceMapIncludeSources" true }}
+  {{ $opts := dict
+    "transpiler" "dartsass"
+    "enableSourceMap" true "sourceMapIncludeSources" true
+  }}
   {{ $r := resources.Get "sass/main.scss" | css.Sass $opts }}
   ```
 
@@ -82,7 +103,10 @@ targetPath
 : (`string`) The publish path for the transformed resource, relative to the [`publishDir`][]. If unset, the target path defaults to the asset's original path with a `.css` extension.
 
   ```go-html-template
-  {{ $opts := dict "targetPath" "css/bundle.css" }}
+  {{ $opts := dict
+    "transpiler" "dartsass"
+    "targetPath" "css/bundle.css"
+  }}
   {{ $r := resources.Get "sass/main.scss" | css.Sass $opts }}
   ```
 
@@ -94,25 +118,99 @@ transpiler
   {{ $r := resources.Get "sass/main.scss" | css.Sass $opts }}
   ```
 
-  > [!warning]
-  > The embedded LibSass transpiler was deprecated in [v0.153.0][] and will be removed in a future release. Use the Dart Sass transpiler instead.
-
 vars
 : (`map`) A map of key-value pairs used to generate Sass variables. The `css.Sass` function injects these variables into the stylesheet when it encounters the `hugo:vars` internal identifier within a `@use` or `@import` statement.
 
   ```go-html-template
-  {{ $opts := dict "vars" (dict "primary-color" "blue" "font-size" "24px") }}
+  {{ $vars := dict
+    "font-family" "\"Times New Roman\", Times, serif"
+    "font-size" "24px" 
+    "primary-color" "blue"
+  }}
+  {{ $opts := dict 
+    "transpiler" "dartsass"
+    "vars" $vars
+  }}
   {{ $r := resources.Get "sass/main.scss" | css.Sass $opts }}
   ```
 
-   In the example above, using the identifier in your stylesheet allows you to access the values as Sass variables in the `hugo:vars` namespace:
+  In the example above, using the identifier in your stylesheet allows you to access the values as Sass variables in the `hugo:vars` namespace:
 
   ```scss
-  @use "hugo:vars" as v;
+  @use 'hugo:vars' as v;
 
   .element {
     color: v.$primary-color;
+    font-family: v.$font-family;
     font-size: v.$font-size;
+  }
+  ```
+
+  The above produces output equivalent to:
+
+  ```css
+  .element {
+    color: blue;
+    font-family: "Times New Roman", Times, serif;
+    font-size: 24px;
+  }
+  ```
+
+  {{< new-in 0.161.0 />}}
+
+  The map may optionally contain nested maps. Each nested map is exposed as a separate `hugo:vars/<name>` namespace, where `<name>` is the key of the nested map (lowercased). Top-level scalar values and nested maps are independent. A top-level `@use 'hugo:vars'` only includes scalar values, while `@use 'hugo:vars/<name>'` only includes the scalars from the named nested map.
+
+  ```go-html-template
+  {{ $vars := dict
+    "font-family" "\"Times New Roman\", Times, serif"
+    "font-size" "24px"
+    "primary-color" "blue"
+    "mobile" (dict 
+      "font-size" "12px"
+      "primary-color" "red"
+    )
+  }}
+  {{ $opts := dict 
+    "transpiler" "dartsass"
+    "vars" $vars
+  }}
+  {{ $r := resources.Get "sass/main.scss" | css.Sass $opts }}
+  ```
+
+  In the stylesheet, reference each nested namespace with a separate `@use` statement. Assign an alias to access the variables from that namespace:
+
+  ```scss
+  @use 'hugo:vars' as v;
+  @use 'hugo:vars/mobile' as mobile;
+
+  body {
+    color: v.$primary-color;
+    font-family: v.$font-family;
+    font-size: v.$font-size;
+  }
+
+  @media (max-width: 650px) {
+    body {
+      color: mobile.$primary-color;
+      font-size: mobile.$font-size;
+    }
+  }
+  ```
+
+  The above produces output equivalent to:
+
+  ```css
+  body {
+    color: blue;
+    font-family: "Times New Roman", Times, serif;
+    font-size: 24px;
+  }
+
+  @media (max-width: 650px) {
+    body {
+      color: red;
+      font-size: 12px;
+    }
   }
   ```
 
@@ -120,12 +218,19 @@ vars
 
   {{< code-toggle file=hugo >}}
   [params.theme.style]
-  primary-color = 'blue'
+  font-family = '"Times New Roman", Times, serif'
   font-size = '24px'
+  primary-color = 'blue'
+
+  [params.theme.style.mobile]
+  font-size = '12px'
+  primary-color = 'red'
   {{< /code-toggle >}}
 
   ```go-html-template
-  {{ $opts := dict "vars" site.Params.theme.style }}
+  {{ $opts := dict 
+    "transpiler" "dartsass"
+    "vars" site.Params.theme.style }}
   {{ $r := resources.Get "sass/main.scss" | css.Sass $opts }}
   ```
 

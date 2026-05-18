@@ -173,11 +173,16 @@ targetPath
   ```
 
 vars
-: {{< new-in v0.160.0 />}}
+: {{< new-in 0.160.0 />}}
 : (`map`) A map of key-value pairs used to generate CSS variables. The `css.Build` function injects these variables into the stylesheet when it encounters the `hugo:vars` internal identifier within an `@import` statement.
   
   ```go-html-template
-  {{ $opts := dict "vars" (dict "primary-color" "blue" "font-size" "24px" "font-family" "\"Times New Roman\", Times, serif") }}
+  {{ $vars := dict
+    "font-family" "\"Times New Roman\", Times, serif"
+    "font-size" "24px" 
+    "primary-color" "blue" 
+  }}
+  {{ $opts := dict "vars" $vars }}
   {{ $r := resources.Get "css/main.css" | css.Build $opts }}
   ```
 
@@ -187,9 +192,80 @@ vars
   @import 'hugo:vars';
 
   .element {
-    font-family: var(--font-family);
     color: var(--primary-color);
+    font-family: var(--font-family);
     font-size: var(--font-size);
+  }
+  ```
+
+  The above produces output equivalent to:
+
+  ```css
+  :root {
+    --font-family:
+      "Times New Roman",
+      Times,
+      serif;
+    --font-size: 24px;
+    --primary-color: blue;
+  }
+
+  .element {
+    color: var(--primary-color);
+    font-family: var(--font-family);
+    font-size: var(--font-size);
+  }
+````
+
+  {{< new-in 0.161.0 />}}
+
+  The map may optionally contain nested maps. Each nested map is exposed as a separate `hugo:vars/<name>` namespace, where `<name>` is the key of the nested map (lowercased). Top-level scalar values and nested maps are independent. A top-level `@import 'hugo:vars'` only includes scalar values, while `@import 'hugo:vars/<name>'` only includes the scalars from the named nested map.
+
+  ```go-html-template
+  {{ $vars := dict
+    "font-family" "\"Times New Roman\", Times, serif"
+    "font-size" "24px"
+    "primary-color" "blue"
+    "mobile" (dict 
+      "font-size" "12px"
+      "primary-color" "red" 
+    )
+  }}
+  {{ $opts := dict "vars" $vars }}
+  {{ $r := resources.Get "css/main.css" | css.Build $opts }}
+  ```
+
+  Because nested imports follow the same rules as regular `@import` statements, you can attach a media query, feature query, or cascade layer assignment to a `hugo:vars/<name>` import.
+
+  ```css
+  @import 'hugo:vars';
+  @import 'hugo:vars/mobile' (max-width: 650px);
+
+  body {
+    background-color: var(--primary-color);
+    font-family: var(--font-family);
+  }
+  ```
+
+  The above produces output equivalent to:
+
+  ```css
+  :root {
+    --font-family: "Times New Roman", Times, serif;
+    --font-size: 24px;
+    --primary-color: blue;
+  }
+
+  @media (max-width: 650px) {
+    :root {
+      --font-size: 12px;
+      --primary-color: red;
+    }
+  }
+
+  body {
+    background-color: var(--primary-color);
+    font-family: var(--font-family);
   }
   ```
 
@@ -198,8 +274,12 @@ vars
   {{< code-toggle file=hugo >}}
   [params.theme.style]
   font-family = '"Times New Roman", Times, serif'
-  primary-color = 'blue'
   font-size = '24px'
+  primary-color = 'blue'
+
+  [params.theme.style.mobile]
+  font-size = '12px'
+  primary-color = 'red'
   {{< /code-toggle >}}
 
   ```go-html-template
@@ -207,10 +287,10 @@ vars
   {{ $r := resources.Get "css/main.css" | css.Build $opts }}
   ```
 
-  When passing a `vars` map to the css.Build function, you can use the [`css.Quoted`][] function to explicitly indicate that a value must be treated as a quoted string, most commonly for `font-family` names or the `content` property.
+  When passing a `vars` map to the `css.Build` function, you can use the [`css.Quoted`][] function to explicitly indicate that a value must be treated as a quoted string, most commonly for `font-family` names or the `content` property.
 
-> [!note]
-> If you're using TailwindCSS and want to use the `vars` option to inject CSS variables, see [this section in the TailwindCSS documentation](./TailwindCSS.md#inject-css-variables-with-vars).
+  > [!note]
+  > If you're using TailwindCSS and want to use the `vars` option to inject CSS variables, see [this section in the TailwindCSS documentation](./TailwindCSS.md#inject-css-variables-with-vars).
 
 ## Example
 

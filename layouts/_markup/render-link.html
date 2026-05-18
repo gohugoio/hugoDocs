@@ -32,7 +32,7 @@ External destinations are not modified.
 You must place global resources in the assets directory. If you have placed
 your resources in the static directory, and you are unable or unwilling to move
 them, you must mount the static directory to the assets directory by including
-both of these entries in your site configuration:
+both of these entries in your project configuration:
 
   [[module.mounts]]
   source = 'assets'
@@ -44,7 +44,7 @@ both of these entries in your site configuration:
 
 By default, if this render hook is unable to resolve a destination, including a
 fragment if present, it passes the destination through without modification. To
-emit a warning or error, set the error level in your site configuration:
+emit a warning or error, set the error level in your project configuration:
 
   [params.render_hooks.link]
   errorLevel = 'warning' # ignore (default), warning, or error (fails the build)
@@ -95,7 +95,7 @@ either of these shortcodes in conjunction with this render hook.
 
 {{- /* Validate error level. */}}
 {{- if not (in (slice "ignore" "warning" "error") $errorLevel) }}
-  {{- errorf "The %q render hook is misconfigured. The errorLevel %q is invalid. Please check your site configuration." $renderHookName $errorLevel }}
+  {{- errorf "The %q render hook is misconfigured. The errorLevel %q is invalid. Please check your project configuration." $renderHookName $errorLevel }}
 {{- end }}
 
 {{- /* Determine content path for warning and error messages. */}}

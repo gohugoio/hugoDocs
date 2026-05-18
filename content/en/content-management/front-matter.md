@@ -243,7 +243,7 @@ The `target` key accepts a [page matcher](g) to limit cascaded values to a subse
 
 {{% include "/_common/configuration/page-matcher.md" %}}
 
-For example, to cascade the `color` page parameter from the home page to the "articles" section and its descendants:
+For example, to cascade the `color` page parameter from the home page to the `articles` section and its descendants:
 
 {{< code-toggle file=hugo >}}
 [cascade.params]
