@@ -8,6 +8,7 @@ params:
     aliases: [babel]
     returnType: resource.Resource
     signatures: ['js.Babel [OPTIONS] RESOURCE']
+aliases: [/functions/resources/babel/]
 ---
 
 ```go-html-template

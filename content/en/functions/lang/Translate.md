@@ -177,7 +177,7 @@ Template code:
 
 ## Reserved keys
 
-Hugo uses the [go-i18n][] package to look up values in translation tables. This package reserves the following keys for internal use:
+Hugo uses the [`nicksnyder/go-i18n`][] package to look up values in translation tables. This package reserves the following keys for internal use:
 
 id
 : (`string`) Uniquely identifies the message.
@@ -236,12 +236,12 @@ Then in your templates:
 {{ T "_other" }} → otro
 ```
 
+[CLDR]: https://www.unicode.org/cldr/charts/latest/supplemental/language_plural_rules.html
+[RFC 5646 § 2.2.7]: https://datatracker.ietf.org/doc/html/rfc5646#section-2.2.7
+[RFC 5646]: https://datatracker.ietf.org/doc/html/rfc5646
 [`defaultContentLanguage`]: /configuration/all/#defaultcontentlanguage
 [`enableMissingTranslationPlaceholders`]: /configuration/all/#enablemissingtranslationplaceholders
 [`locale`]: /configuration/languages/#locale
+[`nicksnyder/go-i18n`]: https://github.com/nicksnyder/go-i18n
 [`printI18nWarnings`]: /configuration/all/#printi18nwarnings
-[CLDR]: https://www.unicode.org/cldr/charts/latest/supplemental/language_plural_rules.html
-[go-i18n]: https://github.com/nicksnyder/go-i18n
 [language key]: /configuration/languages/#language-keys
-[RFC 5646 § 2.2.7]: https://datatracker.ietf.org/doc/html/rfc5646#section-2.2.7
-[RFC 5646]: https://datatracker.ietf.org/doc/html/rfc5646

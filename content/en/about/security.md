@@ -8,6 +8,13 @@ weight: 30
 aliases: [/about/security-model/]
 ---
 
+## Security Boundaries
+
+- The templates inside `layouts` are trusted.
+- The assets inside `archetypes`, `assets`, `resources`, `data`, `i18n` and `static` are trusted.
+- The content and the content produced by content adapters inside `content` is not trusted. The one exception here is if [inline shortcodes] is enabled. Note that for content adapters, this is scoped to the result of the adapter.
+- The development server, `hugo server`, and its livereload script is trusted and meant for _local_ development only.
+
 ## Runtime security
 
 Hugo generates static websites, meaning the final output runs directly in the browser and interacts with any integrated APIs. However, during development and site building, the `hugo` executable itself is the runtime environment.
@@ -18,6 +25,7 @@ Securing a runtime is a complex task. Hugo addresses this through a robust sandb
 - Read-Only access: User-defined components have read-only access to the file system, preventing unintended modifications.
 - Controlled external binaries: While Hugo utilizes external binaries for features like Asciidoctor support, these are strictly predefined with specific flags and are disabled by default. The [security policy] details these limitations.
 - No arbitrary commands: To mitigate risks, Hugo intentionally avoids implementing general functions that would allow users to execute arbitrary operating system commands.
+- Pragmatic defaults: The default [security policy] aims to balance security and usability, enabling common workflows out of the box while keeping more sensitive capabilities opt-in. These defaults may be tightened in future releases, but each project is ultimately responsible for reviewing the policy and adjusting it to match its own trust model and requirements.
 
 This combination of sandboxing and strict defaults effectively minimizes potential security vulnerabilities during the Hugo build process.
 

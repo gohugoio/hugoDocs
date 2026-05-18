@@ -12,6 +12,9 @@ params:
 
 {{< new-in 0.158.0 />}}
 
+> [!note]
+> The `css.Build` function is backed by the [`evanw/esbuild`][] package, providing a mature, high-performance foundation for bundling, transformation, and minification.
+
 Use the `css.Build` function to:
 
 - Recursively replace `@import` statements in CSS files with the content of the imported files
@@ -90,7 +93,7 @@ To minify the generated CSS code, use the [`minify`](#minify) option as describe
 
 ## Options
 
-The `css.Build` function takes an optional map of options based on the underlying [`esbuild`] package. Use these options to fine-tune bundling, minification, and browser compatibility.
+The `css.Build` function takes an optional map of options to fine-tune bundling, minification, and browser compatibility.
 
 externals
 : (`[]string`) A slice of path patterns to exclude from bundling. The `@import` statements for these patterns remain as-is in the generated CSS code. See&nbsp;[details][esb_external].
@@ -169,6 +172,46 @@ targetPath
   {{ $r := resources.Get "css/main.css" | css.Build $opts }}
   ```
 
+vars
+: {{< new-in v0.160.0 />}}
+: (`map`) A map of key-value pairs used to generate CSS variables. The `css.Build` function injects these variables into the stylesheet when it encounters the `hugo:vars` internal identifier within an `@import` statement.
+  
+  ```go-html-template
+  {{ $opts := dict "vars" (dict "primary-color" "blue" "font-size" "24px" "font-family" "\"Times New Roman\", Times, serif") }}
+  {{ $r := resources.Get "css/main.css" | css.Build $opts }}
+  ```
+
+  In the example above, using the identifier in your CSS allows you to access the values using standard CSS variable syntax.
+
+  ```css
+  @import 'hugo:vars';
+
+  .element {
+    font-family: var(--font-family);
+    color: var(--primary-color);
+    font-size: var(--font-size);
+  }
+  ```
+
+  The `vars` option is useful for setting CSS variables within your project configuration.
+
+  {{< code-toggle file=hugo >}}
+  [params.theme.style]
+  font-family = '"Times New Roman", Times, serif'
+  primary-color = 'blue'
+  font-size = '24px'
+  {{< /code-toggle >}}
+
+  ```go-html-template
+  {{ $opts := dict "vars" site.Params.theme.style }}
+  {{ $r := resources.Get "css/main.css" | css.Build $opts }}
+  ```
+
+  When passing a `vars` map to the css.Build function, you can use the [`css.Quoted`][] function to explicitly indicate that a value must be treated as a quoted string, most commonly for `font-family` names or the `content` property.
+
+> [!note]
+> If you're using TailwindCSS and want to use the `vars` option to inject CSS variables, see [this section in the TailwindCSS documentation](./TailwindCSS.md#inject-css-variables-with-vars).
+
 ## Example
 
 The example below uses several of the [options](#options) described above to bundle, transform, and minify CSS code.
@@ -180,6 +223,7 @@ The example below uses several of the [options](#options) described above to bun
     "minify" (cond hugo.IsDevelopment false true)
     "sourceMap" (cond hugo.IsDevelopment "linked" "none")
     "target" (slice "chrome115" "edge115" "firefox116" "ios16.4" "opera101" "safari16.4")
+    "targetPath" "css/styles.css"
   }}
   {{ with . | css.Build $opts }}
     {{ if hugo.IsDevelopment }}
@@ -202,17 +246,6 @@ Using the options above, Hugo does the following:
 - Adds vendor prefixes for compatibility with the targeted browser versions
 - Publishes the generated CSS code to `css/styles.css`
 - In production, adds an SRI hash and inserts a file hash into the filename
-
-[`esbuild`]: https://github.com/evanw/esbuild
-[`publishDir`]: /configuration/all/#publishdir
-[browserlist]: https://browsersl.ist
-[esb_external]: https://esbuild.github.io/api/#external
-[esb_loader]: https://esbuild.github.io/api/#loader
-[esb_mainfields]: https://esbuild.github.io/api/#main-fields
-[esb_minify]: https://esbuild.github.io/api/#minify
-[esb_sourcemap]: https://esbuild.github.io/api/#sourcemap
-[esb_sourcesContent]: https://esbuild.github.io/api/#sources-content
-[esb_target]: https://esbuild.github.io/api/#target
 
 ## Common patterns
 
@@ -254,3 +287,15 @@ To reference a specific file within a Node package, provide the path starting wi
 ```css {file="/assets/css/main.css"}
 @import "bootstrap/dist/css/bootstrap-grid.css";
 ```
+
+[`css.Quoted`]: /functions/css/quoted/
+[`evanw/esbuild`]: https://github.com/evanw/esbuild
+[`publishDir`]: /configuration/all/#publishdir
+[browserlist]: https://browsersl.ist
+[esb_external]: https://esbuild.github.io/api/#external
+[esb_loader]: https://esbuild.github.io/api/#loader
+[esb_mainfields]: https://esbuild.github.io/api/#main-fields
+[esb_minify]: https://esbuild.github.io/api/#minify
+[esb_sourcemap]: https://esbuild.github.io/api/#sourcemap
+[esb_sourcesContent]: https://esbuild.github.io/api/#sources-content
+[esb_target]: https://esbuild.github.io/api/#target

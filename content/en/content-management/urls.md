@@ -107,8 +107,6 @@ multilingual|`about`|`https://example.org/de/about/`
 
 #### Permalinks tokens in front matter
 
-{{< new-in 0.131.0 />}}
-
 You can also use tokens when setting the `url` value. This is typically used in `cascade` sections:
 
 {{< code-toggle file=content/foo/bar/_index.md fm=true >}}
