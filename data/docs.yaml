@@ -4449,6 +4449,7 @@ tpl:
       Defer:
         Aliases: null
         Args:
+        - ctx
         - args
         Description: Defer defers the execution of a template block.
         Examples: []

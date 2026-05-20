@@ -1,0 +1,10 @@
+name: Check template formatting
+on:
+  workflow_dispatch:
+  pull_request:
+jobs:
+  lint:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Check template formatting
+      run: "diff <(gotmplfmt -d layouts) <(printf '')"
