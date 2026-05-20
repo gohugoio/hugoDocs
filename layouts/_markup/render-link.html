@@ -1,4 +1,4 @@
-{{- /*
+{{/*
 This render hook resolves internal destinations by looking for a matching:
 
 	1. Content page
@@ -173,8 +173,7 @@ either of these shortcodes in conjunction with this render hook.
 		{{- if $v }}
 		{{- printf " %s=%q" $k ($v | transform.HTMLEscape) | safeHTMLAttr }}
 		{{- end }}
-	{{- end -}}>{{ .Text }}</a
->
+	{{- end -}}>{{ .Text }}</a>
 
 {{- define "_partials/inline/h-rh-l/validate-fragment.html" }}
 {{- /*
