@@ -111,6 +111,9 @@ The page resources' metadata is managed from the corresponding page's front matt
 > [!note]
 > Resources of type `page` get `Title` etc. from their own front matter.
 
+src
+: (`string`) A [glob pattern](g) that matches one or more page resources by file path, relative to the page bundle. Required. When the pattern matches multiple resources, the same metadata is applied to each.
+
 name
 : (`string`) Sets the value returned in `Name`.
 
