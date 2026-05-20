@@ -6,8 +6,6 @@ keywords: []
 weight: 20
 ---
 
-[security](/about/security)[news](/news)
-
 ## Framework
 
 [Multiplatform]
