@@ -102,7 +102,7 @@ published
 : Alias to [publishDate](#publishdate).
 
 resources
-: (`map array`) An array of maps to provide metadata for [page resources][].
+: (`map array`) An array of maps to provide metadata for [page resources]. Each element supports the `src`, `name`, `title`, and `params` keys.
 
 sitemap
 : (`map`) A map of sitemap options. See the [sitemap templates][] page for details. Access these values from a template using the [`Sitemap`][] method on a `Page` object.
