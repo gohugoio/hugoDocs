@@ -158,9 +158,21 @@ target
 disableWatch
 : (`bool`) Whether to disable watching in watch mode for this mount. Default is `false`.
 
+excludeFiles
+: {{< deprecated-in 0.153.0 />}}
+: Use [`files`](#files) instead.
+
 files
 : {{< new-in 0.153.0 />}}
 : (`[]string`) A [glob slice](g) defining the files to include or exclude.
+
+includeFiles
+: {{< deprecated-in 0.153.0 />}}
+: Use [`files`](#files) instead.
+
+lang
+: {{< deprecated-in 0.153.0 />}}
+: Use [`sites`](#sites) instead.
 
 sites
 : {{< new-in 0.153.0 />}}
