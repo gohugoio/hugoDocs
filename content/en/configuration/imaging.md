@@ -22,10 +22,10 @@ These global settings define how Hugo handles the fundamental aspects of image m
 
 `compression`
 : {{< new-in 0.153.5 />}}
-: (`string`) The encoding strategy used for the image. Options are `lossy` or `lossless`. Note that `lossless` is only supported by the WebP format. Default is `lossy`.
+: (`string`) The encoding strategy used for the image. Options are `lossy` or `lossless`. Note that `lossless` is only supported by the AVIF and WebP formats. Default is `lossy`.
 
 `quality`
-: (`int`) The visual fidelity of the image, applicable to JPEG and WebP formats when using `lossy` compression. Expressed as a whole number from `1` to `100`, inclusive. Lower numbers prioritize smaller file size, while higher numbers prioritize visual clarity. Default is `75`.
+: (`int`) The visual fidelity of the image, applicable to AVIF, JPEG, and WebP formats when using `lossy` compression. Expressed as a whole number from `1` to `100`, inclusive. Lower numbers prioritize smaller file size, while higher numbers prioritize visual clarity. Default is `75`.
 
 `resampleFilter`
 : (`string`) The algorithm used to calculate new pixels when resizing, fitting, or filling an image. Common options include `box`, `lanczos`, `catmullRom`, `mitchellNetravali`, `linear`, or `nearestNeighbor`. Default is `box`.
@@ -40,6 +40,44 @@ These global settings define how Hugo handles the fundamental aspects of image m
   `nearestNeighbor`|Fastest resampling filter, no antialiasing
 
   Refer to the [source documentation][] for a complete list of available resampling filters. If you wish to improve image quality at the expense of performance, you may wish to experiment with the alternative filters.
+
+## AVIF images
+
+{{< new-in 0.162.0 />}}
+
+> [!note]
+> When exporting HDR AVIF images from Lightroom, in the Export dialog under File Settings, uncheck Maximize Compatibility to improve Hugo's AVIF decoding speed.
+
+> [!note]
+> Encoding animated images to AVIF produces a single-frame (static) image. Converting an animated AVIF to another format such as GIF works as expected.
+
+Use the following setting to control the AVIF encoding process.
+
+`encoderSpeed`
+: (`int`) The encoder speed. Expressed as a whole number from `1` to `10`, inclusive, equivalent to the `-s` flag for the [`avifenc`][] CLI. Lower numbers reduce file size at the cost of build time. At typical web image sizes, quality is indistinguishable across settings. Values below `5` may cause very long build times. Default is `10`.
+
+## WebP images
+
+{{< new-in 0.155.0 />}}
+
+These specialized settings provide granular control over the WebP encoding process, allowing you to optimize compression based on the specific visual characteristics of your imagery.
+
+`hint`
+: (`string`) The encoding preset used when processing WebP images, equivalent to the `-preset` flag for the [`cwebp`][] CLI. Valid options include `drawing`, `icon`, `photo`, `picture`, or `text`. Default is `photo`.
+
+  Value|Example
+  :--|:--
+  `drawing`|Hand or line drawing with high-contrast details
+  `icon`|Small colorful image
+  `photo`|Outdoor photograph with natural lighting
+  `picture`|Indoor photograph such as a portrait
+  `text`|Image that is primarily text
+
+`method`
+: (`int`) The effort level of the compression algorithm. Expressed as a whole number from `0` to `6`, inclusive, equivalent to the `-m` flag for the [`cwebp`][] CLI. Lower numbers prioritize processing speed, while higher numbers prioritize compression efficiency and image quality. Default is `2`.
+
+`useSharpYuv`
+: (`bool`) The conversion method used for RGB-to-YUV encoding, equivalent to the `-sharp_yuv` flag for the [`cwebp`][] CLI. Enabling this prioritizes image sharpness at the expense of processing speed. Default is `false`.
 
 ## Exif method
 
@@ -62,30 +100,9 @@ The following parameters allow you to control how Hugo extracts and filters meta
 `sources`
 : (`[]string`) The metadata sources to include, one or more of `exif`, `iptc`, or `xmp`. Default is `['exif', 'iptc']`. The XMP metadata is excluded by default to improve performance.
 
-## WebP images
-
-{{< new-in 0.155.0 />}}
-
-These specialized settings provide granular control over the WebP encoding process, allowing you to optimize compression based on the specific visual characteristics of your imagery.
-
-`hint`
-: (`string`) The encoding preset used when processing WebP images, equivalent to the `-preset` flag for the [`cwebp`][] CLI. Valid options include `drawing`, `icon`, `photo`, `picture`, or `text`. Default is `photo`.
-
-  Value|Example
-  :--|:--
-  `drawing`|Hand or line drawing with high-contrast details
-  `icon`|Small colorful image
-  `photo`|Outdoor photograph with natural lighting
-  `picture`|Indoor photograph such as a portrait
-  `text`|Image that is primarily text
-
-`method`
-: (`int`) The effort level of the compression algorithm. Expressed as a whole number from `0` to `6`, inclusive, equivalent to the `-m` flag for the [`cwebp`][] CLI. Lower numbers prioritize processing speed, while higher numbers prioritize compression efficiency. Default is `2`.
-
-`useSharpYuv`
-: (`bool`) The conversion method used for RGB-to-YUV encoding, equivalent to the `-sharp_yuv` flag for the [`cwebp`][] CLI. Enabling this prioritizes image sharpness at the expense of processing speed. Default is `false`.
-
 [`cwebp`]: https://developers.google.com/speed/webp/docs/cwebp
 [`muesli/smartcrop`]: https://github.com/muesli/smartcrop
 [hexadecimal color]: https://developer.mozilla.org/en-US/docs/Web/CSS/hex-color
 [source documentation]: https://github.com/disintegration/imaging#image-resizing
+[`Meta`]: /methods/resource/meta/
+[`avifenc`]: https://github.com/aomediacodec/libavif

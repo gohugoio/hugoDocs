@@ -79,14 +79,11 @@ my-project/
 
 The root configuration keys are {{< root-configuration-keys >}}.
 
-> [!note]
-> You must define `cascade` tables in the root configuration file. You cannot define `cascade` tables in a dedicated file. See issue [#12899] for details.
+### Root key
 
-[#12899]: https://github.com/gohugoio/hugo/issues/12899
+{{< new-in 0.162.0 />}}
 
-### Omit the root key
-
-When splitting the configuration by root key, omit the root key in the component file. For example, these are equivalent:
+When splitting the configuration by root key, you may omit or include the root key in the component file. For example, these are equivalent:
 
 {{< code-toggle file=config/_default/hugo >}}
 [params]
@@ -96,6 +93,35 @@ foo = 'bar'
 {{< code-toggle file=config/_default/params >}}
 foo = 'bar'
 {{< /code-toggle >}}
+
+This also applies to keys whose values are maps of slices, such as `menus`. For example, these are equivalent:
+
+{{< code-toggle file=config/_default/menus >}}
+[[main]]
+name = 'Home'
+pageRef = '/'
+weight = 10
+{{< /code-toggle >}}
+
+{{< code-toggle file=config/_default/menus >}}
+[[menus.main]]
+name = 'Home'
+pageRef = '/'
+weight = 10
+{{< /code-toggle >}}
+
+For pure slice-typed keys such as `cascade` and `permalinks`, including the root key is required. For example:
+
+{{< code-toggle file=config/_default/cascade >}}
+[[cascade]]
+[cascade.params]
+color = 'red'
+[cascade.target]
+path = '/articles/**'
+{{< /code-toggle >}}
+
+> [!note]
+> Hugo unwraps the root key only when it is the sole top-level key in the file and matches the file's basename.
 
 ### Recursive parsing
 

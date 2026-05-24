@@ -14,7 +14,7 @@ The table below shows the values these functions return for various file formats
 
 |Format|IsImageResource|IsImageResourceProcessable|IsImageResourceWithMeta|
 |:-----|:--------------|:-------------------------|:----------------------|
-|AVIF  |true           |**false**                 |true                   |
+|AVIF  |true           |true                      |true                   |
 |BMP   |true           |true                      |true                   |
 |GIF   |true           |true                      |true                   |
 |HEIC  |true           |**false**                 |true                   |

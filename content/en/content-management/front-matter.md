@@ -164,16 +164,6 @@ author = 'John Smith'
 
 Access these values from a template using the [`Params`][] or [`Param`][] method on a `Page` object.
 
-Hugo provides [embedded templates][] to optionally insert meta data within the `head` element of your rendered pages. These embedded templates expect the following front matter parameters:
-
-Parameter|Data type|Used by these embedded templates
-:--|:--|:--
-`audio`|`[]string`|[`opengraph.html`][]
-`images`|`[]string`|[`opengraph.html`][], [`schema.html`][], [`twitter_cards.html`][]
-`videos`|`[]string`|[`opengraph.html`][]
-
-The embedded templates will skip a parameter if not provided in front matter, but will throw an error if the data type is unexpected.
-
 ## Taxonomies
 
 Classify content by adding taxonomy terms to front matter. For example, with this project configuration:
@@ -321,15 +311,12 @@ To override the default time zone, set the [`timeZone`](/configuration/all/#time
 [`lastmod`]: /methods/page/date/
 [`layout`]: /methods/page/layout/
 [`linktitle`]: /methods/page/linktitle/
-[`opengraph.html`]: <{{% eturl opengraph %}}>
 [`publishdate`]: /methods/page/publishdate/
 [`readingtime`]: /methods/page/readingtime/
-[`schema.html`]: <{{% eturl schema %}}>
 [`sitemap`]: /methods/page/sitemap/
 [`slug`]: /methods/page/slug/
 [`title`]: /methods/page/title/
 [`translationkey`]: /methods/page/translationkey/
-[`twitter_cards.html`]: <{{% eturl twitter_cards %}}>
 [`type`]: /methods/page/type/
 [`weight`]: /methods/page/weight/
 [`wordcount`]: /methods/page/wordcount/
@@ -340,7 +327,6 @@ To override the default time zone, set the [`timeZone`](/configuration/all/#time
 [content format]: /content-management/formats/
 [content formats]: /content-management/formats/#classification
 [emacs org mode]: https://orgmode.org/
-[embedded templates]: /templates/embedded/
 [json]: https://www.json.org/
 [leaf bundles]: /content-management/page-bundles/#leaf-bundles
 [menus]: /content-management/menus/#define-in-front-matter

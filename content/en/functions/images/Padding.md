@@ -52,7 +52,7 @@ Combine with the [`Colors`] method to create a border with one of the image's mo
 
 This example resizes an image to 300px wide, converts it to the WebP format, adds 20px vertical padding and 50px horizontal padding, then sets the canvas color to dark green with 33% opacity.
 
-Conversion to WebP is required to support transparency. PNG and WebP images have an alpha channel; JPEG and GIF do not.
+In the example below, conversion to WebP is required to support transparency. AVIF, PNG, and WebP images have an alpha channel; JPEG and GIF do not.
 
 ```go-html-template
 {{ $img := resources.Get "images/a.jpg" }}

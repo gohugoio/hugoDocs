@@ -17,13 +17,13 @@ background color
 
 compression
 : {{< new-in 0.153.5 />}}
-: The encoding strategy used for the image. Options are `lossy` or `lossless`. Note that `lossless` is only supported by the WebP format. This defaults to the [`compression`][] parameter in your project configuration.
+: The encoding strategy used for the image. Options are `lossy` or `lossless`. Note that `lossless` is only supported by the AVIF and WebP formats. This defaults to the [`compression`][] parameter in your project configuration.
 
 dimensions
 : The dimensions of the resulting image, in pixels. The format is `WIDTHxHEIGHT` where `WIDTH` and `HEIGHT` are whole numbers. When resizing an image, you may specify only the width (such as `600x`) or only the height (such as `x400`) for proportional scaling. Specifying both width and height when resizing an image may result in non-proportional scaling. When cropping, fitting, or filling, you must provide both width and height such as `600x400`.
 
 format
-: The format of the resulting image. Valid options include `bmp`, `gif`, `jpeg`, `png`, `tiff`, or `webp`. This defaults to the format of the source image.
+: The format of the resulting image. Valid options include `avif`, `bmp`, `gif`, `jpeg`, `png`, `tiff`, or `webp`. This defaults to the format of the source image.
 
 hint
 : The encoding preset used when processing WebP images, equivalent to the `-preset` flag for the [`cwebp`][] CLI. Valid options include `drawing`, `icon`, `photo`, `picture`, or `text`. This defaults to the [`hint`][] parameter in your project configuration.
@@ -37,7 +37,7 @@ hint
   `text`|Image that is primarily text
 
 quality
-: The visual fidelity of the image, applicable to JPEG and WebP formats when using `lossy` compression. The format is `qQUALITY` where `QUALITY` is a whole number between `1` and `100`, inclusive. Lower numbers prioritize smaller file size, while higher numbers prioritize visual clarity. This defaults to the [`quality`][] parameter in your project configuration.
+: The visual fidelity of the image, applicable to AVIF, JPEG, and WebP formats when using `lossy` compression. The format is `qQUALITY` where `QUALITY` is a whole number between `1` and `100`, inclusive. Lower numbers prioritize smaller file size, while higher numbers prioritize visual clarity. This defaults to the [`quality`][] parameter in your project configuration.
 
 resampling filter
 : The algorithm used to calculate new pixels when resizing, fitting, or filling an image. Common options include `box`, `lanczos`, `catmullRom`, `mitchellNetravali`, `linear`, or `nearestNeighbor`. This defaults to the [`resampleFilter`][] parameter in your project configuration.
@@ -56,7 +56,7 @@ resampling filter
 rotation
 : The number of whole degrees to rotate an image counter-clockwise. The format is `rDEGREES` where `DEGREES` is a whole number. Hugo performs rotation before any other transformations, so your [target dimensions](#dimensions) and any [anchor](#anchor) should refer to the image orientation after rotation. Use `r90`, `r180`, or `r270` for orthogonal rotations, or arbitrary angles such as `r45`. To rotate clockwise, use a negative number such as `r-45`. To automatically rotate an image based on its Exif orientation tag, use the [`images.AutoOrient`][] filter instead of manual rotation.
 
-  Rotating by non-orthogonal values increases the image extents to fit the rotated corners. For formats supporting alpha channels such as PNG or WebP, this resulting empty space is transparent by default. If the target format does not support transparency such as JPEG, or if you explicitly specify a [background color](#background-color) in the processing specification, the space is filled. If a color is required but not specified in the processing string, it defaults to the [`bgColor`][] parameter in your project configuration.
+  Rotating by non-orthogonal values increases the image extents to fit the rotated corners. For formats supporting alpha channels such as AVIF, PNG, or WebP, this resulting empty space is transparent by default. If the target format does not support transparency such as JPEG, or if you explicitly specify a [background color](#background-color) in the processing specification, the space is filled. If a color is required but not specified in the processing string, it defaults to the [`bgColor`][] parameter in your project configuration.
 
 [`anchor`]: /configuration/imaging/#anchor
 [`bgcolor`]: /configuration/imaging/#bgcolor
