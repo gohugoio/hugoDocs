@@ -25,7 +25,7 @@ A fenced code block consists of:
 - A code sample
 - A trailing code fence
 
-In the previous example, the info string contains:
+In the example above, the info string contains:
 
 - The language of the code sample (the first word)
 - An optional space-delimited or comma-delimited list of attributes (everything within braces)
@@ -50,7 +50,7 @@ Code block _render hook_ templates receive the following [context](g):
 : (`string`) The content between the leading and trailing code fences, excluding the info string.
 
 `Options`
-: (`map`) The highlighting options from the info string. This map is empty if [`Type`](#type) is an empty string or an unsupported code language. However, in this case, the highlighting options are available in the [`Attributes`](#attributes) map.
+: (`map`) The highlighting options from the info string.
 
 `Ordinal`
 : (`int`) The zero-based ordinal of the code block on the page.
@@ -74,6 +74,17 @@ By default, Hugo renders fenced code blocks using its built-in syntax highlighte
 ```go-html-template {file="layouts/_markup/render-codeblock.html" copy=true}
 {{ $result := transform.HighlightCodeBlock . }}
 {{ $result.Wrapped }}
+```
+
+To fall back to plain text when the language is not specified or not supported by the highlighter:
+
+```go-html-template {file="layouts/_markup/render-codeblock.html" copy=true}
+{{- $opts := dict }}
+{{- if not (transform.CanHighlight .Type) }}
+  {{- $opts = dict "type" "text" }}
+{{- end }}
+{{- $result := transform.HighlightCodeBlock . $opts }}
+{{- $result.Wrapped }}
 ```
 
 Although you can use one template with conditional logic to control the behavior on a per-language basis, you can also create language-specific templates.

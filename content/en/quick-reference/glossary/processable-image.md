@@ -4,6 +4,7 @@ title: processable image
 
 A _processable image_ is an image file characterized by one of the following [_media types_](g):
 
+  - `image/avif`
   - `image/bmp`
   - `image/gif`
   - `image/jpeg`

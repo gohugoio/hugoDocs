@@ -12,6 +12,10 @@ This is the default security configuration:
 
 {{< code-toggle config=security />}}
 
+`allowContent`
+: {{< new-in 0.162.0 />}}
+: (`[]string`) A slice of [regular expressions](g) matching the [media type](g) of [content formats](g) allowed in the `content` directory. By default, the HTML content format (media type `text/html`) is denied. Hugo emits HTML file content verbatim, which could allow arbitrary JavaScript execution. See the [classification] table for a mapping of content formats to media types.
+
 `enableInlineShortcodes`
 : (`bool`) Whether to enable [inline shortcodes]. Default is `false`.
 
@@ -84,6 +88,7 @@ Learn more about [using environment variables] to configure your site.
 
 [`os.Getenv`]: /functions/os/getenv
 [`resources.GetRemote`]: /functions/resources/getremote
+[classification]: /content-management/formats/#classification
 [inline shortcodes]: /content-management/shortcodes/#inline
 [permission model]: https://nodejs.org/api/permissions.html#permission-model
 [using environment variables]: /configuration/introduction/#environment-variables

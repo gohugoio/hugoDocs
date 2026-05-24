@@ -26,12 +26,6 @@ The above produces this data structure:
 }
 ```
 
-To create an empty map:
-
-```go-html-template
-{{ $m := dict }}
-```
-
 Note that the `key` can be either a `string` or a `[]string`. The latter is useful to create a deeply nested structure, e.g.:
 
 ```go-html-template
@@ -48,4 +42,12 @@ The above produces this data structure:
     }
   }
 }
+```
+
+{{< new-in 0.162.0 />}}
+
+To create a nil map:
+
+```go-html-template
+{{ $m := dict }}
 ```

@@ -12,9 +12,7 @@ aliases: [/functions/templates.defer]
 ---
 
 > [!note]
-> This feature should only be used in the main template, typically `layouts/baseof.html`. Using it in _shortcode_, _partial_, or _render hook_ templates may lead to unpredictable results. For further details, please refer to [this issue].
-
-[this issue]: https://github.com/gohugoio/hugo/issues/13492#issuecomment-2734700391
+> Do not call this function within a `partialCached` template. This restriction applies transitively: if `partialCached` calls a partial that calls `templates.Defer`, Hugo returns an error. Using this function within shortcode or render hook templates may also lead to unpredictable results.
 
 In some rare use cases, you may need to defer the execution of a template until after all sites and output formats have been rendered. One such example could be [TailwindCSS](/functions/css/tailwindcss/) using the output of [hugo_stats.json](/configuration/build/) to determine which classes and other HTML identifiers are being used in the final output:
 

@@ -222,7 +222,7 @@ Although the allowlist contains entries for common media types, you may encounte
 
 {{< code-toggle file=hugo >}}
 [security.http]
-mediaTypes = ['^image/avif$','^application/vnd\.api\+json$']
+mediaTypes = ['^application/vnd\.api\+json$']
 {{< /code-toggle >}}
 
 Note that the entry above is:
