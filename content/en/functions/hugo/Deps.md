@@ -12,22 +12,22 @@ params:
 
 The `hugo.Deps` function returns a slice of project dependencies, either Hugo Modules or local theme components. Each dependency contains:
 
-Owner
+`Owner`
 : (`hugo.Dependency`) In the dependency tree, this is the first module that defines this module as a dependency (e.g., `github.com/gohugoio/hugo-mod-bootstrap-scss/v5`).
 
-Path
+`Path`
 : (`string`) The module path or the path below your `themes` directory (e.g., `github.com/gohugoio/hugo-mod-jslibs-dist/popperjs/v2`).
 
-Replace
+`Replace`
 : (`hugo.Dependency`) Replaced by this dependency.
 
-Time
+`Time`
 : (`time.Time`) The time that the version was created (e.g., `2022-02-13 15:11:28 +0000 UTC`).
 
-Vendor
+`Vendor`
 : (`bool`) Reports whether the dependency is vendored.
 
-Version
+`Version`
 : (`string`) The module version (e.g., `v2.21100.20000`).
 
 An example table listing the dependencies:

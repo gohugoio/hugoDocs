@@ -184,37 +184,37 @@ Template code:
 
 Hugo uses the [`nicksnyder/go-i18n`][] package to look up values in translation tables. This package reserves the following keys for internal use:
 
-id
+`id`
 : (`string`) Uniquely identifies the message.
 
-description
+`description`
 : (`string`) Describes the message to give additional context to translators that may be relevant for translation.
 
-hash
+`hash`
 : (`string`) Uniquely identifies the content of the message that this message was translated from.
 
-leftdelim
+`leftdelim`
 : (`string`) The left Go template delimiter.
 
-rightdelim
+`rightdelim`
 : (`string`) The right Go template delimiter.
 
-zero
+`zero`
 : (`string`) The content of the message for the [CLDR][] plural form "zero".
 
-one
+`one`
 : (`string`) The content of the message for the [CLDR][] plural form "one".
 
-two
+`two`
 : (`string`) The content of the message for the [CLDR][] plural form "two".
 
-few
+`few`
 : (`string`) The content of the message for the [CLDR][] plural form "few".
 
-many
+`many`
 : (`string`) The content of the message for the [CLDR][] plural form "many".
 
-other
+`other`
 : (`string`) The content of the message for the [CLDR][] plural form "other".
 
 If you need to provide a translation for one of the reserved keys, you can prepend the word with an underscore. For example:

@@ -65,16 +65,16 @@ You can use any template [function](g) within an archetype. As shown above, the 
 
 Archetypes receive the following [context](g):
 
-Date
+`Date`
 : (`string`) The current date and time, formatted in compliance with RFC3339.
 
-File
+`File`
 : (`hugolib.fileInfo`) Returns file information for the current page. See&nbsp;[details](/methods/page/file).
 
-Type
+`Type`
 : (`string`) The [content type](g) inferred from the top-level directory name, or as specified by the `--kind` flag passed to the `hugo new content` command.
 
-Site
+`Site`
 : (`page.Site`) The current site object. See&nbsp;[details](/methods/site/).
 
 ## Date format

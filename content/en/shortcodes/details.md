@@ -38,19 +38,19 @@ This is a **bold** word.
 
 ## Arguments
 
-summary
+`summary`
 : (`string`) The content of the child `summary` element rendered from Markdown to HTML. Default is `Details`.
 
-open
+`open`
 : (`bool`) Whether to initially display the content of the `details` element. Default is `false`.
 
-class
+`class`
 : (`string`) The `class` attribute of the `details` element.
 
-name
+`name`
 : (`string`) The `name` attribute of the `details` element.
 
-title
+`title`
 : (`string`) The `title` attribute of the `details` element.
 
 ## Styling

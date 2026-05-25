@@ -49,7 +49,7 @@ To enable custom rendering of passthrough elements, create a passthrough render 
 
 Passthrough _render hook_ templates receive the following [context](g):
 
-Attributes
+`Attributes`
 : (`map`) The [Markdown attributes], available if you configure your site as follows:
 
   {{< code-toggle file=hugo >}}
@@ -59,22 +59,22 @@ Attributes
 
   Hugo populates the `Attributes` map for _block_ passthrough elements. Markdown attributes are not applicable to _inline_ elements.
 
-Inner
+`Inner`
 : (`string`) The inner content of the passthrough element, excluding the delimiters.
 
-Ordinal
+`Ordinal`
 : (`int`) The zero-based ordinal of the passthrough element on the page.
 
-Page
+`Page`
 : (`page`) A reference to the current page.
 
-PageInner
+`PageInner`
 : (`page`) A reference to a page nested via the [`RenderShortcodes`] method. [See details](#pageinner-details).
 
-Position
+`Position`
 : (`string`) The position of the passthrough element within the page content.
 
-Type
+`Type`
 : (`string`) The passthrough element type, either `block` or `inline`.
 
 [Markdown attributes]: /content-management/markdown-attributes/

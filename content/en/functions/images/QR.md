@@ -21,7 +21,7 @@ Although the default option values are sufficient for most applications, you sho
 
 ## Options
 
-level
+`level`
 : (`string`) The error correction level to use when encoding the text, one of `low`, `medium`, `quartile`, or `high`. Default is `medium`.
 
   Error correction level|Redundancy
@@ -31,10 +31,10 @@ level
   quartile|55%
   high|65%
 
-scale
+`scale`
 : (`int`) The number of image pixels per QR code module. Must be greater than or equal to `2`. Default is `4`.
 
-targetDir
+`targetDir`
 : (`string`) The subdirectory within the [`publishDir`] where Hugo will place the generated image. Use Unix-style slashes (`/`) to separarate path segments. If empty or not provided, the image is placed directly in the `publishDir` root. Hugo automatically creates the necessary subdirectories if they don't exist.
 
 ## Examples

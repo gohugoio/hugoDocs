@@ -75,37 +75,37 @@ my-project/
 
 Each of the subdirectories contributes to content, structure, behavior, or presentation.
 
-archetypes
+`archetypes`
 : The `archetypes` directory contains templates for new content. See&nbsp;[details](/content-management/archetypes/).
 
-assets
+`assets`
 : The `assets` directory contains global resources typically passed through an asset pipeline. This includes resources such as images, CSS, Sass, JavaScript, and TypeScript. See&nbsp;[details](/hugo-pipes/introduction/).
 
-config
+`config`
 : The `config` directory contains your project configuration, possibly split into multiple subdirectories and files. For projects with minimal configuration or projects that do not need to behave differently in different environments, a single configuration file named `hugo.toml` in the root of the project is sufficient. See&nbsp;[details](/configuration/introduction/#configuration-directory).
 
-content
+`content`
 : The `content` directory contains the markup files (typically Markdown) and page resources that comprise the content of your project. See&nbsp;[details](/content-management/organization/).
 
-data
+`data`
 : The `data` directory contains data files (JSON, TOML, YAML, or XML) that augment content, configuration, localization, and navigation. See&nbsp;[details](/content-management/data-sources/).
 
-i18n
+`i18n`
 : The `i18n` directory contains translation tables for multilingual projects. See&nbsp;[details](/content-management/multilingual/).
 
-layouts
+`layouts`
 : The `layouts` directory contains templates to transform content, data, and resources into a complete website. See&nbsp;[details](/templates/).
 
-public
+`public`
 : The `public` directory contains the published website, generated when you run the `hugo build` or `hugo server` commands. Hugo recreates this directory and its content as needed. See&nbsp;[details](/getting-started/usage/#build-your-project).
 
-resources
+`resources`
 : The `resources` directory contains cached output from Hugo's asset pipelines, generated when you run the `hugo build` or `hugo server` commands. By default this cache directory includes CSS and images. Hugo recreates this directory and its content as needed.
 
-static
+`static`
 : The `static` directory contains files that will be copied to the `public` directory when you build your project. For example: `favicon.ico`, `robots.txt`, and files that verify website ownership. Before the introduction of [page bundles](g) and [asset pipelines](/hugo-pipes/introduction/), the `static` directory was also used for images, CSS, and JavaScript.
 
-themes
+`themes`
 : The `themes` directory contains one or more [themes](g), each in its own subdirectory.
 
 ## Unified file system

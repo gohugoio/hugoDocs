@@ -51,7 +51,7 @@ Adjust the relevant privacy settings in your project configuration.
 
 {{< code-toggle config=privacy.disqus />}}
 
-disable
+`disable`
 : (`bool`) Whether to disable the template. Default is `false`.
 
 ## Google Analytics
@@ -86,10 +86,10 @@ Adjust the relevant privacy settings in your project configuration.
 
 {{< code-toggle config=privacy.googleAnalytics />}}
 
-disable
+`disable`
 : (`bool`) Whether to disable the template. Default is `false`.
 
-respectDoNotTrack
+`respectDoNotTrack`
 : (`bool`) Whether to respect the browser's "do not track" setting. Default is `true`.
 
 ## Open Graph

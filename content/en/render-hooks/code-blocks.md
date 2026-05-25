@@ -43,28 +43,28 @@ In the example above, the _highlighting options_ are `lineNos` and `tabWidth`. H
 
 Code block _render hook_ templates receive the following [context](g):
 
-Attributes
+`Attributes`
 : (`map`) The generic attributes from the info string.
 
-Inner
+`Inner`
 : (`string`) The content between the leading and trailing code fences, excluding the info string.
 
-Options
+`Options`
 : (`map`) The highlighting options from the info string. This map is empty if [`Type`](#type) is an empty string or an unsupported code language. However, in this case, the highlighting options are available in the [`Attributes`](#attributes) map.
 
-Ordinal
+`Ordinal`
 : (`int`) The zero-based ordinal of the code block on the page.
 
-Page
+`Page`
 : (`page`) A reference to the current page.
 
-PageInner
+`PageInner`
 : (`page`) A reference to a page nested via the [`RenderShortcodes`] method. [See details](#pageinner-details).
 
-Position
+`Position`
 : (`text.Position`) The position of the code block within the page content.
 
-Type
+`Type`
 : (`string`) The first word of the info string, typically the code language.
 
 ## Examples

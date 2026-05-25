@@ -109,16 +109,16 @@ The page resources' metadata is managed from the corresponding page's front matt
 > [!note]
 > Resources of type `page` get `Title` etc. from their own front matter.
 
-src
+`src`
 : (`string`) Required. A [glob pattern](g) matching one or more page resources by file path, relative to the page bundle. Matching is case-insensitive. When the pattern matches multiple resources, the same metadata is applied to each.
 
-name
+`name`
 : (`string`) Sets the value returned by [`Name`]. Supports the [`:counter`][] placeholder. After assignment, use `name`, not the original file path, with [`Resources.Get`][], [`Resources.Match`][], and [`Resources.GetMatch`][].
 
-title
+`title`
 : (`string`) Sets the value returned by [`Title`][]. Supports the [`:counter`][] placeholder.
 
-params
+`params`
 : (`map`) A map of custom key-value pairs. When multiple array entries match the same resource, their `params` maps are merged; later entries take precedence for duplicate keys.
 
 ### Resources metadata example

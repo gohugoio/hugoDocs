@@ -45,18 +45,18 @@ To pass an options map:
 
 ## Options
 
-indices
+`indices`
 : (`slice`) The indices to search within.
 
-document
+`document`
 : (`page`) The page for which to find related content. Required when specifying an options map.
 
-namedSlices
+`namedSlices`
 : (`slice`) The keywords to search for, expressed as a slice of `KeyValues` using the [`keyVals`] function.
 
 [`keyVals`]: /functions/collections/keyvals/
 
-fragments
+`fragments`
 : (`slice`) A list of special keywords that is used for indices configured as type "fragments". This will match the [fragment](g) identifiers of the documents.
 
 A contrived example using all of the above:

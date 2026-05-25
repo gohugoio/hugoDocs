@@ -25,16 +25,16 @@ To list up to 5 related pages (which share the same _date_ or _keyword_ paramete
 
 The `Related` method takes one argument which may be a `Page` or an options map. The options map has these options:
 
-indices
+`indices`
 : (`slice`) The indices to search within.
 
-document
+`document`
 : (`page`) The page for which to find related content. Required when specifying an options map.
 
-namedSlices
+`namedSlices`
 : (`slice`) The keywords to search for, expressed as a slice of `KeyValues` using the [`keyVals`] function.
 
-fragments
+`fragments`
 : (`slice`) A list of special keywords that is used for indices configured as type "fragments". This will match the [fragment](g) identifiers of the documents.
 
 A fictional example using all of the above options:

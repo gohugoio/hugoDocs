@@ -183,23 +183,23 @@ Setting the `Config` for a batch can be done from any template (including _short
 
 ### Build options
 
-format
+`format`
 : (`string`) Currently only `esm` is supported in ESBuild's [code splitting].
 
 {{% include "/_common/functions/js/options.md" %}}
 
 ### Script options
 
-resource
+`resource`
 : The resource to build. This can be a file resource or a virtual resource.
 
-export
+`export`
 : The export to bind the runner to. Set it to `*` to export the [entire namespace](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/import#namespace_import). Default is `default` for [runner] scripts and `*` for other [scripts](#script).
 
-importContext
+`importContext`
 : An additional context for resolving imports. Hugo will always check this one first before falling back to `assets` and `node_modules`. A common use of this is to resolve imports inside a page bundle. See [import context](#import-context).
 
-params
+`params`
 : A map of parameters that will be passed to the script as JSON. These gets bound to the `@params` namespace:
 
   ```js
@@ -208,7 +208,7 @@ params
 
 ### Params options
 
-params
+`params`
 : A map of parameters that will be passed to the script as JSON.
 
 ### Import context

@@ -99,17 +99,17 @@ Hugo passes the environment variables below to PostCSS, allowing you to do somet
 process.env.HUGO_ENVIRONMENT !== 'development' ? purgecss : null,
 ```
 
-PWD
+`PWD`
 : The absolute path to the project working directory.
 
-HUGO_ENVIRONMENT
+`HUGO_ENVIRONMENT`
 : The current Hugo environment, set with the `--environment` command line flag.
 Default is `production` for `hugo build` and `development` for `hugo server`.
 
-HUGO_PUBLISHDIR
+`HUGO_PUBLISHDIR`
 : The absolute path to the publish directory, typically `public`. This value points to a directory on disk, even when rendering to memory with the `--renderToMemory` command line flag.
 
-HUGO_FILE_X
+`HUGO_FILE_X`
 : Hugo automatically mounts the following files from your project's root directory under `assets/_jsconfig`:
 
 - `babel.config.js`

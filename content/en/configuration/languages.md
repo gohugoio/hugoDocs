@@ -17,17 +17,17 @@ disableDefaultLanguageRedirect = false
 disableLanguages = []
 {{< /code-toggle >}}
 
-defaultContentLanguage
+`defaultContentLanguage`
 : (`string`) The projects's default content language, conforming to the syntax described in [RFC 5646][]. This value must match one of the defined [language keys][]. Default is `en`.
 
-defaultContentLanguageInSubdir
+`defaultContentLanguageInSubdir`
 : (`bool`) Whether to publish the default content language to a subdirectory matching the [`defaultContentLanguage`][]. Default is `false`.
 
-disableDefaultLanguageRedirect
+`disableDefaultLanguageRedirect`
 : {{< new-in 0.140.0 />}}
 : (`bool`) Whether to disable generation of the alias redirect for the default content language. When [`defaultContentLanguageInSubdir`][] is `true`, this setting prevents the root directory from redirecting to the language subdirectory. Conversely, when `defaultContentLanguageInSubdir` is `false`, this setting prevents the language subdirectory from redirecting to the root directory. This is superseded by the more general [`disableDefaultSiteRedirect`][] setting. Default is `false`.
 
-disableLanguages
+`disableLanguages`
 : (`[]string]`) A slice of language keys representing the languages to disable during the build process. Although this is functional, consider using the [`disabled`](#disabled) key under each language instead.
 
 ## Language settings
@@ -38,33 +38,33 @@ Configure each language under the `languages` key:
 
 In the above, `en` is the [language key](#language-keys).
 
-direction
+`direction`
 : (`string`) The language direction, either left-to-right (`ltr`) or right-to-left (`rtl`). Use this value in your templates with the global [`dir`][] HTML attribute. Access this value from a template using the [`Language.Direction`][] method on a `Site` or `Page` object. Default is `ltr`.
 
-disabled
+`disabled`
 : (`bool`) Whether to disable this language when building the site. Default is `false`.
 
-label
+`label`
 : (`string`) The language name, typically used when rendering a language switcher. Access this value from a template using the [`Language.Label`][] method on a `Site` or `Page` object.
 
-languageCode
+`languageCode`
 : {{<deprecated-in 0.158.0 />}}
 : Use [`locale`](#locale) instead.
 
-languageDirection
+`languageDirection`
 : {{<deprecated-in 0.158.0 />}}
 : Use [`direction`](#direction) instead.
 
-languageName
+`languageName`
 : {{<deprecated-in 0.158.0 />}}
 : Use [`label`](#label) instead.
 
 {{% include "/_common/configuration/locale.md" %}}
 
-title
+`title`
 : (`string`) The site title for this language. Access this value from a template using the [`Title`][] method on a `Site` object.
 
-weight
+`weight`
 : (`int`) The language [weight](g). When set to a non-zero value, this is the primary sort criteria for this language.
 
 ## Sort order

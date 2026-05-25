@@ -73,31 +73,31 @@ END:VCARD
 
 ## Arguments
 
-text
+`text`
 : (`string`) The text to encode, falling back to the text between the opening and closing shortcode tags.
 
-level
+`level`
 : (`string`) The error correction level to use when encoding the text, one of `low`, `medium`, `quartile`, or `high`. Default is `medium`.
 
-scale
+`scale`
 : (`int`) The number of image pixels per QR code module. Must be greater than or equal to 2. Default is `4`.
 
-targetDir
+`targetDir`
 : (`string`) The subdirectory within the [`publishDir`] where Hugo will place the generated image.
 
-alt
+`alt`
 : (`string`) The `alt` attribute of the `img` element.
 
-class
+`class`
 : (`string`) The `class` attribute of the `img` element.
 
-id
+`id`
 : (`string`) The `id` attribute of the `img` element.
 
-loading
+`loading`
 : (`string`) The `loading` attribute of the `img` element, either `eager` or `lazy`.
 
-title
+`title`
 : (`string`) The `title` attribute of the `img` element.
 
 [`publishDir`]: /configuration/all/#publishdir

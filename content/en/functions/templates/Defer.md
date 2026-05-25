@@ -74,11 +74,11 @@ For the above to work well when running the server (or `hugo -w`), you want to h
 
 The `templates.Defer` function takes a single argument, a map with the following optional keys:
 
-key (`string`)
-: The key to use for the deferred template. This will, combined with a hash of the template content, be used as a cache key. If this is not set, Hugo will execute the deferred template on every render. This is not what you want for shared resources like CSS and JavaScript.
+`key`
+: (`string`) The key to use for the deferred template. This will, combined with a hash of the template content, be used as a cache key. If this is not set, Hugo will execute the deferred template on every render. This is not what you want for shared resources like CSS and JavaScript.
 
-data (`map`)
-: Optional map to pass as data to the deferred template. This will be available in the deferred template as `.` or `$`.
+`data`
+: (`map`) Optional map to pass as data to the deferred template. This will be available in the deferred template as `.` or `$`.
 
 ```go-html-template
 Language Outside: {{ site.Language.Name }}

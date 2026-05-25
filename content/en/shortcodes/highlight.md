@@ -26,13 +26,13 @@ CODE
 {{</* /highlight */>}}
 ```
 
-CODE
+`CODE`
 : (`string`) The code to highlight.
 
-LANG
+`LANG`
 : (`string`) The [language][] of the code to highlight. This value is case-insensitive.
 
-OPTIONS
+`OPTIONS`
 : (`string`) Zero or more space-separated key-value pairs wrapped in quotation marks. You can set default values for each option in your [project configuration][]. The key names are case-insensitive.
 
 ## Example

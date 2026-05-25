@@ -48,36 +48,36 @@ This is the default configuration for HTTP caching:
 
 {{< code-toggle config=HTTPCache />}}
 
-respectCacheControlNoStoreInRequest
+`respectCacheControlNoStoreInRequest`
 : {{< new-in 0.151.0 />}}
 : (`bool`) Whether to respect the `no-store` directive in the server's `Cache-Control` request header when fetching remote resources via the [`resources.GetRemote`][] function. Default is `true`.
 
-respectCacheControlNoStoreInResponse
+`respectCacheControlNoStoreInResponse`
 : {{< new-in 0.151.0 />}}
 : (`bool`) Whether to respect the `no-store` directive in the server's `Cache-Control` response header when fetching remote resources via the [`resources.GetRemote`][] function. Default is `false`.
 
-cache.for.excludes
+`cache.for.excludes`
 : (`[]string`) A slice of [glob patterns](g) to exclude from caching. In its default configuration HTTP caching excludes all files.
 
-cache.for.includes
+`cache.for.includes`
 : (`[]string`) A slice of [glob patterns](g) to cache.
 
-polls
+`polls`
 : A slice of polling configurations.
 
-polls.disable
+`polls.disable`
 : (`bool`) Whether to disable polling for this configuration. Default is `true`.
 
-polls.high
+`polls.high`
 : (`string`) The maximum polling interval expressed as a [duration](g). This is used when the resource is considered stable. Default is `0s`.
 
-polls.low
+`polls.low`
 : (`string`) The minimum polling interval expressed as a [duration](g). This is used after a recent change and gradually increases towards `polls.high`. Default is `0s`.
 
-polls.for.excludes
+`polls.for.excludes`
 : (`[]string`) A slice of [glob patterns](g) to exclude from polling for this configuration.
 
-polls.for.includes
+`polls.for.includes`
 : (`[]string`) A slice of [glob patterns](g) to include in polling for this configuration.
 
 ## HTTP polling
@@ -96,22 +96,22 @@ includes = ['**']
 excludes = []
 {{< /code-toggle >}}
 
-polls
+`polls`
 : A slice of polling configurations.
 
-polls.disable
+`polls.disable`
 : (`bool`) Whether to disable polling for this configuration. Default is `true`.
 
-polls.high
+`polls.high`
 : (`string`) The maximum polling interval expressed as a [duration](g). This is used when the resource is considered stable. Default is `0s`.
 
-polls.low
+`polls.low`
 : (`string`) The minimum polling interval expressed as a [duration](g). This is used after a recent change and gradually increases towards `polls.high`. Default is `0s`.
 
-polls.for.excludes
+`polls.for.excludes`
 : (`[]string`) A list of [glob patterns](g) to exclude from polling for this configuration.
 
-polls.for.includes
+`polls.for.includes`
 : (`[]string`) A list of [glob patterns](g) to include in polling for this configuration.
 
 ## Behavior
