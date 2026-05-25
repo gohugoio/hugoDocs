@@ -206,13 +206,13 @@ The `_merge` setting within each top-level configuration key controls _which_ se
 
 The value for `_merge` can be one of:
 
-none
+`none`
 : No merge.
 
-shallow
+`shallow`
 : Only add values for new keys.
 
-deep
+`deep`
 : Add values for new keys, merge existing.
 
 Note that you don't need to be so verbose as in the default setup below; a `_merge` value higher up will be inherited if not set.
@@ -249,16 +249,16 @@ For snake_case variable names, the standard `HUGO_` prefix won't work. Hugo infe
 
 In addition to configuring standard settings, environment variables may be used to override default values for certain internal settings:
 
-DART_SASS_BINARY
+`DART_SASS_BINARY`
 : (`string`) The absolute path to the Dart Sass executable. By default, Hugo searches for the executable in each of the paths in the `PATH` environment variable.
 
-HUGO_FILE_LOG_FORMAT
+`HUGO_FILE_LOG_FORMAT`
 : (`string`) A format string for the file path, line number, and column number displayed when reporting errors, or when calling the `Position` method from a shortcode or Markdown render hook. Valid tokens are `:file`, `:line`, and `:col`. Default is `:file::line::col`.
 
-HUGO_MEMORYLIMIT
+`HUGO_MEMORYLIMIT`
 : (`int`) The maximum amount of system memory, in gigabytes, that Hugo can use while rendering your site. Default is 25% of total system memory. Note that `HUGO_MEMORYLIMIT` is a "best effort" setting. Don't expect Hugo to build a million pages with only 1 GB of memory. You can get more information about how this behaves during the build by running `hugo build --logLevel info` and look for the `dynacache` label.
 
-HUGO_NUMWORKERMULTIPLIER
+`HUGO_NUMWORKERMULTIPLIER`
 : (`int`) The number of workers used in parallel processing. Default is the number of logical CPUs.
 
 ## Current configuration

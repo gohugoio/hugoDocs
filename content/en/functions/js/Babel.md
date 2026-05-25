@@ -70,25 +70,25 @@ module.exports = {
 
 ## Options
 
-compact
+`compact`
 : (`bool`) Whether to remove optional newlines and whitespace. Enabled when `minified` is `true`. Default is `false`
 
-config
+`config`
 : (`string`) Path to the Babel configuration file. Hugo will, by default, look for a `babel.config.js` file in the root of your project. See&nbsp;[details](https://babeljs.io/docs/en/configuration).
 
-minified
+`minified`
 : (`bool`) Whether to minify the compiled code. Enables the `compact` option. Default is `false`.
 
-noBabelrc
+`noBabelrc`
 : (`string`) Whether to ignore `.babelrc` and `.babelignore` files. Default is `false`.
 
-noComments
+`noComments`
 : (`bool`) Whether to remove comments. Default is `false`.
 
-sourceMap
+`sourceMap`
 : (`string`) Whether to generate source maps, one of `external`, `inline`, or `none`. Default is `none`.
 
-verbose
+`verbose`
 : (`bool`) Whether to enable verbose logging. Default is `false`
 
 <!--

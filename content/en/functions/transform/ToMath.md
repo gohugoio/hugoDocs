@@ -33,16 +33,16 @@ Hugo uses an embedded instance of the [KaTeX][] display engine to render mathema
 
 Pass a map of options as the second argument to the `transform.ToMath` function. The options below are a subset of the KaTeX [rendering options][].
 
-displayMode
+`displayMode`
 : (`bool`) Whether to render in display mode instead of inline mode. Default is `false`.
 
-errorColor
+`errorColor`
 : (`string`) The color of the error messages expressed as an RGB [hexadecimal color][]. Default is `#cc0000`.
 
-fleqn
+`fleqn`
 : (`bool`) Whether to render flush left with a 2em left margin. Default is `false`.
 
-macros
+`macros`
 : (`map`) A map of macros to be used in the math expression. Default is `{}`.
 
   ```go-html-template
@@ -54,10 +54,10 @@ macros
   {{ transform.ToMath "\\addBar{y} + \\bold{H}" $opts }}
   ```
 
-minRuleThickness
+`minRuleThickness`
 : (`float`) The minimum thickness of the fraction lines in `em`. Default is `0.04`.
 
-output
+`output`
 : (`string`) Determines the markup language of the output, one of `html`, `mathml`, or `htmlAndMathml`. Default is `mathml`.
 
   With `html` and `htmlAndMathml` you must include the KaTeX style sheet within the `head` element of your base template.
@@ -71,7 +71,7 @@ output
   >
   ```
 
-strict
+`strict`
 : {{< new-in 0.147.6 />}}
 : (`string`) Controls how KaTeX handles LaTeX features that offer convenience but aren't officially supported, one of `error`, `ignore`, or `warn`. Default is `error`.
 
@@ -81,7 +81,7 @@ strict
 
   The `newLineInDisplayMode` error code, which flags the use of `\\` or `\newline` in display mode outside an array or tabular environment, is intentionally designed not to throw an error, despite this behavior being questionable.
 
-throwOnError
+`throwOnError`
 : (`bool`) Whether to throw a `ParseError` when KaTeX encounters an unsupported command or invalid LaTeX. Default is `true`.
 
 ## Error handling

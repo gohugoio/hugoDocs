@@ -78,7 +78,7 @@ These are the available menu entry properties:
 
 {{% include "/_common/menu-entry-properties.md" %}}
 
-pageRef
+`pageRef`
 : (`string`) The [logical path](g) of the target page. For example:
 
   page kind|pageRef
@@ -89,7 +89,7 @@ pageRef
   taxonomy|`/tags`
   term|`/tags/foo`
 
-url
+`url`
 : (`string`) The destination URL. Use this for external destinations only.
 
 ## Nested menu

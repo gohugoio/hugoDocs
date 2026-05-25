@@ -16,16 +16,16 @@ Useful in a [code block render hook], the `diagrams.Goat` function returns an SV
 
 The SVGDiagram object has the following methods:
 
-Inner
+`Inner`
 : (`template.HTML`) Returns the SVG child elements without a wrapping `svg` element, allowing you to create your own wrapper.
 
-Wrapped
+`Wrapped`
 : (`template.HTML`) Returns the SVG child elements wrapped in an `svg` element.
 
-Width
+`Width`
 : (`int`) Returns the width of the rendered diagram, in pixels.
 
-Height
+`Height`
 : (`int`) Returns the height of the rendered diagram, in pixels.
 
 ## GoAT Diagrams

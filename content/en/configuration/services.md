@@ -12,28 +12,28 @@ This is the default configuration:
 
 {{< code-toggle config=services />}}
 
-disqus.shortname
+`disqus.shortname`
 : (`string`) The `shortname` used with the Disqus commenting system. See&nbsp;[details](/templates/embedded/#disqus). To access this value from a template:
 
   ```go-html-template
   {{ .Site.Config.Services.Disqus.Shortname }}
   ```
 
-googleAnalytics.id
+`googleAnalytics.id`
 : (`string`) The Google tag ID for Google Analytics 4 properties. See&nbsp;[details](/templates/embedded/#google-analytics). To access this value from a template:
 
   ```go-html-template
   {{ .Site.Config.Services.GoogleAnalytics.ID }}
   ```
 
-rss.limit
+`rss.limit`
 : (`int`) The maximum number of items to include in an RSS feed. Set to `-1` for no limit. Default is `-1`. See&nbsp;[details](/templates/rss/). To access this value from a template:
 
   ```go-html-template
   {{ .Site.Config.Services.RSS.Limit }}
   ```
 
-x.disableInlineCSS
+`x.disableInlineCSS`
 : (`bool`) Whether to disable the inline CSS rendered by the embedded `x` shortode. See&nbsp;[details](/shortcodes/x/#privacy). Default is `false`. To access this value from a template:
 
   ```go-html-template

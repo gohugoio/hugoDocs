@@ -35,13 +35,13 @@ Adjust the relevant privacy settings in your project configuration.
 
 {{< code-toggle config=privacy.x />}}
 
-disable
+`disable`
 : (`bool`) Whether to disable the shortcode. Default is `false`.
 
-enableDNT
+`enableDNT`
 : (`bool`) Whether to prevent X from using post and embedded page data for personalized suggestions and ads. Default is `false`.
 
-simple
+`simple`
 : (`bool`) Whether to enable simple mode. If `true`, Hugo builds a static version of the of the post without JavaScript. Default is `false`.
 
 The source code for the simple version of the shortcode is available [in this file].

@@ -22,13 +22,13 @@ CODE
 ```
 ````
 
-CODE
+`CODE`
 : The code to highlight.
 
-LANG
+`LANG`
 : The language of the code to highlight. Choose from one of the [supported languages][]. This value is case-insensitive. If omitted or unsupported, Hugo renders the text as a plain text block without syntax highlighting. Consistent with the [CommonMark specification][], fenced code blocks require a known language identifier to trigger semantic syntax highlighting.
 
-OPTIONS
+`OPTIONS`
 : One or more space-separated or comma-separated key-value pairs wrapped in braces. Set default values for each option in your [project configuration][]. The key names are case-insensitive.
 
 For example, with this Markdown:

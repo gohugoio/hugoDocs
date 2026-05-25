@@ -61,16 +61,16 @@ Step 5
 
 The `css.PostCSS` method takes an optional map of options.
 
-config
+`config`
 : (`string`) The directory that contains the PostCSS configuration file. Default is the root of the project directory.
 
-noMap
+`noMap`
 : (`bool`) Whether to disable inline source maps. Default is `false`.
 
-inlineImports
+`inlineImports`
 : (`bool`) Whether to enable inlining of import statements. It does so recursively, but will only import a file once. URL imports (e.g. `@import url('https://fonts.googleapis.com/css?family=Open+Sans&display=swap');`) and imports with media queries will be ignored. Note that this import routine does not care about the CSS spec, so you can have @import anywhere in the file. Hugo will look for imports relative to the module mount and will respect theme overrides. Default is `false`.
 
-skipInlineImportsNotFound
+`skipInlineImportsNotFound`
 : (`bool`) Whether to allow the build process to continue despite unresolved import statements, preserving the original import declarations. If you have regular CSS imports in your CSS that you want to preserve, you can either use imports with URL or media queries (Hugo does not try to resolve those) or set this option to `true`. Default is `false`.
 
 ```go-html-template
@@ -84,16 +84,16 @@ skipInlineImportsNotFound
 
 To avoid using a PostCSS configuration file, you can specify a minimal configuration using the options map.
 
-use
+`use`
 : (`string`) A space-delimited list of PostCSS plugins to use.
 
-parser
+`parser`
 : (`string`) A custom PostCSS parser.
 
-stringifier
+`stringifier`
 : (`string`) A custom PostCSS stringifier.
 
-syntax
+`syntax`
 : (`string`) Custom postcss syntax.
 
 ```go-html-template

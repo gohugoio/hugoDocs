@@ -20,7 +20,7 @@ Sass has two forms of syntax: [SCSS][] and [indented][]. Hugo supports both.
 
 ## Options
 
-enableSourceMap
+`enableSourceMap`
 : (`bool`) Whether to generate a source map. Default is `false`.
 
   ```go-html-template
@@ -31,7 +31,7 @@ enableSourceMap
   {{ $r := resources.Get "sass/main.scss" | css.Sass $opts }}
   ```
 
-includePaths
+`includePaths`
 : (`slice`) A slice of paths, relative to the project root, that the transpiler will use when resolving `@use` and `@import` statements.
 
   ```go-html-template
@@ -42,7 +42,7 @@ includePaths
   {{ $r := resources.Get "sass/main.scss" | css.Sass $opts }}
   ```
 
-outputStyle
+`outputStyle`
 : (`string`) The output style of the resulting CSS. With LibSass, one of `nested` (default), `expanded`, `compact`, or `compressed`. With Dart Sass, either `expanded` (default) or `compressed`.
 
   ```go-html-template
@@ -53,7 +53,7 @@ outputStyle
   {{ $r := resources.Get "sass/main.scss" | css.Sass $opts }}
   ```
 
-precision
+`precision`
 : (`int`) The precision of floating point math. Applicable to LibSass. Default is `8`.
 
   ```go-html-template
@@ -64,7 +64,7 @@ precision
   {{ $r := resources.Get "sass/main.scss" | css.Sass $opts }}
   ```
 
-silenceDeprecations
+`silenceDeprecations`
 : {{< new-in 0.139.0 />}}
 : (`slice`) A slice of deprecation IDs to silence. IDs are enclosed in brackets within Dart Sass warning messages (e.g., `import` in `WARN Dart Sass: DEPRECATED [import]`). Applicable to Dart Sass.
 
@@ -76,7 +76,7 @@ silenceDeprecations
   {{ $r := resources.Get "sass/main.scss" | css.Sass $opts }}
   ```
 
-silenceDependencyDeprecations
+`silenceDependencyDeprecations`
 : {{< new-in 0.146.0 />}}
 : (`bool`) Whether to silence deprecation warnings from dependencies, where a dependency is considered any file transitively imported through a load path. This does not apply to `@warn` or `@debug` rules. Default is `false`.
 
@@ -88,7 +88,7 @@ silenceDependencyDeprecations
   {{ $r := resources.Get "sass/main.scss" | css.Sass $opts }}
   ```
 
-sourceMapIncludeSources
+`sourceMapIncludeSources`
 : (`bool`) Whether to embed sources in the generated source map. Applicable to Dart Sass. Default is `false`.
 
   ```go-html-template
@@ -99,7 +99,7 @@ sourceMapIncludeSources
   {{ $r := resources.Get "sass/main.scss" | css.Sass $opts }}
   ```
 
-targetPath
+`targetPath`
 : (`string`) The publish path for the transformed resource, relative to the [`publishDir`][]. If unset, the target path defaults to the asset's original path with a `.css` extension.
 
   ```go-html-template
@@ -110,7 +110,7 @@ targetPath
   {{ $r := resources.Get "sass/main.scss" | css.Sass $opts }}
   ```
 
-transpiler
+`transpiler`
 : (`string`) The transpiler to use, either `libsass` or `dartsass`. Hugo's extended and extended/deploy editions include the LibSass transpiler. To use the Dart Sass transpiler, see the [installation instructions](#dart-sass). Default is `libsass`.
 
   ```go-html-template
@@ -118,7 +118,7 @@ transpiler
   {{ $r := resources.Get "sass/main.scss" | css.Sass $opts }}
   ```
 
-vars
+`vars`
 : (`map`) A map of key-value pairs used to generate Sass variables. The `css.Sass` function injects these variables into the stylesheet when it encounters the `hugo:vars` internal identifier within a `@use` or `@import` statement.
 
   ```go-html-template

@@ -23,10 +23,10 @@ The following is the default configuration that matches the table above:
 
 {{< code-toggle file=hugo config=mediaTypes />}}
 
-delimiter
+`delimiter`
 : (`string`) The delimiter between the file name and the suffix. The delimiter, in conjunction with the suffix, forms the file extension. Default is `"."`.
 
-suffixes
+`suffixes`
 : (`[]string`) The suffixes associated with this media type. The first suffix is the primary suffix.
 
 ## Modify a media type

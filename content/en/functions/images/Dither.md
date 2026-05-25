@@ -12,18 +12,18 @@ params:
 
 ## Options
 
-colors
+`colors`
 : (`[]string`) A slice of two or more colors that make up the dithering palette, each expressed as an RGB or RGBA [hexadecimal] value, with or without a leading hash mark. The default values are opaque black (`000000ff`) and opaque white (`ffffffff`).
 
 [hexadecimal]: https://developer.mozilla.org/en-US/docs/Web/CSS/hex-color
 
-method
+`method`
 : (`string`) The dithering method. See the [dithering methods](#dithering-methods) section below for a list of the available methods. Default is `FloydSteinberg`.
 
-serpentine
+`serpentine`
 : (`bool`) Applicable to error diffusion dithering methods, whether to apply the error diffusion matrix in a serpentine manner, meaning that it goes right-to-left every other line. This greatly reduces line-type artifacts. Default is `true`.
 
-strength
+`strength`
 : (`float`) The strength at which to apply the dithering matrix, typically a value in the range [0, 1]. A value of `1.0` applies the dithering matrix at 100% strength (no modification of the dither matrix). The `strength` is inversely proportional to contrast; reducing the strength increases the contrast. Setting `strength` to a value such as `0.8` can be useful to reduce noise in the dithered image. Default is `1.0`.
 
 ## Usage

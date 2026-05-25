@@ -22,7 +22,7 @@ These components are passed into the render hook [context](g) as shown below.
 
 Image _render hook_ templates receive the following context:
 
-Attributes
+`Attributes`
 : (`map`) The [Markdown attributes], available if you configure your site as follows:
 
   {{< code-toggle file=hugo >}}
@@ -32,33 +32,33 @@ Attributes
   block = true
   {{< /code-toggle >}}
 
-Destination
+`Destination`
 : (`string`) The image destination.
 
-IsBlock
+`IsBlock`
 : (`bool`) Reports whether a standalone image is not wrapped within a paragraph element.
 
-Ordinal
+`Ordinal`
 : {{< new-in v0.160.0 />}}
 : (`int`) The zero-based ordinal of the image on the page.
 
-Page
+`Page`
 : (`page`) A reference to the current page.
 
-PageInner
+`PageInner`
 : (`page`) A reference to a page nested via the [`RenderShortcodes`] method. [See details](#pageinner-details).
 
-PlainText
+`PlainText`
 : (`string`) The image description as plain text.
 
-Position
+`Position`
 : {{< new-in 0.160.0 />}}
 : (`string`) The position of the image within the page content.
 
-Text
+`Text`
 : (`template.HTML`) The image description.
 
-Title
+`Title`
 : (`string`) The image title.
 
 ## Examples

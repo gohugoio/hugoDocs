@@ -14,10 +14,10 @@ This function is only useful within a code block render hook.
 
 Given the context passed into a code block render hook, `transform.HighlightCodeBlock` returns a `HighlightResult` object with two methods.
 
-.Wrapped
+`Wrapped`
 : (`template.HTML`) Returns highlighted code wrapped in `<div>`, `<pre>`, and `<code>` elements. This is identical to the value returned by the transform.Highlight function.
 
-.Inner
+`Inner`
 : (`template.HTML`) Returns highlighted code without any wrapping elements, allowing you to create your own wrapper.
 
 ```go-html-template

@@ -18,7 +18,7 @@ This function automatically resolves and includes all external references, both 
 
 {{< new-in 0.153.0 />}}
 
-getremote
+`getremote`
 : (`map`) This is a map of the options for the [`resources.GetRemote`][] function, useful when an OpenAPI Document includes remote external references.
 
 ## Examples
