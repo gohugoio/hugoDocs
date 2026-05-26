@@ -1,7 +1,6 @@
 ---
 title: Node.js dependencies
 description: How to manage Node dependencies in Hugo Modules.
-date: 2026-03-22
 categories: []
 keywords: []
 weight: 40
