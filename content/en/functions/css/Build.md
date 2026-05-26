@@ -95,7 +95,7 @@ To minify the generated CSS code, use the [`minify`](#minify) option as describe
 
 The `css.Build` function takes an optional map of options to fine-tune bundling, minification, and browser compatibility.
 
-externals
+`externals`
 : (`[]string`) A slice of path patterns to exclude from bundling. The `@import` statements for these patterns remain as-is in the generated CSS code. See&nbsp;[details][esb_external].
 
   ```go-html-template
@@ -103,7 +103,7 @@ externals
   {{ $r := resources.Get "css/main.css" | css.Build $opts }}
   ```
 
-loaders
+`loaders`
 : (`map`) A map of file extensions to loader types. This determines how files with a given extension are processed during bundling. By default, Hugo uses the `css` loader for `.css` files and the `file` loader for all others. Common loaders include:
 
   - `css`: Processes the file as a CSS file
@@ -119,7 +119,7 @@ loaders
   {{ $r := resources.Get "css/main.css" | css.Build $opts }}
   ```
 
-mainFields
+`mainFields`
 : (`[]string`) A prioritized slice of field names in a `package.json` file that determine the CSS entry point of a Node package. The default is `["style", "main"]`. See&nbsp;[details][esb_mainfields].
 
   When an `@import` statement references a Node package, Hugo consults the metadata in the `package.json` file to find the stylesheet. Use this option to support packages that define a CSS entry point using non-standard fields.
@@ -129,7 +129,7 @@ mainFields
   {{ $r := resources.Get "css/main.css" | css.Build $opts }}
   ```
 
-minify
+`minify`
 : (`bool`) Whether to minify the generated CSS code. Default is `false`. See&nbsp;[details][esb_minify].
 
   ```go-html-template
@@ -137,7 +137,7 @@ minify
   {{ $r := resources.Get "css/main.css" | css.Build $opts }}
   ```
 
-sourceMap
+`sourceMap`
 : (`string`) The type of source map to generate. One of `external`, `inline`, `linked`, or `none`. Default is `none`. See&nbsp;[details][esb_sourcemap].
 
   ```go-html-template
@@ -145,7 +145,7 @@ sourceMap
   {{ $r := resources.Get "css/main.css" | css.Build $opts }}
   ```
 
-sourcesContent
+`sourcesContent`
 : (`bool`) Whether to include the content of the source files in the source map. Default is `true`. See&nbsp;[details][esb_sourcesContent].
 
   ```go-html-template
@@ -153,7 +153,7 @@ sourcesContent
   {{ $r := resources.Get "css/main.css" | css.Build $opts }}
   ```
 
-target
+`target`
 : (`[]string`) The target environment for the generated CSS code. This determines which syntax transformations to perform and which vendor prefixes to apply. If unset, no transformations or prefixing are performed. Each element consists of a target name and a version number. Supported targets include `chrome`, `edge`, `firefox`, `ie`, `ios`, `opera`, and `safari`. See&nbsp;[details][esb_target].
 
   ```go-html-template
@@ -164,7 +164,7 @@ target
 
   In the example above, the target environment is roughly equivalent to the [browserlist][] "baseline widely available" profile as of March 2026.
 
-targetPath
+`targetPath`
 : (`string`) The path to the generated CSS file, relative to the project's [`publishDir`][]. If unset, this defaults to the asset's original path with a `.css` extension.
 
   ```go-html-template
@@ -172,12 +172,17 @@ targetPath
   {{ $r := resources.Get "css/main.css" | css.Build $opts }}
   ```
 
-vars
-: {{< new-in v0.160.0 />}}
+`vars`
+: {{< new-in 0.160.0 />}}
 : (`map`) A map of key-value pairs used to generate CSS variables. The `css.Build` function injects these variables into the stylesheet when it encounters the `hugo:vars` internal identifier within an `@import` statement.
   
   ```go-html-template
-  {{ $opts := dict "vars" (dict "primary-color" "blue" "font-size" "24px" "font-family" "\"Times New Roman\", Times, serif") }}
+  {{ $vars := dict
+    "font-family" "\"Times New Roman\", Times, serif"
+    "font-size" "24px" 
+    "primary-color" "blue" 
+  }}
+  {{ $opts := dict "vars" $vars }}
   {{ $r := resources.Get "css/main.css" | css.Build $opts }}
   ```
 
@@ -187,9 +192,80 @@ vars
   @import 'hugo:vars';
 
   .element {
-    font-family: var(--font-family);
     color: var(--primary-color);
+    font-family: var(--font-family);
     font-size: var(--font-size);
+  }
+  ```
+
+  The above produces output equivalent to:
+
+  ```css
+  :root {
+    --font-family:
+      "Times New Roman",
+      Times,
+      serif;
+    --font-size: 24px;
+    --primary-color: blue;
+  }
+
+  .element {
+    color: var(--primary-color);
+    font-family: var(--font-family);
+    font-size: var(--font-size);
+  }
+````
+
+  {{< new-in 0.161.0 />}}
+
+  The map may optionally contain nested maps. Each nested map is exposed as a separate `hugo:vars/<name>` namespace, where `<name>` is the key of the nested map (lowercased). Top-level scalar values and nested maps are independent. A top-level `@import 'hugo:vars'` only includes scalar values, while `@import 'hugo:vars/<name>'` only includes the scalars from the named nested map.
+
+  ```go-html-template
+  {{ $vars := dict
+    "font-family" "\"Times New Roman\", Times, serif"
+    "font-size" "24px"
+    "primary-color" "blue"
+    "mobile" (dict 
+      "font-size" "12px"
+      "primary-color" "red" 
+    )
+  }}
+  {{ $opts := dict "vars" $vars }}
+  {{ $r := resources.Get "css/main.css" | css.Build $opts }}
+  ```
+
+  Because nested imports follow the same rules as regular `@import` statements, you can attach a media query, feature query, or cascade layer assignment to a `hugo:vars/<name>` import.
+
+  ```css
+  @import 'hugo:vars';
+  @import 'hugo:vars/mobile' (max-width: 650px);
+
+  body {
+    background-color: var(--primary-color);
+    font-family: var(--font-family);
+  }
+  ```
+
+  The above produces output equivalent to:
+
+  ```css
+  :root {
+    --font-family: "Times New Roman", Times, serif;
+    --font-size: 24px;
+    --primary-color: blue;
+  }
+
+  @media (max-width: 650px) {
+    :root {
+      --font-size: 12px;
+      --primary-color: red;
+    }
+  }
+
+  body {
+    background-color: var(--primary-color);
+    font-family: var(--font-family);
   }
   ```
 
@@ -198,8 +274,12 @@ vars
   {{< code-toggle file=hugo >}}
   [params.theme.style]
   font-family = '"Times New Roman", Times, serif'
-  primary-color = 'blue'
   font-size = '24px'
+  primary-color = 'blue'
+
+  [params.theme.style.mobile]
+  font-size = '12px'
+  primary-color = 'red'
   {{< /code-toggle >}}
 
   ```go-html-template
@@ -207,10 +287,10 @@ vars
   {{ $r := resources.Get "css/main.css" | css.Build $opts }}
   ```
 
-  When passing a `vars` map to the css.Build function, you can use the [`css.Quoted`][] function to explicitly indicate that a value must be treated as a quoted string, most commonly for `font-family` names or the `content` property.
+  When passing a `vars` map to the `css.Build` function, you can use the [`css.Quoted`][] function to explicitly indicate that a value must be treated as a quoted string, most commonly for `font-family` names or the `content` property.
 
-> [!note]
-> If you're using TailwindCSS and want to use the `vars` option to inject CSS variables, see [this section in the TailwindCSS documentation](./TailwindCSS.md#inject-css-variables-with-vars).
+  > [!note]
+  > If you're using TailwindCSS and want to use the `vars` option to inject CSS variables, see [this section in the TailwindCSS documentation](./TailwindCSS.md#inject-css-variables-with-vars).
 
 ## Example
 

@@ -22,30 +22,30 @@ These components are passed into the render hook [context](g) as shown below.
 
 Link _render hook_ templates receive the following context:
 
-Destination
+`Destination`
 : (`string`) The link destination.
 
-Ordinal
+`Ordinal`
 : {{< new-in v0.160.0 />}}
 : (`int`) The zero-based ordinal of the link on the page.
 
-Page
+`Page`
 : (`page`) A reference to the current page.
 
-PageInner
+`PageInner`
 : (`page`) A reference to a page nested via the [`RenderShortcodes`] method. [See details](#pageinner-details).
 
-PlainText
+`PlainText`
 : (`string`) The link description as plain text.
 
-Position
+`Position`
 : {{< new-in 0.160.0 />}}
 : (`string`) The position of the link within the page content.
 
-Text
+`Text`
 : (`template.HTML`) The link description.
 
-Title
+`Title`
 : (`string`) The link title.
 
 ## Examples

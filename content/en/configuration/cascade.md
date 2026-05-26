@@ -24,11 +24,11 @@ color = 'red'
 We deprecated the `_target` front matter key in favor of `target` in v0.156.0 on 2026-02-17. Remove footnote #1 on or after 2027-05-17 (15 months after deprecation).
 -->
 
-The `target` key accepts a [page matcher](g) to limit cascaded values to a subset of pages.[^1] If a target is not specified, values cascade to all pages.
+The `target` key accepts a [page matcher](g) to limit cascaded values to a subset of pages.[^1] If a target is omitted, values cascade to all pages.
 
 {{% include "/_common/configuration/page-matcher.md" %}}
 
-For example, to cascade the `color` page parameter to the "articles" section and its descendants, but only for the English (`en`) and German (`de`) language sites:
+For example, to cascade the `color` page parameter to the `articles` section and its descendants, but only for the English (`en`) and German (`de`) language sites:
 
 {{< code-toggle file=hugo >}}
 [cascade.params]

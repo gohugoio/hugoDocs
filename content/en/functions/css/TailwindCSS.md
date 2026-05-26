@@ -24,15 +24,18 @@ Use the `css.TailwindCSS` function to process your Tailwind CSS files. This func
 ## Setup
 
 Step 1
-: Install the Tailwind CSS CLI v4.0 or later:
+: Install Tailwind CSS v4.0 or later:
 
   ```sh {copy=true}
   npm install --save-dev tailwindcss @tailwindcss/cli @tailwindcss/typography
   ```
 
-  The Tailwind CSS CLI is also available as a [standalone executable]. You must install it outside of your project directory and ensure its path is included in your system's `PATH` environment variable.
+  <!-- TODO: remove the admonition below somewhere after v0.172.0 -->
+  
+  > [!note]
+  > As of v0.161.0, Hugo no longer supports the Tailwind [standalone binary]. You must now install the Tailwind CSS CLI via `npm` as shown above.
 
-  [standalone executable]: https://github.com/tailwindlabs/tailwindcss/releases/latest
+  [standalone binary]: https://github.com/tailwindlabs/tailwindcss/releases/latest
 
 Step 2
 : Add this to your project configuration:
@@ -101,17 +104,17 @@ Step 5
 
 ## Options
 
-minify
+`minify`
 : (`bool`) Whether to optimize and minify the output. Default is `false`.
 
-optimize
+`optimize`
 : (`bool`) Whether to optimize the output without minifying. Default is `false`.
 
-disableInlineImports
+`disableInlineImports`
 : {{< new-in 0.147.4 />}}
 : (`bool`) Whether to disable inlining of `@import` statements. Inlining is performed recursively, but currently once only per file. It is not possible to import the same file in different scopes (root, media query, etc.). Note that this import routine does not care about the CSS specification, so you can have `@import` statements anywhere in the file. Default is `false`.
 
-skipInlineImportsNotFound
+`skipInlineImportsNotFound`
 : (`bool`) Whether to allow the build process to continue despite unresolved import statements, preserving the original import declarations. It is important to note that the inline importer does not process URL-based imports or those with media queries, and these will remain unaltered even when this option is disabled. Default is `false`.
 
 ## Inject CSS variables with `vars`

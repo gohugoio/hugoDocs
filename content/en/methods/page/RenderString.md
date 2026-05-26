@@ -17,10 +17,10 @@ aliases: [/functions/renderstring]
 
 This method takes an optional map of options:
 
-display
+`display`
 : (`string`) Specify either `inline` or `block`. If `inline`, removes surrounding `p` tags from short snippets. Default is `inline`.
 
-markup
+`markup`
 : (`string`) Specify a [markup identifier] for the provided markup. Default is the `markup` front matter value, falling back to the value derived from the page's file extension.
 
 Render with the default markup renderer:

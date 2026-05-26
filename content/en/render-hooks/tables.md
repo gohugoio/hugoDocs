@@ -12,7 +12,7 @@ keywords: []
 
 Table _render hook_ templates receive the following [context](g):
 
-Attributes
+`Attributes`
 : (`map`) The [Markdown attributes], available if you configure your site as follows:
 
   {{< code-toggle file=hugo >}}
@@ -20,22 +20,22 @@ Attributes
   block = true
   {{< /code-toggle >}}
 
-Ordinal
+`Ordinal`
 : (`int`) The zero-based ordinal of the table on the page.
 
-Page
+`Page`
 : (`page`) A reference to the current page.
 
-PageInner
+`PageInner`
 : (`page`) A reference to a page nested via the [`RenderShortcodes`] method. [See details](#pageinner-details).
 
-Position
+`Position`
 : (`string`) The position of the table within the page content.
 
-THead
+`THead`
 : (`slice`) A slice of table header rows, where each element is a slice of table cells.
 
-TBody
+`TBody`
 : (`slice`) A slice of table body rows, where each element is a slice of table cells.
 
 [Markdown attributes]: /content-management/markdown-attributes/
@@ -45,10 +45,10 @@ TBody
 
 Each table cell within the slice of slices returned by the `THead` and `TBody` methods has the following fields:
 
-Alignment
+`Alignment`
 : (`string`) The alignment of the text within the table cell, one of `left`, `center`, or `right`.
 
-Text
+`Text`
 : (`template.HTML`) The text within the table cell.
 
 ## Example

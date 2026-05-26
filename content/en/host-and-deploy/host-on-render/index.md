@@ -37,11 +37,11 @@ Step 1
         - key: DART_SASS_VERSION
           value: 1.99.0
         - key: GO_VERSION
-          value: 1.26.1
+          value: 1.26.2
         - key: HUGO_VERSION
-          value: 0.160.0
+          value: 0.161.1
         - key: NODE_VERSION
-          value: 24.14.1
+          value: 24.15.0
         - key: TZ
           value: Europe/Oslo
   ```

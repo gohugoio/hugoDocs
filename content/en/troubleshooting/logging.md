@@ -11,28 +11,28 @@ Enable console logging with the `--logLevel` command line flag.
 
 Hugo has four logging levels:
 
-error
+`error`
 : Display error messages only.
 
   ```sh
   hugo build --logLevel error
   ```
 
-warn
+`warn`
 : Display warning and error messages.
 
   ```sh
   hugo build --logLevel warn
   ```
 
-info
+`info`
 : Display information, warning, and error messages.
 
   ```sh
   hugo build --logLevel info
   ```
 
-debug
+`debug`
 : Display debug, information, warning, and error messages.
 
   ```sh

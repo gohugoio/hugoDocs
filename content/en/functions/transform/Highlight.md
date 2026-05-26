@@ -17,13 +17,13 @@ The `transform.Highlight` function uses the [`alecthomas/chroma`][] package to g
 
 The `transform.Highlight` function takes three arguments.
 
-CODE
+`CODE`
 : (`string`) The code to highlight.
 
-LANG
+`LANG`
 : (`string`) The [language][] of the code to highlight. This value is case-insensitive.
 
-OPTIONS
+`OPTIONS`
 : (`map or string`) A map or comma-separated key-value pairs wrapped in quotation marks. You can set default values for each option in your [project configuration][]. The key names are case-insensitive.
 
 ## Examples

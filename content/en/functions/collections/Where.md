@@ -30,20 +30,20 @@ Hugo will test for equality if you do not provide an `OPERATOR` argument. For ex
 
 The where function takes three or four arguments. The `OPERATOR` argument is optional.
 
-SLICE
+`SLICE`
 : (`[]any`) A [page collection](g) or a [slice](g) of [maps](g).
 
-KEY
+`KEY`
 : (`string`) The key of the page or map value to compare with `VALUE`. With page collections, commonly used comparison keys are `Section`, `Type`, and `Params`. To compare with a member of the page `Params` map, [chain](g) the subkey as shown below:
 
   ```go-html-template
   {{ $result := where .Site.RegularPages "Params.foo" "bar" }}
   ```
 
-OPERATOR
+`OPERATOR`
 : (`string`) The logical comparison [operator](#operators).
 
-VALUE
+`VALUE`
 : (`any`) The value with which to compare. The values to compare must have comparable data types. For example:
 
 Comparison|Result
@@ -142,7 +142,7 @@ For example, to return a slice of pages where the `color` page parameter is eith
 {{ $pages := where $fruit "Params.color" "in" $colors }}
 ```
 
-To return a slice of pages where the "color" page parameter is neither "red" nor "yellow":
+To return a slice of pages where the `color` page parameter is neither `red` nor `yellow`:
 
 ```go-html-template
 {{ $fruit := where site.RegularPages "Section" "eq" "fruit" }}
@@ -155,7 +155,7 @@ To return a slice of pages where the "color" page parameter is neither "red" nor
 
 Compare a `slice` to a `slice`, returning elements with common values. This is frequently used when comparing taxonomy terms.
 
-For example, to return a slice of pages where any of the terms in the "genres" taxonomy are "suspense" or "romance":
+For example, to return a slice of pages where any of the terms in the `genres` taxonomy are "suspense" or "romance":
 
 ```go-html-template
 {{ $books := where site.RegularPages "Section" "eq" "books" }}
@@ -166,7 +166,7 @@ For example, to return a slice of pages where any of the terms in the "genres" t
 
 ## Regular expression comparison
 
-To return a slice of pages where the "author" page parameter begins with either "victor" or "Victor":
+To return a slice of pages where the `author` page parameter begins with either "victor" or "Victor":
 
 ```go-html-template
 {{ $pages := where .Site.RegularPages "Params.author" "like" `(?i)^victor` }}

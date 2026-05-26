@@ -36,17 +36,17 @@ Initially a segment holds _no_ pages.
 
 Available fields for filtering:
 
-kind
+`kind`
 : (`string`) A [glob pattern](g) matching the [page kind](g). For example: `{taxonomy,term}`.
 
-sites
+`sites`
 : {{< new-in 0.153.0 />}}
 : (`map`) A map to define [sites matrix](g).
 
-output
+`output`
 : (`string`) A [glob pattern](g) matching the [output format](g) of the page. For example: `{html,json}`.
 
-path
+`path`
 : (`string`) A [glob pattern](g) matching the page's [logical path](g). For example: `{/books,/books/**}`.
 
 ## Example

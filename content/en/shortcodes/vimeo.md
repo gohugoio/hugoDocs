@@ -29,21 +29,21 @@ Hugo renders this to:
 
 ## Arguments
 
-id
+`id`
 : (string) The video `id`. Optional if the `id` is the first and only positional argument.
 
-allowFullScreen
+`allowFullScreen`
 : {{< new-in 0.146.0 />}}
 : (`bool`) Whether the `iframe` element can activate full screen mode. Default is `true`.
 
-class
+`class`
 : (`string`) The `class` attribute of the wrapping `div` element. Adding one or more CSS classes disables inline styling.
 
-loading
+`loading`
 : {{< new-in 0.146.0 />}}
 : (`string`) The loading attribute of the `iframe` element, either `eager` or `lazy`. Default is `eager`.
 
-title
+`title`
 : (`string`) The `title` attribute of the `iframe` element.
 
 Here's an example using some of the available arguments:
@@ -58,13 +58,13 @@ Adjust the relevant privacy settings in your project configuration.
 
 {{< code-toggle config=privacy.vimeo />}}
 
-disable
+`disable`
 : (`bool`) Whether to disable the shortcode. Default is `false`.
 
-enableDNT
+`enableDNT`
 : (`bool`) Whether to block the Vimeo player from tracking session data and analytics. Default is `false`.
 
-simple
+`simple`
 : (`bool`) Whether to enable simple mode. If `true`, the video thumbnail is fetched from Vimeo and overlaid with a play button. Clicking the thumbnail opens the video in a new Vimeo tab. Default is `false`.
 
 The source code for the simple version of the shortcode is available [in this file].

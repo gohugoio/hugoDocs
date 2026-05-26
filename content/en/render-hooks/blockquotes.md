@@ -12,18 +12,18 @@ keywords: []
 
 Blockquote _render hook_ templates receive the following [context](g):
 
-AlertType
+`AlertType`
 : (`string`) Applicable when [`Type`](#type) is `alert`, this is the alert type converted to lowercase. See the [alerts](#alerts) section below.
 
-AlertTitle
+`AlertTitle`
 : {{< new-in 0.134.0 />}}
 : (`template.HTML`) Applicable when [`Type`](#type) is `alert`, this is the alert title. See the [alerts](#alerts) section below.
 
-AlertSign
+`AlertSign`
 : {{< new-in 0.134.0 />}}
 : (`string`) Applicable when [`Type`](#type) is `alert`, this is the alert sign. Typically used to indicate whether an alert is graphically foldable, this is one of&nbsp;`+`,&nbsp;`-`,&nbsp;or an empty string. See the [alerts](#alerts) section below.
 
-Attributes
+`Attributes`
 : (`map`) The [Markdown attributes], available if you configure your site as follows:
 
   {{< code-toggle file=hugo >}}
@@ -31,22 +31,22 @@ Attributes
   block = true
   {{< /code-toggle >}}
 
-Ordinal
+`Ordinal`
 : (`int`) The zero-based ordinal of the blockquote on the page.
 
-Page
+`Page`
 : (`page`) A reference to the current page.
 
-PageInner
+`PageInner`
 : (`page`) A reference to a page nested via the [`RenderShortcodes`] method. [See details](#pageinner-details).
 
-Position
+`Position`
 : (`string`) The position of the blockquote within the page content.
 
-Text
+`Text`
 : (`template.HTML`) The blockquote text, excluding the first line if [`Type`](#type) is `alert`. See the [alerts](#alerts) section below.
 
-Type
+`Type`
 : (`string`) The blockquote type. Returns `alert` if the blockquote has an alert designator, else `regular`. See the [alerts](#alerts) section below.
 
 ## Examples

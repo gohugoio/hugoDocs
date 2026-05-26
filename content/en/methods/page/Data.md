@@ -40,21 +40,21 @@ content/
 
 Use these methods on the `Data` object within a _taxonomy_ template.
 
-Singular
+`Singular`
 : (`string`) Returns the singular name of the taxonomy.
 
 ```go-html-template
 {{ .Data.Singular }} → genre
 ```
 
-Plural
+`Plural`
 : (`string`) Returns the plural name of the taxonomy.
 
 ```go-html-template
 {{ .Data.Plural }} → genres
 ```
 
-Terms
+`Terms`
 : (`page.Taxonomy`) Returns the `Taxonomy` object, consisting of a map of terms and the [weighted pages](g) associated with each term.
 
 ```go-html-template
@@ -70,21 +70,21 @@ Learn more about [taxonomy templates].
 
 Use these methods on the `Data` object within a _term_ template.
 
-Singular
+`Singular`
 : (`string`) Returns the singular name of the taxonomy.
 
 ```go-html-template
 {{ .Data.Singular }} → genre
 ```
 
-Plural
+`Plural`
 : (`string`) Returns the plural name of the taxonomy.
 
 ```go-html-template
 {{ .Data.Plural }} → genres
 ```
 
-Term
+`Term`
 : (`string`) Returns the name of the term.
 
 ```go-html-template

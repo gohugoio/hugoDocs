@@ -14,20 +14,20 @@ These are the default settings for processing images:
 
 These global settings define how Hugo handles the fundamental aspects of image manipulation, such as cropping logic, background colors, and general output quality.
 
-anchor
+`anchor`
 : (`string`) The focal point used when cropping or filling an image. Valid case-insensitive options include `TopLeft`, `Top`, `TopRight`, `Left`, `Center`, `Right`, `BottomLeft`, `Bottom`, `BottomRight`, or `Smart`. The `Smart` option utilizes the [`muesli/smartcrop`][] package to identify the most interesting area of the image. Default is `smart`.
 
-bgColor
+`bgColor`
 : (string) The background color used when converting transparent images to formats that do not support transparency, such as PNG to JPEG. This color also fills the empty space created when rotating an image by a non-orthogonal angle if the space is not transparent and a background color is not specified in the  processing specification. The value must be an RGB [hexadecimal color][]. Default is `#ffffff`.
 
-compression
+`compression`
 : {{< new-in 0.153.5 />}}
 : (`string`) The encoding strategy used for the image. Options are `lossy` or `lossless`. Note that `lossless` is only supported by the WebP format. Default is `lossy`.
 
-quality
+`quality`
 : (`int`) The visual fidelity of the image, applicable to JPEG and WebP formats when using `lossy` compression. Expressed as a whole number from `1` to `100`, inclusive. Lower numbers prioritize smaller file size, while higher numbers prioritize visual clarity. Default is `75`.
 
-resampleFilter
+`resampleFilter`
 : (`string`) The algorithm used to calculate new pixels when resizing, fitting, or filling an image. Common options include `box`, `lanczos`, `catmullRom`, `mitchellNetravali`, `linear`, or `nearestNeighbor`. Default is `box`.
 
   Filter|Description
@@ -53,13 +53,13 @@ Use [`Meta`](/methods/resource/meta/) instead.
 
 The following parameters allow you to control how Hugo extracts and filters metadata when using the [`Meta`][] method, helping you balance data granularity with build performance.
 
-fields
+`fields`
 : (`[]string`) A [glob slice](g) matching the fields to include when extracting metadata. If empty, a default set excluding technical metadata is used. Set&nbsp;to&nbsp;`['**']`&nbsp;to include all fields.
 
   > [!note]
   > By default, to improve performance and decrease cache size, Hugo excludes the following fields: `ColorSpace`, `Contrast`, `Exif`, `ExposureBias`, `ExposureMode`, `ExposureProgram`, `Flash`, `GPS`, `JPEG`, `Metering`, `Resolution`, `Saturation`, `Sensing`, `Sharp`, and `WhiteBalance`.
 
-sources
+`sources`
 : (`[]string`) The metadata sources to include, one or more of `exif`, `iptc`, or `xmp`. Default is `['exif', 'iptc']`. The XMP metadata is excluded by default to improve performance.
 
 ## WebP images
@@ -68,7 +68,7 @@ sources
 
 These specialized settings provide granular control over the WebP encoding process, allowing you to optimize compression based on the specific visual characteristics of your imagery.
 
-hint
+`hint`
 : (`string`) The encoding preset used when processing WebP images, equivalent to the `-preset` flag for the [`cwebp`][] CLI. Valid options include `drawing`, `icon`, `photo`, `picture`, or `text`. Default is `photo`.
 
   Value|Example
@@ -79,10 +79,10 @@ hint
   `picture`|Indoor photograph such as a portrait
   `text`|Image that is primarily text
 
-method
+`method`
 : (`int`) The effort level of the compression algorithm. Expressed as a whole number from `0` to `6`, inclusive, equivalent to the `-m` flag for the [`cwebp`][] CLI. Lower numbers prioritize processing speed, while higher numbers prioritize compression efficiency. Default is `2`.
 
-useSharpYuv
+`useSharpYuv`
 : (`bool`) The conversion method used for RGB-to-YUV encoding, equivalent to the `-sharp_yuv` flag for the [`cwebp`][] CLI. Enabling this prioritizes image sharpness at the expense of processing speed. Default is `false`.
 
 [`cwebp`]: https://developers.google.com/speed/webp/docs/cwebp
