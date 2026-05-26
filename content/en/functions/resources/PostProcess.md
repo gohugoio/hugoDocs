@@ -44,9 +44,9 @@ Step 3
 Step 4
 : Create a PostCSS configuration file in the root of your project.
 
-  ```js {file="postcss.config.js" copy=true}
-  const autoprefixer = require('autoprefixer');
-  const purgeCSSPlugin = require('@fullhuman/postcss-purgecss').default;
+  ```js {file="postcss.config.mjs" copy=true}
+  import autoprefixer from 'autoprefixer';
+  import purgeCSSPlugin from '@fullhuman/postcss-purgecss';
 
   const purgecss = purgeCSSPlugin({
     content: ['./hugo_stats.json'],
@@ -62,16 +62,13 @@ Step 4
     safelist: []
   });
 
-  module.exports = {
+  export default {
     plugins: [
       process.env.HUGO_ENVIRONMENT !== 'development' ? purgecss : null,
       autoprefixer,
     ]
   };
   ```
-
-  > [!note]
-  > If you are a Windows user, and the path to your project contains a space, you must place the PostCSS configuration within the package.json file. See [this example] and issue [#7333].
 
 Step 5
 : Place your CSS file within the `assets/css` directory.
@@ -136,7 +133,6 @@ You cannot manipulate the values returned from the resource's methods. For examp
 {{ $css.RelPermalink | strings.ToUpper }}
 ```
 
-[#7333]: https://github.com/gohugoio/hugo/issues/7333
 [`config/production`]: /configuration/introduction/#configuration-directory
 [Autoprefixer]: https://github.com/postcss/autoprefixer
 [configure build]: /configuration/build/
@@ -145,4 +141,3 @@ You cannot manipulate the values returned from the resource's methods. For examp
 [Node.js]: https://nodejs.org/en
 [PostCSS]: https://postcss.org/
 [PurgeCSS]: https://github.com/FullHuman/purgecss
-[this example]: https://github.com/postcss/postcss-load-config#packagejson
