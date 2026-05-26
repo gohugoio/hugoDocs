@@ -34,16 +34,15 @@ Step 2
 Step 3
 : Create a PostCSS configuration file in the root of your project.
 
-  ```js {file="postcss.config.js"}
-  module.exports = {
+  ```js {file="postcss.config.mjs" copy=true}
+  import autoprefixer from 'autoprefixer';
+
+  export default {
     plugins: [
-      require('autoprefixer')
+      autoprefixer
     ]
   };
   ```
-
-  > [!note]
-  > If you are a Windows user, and the path to your project contains a space, you must place the PostCSS configuration within the package.json file. See [this example] and issue [#7333].
 
 Step 4
 : Place your CSS file within the `assets/css` directory.
@@ -107,16 +106,15 @@ To avoid using a PostCSS configuration file, you can specify a minimal configura
 
 The current Hugo environment name (set by `--environment` or in configuration or OS environment) is available in the Node context, which allows constructs like this:
 
-```js
-const autoprefixer = require('autoprefixer');
-module.exports = {
+```js {file="postcss.config.mjs" copy=true}
+import autoprefixer from 'autoprefixer';
+
+export default {
   plugins: [
     process.env.HUGO_ENVIRONMENT !== 'development' ? autoprefixer : null
   ]
-}
+};
 ```
 
-[#7333]: https://github.com/gohugoio/hugo/issues/7333
 [Node.js]: https://nodejs.org/en
 [PostCSS plugins]: https://postcss.org/docs/postcss-plugins
-[this example]: https://github.com/postcss/postcss-load-config#packagejson
