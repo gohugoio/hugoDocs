@@ -53,7 +53,6 @@ Open-source commenting systems:
 - [Cactus Comments](https://cactus.chat/docs/integrations/hugo/)
 - [Comentario](https://gitlab.com/comentario/comentario/)
 - [Comma](https://github.com/Dieterbe/comma/)
-- [Commento](https://commento.io/)
 - [Discourse](https://meta.discourse.org/t/embed-discourse-comments-on-another-website-via-javascript/31963)
 - [Giscus](https://giscus.app/)
 - [Isso](https://isso-comments.de/)
