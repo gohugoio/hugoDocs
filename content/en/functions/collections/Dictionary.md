@@ -44,9 +44,7 @@ The above produces this data structure:
 }
 ```
 
-{{< new-in 0.162.0 />}}
-
-To create a nil map:
+To create an empty map:
 
 ```go-html-template
 {{ $m := dict }}
