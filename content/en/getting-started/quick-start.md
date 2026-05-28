@@ -47,7 +47,7 @@ hugo version
 Run these commands to create a Hugo project with the [Ananke][] theme. The next section provides an explanation of each command.
 
 ```text
-hugo new project quickstart
+hugo new site quickstart
 cd quickstart
 git init
 git submodule add https://github.com/gohugo-ananke/ananke themes/ananke
@@ -62,7 +62,7 @@ View your project at the URL displayed in your terminal. Press `Ctrl + C` to sto
 Create the [project skeleton][] for your project in the `quickstart` directory.
 
 ```text
-hugo new project quickstart
+hugo new site quickstart
 ```
 
 Change the current directory to the root of your project.
