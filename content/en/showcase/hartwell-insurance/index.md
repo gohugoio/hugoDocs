@@ -60,4 +60,4 @@ This project was such a blast to develop, it's a real pleasure to put new techno
 
 ---
 
-_This was originally posted on [my website](http://www.trysmudford.com/perfomance-wins-with-hugo-and-netlify/)_
+_This was originally posted on [my website](https://www.trysmudford.com/blog/performance-wins-with-hugo-and-netlify/)_
