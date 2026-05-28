@@ -15,6 +15,8 @@ You can also use the `Language` method on a `Site` object. See&nbsp;[details][].
 
 ## Methods
 
+Use these methods on the `Language` object.
+
 The examples below assume the following language definition.
 
 {{< code-toggle file=hugo >}}
@@ -25,83 +27,64 @@ locale = 'de-DE'
 weight = 2
 {{< /code-toggle >}}
 
-### Direction
+`Direction`
+: {{< new-in 0.158.0 />}}
+: (`string`) Returns the [`direction`][] from the language definition.
 
-{{< new-in 0.158.0 />}}
+  ```go-html-template
+  {{ .Language.Direction }} → ltr
+  ```
 
-(`string`) Returns the [`direction`][] from the language definition.
+`IsDefault`
+: {{< new-in 0.153.0 />}}
+: (`bool`) Reports whether this is the [default language](g).
 
-```go-html-template
-{{ .Language.Direction }} → ltr
-```
+  ```go-html-template
+  {{ .Language.IsDefault }} → true
+  ```
 
-### IsDefault
+`Label`
+: {{< new-in 0.158.0 />}}
+: (`string`) Returns the [`label`][] from the language definition.
 
-{{< new-in 0.153.0 />}}
+  ```go-html-template
+  {{ .Language.Label }} → Deutsch
+  ```
 
-(`bool`) Reports whether this is the [default language](g).
+`Lang`
+: {{<deprecated-in 0.158.0 />}}
+: Use [`Name`](#name) instead.
 
-```go-html-template
-{{ .Language.IsDefault }} → true
-```
+`LanguageCode`
+: {{<deprecated-in 0.158.0 />}}
+: Use [`Locale`](#locale) instead.
 
-### Label
-
-{{< new-in 0.158.0 />}}
-
-(`string`) Returns the [`label`][] from the language definition.
-
-```go-html-template
-{{ .Language.Label }} → Deutsch
-```
-
-### Lang
-
-{{<deprecated-in 0.158.0 />}}
-
-Use [`Name`](#name) instead.
-
-### LanguageCode
-
-{{<deprecated-in 0.158.0 />}}
-
-Use [`Locale`](#locale) instead.
-
-### LanguageDirection
-
-{{<deprecated-in 0.158.0 />}}
+`LanguageDirection`
+: {{<deprecated-in 0.158.0 />}}
 
 Use [`Direction`](#direction) instead.
+`LanguageName`
+: {{<deprecated-in 0.158.0 />}}
+: Use [`Label`](#label) instead.
 
-### LanguageName
+`Locale`
+: {{< new-in 0.158.0 />}}
+: (`string`) Returns the [`locale`][] from the language definition, falling back to [`Name`](#name).
 
-{{<deprecated-in 0.158.0 />}}
+  ```go-html-template
+  {{ .Language.Locale }} → de-DE
+  ```
 
-Use [`Label`](#label) instead.
+`Name`
+: {{< new-in 0.153.0 />}}
+: (`string`) Returns the language tag as defined by [RFC 5646][]. This is the lowercased key from the language definition.
 
-### Locale
+  ```go-html-template
+  {{ .Language.Name }} → de
+  ```
 
-{{< new-in 0.158.0 />}}
-
-(`string`) Returns the [`locale`][] from the language definition, falling back to [`Name`](#name).
-
-```go-html-template
-{{ .Language.Locale }} → de-DE
-```
-
-### Name
-
-{{< new-in 0.153.0 />}}
-
-(`string`) Returns the language tag as defined by [RFC 5646][]. This is the lowercased key from the language definition.
-
-```go-html-template
-{{ .Language.Name }} → de
-```
-
-### Weight
-
-{{<deprecated-in 0.158.0 />}}
+`Weight`
+: {{<deprecated-in 0.158.0 />}}
 
 ## Example
 

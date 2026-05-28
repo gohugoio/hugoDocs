@@ -15,39 +15,38 @@ The `OutputFormats` method on a `Page` object returns a slice of `OutputFormat` 
 
 ## Methods
 
-### Canonical
+Use these methods on the `OutputFormats` object.
 
-{{< new-in "0.154.4" />}}
+`Canonical`
+: {{< new-in "0.154.4" />}}
+: (`page.OutputFormat`) Returns the [canonical output format](g) for the current page, if defined. Once you have captured the object, use any of its [associated methods][].
 
-(`page.OutputFormat`) Returns the [canonical output format](g) for the current page, if defined. Once you have captured the object, use any of its [associated methods][].
+  ```go-html-template
+  {{ with .Site.Home.OutputFormats.Canonical }}
+    {{ .MediaType.Type }} → text/html
+    {{ .MediaType.MainType }} → text
+    {{ .MediaType.SubType }} → html
+    {{ .Name }} → html
+    {{ .Permalink }} → https://example.org/
+    {{ .Rel }} → canonical
+    {{ .RelPermalink }} → /
+  {{ end }}
+  ```
 
-```go-html-template
-{{ with .Site.Home.OutputFormats.Canonical }}
-  {{ .MediaType.Type }} → text/html
-  {{ .MediaType.MainType }} → text
-  {{ .MediaType.SubType }} → html
-  {{ .Name }} → html
-  {{ .Permalink }} → https://example.org/
-  {{ .Rel }} → canonical
-  {{ .RelPermalink }} → /
-{{ end }}
-```
+`Get`
+: (`page.OutputFormat`) Returns the `OutputFormat` object with the given identifier. Once you have captured the object, use any of its [associated methods][].
 
-### Get
-
-(`page.OutputFormat`) Returns the `OutputFormat` object with the given identifier. Once you have captured the object, use any of its [associated methods][].
-
-```go-html-template
-{{ with .Site.Home.OutputFormats.Get "rss" }}
-  {{ .MediaType.Type }} → application/rss+xml
-  {{ .MediaType.MainType }} → application
-  {{ .MediaType.SubType }} → rss
-  {{ .Name }} → rss
-  {{ .Permalink }} → https://example.org/index.xml
-  {{ .Rel }} → alternate
-  {{ .RelPermalink }} → /index.xml
-{{ end }}
-```
+  ```go-html-template
+  {{ with .Site.Home.OutputFormats.Get "rss" }}
+    {{ .MediaType.Type }} → application/rss+xml
+    {{ .MediaType.MainType }} → application
+    {{ .MediaType.SubType }} → rss
+    {{ .Name }} → rss
+    {{ .Permalink }} → https://example.org/index.xml
+    {{ .Rel }} → alternate
+    {{ .RelPermalink }} → /index.xml
+  {{ end }}
+  ```
 
 ## Examples
 

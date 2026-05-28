@@ -19,6 +19,8 @@ The `templates.Current` function provides introspection capabilities, allowing y
 
 ## Methods
 
+Use these methods on the `CurrentTemplateInfo` object.
+
 `Ancestors`
 : (`tpl.CurrentTemplateInfos`) Returns a slice containing information about each template in the current execution chain, starting from the parent of the current template and going up towards the initial template called. It excludes any base template applied via `define` and `block`. You can chain the `Reverse` method to this result to get the slice in chronological execution order.
 

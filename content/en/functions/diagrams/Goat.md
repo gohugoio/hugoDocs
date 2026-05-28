@@ -14,7 +14,7 @@ Useful in a [code block render hook], the `diagrams.Goat` function returns an SV
 
 ## Methods
 
-The SVGDiagram object has the following methods:
+Use these methods on the `SVGDiagram` object.
 
 `Inner`
 : (`template.HTML`) Returns the SVG child elements without a wrapping `svg` element, allowing you to create your own wrapper.
