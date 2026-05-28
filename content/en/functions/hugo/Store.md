@@ -1,6 +1,6 @@
 ---
 title: hugo.Store
-description: Returns a globally scoped "scratch pad" to store and manipulate data.
+description: Returns a globally scoped persistent data structure for storing and manipulating keyed values.
 categories: []
 keywords: []
 params:
@@ -11,11 +11,11 @@ params:
 
 {{< new-in 0.139.0 />}}
 
-Use the `hugo.Store` function to create a globally scoped [scratch pad](g) to store and manipulate data. To create a scratch pad with a different [scope](g), refer to the [scope](#scope) section below.
+Use the `hugo.Store` function to create a globally scoped persistent data structure for storing and manipulating keyed values. To create a data structure with a different [scope](g), refer to the [scope](#scope) section below.
 
 ## Methods
 
-Use these methods on the scratch pad.
+Use these methods on the data structure.
 
 `Set`
 : Sets the value of the given key.
@@ -91,13 +91,13 @@ Use these methods on the scratch pad.
   {{ hugo.Store.Delete "greeting" }}
   ```
 
-{{% include "_common/scratch-pad-scope.md" %}}
+{{% include "_common/store-scope.md" %}}
 
 ## Determinate values
 
-The `Store` method is often used to set scratch pad values within a _shortcode_ template, a _partial_ template called by a _shortcode_ template, or by a _render hook_ template. In all three cases, the scratch pad values are indeterminate until Hugo renders the page content.
+The `Store` method is often used to set values within a _shortcode_ template, a _partial_ template called by a _shortcode_ template, or by a _render hook_ template. In all three cases, the stored values are indeterminate until Hugo renders the page content.
 
-If you need to access a scratch pad value from a parent template, and the parent template has not yet rendered the page content, you can trigger content rendering by assigning the returned value to a [noop](g) variable:
+If you need to access a stored value from a parent template, and the parent template has not yet rendered the page content, you can trigger content rendering by assigning the returned value to a [noop](g) variable:
 
 ```go-html-template
 {{ $noop := .Content }}

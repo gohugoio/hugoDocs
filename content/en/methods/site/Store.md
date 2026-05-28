@@ -1,6 +1,6 @@
 ---
 title: Store
-description: Returns a "scratch pad" to store and manipulate data, scoped to the current site.
+description: Returns a persistent data structure for storing and manipulating keyed values, scoped to the current site.
 categories: []
 keywords: []
 params:
@@ -11,11 +11,11 @@ params:
 
 {{< new-in 0.139.0 />}}
 
-Use the `Store` method on a `Site` object to create a [scratch pad](g) to store and manipulate data, scoped to the current site. To create a scratch pad with a different [scope](g), refer to the [scope](#scope) section below.
+Use the `Store` method on a `Site` object to create a persistent data structure for storing and manipulating keyed values, scoped to the current site. To create a data structure with a different [scope](g), refer to the [scope](#scope) section below.
 
 ## Methods
 
-Use these methods on the scratch pad.
+Use these methods on the data structure.
 
 `Set`
 : Sets the value of a given key.
@@ -91,13 +91,13 @@ Use these methods on the scratch pad.
   {{ site.Store.Delete "greeting" }}
   ```
 
-{{% include "_common/scratch-pad-scope.md" %}}
+{{% include "_common/store-scope.md" %}}
 
 ## Determinate values
 
-The `Store` method is often used to set scratch pad values within a _shortcode_ template, a _partial_ template called by a _shortcode_ template, or by a _render hook_ template. In all three cases, the scratch pad values are indeterminate until Hugo renders the page content.
+The `Store` method is often used to set values within a _shortcode_ template, a _partial_ template called by a _shortcode_ template, or by a _render hook_ template. In all three cases, the stored values are indeterminate until Hugo renders the page content.
 
-If you need to access a scratch pad value from a parent template, and the parent template has not yet rendered the page content, you can trigger content rendering by assigning the returned value to a [noop](g) variable:
+If you need to access a stored value from a parent template, and the parent template has not yet rendered the page content, you can trigger content rendering by assigning the returned value to a [noop](g) variable:
 
 ```go-html-template
 {{ $noop := .Content }}

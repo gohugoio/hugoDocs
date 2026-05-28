@@ -1,6 +1,6 @@
 ---
 title: collections.NewScratch
-description: Returns a locally scoped "scratch pad" to store and manipulate data.
+description: Returns a locally scoped persistent data structure for storing and manipulating keyed values.
 categories: []
 keywords: []
 params:
@@ -10,11 +10,11 @@ params:
     signatures: [collections.NewScratch]
 ---
 
-Use the `collections.NewScratch` function to create a locally scoped [scratch pad](g) to store and manipulate data. To create a scratch pad with a different [scope](g), refer to the [scope](#scope) section below.
+Use the `collections.NewScratch` function to create a locally scoped persistent data structure for storing and manipulating keyed values. To create a data structure with a different [scope](g), refer to the [scope](#scope) section below.
 
 ## Methods
 
-Use these methods on the scratch pad.
+Use these methods on the data structure.
 
 `Set`
 : Sets the value of the given key.
@@ -110,4 +110,4 @@ Use these methods on the scratch pad.
   {{ $map := $s.Values }}
   ```
 
-{{% include "_common/scratch-pad-scope.md" %}}
+{{% include "_common/store-scope.md" %}}

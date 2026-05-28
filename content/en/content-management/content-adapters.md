@@ -85,7 +85,7 @@ Use these methods within a content adapter.
   > Methods that depend on built pages, such as `Site.Pages`, are unavailable at this stage and return an error.
 
 `Store`
-: (`maps.Scratch`) Returns a persistent "scratch pad" to store and manipulate data. The main use case for this is to transfer values between executions when [EnableAllLanguages](#enablealllanguages) is set. See [examples](/methods/page/store/).
+: (`maps.Scratch`) Returns a persistent data structure for storing and manipulating keyed values. The main use case for this is to transfer values between executions when [EnableAllLanguages](#enablealllanguages) is set. See [examples](/methods/page/store/).
 
   ```go-html-template {file="content/books/_content.gotmpl"}
   {{ .Store.Set "key" "value" }}
