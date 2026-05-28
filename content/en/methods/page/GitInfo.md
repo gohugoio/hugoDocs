@@ -45,113 +45,105 @@ Hugo also retrieves commit metadata for content provided by modules. This allows
 
 ## Methods
 
-### AbbreviatedHash
+Use these methods on the `GitInfo` object.
 
-(`string`) Returns the seven-character shortened version of the commit hash.
+`AbbreviatedHash`
+: (`string`) Returns the seven-character shortened version of the commit hash.
 
-```go-html-template
-{{ with .GitInfo }}
-  {{ .AbbreviatedHash }} → aab9ec0
-{{ end }}
-```
-
-### AuthorDate
-
-(`time.Time`) Returns the date the author originally created the commit.
-
-```go-html-template
-{{ with .GitInfo }}
-  {{ .AuthorDate.Format "2006-01-02" }} → 2023-10-09
-{{ end }}
-```
-
-### AuthorEmail
-
-(`string`) Returns the author's email address, respecting [gitmailmap][].
-
-```go-html-template
-{{ with .GitInfo }}
-  {{ .AuthorEmail }} → jsmith@example.org
-{{ end }}
-```
-
-### AuthorName
-
-(`string`) Returns the author's name, respecting [gitmailmap][].
-
-```go-html-template
-{{ with .GitInfo }}
-  {{ .AuthorName }} → John Smith
-{{ end }}
-```
-
-### CommitDate
-
-(`time.Time`) Returns the date the commit was applied to the branch.
-
-```go-html-template
-{{ with .GitInfo }}
-  {{ .CommitDate.Format "2006-01-02" }} → 2023-10-09
-{{ end }}
-```
-
-### Hash
-
-(`string`) Returns the full SHA-1 commit hash.
-
-```go-html-template
-{{ with .GitInfo }}
-  {{ .Hash }} → aab9ec0b31ebac916a1468c4c9c305f2bebf78d4
-{{ end }}
-```
-
-### Subject
-
-(`string`) Returns the first line of the commit message (the summary).
-
-```go-html-template
-{{ with .GitInfo }}
-  {{ .Subject }} → Add tutorials
-{{ end }}
-```
-
-### Body
-
-(`string`) Returns the full content of the commit message, excluding the subject line.
-
-```go-html-template
-{{ with .GitInfo }}
-  {{ .Body }} → Two new pages added.
-{{ end }}
-```
-
-### Ancestors
-
-(`gitmap.GitInfos`) Returns a list of previous commits for this specific file, ordered from most recent to oldest.
-
-For example, to list the last 5 commits:
-
-```go-html-template
-{{ with .GitInfo }}
-  {{ range .Ancestors | first 5 }} 
-    {{ .CommitDate.Format "2006-01-02" }}: {{ .Subject }}
+  ```go-html-template
+  {{ with .GitInfo }}
+    {{ .AbbreviatedHash }} → aab9ec0
   {{ end }}
-{{ end }}
-```
+  ```
 
-To reverse the order:
+`AuthorDate`
+: (`time.Time`) Returns the date the author originally created the commit.
 
-```go-html-template
-{{ with .GitInfo }}
-  {{ range .Ancestors.Reverse | first 5 }} 
-    {{ .CommitDate.Format "2006-01-02" }}: {{ .Subject }}
+  ```go-html-template
+  {{ with .GitInfo }}
+    {{ .AuthorDate.Format "2006-01-02" }} → 2023-10-09
   {{ end }}
-{{ end }}
-```
+  ```
 
-### Parent
+`AuthorEmail`
+: (`string`) Returns the author's email address, respecting [gitmailmap][].
 
-(`*gitmap.GitInfo`) Returns the most recent ancestor commit for the file, if any.
+  ```go-html-template
+  {{ with .GitInfo }}
+    {{ .AuthorEmail }} → jsmith@example.org
+  {{ end }}
+  ```
+
+`AuthorName`
+: (`string`) Returns the author's name, respecting [gitmailmap][].
+
+  ```go-html-template
+  {{ with .GitInfo }}
+    {{ .AuthorName }} → John Smith
+  {{ end }}
+  ```
+
+`CommitDate`
+: (`time.Time`) Returns the date the commit was applied to the branch.
+
+  ```go-html-template
+  {{ with .GitInfo }}
+    {{ .CommitDate.Format "2006-01-02" }} → 2023-10-09
+  {{ end }}
+  ```
+
+`Hash`
+: (`string`) Returns the full SHA-1 commit hash.
+
+  ```go-html-template
+  {{ with .GitInfo }}
+    {{ .Hash }} → aab9ec0b31ebac916a1468c4c9c305f2bebf78d4
+  {{ end }}
+  ```
+
+`Subject`
+: (`string`) Returns the first line of the commit message (the summary).
+
+  ```go-html-template
+  {{ with .GitInfo }}
+    {{ .Subject }} → Add tutorials
+  {{ end }}
+  ```
+
+`Body`
+: (`string`) Returns the full content of the commit message, excluding the subject line.
+
+  ```go-html-template
+  {{ with .GitInfo }}
+    {{ .Body }} → Two new pages added.
+  {{ end }}
+  ```
+
+`Ancestors`
+: (`gitmap.GitInfos`) Returns a list of previous commits for this specific file, ordered from most recent to oldest.
+
+  For example, to list the last 5 commits:
+
+  ```go-html-template
+  {{ with .GitInfo }}
+    {{ range .Ancestors | first 5 }} 
+      {{ .CommitDate.Format "2006-01-02" }}: {{ .Subject }}
+    {{ end }}
+  {{ end }}
+  ```
+
+  To reverse the order:
+
+  ```go-html-template
+  {{ with .GitInfo }}
+    {{ range .Ancestors.Reverse | first 5 }} 
+      {{ .CommitDate.Format "2006-01-02" }}: {{ .Subject }}
+    {{ end }}
+  {{ end }}
+  ```
+
+`Parent`
+: (`*gitmap.GitInfo`) Returns the most recent ancestor commit for the file, if any.
 
 ## Last modified date
 

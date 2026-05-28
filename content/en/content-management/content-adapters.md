@@ -31,98 +31,91 @@ Each content adapter is named `_content.gotmpl` and uses the same [syntax] as te
 
 Use these methods within a content adapter.
 
-### AddPage
+`AddPage`
+: Adds a page to the site.
 
-Adds a page to the site.
-
-```go-html-template {file="content/books/_content.gotmpl"}
-{{ $content := dict
-  "mediaType" "text/markdown"
-  "value" "The _Hunchback of Notre Dame_ was written by Victor Hugo."
-}}
-{{ $page := dict
-  "content" $content
-  "kind" "page"
-  "path" "the-hunchback-of-notre-dame"
-  "title" "The Hunchback of Notre Dame"
-}}
-{{ .AddPage $page }}
-```
-
-### AddResource
-
-Adds a page resource to the site.
-
-```go-html-template {file="content/books/_content.gotmpl"}
-{{ with resources.Get "images/a.jpg" }}
+  ```go-html-template {file="content/books/_content.gotmpl"}
   {{ $content := dict
-    "mediaType" .MediaType.Type
-    "value" .
+    "mediaType" "text/markdown"
+    "value" "The _Hunchback of Notre Dame_ was written by Victor Hugo."
   }}
-  {{ $resource := dict
+  {{ $page := dict
     "content" $content
-    "path" "the-hunchback-of-notre-dame/cover.jpg"
+    "kind" "page"
+    "path" "the-hunchback-of-notre-dame"
+    "title" "The Hunchback of Notre Dame"
   }}
-  {{ $.AddResource $resource }}
-{{ end }}
-```
+  {{ .AddPage $page }}
+  ```
 
-Then retrieve the new page resource with something like:
+`AddResource`
+: Adds a page resource to the site.
 
-```go-html-template {file="layouts/page.html"}
-{{ with .Resources.Get "cover.jpg" }}
-  <img src="{{ .RelPermalink }}" width="{{ .Width }}" height="{{ .Height }}" alt="">
-{{ end }}
-```
+  ```go-html-template {file="content/books/_content.gotmpl"}
+  {{ with resources.Get "images/a.jpg" }}
+    {{ $content := dict
+      "mediaType" .MediaType.Type
+      "value" .
+    }}
+    {{ $resource := dict
+      "content" $content
+      "path" "the-hunchback-of-notre-dame/cover.jpg"
+    }}
+    {{ $.AddResource $resource }}
+  {{ end }}
+  ```
 
-### Site
+  Then retrieve the new page resource with something like:
 
-Returns the `Site` to which the pages will be added.
+  ```go-html-template {file="layouts/page.html"}
+  {{ with .Resources.Get "cover.jpg" }}
+    <img src="{{ .RelPermalink }}" width="{{ .Width }}" height="{{ .Height }}" alt="">
+  {{ end }}
+  ```
 
-```go-html-template {file="content/books/_content.gotmpl"}
-{{ .Site.Title }}
-```
+`Site`
+: (`Site`) Returns the site to which the pages will be added.
 
-> [!note]
-> Note that the `Site` returned isn't fully built when invoked from the content adapters; if you try to call methods that depends on pages, e.g. `.Site.Pages`, you will get an error saying "this method cannot be called before the site is fully initialized".
+  ```go-html-template {file="content/books/_content.gotmpl"}
+  {{ .Site.Title }}
+  ```
 
-### Store
+  > [!note]
+  > The `Site` object is not fully initialized while Hugo executes a content adapter.
+  > Methods that depend on built pages, such as `Site.Pages`, are unavailable at this stage and return an error.
 
-Returns a persistent "scratch pad" to store and manipulate data. The main use case for this is to transfer values between executions when [EnableAllLanguages](#enablealllanguages) is set. See [examples](/methods/page/store/).
+`Store`
+: (`maps.Scratch`) Returns a persistent "scratch pad" to store and manipulate data. The main use case for this is to transfer values between executions when [EnableAllLanguages](#enablealllanguages) is set. See [examples](/methods/page/store/).
 
-```go-html-template {file="content/books/_content.gotmpl"}
-{{ .Store.Set "key" "value" }}
-{{ .Store.Get "key" }}
-```
+  ```go-html-template {file="content/books/_content.gotmpl"}
+  {{ .Store.Set "key" "value" }}
+  {{ .Store.Get "key" }}
+  ```
 
-### EnableAllLanguages
+`EnableAllLanguages`
+: By default, Hugo executes the content adapter only once for the first matching site in the [sites matrix](g). Use this method to expand execution to all languages while maintaining the current role and version.
 
-By default, Hugo executes the content adapter only once for the first matching site in the [sites matrix](g). Use this method to expand execution to all languages while maintaining the current role and version.
+  For more fine-grained control, define a `sites.matrix` in front matter or in a content mount.
 
-For more fine-grained control, define a `sites.matrix` in front matter or in a content mount.
+  ```go-html-template {file="content/books/_content.gotmpl"}
+  {{ .EnableAllLanguages }}
+  {{ $content := dict
+    "mediaType" "text/markdown"
+    "value" "The _Hunchback of Notre Dame_ was written by Victor Hugo."
+  }}
+  {{ $page := dict
+    "content" $content
+    "kind" "page"
+    "path" "the-hunchback-of-notre-dame"
+    "title" "The Hunchback of Notre Dame"
+  }}
+  {{ .AddPage $page }}
+  ```
 
-```go-html-template {file="content/books/_content.gotmpl"}
-{{ .EnableAllLanguages }}
-{{ $content := dict
-  "mediaType" "text/markdown"
-  "value" "The _Hunchback of Notre Dame_ was written by Victor Hugo."
-}}
-{{ $page := dict
-  "content" $content
-  "kind" "page"
-  "path" "the-hunchback-of-notre-dame"
-  "title" "The Hunchback of Notre Dame"
-}}
-{{ .AddPage $page }}
-```
+`EnableAllDimensions`
+: By default, Hugo executes the content adapter only once for the first matching site in the [sites matrix](g). Use this method to expand execution to every possible combination of language, version, and role.
 
-### EnableAllDimensions
-
-By default, Hugo executes the content adapter only once for the first matching site in the [sites matrix](g). Use this method to expand execution to every possible combination of language, version, and role.
-
-For more fine-grained control, define a `sites.matrix` in front matter or in a content mount.
-
-{{< new-in v0.153.0 />}}
+  For more fine-grained control, define a `sites.matrix` in front matter or in a content mount.
 
 ## Page map
 

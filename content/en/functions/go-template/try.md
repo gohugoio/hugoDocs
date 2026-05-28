@@ -16,15 +16,13 @@ The `try` statement is a non-standard extension to Go's [`text/template`][] pack
 
 ## Methods
 
-The `TryValue` object encapsulates the result of evaluating the expression, and provides two methods:
+Use these methods on the `TryValue` object.
 
-### Err
+`Err`
+: (`string`) Returns a string representation of the error thrown by the expression, if an error occurred, or returns `nil` if the expression evaluated without errors.
 
-(`string`) Returns a string representation of the error thrown by the expression, if an error occurred, or returns `nil` if the expression evaluated without errors.
-
-### Value
-
-(`any`) Returns the result of the expression if the evaluation was successful, or returns `nil` if an error occurred while evaluating the expression.
+`Value`
+: (`any`) Returns the result of the expression if the evaluation was successful, or returns `nil` if an error occurred while evaluating the expression.
 
 ## Explanation
 
