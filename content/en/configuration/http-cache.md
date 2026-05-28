@@ -63,7 +63,7 @@ This is the default configuration for HTTP caching:
 : (`[]string`) A slice of [glob patterns](g) to cache.
 
 `polls`
-: A slice of polling configurations.
+: (`[]PollConfig`) A slice of polling configurations.
 
 `polls.disable`
 : (`bool`) Whether to disable polling for this configuration. Default is `true`.
@@ -97,7 +97,7 @@ excludes = []
 {{< /code-toggle >}}
 
 `polls`
-: A slice of polling configurations.
+: (`[]PollConfig`) A slice of polling configurations.
 
 `polls.disable`
 : (`bool`) Whether to disable polling for this configuration. Default is `true`.

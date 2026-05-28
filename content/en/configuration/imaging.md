@@ -18,7 +18,7 @@ These global settings define how Hugo handles the fundamental aspects of image m
 : (`string`) The focal point used when cropping or filling an image. Valid case-insensitive options include `TopLeft`, `Top`, `TopRight`, `Left`, `Center`, `Right`, `BottomLeft`, `Bottom`, `BottomRight`, or `Smart`. The `Smart` option utilizes the [`muesli/smartcrop`][] package to identify the most interesting area of the image. Default is `smart`.
 
 `bgColor`
-: (string) The background color used when converting transparent images to formats that do not support transparency, such as PNG to JPEG. This color also fills the empty space created when rotating an image by a non-orthogonal angle if the space is not transparent and a background color is not specified in the  processing specification. The value must be an RGB [hexadecimal color][]. Default is `#ffffff`.
+: (`string`) The background color used when converting transparent images to formats that do not support transparency, such as PNG to JPEG. This color also fills the empty space created when rotating an image by a non-orthogonal angle if the space is not transparent and a background color is not specified in the  processing specification. The value must be an RGB [hexadecimal color][]. Default is `#ffffff`.
 
 `compression`
 : {{< new-in 0.153.5 />}}
