@@ -82,9 +82,9 @@ Why isn't Hugo's development server detecting file changes?
   In these cases, instead of monitoring native file system events, use the `--poll` command line flag. For example, to poll the project files every 700 milliseconds, use `--poll 700ms`.
 
 Why is my page Store missing a value?
-: The [`Store`] method on a `Page` object allows you to create a [scratch pad](g) on the given page to store and manipulate data. Values are often set within a _shortcode_ template, a _partial_ template called by a _shortcode_ template, or by a _render hook_ template. In all three cases, the scratch pad values are not determinate until Hugo renders the page content.
+: The [`Store`] method on a `Page` object creates a persistent data structure for storing and manipulating keyed values on the given page. Values are often set within a _shortcode_ template, a _partial_ template called by a _shortcode_ template, or by a _render hook_ template. In all three cases, the stored values are not determinate until Hugo renders the page content.
 
-  If you need to access a scratch pad value from a parent template, and the parent template has not yet rendered the page content, you can trigger content rendering by assigning the returned value to a [noop](g) variable:
+  If you need to access a stored value from a parent template, and the parent template has not yet rendered the page content, you can trigger content rendering by assigning the returned value to a [noop](g) variable:
 
   ```go-html-template
   {{ $noop := .Content }}

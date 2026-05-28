@@ -4,7 +4,7 @@
 
 ## Methods
 
-Use these methods on the scratch pad.
+Use these methods on the data structure.
 
 `Set`
 : Sets the value of the given key.
