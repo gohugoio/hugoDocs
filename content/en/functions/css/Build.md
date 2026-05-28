@@ -215,7 +215,7 @@ The `css.Build` function takes an optional map of options to fine-tune bundling,
     font-family: var(--font-family);
     font-size: var(--font-size);
   }
-````
+  ```
 
   {{< new-in 0.161.0 />}}
 
