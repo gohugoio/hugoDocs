@@ -6,8 +6,6 @@ categories: []
 keywords: []
 ---
 
-{{< new-in 0.132.0 />}}
-
 ## Overview
 
 Hugo uses [Goldmark] to render Markdown to HTML. Goldmark supports custom extensions to extend its core functionality. The [Passthrough] extension captures and preserves raw Markdown within delimited snippets of text, including the delimiters themselves. These are known as _passthrough elements_.

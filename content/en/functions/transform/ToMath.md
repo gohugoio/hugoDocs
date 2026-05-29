@@ -11,8 +11,6 @@ params:
 aliases: [/functions/tomath]
 ---
 
-{{< new-in 0.132.0 />}}
-
 Hugo uses an embedded instance of the [KaTeX][] display engine to render mathematical markup to HTML. You do not need to install the KaTeX display engine.
 
 ```go-html-template
