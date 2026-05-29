@@ -6,8 +6,6 @@ categories: []
 keywords: []
 ---
 
-{{< new-in 0.132.0 />}}
-
 ## Context
 
 Blockquote _render hook_ templates receive the following [context](g):
