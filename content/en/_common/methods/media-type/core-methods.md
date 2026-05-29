@@ -1,3 +1,7 @@
+---
+_comment: Do not remove front matter.
+---
+
 `Type`
 : (`string`) Returns the media type.
 
