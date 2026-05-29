@@ -339,7 +339,7 @@ services = 'Leistungen'
 
 If a string does not have a translation for the current language, Hugo will use the value from the default language. If no default value is set, an empty string will be shown.
 
-While translating a Hugo website, it can be handy to have a visual indicator of missing translations. The [`enableMissingTranslationPlaceholders` configuration option][config] will flag all untranslated strings with the placeholder `[i18n] identifier`, where `identifier` is the id of the missing translation.
+While translating a Hugo website, it can be handy to have a visual indicator of missing translations. The [`enableMissingTranslationPlaceholders`][] configuration option will flag all untranslated strings with the placeholder `[i18n] identifier`, where `identifier` is the id of the missing translation.
 
 > [!note]
 > Hugo will generate your website with these missing translation placeholders. It might not be suitable for production environments.
@@ -379,20 +379,20 @@ hugo new content content/de/post/test.md
 ```
 
 [`absLangURL`]: /functions/urls/abslangurl/
+[`enableMissingTranslationPlaceholders`]: /configuration/all/#enablemissingtranslationplaceholders
 [`lang.Translate`]: /functions/lang/translate
 [`relLangURL`]: /functions/urls/rellangurl/
 [`slug`]: /content-management/urls/#slug
 [`time.Format`]: /functions/time/format/
 [`url`]: /content-management/urls/#url
 [automatically]: /content-management/menus/#define-automatically
-[config]: /configuration/
 [configuration directory]: /configuration/introduction/#configuration-directory
 [example menu template]: /templates/menu/#example
 [front matter]: /content-management/menus/#define-in-front-matter
 [lang.FormatAccounting]: /functions/lang/formataccounting/
 [lang.FormatCurrency]: /functions/lang/formatcurrency/
-[lang.FormatNumberCustom]: /functions/lang/formatnumbercustom/
 [lang.FormatNumber]: /functions/lang/formatnumber/
+[lang.FormatNumberCustom]: /functions/lang/formatnumbercustom/
 [lang.FormatPercent]: /functions/lang/formatpercent/
 [lang.Merge]: /functions/lang/merge/
 [project configuration]: /content-management/menus/#define-in-project-configuration
