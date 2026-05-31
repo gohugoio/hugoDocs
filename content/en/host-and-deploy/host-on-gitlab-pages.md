@@ -9,13 +9,13 @@ aliases: [/hosting-and-deployment/hosting-on-gitlab/]
 ## Assumptions
 
 - Working familiarity with Git for version control
-- Completion of the Hugo [Quick Start]
+- Completion of the Hugo [Quick Start][]
 - A [GitLab account](https://gitlab.com/users/sign_in)
 - A Hugo website on your local machine that you are ready to publish
 
 ## BaseURL
 
-The `baseURL` in your [project configuration](/configuration/) must reflect the full URL of your GitLab pages repository if you are using the default GitLab Pages URL (e.g., `https://<YourUsername>.gitlab.io/<your-hugo-site>/`) and not a custom domain.
+The `baseURL` in your [project configuration][] must reflect the full URL of your GitLab pages repository if you are using the default GitLab Pages URL (e.g., `https://<YourUsername>.gitlab.io/<your-hugo-site>/`) and not a custom domain.
 
 ## Configure GitLab CI/CD
 
@@ -135,3 +135,4 @@ After the build has passed, your new website is available at `https://<YourUsern
 GitLab supports using custom CNAME's and TLS certificates. For more details on GitLab Pages, see the [GitLab Pages setup documentation](https://about.gitlab.com/2016/04/07/gitlab-pages-setup/).
 
 [Quick Start]: /getting-started/quick-start/
+[project configuration]: /configuration/

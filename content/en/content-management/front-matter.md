@@ -102,7 +102,7 @@ The most common front matter fields are `date`, `draft`, `title`, and `weight`, 
 : Alias to [publishDate](#publishdate).
 
 `resources`
-: (`map array`) An array of maps to provide metadata for [page resources]. Each element supports the `src`, `name`, `title`, and `params` keys.
+: (`map array`) An array of maps to provide metadata for [page resources][]. Each element supports the `src`, `name`, `title`, and `params` keys.
 
 `sitemap`
 : (`map`) A map of sitemap options. See the [sitemap templates][] page for details. Access these values from a template using the [`Sitemap`][] method on a `Page` object.
@@ -288,7 +288,7 @@ When populating a date field, whether a [custom page parameter](#parameters) or 
 
 {{% include "/_common/parsable-date-time-strings.md" %}}
 
-To override the default time zone, set the [`timeZone`](/configuration/all/#timezone) in your project configuration. The order of precedence for determining the time zone is:
+To override the default time zone, set the [`timeZone`][] in your project configuration. The order of precedence for determining the time zone is:
 
 1. The time zone offset in the date/time string
 1. The time zone specified in your project configuration
@@ -315,6 +315,7 @@ To override the default time zone, set the [`timeZone`](/configuration/all/#time
 [`readingtime`]: /methods/page/readingtime/
 [`sitemap`]: /methods/page/sitemap/
 [`slug`]: /methods/page/slug/
+[`timeZone`]: /configuration/all/#timezone
 [`title`]: /methods/page/title/
 [`translationkey`]: /methods/page/translationkey/
 [`type`]: /methods/page/type/

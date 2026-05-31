@@ -32,4 +32,6 @@ This is also very useful to use as `OR` filters when combined with where:
 
 The above fetches regular pages not of `page` or `about` type unless they are pinned. And finally, we exclude all pages with no `images` set in Page parameters.
 
-See [intersect](/functions/collections/intersect) for `AND`.
+See [intersect][] for `AND`.
+
+[intersect]: /functions/collections/intersect/

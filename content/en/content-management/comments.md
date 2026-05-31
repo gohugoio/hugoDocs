@@ -1,14 +1,14 @@
 ---
 title: Comments
-description: Hugo ships with an internal Disqus template, but this isn't the only commenting system that will work with your new Hugo website.
+description: Hugo ships with an embedded Disqus partial, but this isn't the only commenting system that will work with your new Hugo website.
 categories: []
 keywords: []
 aliases: [/extras/comments/]
 ---
 
-Hugo ships with support for [Disqus](https://disqus.com/), a third-party service that provides comment and community capabilities to websites via JavaScript.
+Hugo ships with support for [Disqus][], a third-party service that provides comment and community capabilities to websites via JavaScript.
 
-Your theme may already support Disqus, but if not, it is easy to add to your templates via [Hugo's built-in Disqus partial][disquspartial].
+Your theme may already support Disqus, but if not, it is easy to add to your templates via Hugo's [embedded partial][].
 
 ## Add Disqus
 
@@ -23,15 +23,15 @@ Disqus comments require you set a single value in your [project configuration][c
 shortname = 'your-disqus-shortname'
 {{</ code-toggle >}}
 
-For many websites, this is enough configuration. However, you also have the option to set the following in the [front matter] of a single content file:
+For many websites, this is enough configuration. However, you also have the option to set the following in the [front matter][] of a single content file:
 
 - `disqus_identifier`
 - `disqus_title`
 - `disqus_url`
 
-### Render Hugo's built-in Disqus partial template
+### Render Hugo's embedded Disqus partial
 
-Disqus has its own [internal template](/templates/embedded/#disqus) available, to render it add the following code where you want comments to appear:
+To render it, add the following code where you want comments to appear:
 
 ```go-html-template
 {{ partial "disqus.html" . }}
@@ -62,7 +62,8 @@ Open-source commenting systems:
 - [Utterances](https://utteranc.es/)
 - [Zoomment](https://zoomment.com/)
 
+[Disqus]: https://disqus.com/
 [configuration]: /configuration/
-[disquspartial]: /templates/embedded/#disqus
 [disqussetup]: https://disqus.com/profile/signup/
+[embedded partial]: /templates/embedded/#disqus
 [front matter]: /content-management/front-matter/

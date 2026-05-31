@@ -61,7 +61,7 @@ If none of these exists, Hugo uses a built-in default archetype.
 
 ## Functions and context
 
-You can use any template [function](g) within an archetype. As shown above, the default archetype uses the [`replace`](/functions/strings/replace) function to replace hyphens with spaces when populating the title in front matter.
+You can use any template [function](g) within an archetype. As shown above, the default archetype uses the [`strings.Replace`][] function to replace hyphens with spaces when populating the title in front matter.
 
 Archetypes receive the following [context](g):
 
@@ -79,9 +79,7 @@ Archetypes receive the following [context](g):
 
 ## Date format
 
-To insert date and time with a different format, use the [`time.Now`] function:
-
-[`time.Now`]: /functions/time/now/
+To insert date and time with a different format, use the [`time.Now`][] function:
 
 {{< code-toggle file=archetypes/default.md fm=true >}}
 title = '{{ replace .File.ContentBaseName `-` ` ` | title }}'
@@ -184,3 +182,6 @@ To create an article using the tutorials archetype:
 ```sh
 hugo new content --kind tutorials articles/something.md
 ```
+
+[`strings.Replace`]: /functions/strings/replace/
+[`time.Now`]: /functions/time/now/

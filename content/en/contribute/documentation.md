@@ -10,20 +10,20 @@ aliases: [/contribute/docs/]
 
 We welcome corrections and improvements to the documentation. The documentation lives in a separate repository from the main project. To contribute:
 
-- For corrections and improvements to existing documentation, submit issues and pull requests to the [documentation repository].
-- For documentation of new features, include the documentation changes in your pull request to the [project repository].
+- For corrections and improvements to existing documentation, submit issues and pull requests to the [documentation repository][].
+- For documentation of new features, include the documentation changes in your pull request to the [project repository][].
 
 ## Guidelines
 
 ### Style
 
-Follow Google's [developer documentation style guide].
+Follow Google's [developer documentation style guide][].
 
 ### Markdown
 
 Adhere to these Markdown conventions:
 
-- Use [ATX] headings (levels 2-4), not [setext] headings.
+- Use [ATX][] headings (levels 2-4), not [setext][] headings.
 - Use [collapsed link references][] instead of full or shortcut references. For example:
 
     ```text
@@ -32,17 +32,17 @@ Adhere to these Markdown conventions:
     [link]: https://example.org
     ```
 
-- Use [fenced code blocks] instead of [indented code blocks].
-- Use hyphens, not asterisks, for unordered [list items].
+- Use [fenced code blocks][] instead of [indented code blocks][].
+- Use hyphens, not asterisks, for unordered [list items][].
 - Use [callouts](#callouts) instead of bold text for emphasis.
-- Do not mix [raw HTML] within Markdown.
+- Do not mix [raw HTML][] within Markdown.
 - Do not use bold text in place of a heading or description term (`dt`).
 - Remove consecutive blank lines.
 - Remove trailing spaces.
 
 ### Glossary
 
-[Glossary] terms are defined on individual pages, providing a central repository for definitions, though these pages are not directly linked from the site.
+[Glossary][] terms are defined on individual pages, providing a central repository for definitions, though these pages are not directly linked from the site.
 
 Definitions must be complete sentences, with the first sentence defining the term. Italicize the first occurrence of the term and any referenced glossary terms for consistency.
 
@@ -65,7 +65,7 @@ Use the [glossary-term shortcode](#glossary-term) to insert a term definition:
 
 ### Terminology
 
-Link to the [glossary] as needed and use terms consistently. Pay particular attention to:
+Link to the [glossary][] as needed and use terms consistently. Pay particular attention to:
 
 - "front matter" (two words, except when referring to the configuration key)
 - "home page" (two words)
@@ -158,7 +158,7 @@ Other best practices:
 - Do not use Hugo's `ref` or `relref` shortcodes.
 - Prioritize current best practices over multiple options or historical information.
 - Use short, focused code examples.
-- Use [basic english] where possible for a global audience.
+- Use [basic english][] where possible for a global audience.
 
 ## Front matter fields
 
@@ -192,7 +192,7 @@ Field|Description|Required
 `params.hide_in_this_section`|Whether to hide the "in this section" panel|&nbsp;
 `params.minversion`|Applicable to the quick start page: the minimum Hugo version required|&nbsp;
 `params.permalink`|Reserved for use by the news content adapter|&nbsp;
-`params.reference (used in glossary term)`|Applicable to glossary entries: a URL for additional information|&nbsp;
+`params.reference`|Applicable to glossary entries: a URL for additional information|&nbsp;
 `params.searchable`|Whether to add the content of this page to the search index. The default value is cascaded down from the project configuration; `true` if the page kind is `page`, and `false` if the page kind is one of `home`, `section`, `taxonomy`, or `term`. Add this field to override the default value.|&nbsp;
 `params.show_publish_date`|Whether to show the `publishDate` when rendering the page|&nbsp;
 `weight`|The page weight|&nbsp;
@@ -203,7 +203,7 @@ Field|Description|Required
 
 ## Related content
 
-When available, the "See also" sidebar displays related pages using Hugo's [related content] feature, based on front matter keywords. We ensure consistent keyword usage by validating them against `data/keywords.yaml` during the build process. If a keyword is not found, you'll be alerted and must either modify the keyword or update the data file. This validation process helps to refine the related content for better results.
+When available, the "See also" sidebar displays related pages using Hugo's [related content][] feature, based on front matter keywords. We ensure consistent keyword usage by validating them against `data/keywords.yaml` during the build process. If a keyword is not found, you'll be alerted and must either modify the keyword or update the data file. This validation process helps to refine the related content for better results.
 
 If the title in the "See also" sidebar is ambiguous or the same as another page, you can define an alternate title in the front matter:
 
@@ -484,7 +484,7 @@ expiryDate: 2028-03-03 # deprecated 2026-03-03 in v0.157.0
 Use this workflow to create and submit pull requests.
 
 Step 1
-: Fork the [documentation repository].
+: Fork the [documentation repository][].
 
 Step 2
 : Clone your fork.
@@ -509,7 +509,7 @@ Step 6
     - Begin the summary with one of `content`, `theme`, `config`, `all`, or `misc`, followed by a colon, a space, and a brief description of the change beginning with a capital letter
     - Use imperative present tense
   - Optionally, provide a detailed description where each line is 72 characters or less, followed by a blank line.
-  - Optionally, add one or more "Fixes" or "Closes" keywords, each on its own line, referencing the [issues] addressed by this change.
+  - Optionally, add one or more "Fixes" or "Closes" keywords, each on its own line, referencing the [issues][] addressed by this change.
 
   For example:
 
@@ -527,7 +527,7 @@ Step 7
 : Push the new branch to your fork of the documentation repository.
 
 Step 8
-: Visit the [documentation repository] and create a pull request (PR).
+: Visit the [documentation repository][] and create a pull request (PR).
 
 Step 9
 : A project maintainer will review your PR and may request changes. You may delete your branch after the maintainer merges your PR.

@@ -158,7 +158,7 @@ If your source images are much larger than the maximum size you intend to publis
 
 ## Configuration
 
-See [configure imaging](/configuration/imaging).
+See [configure imaging][].
 
 [`Height`]: /methods/resource/height/
 [`Meta`]: /methods/resource/meta/
@@ -166,4 +166,5 @@ See [configure imaging](/configuration/imaging).
 [`RelPermalink`]: /methods/resource/relpermalink/
 [`Width`]: /methods/resource/width/
 [`reflect.IsImageResourceProcessable`]: /functions/reflect/isimageresourceprocessable/
+[configure imaging]: /configuration/imaging/
 [file cache]: /configuration/caches/

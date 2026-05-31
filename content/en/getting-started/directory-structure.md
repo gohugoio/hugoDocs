@@ -103,7 +103,7 @@ Each of the subdirectories contributes to content, structure, behavior, or prese
 : The `resources` directory contains cached output from Hugo's asset pipelines, generated when you run the `hugo build` or `hugo server` commands. By default this cache directory includes CSS and images. Hugo recreates this directory and its content as needed.
 
 `static`
-: The `static` directory contains files that will be copied to the `public` directory when you build your project. For example: `favicon.ico`, `robots.txt`, and files that verify website ownership. Before the introduction of [page bundles](g) and [asset pipelines](/hugo-pipes/introduction/), the `static` directory was also used for images, CSS, and JavaScript.
+: The `static` directory contains files that will be copied to the `public` directory when you build your project. For example: `favicon.ico`, `robots.txt`, and files that verify website ownership. Before the introduction of [page bundles](g) and [asset pipelines][], the `static` directory was also used for images, CSS, and JavaScript.
 
 `themes`
 : The `themes` directory contains one or more [themes](g), each in its own subdirectory.
@@ -201,3 +201,5 @@ my-theme/
 Using the unified file system described above, Hugo mounts each of these directories to the corresponding location in the project. When two files have the same path, the file in the project directory takes precedence. This allows you, for example, to override a theme's template by placing a copy in the same location within the project directory.
 
 If you are simultaneously using components from two or more themes or modules, and there's a path collision, the first mount takes precedence.
+
+[asset pipelines]: /hugo-pipes/introduction/
