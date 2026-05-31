@@ -226,7 +226,7 @@ The example above uses [`Resources.Mount`][] to resolve a directory inside `asse
 
 ### OptionsSetter
 
-An `OptionsSetter` is a special object that is returned once only. This means that you should wrap it with [with][]:
+An `OptionsSetter` is a special object that is returned once only. This means that you should wrap it with [`with`][]:
 
 ```go-html-template
 {{ with .Script "myscript" }}
@@ -314,4 +314,4 @@ console.log('entrypoints-workaround.js');
 [runner]: #runner
 [script options]: #script-options
 [this discussion]: https://discourse.gohugo.io/t/js-batch-with-simple-global-script/53002/5
-[with]: /functions/go-template/with/
+[`with`]: /functions/go-template/with/
