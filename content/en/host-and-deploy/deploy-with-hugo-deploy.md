@@ -9,12 +9,12 @@ aliases: [/hosting-and-deployment/hugo-deploy/]
 Use the `hugo deploy` command to deploy your site Amazon S3, Azure Blob Storage, or Google Cloud Storage.
 
 > [!note]
-> This feature requires the deploy or extended/deploy edition. See the [installation] section for details.
+> This feature requires the deploy or extended/deploy edition. See the [installation][] section for details.
 
 ## Assumptions
 
-1. You have completed the [Quick Start] or have a Hugo website you are ready to deploy and share with the world.
-1. You have an account with the service provider ([AWS], [Azure], or [Google Cloud]) that you want to deploy to.
+1. You have completed the [Quick Start][] or have a Hugo website you are ready to deploy and share with the world.
+1. You have an account with the service provider ([AWS][], [Azure][], or [Google Cloud][]) that you want to deploy to.
 1. You have authenticated.
     - AWS: [Install the CLI](https://docs.aws.amazon.com/cli/latest/userguide/cli-chap-install.html) and run [`aws configure`](https://docs.aws.amazon.com/cli/latest/userguide/cli-chap-configure.html).
     - Azure: [Install the CLI](https://docs.microsoft.com/en-us/cli/azure/install-azure-cli) and run [`az login`](https://docs.microsoft.com/en-us/cli/azure/authenticate-azure-cli).
@@ -31,7 +31,7 @@ Use the `hugo deploy` command to deploy your site Amazon S3, Azure Blob Storage,
 
 ## Configuration
 
-Create a deployment target in your [project configuration]. The only required parameters are [`name`] and [`url`]:
+Create a deployment target in your [project configuration][]. The only required parameters are [`name`][] and [`url`][]:
 
 {{< code-toggle file=hugo >}}
 [deployment]
@@ -50,17 +50,17 @@ hugo deploy [--target=<target name>]
 
 This command syncs the contents of your local `public` directory (the default publish directory) with the destination bucket. If no target is specified, Hugo deploys to the first configured target.
 
-For more command-line options, see `hugo help deploy` or the [CLI documentation].
+For more command-line options, see `hugo help deploy` or the [CLI documentation][].
 
 ### File list creation
 
-`hugo deploy` creates local and remote file lists by traversing the local publish directory and the remote bucket. Inclusion and exclusion are determined by the deployment target's [configuration]:
+`hugo deploy` creates local and remote file lists by traversing the local publish directory and the remote bucket. Inclusion and exclusion are determined by the deployment target's [configuration][]:
 
 - `include`: All files are skipped by default except those that match the pattern.
 - `exclude`: Files matching the pattern are skipped.
 
 > [!note]
-> During local file list creation, Hugo skips `.DS_Store` files and hidden directories (those starting with a period, like `.git`), except for the [`.well-known`] directory, which is traversed if present.
+> During local file list creation, Hugo skips `.DS_Store` files and hidden directories (those starting with a period, like `.git`), except for the [`.well-known`][] directory, which is traversed if present.
 
 ### File list comparison
 
@@ -82,16 +82,17 @@ Hugo applies the changes to the remote bucket: uploading missing or changed file
 
 ## Advanced configuration
 
-See [configure deployment](/configuration/deployment/).
+See [configure deployment][].
 
-[`.well-known`]: https://en.wikipedia.org/wiki/Well-known_URI
-[`name`]: /configuration/deployment/#name
-[`url`]: /configuration/deployment/#url
 [AWS]: https://aws.amazon.com
 [Azure]: https://azure.microsoft.com
 [CLI documentation]: /commands/hugo_deploy/
-[configuration]: /configuration/deployment/#targets-1
 [Google Cloud]: https://cloud.google.com/
-[installation]: /installation/
 [Quick Start]: /getting-started/quick-start/
+[`.well-known`]: https://en.wikipedia.org/wiki/Well-known_URI
+[`name`]: /configuration/deployment/#name
+[`url`]: /configuration/deployment/#url
+[configuration]: /configuration/deployment/#targets-1
+[configure deployment]: /configuration/deployment/
+[installation]: /installation/
 [project configuration]: /configuration/deployment/

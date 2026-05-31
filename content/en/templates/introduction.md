@@ -287,9 +287,9 @@ Hugo provides hundreds of custom [functions][] categorized by namespace. For exa
 
 Function|Alias
 :--|:--
-[`strings.ToLower`](/functions/strings/tolower)|`lower`
-[`strings.ToUpper`](/functions/strings/toupper)|`upper`
-[`strings.Replace`](/functions/strings/replace)|`replace`
+[`strings.ToLower`][]|`lower`
+[`strings.ToUpper`][]|`upper`
+[`strings.Replace`][]|`replace`
 
 As shown above, frequently used functions have an alias. Use aliases in your templates to reduce code length.
 
@@ -373,7 +373,7 @@ To render an HTML comment, pass a string through the [`safeHTML`][] template fun
 
 ## Include
 
-Use the [`template`][] function to include one or more of Hugo's [embedded templates]:
+Use the [`template`][] function to include one or more of Hugo's [embedded templates][]:
 
 ```go-html-template
 {{ partial "google_analytics.html" . }}
@@ -489,7 +489,7 @@ To test multiple conditions:
 
 ### Access site parameters
 
-See documentation for the [`Params`](/methods/site/params/) method on a `Site` object.
+See documentation for the [`Params`][params_site] method on a `Site` object.
 
 With this project configuration:
 
@@ -519,7 +519,7 @@ Access the custom site parameters by chaining the identifiers:
 
 ### Access page parameters
 
-See documentation for the [`Params`](/methods/page/params/) method on a `Page` object.
+See documentation for the [`Params`][params_page] method on a `Page` object.
 
 By way of example, consider this front matter:
 
@@ -550,20 +550,25 @@ In the template example above, each of the keys is a valid identifier. For examp
 {{ index .Params "key-with-hyphens" }} → must use index function
 ```
 
+[`Page`]: /methods/page/
+[`Site`]: /methods/site/
+[`Title`]: /methods/page/title
 [`and`]: /functions/go-template/and
 [`else`]: /functions/go-template/else/
 [`end`]: /functions/go-template/end/
+[`html/template`]: https://pkg.go.dev/html/template
 [`if`]: /functions/go-template/if/
 [`index`]: /functions/collections/indexfunction/
 [`or`]: /functions/go-template/or
-[`Page`]: /methods/page/
-[`partial`]: /functions/partials/include/
 [`partialCached`]: /functions/partials/includecached/
+[`partial`]: /functions/partials/include/
 [`range`]: /functions/go-template/range/
 [`safeHTML`]: /functions/safe/html
-[`Site`]: /methods/site/
+[`strings.Replace`]: /functions/strings/replace/
+[`strings.ToLower`]: /functions/strings/tolower/
+[`strings.ToUpper`]: /functions/strings/toupper/
 [`template`]: /functions/go-template/template/
-[`Title`]: /methods/page/title
+[`text/template`]: https://pkg.go.dev/text/template
 [`with`]: /functions/go-template/with/
 [current context]: #current-context
 [embedded templates]: /templates/embedded/
@@ -571,9 +576,9 @@ In the template example above, each of the keys is a valid identifier. For examp
 [front matter]: /content-management/front-matter/
 [functions]: /functions/
 [go-templates]: /functions/go-template/
-[`html/template`]: https://pkg.go.dev/html/template
 [methods]: /methods/
 [partial templates]: /templates/types/#partial
 [templates]: /templates/
-[`text/template`]: https://pkg.go.dev/text/template
 [variables]: #variables
+[params_site]: /methods/site/params/
+[params_page]: /methods/page/params/

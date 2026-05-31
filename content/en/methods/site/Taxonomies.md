@@ -96,7 +96,7 @@ Hugo renders this to:
 > [!note]
 > Hugo's taxonomy system is powerful, allowing you to classify content and create relationships between pages.
 >
-> Please see the [taxonomies] section for a complete explanation and examples.
+> Please see the [taxonomies][] section for a complete explanation and examples.
 
 ## Examples
 

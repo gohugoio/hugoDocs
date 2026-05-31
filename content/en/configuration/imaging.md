@@ -82,7 +82,7 @@ These specialized settings provide granular control over the WebP encoding proce
 ## Exif method
 
 {{< deprecated-in 0.155.0 >}}
-Use [`Meta`](/methods/resource/meta/) instead.
+Use [`Meta`][] instead.
 {{< /deprecated-in >}}
 
 ## Meta method

@@ -11,14 +11,14 @@ params:
 
 The `Resources` method on a `Page` object returns a collection of page resources. A page resource is a file within a [page bundle](g).
 
-To work with global or remote resources, see the [`resources`] functions.
+To work with global or remote resources, see the [`resources`][] functions.
 
 ## Methods
 
 Use these methods on the `Resources` object.
 
 `ByType`
-: (`resource.Resources`) Returns a collection of page resources of the given [media type], or nil if none found. The media type is typically one of `image`, `text`, `audio`, `video`, or `application`.
+: (`resource.Resources`) Returns a collection of page resources of the given [media type][], or nil if none found. The media type is typically one of `image`, `text`, `audio`, `video`, or `application`.
 
   ```go-html-template
   {{ range .Resources.ByType "image" }}
@@ -26,7 +26,7 @@ Use these methods on the `Resources` object.
   {{ end }}
   ```
 
-  When working with global resources instead of page resources, use the [`resources.ByType`] function.
+  When working with global resources instead of page resources, use the [`resources.ByType`][] function.
 
 `Get`
 : (`resource.Resource`) Returns a page resource from the given path, or nil if none found.
@@ -37,7 +37,7 @@ Use these methods on the `Resources` object.
   {{ end }}
   ```
 
-  When working with global resources instead of page resources, use the [`resources.Get`] function.
+  When working with global resources instead of page resources, use the [`resources.Get`][] function.
 
 `GetMatch`
 : (`resource.Resource`) Returns the first page resource from paths matching the given [glob pattern](g), or nil if none found.
@@ -48,7 +48,7 @@ Use these methods on the `Resources` object.
   {{ end }}
   ```
 
-  When working with global resources instead of page resources, use the [`resources.GetMatch`] function.
+  When working with global resources instead of page resources, use the [`resources.GetMatch`][] function.
 
 `Match`
 : (`resource.Resources`) Returns a collection of page resources from paths matching the given [glob pattern](g), or nil if none found.
@@ -59,11 +59,11 @@ Use these methods on the `Resources` object.
   {{ end }}
   ```
 
-  When working with global resources instead of page resources, use the [`resources.Match`] function.
+  When working with global resources instead of page resources, use the [`resources.Match`][] function.
 
 `Mount`
 : {{< new-in 0.140.0 />}}
-: (`ResourceGetter`) Mounts the given resources from the two arguments base (`string`) to the given target path (`string`) and returns an object that implements [Get](#get). Note that leading slashes in target marks an absolute path. Relative target paths allows you to mount resources relative to another set, e.g. a [Page bundle](/content-management/page-bundles/):
+: (`ResourceGetter`) Mounts the given resources from the two arguments base (`string`) to the given target path (`string`) and returns an object that implements [Get](#get). Note that leading slashes in target marks an absolute path. Relative target paths allows you to mount resources relative to another set, e.g. a [Page bundle][]:
 
   ```go-html-template
   {{ $common := resources.Match "/js/headlessui/*.*" }}
@@ -78,6 +78,7 @@ With the `GetMatch` and `Match` methods, Hugo determines a match using a case-in
 
 {{% include "/_common/glob-patterns.md" %}}
 
+[Page bundle]: /content-management/page-bundles/
 [`resources.ByType`]: /functions/resources/ByType/
 [`resources.GetMatch`]: /functions/resources/ByType/
 [`resources.Get`]: /functions/resources/ByType/

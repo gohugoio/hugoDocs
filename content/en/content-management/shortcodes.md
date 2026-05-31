@@ -49,7 +49,7 @@ To conform with this security model, creating _shortcode_ templates within conte
 enableInlineShortcodes = true
 {{< /code-toggle >}}
 
-For more information see [configure security](/configuration/security).
+For more information see [configure security][].
 
 The following example demonstrates an inline shortcode, `date.inline`, that accepts a single positional argument: a date/time [layout string][].
 
@@ -220,11 +220,12 @@ Shortcodes (excluding [inline](#inline) shortcodes) can be nested, creating pare
 
 The [shortcode templates][nesting] section provides a detailed explanation and examples.
 
+[`TableOfContents`]: /methods/page/tableofcontents/
 [`details`]: /shortcodes/details
 [`figure`]: /shortcodes/figure
 [`instagram`]: /shortcodes/instagram
 [`qr`]: /shortcodes/qr
-[`TableOfContents`]: /methods/page/tableofcontents/
+[configure security]: /configuration/security/
 [layout string]: /functions/time/format/#layout-string
 [nesting]: /templates/shortcode/#nesting
 [shortcode method]: /templates/shortcode/#methods

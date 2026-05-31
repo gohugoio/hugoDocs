@@ -11,5 +11,7 @@ expiryDate: 2028-01-28 # deprecated 2026-01-28 in v0.155.0
 ---
 
 {{< deprecated-in 0.155.0 >}}
-Use [`Meta`](/methods/resource/meta/) instead.
+Use [`Meta`][] instead.
+
+[`Meta`]: /methods/resource/meta/
 {{< /deprecated-in >}}

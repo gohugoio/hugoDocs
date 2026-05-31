@@ -19,7 +19,7 @@ content/
 └── privacy.md
 ```
 
-The `about` page is a page bundle. It logically associates a resource with content by bundling them together. Resources within a page bundle are [page resources], accessible with the [`Resources`] method on the `Page` object.
+The `about` page is a page bundle. It logically associates a resource with content by bundling them together. Resources within a page bundle are [page resources][], accessible with the [`Resources`][] method on the `Page` object.
 
 Page bundles are either _leaf bundles_ or _branch bundles_.
 
@@ -36,15 +36,15 @@ branch bundle
 
 Page bundle characteristics vary by bundle type.
 
-|                     | Leaf bundle                                             | Branch bundle                                           |
-|---------------------|---------------------------------------------------------|---------------------------------------------------------|
-| Index file          | `index.md`                                              | `_index.md`                                             |
-| Example             | `content/about/index.md`                                | `content/posts/_index.md`                               |
-| [Page kinds](g)     | `page`                                                  | `home`, `section`, `taxonomy`, or `term`                |
-| Template types      | [single]                                                | [home], [section], [taxonomy], or [term]                |
-| Descendant pages    | None                                                    | Zero or more                                            |
-| Resource location   | Adjacent to the index file or in a nested subdirectory  | Same as a leaf bundles, but excludes descendant bundles |
-| [Resource types](g) | `page`, `image`, `video`, etc.                          | all but `page`                                          |
+|                     | Leaf bundle                                            | Branch bundle                                           |
+|---------------------|--------------------------------------------------------|---------------------------------------------------------|
+| Index file          | `index.md`                                             | `_index.md`                                             |
+| Example             | `content/about/index.md`                               | `content/posts/_index.md`                               |
+| [Page kinds](g)     | `page`                                                 | `home`, `section`, `taxonomy`, or `term`                |
+| Template types      | [single][]                                             | [home][], [section][], [taxonomy][], or [term][]        |
+| Descendant pages    | None                                                   | Zero or more                                            |
+| Resource location   | Adjacent to the index file or in a nested subdirectory | Same as a leaf bundles, but excludes descendant bundles |
+| [Resource types](g) | `page`, `image`, `video`, etc.                         | all but `page`                                          |
 
 Files with [resource type](g) `page` include content written in Markdown, HTML, AsciiDoc, Pandoc, reStructuredText, and Emacs Org Mode. In a leaf bundle, excluding the index file, these files are only accessible as page resources. In a branch bundle, these files are only accessible as content pages.
 
@@ -83,7 +83,7 @@ my-post
 
   - content-1, content-2
 
-    These are resources of resource type `page`, accessible via the [`Resources`] method on the `Page` object. Hugo will not render these as individual pages.
+    These are resources of resource type `page`, accessible via the [`Resources`][] method on the `Page` object. Hugo will not render these as individual pages.
 
   - image-1, image-2
 
@@ -133,7 +133,7 @@ branch-bundle-2
 
 ## Headless bundles
 
-Use [build options] in front matter to create an unpublished leaf or branch bundle whose content and resources you can include in other pages.
+Use [build options][] in front matter to create an unpublished leaf or branch bundle whose content and resources you can include in other pages.
 
 [`Resources`]: /methods/page/resources/
 [build options]: /content-management/build-options/

@@ -8,16 +8,16 @@ weight: 10
 
 When rendering Markdown to HTML, render hooks override the conversion. Each render hook is a template, with one template for each supported element type:
 
-- [Blockquotes](/render-hooks/blockquotes)
-- [Code blocks](/render-hooks/code-blocks)
-- [Headings](/render-hooks/headings)
-- [Images](/render-hooks/images)
-- [Links](/render-hooks/links)
-- [Passthrough elements](/render-hooks/passthrough)
-- [Tables](/render-hooks/tables)
+- [Blockquotes][]
+- [Code blocks][]
+- [Headings][]
+- [Images][]
+- [Links][]
+- [Passthrough elements][]
+- [Tables][]
 
 > [!note]
-> Hugo supports multiple [content formats] including Markdown, HTML, AsciiDoc, Emacs Org Mode, Pandoc, and reStructuredText.
+> Hugo supports multiple [content formats][] including Markdown, HTML, AsciiDoc, Emacs Org Mode, Pandoc, and reStructuredText.
 >
 > The render hook capability is limited to Markdown. You cannot create render hooks for the other content formats.
 
@@ -77,3 +77,10 @@ layouts/
 The remaining pages in this section describe each type of render hook, including examples and the context received by each template.
 
 [content formats]: /content-management/formats/
+[Blockquotes]: /render-hooks/blockquotes/
+[Code blocks]: /render-hooks/code-blocks/
+[Headings]: /render-hooks/headings/
+[Images]: /render-hooks/images/
+[Links]: /render-hooks/links/
+[Passthrough elements]: /render-hooks/passthrough/
+[Tables]: /render-hooks/tables/

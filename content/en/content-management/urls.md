@@ -123,7 +123,7 @@ Use any of these tokens:
 
 ### Permalinks
 
-See [configure permalinks](/configuration/permalinks).
+See [configure permalinks][].
 
 ### Appearance
 
@@ -253,6 +253,7 @@ If you implement server-side redirects, you should disable the generation of ind
 [`permalinkable`]: /configuration/output-formats/#permalinkable
 [aliases_field]: /content-management/front-matter/#aliases
 [aliases_method]: /methods/page/aliases/
+[configure permalinks]: /configuration/permalinks/
 [embedded alias template]: <{{% eturl alias %}}>
 [removed in a future release]: https://github.com/gohugoio/hugo/issues/4733
 [reserved characters]: https://learn.microsoft.com/en-us/windows/win32/fileio/naming-a-file#naming-conventions

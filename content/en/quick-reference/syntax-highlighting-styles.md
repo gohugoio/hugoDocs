@@ -9,9 +9,9 @@ keywords: [highlight]
 
 Hugo provides several methods to add syntax highlighting to code examples:
 
-- Use the [`transform.Highlight`] function within your templates
-- Use the [`highlight`] shortcode with any [content format](g)
-- Use [fenced code blocks] with the Markdown content format
+- Use the [`transform.Highlight`][] function within your templates
+- Use the [`highlight`][] shortcode with any [content format](g)
+- Use [fenced code blocks][] with the Markdown content format
 
 Regardless of method, use any of the syntax highlighting styles below.
 
@@ -22,7 +22,7 @@ Set the default syntax highlighting style in your project configuration:
 style = 'monokai'
 {{< /code-toggle >}}
 
-See [configure Markup](/configuration/markup/#highlight).
+See [configure Markup][].
 
 [`transform.Highlight`]: /functions/transform/highlight/
 [`highlight`]: /shortcodes/highlight/
@@ -33,3 +33,5 @@ See [configure Markup](/configuration/markup/#highlight).
 This gallery demonstrates the application of each syntax highlighting style with code examples written in different programming languages.
 
 {{% syntax-highlighting-styles %}}
+
+[configure Markup]: /configuration/markup/#highlight

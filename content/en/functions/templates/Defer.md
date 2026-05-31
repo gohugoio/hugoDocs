@@ -14,7 +14,10 @@ aliases: [/functions/templates.defer]
 > [!note]
 > Do not call this function within a `partialCached` template. This restriction applies transitively: if `partialCached` calls a partial that calls `templates.Defer`, Hugo returns an error. Using this function within shortcode or render hook templates may also lead to unpredictable results.
 
-In some rare use cases, you may need to defer the execution of a template until after all sites and output formats have been rendered. One such example could be [TailwindCSS](/functions/css/tailwindcss/) using the output of [hugo_stats.json](/configuration/build/) to determine which classes and other HTML identifiers are being used in the final output:
+In some rare use cases, you may need to defer the execution of a template until after all sites and output formats have been rendered. One such example could be [css.TailwindCSS][] using the output of [hugo_stats.json][] to determine which classes and other HTML identifiers are being used in the final output:
+
+[css.TailwindCSS]: /functions/css/tailwindcss/
+[hugo_stats.json]: /configuration/build/
 
 ```go-html-template {file="layouts/baseof.html" copy=true}
 <head>
@@ -90,4 +93,8 @@ I18n Outside: {{ i18n "hello" }}
 {{ end }}
 ```
 
-The [output format](/configuration/output-formats/), [site](/methods/page/site/), and [language](/methods/site/language) will be the same, even if the execution is deferred. In the example above, this means that the `site.Language.Name` and `.RelPermalink` will be the same on the inside and the outside of the deferred template.
+The [output format][], [site][], and [language][] will be the same, even if the execution is deferred. In the example above, this means that the `site.Language.Name` and `.RelPermalink` will be the same on the inside and the outside of the deferred template.
+
+[language]: /methods/site/language/
+[output format]: /configuration/output-formats/
+[site]: /methods/page/site/
