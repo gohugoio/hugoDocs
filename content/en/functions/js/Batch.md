@@ -184,7 +184,7 @@ Setting the `Config` for a batch can be done from any template (including shortc
 ### Build options
 
 `format`
-: (`string`) Currently, [`esbuild`][] only supports `esm` output for [code splitting][].
+: (`string`) Currently, `esbuild` only supports `esm` output for [code splitting][].
 
 {{% include "/_common/functions/js/options.md" %}}
 
@@ -213,14 +213,14 @@ Setting the `Config` for a batch can be done from any template (including shortc
 
 ### Import context
 
-Hugo will, by default, first try to resolve any import in the [assets][] directory and, if not found, let [`esbuild`][] resolve it (e.g. from `node_modules`). The  `importContext` option can be used to set the first context for resolving imports. A common use of this is to resolve imports inside a [page bundle][].
+Hugo will, by default, first try to resolve any import in the `assets` directory and, if not found, let `esbuild` resolve it (e.g. from `node_modules`). The `importContext` option can be used to set the first context for resolving imports. A common use of this is to resolve imports inside a [page bundle][].
 
 ```go-html-template
 {{ $common := resources.Match "/js/headlessui/*.*" }}
 {{ $importContext := (slice $.Page ($common.Mount "/js/headlessui" ".")) }}
 ```
 
-You can pass any object that implements [Resource.Get](/methods/page/resources/#get). Pass a slice to set multiple contexts.
+You can pass any object that implements [`Resource.Get`][]. Pass a slice to set multiple contexts.
 
 The example above uses [`Resources.Mount`][] to resolve a directory inside `assets` relative to the page bundle.
 
@@ -243,7 +243,7 @@ The `Build` method returns an object with the following structure:
 
 Each [`Resource`][] will be of media type `application/javascript` or `text/css`.
 
-In a template you would typically handle one group with a given `ID` (e.g. scripts for the current section). Because of the concurrent build, this needs to be done in a [`templates.Defer`][] block:
+In a template you would typically handle one group with a given `ID` (e.g., scripts for the current section). Because of the concurrent build, this needs to be done in a [`templates.Defer`][] block:
 
 > [!note]
 > The [`templates.Defer`][] acts as a synchronisation point to handle scripts added concurrently by different templates. If you have a setup with where the batch is created in one go (in one template), you don't need it.
@@ -271,7 +271,7 @@ In a template you would typically handle one group with a given `ID` (e.g. scrip
 
 ## Known Issues
 
-In the official documentation for the [`esbuild`][] [code splitting][] feature, there's a warning note in the header. The two issues are:
+In the official documentation for the `esbuild` [code splitting][] feature, there's a warning note in the header. The two issues are:
 
 - `esm` is currently the only implemented output format. This means that it will not work for very old browsers. See [caniuse](https://caniuse.com/?search=ESM).
 - There's a known import ordering issue.
@@ -281,7 +281,7 @@ We have not seen the ordering issue as a problem during our [extensive testing](
 1. Undefined execution order of imports, see [this comment](https://github.com/evanw/esbuild/issues/399#issuecomment-1458680887)
 1. Only one execution order of imports, see [this comment](https://github.com/evanw/esbuild/issues/399#issuecomment-735355932)
 
-Many would say that both of the above are [code smells][]. The first one has a simple workaround in Hugo. Define the import order in its own script and make sure it gets passed early to [`esbuild`][], e.g. by putting it in a script group with a name that comes early in the alphabet.
+Many would say that both of the above are [code smells][]. The first one has a simple workaround in Hugo. Define the import order in its own script and make sure it gets passed early to `esbuild`, e.g., by putting it in a script group with a name that comes early in the alphabet.
 
 ```js
 import './lib2.js';
@@ -298,12 +298,11 @@ console.log('entrypoints-workaround.js');
 [Script]: #script
 [SetOptions]: #optionssetter
 [`Resource`]: /methods/resource/
+[`Resource.Get`]: /methods/page/resources/#get
 [`Resources.Mount`]: /methods/page/resources/#mount
 [`Resources`]: /methods/page/resources/
-[`esbuild`]: https://github.com/evanw/esbuild
 [`evanw/esbuild`]: https://github.com/evanw/esbuild
 [`templates.Defer`]: /functions/templates/defer/
-[assets]: /hugo-pipes/introduction/#asset-directory
 [build options]: #build-options
 [code smells]: https://en.wikipedia.org/wiki/Code_smell
 [code splitting]: https://esbuild.github.io/api/#splitting
