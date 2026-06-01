@@ -1273,25 +1273,30 @@ config:
   imaging:
     anchor: smart
     avif:
+      compression: lossy
       encoderSpeed: 10
+      hint: photo
+      quality: 60
     bgColor: ffffff
-    compression: lossy
     exif:
       disableDate: false
       disableLatLong: false
       excludeFields: GPS|Exif|Exposure[M|P|B]|Contrast|Resolution|Sharp|JPEG|Metering|Sensing|Saturation|ColorSpace|Flash|WhiteBalance
       includeFields: ''
+    jpeg:
+      quality: 75
     meta:
       fields:
       - '! *{GPS,Exif,Exposure[MPB],Contrast,Resolution,Sharp,JPEG,Metering,Sensing,Saturation,ColorSpace,Flash,WhiteBalance}*'
       sources:
       - exif
       - iptc
-    quality: 75
     resampleFilter: box
     webp:
+      compression: lossy
       hint: photo
       method: 2
+      quality: 75
       useSharpYuv: false
   languages:
     en:
@@ -2321,7 +2326,6 @@ tpl:
           Dictionary creates a new map from the given parameters by
           treating values as key-value pairs.  The number of values must be even.
           The keys can be string slices, which will create the needed nested structure.
-          If no values are provided, nil will be returned.
         Examples: []
       First:
         Aliases:

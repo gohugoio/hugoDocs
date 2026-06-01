@@ -146,12 +146,12 @@ With `hugo serve`r running, this change will trigger a configuration reload and 
 
 {{% glossary-term "workspace" %}}
 
-Workspaces simplify local development of sites with modules. Create a `.work` file to define a workspace, and activate it via the [`workspace`][] configuration parameter or the `HUGO_MODULE_WORKSPACE` environment variable.
+Workspaces simplify local development of sites with modules. Create a `.work` file to define a workspace, and activate it via the [`workspace`][] configuration setting or the `HUGO_MODULE_WORKSPACE` environment variable.
 
 A `.work` file example:
 
 ```text
-go 1.25
+go 1.26
 
 use .
 use ../my-hugo-module

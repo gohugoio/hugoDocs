@@ -9,7 +9,7 @@ aliases: [/hugo-modules/configuration/]
 
 {{% include "/_common/gomodules-info.md" %}}
 
-## Top-level options
+## Top-level settings
 
 This is the default configuration:
 

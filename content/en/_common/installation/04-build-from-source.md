@@ -7,7 +7,7 @@ _comment: Do not remove front matter.
 To build Hugo from source you must install:
 
 1. [Git][]
-1. [Go][] version 1.25.0 or later
+1. [Go][] version {{% current-go-version %}} or later
 
 ### Standard edition
 

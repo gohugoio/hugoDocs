@@ -213,7 +213,7 @@ Access taxonomy terms from a template using the [`Params`][] or [`GetTerms`][] m
 > [!note]
   > For multilingual projects, defining cascade values in your project configuration is often more efficient. This avoids repeating the same cascade values for each language. See [details][].
 
-A [node](g) can cascade front matter values to its descendants. However, this cascading will be prevented if the descendant already defines the field, or if a closer ancestor node has already cascaded a value for that same field.
+A [branch](g) can cascade front matter values to its descendants. However, this cascading will be prevented if the descendant already defines the field, or if a closer ancestor branch has already cascaded a value for that same field.
 
 For example, to cascade the `color` page parameter from the home page to all its descendants:
 

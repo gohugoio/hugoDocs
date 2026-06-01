@@ -9,7 +9,7 @@ keywords: []
 > [!note]
 > This configuration is only relevant when running `hugo deploy`. See [details][hugo deploy].
 
-## Top-level options
+## Top-level settings
 
 These settings control the overall behavior of the deployment process. This is the default configuration:
 
