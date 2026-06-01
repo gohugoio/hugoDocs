@@ -43,6 +43,7 @@ Commercial commenting systems:
 
 - [Commentix](https://www.commentix.com/)
 - [Emote](https://emote.com/)
+- [FastComments](https://fastcomments.com/commenting-system-for-hugo) (dedicated Hugo plugin)
 - [Graph Comment](https://graphcomment.com/)
 - [Hyvor Talk](https://talk.hyvor.com/)
 - [IntenseDebate](https://intensedebate.com/)
