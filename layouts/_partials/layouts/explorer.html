@@ -4,9 +4,6 @@
 	id="explorer"
 	class="overflow-x-hidden w-54"
 	x-data="explorer"
-	data-turbo-permanent
-	@turbo:load.window="onLoad()"
-	@turbo:before-render.window="onBeforeRender()"
 	x-cloak>
 	<ul class="w-full">
 		{{ $root := site.GetPage "/" }}

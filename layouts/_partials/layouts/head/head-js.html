@@ -6,6 +6,3 @@
 {{ with resources.Get "js/main.js" | js.Build $opts }}
 	{{ partial "helpers/linkjs.html" (dict "r" . "attributes" (dict "defer" "")) }}
 {{ end }}
-{{ with resources.Get "js/turbo.js" | js.Build $opts }}
-	{{ partial "helpers/linkjs.html" (dict "r" . "attributes" (dict "defer" "")) }}
-{{ end }}

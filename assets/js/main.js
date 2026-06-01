@@ -2,7 +2,6 @@ import Alpine from 'alpinejs';
 import { registerMagics } from './alpinejs/magics/index';
 import { navbar, search, toc } from './alpinejs/data/index';
 import { navStore, initColorScheme } from './alpinejs/stores/index';
-import { bridgeTurboAndAlpine } from './helpers/index';
 import persist from '@alpinejs/persist';
 import focus from '@alpinejs/focus';
 
@@ -42,40 +41,4 @@ var debug = 0 ? console.log.bind(console, '[index]') : function () {};
 
 	// Start AlpineJS.
 	Alpine.start();
-
-	// Start the Turbo-Alpine bridge.
-	bridgeTurboAndAlpine(Alpine);
-
-	{
-		let containerScrollTops = {};
-
-		// To preserve scroll position in scrolling elements on navigation add data-turbo-preserve-scroll-container="somename" to the scrolling container.
-		addEventListener('turbo:click', () => {
-			document.querySelectorAll('[data-turbo-preserve-scroll-container]').forEach((el2) => {
-				containerScrollTops[el2.dataset.turboPreserveScrollContainer] = el2.scrollTop;
-			});
-		});
-
-		addEventListener('turbo:render', () => {
-			document.querySelectorAll('[data-turbo-preserve-scroll-container]').forEach((ele) => {
-				const containerScrollTop = containerScrollTops[ele.dataset.turboPreserveScrollContainer];
-				if (containerScrollTop) {
-					ele.scrollTop = containerScrollTop;
-				} else {
-					let els = ele.querySelectorAll('.scroll-active');
-					if (els.length) {
-						els.forEach((el) => {
-							// Avoid scrolling if el is already in view.
-							if (el.offsetTop >= ele.scrollTop && el.offsetTop <= ele.scrollTop + ele.clientHeight) {
-								return;
-							}
-							ele.scrollTop = el.offsetTop - ele.offsetTop;
-						});
-					}
-				}
-			});
-
-			containerScrollTops = {};
-		});
-	}
 })();
