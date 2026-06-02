@@ -128,6 +128,8 @@ source = 'static'
 target = 'assets'
 {{< /code-toggle >}}
 
+When using `hugo server`, do not fingerprint CSS or JavaScript in development. To preserve LiveReload, conditionally fingerprint these resources only outside of development mode. See&nbsp;[`hugo.IsDevelopment`](/functions/hugo/isdevelopment/).
+
 Note that the embedded image render hook does not perform image processing. Its sole purpose is to resolve Markdown image destinations.
 
 {{% include "/_common/render-hooks/pageinner.md" %}}

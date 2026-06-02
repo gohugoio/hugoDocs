@@ -106,4 +106,6 @@ source = 'static'
 target = 'assets'
 {{< /code-toggle >}}
 
+When using `hugo server`, do not fingerprint CSS or JavaScript in development. To preserve LiveReload, conditionally fingerprint these resources only outside of development mode. See&nbsp;[`hugo.IsDevelopment`](/functions/hugo/isdevelopment/).
+
 [source code]: <{{% eturl figure %}}>
