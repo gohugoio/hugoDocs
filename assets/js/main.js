@@ -43,4 +43,15 @@ var debug = 0 ? console.log.bind(console, '[index]') : function () {};
 
 	// Start AlpineJS.
 	Alpine.start();
+
+	// On cross-document navigation the browser snapshots the current page for
+	// the view transition. An open overlay (e.g. the search modal) would
+	// otherwise linger in that outgoing snapshot while the page crossfades.
+	// `pageswap` runs right before the snapshot is taken, so hide such
+	// elements here to make them disappear instantly on navigation.
+	window.addEventListener('pageswap', () => {
+		document.querySelectorAll('[data-hide-on-navigate]').forEach((el) => {
+			el.classList.add('hidden');
+		});
+	});
 })();
