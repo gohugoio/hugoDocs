@@ -1,9 +1,10 @@
 import Alpine from 'alpinejs';
 import { registerMagics } from './alpinejs/magics/index';
 import { navbar, search, toc } from './alpinejs/data/index';
-import { navStore, initColorScheme } from './alpinejs/stores/index';
+import { navStore } from './alpinejs/stores/index';
 import persist from '@alpinejs/persist';
 import focus from '@alpinejs/focus';
+import * as params from '@params';
 
 var debug = 0 ? console.log.bind(console, '[index]') : function () {};
 
@@ -27,6 +28,7 @@ var debug = 0 ? console.log.bind(console, '[index]') : function () {};
 			index: 'hugodocs',
 			app_id: 'D1BPLZHGYQ',
 			api_key: '6df94e1e5d55d258c56f60d974d10314',
+			params: params,
 		};
 
 		Alpine.data('navbar', () => navbar(Alpine));
