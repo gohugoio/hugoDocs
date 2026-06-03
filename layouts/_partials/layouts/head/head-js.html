@@ -1,7 +1,7 @@
 {{ $githubInfo := partialCached "helpers/funcs/get-github-info.html" . "-" }}
 {{ $opts := dict "minify" true "params" (dict "isServer" hugo.IsServer) }}
 {{ with resources.Get "js/head-early.js" | js.Build $opts }}
-	{{ partial "helpers/linkjs.html" (dict "r" . "attributes" (dict "async" "")) }}
+	<script>{{ .Content | safeJS }}</script>
 {{ end }}
 {{ with resources.Get "js/main.js" | js.Build $opts }}
 	{{ partial "helpers/linkjs.html" (dict "r" . "attributes" (dict "defer" "")) }}
