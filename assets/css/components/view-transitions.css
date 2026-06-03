@@ -22,13 +22,3 @@
 ::view-transition-new(site-footer) {
   animation: none;
 }
-
-::view-transition-old(qr),
-::view-transition-new(qr) {
-  animation-duration: 800ms;
-  animation-delay: 250ms;
-}
-
-.view-transition-qr {
-  view-transition-name: qr;
-}
