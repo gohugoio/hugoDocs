@@ -46,7 +46,7 @@ The WebPageTest results are looking good. The speed index is 456, 10x smaller th
 
 ![WebPageTest results](hartwell-webpagetest.png)
 
-[TestMySite.io](https://testmysite.io/5a7e1bb2df99531a23c9ad2f/hartwell-insurance.com) is return ~2ms time to first byte from the CDN edge nodes. Lighthouse audits are also very promising. There's still some improvement to be gained lazy-loading the images and inlining the CSS. I'm less excited about the [second suggestion](http://www.trysmudford.com/css-in-2017/), but I'll certainly look at some lazy-loading, especially as I'm already using `IntersectionObserver` for some animations.
+[TestMySite.io](https://testmysite.io/5a7e1bb2df99531a23c9ad2f/hartwell-insurance.com) returns ~2ms time to first byte from the CDN edge nodes. Lighthouse audits are also very promising. There's still some improvement to be gained lazy-loading the images and inlining the CSS. I'm less excited about the [second suggestion](http://www.trysmudford.com/css-in-2017/), but I'll certainly look at some lazy-loading, especially as I'm already using `IntersectionObserver` for some animations.
 
 ![Lighthouse results](hartwell-lighthouse.png)
 
