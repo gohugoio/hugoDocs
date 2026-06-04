@@ -7,7 +7,7 @@ keywords: []
 ---
 
 > [!note]
-> This configuration is only relevant when running `hugo deploy`. See&nbsp;[details](/host-and-deploy/deploy-with-hugo-deploy/).
+> This configuration is only relevant when running `hugo deploy`. See [details][hugo deploy].
 
 ## Top-level options
 
@@ -76,13 +76,13 @@ A Matcher represents a configuration to be applied to files whose paths match
 the specified pattern.
 
 `cacheControl`
-: (`string`) The caching attributes to use when serving the blob. See&nbsp;[details][cacheControl].
+: (`string`) The caching attributes to use when serving the blob. See [details][cacheControl].
 
 `contentEncoding`
-: (`string`) The encoding used for the blob's content, if any. See&nbsp;[details][contentEncoding].
+: (`string`) The encoding used for the blob's content, if any. See [details][contentEncoding].
 
 `contentType`
-: (`string`) The media type of the blob being written. See&nbsp;[details][contentType].
+: (`string`) The media type of the blob being written. See [details][contentType].
 
 `force`
 : (`bool`) Whether matching files should be re-uploaded. Useful when other route-determined metadata (e.g., `contentType`) has changed. Default is `false`.
@@ -92,10 +92,6 @@ the specified pattern.
 
 `pattern`
 : (`string`) A [regular expression](g) used to match paths. Paths are converted to use forward slashes (`/`) before matching.
-
-[cacheControl]: https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Cache-Control
-[contentEncoding]: https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Content-Encoding
-[contentType]: https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Content-Type
 
 ## Destination URLs
 
@@ -113,13 +109,9 @@ gs://my-bucket?prefix=a/subdirectory
 
 You can also to deploy to storage servers compatible with Amazon S3 such as:
 
-- [Ceph]
-- [MinIO]
-- [SeaweedFS]
-
-[Ceph]: https://ceph.com/
-[Minio]: https://www.minio.io/
-[SeaweedFS]: https://github.com/chrislusf/seaweedfs
+- [Ceph][]
+- [MinIO][]
+- [SeaweedFS][]
 
 For example, the `url` for a MinIO deployment target might resemble this:
 
@@ -157,3 +149,11 @@ s3://my-bucket?endpoint=https://my.minio.instance&awssdk=v2&use_path_style=true&
     exclude = '**.{heic,psd}'
     name = 'staging'
 {{< /code-toggle >}}
+
+[Ceph]: https://ceph.com/
+[MinIO]: https://www.minio.io/
+[SeaweedFS]: https://github.com/chrislusf/seaweedfs
+[cacheControl]: https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Cache-Control
+[contentEncoding]: https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Content-Encoding
+[contentType]: https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Content-Type
+[hugo deploy]: /host-and-deploy/deploy-with-hugo-deploy/

@@ -8,14 +8,14 @@ The method or function used to create the data structure determines its scope. F
 
 Scope|Method or function
 :--|:--
-page|[`PAGE.Store`]
-site|[`SITE.Store`]
-global|[`hugo.Store`]
-local|[`collections.NewScratch`]
-shortcode|[`SHORTCODE.Store`]
+page|[`PAGE.Store`][]
+site|[`SITE.Store`][]
+global|[`hugo.Store`][]
+local|[`collections.NewScratch`][]
+shortcode|[`SHORTCODE.Store`][]
 
-[`page.store`]: /methods/page/store
-[`site.store`]: /methods/site/store
-[`hugo.store`]: /functions/hugo/store
-[`collections.newscratch`]: functions/collections/newscratch
-[`shortcode.store`]: /methods/shortcode/store
+[`PAGE.Store`]: /methods/page/store/
+[`SHORTCODE.Store`]: /methods/shortcode/store/
+[`SITE.Store`]: /methods/site/store/
+[`collections.NewScratch`]: /functions/collections/newscratch/
+[`hugo.Store`]: /functions/hugo/store/

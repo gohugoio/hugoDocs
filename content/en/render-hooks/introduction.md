@@ -76,7 +76,6 @@ layouts/
 
 The remaining pages in this section describe each type of render hook, including examples and the context received by each template.
 
-[content formats]: /content-management/formats/
 [Blockquotes]: /render-hooks/blockquotes/
 [Code blocks]: /render-hooks/code-blocks/
 [Headings]: /render-hooks/headings/
@@ -84,3 +83,4 @@ The remaining pages in this section describe each type of render hook, including
 [Links]: /render-hooks/links/
 [Passthrough elements]: /render-hooks/passthrough/
 [Tables]: /render-hooks/tables/
+[content formats]: /content-management/formats/

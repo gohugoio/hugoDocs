@@ -9,7 +9,7 @@ params:
     signatures: [RESOURCE.Data]
 ---
 
-The `Data` method on a resource returned by the [`resources.GetRemote`] function returns information from the HTTP response.
+The `Data` method on a resource returned by the [`resources.GetRemote`][] function returns information from the HTTP response.
 
 ## Example
 
@@ -45,7 +45,7 @@ Use these methods on the `Data` object.
 : (`string`) The content type.
 
 `Headers`
-: (`map[string][]string`) A map of response headers matching those requested in the [`responseHeaders`] option passed to the `resources.GetRemote` function. The header name matching is case-insensitive. In most cases there will be one value per header key.
+: (`map[string][]string`) A map of response headers matching those requested in the [`responseHeaders`][] option passed to the `resources.GetRemote` function. The header name matching is case-insensitive. In most cases there will be one value per header key.
 
 `Status`
 : (`string`) The HTTP status text.

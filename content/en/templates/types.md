@@ -388,7 +388,7 @@ Use other specialized templates to create:
 
 [404 error pages]: /templates/404/
 [RSS feeds]: /templates/rss/
-[Sitemaps]: /templates/sitemap
+[Sitemaps]: /templates/sitemap/
 [`Alphabetical`]: /methods/taxonomy/alphabetical/
 [`ByCount`]: /methods/taxonomy/bycount/
 [`Data`]: /methods/page/data/

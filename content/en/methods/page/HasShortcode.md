@@ -9,9 +9,7 @@ params:
     signatures: [PAGE.HasShortcode NAME]
 ---
 
-By example, let's use [Plotly] to render a chart:
-
-[Plotly]: https://plotly.com/javascript/
+By example, let's use [Plotly][] to render a chart:
 
 ```text {file="content/example.md"}
 {{</* plotly */>}}
@@ -48,3 +46,5 @@ Now we can selectively load the required JavaScript on pages that call the "plot
   ...
 </head>
 ```
+
+[Plotly]: https://plotly.com/javascript/

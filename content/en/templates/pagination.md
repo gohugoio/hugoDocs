@@ -236,6 +236,6 @@ public/
 [`Paginate`]: /methods/page/paginate/
 [`Paginator`]: /methods/page/paginator/
 [`partial`]: /functions/partials/include/
-[configure pagination]: /configuration/pagination
+[configure pagination]: /configuration/pagination/
 [grouping methods]: /quick-reference/page-collections/#group
 [source code]: <{{% eturl pagination %}}>

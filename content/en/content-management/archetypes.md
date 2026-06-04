@@ -69,13 +69,13 @@ Archetypes receive the following [context](g):
 : (`string`) The current date and time, formatted in compliance with RFC3339.
 
 `File`
-: (`hugolib.fileInfo`) Returns file information for the current page. See&nbsp;[details](/methods/page/file).
+: (`hugolib.fileInfo`) Returns [file information][] for the current page.
 
 `Type`
 : (`string`) The [content type](g) inferred from the top-level directory name, or as specified by the `--kind` flag passed to the `hugo new content` command.
 
 `Site`
-: (`page.Site`) The current site object. See&nbsp;[details](/methods/site/).
+: (`page.Site`) The current site object.
 
 ## Date format
 
@@ -185,3 +185,4 @@ hugo new content --kind tutorials articles/something.md
 
 [`strings.Replace`]: /functions/strings/replace/
 [`time.Now`]: /functions/time/now/
+[file information]: /methods/page/file/

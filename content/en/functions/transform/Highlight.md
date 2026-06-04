@@ -11,7 +11,7 @@ params:
 aliases: [/functions/highlight]
 ---
 
-The `transform.Highlight` function uses the [`alecthomas/chroma`][] package to generate syntax-highlighted HTML from the provided code, [language][], and [options][].
+The `transform.Highlight` function uses the [`alecthomas/chroma`][] package to generate syntax-highlighted HTML from the provided code, [language][], and [options](#options-1).
 
 ## Arguments
 
@@ -58,5 +58,4 @@ The `transform.Highlight` function uses the [`alecthomas/chroma`][] package to g
 
 [`alecthomas/chroma`]: https://github.com/alecthomas/chroma
 [language]: /content-management/syntax-highlighting#languages
-[options]: #options-1
 [project configuration]: /configuration/markup#highlight

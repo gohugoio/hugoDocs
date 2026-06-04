@@ -317,8 +317,8 @@ You can use the `HasShortcode` method in your base template to conditionally loa
 </head>
 ```
 
-[`collections.IsSet`]: /functions/collections/isset/
-[`compare.Conditional`]: /functions/compare/conditional/
+[GitHub]: https://github.com/gohugoio/hugo/tree/master/tpl/tplimpl/embedded/templates/_shortcodes
+[Markdown notation]: /content-management/shortcodes/#markdown-notation
 [`Get`]: /methods/shortcode/get/
 [`HasShortcode`]: /methods/page/hasshortcode/
 [`Inner`]: /methods/shortcode/inner/
@@ -328,12 +328,12 @@ You can use the `HasShortcode` method in your base template to conditionally loa
 [`Parent`]: /methods/shortcode/parent/
 [`Position`]: /methods/shortcode/position/
 [`RenderString`]: /methods/page/renderstring/
+[`collections.IsSet`]: /functions/collections/isset/
+[`compare.Conditional`]: /functions/compare/conditional/
 [`with`]: /functions/go-template/with/
 [content management]: /content-management/shortcodes/
 [embedded shortcodes]: /shortcodes/
-[GitHub]: https://github.com/gohugoio/hugo/tree/master/tpl/tplimpl/embedded/templates/_shortcodes
 [introduction to templating]: /templates/introduction/
-[Markdown notation]: /content-management/shortcodes/#markdown-notation
 [named or positional]: /content-management/shortcodes/#arguments
 [shortcodes]: /content-management/shortcodes/
 [standard notation]: /content-management/shortcodes/#standard-notation

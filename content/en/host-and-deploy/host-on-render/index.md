@@ -17,7 +17,7 @@ Please complete the following tasks before continuing:
 1. [Create](https://github.com/signup) a GitHub account
 1. [Log in](https://github.com/login) to your GitHub account
 1. [Create](https://github.com/new) a GitHub repository for your project
-1. [Create](https://git-scm.com/docs/git-init) a local Git repository for your project with a [remote](https://git-scm.com/docs/git-remote) reference to your GitHub repository
+1. [Create](https://git-scm.com/docs/git-init) a local Git repository for your project with a [remote][] reference to your GitHub repository
 1. Create a Hugo project within your local Git repository and test it with the `hugo server` command
 
 ## Procedure
@@ -183,3 +183,4 @@ In the future, whenever you push a change from your local Git repository, Render
 
 [Render Blueprint]: https://render.com/docs/blueprint-spec
 [dashboard]: https://dashboard.render.com/
+[remote]: https://git-scm.com/docs/git-remote

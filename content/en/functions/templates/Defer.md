@@ -16,9 +16,6 @@ aliases: [/functions/templates.defer]
 
 In some rare use cases, you may need to defer the execution of a template until after all sites and output formats have been rendered. One such example could be [css.TailwindCSS][] using the output of [`hugo_stats.json`][] to determine which classes and other HTML identifiers are being used in the final output:
 
-[css.TailwindCSS]: /functions/css/tailwindcss/
-[`hugo_stats.json`]: /configuration/build/
-
 ```go-html-template {file="layouts/baseof.html" copy=true}
 <head>
   ...
@@ -95,6 +92,8 @@ I18n Outside: {{ i18n "hello" }}
 
 The [output format][], [site][], and [language][] will be the same, even if the execution is deferred. In the example above, this means that the `site.Language.Name` and `.RelPermalink` will be the same on the inside and the outside of the deferred template.
 
+[`hugo_stats.json`]: /configuration/build/
+[css.TailwindCSS]: /functions/css/tailwindcss/
 [language]: /methods/site/language/
 [output format]: /configuration/output-formats/
 [site]: /methods/page/site/

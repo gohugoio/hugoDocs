@@ -77,7 +77,7 @@ Use these methods on the `File` object.
   ```
 
 `IsContentAdapter`
-: (`bool`) Reports whether the file is a [content adapter].
+: (`bool`) Reports whether the file is a [content adapter][].
 
   ```go-html-template
   {{ with .File }}

@@ -37,19 +37,19 @@ See the documentation for the [`Data`][] method on a `Site` object for details a
 
 Use the `resources.Get` and `transform.Unmarshal` functions to access data files that exist as global resources.
 
-See the [`transform.Unmarshal`](/functions/transform/unmarshal/#global-resource) documentation for details and examples.
+See the [`transform.Unmarshal`][global-resource] documentation for details and examples.
 
 ## Page resources
 
 Use the `Resources.Get` method on a `Page` object combined with the `transform.Unmarshal` function to access data files that exist as page resources.
 
-See the [`transform.Unmarshal`](/functions/transform/unmarshal/#page-resource) documentation for details and examples.
+See the [`transform.Unmarshal`][page-resource] documentation for details and examples.
 
 ## Remote resources
 
 Use the `resources.GetRemote` and `transform.Unmarshal` functions to access remote data.
 
-See the [`transform.Unmarshal`](/functions/transform/unmarshal/#remote-resource) documentation for details and examples.
+See the [`transform.Unmarshal`][remote-resource] documentation for details and examples.
 
 ## Augment existing content
 
@@ -109,3 +109,6 @@ Use [content adapters][] to create new content.
 
 [`Data`]: /methods/site/data/
 [content adapters]: /content-management/content-adapters/
+[global-resource]: /functions/transform/unmarshal/#global-resource
+[page-resource]: /functions/transform/unmarshal/#page-resource
+[remote-resource]: /functions/transform/unmarshal/#remote-resource

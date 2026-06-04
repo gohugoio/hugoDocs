@@ -9,7 +9,7 @@ keywords: []
 {{< new-in 0.141.0 />}}
 
 > [!note]
-> To override Hugo's embedded `x` shortcode, copy the [source code] to a file with the same name in the `layouts/_shortcodes` directory.
+> To override Hugo's embedded `x` shortcode, copy the [source code][] to a file with the same name in the `layouts/_shortcodes` directory.
 
 ## Example
 
@@ -44,7 +44,7 @@ Adjust the relevant privacy settings in your project configuration.
 `simple`
 : (`bool`) Whether to enable simple mode. If `true`, Hugo builds a static version of the of the post without JavaScript. Default is `false`.
 
-The source code for the simple version of the shortcode is available [in this file].
+The source code for the simple version of the shortcode is available [in this file][].
 
 If you enable simple mode you may want to disable the hardcoded inline styles by setting `disableInlineCSS` to `true` in your project configuration. The default value for this setting is `false`.
 

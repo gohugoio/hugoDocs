@@ -9,7 +9,7 @@ aliases: [/overview/usage/,/extras/livereload/,/doc/usage/,/usage/]
 
 ## Test your installation
 
-After [installing] Hugo, test your installation by running:
+After [installing][] Hugo, test your installation by running:
 
 ```sh
 hugo version
@@ -37,7 +37,7 @@ To build your project, `cd` into your project directory and run:
 hugo build
 ```
 
-The [`hugo build`] command builds your project, publishing the files to the `public` directory. To publish your project to a different directory, use the [`--destination`] flag or set [`publishDir`] in your project configuration.
+The [`hugo build`][] command builds your project, publishing the files to the `public` directory. To publish your project to a different directory, use the [`--destination`][] flag or set [`publishDir`][] in your project configuration.
 
 > [!note]
 > Hugo does not clear the `public` directory before building your project. Existing files are overwritten, but not deleted. This behavior is intentional to prevent the inadvertent removal of files that you may have added to the `public` directory after the build.
@@ -46,7 +46,7 @@ The [`hugo build`] command builds your project, publishing the files to the `pub
 
 ## Draft, future, and expired content
 
-Hugo allows you to set `draft`, `date`, `publishDate`, and `expiryDate` in the [front matter] of your content. By default, Hugo will not publish content when:
+Hugo allows you to set `draft`, `date`, `publishDate`, and `expiryDate` in the [front matter][] of your content. By default, Hugo will not publish content when:
 
 - The `draft` value is `true`
 - The `date` is in the future
@@ -54,7 +54,7 @@ Hugo allows you to set `draft`, `date`, `publishDate`, and `expiryDate` in the [
 - The `expiryDate` is in the past
 
 > [!note]
-> Hugo publishes descendants of draft, future, and expired [node](g) pages. To prevent publication of these descendants, use the [`cascade`] front matter field to cascade [build options] to the descendant pages.
+> Hugo publishes descendants of draft, future, and expired [node](g) pages. To prevent publication of these descendants, use the [`cascade`][] front matter field to cascade [build options][] to the descendant pages.
 
 You can override the default behavior when running `hugo build` or `hugo server` with command line flags:
 
@@ -79,13 +79,13 @@ To view your site while developing layouts or creating content, `cd` into your p
 hugo server
 ```
 
-The [`hugo server`] command builds your site and serves your pages using a minimal HTTP server. When you run `hugo server` it will display the URL of your local site:
+The [`hugo server`][] command builds your site and serves your pages using a minimal HTTP server. When you run `hugo server` it will display the URL of your local site:
 
 ```text
 Web Server is available at http://localhost:1313/ 
 ```
 
-While the server is running, it watches your project directory for changes to assets, configuration, content, data, layouts, translations, and static files. When it detects a change, the server rebuilds your site and refreshes your browser using [LiveReload].
+While the server is running, it watches your project directory for changes to assets, configuration, content, data, layouts, translations, and static files. When it detects a change, the server rebuilds your site and refreshes your browser using [LiveReload][].
 
 Most Hugo builds are so fast that you may not notice the change unless you are looking directly at your browser.
 
@@ -134,17 +134,17 @@ public/
 
 In a simple hosting environment, where you typically `ftp`, `rsync`, or `scp` your files to the root of a virtual host, the contents of the `public` directory are all that you need.
 
-Most of our users deploy their sites to a [CI/CD](g) platform, where a push[^1] to their remote Git repository triggers a build and deployment. Learn more in the [host and deploy] section.
+Most of our users deploy their sites to a [CI/CD](g) platform, where a push[^1] to their remote Git repository triggers a build and deployment. Learn more in the [host and deploy][] section.
 
 [^1]: The Git repository contains the entire project directory, typically excluding the `public` directory because the site is built _after_ the push.
 
+[LiveReload]: https://github.com/livereload/livereload-js
 [`--destination`]: /commands/hugo/#options
 [`cascade`]: /content-management/front-matter/#cascade
-[`hugo server`]: /commands/hugo_server/
 [`hugo build`]: /commands/hugo/
+[`hugo server`]: /commands/hugo_server/
 [`publishDir`]: /configuration/all/#publishdir
 [build options]: /content-management/build-options/
 [front matter]: /content-management/front-matter/
 [host and deploy]: /host-and-deploy/
 [installing]: /installation/
-[LiveReload]: https://github.com/livereload/livereload-js

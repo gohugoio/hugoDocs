@@ -187,6 +187,8 @@ Imported modules automatically mount their component directories to Hugo's [unif
 
 See [configuring module mounts][] for details.
 
+[Git]: https://git-scm.com/book/en/v2/Getting-Started-Installing-Git
+[Go]: https://go.dev/doc/install
 [`cacheDir`]: /configuration/all/#cachedir
 [`go.mod`]: https://go.dev/ref/mod#go-mod-file
 [`go.sum`]: https://go.dev/ref/mod#go-sum-files
@@ -195,6 +197,4 @@ See [configuring module mounts][] for details.
 [configuring file caches]: /configuration/caches/
 [configuring module imports]: /configuration/module/#imports
 [configuring module mounts]: /configuration/module/#mounts
-[Git]: https://git-scm.com/book/en/v2/Getting-Started-Installing-Git
-[Go]: https://go.dev/doc/install
 [merge configuration settings]: /configuration/introduction/#merge-configuration-settings

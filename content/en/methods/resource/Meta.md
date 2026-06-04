@@ -13,7 +13,7 @@ params:
 
 {{% include "/_common/methods/resource/global-page-remote-resources.md" %}}
 
-The `Meta` method on an image `Resource` object returns an object containing [Exif][Exif_Definition], [IPTC][IPTC_Definition], and [XMP][XMP_Definition] metadata.
+The `Meta` method on an image `Resource` object returns an object containing [Exif][], [IPTC][], and [XMP][] metadata.
 
 While Hugo classifies many file types as images, only certain formats support metadata extraction. Supported formats include AVIF, BMP, GIF, HEIC, HEIF, JPEG, PNG, TIFF, and WebP.
 
@@ -94,11 +94,11 @@ To list the creation date, latitude, longitude, and orientation:
 
 {{% include "/_common/functions/reflect/image-reflection-functions.md" %}}
 
+[Exif]: https://en.wikipedia.org/wiki/Exif
+[IPTC]: https://en.wikipedia.org/wiki/IPTC_Information_Interchange_Model
+[XMP]: https://en.wikipedia.org/wiki/Extensible_Metadata_Platform
 [`fields`]: /configuration/imaging/#fields
 [`images.AutoOrient`]: /functions/images/autoorient/
 [`reflect.IsImageResourceWithMeta`]: /functions/reflect/isimageresourcewithmeta/
 [`sources`]: /configuration/imaging/#sources
 [`time.Format`]: /functions/time/format/
-[Exif_Definition]: https://en.wikipedia.org/wiki/Exif
-[IPTC_Definition]: https://en.wikipedia.org/wiki/IPTC_Information_Interchange_Model
-[XMP_Definition]: https://en.wikipedia.org/wiki/Extensible_Metadata_Platform

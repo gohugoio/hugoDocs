@@ -24,6 +24,6 @@ In most contexts Go's [`html/template`][] package will escape special characters
 {{ htmlUnescape "Lilo &amp; Stitch" | safeHTML }}
 ```
 
-[`safehtml`]: /functions/safe/html/
-[html entities]: https://developer.mozilla.org/en-US/docs/Glossary/Entity
+[HTML entities]: https://developer.mozilla.org/en-US/docs/Glossary/Entity
 [`html/template`]: https://pkg.go.dev/html/template
+[`safeHTML`]: /functions/safe/html/

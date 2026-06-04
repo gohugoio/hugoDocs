@@ -70,7 +70,7 @@ Use these methods on the `Resources` object.
   {{ $importContext := (slice $.Page ($common.Mount "/js/headlessui" ".")) }}
   ```
 
-  This method is currently only useful in [js.Batch](/functions/js/batch/#import-context).
+  This method is currently only useful in [js.Batch][].
 
 ## Pattern matching
 
@@ -84,4 +84,5 @@ With the `GetMatch` and `Match` methods, Hugo determines a match using a case-in
 [`resources.Get`]: /functions/resources/ByType/
 [`resources.Match`]: /functions/resources/ByType/
 [`resources`]: /functions/resources/
+[js.Batch]: /functions/js/batch/#import-context
 [media type]: https://en.wikipedia.org/wiki/Media_type

@@ -20,7 +20,7 @@ The collection may be a slice, a map, or an integer.
 {{ end }}
 ```
 
-Use with the [`else`] statement:
+Use with the [`else`][] statement:
 
 ```go-html-template
 {{ $s := slice "foo" "bar" "baz" }}
@@ -33,12 +33,12 @@ Use with the [`else`] statement:
 
 Within a range block:
 
-- Use the [`continue`] statement to stop the innermost iteration and continue to the next iteration
-- Use the [`break`] statement to stop the innermost iteration and bypass all remaining iterations
+- Use the [`continue`][] statement to stop the innermost iteration and continue to the next iteration
+- Use the [`break`][] statement to stop the innermost iteration and bypass all remaining iterations
 
 ## Understanding context
 
-See the [context] section in the introduction to templating.
+See the [context][] section in the introduction to templating.
 
 For example, at the top of a _page_ template, the [context](g) (the dot) is a `Page` object. Within the `range` block, the context is bound to each successive element.
 

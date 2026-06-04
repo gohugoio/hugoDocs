@@ -6,20 +6,18 @@ keywords: []
 weight: 40
 ---
 
-Hugo Modules that need Node packages (e.g. for Tailwind CSS) can declare those dependencies in a standard `package.json` at the module root. Hugo consolidates dependencies from all modules into an [npm workspace], so you only need a single `npm install` at the project level.
-
-[npm workspace]: https://docs.npmjs.com/cli/using-npm/workspaces
+Hugo Modules that need Node packages (e.g. for Tailwind CSS) can declare those dependencies in a standard `package.json` at the module root. Hugo consolidates dependencies from all modules into an [npm workspace][], so you only need a single `npm install` at the project level.
 
 ## Declaring dependencies
 
 Each Hugo Module declares its Node dependencies in a `package.json` file in its root directory, using the standard `dependencies` and `devDependencies` fields.
 
 > [!note]
-> We improved this setup greatly in Hugo [v0.159.0](https://github.com/gohugoio/hugo/releases/tag/v0.159.0), but we kept the old `package.hugo.json` in the search path. Mostly to preserve as much backward compatibility as possible, but it may also be useful in some situations to reserve a separate set of Node dependencies for Hugo.
+> We improved this setup greatly in Hugo [v0.159.0][], but we kept the old `package.hugo.json` in the search path. Mostly to preserve as much backward compatibility as possible, but it may also be useful in some situations to reserve a separate set of Node dependencies for Hugo.
 
 ## Consolidating with `hugo mod npm pack`
 
-Run [`hugo mod npm pack`] to collect Node dependencies from all modules and write them to `packages/hugoautogen/package.json`. Hugo also adds a `workspaces` entry to your project's root `package.json` pointing to this auto-generated package.
+Run [`hugo mod npm pack`][] to collect Node dependencies from all modules and write them to `packages/hugoautogen/package.json`. Hugo also adds a `workspaces` entry to your project's root `package.json` pointing to this auto-generated package.
 
 The resulting project structure:
 
@@ -48,4 +46,6 @@ WARN  npm dependencies are out of sync, please run "hugo mod npm pack" (you may 
 
 This ensures you don't forget to re-run `hugo mod npm pack` after updating module versions.
 
-[`hugo mod npm pack`]: /commands/hugo_mod_npm_pack
+[`hugo mod npm pack`]: /commands/hugo_mod_npm_pack/
+[npm workspace]: https://docs.npmjs.com/cli/using-npm/workspaces
+[v0.159.0]: https://github.com/gohugoio/hugo/releases/tag/v0.159.0

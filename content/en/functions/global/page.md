@@ -79,7 +79,7 @@ Do not use the global `page` function in:
 
 - Shortcodes
 - Partials called by shortcodes
-- Partials cached by the [`partialCached`] function
+- Partials cached by the [`partialCached`][] function
 
 Hugo caches rendered shortcodes. If you use the global `page` function within a shortcode, and the page content is rendered in two or more templates, the cached shortcode may be incorrect.
 
@@ -92,9 +92,9 @@ Consider this _section_ template:
 {{ end }}
 ```
 
-When you call the [`Summary`] method, Hugo renders the page content including shortcodes. In this case, within a shortcode, the global `page` function accesses the `Page` object of the section page, not the content page.
+When you call the [`Summary`][] method, Hugo renders the page content including shortcodes. In this case, within a shortcode, the global `page` function accesses the `Page` object of the section page, not the content page.
 
 If Hugo renders the section page before a content page, the cached rendered shortcode will be incorrect. You cannot control the rendering sequence due to concurrency.
 
-[`partialCached`]: /functions/partials/includecached/
 [`Summary`]: /methods/page/summary/
+[`partialCached`]: /functions/partials/includecached/

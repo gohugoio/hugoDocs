@@ -44,6 +44,6 @@ This contrived example demonstrates how to iterate through resources and use the
 {{ end }}
 ```
 
-[`reflect.IsImageResource`]: /functions/reflect/isimageresource/
 [`reflect.IsImageResourceProcessable`]: /functions/reflect/isimageresourceprocessable/
 [`reflect.IsImageResourceWithMeta`]: /functions/reflect/isimageresourcewithmeta/
+[`reflect.IsImageResource`]: /functions/reflect/isimageresource/

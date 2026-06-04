@@ -13,7 +13,7 @@ Each element of the slice provides these methods:
 : (`page.Page`) Returns the term's `Page` object, useful for linking to the term page.
 
 `Pages`
-: (`page.Pages`) Returns a `Pages` object containing the `Page` objects to which the term is assigned, sorted by [taxonomic weight](g). To sort or group, use any of the [methods] available to the `Pages` object. For example, sort by the last modification date.
+: (`page.Pages`) Returns a `Pages` object containing the `Page` objects to which the term is assigned, sorted by [taxonomic weight](g). To sort or group, use any of the [methods][] available to the `Pages` object. For example, sort by the last modification date.
 
 `Term`
 : (`string`) Returns the term name.

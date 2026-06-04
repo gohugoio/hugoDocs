@@ -62,9 +62,7 @@ This is an example of **strong text** <!--more--> in a sentence. This is another
 This is another paragraph.
 ```
 
-When using the Emacs Org Mode [content format], use a `# more` divider to indicate the end of the summary.
-
-[content format]: /content-management/formats/
+When using the Emacs Org Mode [content format][], use a `# more` divider to indicate the end of the summary.
 
 ## Front matter summary
 
@@ -84,9 +82,7 @@ This is the second paragraph.
 
 ## Automatic summary
 
-If you do not define the summary manually or in front matter, Hugo automatically defines the summary based on the [`summaryLength`] in your project configuration.
-
-[`summaryLength`]: /configuration/all/#summarylength
+If you do not define the summary manually or in front matter, Hugo automatically defines the summary based on the [`summaryLength`][] in your project configuration.
 
 ```text {file="content/example.md"}
 +++
@@ -109,7 +105,7 @@ For example, with a `summaryLength` of 7, the automatic summary will be:
 ```
 
 > [!warning]
-> Automatic `.Summary` may cut block tags (e.g., `blockquote`) in the middle when `summaryLength` is reached, causing the browser to recover the end tag (the end tag will be inserted before the parent's end tag), resulting in unexpected rendering behavior. To avoid this, wrap `.Summary` in a `<div>`; alternatively, wrap it together with the heading tag using `<section>`. You can avoid this entirely by using a manual summary. See issue [#14044] for details.
+> Automatic `.Summary` may cut block tags (e.g., `blockquote`) in the middle when `summaryLength` is reached, causing the browser to recover the end tag (the end tag will be inserted before the parent's end tag), resulting in unexpected rendering behavior. To avoid this, wrap `.Summary` in a `<div>`; alternatively, wrap it together with the heading tag using `<section>`. You can avoid this entirely by using a manual summary. See issue [#14044][] for details.
 
 ## Comparison
 
@@ -123,9 +119,7 @@ Automatic|3|:heavy_check_mark:|:heavy_check_mark:|:heavy_check_mark:
 
 ## Rendering
 
-Render the summary in a template by calling the [`Summary`] method on a `Page` object.
-
-[`Summary`]: /methods/page/summary
+Render the summary in a template by calling the [`Summary`][] method on a `Page` object.
 
 ```go-html-template
 {{ range site.RegularPages }}
@@ -141,9 +135,7 @@ Render the summary in a template by calling the [`Summary`] method on a `Page` o
 
 ## Alternative
 
-Instead of calling the `Summary` method on a `Page` object, use the [`strings.Truncate`] function for granular control of the summary length. For example:
-
-[`strings.Truncate`]: /functions/strings/truncate/
+Instead of calling the `Summary` method on a `Page` object, use the [`strings.Truncate`][] function for granular control of the summary length. For example:
 
 ```go-html-template
 {{ range site.RegularPages }}
@@ -155,3 +147,7 @@ Instead of calling the `Summary` method on a `Page` object, use the [`strings.Tr
 ```
 
 [#14044]: https://github.com/gohugoio/hugo/issues/14044
+[`Summary`]: /methods/page/summary/
+[`strings.Truncate`]: /functions/strings/truncate/
+[`summaryLength`]: /configuration/all/#summarylength
+[content format]: /content-management/formats/

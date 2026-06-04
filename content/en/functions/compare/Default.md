@@ -19,7 +19,7 @@ The `default` function returns the second argument if set, else the first argume
 >
 > Everything else is truthy.
 >
-> To set a default value based on truthiness, use the [`or`] operator instead.
+> To set a default value based on truthiness, use the [`or`][] operator instead.
 
 The `default` function returns the second argument if set:
 

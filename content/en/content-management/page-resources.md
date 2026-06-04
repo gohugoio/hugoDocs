@@ -33,10 +33,10 @@ content
 
 Use any of these methods on a `Page` object to capture page resources:
 
-- [`Resources.ByType`]
-- [`Resources.Get`]
-- [`Resources.GetMatch`]
-- [`Resources.Match`]
+- [`Resources.ByType`][]
+- [`Resources.Get`][]
+- [`Resources.GetMatch`][]
+- [`Resources.Match`][]
 
  Once you have captured a resource, use any of the applicable [`Resource`][] methods to return a value or perform an action.
 
@@ -113,10 +113,10 @@ The page resources' metadata is managed from the corresponding page's front matt
 : (`string`) Required. A [glob pattern](g) matching one or more page resources by file path, relative to the page bundle. Matching is case-insensitive. When the pattern matches multiple resources, the same metadata is applied to each.
 
 `name`
-: (`string`) Sets the value returned by [`Name`]. Supports the [`:counter`][] placeholder. After assignment, use `name`, not the original file path, with [`Resources.Get`][], [`Resources.Match`][], and [`Resources.GetMatch`][].
+: (`string`) Sets the value returned by [`Name`][]. Supports the [`:counter`](#the-counter-placeholder-in-name-and-title) placeholder. After assignment, use `name`, not the original file path, with [`Resources.Get`][], [`Resources.Match`][], and [`Resources.GetMatch`][].
 
 `title`
-: (`string`) Sets the value returned by [`Title`][]. Supports the [`:counter`][] placeholder.
+: (`string`) Sets the value returned by [`Title`][]. Supports the [`:counter`](#the-counter-placeholder-in-name-and-title) placeholder.
 
 `params`
 : (`map`) A map of custom key-value pairs. When multiple array entries match the same resource, their `params` maps are merged; later entries take precedence for duplicate keys.
@@ -270,7 +270,7 @@ This approach reduces build times, storage requirements, bandwidth consumption, 
 >
 > In its default configuration, Hugo automatically uses the [embedded link render hook][] and the [embedded image render hook][] for multilingual single-host projects, specifically when the [duplication of shared page resources][] feature is disabled. This is the default behavior for such projects. If custom link or image render hooks are defined by your project, modules, or themes, these will be used instead.
 >
-> You can also configure Hugo to `always` use the embedded link or image render hook, use it only as a `fallback`, or `never` use it. See&nbsp;[details][].
+> You can also configure Hugo to `always` use the embedded link or image render hook, use it only as a `fallback`, or `never` use it. See [details][].
 
 Although duplicating shared page resources is inefficient, you can enable this feature in your project configuration if desired:
 
@@ -279,10 +279,9 @@ Although duplicating shared page resources is inefficient, you can enable this f
 duplicateResourceFiles = true
 {{< /code-toggle >}}
 
-[`:counter`]: #the-counter-placeholder-in-name-and-title
 [`Name`]: /methods/resource/name/
 [`RelPermalink`]: /methods/resource/relpermalink/
-[`Resource`]: /methods/resource
+[`Resource`]: /methods/resource/
 [`Resources.ByType`]: /methods/page/resources#bytype
 [`Resources.GetMatch`]: /methods/page/resources#getmatch
 [`Resources.Get`]: /methods/page/resources/#get
@@ -293,4 +292,4 @@ duplicateResourceFiles = true
 [duplication of shared page resources]: /configuration/markup/#duplicateresourcefiles
 [embedded image render hook]: /render-hooks/images/#embedded
 [embedded link render hook]: /render-hooks/links/#embedded
-[page bundles]: /content-management/page-bundles
+[page bundles]: /content-management/page-bundles/

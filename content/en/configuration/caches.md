@@ -46,16 +46,18 @@ Hugo uses file caches to store data on disk, avoiding repeated operations within
 ## Tokens
 
 `:cacheDir`
-: (`string`) The designated cache directory. See [details](/configuration/all/#cachedir).
+: (`string`) The designated cache directory. See [details][cachedir].
 
 `:project`
 : (`string`) The base directory name of the current Hugo project. This ensures isolated file caches for each project, preventing the `hugo build --gc` command from affecting other projects on the same machine.
 
 `:resourceDir`
-: (`string`) The designated directory for caching output from [asset pipelines](g). See [details](/configuration/all/#resourcedir).
+: (`string`) The designated directory for caching output from [asset pipelines](g). See [details][resourcedir].
 
 ## Garbage collection
 
 As you modify your site or change your configuration, cached files from previous builds may remain on disk, consuming unnecessary space. Use the `hugo build --gc` command to remove these expired or unused entries from the file cache.
 
 [`resources.GetRemote`]: /functions/resources/getremote/
+[cachedir]: /configuration/all/#cachedir
+[resourcedir]: /configuration/all/#resourcedir

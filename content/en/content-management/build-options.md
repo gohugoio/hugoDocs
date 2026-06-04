@@ -6,13 +6,7 @@ keywords: []
 aliases: [/content/build-options/]
 ---
 
-<!-- TODO
-We deprecated the `_build` front matter key in favor of `build` in v0.145.0 on 2025-02-26. Remove footnote #1 on or after 2026-05-26 (15 months after deprecation).
--->
-
-Build options are stored in a reserved front matter object named `build`[^1] with these defaults:
-
-[^1]: The `_build` alias for `build` is deprecated and will be removed in a future release.
+Build options are stored in a reserved front matter object named `build` with these defaults:
 
 {{< code-toggle file=content/example/index.md fm=true >}}
 [build]
@@ -29,10 +23,10 @@ render = 'always'
   - `never`: Do not include the page in _any_ page collection.
 
 `publishResources`
-: Applicable to [page bundles], determines whether to publish the associated [page resources]. Specify one of:
+: Applicable to [page bundles][], determines whether to publish the associated [page resources][]. Specify one of:
 
   - `true`: Always publish resources. This is the default value.
-  - `false`: Only publish a resource when invoking its [`Permalink`], [`RelPermalink`], or [`Publish`] method within a template.
+  - `false`: Only publish a resource when invoking its [`Permalink`][], [`RelPermalink`][], or [`Publish`][] method within a template.
 
 `render`
 : When to render the page. Specify one of:
@@ -42,7 +36,7 @@ render = 'always'
   - `never`: Never render the page to disk, and exclude it from all page collections.
 
 > [!note]
-> Any page, regardless of its build options, will always be available by using the [`.Page.GetPage`] or [`.Site.GetPage`] method.
+> Any page, regardless of its build options, will always be available by using the [`.Page.GetPage`][] or [`.Site.GetPage`][] method.
 
 ## Example -- headless page
 
@@ -91,7 +85,7 @@ public/
 In the example above, note that:
 
 1. Hugo did not publish an HTML file for the page.
-1. Despite setting `publishResources` to `false` in front matter, Hugo published the [page resources] because we invoked the [`RelPermalink`] method on each resource. This is the expected behavior.
+1. Despite setting `publishResources` to `false` in front matter, Hugo published the [page resources][] because we invoked the [`RelPermalink`][] method on each resource. This is the expected behavior.
 
 ## Example -- headless section
 
@@ -155,7 +149,7 @@ public/
 In the example above, note that:
 
 1. Hugo did not publish an HTML file for the page.
-1. Despite setting `publishResources` to `false` in front matter, Hugo correctly published the [page resources] because we invoked the [`RelPermalink`] method on each resource. This is the expected behavior.
+1. Despite setting `publishResources` to `false` in front matter, Hugo correctly published the [page resources][] because we invoked the [`RelPermalink`][] method on each resource. This is the expected behavior.
 
 ## Example -- list without publishing
 

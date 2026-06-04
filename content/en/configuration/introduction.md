@@ -59,7 +59,7 @@ hugo build --config a.toml,b.yaml,c.json
 ```
 
 > [!note]
-> See the specifications for each file format: [TOML], [YAML], and [JSON].
+> See the specifications for each file format: [TOML][], [YAML][], and [JSON][].
 
 ## Configuration directory
 
@@ -157,7 +157,7 @@ my-project/
 
 Considering the structure above, when running `hugo build --environment staging`, Hugo will use every setting from `config/_default` and merge `staging`'s on top of those.
 
-Let's take an example to understand this better. Let's say you are using Google Analytics for your website. This requires you to specify a [Google tag ID] in your project configuration:
+Let's take an example to understand this better. Let's say you are using Google Analytics for your website. This requires you to specify a [Google tag ID][] in your project configuration:
 
 {{< code-toggle file=hugo >}}
 [services.googleAnalytics]
@@ -259,7 +259,7 @@ export HUGO_ENVIRONMENT=staging
 hugo
 ```
 
-The above sets the [`baseURL`], [`enableGitInfo`], and [`environment`] configuration options and then builds your site.
+The above sets the [`baseURL`][], [`enableGitInfo`][], and [`environment`][] configuration options and then builds your site.
 
 > [!note]
 > An environment variable takes precedence over the values set in the configuration file. This means that if you set a configuration value with both an environment variable and in the configuration file, the value in the environment variable will be used.
@@ -271,7 +271,7 @@ Environment variables simplify configuration for [CI/CD](g) platforms by allowin
 >
 > To set custom site parameters, prefix the name with `HUGO_PARAMS_`.
 
-For snake_case variable names, the standard `HUGO_` prefix won't work. Hugo infers the delimiter from the first character following `HUGO`. This allows for variations like `HUGOxPARAMSxAPI_KEY=abcdefgh` using any [permitted delimiter].
+For snake_case variable names, the standard `HUGO_` prefix won't work. Hugo infers the delimiter from the first character following `HUGO`. This allows for variations like `HUGOxPARAMSxAPI_KEY=abcdefgh` using any [permitted delimiter][].
 
 In addition to configuring standard settings, environment variables may be used to override default values for certain internal settings:
 
@@ -307,11 +307,11 @@ Display the configured file mounts with:
 hugo config mounts
 ```
 
+[Google tag ID]: https://support.google.com/tagmanager/answer/12326985?hl=en
+[JSON]: https://datatracker.ietf.org/doc/html/rfc7159
+[TOML]: https://toml.io/en/latest
+[YAML]: https://yaml.org/spec/
 [`baseURL`]: /configuration/all#baseurl
 [`enableGitInfo`]: /configuration/all#enablegitinfo
 [`environment`]: /configuration/all#environment
-[Google tag ID]: https://support.google.com/tagmanager/answer/12326985?hl=en
-[JSON]: https://datatracker.ietf.org/doc/html/rfc7159
 [permitted delimiter]: https://pubs.opengroup.org/onlinepubs/000095399/basedefs/xbd_chap08.html
-[TOML]: https://toml.io/en/latest
-[YAML]: https://yaml.org/spec/

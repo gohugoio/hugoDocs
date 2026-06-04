@@ -23,7 +23,7 @@ These components are passed into the render hook [context](g) as shown below.
 Image _render hook_ templates receive the following context:
 
 `Attributes`
-: (`map`) The [Markdown attributes], available if you configure your site as follows:
+: (`map`) The [Markdown attributes][], available if you configure your site as follows:
 
   {{< code-toggle file=hugo >}}
   [markup.goldmark.parser]
@@ -46,7 +46,7 @@ Image _render hook_ templates receive the following context:
 : (`page`) A reference to the current page.
 
 `PageInner`
-: (`page`) A reference to a page nested via the [`RenderShortcodes`] method. [See details](#pageinner-details).
+: (`page`) A reference to a page nested via the [`RenderShortcodes`][] method. [See details](#pageinner-details).
 
 `PlainText`
 : (`string`) The image description as plain text.
@@ -66,7 +66,7 @@ Image _render hook_ templates receive the following context:
 > [!note]
 > With inline elements such as images and links, remove leading and trailing whitespace using the `{{‑ ‑}}` delimiter notation to prevent whitespace between adjacent inline elements and text.
 
-In its default configuration, Hugo renders Markdown images according to the [CommonMark specification]. To create a render hook that does the same thing:
+In its default configuration, Hugo renders Markdown images according to the [CommonMark specification][]. To create a render hook that does the same thing:
 
 ```go-html-template {file="layouts/_markup/render-image.html" copy=true}
 <img src="{{ .Destination | safeURL }}"
@@ -103,16 +103,16 @@ wrapStandAloneImageWithinParagraph = false
 
 ## Embedded
 
-Hugo includes an [embedded image render hook] to resolve Markdown image destinations. You can adjust its behavior in your project configuration. This is the default setting:
+Hugo includes an [embedded image render hook][] to resolve Markdown image destinations. You can adjust its behavior in your project configuration. This is the default setting:
 
 {{< code-toggle file=hugo >}}
 [markup.goldmark.renderHooks.image]
 useEmbedded = 'auto'
 {{< /code-toggle >}}
 
-When set to `auto` as shown above, Hugo automatically uses the embedded image render hook for multilingual single-host projects, specifically when the [duplication of shared page resources] feature is disabled. This is the default behavior for such projects. If custom image render hooks are defined by your project, modules, or themes, these will be used instead.
+When set to `auto` as shown above, Hugo automatically uses the embedded image render hook for multilingual single-host projects, specifically when the [duplication of shared page resources][] feature is disabled. This is the default behavior for such projects. If custom image render hooks are defined by your project, modules, or themes, these will be used instead.
 
-You can also configure Hugo to `always` use the embedded image render hook, use it only as a `fallback`, or `never` use it. See&nbsp;[details](/configuration/markup/#renderhooksimageuseembedded).
+You can also configure Hugo to `always` use the embedded image render hook, use it only as a `fallback`, or `never` use it. See [details][].
 
 The embedded image render hook resolves internal Markdown destinations by looking for a matching [page resource](g), falling back to a matching [global resource](g). Remote destinations are passed through, and the render hook will not throw an error or warning if unable to resolve a destination.
 
@@ -132,8 +132,9 @@ Note that the embedded image render hook does not perform image processing. Its 
 
 {{% include "/_common/render-hooks/pageinner.md" %}}
 
-[`RenderShortcodes`]: /methods/page/rendershortcodes
 [CommonMark specification]: https://spec.commonmark.org/current/
+[Markdown attributes]: /content-management/markdown-attributes/
+[`RenderShortcodes`]: /methods/page/rendershortcodes/
+[details]: /configuration/markup/#renderhooksimageuseembedded
 [duplication of shared page resources]: /configuration/markup/#duplicateresourcefiles
 [embedded image render hook]: <{{% eturl render-image %}}>
-[Markdown attributes]: /content-management/markdown-attributes/

@@ -85,16 +85,16 @@ Hugo renders this to:
 
 In most cases, place the attribute list beneath the markup element. For headings and fenced code blocks, place the attribute list on the right.
 
-Element|Position of attribute list
-:--|:--
-blockquote|bottom
-fenced code block|right
-heading|right
-horizontal rule|bottom
-image|bottom
-list|bottom
-paragraph|bottom
-table|bottom
+Element           | Position of attribute list
+:-----------------|:--------------------------
+blockquote        | bottom
+fenced code block | right
+heading           | right
+horizontal rule   | bottom
+image             | bottom
+list              | bottom
+paragraph         | bottom
+table             | bottom
 
 For example:
 
@@ -113,7 +113,7 @@ This is a paragraph.
 As shown above, the attribute list for fenced code blocks is not limited to HTML attributes. You can also configure syntax highlighting by passing one or more of [these options][option].
 
 [CommonMark specification]: https://spec.commonmark.org/current/
-[global HTML attributes]: https://developer.mozilla.org/en-US/docs/Web/HTML/Global_attributes
 [Goldmark]: https://github.com/yuin/goldmark
-[render hook templates]: /render-hooks/introduction/
+[global HTML attributes]: https://developer.mozilla.org/en-US/docs/Web/HTML/Global_attributes
 [option]: /functions/transform/highlight/#options
+[render hook templates]: /render-hooks/introduction/

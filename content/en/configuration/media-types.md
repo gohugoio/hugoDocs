@@ -56,7 +56,7 @@ suffixes = ['atom']
 
 ## Media types without suffixes
 
-Occasionally, you may need to create a media type without a suffix or delimiter. For example, [Netlify] recognizes configuration files named `_redirects` and `_headers`, which Hugo can generate using custom [output formats](g).
+Occasionally, you may need to create a media type without a suffix or delimiter. For example, [Netlify][] recognizes configuration files named `_redirects` and `_headers`, which Hugo can generate using custom [output formats](g).
 
 To support these custom output formats, register a custom media type with no suffix or delimiter:
 

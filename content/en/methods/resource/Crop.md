@@ -11,7 +11,7 @@ params:
 
 {{% include "/_common/methods/resource/global-page-remote-resources.md" %}}
 
-The `Crop` method returns a new resource from a [processable image](g) according to the given [processing specification][].
+The `Crop` method returns a new resource from a [processable image](g) according to the given [processing specification](#processing-specification).
 
 > [!note]
 > Use the [`reflect.IsImageResourceProcessable`][] function to verify that an image can be processed.
@@ -51,4 +51,3 @@ In the example above, `"200x200 TopRight"` is the processing specification.
 >}}
 
 [`reflect.IsImageResourceProcessable`]: /functions/reflect/isimageresourceprocessable/
-[processing specification]: #processing-specification

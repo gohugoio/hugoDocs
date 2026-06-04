@@ -274,19 +274,17 @@ If you have been using Embedded Dart Sass[^1] with Hugo v0.113.0 and earlier, un
 
 If you install Hugo as a [Snap package][] there is no need to install Dart Sass. The Hugo Snap package includes Dart Sass.
 
-[^1]: In 2023, the Sass team deprecated Embedded Dart Sass in favor of Dart Sass.
-
 ### Installing in a development environment
 
 When you install Dart Sass somewhere in your PATH, Hugo will find it.
 
-OS|Package manager|Site|Installation
-:--|:--|:--|:--
-Linux|Homebrew|[brew.sh]|`brew install sass/sass/sass`
-Linux|Snap|[snapcraft.io]|`sudo snap install dart-sass`
-macOS|Homebrew|[brew.sh]|`brew install sass/sass/sass`
-Windows|Chocolatey|[chocolatey.org]|`choco install sass`
-Windows|Scoop|[scoop.sh]|`scoop install sass`
+OS      | Package manager | Site               | Installation
+:-------|:----------------|:-------------------|:-----------------------------
+Linux   | Homebrew        | [brew.sh][]        | `brew install sass/sass/sass`
+Linux   | Snap            | [snapcraft.io][]   | `sudo snap install dart-sass`
+macOS   | Homebrew        | [brew.sh][]        | `brew install sass/sass/sass`
+Windows | Chocolatey      | [chocolatey.org][] | `choco install sass`
+Windows | Scoop           | [scoop.sh][]       | `scoop install sass`
 
 You may also install [prebuilt binaries][] for Linux, macOS, and Windows. You must install the prebuilt binary outside of your project directory and ensure its path is included in your system's PATH environment variable.
 
@@ -316,25 +314,27 @@ For examples of how to install Dart Sass in a production environment, see these 
 - [SourceHut][]
 - [Vercel][]
 
+[^1]: In 2023, the Sass team deprecated Embedded Dart Sass in favor of Dart Sass.
+
+[Cloudflare]: /host-and-deploy/host-on-cloudflare/
+[Dart Sass]: https://sass-lang.com/dart-sass/
+[GitHub Pages]: /host-and-deploy/host-on-github-pages/
+[GitLab Pages]: /host-and-deploy/host-on-gitlab-pages/
+[LibSass]: https://sass-lang.com/libsass
+[Netlify]: /host-and-deploy/host-on-netlify/
+[Render]: /host-and-deploy/host-on-render/
+[SCSS]: https://sass-lang.com/documentation/syntax#scss
+[Snap package]: https://snapcraft.io/hugo
+[SourceHut]: /host-and-deploy/host-on-sourcehut-pages/
+[Vercel]: /host-and-deploy/host-on-vercel/
 [`css.Quoted`]: /functions/css/quoted/
 [`css.Unquoted`]: /functions/css/unquoted/
 [`publishDir`]: /configuration/all/#publishdir
 [`useResourceCacheWhen`]: /configuration/build/#useresourcecachewhen
 [brew.sh]: https://brew.sh/
 [chocolatey.org]: https://community.chocolatey.org/packages/sass
-[Cloudflare]: /host-and-deploy/host-on-cloudflare/
-[Dart Sass]: https://sass-lang.com/dart-sass/
-[GitHub Pages]: /host-and-deploy/host-on-github-pages/
-[GitLab Pages]: /host-and-deploy/host-on-gitlab-pages/
 [indented]: https://sass-lang.com/documentation/syntax#the-indented-syntax
-[LibSass]: https://sass-lang.com/libsass
-[Netlify]: /host-and-deploy/host-on-netlify/
 [prebuilt binaries]: https://github.com/sass/dart-sass/releases/latest
-[Render]: /host-and-deploy/host-on-render/
 [scoop.sh]: https://scoop.sh/#/apps?q=sass
-[SCSS]: https://sass-lang.com/documentation/syntax#scss
-[Snap package]: https://snapcraft.io/hugo
 [snapcraft.io]: https://snapcraft.io/dart-sass
-[SourceHut]: /host-and-deploy/host-on-sourcehut-pages/
 [v0.153.0]: https://github.com/gohugoio/hugo/releases/tag/v0.153.0
-[Vercel]: /host-and-deploy/host-on-vercel/

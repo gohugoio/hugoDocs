@@ -32,6 +32,6 @@ Base|Implements basic shared functionality
 CommonMark|Implements Markdown according to the [Commonmark Spec][]
 Table|Implements tables according to the [GitHub Flavored Markdown Spec][]
 
-[`html-to-markdown`]: https://github.com/JohannesKaufmann/html-to-markdown?tab=readme-ov-file#readme
 [Commonmark Spec]: https://spec.commonmark.org/current/
 [GitHub Flavored Markdown Spec]: https://github.github.com/gfm/
+[`html-to-markdown`]: https://github.com/JohannesKaufmann/html-to-markdown?tab=readme-ov-file#readme

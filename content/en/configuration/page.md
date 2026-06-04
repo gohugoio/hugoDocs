@@ -40,5 +40,5 @@ To reverse the meaning of _next_ and _previous_:
 [`Next`]: /methods/page/next/
 [`PrevInSection`]: /methods/page/previnsection/
 [`Prev`]: /methods/page/prev/
-[next-pages]: /methods/pages/next
-[prev-pages]: /methods/pages/prev
+[next-pages]: /methods/pages/next/
+[prev-pages]: /methods/pages/prev/

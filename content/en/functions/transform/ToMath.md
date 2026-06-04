@@ -99,8 +99,6 @@ Instead of client-side JavaScript rendering of mathematical markup using MathJax
 Step 1
 : Enable and configure the Goldmark [passthrough extension][] in your project configuration. The passthrough extension preserves raw Markdown within delimited snippets of text, including the delimiters themselves.
 
-[passthrough extension]: /configuration/markup/#passthrough
-
   {{< code-toggle file=hugo copy=true >}}
   [markup.goldmark.extensions.passthrough]
   enable = true
@@ -114,8 +112,6 @@ Step 1
 
 Step 2
 : Create a [passthrough render hook][] to capture and render the LaTeX markup.4
-
-[passthrough render hook]: /render-hooks/passthrough/
 
   ```go-html-template {file="layouts/_markup/render-passthrough.html" copy=true}
   {{- $opts := dict "output" "htmlAndMathml" "displayMode" (eq .Type "block") }}
@@ -191,4 +187,6 @@ $$C_p[\ce{H2O(l)}] = \pu{75.3 J // mol K}$$
 [`Summary`]: /methods/page/summary/
 [`mhchem`]: https://mhchem.github.io/MathJax-mhchem/
 [hexadecimal color]: https://developer.mozilla.org/en-US/docs/Web/CSS/hex-color
+[passthrough extension]: /configuration/markup/#passthrough
+[passthrough render hook]: /render-hooks/passthrough/
 [rendering options]: https://katex.org/docs/options.html

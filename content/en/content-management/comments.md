@@ -41,29 +41,47 @@ To render it, add the following code where you want comments to appear:
 
 Commercial commenting systems:
 
-- [Commentix](https://www.commentix.com/)
-- [Emote](https://emote.com/)
-- [FastComments](https://fastcomments.com/commenting-system-for-hugo) (dedicated Hugo plugin)
-- [Graph Comment](https://graphcomment.com/)
-- [Hyvor Talk](https://talk.hyvor.com/)
-- [IntenseDebate](https://intensedebate.com/)
-- [ReplyBox](https://getreplybox.com/)
+- [Commentix][]
+- [Emote][]
+- [FastComments][]
+- [Graph Comment][]
+- [Hyvor Talk][]
+- [IntenseDebate][]
+- [ReplyBox][]
 
 Open-source commenting systems:
 
-- [Cactus Comments](https://cactus.chat/docs/integrations/hugo/)
-- [Comentario](https://gitlab.com/comentario/comentario/)
-- [Comma](https://github.com/Dieterbe/comma/)
-- [Discourse](https://meta.discourse.org/t/embed-discourse-comments-on-another-website-via-javascript/31963)
-- [Giscus](https://giscus.app/)
-- [Isso](https://isso-comments.de/)
-- [Remark42](https://remark42.com/)
-- [Staticman](https://staticman.net/)
-- [Talkyard](https://blog-comments.talkyard.io/)
-- [Utterances](https://utteranc.es/)
-- [Zoomment](https://zoomment.com/)
+- [Cactus Comments][]
+- [Comentario][]
+- [Comma][]
+- [Discourse][]
+- [Giscus][]
+- [Isso][]
+- [Remark42][]
+- [Staticman][]
+- [Talkyard][]
+- [Utterances][]
+- [Zoomment][]
 
+[Cactus Comments]: https://cactus.chat/docs/integrations/hugo/
+[Comentario]: https://gitlab.com/comentario/comentario/
+[Comma]: https://github.com/Dieterbe/comma/
+[Commentix]: https://www.commentix.com/
+[Discourse]: https://meta.discourse.org/t/embed-discourse-comments-on-another-website-via-javascript/31963
 [Disqus]: https://disqus.com/
+[Emote]: https://emote.com/
+[FastComments]: https://fastcomments.com/commenting-system-for-hugo
+[Giscus]: https://giscus.app/
+[Graph Comment]: https://graphcomment.com/
+[Hyvor Talk]: https://talk.hyvor.com/
+[IntenseDebate]: https://intensedebate.com/
+[Isso]: https://isso-comments.de/
+[Remark42]: https://remark42.com/
+[ReplyBox]: https://getreplybox.com/
+[Staticman]: https://staticman.net/
+[Talkyard]: https://blog-comments.talkyard.io/
+[Utterances]: https://utteranc.es/
+[Zoomment]: https://zoomment.com/
 [configuration]: /configuration/
 [disqussetup]: https://disqus.com/profile/signup/
 [embedded partial]: /templates/embedded/#disqus

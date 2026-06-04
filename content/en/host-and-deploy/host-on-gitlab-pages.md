@@ -10,7 +10,7 @@ aliases: [/hosting-and-deployment/hosting-on-gitlab/]
 
 - Working familiarity with Git for version control
 - Completion of the Hugo [Quick Start][]
-- A [GitLab account](https://gitlab.com/users/sign_in)
+- A [GitLab account][]
 - A Hugo website on your local machine that you are ready to publish
 
 ## BaseURL
@@ -132,7 +132,9 @@ After the build has passed, your new website is available at `https://<YourUsern
 
 ## Next steps
 
-GitLab supports using custom CNAME's and TLS certificates. For more details on GitLab Pages, see the [GitLab Pages setup documentation](https://about.gitlab.com/2016/04/07/gitlab-pages-setup/).
+GitLab supports using custom CNAME's and TLS certificates. For more details on GitLab Pages, see the [GitLab Pages setup documentation][].
 
+[GitLab Pages setup documentation]: https://about.gitlab.com/2016/04/07/gitlab-pages-setup/
+[GitLab account]: https://gitlab.com/users/sign_in
 [Quick Start]: /getting-started/quick-start/
 [project configuration]: /configuration/

@@ -66,9 +66,9 @@ For global resources, local external reference paths starting with `/` are resol
 ## Inspection
 
 > [!note]
-> The unmarshaled data structure is created with [`kin-openapi`](https://github.com/getkin/kin-openapi). Many fields are structs or pointers (not maps), and therefore require accessors or other methods for indexing and iteration.
-> For example, prior to [`kin-openapi` v0.122.0](https://github.com/getkin/kin-openapi#v01220) / [Hugo v0.121.0](https://github.com/gohugoio/hugo/releases/tag/v0.121.0), `Paths` was a map (so `.Paths` was iterable) and it is now a pointer (and requires the `.Paths.Map` accessor, as in the example above).
-> See the [`kin-openapi` godoc for OpenAPI 3](https://pkg.go.dev/github.com/getkin/kin-openapi/openapi3) for full type definitions.
+> The unmarshaled data structure is created with [`kin-openapi`][]. Many fields are structs or pointers (not maps), and therefore require accessors or other methods for indexing and iteration.
+> For example, prior to [`kin-openapi` v0.122.0][] / [Hugo v0.121.0][], `Paths` was a map (so `.Paths` was iterable) and it is now a pointer (and requires the `.Paths.Map` accessor, as in the example above).
+> See the [`kin-openapi` godoc for OpenAPI 3][] for full type definitions.
 
 To inspect the unmarshaled data structure:
 
@@ -111,6 +111,10 @@ Hugo renders this to:
 </dl>
 ```
 
-[`resources.GetRemote`]: /functions/resources/getremote/#options
-[OpenAPI Document]: https://swagger.io/specification/#openapi-document
+[Hugo v0.121.0]: https://github.com/gohugoio/hugo/releases/tag/v0.121.0
 [OpenAPI Description]: https://swagger.io/specification/#openapi-description
+[OpenAPI Document]: https://swagger.io/specification/#openapi-document
+[`kin-openapi` godoc for OpenAPI 3]: https://pkg.go.dev/github.com/getkin/kin-openapi/openapi3
+[`kin-openapi` v0.122.0]: https://github.com/getkin/kin-openapi#v01220
+[`kin-openapi`]: https://github.com/getkin/kin-openapi
+[`resources.GetRemote`]: /functions/resources/getremote/#options

@@ -16,7 +16,7 @@ Please complete the following tasks before continuing:
 1. [Create](https://github.com/signup) a GitHub account
 1. [Log in](https://github.com/login) to your GitHub account
 1. [Create](https://github.com/new) a GitHub repository for your project
-1. [Create](https://git-scm.com/docs/git-init) a local Git repository for your project with a [remote](https://git-scm.com/docs/git-remote) reference to your GitHub repository
+1. [Create](https://git-scm.com/docs/git-init) a local Git repository for your project with a [remote][] reference to your GitHub repository
 1. Create a Hugo project within your local Git repository and test it with the `hugo server` command
 
 ## Procedure
@@ -135,7 +135,7 @@ Step 3
 : Commit the changes to your local Git repository and push to your GitHub repository.
 
 Step 4
-: In the upper right corner of the Cloudflare [dashboard](https://dash.cloudflare.com/), press the **Add** button and select "Workers" from the drop down menu.
+: In the upper right corner of the Cloudflare [dashboard][], press the **Add** button and select "Workers" from the drop down menu.
 
   ![screen capture](cloudflare-01.png)
 
@@ -175,3 +175,6 @@ Step 11
   ![screen capture](cloudflare-08.png)
 
 In the future, whenever you push a change from your local Git repository, Cloudflare will rebuild and deploy your site.
+
+[dashboard]: https://dash.cloudflare.com/
+[remote]: https://git-scm.com/docs/git-remote

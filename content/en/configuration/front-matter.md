@@ -17,11 +17,6 @@ Method|Description
 [`Lastmod`][]|Returns the last modification date of the given page.
 [`PublishDate`][]|Returns the publish date of the given page.
 
-[`Date`]: /methods/page/date
-[`ExpiryDate`]: /methods/page/expirydate
-[`Lastmod`]: /methods/page/lastmod
-[`PublishDate`]: /methods/page/publishdate
-
 Hugo determines the values to return based on this configuration:
 
 {{< code-toggle config=frontmatter />}}
@@ -100,6 +95,10 @@ To determine `date` and `publishDate`, Hugo tries to extract the value from the 
 
 To determine `lastmod`, Hugo looks for a `lastmod` field in front matter, falling back to the file's last modification timestamp.
 
+[`Date`]: /methods/page/date/
+[`ExpiryDate`]: /methods/page/expirydate/
+[`Lastmod`]: /methods/page/lastmod/
+[`PublishDate`]: /methods/page/publishdate/
 [`enableGitInfo`]: /configuration/all/#enablegitinfo
 [`slug`]: /content-management/front-matter/#slug
 [`timeZone`]: /configuration/all/#timezone

@@ -159,7 +159,7 @@ For example, in `page.json.json`, you'll see:
 {{ end }}
 ```
 
-To make these methods return the URL of the _current_ template's output format, you must set the [`permalinkable`][] setting to `true` for that format.
+To make these methods return the URL of the _current_ template's output format, you must set the [`permalinkable`](#permalinkable) setting to `true` for that format.
 
 With `permalinkable` set to true for `json` in the same `page.json.json` template:
 
@@ -189,12 +189,13 @@ Output format|Template path
 `rss`|`layouts/section.rss.xml`
 
 [`AlternativeOutputFormats`]: /methods/page/alternativeoutputformats/
-[`baseURL`]: /configuration/all/#baseurl
 [`OutputFormats`]: /methods/page/outputformats/
 [`Permalink`]: /methods/page/permalink/
-[`permalinkable`]: #permalinkable
-[`publishDir`]: /configuration/all/#publishdir
 [`RelPermalink`]: /methods/page/relpermalink/
+[`baseURL`]: /configuration/all/#baseurl
+[`html/template`]: https://pkg.go.dev/html/template
+[`publishDir`]: /configuration/all/#publishdir
+[`text/template`]: https://pkg.go.dev/text/template
 [`uglyURLs`]: /configuration/ugly-urls/
 [alias redirects]: /content-management/urls/#aliases
 [configure media types]: /configuration/media-types/
@@ -202,6 +203,4 @@ Output format|Template path
 [configured media types]: /configuration/media-types/
 [default media types]: /configuration/media-types/
 [embedded RSS template]: <{{% eturl rss %}}>
-[`html/template`]: https://pkg.go.dev/html/template
 [template lookup order]: /templates/lookup-order/
-[`text/template`]: https://pkg.go.dev/text/template

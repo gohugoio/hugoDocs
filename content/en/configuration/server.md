@@ -6,9 +6,7 @@ categories: []
 keywords: []
 ---
 
-These settings are exclusive to Hugo's development server, so a dedicated [configuration directory] for development, where the server is configured accordingly, is the recommended approach.
-
-[configuration directory]: /configuration/introduction/#configuration-directory
+These settings are exclusive to Hugo's development server, so a dedicated [configuration directory][] for development, where the server is configured accordingly, is the recommended approach.
 
 ```text
 project/
@@ -47,9 +45,7 @@ The development server defaults to redirecting to `/404.html` for any requests t
 
 ## Headers
 
-Include headers in every server response to facilitate testing, particularly for features like [Content Security Policies].
-
-[Content Security Policies]: https://developer.mozilla.org/en-US/docs/Web/HTTP/CSP
+Include headers in every server response to facilitate testing, particularly for features like [Content Security Policies][].
 
 {{< code-toggle file=config/development/server >}}
 [[headers]]
@@ -75,9 +71,7 @@ status = 200
 force = false
 {{< /code-toggle >}}
 
-The `200` status code in this example triggers a URL rewrite, which is typically the desired behavior for [single-page applications].
-
-[single-page applications]: https://en.wikipedia.org/wiki/Single-page_application
+The `200` status code in this example triggers a URL rewrite, which is typically the desired behavior for [single-page applications][].
 
 ## 404 errors
 
@@ -126,3 +120,7 @@ from = '/**'
 to = '/en/404.html'
 status = 404
 {{< /code-toggle >}}
+
+[Content Security Policies]: https://developer.mozilla.org/en-US/docs/Web/HTTP/CSP
+[configuration directory]: /configuration/introduction/#configuration-directory
+[single-page applications]: https://en.wikipedia.org/wiki/Single-page_application

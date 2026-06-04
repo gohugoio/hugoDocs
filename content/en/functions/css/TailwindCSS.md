@@ -17,9 +17,7 @@ Use the `css.TailwindCSS` function to process your Tailwind CSS files. This func
 1. Generate an optimized CSS output file.
 
 > [!note]
-> Use this function with Tailwind CSS v4.0 and later, which require a relatively [modern browser] to render correctly.
-
-[modern browser]: https://tailwindcss.com/docs/compatibility#browser-support
+> Use this function with Tailwind CSS v4.0 and later, which require a relatively [modern browser][] to render correctly.
 
 ## Setup
 
@@ -33,9 +31,7 @@ Step 1
   <!-- TODO: remove the admonition below somewhere after v0.172.0 -->
   
   > [!note]
-  > As of v0.161.0, Hugo no longer supports the Tailwind [standalone binary]. You must now install the Tailwind CSS CLI via `npm` as shown above.
-
-  [standalone binary]: https://github.com/tailwindlabs/tailwindcss/releases/latest
+  > As of v0.161.0, Hugo no longer supports the Tailwind [standalone binary][]. You must now install the Tailwind CSS CLI via `npm` as shown above.
 
 Step 2
 : Add this to your project configuration:
@@ -119,7 +115,7 @@ Step 5
 
 ## Inject CSS variables with `vars`
 
-The [css.Build](./Build) function has a [vars](./Build#vars) option that can be used to inject CSS variables into your stylesheets. This is particularly useful for dynamically setting values based on your site's configuration or other data. To use this with Tailwind CSS, you can use [css.Build](./Build) as a preprocessor step before passing the result to `css.TailwindCSS`. Here's how you can do it:
+The [`css.Build`][] function has a [`vars`][] option that can be used to inject CSS variables into your stylesheets. This is particularly useful for dynamically setting values based on your site's configuration or other data. To use this with Tailwind CSS, you can use `css.Build` as a preprocessor step before passing the result to `css.TailwindCSS`. Here's how you can do it:
 
 ```go-html-template
 {{ with resources.Get "css/styles.css" }}
@@ -138,3 +134,8 @@ Some notes to the above:
 
 - Marking `tailwindcss` as an external in the `css.Build` options prevents it from being processed by the build step, allowing it to be correctly handled by the Tailwind CSS CLI in the subsequent step.
 - The `disableInlineImports` option is set to `true` for the Tailwind CSS step as imports are handled by the `css.Build`.
+
+[modern browser]: https://tailwindcss.com/docs/compatibility#browser-support
+[standalone binary]: https://github.com/tailwindlabs/tailwindcss/releases/latest
+[`css.Build`]: /functions/css/build/
+[`vars`]: /functions/css/build/#vars

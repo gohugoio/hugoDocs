@@ -9,7 +9,7 @@ aliases: [/hosting-and-deployment/hosting-on-firebase/]
 ## Assumptions
 
 1. You have an account with [Firebase][signup]. (If you don't, you can sign up for free using your Google account.)
-1. You have completed the [Quick Start] or have a completed Hugo website ready for deployment.
+1. You have completed the [Quick Start][] or have a completed Hugo website ready for deployment.
 
 ## Initial setup
 
@@ -99,8 +99,9 @@ firebase deploy --token $FIREBASE_DEPLOY_TOKEN
 
 ## Reference links
 
-- [Firebase CLI Reference](https://firebase.google.com/docs/cli/#administrative_commands)
+- [Firebase CLI Reference][]
 
-[console]: https://console.firebase.google.com/
+[Firebase CLI Reference]: https://firebase.google.com/docs/cli/#administrative_commands
 [Quick Start]: /getting-started/quick-start/
+[console]: https://console.firebase.google.com/
 [signup]: https://console.firebase.google.com/

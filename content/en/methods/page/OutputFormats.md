@@ -11,7 +11,7 @@ params:
 
 {{% glossary-term "output format" %}}
 
-The `OutputFormats` method on a `Page` object returns a slice of `OutputFormat` objects, each representing one of the output formats enabled for the given page. See&nbsp;[details](/configuration/output-formats/).
+The `OutputFormats` method on a `Page` object returns a slice of `OutputFormat` objects, each representing one of the output formats enabled for the given page. See [details][].
 
 ## Methods
 
@@ -66,7 +66,8 @@ To render an anchor element pointing to the `rss` output format for the current 
 {{ end }}
 ```
 
-Please see the [link to output formats] section to understand the importance of the construct above.
+Please see the [link to output formats][] section to understand the importance of the construct above.
 
 [associated methods]: /methods/output-format/
+[details]: /configuration/output-formats/
 [link to output formats]: /configuration/output-formats/#link-to-output-formats

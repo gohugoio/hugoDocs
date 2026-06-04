@@ -9,7 +9,7 @@ aliases: [/content/multilingual/,/tutorials/create-a-multilingual-site/]
 
 ## Configuration
 
-See [configure languages](/configuration/languages/).
+See [configure languages][].
 
 ## Translate your content
 
@@ -87,8 +87,8 @@ Because paths and file names are used to handle linking, all translated pages wi
 
 To localize URLs:
 
-- For a regular page, set either [`slug`] or [`url`] in front matter
-- For a section page, set [`url`] in front matter
+- For a regular page, set either [`slug`][] or [`url`][] in front matter
+- For a section page, set [`url`][] in front matter
 
 For example, a French translation can have its own localized slug.
 
@@ -115,7 +115,7 @@ If, across the linked bundles, two or more files share the same basename, only o
 
 ## Translation of strings
 
-See the [`lang.Translate`] template function.
+See the [`lang.Translate`][] template function.
 
 ## Localization
 
@@ -162,7 +162,7 @@ English|Wednesday, November 3, 2021
 Français|mercredi 3 novembre 2021
 Deutsch|Mittwoch, 3. November 2021
 
-See [`time.Format`] for details.
+See [`time.Format`][] for details.
 
 ### Currency
 
@@ -180,7 +180,7 @@ English|$512.50
 Français|512,50 $US
 Deutsch|512,50 $
 
-See [lang.FormatCurrency] and [lang.FormatAccounting] for details.
+See [lang.FormatCurrency][] and [lang.FormatAccounting][] for details.
 
 ### Numbers
 
@@ -198,7 +198,7 @@ English|512.50
 Français|512,50
 Deutsch|512,50
 
-See [lang.FormatNumber] and [lang.FormatNumberCustom] for details.
+See [lang.FormatNumber][] and [lang.FormatNumberCustom][] for details.
 
 ### Percentages
 
@@ -216,15 +216,15 @@ English|512.50%
 Français|512,50 %
 Deutsch|512,50 %
 
-See [lang.FormatPercent] for details.
+See [lang.FormatPercent][] for details.
 
 ## Menus
 
 Localization of menu entries depends on how you define them:
 
-- When you define menu entries [automatically] using the section pages menu, you must use translation tables to localize each entry.
-- When you define menu entries in [front matter], they are already localized based on the front matter itself. If the front matter values are insufficient, use translation tables to localize each entry.
-- When you define menu entries in your [project configuration], you must create language-specific menu entries under each language key. If the names of the menu entries are insufficient, use translation tables to localize each entry.
+- When you define menu entries [automatically][] using the section pages menu, you must use translation tables to localize each entry.
+- When you define menu entries in [front matter][], they are already localized based on the front matter itself. If the front matter values are insufficient, use translation tables to localize each entry.
+- When you define menu entries in your [project configuration][], you must create language-specific menu entries under each language key. If the names of the menu entries are insufficient, use translation tables to localize each entry.
 
 ### Create language-specific menu entries
 
@@ -266,7 +266,7 @@ weight = 20
 
 #### Method 2 -- Use a configuration directory
 
-With a more complex menu structure, create a [configuration directory] and split the menu entries into multiple files, one file per language. For example:
+With a more complex menu structure, create a [configuration directory][] and split the menu entries into multiple files, one file per language. For example:
 
 ```text
 config/
@@ -300,7 +300,7 @@ weight = 20
 
 ### Use translation tables
 
-When rendering the text that appears in menu each entry, the [example menu template] does this:
+When rendering the text that appears in menu each entry, the [example menu template][] does this:
 
 ```go-html-template
 {{ or (T .Identifier) .Name | safeHTML }}
@@ -310,8 +310,8 @@ It queries the translation table for the current language using the menu entry's
 
 The `identifier` depends on how you define menu entries:
 
-- If you define the menu entry [automatically] using the section pages menu, the `identifier` is the page's `.Section`.
-- If you define the menu entry in your [project configuration] or in [front matter], set the `identifier` property to the desired value.
+- If you define the menu entry [automatically][] using the section pages menu, the `identifier` is the page's `.Section`.
+- If you define the menu entry in your [project configuration][] or in [front matter][], set the `identifier` property to the desired value.
 
 For example, if you define menu entries in project configuration:
 
@@ -380,19 +380,20 @@ hugo new content content/de/post/test.md
 
 [`absLangURL`]: /functions/urls/abslangurl/
 [`enableMissingTranslationPlaceholders`]: /configuration/all/#enablemissingtranslationplaceholders
-[`lang.Translate`]: /functions/lang/translate
+[`lang.Translate`]: /functions/lang/translate/
 [`relLangURL`]: /functions/urls/rellangurl/
 [`slug`]: /content-management/urls/#slug
 [`time.Format`]: /functions/time/format/
 [`url`]: /content-management/urls/#url
 [automatically]: /content-management/menus/#define-automatically
 [configuration directory]: /configuration/introduction/#configuration-directory
+[configure languages]: /configuration/languages/
 [example menu template]: /templates/menu/#example
 [front matter]: /content-management/menus/#define-in-front-matter
 [lang.FormatAccounting]: /functions/lang/formataccounting/
 [lang.FormatCurrency]: /functions/lang/formatcurrency/
-[lang.FormatNumber]: /functions/lang/formatnumber/
 [lang.FormatNumberCustom]: /functions/lang/formatnumbercustom/
+[lang.FormatNumber]: /functions/lang/formatnumber/
 [lang.FormatPercent]: /functions/lang/formatpercent/
 [lang.Merge]: /functions/lang/merge/
 [project configuration]: /content-management/menus/#define-in-project-configuration

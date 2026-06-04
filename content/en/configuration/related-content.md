@@ -7,7 +7,7 @@ keywords: []
 ---
 
 > [!note]
-> To understand Hugo's related content identification, please refer to the [related content] page.
+> To understand Hugo's related content identification, please refer to the [related content][] page.
 
 Hugo provides a sensible default configuration for identifying related content, but you can customize it in your project configuration, either globally or per language.
 

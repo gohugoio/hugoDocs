@@ -106,5 +106,5 @@ In the above, note that the [context](g) within the last conditional block is th
 > Hugo does not classify an HTTP response with status code 404 as an error. In this case `resources.GetRemote` returns nil.
 
 [`resources.GetRemote`]: /functions/resources/getremote/
-[template context]: /templates/introduction/#template-context
 [`text/template`]: https://pkg.go.dev/text/template
+[template context]: /templates/introduction/#template-context

@@ -11,7 +11,7 @@ params:
 
 The `Language` method on a `Page` object returns the `Language` object for the given page, derived from the language definition in your project configuration.
 
-You can also use the `Language` method on a `Site` object. See&nbsp;[details][].
+You can also use the `Language` method on a `Site` object. See [details][].
 
 ## Methods
 
@@ -110,8 +110,8 @@ Use the code below to create a language selector, allowing users to navigate bet
 {{ end }}
 ```
 
+[RFC 5646]: https://datatracker.ietf.org/doc/html/rfc5646
 [`direction`]: /configuration/languages/#direction
 [`label`]: /configuration/languages/#label
 [`locale`]: /configuration/languages/#locale
 [details]: /methods/site/language/
-[RFC 5646]: https://datatracker.ietf.org/doc/html/rfc5646

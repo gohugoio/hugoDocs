@@ -21,7 +21,7 @@ This method takes an optional map of options:
 : (`string`) Specify either `inline` or `block`. If `inline`, removes surrounding `p` tags from short snippets. Default is `inline`.
 
 `markup`
-: (`string`) Specify a [markup identifier] for the provided markup. Default is the `markup` front matter value, falling back to the value derived from the page's file extension.
+: (`string`) Specify a [markup identifier][] for the provided markup. Default is the `markup` front matter value, falling back to the value derived from the page's file extension.
 
 Render with the default markup renderer:
 
@@ -33,7 +33,7 @@ Render with the default markup renderer:
 {{ $s | .RenderString $opts }} → <p>An <em>emphasized</em> word</p>
 ```
 
-Render with [Pandoc]:
+Render with [Pandoc][]:
 
 ```go-html-template
 {{ $s := "H~2~O" }}
@@ -45,5 +45,5 @@ Render with [Pandoc]:
 {{ .RenderString $opts $s }} → <p>H<sub>2</sub>O</p>
 ```
 
+[Pandoc]: https://pandoc.org/
 [markup identifier]: /content-management/formats/#classification
-[pandoc]: https://pandoc.org/

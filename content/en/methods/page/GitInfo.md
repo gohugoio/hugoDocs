@@ -176,9 +176,9 @@ Vercel|Shallow|Yes [^1]
     fi
     ```
 
-[^2]: To perform a deep clone when hosting on GitHub Pages, set `fetch-depth: 0` in the `checkout` step of the GitHub Action. See [example](/host-and-deploy/host-on-github-pages/#step-7).
+[^2]: To perform a deep clone when hosting on GitHub Pages, set `fetch-depth: 0` in the `checkout` step of the GitHub Action.
 
-[^3]: To perform a deep clone when hosting on GitLab Pages, set the `GIT_DEPTH` environment variable to `0` in the workflow file. See [example](/host-and-deploy/host-on-gitlab-pages/#configure-gitlab-cicd).
+[^3]: To perform a deep clone when hosting on GitLab Pages, set the `GIT_DEPTH` environment variable to `0` in the workflow file.
 
 [`enableGitInfo`]: /configuration/all/#enablegitinfo
 [details]: /configuration/front-matter/#dates

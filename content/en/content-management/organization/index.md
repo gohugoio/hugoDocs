@@ -61,7 +61,7 @@ Without any additional configuration, the following will automatically work:
 
 ## Path breakdown in Hugo
 
-The following demonstrates the relationships between your content organization and the output URL structure for your Hugo website when it renders. These examples assume you are [using pretty URLs][pretty], which is the default behavior for Hugo. The examples also assume a key-value of `baseURL = "https://example.org/"` in your [project configuration][config].
+The following demonstrates the relationships between your content organization and the output URL structure for your Hugo website when it renders. These examples assume you are [using pretty URLs][pretty], which is the default behavior for Hugo. The examples also assume a key-value of `baseURL = "https://example.org/"` in your [project configuration][].
 
 ### Index pages: `_index.md`
 
@@ -145,10 +145,10 @@ A content's `path` is determined by the section's path to the file. The file `pa
 
 The `url` is the entire URL path, defined by the file path and optionally overridden by a `url` value in front matter. See [URL Management][] for details.
 
-[config]: /configuration/
-[pretty]: /content-management/urls/#appearance
-[sections]: /content-management/sections/
-[page template]: /templates/types/#page
-[page resources]: /content-management/page-resources/
-[image processing]: /content-management/image-processing/
 [URL Management]: /content-management/urls/#slug
+[image processing]: /content-management/image-processing/
+[page resources]: /content-management/page-resources/
+[page template]: /templates/types/#page
+[pretty]: /content-management/urls/#appearance
+[project configuration]: /configuration/
+[sections]: /content-management/sections/

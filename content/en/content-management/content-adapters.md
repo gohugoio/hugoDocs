@@ -25,7 +25,7 @@ content/
     └── _index.md
 ```
 
-Each content adapter is named `_content.gotmpl` and uses the same [syntax] as templates in the `layouts` directory. You can use any of the [template functions] within a content adapter, as well as the methods described below.
+Each content adapter is named `_content.gotmpl` and uses the same [syntax][] as templates in the `layouts` directory. You can use any of the [template functions][] within a content adapter, as well as the methods described below.
 
 ## Methods
 
@@ -85,7 +85,7 @@ Use these methods within a content adapter.
   > Methods that depend on built pages, such as `Site.Pages`, are unavailable at this stage and return an error.
 
 `Store`
-: (`maps.Scratch`) Returns a persistent data structure for storing and manipulating keyed values. The main use case for this is to transfer values between executions when [EnableAllLanguages](#enablealllanguages) is set. See [examples](/methods/page/store/).
+: (`maps.Scratch`) Returns a persistent data structure for storing and manipulating keyed values. The main use case for this is to transfer values between executions when [EnableAllLanguages](#enablealllanguages) is set. See [examples][].
 
   ```go-html-template {file="content/books/_content.gotmpl"}
   {{ .Store.Set "key" "value" }}
@@ -119,13 +119,13 @@ Use these methods within a content adapter.
 
 ## Page map
 
-Set any [front matter field] in the map passed to the [`AddPage`](#addpage) method, excluding `markup`. Instead of setting the `markup` field, specify the `content.mediaType` as described below.
+Set any [front matter field][] in the map passed to the [`AddPage`](#addpage) method, excluding `markup`. Instead of setting the `markup` field, specify the `content.mediaType` as described below.
 
 This table describes the fields most commonly passed to the `AddPage` method.
 
 Key|Description|Required
 :--|:--|:-:
-`content.mediaType`|The content [media type]. Default is `text/markdown`. See [content formats] for examples.|&nbsp;
+`content.mediaType`|The content [media type][]. Default is `text/markdown`. See [content formats][] for examples.|&nbsp;
 `content.value`|The content value as a string.|&nbsp;
 `dates.date`|The page creation date as a `time.Time` value.|&nbsp;
 `dates.expiryDate`|The page expiry date as a `time.Time` value.|&nbsp;
@@ -146,7 +146,7 @@ Construct the map passed to the [`AddResource`](#addresource) method using the f
 
 Key|Description|Required
 :--|:--|:-:
-`content.mediaType`|The content [media type].|:heavy_check_mark:
+`content.mediaType`|The content [media type][].|:heavy_check_mark:
 `content.value`|The content value as a string or resource.|:heavy_check_mark:
 `name`|The resource name.|&nbsp;
 `params`|A map of resource parameters.|&nbsp;
@@ -341,6 +341,7 @@ If the content adapter also creates `books/the-hunchback-of-notre-dame`, the con
 To detect page collisions, use the `--printPathWarnings` flag when building your project.
 
 [content formats]: /content-management/formats/#classification
+[examples]: /methods/page/store/
 [front matter field]: /content-management/front-matter/#fields
 [media type]: https://en.wikipedia.org/wiki/Media_type
 [syntax]: /templates/introduction/
