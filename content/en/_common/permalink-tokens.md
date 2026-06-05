@@ -45,11 +45,11 @@ _comment: Do not remove front matter.
 
 `:filename`
 : {{< deprecated-in v0.144.0 />}}
-: Use `:contentbasename` instead.
+: Use the [`:contentbasename`](#contentbasename) token instead.
 
 `:slugorfilename`
 : {{< deprecated-in v0.144.0 />}}
-: Use `:slugorcontentbasename` instead.
+: Use the [`:slugorcontentbasename`](#slugorcontentbasename) token instead.
 
 `:contentbasename`
 : {{< new-in 0.144.0 />}}

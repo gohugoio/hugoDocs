@@ -9,7 +9,7 @@ params:
     signatures: [transform.HTMLToMarkdown INPUT]
 ---
 
-{{< new-in "0.151.0" />}}
+{{< new-in 0.151.0 />}}
 
 > [!note]
 > This function is experimental and its API may change in the future.

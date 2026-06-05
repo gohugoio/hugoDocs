@@ -18,7 +18,7 @@ The `OutputFormats` method on a `Page` object returns a slice of `OutputFormat` 
 Use these methods on the `OutputFormats` object.
 
 `Canonical`
-: {{< new-in "0.154.4" />}}
+: {{< new-in 0.154.4 />}}
 : (`page.OutputFormat`) Returns the [canonical output format](g) for the current page, if defined. Once you have captured the object, use any of its [associated methods][].
 
   ```go-html-template

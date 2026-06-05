@@ -164,7 +164,7 @@ Most of the Goldmark settings above are self-explanatory, but some require expla
 
 `renderHooks.image.enableDefault`
 : {{< deprecated-in 0.148.0 />}}
-: Use `renderHooks.image.useEmbedded` instead.
+: Use the `renderHooks.image.useEmbedded` setting instead.
 
 `renderHooks.image.useEmbedded`
 : {{< new-in 0.148.0 />}}
@@ -177,7 +177,7 @@ Most of the Goldmark settings above are self-explanatory, but some require expla
 
 `renderHooks.link.enableDefault`
 : {{< deprecated-in 0.148.0 />}}
-: Use `renderHooks.link.useEmbedded` instead.
+: Use the `renderHooks.link.useEmbedded` setting instead.
 
 `renderHooks.link.useEmbedded`
 : (`string`) When to use the [embedded link render hook][]. One of `auto`, `never`, `always`, or `fallback`. Default is `auto`.
