@@ -13,7 +13,7 @@ keywords: []
 Table _render hook_ templates receive the following [context](g):
 
 `Attributes`
-: (`map`) The [Markdown attributes], available if you configure your site as follows:
+: (`map`) The [Markdown attributes][], available if you configure your site as follows:
 
   {{< code-toggle file=hugo >}}
   [markup.goldmark.parser.attribute]
@@ -27,7 +27,7 @@ Table _render hook_ templates receive the following [context](g):
 : (`page`) A reference to the current page.
 
 `PageInner`
-: (`page`) A reference to a page nested via the [`RenderShortcodes`] method. [See details](#pageinner-details).
+: (`page`) A reference to a page nested via the [`RenderShortcodes`][] method. [See details](#pageinner-details).
 
 `Position`
 : (`string`) The position of the table within the page content.
@@ -37,9 +37,6 @@ Table _render hook_ templates receive the following [context](g):
 
 `TBody`
 : (`slice`) A slice of table body rows, where each element is a slice of table cells.
-
-[Markdown attributes]: /content-management/markdown-attributes/
-[`RenderShortcodes`]: /methods/page/rendershortcodes
 
 ## Table cells
 
@@ -53,9 +50,7 @@ Each table cell within the slice of slices returned by the `THead` and `TBody` m
 
 ## Example
 
-In its default configuration, Hugo renders Markdown tables according to the [GitHub Flavored Markdown specification]. To create a render hook that does the same thing:
-
-[GitHub Flavored Markdown specification]: https://github.github.com/gfm/#tables-extension-
+In its default configuration, Hugo renders Markdown tables according to the [GitHub Flavored Markdown specification][]. To create a render hook that does the same thing:
 
 ```go-html-template {file="layouts/_markup/render-table.html" copy=true}
 <table
@@ -98,3 +93,7 @@ In its default configuration, Hugo renders Markdown tables according to the [Git
 ```
 
 {{% include "/_common/render-hooks/pageinner.md" %}}
+
+[GitHub Flavored Markdown specification]: https://github.github.com/gfm/#tables-extension-
+[Markdown attributes]: /content-management/markdown-attributes/
+[`RenderShortcodes`]: /methods/page/rendershortcodes/

@@ -27,7 +27,7 @@ We have aimed to maintain as much backward compatibility as possible by mapping 
 | The identifiers that can be used in a template filename are one of the [Page kinds][] (`home`, `page`, `section`, `taxonomy`, or `term`), one of the standard layouts (`list`, `single`, or `all`), a custom layout (as defined in the `layout` front matter field), a language (e.g., `en`), an output format (e.g., `html`, `rss`), and a suffix representing the media type. E.g., `all.en.html` and `home.rss.xml`. |                                                                                                                                                                   |
 | The above means that there's no such thing as an `index.html` template for the home page anymore.                                                                                                                                                                                                                                                                                                                       | Rename `index.html` to `home.html`.                                                                                                                               |
 
-Also, see the [Example folder structure][] below for a more concrete example of the new layout system.
+Also, see the [Example folder structure](#example-folder-structure) below for a more concrete example of the new layout system.
 
 ## Changes to template lookup order
 
@@ -47,7 +47,7 @@ The identifiers used in the template weighting, in order of importance, are:
 | [Page path][]      | The page path (e.g., `/blog/mypost`).                 |
 | Type               | `type` set in front matter.[^type]                    |
 
-For templates placed in a `layouts` folder partly or completely matching a [Page path][], a closer match upwards will be considered _better_. In the [Example folder structure][] below, this means that:
+For templates placed in a `layouts` folder partly or completely matching a [Page path][], a closer match upwards will be considered _better_. In the [Example folder structure](#example-folder-structure) below, this means that:
 
 - `layouts/docs/api/_markup/render-link.html` will be used to render links from the Page path `/docs/api` and below.
 - `layouts/docs/baseof.html` will be used as the base template for the Page path `/docs` and below.
@@ -89,10 +89,9 @@ layouts
         └── list.html
 ```
 
-[^type]: The `type` set in front matter will effectively replace the `section` folder in [Page path][] when doing lookups.
 [^internal]: The old way of doing it made it very hard/impossible to, e.g., override `_internal/disqus.html` in a theme. Now you can just create a partial with the same name.
+[^type]: The `type` set in front matter will effectively replace the `section` folder in [Page path][] when doing lookups.
 
-[Example folder structure]: #example-folder-structure
 [Hugo v0.146.0]: https://github.com/gohugoio/hugo/releases/tag/v0.146.0
 [Page kinds]: https://gohugo.io/methods/page/kind/
 [Page path]: https://gohugo.io/methods/page/path/

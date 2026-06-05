@@ -11,7 +11,7 @@ weight: 10
 
 {{% glossary-term template %}}
 
-Templates use [variables][], [functions][], and [methods][] to transform your content, resources, and data into a published page.
+Templates use [variables](#variables), [functions][], and [methods][] to transform your content, resources, and data into a published page.
 
 > [!note]
 > Hugo uses Go's [`text/template`][] and [`html/template`][] packages.
@@ -113,7 +113,6 @@ In the example above:
 Hugo renders the above to:
 
 ```html {trim=false}
-  
   
     <h2>my page title</h2>
   
@@ -314,7 +313,7 @@ Object|Method|Description
 `Site`|[`Params`](methods/site/params/)|Returns a map of custom parameters as defined in your project configuration.
 `Site`|[`Title`](methods/site/title/)|Returns the title as defined in the your project configuration.
 
-Chain the method to its object with a dot (`.`) as shown below, remembering that the leading dot represents the [current context][].
+Chain the method to its object with a dot (`.`) as shown below, remembering that the leading dot represents the [current context](#current-context).
 
 ```go-html-template {file="layouts/page.html"}
 {{ .Site.Title }} → My Site Title
@@ -552,33 +551,31 @@ In the template example above, each of the keys is a valid identifier. For examp
 
 [`Page`]: /methods/page/
 [`Site`]: /methods/site/
-[`Title`]: /methods/page/title
-[`and`]: /functions/go-template/and
+[`Title`]: /methods/page/title/
+[`and`]: /functions/go-template/and/
 [`else`]: /functions/go-template/else/
 [`end`]: /functions/go-template/end/
 [`html/template`]: https://pkg.go.dev/html/template
 [`if`]: /functions/go-template/if/
 [`index`]: /functions/collections/indexfunction/
-[`or`]: /functions/go-template/or
+[`or`]: /functions/go-template/or/
 [`partialCached`]: /functions/partials/includecached/
 [`partial`]: /functions/partials/include/
 [`range`]: /functions/go-template/range/
-[`safeHTML`]: /functions/safe/html
+[`safeHTML`]: /functions/safe/html/
 [`strings.Replace`]: /functions/strings/replace/
 [`strings.ToLower`]: /functions/strings/tolower/
 [`strings.ToUpper`]: /functions/strings/toupper/
 [`template`]: /functions/go-template/template/
 [`text/template`]: https://pkg.go.dev/text/template
 [`with`]: /functions/go-template/with/
-[current context]: #current-context
 [embedded templates]: /templates/embedded/
 [front matter fields]: /content-management/front-matter/#fields
 [front matter]: /content-management/front-matter/
 [functions]: /functions/
 [go-templates]: /functions/go-template/
 [methods]: /methods/
+[params_page]: /methods/page/params/
+[params_site]: /methods/site/params/
 [partial templates]: /templates/types/#partial
 [templates]: /templates/
-[variables]: #variables
-[params_site]: /methods/site/params/
-[params_page]: /methods/page/params/

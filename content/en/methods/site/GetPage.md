@@ -9,9 +9,7 @@ params:
     signatures: [SITE.GetPage PATH]
 ---
 
-The `GetPage` method is also available on `Page` objects, allowing you to specify a path relative to the current page. See&nbsp;[details].
-
-[details]: /methods/page/getpage/
+The `GetPage` method is also available on `Page` objects, allowing you to specify a path relative to the current page. See [details][].
 
 When using the `GetPage` method on a `Site` object, specify a path relative to the `content` directory.
 
@@ -103,3 +101,5 @@ In the _home_ template, use the `GetPage` method on a `Site` object to render al
   {{ end }}
 {{ end }}
 ```
+
+[details]: /methods/page/getpage/

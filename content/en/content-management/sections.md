@@ -68,7 +68,7 @@ With the file structure from the [example above](#overview):
 
 ## Template selection
 
-Hugo has a defined [lookup order] to determine which template to use when rendering a page. The [lookup rules] consider the top-level section name; subsection names are not considered when selecting a template.
+Hugo has a defined [lookup order][] to determine which template to use when rendering a page. The [lookup rules][] consider the top-level section name; subsection names are not considered when selecting a template.
 
 With the file structure from the [example above](#overview):
 

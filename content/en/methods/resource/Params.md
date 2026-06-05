@@ -56,6 +56,6 @@ Hugo renders:
 </figure>
 ```
 
-See the [page resources] section for more information.
+See the [page resources][] section for more information.
 
 [page resources]: /content-management/page-resources/

@@ -60,7 +60,7 @@ Place broad filters, such as those for language or output format, in the exclude
 
 ## Rendering segments
 
-Render specific segments using the [`renderSegments`] configuration or the `--renderSegments` flag:
+Render specific segments using the [`renderSegments`][] configuration or the `--renderSegments` flag:
 
 ```sh
 hugo build --renderSegments segment1

@@ -20,8 +20,8 @@ exit
 
 A fenced code block consists of:
 
-- A leading [code fence]
-- An optional [info string]
+- A leading [code fence][]
+- An optional [info string][]
 - A code sample
 - A trailing code fence
 
@@ -34,7 +34,7 @@ The attributes in the info string can be generic attributes or highlighting opti
 
 In the example above, the _generic attributes_ are `class` and `id`. In the absence of special handling within a code block render hook, Hugo adds each generic attribute to the HTML element surrounding the rendered code block. Consistent with its content security model, Hugo removes HTML event attributes such as `onclick` and `onmouseover`. Generic attributes are typically global HTML attributes, but you may include custom attributes as well.
 
-In the example above, the _highlighting options_ are `lineNos` and `tabWidth`. Hugo renders the code sample using its built-in syntax highlighter. You can control the appearance of the rendered code by specifying one or more [highlighting options].
+In the example above, the _highlighting options_ are `lineNos` and `tabWidth`. Hugo renders the code sample using its built-in syntax highlighter. You can control the appearance of the rendered code by specifying one or more [highlighting options][].
 
 > [!note]
 > Although `style` is a global HTML attribute, when used in an info string it is a highlighting option.
@@ -59,7 +59,7 @@ Code block _render hook_ templates receive the following [context](g):
 : (`page`) A reference to the current page.
 
 `PageInner`
-: (`page`) A reference to a page nested via the [`RenderShortcodes`] method. [See details](#pageinner-details).
+: (`page`) A reference to a page nested via the [`RenderShortcodes`][] method. [See details](#pageinner-details).
 
 `Position`
 : (`text.Position`) The position of the code block within the page content.
@@ -97,7 +97,7 @@ layouts/
       └── render-codeblock.html
 ```
 
-For example, to create a code block render hook to render [Mermaid] diagrams:
+For example, to create a code block render hook to render [Mermaid][] diagrams:
 
 ```go-html-template {file="layouts/_markup/render-codeblock-mermaid.html" copy=true}
 <pre class="mermaid">
@@ -117,19 +117,19 @@ Then include this snippet at the _bottom_ of your base template, before the clos
 {{ end }}
 ```
 
-See the [diagrams] page for details.
+See the [diagrams][] page for details.
 
 ## Embedded
 
-Hugo includes an [embedded code block render hook] to render [GoAT diagrams].
+Hugo includes an [embedded code block render hook][] to render [GoAT diagrams][].
 
 {{% include "/_common/render-hooks/pageinner.md" %}}
 
-[`RenderShortcodes`]: /methods/page/rendershortcodes
+[GoAT diagrams]: /content-management/diagrams/#goat-diagrams-ascii
+[Mermaid]: https://mermaid.js.org/
+[`RenderShortcodes`]: /methods/page/rendershortcodes/
 [code fence]: https://spec.commonmark.org/current/#code-fence
 [diagrams]: /content-management/diagrams/#mermaid-diagrams
 [embedded code block render hook]: <{{% eturl render-codeblock-goat %}}>
-[GoAT diagrams]: /content-management/diagrams/#goat-diagrams-ascii
 [highlighting options]: /functions/transform/highlight/#options
 [info string]: https://spec.commonmark.org/current/#info-string
-[Mermaid]: https://mermaid.js.org/

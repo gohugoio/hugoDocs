@@ -6,7 +6,7 @@ siteURL: https://hapticmedia.fr/blog/en/
 byline: "[Cyril Bonnet](https://github.com/monsieurnebo), Web Developer"
 ---
 
-Our goal was to create a simple, effective and multilingual blog on [3D technology](https://hapticmedia.fr/blog/en/3d-technology/) that could be managed by a non-technical profile.
+Our goal was to create a simple, effective and multilingual blog on [3D technology][] that could be managed by a non-technical profile.
 
 ## Why Hugo?
 
@@ -22,10 +22,16 @@ Hugo addresses all these needs, coupled with [Forestry.io](https://forestry.io/)
 
 ## Tools & workflow
 
-- We used the same design as **[our website](https://hapticmedia.fr/en/)**, recreated as a Hugo HTML template.
-- **[Hugo](https://gohugo.io)** for the static website generator.
-- **[CircleCI](https://circleci.com)** for continuous integration & deployment.
-- **[AWS](https://aws.amazon.com/)** for web hosting.
+- We used the same design as **[our website][]**, recreated as a Hugo HTML template.
+- **[Hugo][]** for the static website generator.
+- **[CircleCI][]** for continuous integration & deployment.
+- **[AWS][]** for web hosting.
 - **[Forestry.io](https://forestry.io)** for the content management.
 
 **All of these tools allow our editor to manage the blog's content without having to worry about its technical aspect, which is managed by the developers.**
+
+[3D technology]: https://hapticmedia.fr/blog/en/3d-technology/
+[AWS]: https://aws.amazon.com/
+[CircleCI]: https://circleci.com
+[Hugo]: https://gohugo.io
+[our website]: https://hapticmedia.fr/en/

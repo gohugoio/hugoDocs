@@ -60,7 +60,7 @@ Hugo will render this to:
 
 ## Custom templates
 
-Override Hugo's [embedded RSS template] by creating one or more of your own. For example, to use different templates for home, section, taxonomy, and term pages:
+Override Hugo's [embedded RSS template][] by creating one or more of your own. For example, to use different templates for home, section, taxonomy, and term pages:
 
 ```text
 layouts/

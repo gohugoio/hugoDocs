@@ -9,7 +9,7 @@ params:
     signatures: [MENUENTRY.Identifier]
 ---
 
-The `Identifier` method returns the `identifier` property of the menu entry. If you define the menu entry [automatically], it returns the page's section.
+The `Identifier` method returns the `identifier` property of the menu entry. If you define the menu entry [automatically][], it returns the page's section.
 
 {{< code-toggle file=hugo >}}
 [[menus.main]]

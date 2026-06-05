@@ -18,6 +18,10 @@ Security, page load time and easy of hosting is the main reasons for switching t
 
 It's a simply site, basically one page in seven languages. I had no problems getting Hugo to output what I wanted. Found the multilingual support straight forward and easy to work with.
 
-Thanks to the design by [Leyla Avsar](https://www.leylaavsar.com/) the site also looks good. I used the [Hugo Zen theme](https://github.com/frjo/hugo-theme-zen) with a few custom templates and the needed CSS.
+Thanks to the design by [Leyla Avsar][] the site also looks good. I used the [Hugo Zen theme][] with a few custom templates and the needed CSS.
 
-The editors can maintain content via [Forestry.io CMS](https://forestry.io/) or directly via Git. Forestry does unfortunately not have multilingual support. All the language versions are in one pile making it harder to find the right file to edit, but it works.
+The editors can maintain content via [Forestry.io CMS][] or directly via Git. Forestry does unfortunately not have multilingual support. All the language versions are in one pile making it harder to find the right file to edit, but it works.
+
+[Forestry.io CMS]: https://forestry.io/
+[Hugo Zen theme]: https://github.com/frjo/hugo-theme-zen
+[Leyla Avsar]: https://www.leylaavsar.com/

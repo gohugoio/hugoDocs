@@ -48,7 +48,7 @@ When rendering the `auctions` page:
 {{ end }}
 ```
 
-In the examples above we are coding defensively using the [`with`] statement, returning nothing if the page does not exist. By adding an [`else`] clause we can do some error reporting:
+In the examples above we are coding defensively using the [`with`][] statement, returning nothing if the page does not exist. By adding an [`else`][] clause we can do some error reporting:
 
 ```go-html-template
 {{ $path := "/auctions/2023-11" }}

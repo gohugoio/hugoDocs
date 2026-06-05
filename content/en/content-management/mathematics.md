@@ -58,12 +58,12 @@ Step 1
   math = true
   {{< /code-toggle >}}
 
-  The configuration above enables mathematical rendering on every page unless you set the `math` parameter to `false` in front matter. To enable mathematical rendering as needed, set the `math` parameter to `false` in your project configuration, and set the `math` parameter to `true` in front matter. Use this parameter in your base template as shown in [Step 3][].
+  The configuration above enables mathematical rendering on every page unless you set the `math` parameter to `false` in front matter. To enable mathematical rendering as needed, set the `math` parameter to `false` in your project configuration, and set the `math` parameter to `true` in front matter. Use this parameter in your base template as shown in [Step 3](#step-3).
 
   > [!note]
   > The configuration above precludes the use of the `$...$` delimiter pair for inline equations. Although you can add this delimiter pair to the configuration and JavaScript, you must double-escape the `$` symbol when used outside of math contexts to avoid unintended formatting.
   >
-  > See the [inline delimiters][] section for details.
+  > See the [inline delimiters](#inline-delimiters) section for details.
 
   To disable passthrough of inline snippets, omit the `inline` key from the configuration:
 
@@ -72,7 +72,7 @@ Step 1
   block = [['\[', '\]'], ['$$', '$$']]
   {{< /code-toggle >}}
 
-  You can define your own opening and closing delimiters, provided they match the delimiters that you set in [Step 2][].
+  You can define your own opening and closing delimiters, provided they match the delimiters that you set in [Step 2](#step-2).
 
   {{< code-toggle file=hugo >}}
   [markup.goldmark.extensions.passthrough.delimiters]
@@ -81,7 +81,7 @@ Step 1
   {{< /code-toggle >}}
 
 Step 2
-: Create a _partial_ template to load MathJax or KaTeX. The example below loads MathJax, or you can use KaTeX as described in the [engines][] section.
+: Create a _partial_ template to load MathJax or KaTeX. The example below loads MathJax, or you can use KaTeX as described in the [engines](#engines) section.
 
   ```go-html-template {file="layouts/_partials/math.html" copy=true}
   <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@4/tex-mml-chtml.js"></script>
@@ -173,9 +173,9 @@ MathJax and KaTeX are open-source JavaScript display engines.
 > [!note]
 > If you use the `$...$` delimiter pair for inline equations, and occasionally use the&nbsp;`$`&nbsp;symbol outside of math contexts, you must use MathJax instead of KaTeX to avoid unintended formatting caused by [this KaTeX limitation][].
 >
->See the [inline delimiters][] section for details.
+>See the [inline delimiters](#inline-delimiters) section for details.
 
-To use KaTeX instead of MathJax, replace the _partial_ template from [Step 2][] with this:
+To use KaTeX instead of MathJax, replace the _partial_ template from [Step 2](#step-2) with this:
 
 ```go-html-template {file="layouts/_partials/math.html" copy=true}
 <link
@@ -223,15 +223,12 @@ $$C_p[\ce{H2O(l)}] = \pu{75.3 J // mol K}$$
 
 $$C_p[\ce{H2O(l)}] = \pu{75.3 J // mol K}$$
 
-As shown in [Step 2][] above, MathJax supports chemical equations without additional configuration. To add chemistry support to KaTeX, enable the mhchem extension as described in the KaTeX [documentation](https://katex.org/docs/libs).
+As shown in [Step 2](#step-2) above, MathJax supports chemical equations without additional configuration. To add chemistry support to KaTeX, enable the mhchem extension as described in the KaTeX [documentation][].
 
-[`transform.ToMath`]: /functions/transform/tomath/
-[engines]: #engines
-[inline delimiters]: #inline-delimiters
 [KaTeX]: https://katex.org/
 [LaTeX]: https://www.latex-project.org/
 [MathJax]: https://www.mathjax.org/
+[`transform.ToMath`]: /functions/transform/tomath/
+[documentation]: https://katex.org/docs/libs
 [passthrough extension]: /configuration/markup/#passthrough
-[Step 2]: #step-2
-[Step 3]: #step-3
 [this KaTeX limitation]: https://github.com/KaTeX/KaTeX/issues/437

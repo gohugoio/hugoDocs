@@ -199,8 +199,6 @@ Field|Description|Required
 `aliases`|Previous URLs used to access this page|&nbsp;
 `expirydate`|The expiration date|&nbsp;
 
-[^1]: The field is required, but its data is not.
-
 ## Related content
 
 When available, the "See also" sidebar displays related pages using Hugo's [related content][] feature, based on front matter keywords. We ensure consistent keyword usage by validating them against `data/keywords.yaml` during the build process. If a keyword is not found, you'll be alerted and must either modify the keyword or update the data file. This validation process helps to refine the related content for better results.
@@ -462,13 +460,13 @@ This is a new feature.
 
 Use the [new-in](#new-in) shortcode to indicate a new feature.
 
-The new-in shortcode will trigger a build warning if the specified version is older than a predefined threshold, based on differences in major and minor versions. This serves as a reminder to remove this shortcode call. See&nbsp;[details](https://github.com/gohugoio/hugoDocs/blob/master/layouts/_partials/layouts/blocks/feature-state.html).
+The new-in shortcode will trigger a build warning if the specified version is older than a predefined threshold, based on differences in major and minor versions. This serves as a reminder to remove this shortcode call. See [details][].
 
 ## Deprecated features
 
 Use the [deprecated-in](#deprecated-in) shortcode to indicate that a feature is deprecated.
 
-The deprecated-in shortcode will trigger a build warning if the specified version is older than a predefined threshold, based on differences in major and minor versions. This serves as a reminder to remove this shortcode call and the associated content. See&nbsp;[details](https://github.com/gohugoio/hugoDocs/blob/master/layouts/_partials/layouts/blocks/feature-state.html).
+The deprecated-in shortcode will trigger a build warning if the specified version is older than a predefined threshold, based on differences in major and minor versions. This serves as a reminder to remove this shortcode call and the associated content. See [details][].
 
 When deprecating a feature that has its own page, also set the `expiryDate` in front matter to two years from the date of deprecation. Include a brief comment to explain the setting:
 
@@ -532,13 +530,16 @@ Step 8
 Step 9
 : A project maintainer will review your PR and may request changes. You may delete your branch after the maintainer merges your PR.
 
+[^1]: The field is required, but its data is not.
+
 [ATX]: https://spec.commonmark.org/current/#atx-headings
+[Glossary]: /quick-reference/glossary/
 [basic english]: https://simple.wikipedia.org/wiki/Basic_English
 [collapsed link references]: https://discourse.gohugo.io/t/55714
+[details]: https://github.com/gohugoio/hugoDocs/blob/master/layouts/_partials/layouts/blocks/feature-state.html
 [developer documentation style guide]: https://developers.google.com/style
 [documentation repository]: https://github.com/gohugoio/hugoDocs/
 [fenced code blocks]: https://spec.commonmark.org/current/#fenced-code-blocks
-[glossary]: /quick-reference/glossary/
 [indented code blocks]: https://spec.commonmark.org/current/#indented-code-blocks
 [issues]: https://github.com/gohugoio/hugoDocs/issues
 [list items]: https://spec.commonmark.org/current/#list-items

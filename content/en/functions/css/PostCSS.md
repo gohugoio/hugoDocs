@@ -19,10 +19,10 @@ aliases: [/functions/resources/postcss/]
 
 ## Setup
 
-Follow the steps below to transform CSS using any of the available [PostCSS plugins].
+Follow the steps below to transform CSS using any of the available [PostCSS plugins][].
 
 Step 1
-: Install [Node.js].
+: Install [Node.js][].
 
 Step 2
 : Install the required Node packages in the root of your project. For example, to add vendor prefixes to your CSS rules:

@@ -14,7 +14,7 @@ keywords: [highlight]
 >
 > The primary use case for the `highlight` shortcode in Markdown is to apply syntax highlighting to inline code snippets.
 
-The `highlight` shortcode calls the [`transform.Highlight`][] function to generate syntax-highlighted HTML from the provided code, [language][], and [options][].
+The `highlight` shortcode calls the [`transform.Highlight`][] function to generate syntax-highlighted HTML from the provided code, [language][], and [options](#options-1).
 
 ## Arguments
 
@@ -99,6 +99,5 @@ This is some {{< hl >}}fmt.Println("inline"){{< /hl >}} code.
 [`transform.Highlight`]: /functions/transform/highlight/
 [content format]: /content-management/formats/
 [language]: /content-management/syntax-highlighting/#languages
-[options]: #options-1
 [project configuration]: /configuration/markup/#highlight
 [source code]: <{{% eturl highlight %}}>

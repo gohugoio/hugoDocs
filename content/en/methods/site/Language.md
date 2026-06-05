@@ -11,7 +11,7 @@ params:
 
 The `Language` method on a `Site` object returns the `Language` object for the given site, derived from the language definition in your project configuration.
 
-You can also use the `Language` method on a `Page` object. See&nbsp;[details][].
+You can also use the `Language` method on a `Page` object. See [details][].
 
 ## Methods
 

@@ -128,7 +128,7 @@ path = 'my-shortcodes'
 
 `version`
 : {{< new-in 0.150.0 />}}
-: (`string`) If set to a [version query](https://go.dev/ref/mod#version-queries), this import becomes a direct dependency, in contrast to dependencies managed by Go Modules. See [this issue](https://github.com/gohugoio/hugo/pull/13966) for more information.
+: (`string`) If set to a [version query][], this import becomes a direct dependency, in contrast to dependencies managed by Go Modules. See [this issue][] for more information.
 
 ## Mounts
 
@@ -194,6 +194,7 @@ source = 'assets'
 target = 'assets'
 {{< /code-toggle >}}
 
+[Dart Sass]: /functions/css/sass/#dart-sass
 [`archetypeDir`]: /configuration/all/#archetypedir
 [`assetDir`]: /configuration/all/#assetdir
 [`contentDir`]: /configuration/all/#contentdir
@@ -202,4 +203,5 @@ target = 'assets'
 [`layoutDir`]: /configuration/all/#layoutdir
 [`staticDir`]: /configuration/all/#staticdir
 [`themesDir`]: /configuration/all/#themesdir
-[Dart Sass]: /functions/css/sass/#dart-sass
+[this issue]: https://github.com/gohugoio/hugo/pull/13966
+[version query]: https://go.dev/ref/mod#version-queries

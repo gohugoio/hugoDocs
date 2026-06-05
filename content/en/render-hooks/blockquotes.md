@@ -22,7 +22,7 @@ Blockquote _render hook_ templates receive the following [context](g):
 : (`string`) Applicable when [`Type`](#type) is `alert`, this is the alert sign. Typically used to indicate whether an alert is graphically foldable, this is one of&nbsp;`+`,&nbsp;`-`,&nbsp;or an empty string. See the [alerts](#alerts) section below.
 
 `Attributes`
-: (`map`) The [Markdown attributes], available if you configure your site as follows:
+: (`map`) The [Markdown attributes][], available if you configure your site as follows:
 
   {{< code-toggle file=hugo >}}
   [markup.goldmark.parser.attribute]
@@ -36,7 +36,7 @@ Blockquote _render hook_ templates receive the following [context](g):
 : (`page`) A reference to the current page.
 
 `PageInner`
-: (`page`) A reference to a page nested via the [`RenderShortcodes`] method. [See details](#pageinner-details).
+: (`page`) A reference to a page nested via the [`RenderShortcodes`][] method. [See details](#pageinner-details).
 
 `Position`
 : (`string`) The position of the blockquote within the page content.
@@ -49,7 +49,7 @@ Blockquote _render hook_ templates receive the following [context](g):
 
 ## Examples
 
-In its default configuration, Hugo renders Markdown blockquotes according to the [CommonMark specification]. To create a render hook that does the same thing:
+In its default configuration, Hugo renders Markdown blockquotes according to the [CommonMark specification][]. To create a render hook that does the same thing:
 
 ```go-html-template {file="layouts/_markup/render-blockquote.html" copy=true}
 <blockquote>
@@ -104,7 +104,7 @@ With the basic Markdown syntax, the first line of each alert is an alert designa
 > Advises about risks or negative outcomes of certain actions.
 ```
 
-The basic syntax is compatible with [GitHub], [Obsidian], and [Typora].
+The basic syntax is compatible with [GitHub][], [Obsidian][], and [Typora][].
 
 ### Extended syntax
 
@@ -115,7 +115,7 @@ With the extended Markdown syntax, you may optionally include an alert sign and/
 > Do not approach or handle without protective gear.
 ```
 
-The extended syntax is compatible with [Obsidian].
+The extended syntax is compatible with [Obsidian][].
 
 > [!note]
 > The extended syntax is not compatible with GitHub or Typora. If you include an alert sign or an alert title, these applications render the Markdown as a blockquote.
@@ -173,9 +173,9 @@ layouts/
 
 {{% include "/_common/render-hooks/pageinner.md" %}}
 
-[`RenderShortcodes`]: /methods/page/rendershortcodes
 [CommonMark specification]: https://spec.commonmark.org/current/
 [GitHub]: https://docs.github.com/en/get-started/writing-on-github/getting-started-with-writing-and-formatting-on-github/basic-writing-and-formatting-syntax#alerts
 [Markdown attributes]: /content-management/markdown-attributes/
 [Obsidian]: https://help.obsidian.md/Editing+and+formatting/Callouts
 [Typora]: https://support.typora.io/Markdown-Reference/#callouts--github-style-alerts
+[`RenderShortcodes`]: /methods/page/rendershortcodes/

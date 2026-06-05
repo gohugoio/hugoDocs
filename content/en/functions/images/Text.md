@@ -26,7 +26,7 @@ Although none of the options are required, at a minimum you will want to set the
 : (`string`) The font color, either a 3-digit or 6-digit hexadecimal color code. Default is `#ffffff` (white).
 
 `font`
-: (`resource.Resource`) The font can be a [global resource](g), a [page resource](g), or a [remote resource](g). Default is [Go Regular], a proportional sans-serif TrueType font.
+: (`resource.Resource`) The font can be a [global resource](g), a [page resource](g), or a [remote resource](g). Default is [Go Regular][], a proportional sans-serif TrueType font.
 
 `linespacing`
 : (`int`) The number of pixels between each line. For a line height of 1.4, set the `linespacing` to 0.4 multiplied by the `size`. Default is `2`.
@@ -39,8 +39,6 @@ Although none of the options are required, at a minimum you will want to set the
 
 `y`
 : (`int`) The vertical offset, in pixels, relative to the top of the image. Default is `10`.
-
-[Go Regular]: https://go.dev/blog/go-fonts#sans-serif
 
 ## Usage
 
@@ -89,7 +87,7 @@ Create the filter, centering the text horizontally and vertically:
 {{ end }}
 ```
 
-Apply the filter using the [`images.Filter`] function:
+Apply the filter using the [`images.Filter`][] function:
 
 ```go-html-template
 {{ with $r }}
@@ -99,7 +97,7 @@ Apply the filter using the [`images.Filter`] function:
 {{ end }}
 ```
 
-You can also apply the filter using the [`Filter`] method on a `Resource` object:
+You can also apply the filter using the [`Filter`][] method on a `Resource` object:
 
 ```go-html-template
 {{ with $r }}
@@ -108,9 +106,6 @@ You can also apply the filter using the [`Filter`] method on a `Resource` object
   {{ end }}
 {{ end }}
 ```
-
-[`images.Filter`]: /functions/images/filter/
-[`Filter`]: /methods/resource/filter/
 
 ## Example
 
@@ -121,3 +116,7 @@ You can also apply the filter using the [`Filter`] method on a `Resource` object
   filterArgs="Zion National Park,25,190,40,1.2,#fbfaf5"
   example=true
 >}}
+
+[Go Regular]: https://go.dev/blog/go-fonts#sans-serif
+[`Filter`]: /methods/resource/filter/
+[`images.Filter`]: /functions/images/filter/

@@ -17,7 +17,7 @@ Please complete the following tasks before continuing:
 1. [Create](https://github.com/signup) a GitHub account
 1. [Log in](https://github.com/login) to your GitHub account
 1. [Create](https://github.com/new) a GitHub repository for your project
-1. [Create](https://git-scm.com/docs/git-init) a local Git repository for your project with a [remote](https://git-scm.com/docs/git-remote) reference to your GitHub repository
+1. [Create](https://git-scm.com/docs/git-init) a local Git repository for your project with a [remote][] reference to your GitHub repository
 1. Create a Hugo project within your local Git repository and test it with the `hugo server` command
 1. Commit the changes to your local Git repository and push to your GitHub repository.
 
@@ -116,7 +116,7 @@ Step 3
   ```
 
 Step 4
-: Log in to your AWS account, navigate to the [Amplify Console], then press the  **Deploy an app** button.
+: Log in to your AWS account, navigate to the [Amplify Console][], then press the  **Deploy an app** button.
 
 Step 5
 : Choose a source code provider, then press the **Next** button.
@@ -155,3 +155,4 @@ Step 12
   ![screen capture](amplify-step-11.png)
 
 [Amplify Console]: https://console.aws.amazon.com/amplify/apps
+[remote]: https://git-scm.com/docs/git-remote

@@ -53,8 +53,8 @@ See [configure security][].
 [Hugo Modules]: /hugo-modules/
 [OWASP]: https://en.wikipedia.org/wiki/OWASP
 [`safeHTML`]: /functions/safe/html/
-[`safe`]: /functions/safe
-[configuration options]: /configuration/security
+[`safe`]: /functions/safe/
+[configuration options]: /configuration/security/
 [configure security]: /configuration/security/
 [configured to sanitize]: /configuration/markup/#rendererunsafe
 [content adapters]: /content-management/content-adapters/

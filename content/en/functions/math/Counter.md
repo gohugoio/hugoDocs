@@ -24,7 +24,7 @@ WARN  page.html called 3 times
 
 Use this function to:
 
-- Create unique warnings as shown above; the [`warnf`] function suppresses duplicate messages
+- Create unique warnings as shown above; the [`warnf`][] function suppresses duplicate messages
 - Create unique target paths for the `resources.FromString` function where the target path is also the cache key
 
 > [!note]

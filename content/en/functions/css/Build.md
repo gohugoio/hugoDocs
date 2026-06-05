@@ -96,7 +96,7 @@ To minify the generated CSS code, use the [`minify`](#minify) option as describe
 The `css.Build` function takes an optional map of options to fine-tune bundling, minification, and browser compatibility.
 
 `externals`
-: (`[]string`) A slice of path patterns to exclude from bundling. The `@import` statements for these patterns remain as-is in the generated CSS code. See&nbsp;[details][esb_external].
+: (`[]string`) A slice of path patterns to exclude from bundling. The `@import` statements for these patterns remain as-is in the generated CSS code. See [details][esb external].
 
   ```go-html-template
   {{ $opts := dict "externals" (slice "./exclude-these/*" "./exclude-these-too/*") }}
@@ -112,7 +112,7 @@ The `css.Build` function takes an optional map of options to fine-tune bundling,
   - `file`: Copies the file to the output directory and rewrites the URL
   - `text`: Loads the file content as a string
 
-  See&nbsp;[details][esb_loader].
+  See [details][esb loader].
 
   ```go-html-template
   {{ $opts := dict "loaders" (dict ".png" "dataurl" ".svg" "dataurl") }}
@@ -120,7 +120,7 @@ The `css.Build` function takes an optional map of options to fine-tune bundling,
   ```
 
 `mainFields`
-: (`[]string`) A prioritized slice of field names in a `package.json` file that determine the CSS entry point of a Node package. The default is `["style", "main"]`. See&nbsp;[details][esb_mainfields].
+: (`[]string`) A prioritized slice of field names in a `package.json` file that determine the CSS entry point of a Node package. The default is `["style", "main"]`. See [details][esb mainfields].
 
   When an `@import` statement references a Node package, Hugo consults the metadata in the `package.json` file to find the stylesheet. Use this option to support packages that define a CSS entry point using non-standard fields.
 
@@ -130,7 +130,7 @@ The `css.Build` function takes an optional map of options to fine-tune bundling,
   ```
 
 `minify`
-: (`bool`) Whether to minify the generated CSS code. Default is `false`. See&nbsp;[details][esb_minify].
+: (`bool`) Whether to minify the generated CSS code. Default is `false`. See [details][esb minify].
 
   ```go-html-template
   {{ $opts := dict "minify" true }}
@@ -138,7 +138,7 @@ The `css.Build` function takes an optional map of options to fine-tune bundling,
   ```
 
 `sourceMap`
-: (`string`) The type of source map to generate. One of `external`, `inline`, `linked`, or `none`. Default is `none`. See&nbsp;[details][esb_sourcemap].
+: (`string`) The type of source map to generate. One of `external`, `inline`, `linked`, or `none`. Default is `none`. See [details][esb sourcemap].
 
   ```go-html-template
   {{ $opts := dict "sourceMap" "linked" }}
@@ -146,7 +146,7 @@ The `css.Build` function takes an optional map of options to fine-tune bundling,
   ```
 
 `sourcesContent`
-: (`bool`) Whether to include the content of the source files in the source map. Default is `true`. See&nbsp;[details][esb_sourcesContent].
+: (`bool`) Whether to include the content of the source files in the source map. Default is `true`. See [details][esb sourcesContent].
 
   ```go-html-template
   {{ $opts := dict "sourceMap" "linked" "sourcesContent" false }}
@@ -154,7 +154,7 @@ The `css.Build` function takes an optional map of options to fine-tune bundling,
   ```
 
 `target`
-: (`[]string`) The target environment for the generated CSS code. This determines which syntax transformations to perform and which vendor prefixes to apply. If unset, no transformations or prefixing are performed. Each element consists of a target name and a version number. Supported targets include `chrome`, `edge`, `firefox`, `ie`, `ios`, `opera`, and `safari`. See&nbsp;[details][esb_target].
+: (`[]string`) The target environment for the generated CSS code. This determines which syntax transformations to perform and which vendor prefixes to apply. If unset, no transformations or prefixing are performed. Each element consists of a target name and a version number. Supported targets include `chrome`, `edge`, `firefox`, `ie`, `ios`, `opera`, and `safari`. See [details][esb target].
 
   ```go-html-template
   {{ $target := slice "chrome115" "edge115" "firefox116" "ios16.4" "opera101" "safari16.4" }}
@@ -372,10 +372,10 @@ To reference a specific file within a Node package, provide the path starting wi
 [`evanw/esbuild`]: https://github.com/evanw/esbuild
 [`publishDir`]: /configuration/all/#publishdir
 [browserlist]: https://browsersl.ist
-[esb_external]: https://esbuild.github.io/api/#external
-[esb_loader]: https://esbuild.github.io/api/#loader
-[esb_mainfields]: https://esbuild.github.io/api/#main-fields
-[esb_minify]: https://esbuild.github.io/api/#minify
-[esb_sourcemap]: https://esbuild.github.io/api/#sourcemap
-[esb_sourcesContent]: https://esbuild.github.io/api/#sources-content
-[esb_target]: https://esbuild.github.io/api/#target
+[esb external]: https://esbuild.github.io/api/#external
+[esb loader]: https://esbuild.github.io/api/#loader
+[esb mainfields]: https://esbuild.github.io/api/#main-fields
+[esb minify]: https://esbuild.github.io/api/#minify
+[esb sourcemap]: https://esbuild.github.io/api/#sourcemap
+[esb sourcesContent]: https://esbuild.github.io/api/#sources-content
+[esb target]: https://esbuild.github.io/api/#target

@@ -8,13 +8,13 @@ weight: 190
 aliases: [/extras/robots-txt/]
 ---
 
-To generate a robots.txt file from a template, change your [project configuration]:
+To generate a robots.txt file from a template, change your project configuration:
 
 {{< code-toggle file=hugo >}}
 enableRobotsTXT = true
 {{< /code-toggle >}}
 
-By default, Hugo generates robots.txt using an [embedded template].
+By default, Hugo generates robots.txt using an [embedded template][].
 
 ```text
 User-agent: *
@@ -49,4 +49,3 @@ This template creates a robots.txt file with a `Disallow` directive for each pag
 > Remember that Hugo copies everything in the static director to the root of `publishDir` (typically `public`) when you build your project.
 
 [embedded template]: <{{% eturl robots %}}>
-[project configuration]: /configuration/

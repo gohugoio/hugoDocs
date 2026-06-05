@@ -20,7 +20,7 @@ aliases: [/functions/with]
 {{ end }}
 ```
 
-Use with the [`else`] statement:
+Use with the [`else`][] statement:
 
 ```go-html-template
 {{ $var := "foo" }}
@@ -57,7 +57,7 @@ Initialize a variable, scoped to the current block:
 
 ## Understanding context
 
-See the [context] section in the introduction to templating.
+See the [context][] section in the introduction to templating.
 
 For example, at the top of a _page_ template, the [context](g) (the dot) is a `Page` object. Inside of the `with` block, the context is bound to the value passed to the `with` statement.
 

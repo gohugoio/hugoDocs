@@ -16,13 +16,13 @@ The `resources.PostProcess` function delays resource transformation steps until 
 
 In this example, after the build is complete, Hugo will:
 
-1. Purge unused CSS using the [PurgeCSS] plugin for [PostCSS]
-1. Add vendor prefixes to CSS rules using the [Autoprefixer] plugin for PostCSS
-1. [Minify] the CSS
-1. [Fingerprint] the CSS
+1. Purge unused CSS using the [PurgeCSS][] plugin for [PostCSS][]
+1. Add vendor prefixes to CSS rules using the [Autoprefixer][] plugin for PostCSS
+1. [Minify][] the CSS
+1. [Fingerprint][] the CSS
 
 Step 1
-: Install [Node.js].
+: Install [Node.js][].
 
 Step 2
 : Install the required Node packages in the root of your project:
@@ -32,14 +32,14 @@ Step 2
   ```
 
 Step 3
-: Enable creation of the `hugo_stats.json` file when building the site. If you are only using this for the production build, consider placing it below [`config/production`].
+: Enable creation of the `hugo_stats.json` file when building the site. If you are only using this for the production build, consider placing it below [`config/production`][].
 
   {{< code-toggle file=hugo copy=true >}}
   [build.buildStats]
   enable = true
   {{< /code-toggle >}}
 
-  See the [configure build] documentation for details and options.
+  See the [configure build][] documentation for details and options.
 
 Step 4
 : Create a PostCSS configuration file in the root of your project.
@@ -133,11 +133,11 @@ You cannot manipulate the values returned from the resource's methods. For examp
 {{ $css.RelPermalink | strings.ToUpper }}
 ```
 
-[`config/production`]: /configuration/introduction/#configuration-directory
 [Autoprefixer]: https://github.com/postcss/autoprefixer
-[configure build]: /configuration/build/
 [Fingerprint]: /functions/resources/fingerprint/
 [Minify]: /functions/resources/minify/
 [Node.js]: https://nodejs.org/en
 [PostCSS]: https://postcss.org/
 [PurgeCSS]: https://github.com/FullHuman/purgecss
+[`config/production`]: /configuration/introduction/#configuration-directory
+[configure build]: /configuration/build/

@@ -42,4 +42,6 @@ news → true
 
 Note that `os.ReadDir` is not recursive.
 
-Details of the `FileInfo` structure are available in the [Go documentation](https://pkg.go.dev/io/fs#FileInfo).
+Details of the `FileInfo` structure are available in the [Go documentation][].
+
+[Go documentation]: https://pkg.go.dev/io/fs#FileInfo

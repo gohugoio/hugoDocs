@@ -221,10 +221,10 @@ Shortcodes (excluding [inline](#inline) shortcodes) can be nested, creating pare
 The [shortcode templates][nesting] section provides a detailed explanation and examples.
 
 [`TableOfContents`]: /methods/page/tableofcontents/
-[`details`]: /shortcodes/details
-[`figure`]: /shortcodes/figure
-[`instagram`]: /shortcodes/instagram
-[`qr`]: /shortcodes/qr
+[`details`]: /shortcodes/details/
+[`figure`]: /shortcodes/figure/
+[`instagram`]: /shortcodes/instagram/
+[`qr`]: /shortcodes/qr/
 [configure security]: /configuration/security/
 [layout string]: /functions/time/format/#layout-string
 [nesting]: /templates/shortcode/#nesting

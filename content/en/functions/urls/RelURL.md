@@ -11,7 +11,7 @@ params:
 aliases: [/functions/relurl]
 ---
 
-With multilingual configurations, use the [`urls.RelLangURL`] function instead. The URL returned by this function depends on:
+With multilingual configurations, use the [`urls.RelLangURL`][] function instead. The URL returned by this function depends on:
 
 - Whether the input begins with a slash (`/`)
 - The `baseURL` in your project configuration

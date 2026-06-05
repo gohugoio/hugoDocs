@@ -11,7 +11,8 @@ expiryDate: 2027-01-16 # deprecated 2025-01-16 in v0.141.0
 ---
 
 {{< deprecated-in 0.141.0 >}}
-Use the `try` statement instead. See [example].
+Use the [`try`][] statement instead.
 
-[example]: /functions/go-template/try/#example
 {{< /deprecated-in >}}
+
+[`try`]: /functions/go-template/try/

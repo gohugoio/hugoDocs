@@ -10,10 +10,7 @@ params:
     signatures: ['images.Padding V1 [V2] [V3] [V4] [COLOR]']
 ---
 
-The last argument is the canvas color, expressed as an RGB or RGBA [hexadecimal color]. The default value is `ffffffff` (opaque white). The preceding arguments are the padding values, in pixels, using the CSS [shorthand property] syntax. Negative padding values will crop the image.
-
-[hexadecimal color]: https://developer.mozilla.org/en-US/docs/Web/CSS/hex-color
-[shorthand property]: https://developer.mozilla.org/en-US/docs/Web/CSS/Shorthand_properties#edges_of_a_box
+The last argument is the canvas color, expressed as an RGB or RGBA [hexadecimal color][]. The default value is `ffffffff` (opaque white). The preceding arguments are the padding values, in pixels, using the CSS [shorthand property][] syntax. Negative padding values will crop the image.
 
 ## Usage
 
@@ -25,9 +22,7 @@ Create the filter:
 
 {{% include "/_common/functions/images/apply-image-filter.md" %}}
 
-Combine with the [`Colors`] method to create a border with one of the image's most dominant colors:
-
-[`Colors`]: /methods/resource/colors/
+Combine with the [`Colors`][] method to create a border with one of the image's most dominant colors:
 
 ```go-html-template
 {{ with resources.Get "images/original.jpg" }}
@@ -68,3 +63,7 @@ To add a 2px gray border to an image:
 ```go-html-template
 {{ $img = $img.Filter (images.Padding 2 "#777") }}
 ```
+
+[`Colors`]: /methods/resource/colors/
+[hexadecimal color]: https://developer.mozilla.org/en-US/docs/Web/CSS/hex-color
+[shorthand property]: https://developer.mozilla.org/en-US/docs/Web/CSS/Shorthand_properties#edges_of_a_box

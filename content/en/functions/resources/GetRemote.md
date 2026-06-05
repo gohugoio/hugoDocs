@@ -56,7 +56,7 @@ The `resources.GetRemote` function takes an optional map of options.
 ## Options examples
 
 > [!note]
-> For brevity, the examples below do not include [error handling][].
+> For brevity, the examples below do not include [error handling](#error-handling).
 
 To include a header:
 
@@ -234,7 +234,6 @@ Note that the entry above is:
 [`Data.Headers`]: /methods/resource/data/#headers
 [`Data`]: /methods/resource/data/
 [`transform.Unmarshal`]: /functions/transform/unmarshal/
-[`try`]: /functions/go-template/try
+[`try`]: /functions/go-template/try/
 [allowlist]: https://en.wikipedia.org/wiki/Whitelist
 [configure file caches]: /configuration/caches/
-[error handling]: #error-handling

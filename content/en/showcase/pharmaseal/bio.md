@@ -4,4 +4,6 @@ We've been using **Hugo + Webpack + Netlify** to provide a scalable, modular des
 
 The site is built by:
 
-- [Roboto Studio](https://roboto.studio)
+- [Roboto Studio][]
+
+[Roboto Studio]: https://roboto.studio

@@ -11,7 +11,7 @@ params:
 
 {{< new-in 0.141.0 />}}
 
-The `images.QR` function encodes the given text into a [QR code] using the specified options, returning an image resource. The size of the generated image depends on three factors:
+The `images.QR` function encodes the given text into a [QR code][] using the specified options, returning an image resource. The size of the generated image depends on three factors:
 
 - Data length: Longer text necessitates a larger image to accommodate the increased information density.
 - Error correction level: Higher error correction levels enhance the QR code's resistance to damage, but this typically results in a slightly larger image size to maintain readability.
@@ -35,7 +35,7 @@ Although the default option values are sufficient for most applications, you sho
 : (`int`) The number of image pixels per QR code module. Must be greater than or equal to `2`. Default is `4`.
 
 `targetDir`
-: (`string`) The subdirectory within the [`publishDir`] where Hugo will place the generated image. Use Unix-style slashes (`/`) to separarate path segments. If empty or not provided, the image is placed directly in the `publishDir` root. Hugo automatically creates the necessary subdirectories if they don't exist.
+: (`string`) The subdirectory within the [`publishDir`][] where Hugo will place the generated image. Use Unix-style slashes (`/`) to separarate path segments. If empty or not provided, the image is placed directly in the `publishDir` root. Hugo automatically creates the necessary subdirectories if they don't exist.
 
 ## Examples
 
@@ -131,8 +131,8 @@ https://gohugo.io
 {{</* /qr */>}}
 ```
 
-The `qr` shortcode accepts several arguments including `level` and `scale`. See the [related documentation] for details.
+The `qr` shortcode accepts several arguments including `level` and `scale`. See the [related documentation][] for details.
 
-[`publishDir`]: /configuration/all/#publishdir
 [QR code]: https://en.wikipedia.org/wiki/QR_code
+[`publishDir`]: /configuration/all/#publishdir
 [related documentation]: /shortcodes/qr/

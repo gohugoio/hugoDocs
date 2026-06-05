@@ -13,26 +13,15 @@ aliases: [/hosting-and-deployment/hosting-on-sourcehut/]
 - A [SourceHut account][]
 - A Hugo website on your local machine that you are ready to publish
 
-[Git]: https://git-scm.com/
-[Mercurial]: https://www.mercurial-scm.org/
-[SourceHut account]: https://meta.sr.ht/login
-[Quick Start]: /getting-started/quick-start/
-
 Any and all mentions of `<YourUsername>` refer to your actual SourceHut username and must be substituted accordingly.
 
 ## BaseURL
 
 The [`baseURL`][] in your project configuration must reflect the full URL provided by SourceHut Pages if you are using the default address (e.g. `https://<YourUsername>.srht.site/`). If you want to use another domain, check the [custom domain section][] of the official documentation.
 
-[`baseURL`]: /configuration/all/#baseurl
-[custom domain section]: https://srht.site/custom-domains
-
 ## Manual deployment
 
 This method does not require a paid account. To proceed you will need to create a [SourceHut personal access token][] and install and configure the [hut][] CLI tool:
-
-[SourceHut personal access token]: https://meta.sr.ht/oauth2/personal-token
-[hut]: https://sr.ht/~xenrox/hut/
 
 ```sh
 hugo build
@@ -48,8 +37,6 @@ A TLS certificate will be automatically obtained for you, and your new website w
 This method requires a paid account and relies on the SourceHut build system.
 
 First, define your [build manifest][] by creating a `.build.yml` file in the root of your project. The following is a bare-bones template:
-
-[build manifest]: https://man.sr.ht/builds.sr.ht/#build-manifests
 
 ```yaml {file=".build.yml" copy=true}
 image: alpine/edge
@@ -69,9 +56,6 @@ tasks:
 ```
 
 If your site requires [Dart Sass][] to transpile Sass to CSS, set the DART_SASS_VERSION to the [latest version number][] and include the Dart Sass installation lines before running the Hugo build step. Note that for Alpine, the `linux-x64-musl` version is used.
-
-[Dart Sass]: https://gohugo.io/functions/css/sass/#dart-sass
-[latest version number]: https://github.com/sass/dart-sass/releases
 
 ```yaml {file=".build.yml" copy=true}
 image: alpine/edge
@@ -121,5 +105,19 @@ After the build has passed, a TLS certificate will be automatically obtained for
 
 ## Other resources
 
-- [SourceHut Pages](https://srht.site/)
-- [SourceHut Builds user manual](https://man.sr.ht/builds.sr.ht/)
+- [SourceHut Pages][]
+- [SourceHut Builds user manual][]
+
+[Dart Sass]: https://gohugo.io/functions/css/sass/#dart-sass
+[Git]: https://git-scm.com/
+[Mercurial]: https://www.mercurial-scm.org/
+[Quick Start]: /getting-started/quick-start/
+[SourceHut Builds user manual]: https://man.sr.ht/builds.sr.ht/
+[SourceHut Pages]: https://srht.site/
+[SourceHut account]: https://meta.sr.ht/login
+[SourceHut personal access token]: https://meta.sr.ht/oauth2/personal-token
+[`baseURL`]: /configuration/all/#baseurl
+[build manifest]: https://man.sr.ht/builds.sr.ht/#build-manifests
+[custom domain section]: https://srht.site/custom-domains
+[hut]: https://sr.ht/~xenrox/hut/
+[latest version number]: https://github.com/sass/dart-sass/releases

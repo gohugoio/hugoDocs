@@ -14,10 +14,10 @@ This is the default security configuration:
 
 `allowContent`
 : {{< new-in 0.162.0 />}}
-: (`[]string`) A slice of [regular expressions](g) matching the [media type](g) of [content formats](g) allowed in the `content` directory. By default, the HTML content format (media type `text/html`) is denied. Hugo emits HTML file content verbatim, which could allow arbitrary JavaScript execution. See the [classification] table for a mapping of content formats to media types.
+: (`[]string`) A slice of [regular expressions](g) matching the [media type](g) of [content formats](g) allowed in the `content` directory. By default, the HTML content format (media type `text/html`) is denied. Hugo emits HTML file content verbatim, which could allow arbitrary JavaScript execution. See the [classification][] table for a mapping of content formats to media types.
 
 `enableInlineShortcodes`
-: (`bool`) Whether to enable [inline shortcodes]. Default is `false`.
+: (`bool`) Whether to enable [inline shortcodes][]. Default is `false`.
 
 `exec.allow`
 : (`[]string`) A slice of [regular expressions](g) matching the names of external executables that Hugo is allowed to run.
@@ -26,10 +26,10 @@ This is the default security configuration:
 : (`[]string`) A slice of [regular expressions](g) matching the names of operating system environment variables that Hugo is allowed to access.
 
 `funcs.getenv`
-: (`[]string`) A slice of [regular expressions](g) matching the names of operating system environment variables that Hugo is allowed to access with the [`os.Getenv`] function.
+: (`[]string`) A slice of [regular expressions](g) matching the names of operating system environment variables that Hugo is allowed to access with the [`os.Getenv`][] function.
 
 `http.methods`
-: (`[]string`) A slice of [regular expressions](g) matching the HTTP methods that the [`resources.GetRemote`] function is allowed to use.
+: (`[]string`) A slice of [regular expressions](g) matching the HTTP methods that the [`resources.GetRemote`][] function is allowed to use.
 
 `http.mediaTypes`
 : (`[]string`) Applicable to the `resources.GetRemote` function, a slice of [regular expressions](g) matching the `Content-Type` in HTTP responses that Hugo trusts, bypassing file content analysis for media type detection.
@@ -39,7 +39,7 @@ This is the default security configuration:
 
 `node.permissions.disable`
 : {{< new-in 0.161.0 />}}
-: (`bool`) Whether to disable the Node.js [permission model]. When `false`, Hugo runs Node.js tools with the `--permission` flag, restricting their file system and resource access to what is explicitly allowed below. Default is `false`.
+: (`bool`) Whether to disable the Node.js [permission model][]. When `false`, Hugo runs Node.js tools with the `--permission` flag, restricting their file system and resource access to what is explicitly allowed below. Default is `false`.
 
 `node.permissions.allowAddons`
 : {{< new-in 0.161.0 />}}
@@ -84,10 +84,10 @@ You can also override your project configuration with environment variables. For
 export HUGO_SECURITY_HTTP_URLS=none
 ```
 
-Learn more about [using environment variables] to configure your site.
+Learn more about [using environment variables][] to configure your site.
 
-[`os.Getenv`]: /functions/os/getenv
-[`resources.GetRemote`]: /functions/resources/getremote
+[`os.Getenv`]: /functions/os/getenv/
+[`resources.GetRemote`]: /functions/resources/getremote/
 [classification]: /content-management/formats/#classification
 [inline shortcodes]: /content-management/shortcodes/#inline
 [permission model]: https://nodejs.org/api/permissions.html#permission-model

@@ -58,15 +58,15 @@ rotation
 
   Rotating by non-orthogonal values increases the image extents to fit the rotated corners. For formats supporting alpha channels such as AVIF, PNG, or WebP, this resulting empty space is transparent by default. If the target format does not support transparency such as JPEG, or if you explicitly specify a [background color](#background-color) in the processing specification, the space is filled. If a color is required but not specified in the processing string, it defaults to the [`bgColor`][] parameter in your project configuration.
 
+[`Process`]: /methods/resource/process/
 [`anchor`]: /configuration/imaging/#anchor
-[`bgcolor`]: /configuration/imaging/#bgcolor
+[`bgColor`]: /configuration/imaging/#bgcolor
 [`compression`]: /configuration/imaging/#compression
 [`cwebp`]: https://developers.google.com/speed/webp/docs/cwebp
-[`muesli/smartcrop`]: https://github.com/muesli/smartcrop
 [`hint`]: /configuration/imaging/#hint
 [`images.AutoOrient`]: /functions/images/autoorient/
 [`images.Process`]: /functions/images/process/
-[`Process`]: /methods/resource/process
+[`muesli/smartcrop`]: https://github.com/muesli/smartcrop
 [`quality`]: /configuration/imaging/#quality
 [`resampleFilter`]: /configuration/imaging/#resamplefilter
 [hexadecimal color]: https://developer.mozilla.org/en-US/docs/Web/CSS/hex-color

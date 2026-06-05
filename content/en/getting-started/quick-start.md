@@ -20,8 +20,8 @@ In this tutorial you will:
 
 Before you begin this tutorial you must:
 
-1. [Install Hugo] (any edition, {{% param "minVersion" %}} or later)
-1. [Install Git]
+1. [Install Hugo][] (any edition, {{% param "minVersion" %}} or later)
+1. [Install Git][]
 
 You must also be comfortable working from the command line.
 
@@ -186,13 +186,18 @@ To learn how to _deploy_ your project, see the [host and deploy][] section.
 
 ## Ask for help
 
-Hugo's [forum][] is an active community of users and developers who answer questions, share knowledge, and provide examples. A quick search of over 20,000 topics will often answer your question. Please be sure to read about [requesting help] before asking your first question.
+Hugo's [forum][] is an active community of users and developers who answer questions, share knowledge, and provide examples. A quick search of over 20,000 topics will often answer your question. Please be sure to read about [requesting help][] before asking your first question.
 
 ## Other resources
 
 For other resources to help you learn Hugo, including books and video tutorials, see the [external learning resources][] page.
 
 [Ananke]: https://github.com/theNewDynamic/gohugo-theme-ananke
+[Git submodule]: https://git-scm.com/book/en/v2/Git-Tools-Submodules
+[Install Git]: https://git-scm.com/book/en/v2/Getting-Started-Installing-Git
+[Install Hugo]: /installation/
+[Markdown]: https://daringfireball.net/projects/markdown
+[PowerShell]: https://learn.microsoft.com/en-us/powershell/scripting/install/installing-powershell-on-windows
 [are different applications]: https://learn.microsoft.com/en-us/powershell/scripting/whats-new/differences-from-windows-powershell?view=powershell-7.3
 [demonstration site]: https://ananke-theme.netlify.app/
 [documentation]: https://ananke-documentation.netlify.app/
@@ -200,13 +205,8 @@ For other resources to help you learn Hugo, including books and video tutorials,
 [external learning resources]: /getting-started/external-learning-resources/
 [forum]: https://discourse.gohugo.io/
 [front matter]: /content-management/front-matter/
-[Git submodule]: https://git-scm.com/book/en/v2/Git-Tools-Submodules
 [host and deploy]: /host-and-deploy/
-[Install Git]: https://git-scm.com/book/en/v2/Getting-Started-Installing-Git
-[Install Hugo]: /installation/
 [live testing tool]: https://spec.commonmark.org/dingus/
-[Markdown]: https://daringfireball.net/projects/markdown
-[PowerShell]: https://learn.microsoft.com/en-us/powershell/scripting/install/installing-powershell-on-windows
 [project configuration]: /configuration/
 [project skeleton]: /getting-started/directory-structure/#project-skeleton
 [requesting help]: https://discourse.gohugo.io/t/requesting-help/9132

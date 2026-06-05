@@ -10,7 +10,7 @@ params:
     signatures: [diagrams.Goat MARKUP]
 ---
 
-Useful in a [code block render hook], the `diagrams.Goat` function returns an SVGDiagram object created from the given [GoAT] markup.
+Useful in a [code block render hook][], the `diagrams.Goat` function returns an SVGDiagram object created from the given [GoAT][] markup.
 
 ## Methods
 
@@ -30,7 +30,7 @@ Use these methods on the `SVGDiagram` object.
 
 ## GoAT Diagrams
 
-Hugo natively supports GoAT diagrams with an [embedded code block render hook].
+Hugo natively supports GoAT diagrams with an [embedded code block render hook][].
 
 This Markdown:
 
@@ -60,7 +60,7 @@ Which appears in your browser as:
 '---'     '-'       '+'       '+'     '---'
 ```
 
-To customize rendering, override Hugo's [embedded code block render hook] for GoAT diagrams.
+To customize rendering, override Hugo's [embedded code block render hook][] for GoAT diagrams.
 
 ## Code block render hook
 
@@ -110,6 +110,6 @@ svg.foo {
 }
 ```
 
+[GoAT]: https://github.com/bep/goat
 [code block render hook]: /render-hooks/code-blocks/
 [embedded code block render hook]: <{{% eturl render-codeblock-goat %}}>
-[GoAT]: https://github.com/bep/goat

@@ -322,11 +322,11 @@ Hugo also emits the following metadata:
   ```
 
 [Disqus]: https://disqus.com
-[pagination]: /templates/pagination/
 [Google Analytics 4]: https://support.google.com/analytics/answer/10089681
 [Open Graph protocol]: https://ogp.me/
 [X (Twitter) Cards]: https://developer.x.com/en/docs/twitter-for-websites/cards/overview/abouts-cards
 [`partial`]: /functions/partials/include/
 [front matter]: /content-management/front-matter/
 [microdata]: https://html.spec.whatwg.org/multipage/microdata.html#microdata
+[pagination]: /templates/pagination/
 [signing up]: https://disqus.com/profile/signup/

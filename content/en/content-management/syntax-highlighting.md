@@ -26,7 +26,7 @@ CODE
 : The code to highlight.
 
 `LANG`
-: The language of the code to highlight. Choose from one of the [supported languages][]. This value is case-insensitive. If omitted or unsupported, Hugo renders the text as a plain text block without syntax highlighting. Consistent with the [CommonMark specification][], fenced code blocks require a known language identifier to trigger semantic syntax highlighting.
+: The language of the code to highlight. Choose from one of the [supported languages](#languages). This value is case-insensitive. If omitted or unsupported, Hugo renders the text as a plain text block without syntax highlighting. Consistent with the [CommonMark specification][], fenced code blocks require a known language identifier to trigger semantic syntax highlighting.
 
 `OPTIONS`
 : One or more space-separated or comma-separated key-value pairs wrapped in braces. Set default values for each option in your [project configuration][]. The key names are case-insensitive.
@@ -95,8 +95,7 @@ These are the supported languages. Use one of the identifiers, not the language 
 
 {{< chroma-lexers >}}
 
+[CommonMark specification]: https://spec.commonmark.org/0.31.2/#indented-code-blocks
 [`highlight`]: /shortcodes/highlight/
 [`transform.Highlight`]: /functions/transform/highlight/
-[CommonMark specification]: https://spec.commonmark.org/0.31.2/#indented-code-blocks
 [project configuration]: /configuration/markup/#highlight
-[supported languages]: #languages

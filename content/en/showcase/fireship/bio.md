@@ -2,4 +2,6 @@
 
 The site is built by:
 
-- [Jeff Delaney](https://fireship.io/contributors/jeff-delaney/)
+- [Jeff Delaney][]
+
+[Jeff Delaney]: https://fireship.io/contributors/jeff-delaney/

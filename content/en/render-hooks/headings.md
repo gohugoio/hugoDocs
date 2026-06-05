@@ -14,7 +14,7 @@ Heading _render hook_ templates receive the following [context](g):
 : (`string`) The `id` attribute of the heading element.
 
 `Attributes`
-: (`map`) The [Markdown attributes], available if you configure your site as follows:
+: (`map`) The [Markdown attributes][], available if you configure your site as follows:
 
   {{< code-toggle file=hugo >}}
   [markup.goldmark.parser.attribute]
@@ -32,7 +32,7 @@ Heading _render hook_ templates receive the following [context](g):
 : (`page`) A reference to the current page.
 
 `PageInner`
-: (`page`) A reference to a page nested via the [`RenderShortcodes`] method. [See details](#pageinner-details).
+: (`page`) A reference to a page nested via the [`RenderShortcodes`][] method. [See details](#pageinner-details).
 
 `PlainText`
 : (`string`) The heading text as plain text.
@@ -44,14 +44,9 @@ Heading _render hook_ templates receive the following [context](g):
 `Text`
 : (`template.HTML`) The heading text.
 
-[Markdown attributes]: /content-management/markdown-attributes/
-[`RenderShortcodes`]: /methods/page/rendershortcodes
-
 ## Examples
 
-In its default configuration, Hugo renders Markdown headings according to the [CommonMark specification] with the addition of automatic `id` attributes. To create a render hook that does the same thing:
-
-[CommonMark specification]: https://spec.commonmark.org/current/
+In its default configuration, Hugo renders Markdown headings according to the [CommonMark specification][] with the addition of automatic `id` attributes. To create a render hook that does the same thing:
 
 ```go-html-template {file="layouts/_markup/render-heading.html" copy=true}
 <h{{ .Level }} id="{{ .Anchor }}" {{- with .Attributes.class }} class="{{ . }}" {{- end }}>
@@ -69,3 +64,7 @@ To add an anchor link to the right of each heading:
 ```
 
 {{% include "/_common/render-hooks/pageinner.md" %}}
+
+[CommonMark specification]: https://spec.commonmark.org/current/
+[Markdown attributes]: /content-management/markdown-attributes/
+[`RenderShortcodes`]: /methods/page/rendershortcodes/

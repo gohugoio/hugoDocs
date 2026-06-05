@@ -10,7 +10,7 @@ params:
     signatures: ['return [VALUE]']
 ---
 
-The `return` statement is a non-standard extension to Go's [text/template package]. Used within _partial_ templates, the `return` statement terminates template execution and returns the given value, if any.
+The `return` statement is a non-standard extension to Go's [`text/template`][] package. Used within _partial_ templates, the `return` statement terminates template execution and returns the given value, if any.
 
 The returned value may be of any data type including, but not limited to, [`bool`](g), [`float`](g), [`int`](g), [`map`](g), [`resource`](g), [`slice`](g), or [`string`](g).
 
@@ -90,4 +90,4 @@ For example:
 {{ end }}
 ```
 
-[text/template package]: https://pkg.go.dev/text/template
+[`text/template`]: https://pkg.go.dev/text/template

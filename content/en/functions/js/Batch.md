@@ -18,15 +18,15 @@ params:
 
 The Batch `ID` is used to create the base directory for this batch. Forward slashes are allowed. The `js.Batch` function returns an object with an API with this structure:
 
-- [Group][]
-  - [Script][]
-    - [SetOptions][]
-  - [Instance][]
-    - [SetOptions][]
-  - [Runner][]
-    - [SetOptions][]
-  - [Config][]
-    - [SetOptions][]
+- [Group](#group)
+  - [Script](#script)
+    - [SetOptions](#optionssetter)
+  - [Instance](#instance)
+    - [SetOptions](#optionssetter)
+  - [Runner](#runner)
+    - [SetOptions](#optionssetter)
+  - [Config](#config)
+    - [SetOptions](#optionssetter)
 
 ## Group
 
@@ -34,7 +34,7 @@ The `Group` method take an `ID` (`string`) as argument. No slashes. It returns a
 
 ### Script
 
-The `Script` method takes an `ID` (`string`) as argument. No slashes. It returns an [OptionsSetter][] that can be used to set [script options][] for this script.
+The `Script` method takes an `ID` (`string`) as argument. No slashes. It returns an [OptionsSetter](#optionssetter) that can be used to set [script options](#script-options) for this script.
 
 ```go-html-template
 {{ with js.Batch "js/mybatch" }}
@@ -46,11 +46,11 @@ The `Script` method takes an `ID` (`string`) as argument. No slashes. It returns
 {{ end }}
 ```
 
-`SetOptions` takes a [script options][] map. Note that if you want the script to be handled by a [runner][], you need to set the `export` option to match what you want to pass on to the runner (default is `*`).
+`SetOptions` takes a [script options](#script-options) map. Note that if you want the script to be handled by a [Runner](#runner), you need to set the `export` option to match what you want to pass on to the runner (default is `*`).
 
 ### Instance
 
-The `Instance` method takes two `string` arguments `SCRIPT_ID` and `INSTANCE_ID`. No slashes. It returns an [OptionsSetter][] that can be used to set [params options][] for this instance.
+The `Instance` method takes two `string` arguments `SCRIPT_ID` and `INSTANCE_ID`. No slashes. It returns an [OptionsSetter](#optionssetter) that can be used to set [params options](#params-options) for this instance.
 
 ```go-html-template
 {{ with js.Batch "js/mybatch" }}
@@ -62,11 +62,11 @@ The `Instance` method takes two `string` arguments `SCRIPT_ID` and `INSTANCE_ID`
 {{ end }}
 ```
 
-`SetOptions` takes a [params options][] map. The instance options will be passed to any [runner][] script in the same group, as JSON.
+`SetOptions` takes a [params options](#params-options) map. The instance options will be passed to any [Runner](#runner) script in the same group, as JSON.
 
 ### Runner
 
-The `Runner` method takes an `ID` (`string`) as argument. No slashes. It returns an [OptionsSetter][] that can be used to set [script options][] for this runner.
+The `Runner` method takes an `ID` (`string`) as argument. No slashes. It returns an [OptionsSetter](#optionssetter) that can be used to set [script options](#script-options) for this runner.
 
 ```go-html-template
 {{ with js.Batch "js/mybatch" }}
@@ -78,7 +78,7 @@ The `Runner` method takes an `ID` (`string`) as argument. No slashes. It returns
 {{ end }}
 ```
 
-`SetOptions` takes a [script options][] map.
+`SetOptions` takes a [script options](#script-options) map.
 
 The runner will receive a data structure with all instances for that group with a live binding of the [JavaScript import][] of the defined `export`.
 
@@ -120,7 +120,7 @@ The runner script's export must be a function that takes one argument, the group
 }
 ```
 
-Below is an example of a runner script that uses React to render elements. Note that the export (`default`) must match the `export` option in the [script options][] (`default` is the default value for runner scripts). Runnable versions of the examples on this page can be found in this `js.Batch` [demonstration repository][js_batch_demo].
+Below is an example of a runner script that uses React to render elements. Note that the export (`default`) must match the `export` option in the [script options](#script-options) (`default` is the default value for runner scripts). Runnable versions of the examples on this page can be found in this `js.Batch` [demonstration repository][js_batch_demo].
 
 ```js
 import * as ReactDOM from 'react-dom/client';
@@ -148,13 +148,13 @@ export default function Run(group) {
 
 ### Config
 
-Returns an [OptionsSetter][] that can be used to set [build options][] for the batch.
+Returns an [OptionsSetter](#optionssetter) that can be used to set [build options](#build-options) for the batch.
 
 These are mostly the same as for `js.Build`, but note that:
 
 - `targetPath` is set automatically (there may be multiple outputs).
 - `format` must be `esm`, currently the only format that supports [code splitting][].
-- `params` will be available in the `@params/config` namespace in the scripts. This way you can import both the [script][] or [runner][] params and the [config][] params with:
+- `params` will be available in the `@params/config` namespace in the scripts. This way you can import both the [Script](#script) or [Runner](#runner) params and the [Config](#config) params with:
 
 ```js
 import * as params from "@params";
@@ -194,7 +194,7 @@ Setting the `Config` for a batch can be done from any template (including shortc
 : The resource to build. This can be a file resource or a virtual resource.
 
 `export`
-: The export to bind the runner to. Set it to `*` to export the [entire namespace][]. Default is `default` for [runner][] scripts and `*` for other [scripts](#script).
+: The export to bind the runner to. Set it to `*` to export the [entire namespace][]. Default is `default` for [Runner](#runner) scripts and `*` for other [scripts](#script).
 
 `importContext`
 : An additional context for resolving imports. Hugo will always check this one first before falling back to `assets` and `node_modules`. A common use of this is to resolve imports inside a page bundle. See [import context](#import-context).
@@ -273,13 +273,13 @@ In a template you would typically handle one group with a given `ID` (e.g., scri
 
 In the official documentation for the `esbuild` [code splitting][] feature, there's a warning note in the header. The two issues are:
 
-- `esm` is currently the only implemented output format. This means that it will not work for very old browsers. See [caniuse](https://caniuse.com/?search=ESM).
+- `esm` is currently the only implemented output format. This means that it will not work for very old browsers. See [caniuse][].
 - There's a known import ordering issue.
 
-We have not seen the ordering issue as a problem during our [extensive testing](https://github.com/bep/hugojsbatchdemo) of this new feature with different libraries. There are two main cases:
+We have not seen the ordering issue as a problem during our [extensive testing][] of this new feature with different libraries. There are two main cases:
 
-1. Undefined execution order of imports, see [this comment](https://github.com/evanw/esbuild/issues/399#issuecomment-1458680887)
-1. Only one execution order of imports, see [this comment](https://github.com/evanw/esbuild/issues/399#issuecomment-735355932)
+1. Undefined execution order of imports, see [this comment][comment-1]
+1. Only one execution order of imports, see [this comment][comment-2]
 
 Many would say that both of the above are [code smells][]. The first one has a simple workaround in Hugo. Define the import order in its own script and make sure it gets passed early to `esbuild`, e.g., by putting it in a script group with a name that comes early in the alphabet.
 
@@ -290,27 +290,21 @@ import './lib1.js';
 console.log('entrypoints-workaround.js');
 ```
 
-[Config]: #config
-[Group]: #group
-[Instance]: #instance
 [JavaScript import]: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/import
-[OptionsSetter]: #optionssetter
-[Script]: #script
-[SetOptions]: #optionssetter
-[`Resource`]: /methods/resource/
 [`Resource.Get`]: /methods/page/resources/#get
+[`Resource`]: /methods/resource/
 [`Resources.Mount`]: /methods/page/resources/#mount
 [`Resources`]: /methods/page/resources/
 [`evanw/esbuild`]: https://github.com/evanw/esbuild
 [`templates.Defer`]: /functions/templates/defer/
-[build options]: #build-options
+[`with`]: /functions/go-template/with/
+[caniuse]: https://caniuse.com/?search=ESM
 [code smells]: https://en.wikipedia.org/wiki/Code_smell
 [code splitting]: https://esbuild.github.io/api/#splitting
+[comment-1]: https://github.com/evanw/esbuild/issues/399#issuecomment-1458680887
+[comment-2]: https://github.com/evanw/esbuild/issues/399#issuecomment-735355932
 [entire namespace]: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/import#namespace_import
+[extensive testing]: https://github.com/bep/hugojsbatchdemo
 [js_batch_demo]: https://github.com/bep/hugojsbatchdemo/
 [page bundle]: /content-management/page-bundles/
-[params options]: #params-options
-[runner]: #runner
-[script options]: #script-options
 [this discussion]: https://discourse.gohugo.io/t/js-batch-with-simple-global-script/53002/5
-[`with`]: /functions/go-template/with/

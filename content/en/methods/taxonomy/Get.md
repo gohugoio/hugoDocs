@@ -33,7 +33,7 @@ But, if the term is not a valid [identifier](g), you cannot use the [chaining](g
 {{ $weightedPages := $taxonomyObject.my-genre }}
 ```
 
-You could also use the [`index`] function, but the syntax is more verbose:
+You could also use the [`index`][] function, but the syntax is more verbose:
 
 ```go-html-template
 {{ $weightedPages := index $taxonomyObject "my-genre" }}

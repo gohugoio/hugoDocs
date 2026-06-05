@@ -78,13 +78,12 @@ Use any of the following logical operators:
 : (`bool`) Reports whether the given field value is less than `VALUE`.
 
 `in`
-: (`bool`) Reports whether the given field value is a member of `VALUE`. Compare string to slice, or string to string. See&nbsp;[details](/functions/collections/in).
+: (`bool`) Reports whether the given field value is a member of `VALUE`. Compare string to slice, or string to string.
 
 `not in`
-: (`bool`) Reports whether the given field value is not a member of `VALUE`. Compare string to slice, or string to string. See&nbsp;[details](/functions/collections/in).
-
+: (`bool`) Reports whether the given field value is not a member of `VALUE`. Compare string to slice, or string to string.
 `intersect`
-: (`bool`) Reports whether the given field value (a slice) contains one or more elements in common with `VALUE`. See&nbsp;[details](/functions/collections/intersect).
+: (`bool`) Reports whether the given field value (a slice) contains one or more elements in common with `VALUE`.
 
 `like`
 : (`bool`) Reports whether the given field value matches the [regular expression](g) specified in `VALUE`. Use the `like` operator to compare `string` values. The `like` operator returns `false` when comparing other data types to the regular expression.
@@ -181,7 +180,7 @@ To return a slice of pages where the `author` page parameter begins with either 
 
 ### Predefined dates
 
-There are four predefined front matter dates: [`date`], [`publishDate`], [`lastmod`], and [`expiryDate`]. Regardless of the front matter data format (TOML, YAML, or JSON) these are [`time.Time`] values, allowing precise comparisons.
+There are four predefined front matter dates: [`date`][], [`publishDate`], [`lastmod`][], and [`expiryDate`]. Regardless of the front matter data format (TOML, YAML, or JSON) these are [`time.Time`][] values, allowing precise comparisons.
 
 For example, to return a slice of pages that were created before the current year:
 
@@ -197,7 +196,7 @@ With custom front matter dates, the comparison depends on the front matter data 
 > [!note]
 > Using TOML for pages with custom front matter dates enables precise date comparisons.
 
-With TOML, date values are first-class citizens. TOML has a date data type while JSON and YAML do not. If you quote a TOML date, it is a string. If you do not quote a TOML date value, it is [`time.Time`] value, enabling precise comparisons.
+With TOML, date values are first-class citizens. TOML has a date data type while JSON and YAML do not. If you quote a TOML date, it is a string. If you do not quote a TOML date value, it is [`time.Time`][] value, enabling precise comparisons.
 
 In the TOML example below, note that the event date is not quoted.
 
@@ -258,7 +257,7 @@ These are equivalent:
 
 ## Portable section comparison
 
-Useful for theme authors, avoid hardcoding section names by using the `where` function with the [`MainSections`] method on a `Site` object.
+Useful for theme authors, avoid hardcoding section names by using the `where` function with the [`MainSections`][] method on a `Site` object.
 
 ```go-html-template
 {{ $pages := where .Site.RegularPages "Section" "in" .Site.MainSections }}
@@ -370,7 +369,7 @@ To exclude a page with an undefined field from a boolean _inequality_ test:
 
 1. Create a slice using a boolean comparison
 1. Create a slice using a nil comparison
-1. Subtract the second slice from the first slice using the [`collections.Complement`] function.
+1. Subtract the second slice from the first slice using the [`collections.Complement`][] function.
 
 This template:
 
@@ -412,8 +411,8 @@ Is rendered to:
 </ul>
 ```
 
+[`MainSections`]: /methods/site/mainsections/
 [`collections.Complement`]: /functions/collections/complement/
 [`date`]: /methods/page/date/
 [`lastmod`]: /methods/page/lastmod/
-[`MainSections`]: /methods/site/mainsections/
 [`time.Time`]: https://pkg.go.dev/time#Time

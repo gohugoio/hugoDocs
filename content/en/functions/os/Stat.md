@@ -26,5 +26,5 @@ The `os.Stat` function attempts to resolve the path relative to the root of your
 
 Details of the `FileInfo` structure are available in the [Go documentation][].
 
-[`contentDir`]: /configuration/all/#contentdir
 [Go documentation]: https://pkg.go.dev/io/fs#FileInfo
+[`contentDir`]: /configuration/all/#contentdir

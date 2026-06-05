@@ -56,7 +56,7 @@ Hugo renders this to:
 > [!note]
 > In the menu definition above, note that the `identifier` property is only required when two or more menu entries have the same name, or when localizing the name using translation tables.
 
-You can also sort menu entries using the [`sort`] function. For example, to sort by `weight` in descending order:
+You can also sort menu entries using the [`sort`][] function. For example, to sort by `weight` in descending order:
 
 ```go-html-template
 <ul>
