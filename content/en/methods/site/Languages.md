@@ -11,7 +11,5 @@ expiryDate: '2028-02-18' # deprecated 2026-02-18 in v0.156.0
 ---
 
 {{< deprecated-in 0.156.0 >}}
-See [details][].
+See [details](https://discourse.gohugo.io/t/56732).
 {{< /deprecated-in >}}
-
-[details]: https://discourse.gohugo.io/t/56732

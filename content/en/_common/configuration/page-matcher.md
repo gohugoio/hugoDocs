@@ -12,7 +12,7 @@ A _page matcher_ filters pages by logical path, page kind, environment, or site.
 
 `lang`
 : {{< deprecated-in 0.153.0 />}}
-: Use [`sites`](#sites) instead.
+: Use the [`sites`](#sites) setting instead.
 
 `path`
 : (`string`) A [glob pattern](g) matching the page's [logical path](g). For example: `{/books,/books/**}`.

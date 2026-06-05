@@ -160,7 +160,7 @@ These are the default mounts:
 
 `excludeFiles`
 : {{< deprecated-in 0.153.0 />}}
-: Use [`files`](#files) instead.
+: Use the [`files`](#files) setting instead.
 
 `files`
 : {{< new-in 0.153.0 />}}
@@ -168,11 +168,11 @@ These are the default mounts:
 
 `includeFiles`
 : {{< deprecated-in 0.153.0 />}}
-: Use [`files`](#files) instead.
+: Use the [`files`](#files) setting instead.
 
 `lang`
 : {{< deprecated-in 0.153.0 />}}
-: Use [`sites`](#sites) instead.
+: Use the [`sites`](#sites) setting instead.
 
 `sites`
 : {{< new-in 0.153.0 />}}

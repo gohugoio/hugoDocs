@@ -9,7 +9,7 @@ params:
     signatures: [transform.PortableText MAP]
 ---
 
-{{< new-in "0.145.0" />}}
+{{< new-in 0.145.0 />}}
 
 [Portable Text][] is a JSON structure that represents rich text content in the [Sanity][] CMS. In Hugo, this function is typically used in a [content adapter][] that creates pages from Sanity data.
 
