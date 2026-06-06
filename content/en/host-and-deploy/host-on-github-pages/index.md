@@ -166,19 +166,26 @@ Step 4
   ```
 
 Step 5
-: Commit the changes to your local Git repository and push to your GitHub repository.
+: You might want to add `/public` to your `.gitignore` file, as there is no need to push compiled assets to GitHub or keep your output website in version control.
+
+  ```console
+  $ echo "/public" >> .gitignore
+  ```
 
 Step 6
+: Commit the changes to your local Git repository and push to your GitHub repository.
+
+Step 7
 : From GitHub's main menu, choose **Actions**. You will see something like this:
 
   ![screen capture](gh-pages-03.png)
 
-Step 7
+Step 8
 : When GitHub has finished building and deploying your site, the color of the status indicator will change to green.
 
   ![screen capture](gh-pages-04.png)
 
-Step 8
+Step 9
 : Click on the commit message as shown above. Under the deploy step, you will see a link to your live site.
 
   ![screen capture](gh-pages-05.png)
