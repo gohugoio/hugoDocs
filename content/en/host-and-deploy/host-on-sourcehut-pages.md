@@ -6,7 +6,11 @@ keywords: []
 aliases: [/hosting-and-deployment/hosting-on-sourcehut/]
 ---
 
-## Assumptions
+Use these instructions to host your site on SourceHut Pages using either manual deployment or the SourceHut build system.
+
+{{% include "/_common/gitignore-public.md" %}}
+
+## Prerequisites
 
 - Working familiarity with [Git][] or [Mercurial][] for version control
 - Completion of the Hugo [Quick Start][]
@@ -83,21 +87,7 @@ tasks:
     hut pages publish -d $site site.tar.gz
 ```
 
-Now what's left is creating a repository titled `<YourUsername>.srht.site` (or your custom domain, if applicable) and pushing your local project. Here's an example using Git:
-
-```sh
-# initialize new git repository
-git init
-
-# add /public directory to our .gitignore file
-echo "/public" >> .gitignore
-
-# commit and push code to main branch
-git add .
-git commit -m "Initial commit"
-git remote add origin https://git.sr.ht/~<YourUsername>/<YourUsername>.srht.site
-git push -u origin main
-```
+Create a repository titled `<YourUsername>.srht.site` (or your custom domain, if applicable) and push your local project to the repository.
 
 You can now follow the build progress of your page at `https://builds.sr.ht/`.
 

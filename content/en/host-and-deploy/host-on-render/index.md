@@ -8,6 +8,8 @@ aliases: [/hosting-and-deployment/hosting-on-render/]
 
 Use these instructions to enable continuous deployment from a GitHub repository. The same general steps apply if you are using Bitbucket or GitLab for version control.
 
+{{% include "/_common/gitignore-public.md" %}}
+
 ## Prerequisites
 
 Please complete the following tasks before continuing:
@@ -19,6 +21,7 @@ Please complete the following tasks before continuing:
 1. [Create](https://github.com/new) a GitHub repository for your project
 1. [Create](https://git-scm.com/docs/git-init) a local Git repository for your project with a [remote][] reference to your GitHub repository
 1. Create a Hugo project within your local Git repository and test it with the `hugo server` command
+1. Commit the changes to your local Git repository and push to your GitHub repository
 
 ## Procedure
 
