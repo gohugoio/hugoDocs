@@ -50,7 +50,7 @@ These settings apply to all image formats.
 
 {{< new-in 0.162.0 />}}
 
-These settings apply only when encoding AVIF images.
+These settings apply when encoding AVIF images.
 
 > [!note]
 > When exporting HDR AVIF images from Lightroom, in the Export dialog under File Settings, uncheck Maximize Compatibility to improve Hugo's AVIF decoding speed.
@@ -87,7 +87,7 @@ These settings apply only when encoding AVIF images.
 
 {{< new-in 0.163.0 />}}
 
-These settings apply only when encoding JPEG images.
+These settings apply when encoding JPEG images.
 
 {{< code-toggle config=imaging.jpeg />}}
 
@@ -98,7 +98,7 @@ These settings apply only when encoding JPEG images.
 
 {{< new-in 0.155.0 />}}
 
-These settings apply only when encoding WebP images.
+These settings apply when encoding WebP images.
 
 {{< code-toggle config=imaging.webp />}}
 
