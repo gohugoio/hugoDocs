@@ -6,8 +6,6 @@ categories: []
 keywords: []
 ---
 
-{{< new-in 0.133.0 />}}
-
 {{% glossary-term "default sort order" %}}
 
 Hugo uses the default sort order to determine the _next_ and _previous_ page relative to the current page when calling these methods on a `Page` object:
