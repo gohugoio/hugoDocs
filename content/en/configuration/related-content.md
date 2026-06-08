@@ -20,7 +20,7 @@ This is the default configuration:
 > [!note]
 > Adding a `related` section to your project configuration requires you to provide a full configuration. You cannot override individual default values without specifying all related settings.
 
-## Top-level options
+## Top-level settings
 
 `threshold`
 : (`int`) A value between 0-100, inclusive. A lower value will return more, but maybe not so relevant, matches.
@@ -31,7 +31,7 @@ This is the default configuration:
 `toLower`
 : (`bool`) Whether to transform keywords in both the indexes and the queries to lower case. This may give more accurate results at a slight performance penalty. Default is `false`.
 
-## Per-index options
+## Per-index settings
 
 `applyFilter`
 : (`string`) Apply a `type` specific filter to the result of a search. This is only used for the `fragments` type.

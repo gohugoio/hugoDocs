@@ -32,7 +32,7 @@ For a complete guide to contributing to Hugo, see the [Contribution Guide][].
 To build Hugo from source you must install:
 
 1. Install [Git][]
-1. Install [Go][] version 1.25.0 or later
+1. Install [Go][] version {{% current-go-version %}} or later
 
 ## GitHub workflow
 

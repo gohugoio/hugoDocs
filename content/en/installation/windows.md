@@ -52,7 +52,7 @@ winget uninstall --name "Hugo (Extended)"
 To build Hugo from source you must install:
 
 1. [Git][]
-1. [Go][] version 1.25.0 or later
+1. [Go][] version {{% current-go-version %}} or later
 
 > [!note]
 > The Bash-style `KEY=VALUE cmd` syntax used in the macOS and Linux build-from-source instructions does not work in PowerShell or Command Prompt. Use the code block matching your shell.
