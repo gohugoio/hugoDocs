@@ -20,7 +20,7 @@ Segmented rendering offers several advantages:
 
 Each segment is defined by an `includes` key and an `excludes` key, both of which accept an array of filters.
 
-A _filter_ is a collection of one or more conditions, represented as an item in the configuration array. A _condition_ compares a specific page [field](#fields) to a given [glob pattern](/quick-reference/glossary/#glob-pattern).
+A _filter_ is a collection of one or more conditions, represented as an item in the configuration array. A _condition_ compares a specific page [field](#fields) to a given [glob pattern](g).
 
 ### Evaluation rules
 
