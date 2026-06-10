@@ -130,7 +130,7 @@ These settings apply when encoding WebP images.
 ## Exif method
 
 {{< deprecated-in 0.155.0 >}}
-Use the [`Meta`](/methods/resource/meta/) method instead.
+Use the [`Meta`](#meta-method) method instead.
 {{< /deprecated-in >}}
 
 ## Meta method
