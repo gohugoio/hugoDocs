@@ -75,7 +75,7 @@ Archetypes receive the following [context](g):
 : (`string`) The [content type](g) inferred from the top-level directory name, or as specified by the `--kind` flag passed to the `hugo new content` command.
 
 `Site`
-: (`page.Site`) The current site object.
+: (`page.Site`) The current `Site` object.
 
 ## Date format
 
