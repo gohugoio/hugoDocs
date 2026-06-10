@@ -180,7 +180,7 @@ To return a slice of pages where the `author` page parameter begins with either 
 
 ### Predefined dates
 
-There are four predefined front matter dates: [`date`][], [`publishDate`], [`lastmod`][], and [`expiryDate`]. Regardless of the front matter data format (TOML, YAML, or JSON) these are [`time.Time`][] values, allowing precise comparisons.
+There are four predefined front matter dates: [`date`][], [`publishDate`][], [`lastmod`][], and [`expiryDate`][]. Regardless of the front matter data format (TOML, YAML, or JSON) these are [`time.Time`][] values, allowing precise comparisons.
 
 For example, to return a slice of pages that were created before the current year:
 
