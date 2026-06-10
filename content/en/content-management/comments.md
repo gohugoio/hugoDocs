@@ -12,22 +12,22 @@ Your theme may already support Disqus, but if not, it is easy to add to your tem
 
 ## Add Disqus
 
-Hugo comes with all the code you need to load Disqus into your templates. Before adding Disqus to your site, you'll need to [set up an account][disqussetup].
+Hugo comes with all the code you need to load Disqus into your templates. Before adding Disqus to your site, you'll need to [set up an account][].
 
 ### Configure Disqus
 
-Disqus comments require you set a single value in your [project configuration][configuration]:
+Disqus comments require you set a single value in your project configuration:
 
 {{< code-toggle file=hugo >}}
 [services.disqus]
 shortname = 'your-disqus-shortname'
 {{</ code-toggle >}}
 
-For many websites, this is enough configuration. However, you also have the option to set the following in the [front matter][] of a single content file:
+For many websites, this is enough configuration. However, you also have the option to set the following in the front matter of a single content file:
 
-- `disqus_identifier`
-- `disqus_title`
-- `disqus_url`
+- `params.disqus_identifier`
+- `params.disqus_title`
+- `params.disqus_url`
 
 ### Render Hugo's embedded Disqus partial
 
@@ -82,7 +82,5 @@ Open-source commenting systems:
 [Talkyard]: https://blog-comments.talkyard.io/
 [Utterances]: https://utteranc.es/
 [Zoomment]: https://zoomment.com/
-[configuration]: /configuration/
-[disqussetup]: https://disqus.com/profile/signup/
 [embedded partial]: /templates/embedded/#disqus
-[front matter]: /content-management/front-matter/
+[set up an account]: https://disqus.com/profile/signup/
