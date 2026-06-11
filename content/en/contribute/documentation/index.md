@@ -241,7 +241,7 @@ With examples of template code:
 
 ### Fenced code blocks
 
-The code block render hook performs several language substitions:
+The code block render hook performs several language substitutions:
 
 Given language|Substitution|Reason
 :--|:--|:--
