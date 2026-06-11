@@ -18,7 +18,7 @@ To process an image you must capture the file as a page resource, a global resou
 
 {{% glossary-term "page resource" %}}
 
-```text
+```tree
 content/
 └── posts/
     └── post-1/           <-- page bundle
@@ -36,7 +36,7 @@ To capture an image as a page resource:
 
 {{% glossary-term "global resource" %}}
 
-```text
+```tree
 assets/
 └── images/
     └── sunset.jpg    <-- global resource
@@ -146,7 +146,7 @@ If you host your site with Netlify, include the following in your project config
 
 If you change image processing methods, or rename/remove images, the cache will eventually contain unused files. To remove them and reclaim disk space, run Hugo's garbage collection:
 
-```text
+```sh
 hugo build --gc
 ```
 

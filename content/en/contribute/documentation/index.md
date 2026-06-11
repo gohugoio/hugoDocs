@@ -17,7 +17,7 @@ We welcome corrections and improvements to the documentation. The documentation 
 
 ### Style
 
-Follow Google's [developer documentation style guide][].
+Follow Google's [developer documentation style guide][] where practical.
 
 ### Markdown
 
@@ -26,14 +26,21 @@ Adhere to these Markdown conventions:
 - Use [ATX][] headings (levels 2-4), not [setext][] headings.
 - Use [collapsed link references][] instead of full or shortcut references. For example:
 
-    ```text
-    This is a [link][].
+  ```md {file="content/example.md"}
+  This is a [link][].
 
-    [link]: https://example.org
-    ```
+  [link]: https://example.org
+  ```
+
+- Use [inline links][] to link to fragments on the same page. For example:
+
+  ```md {file="content/example.md"}
+  This is a link to a [fragment][#fragment].
+  ```
 
 - Use [fenced code blocks][] instead of [indented code blocks][].
 - Use hyphens, not asterisks, for unordered [list items][].
+- Prefix each ordered list item with `1.` instead of numbering the items sequentially.
 - Use [callouts](#callouts) instead of bold text for emphasis.
 - Do not mix [raw HTML][] within Markdown.
 - Do not use bold text in place of a heading or description term (`dt`).
@@ -50,7 +57,7 @@ Link to glossary terms using this syntax: `[term](g)`
 
 Term lookups are case-insensitive, ignore formatting, and support singular and plural forms. For example, all of these variations will link to the same glossary term:
 
-```text
+```md {file="content/example.md"}
 [global resource](g)
 [Global Resource](g)
 [Global Resources](g)
@@ -59,7 +66,7 @@ Term lookups are case-insensitive, ignore formatting, and support singular and p
 
 Use the [glossary-term shortcode](#glossary-term) to insert a term definition:
 
-```text
+```md {file="content/example.md"}
 {{%/* glossary-term "global resource" */%}}
 ```
 
@@ -67,30 +74,32 @@ Use the [glossary-term shortcode](#glossary-term) to insert a term definition:
 
 Link to the [glossary][] as needed and use terms consistently. Pay particular attention to:
 
+- "client side" (noun), "client-side" (adjective)
+- "file name" (two words)
+- "flag" (instead of "option" for command-line flags)
 - "front matter" (two words, except when referring to the configuration key)
 - "home page" (two words)
-- "website" (one word)
-- "standalone" (one word, no hyphen)
 - "map" (instead of "dictionary")
-- "flag" (instead of "option" for command-line flags)
-- "client side" (noun), "client-side" (adjective)
-- "server side" (noun), "server-side" (adjective)
 - "Markdown" (capitalized)
-- "open-source" (hyphenated adjective)
 - "Node.js" (first mention per page), "Node" (subsequent mentions), "node" (for the executable), "npm" (always lowercase)
+- "open source" (noun), "open-source" (adjective)
+- "server side" (noun), "server-side" (adjective)
+- "standalone" (noun or adjective)
+- "stylesheet" (one word)
+- "website" (one word)
 
 ### Template types
 
 When you refer to a template type, italicize it:
 
-```text
+```md {file="content/example.md"}
 When creating a _taxonomy_ template, do this...
 ```
 
 However, if the template type is also a link, do not italicize it to avoid distracting formatting:
 
-```text
-When creating a [taxonomy] template, do this...
+```md {file="content/example.md"}
+When creating a [taxonomy][] template, do this...
 ```
 
 Do not italicize the template type in a title, heading, or front matter description.
@@ -105,7 +114,7 @@ Do not italicize the template type in a title, heading, or front matter descript
 
 When writing the page `description` use imperative present tense when possible. For example:
 
-{{< code-toggle file=content/en/functions/data/_index.md" fm=true >}}
+{{< code-toggle file=content/en/functions/data/_index.md fm=true >}}
 title: Data functions
 linkTitle: data
 description: Use these functions to read local or remote data files.
@@ -113,7 +122,7 @@ description: Use these functions to read local or remote data files.
 
 ### Writing style
 
-Use active voice and present tense wherever possible.
+Prefer active voice and present tense.
 
 No → With Hugo you can build a static site.\
 Yes → Build a static site with Hugo.
@@ -137,15 +146,14 @@ Yes → Hugo is fast.
 
 ### Function and method descriptions
 
-Start descriptions in the functions and methods sections with "Returns", or for boolean values, "Reports whether".
+Start descriptions in the functions and methods sections with "Returns", or for booelan values, "Reports whether".
 
 ### File paths and names
 
 Enclose directory names, file names, and file paths in backticks, except when used in:
 
 - Page titles
-- Section headings (h1-h6)
-- Definition list terms
+- Section headings (`h1`-`h6`)
 - The `description` field in front matter
 
 ### Miscellaneous
@@ -153,8 +161,6 @@ Enclose directory names, file names, and file paths in backticks, except when us
 Other best practices:
 
 - Introduce lists with a sentence or phrase, not directly under a heading.
-- Avoid bold text; use [callouts](#callouts) for emphasis.
-- Do not put description terms (`dt`) in backticks unless syntactically necessary.
 - Do not use Hugo's `ref` or `relref` shortcodes.
 - Prioritize current best practices over multiple options or historical information.
 - Use short, focused code examples.
@@ -166,14 +172,12 @@ This site uses the front matter fields listed in the table below.
 
 Of the four required fields, only `title` and `description` require data.
 
-```text
+{{< code-toggle file=content/example.md fm=true >}}
 title: The title
 description: The description
 categories: []
 keywords: []
-```
-
-This example demonstrates the minimum required front matter fields.
+{{< /code-toggle >}}
 
 If quotation marks are required, prefer single quotes to double quotes when possible.
 
@@ -190,6 +194,7 @@ Field|Description|Required
 `params.functions_and_methods.returnType`|Applicable to function and method pages: the data type returned|&nbsp;
 `params.functions_and_methods.signatures`|Applicable to function and method pages: an array of signatures|&nbsp;
 `params.hide_in_this_section`|Whether to hide the "in this section" panel|&nbsp;
+`params.label`|Applicable to second-level section pages such as concepts, guides, references, and tutorials: a lowercase 3-letter code to identify the section, used in the `related` partial|&nbsp;
 `params.minversion`|Applicable to the quick start page: the minimum Hugo version required|&nbsp;
 `params.permalink`|Reserved for use by the news content adapter|&nbsp;
 `params.reference`|Applicable to glossary entries: a URL for additional information|&nbsp;
@@ -201,7 +206,7 @@ Field|Description|Required
 
 ## Related content
 
-When available, the "See also" sidebar displays related pages using Hugo's [related content][] feature, based on front matter keywords. We ensure consistent keyword usage by validating them against `data/keywords.yaml` during the build process. If a keyword is not found, you'll be alerted and must either modify the keyword or update the data file. This validation process helps to refine the related content for better results.
+When available, the "See also" sidebar displays related pages using Hugo's [related content][] feature, based on front matter keywords. We ensure consistent keyword usage by validating them against `data/keywords.yaml` during the build. If a keyword is not found, you'll be alerted and must either modify the keyword or update the data file. This validation process helps to refine the related content for better results.
 
 If the title in the "See also" sidebar is ambiguous or the same as another page, you can define an alternate title in the front matter:
 
@@ -215,7 +220,7 @@ alt_title = 'Whatever you want'
 Use of the alternate title is limited to the "See also" sidebar.
 
 > [!note]
-> Think carefully before setting the `alt_title`. Use it only when absolutely necessary.
+> Think carefully before setting the `alt_title`. Use it only when necessary.
 
 ## Code examples
 
@@ -226,20 +231,28 @@ With examples of template code:
 - Insert a space before a closing action delimiter.
 - Do not add white space removal syntax to action delimiters unless required. For example, inline elements like `img` and `a` require whitespace removal on both sides.
 
+````md {file="content/example.md"}
 ```go-html-template
 {{ if eq $foo $bar }}
   {{ fmt.Printf "%s is %s" $foo $bar }}
 {{ end }}
 ```
+````
 
 ### Fenced code blocks
 
-Always specify the language.
+The code block render hook performs several language substitions:
 
-When providing a Mardown example, set the code language to "text" to prevent
-erroneous lexing/highlighting of shortcode calls.
+Given language|Substitution|Reason
+:--|:--|:--
+`html`, `gotmpl`|`go-html-template`|Consistent rendering
+`bash`, `ksh`, `sh`, `shell`, `zsh`|`text`|Avoid highlighting quirks
+`md`, `mkd`|`text`|Avoid highlighting quirks
+`tree`|`text`|There isn't a `tree` lexer
 
-````text
+Set the language to `go-html-template` when including template examples:
+
+````md {file="content/example.md"}
 ```go-html-template
 {{ if eq $foo "bar" }}
   {{ print "foo is bar" }}
@@ -247,9 +260,35 @@ erroneous lexing/highlighting of shortcode calls.
 ```
 ````
 
+Set the language to `md` when including Markdown examples:
+
+````md {file="content/example.md"}
+```md
+This is **bold** text.
+```
+````
+
+Set the language to `sh` when including command line examples:
+
+````md {file="content/example.md"}
+```sh
+hugo server -D
+```
+````
+
+Set the language to `tree` when documenting the output of the `tree` command:
+
+````md {file="content/example.md"}
+```tree
+assets/
+└── images/
+    └── sunset.jpg
+```
+````
+
 To include a file name header and copy-to-clipboard button:
 
-````text
+````md {file="content/example.md"}
 ```go-html-template {file="layouts/_partials/foo.html" copy=true}
 {{ if eq $foo "bar" }}
   {{ print "foo is bar" }}
@@ -259,7 +298,7 @@ To include a file name header and copy-to-clipboard button:
 
 To wrap the code block within an initially-opened `details` element using a non-default summary:
 
-````text
+````md {file="content/example.md"}
 ```go-html-template {details=true open=true summary="layouts/_partials/foo.html" copy=true}
 {{ if eq $foo "bar" }}
   {{ print "foo is bar" }}
@@ -267,9 +306,9 @@ To wrap the code block within an initially-opened `details` element using a non-
 ```
 ````
 
-Whitespace trimming is enabled by default. To override this behavior and preserve leading and trailing spaces:
+Whitespace trimming is enabled by default. To override this behavior and preserve leading and trailing whitespace:
 
-````text
+````md {file="content/example.md"}
 ```go-html-template {trim=false}
 
 {{ if eq $foo "bar" }}
@@ -281,20 +320,18 @@ Whitespace trimming is enabled by default. To override this behavior and preserv
 
 ### Shortcode calls
 
-Use this syntax :
+Use this syntax to escape the call within examples:
 
-````text
-```text
+```md {file="content/example.md"}
 {{</*/* foo */*/>}}
 {{%/*/* foo */*/%}}
 ```
-````
 
 ### Project configuration
 
 Use the [code-toggle shortcode](#code-toggle) to include project configuration examples:
 
-```text
+```md {file="content/example.md"}
 {{</* code-toggle file=hugo */>}}
 baseURL = 'https://example.org/'
 locale = 'en-US'
@@ -304,9 +341,9 @@ title = 'My Site'
 
 ### Front matter
 
-Use the [code-toggle shortcode](#code-toggle) to include front matter examples:
+Use the [code-toggle shortcode](#code-toggle) to include front matter example, setting the `fm` attribute to `true`:
 
-```text
+```md {file="content/example.md"}
 {{</* code-toggle file=content/posts/my-first-post.md fm=true */>}}
 title = 'My first post'
 date = 2023-11-09T12:56:07-08:00
@@ -316,15 +353,21 @@ draft = false
 
 ## Callouts
 
-To visually emphasize important information, use callouts (admonitions). Callout types are case-insensitive. Effective March 8, 2025, we utilize only three of the five available types.
+Use callouts (admonitions) to visually emphasize important information.
 
-- note (272 instances)
-- warning (2 instances)
-- caution (1 instance)
+There are five callout types: `note`, `important`, `tip`, `warning`, and `caution`. These are the usage statistic as of 10 Jun 2026, including usage on this page:
 
-Limiting the number of callout types helps us to use them consistently.
+- note (302)
+- tip (5)
+- important (7)
+- warning (7)
+- caution (5)
 
-```text
+The predominant use of the `note` callout type is a historical artifact; the previous theme only provided a `note` shortcode, so the callouts were generic.
+
+In the examples below, the callout type (e.g., `note`, `warning`) is case-insensitive.
+
+```md {file="content/example.md"}
 > [!note]
 > Useful information that users should know, even when skimming content.
 ```
@@ -332,23 +375,15 @@ Limiting the number of callout types helps us to use them consistently.
 > [!note]
 > Useful information that users should know, even when skimming content.
 
-```text
-> [!warning]
-> Urgent info that needs immediate user attention to avoid problems.
+```md {file="content/example.md"}
+> [!important]
+> Key information users need to know to achieve their goal.
 ```
 
-> [!warning]
-> Urgent info that needs immediate user attention to avoid problems.
+> [!important]
+> Key information users need to know to achieve their goal.
 
-```text
-> [!caution]
-> Advises about risks or negative outcomes of certain actions.
-```
-
-> [!caution]
-> Advises about risks or negative outcomes of certain actions.
-
-```text
+```md {file="content/example.md"}
 > [!tip]
 > Helpful advice for doing things better or more easily.
 ```
@@ -356,13 +391,21 @@ Limiting the number of callout types helps us to use them consistently.
 > [!tip]
 > Helpful advice for doing things better or more easily.
 
-```text
-> [!important]
-> Key information users need to know to achieve their goal.
+```md {file="content/example.md"}
+> [!warning]
+> Urgent info that needs immediate user attention to avoid problems.
 ```
 
-> [!important]
-> Key information users need to know to achieve their goal.
+> [!warning]
+> Urgent info that needs immediate user attention to avoid problems.
+
+```md {file="content/example.md"}
+> [!caution]
+> Advises about risks or negative outcomes of certain actions.
+```
+
+> [!caution]
+> Advises about risks or negative outcomes of certain actions.
 
 ## Shortcodes
 
@@ -390,7 +433,7 @@ Use the `code-toggle` shortcode to display examples of project configuration, fr
 `skipHeader`
 : (`bool`) Whether to omit top-level key(s) when rendering a section of `hugo.Data.docs.config`.
 
-```text
+```md {file="content/example.md"}
 {{</* code-toggle file=hugo copy=true */>}}
 baseURL = 'https://example.org/'
 locale = 'en-US'
@@ -402,15 +445,15 @@ title = 'My Site'
 
 Use the `deprecated-in` shortcode to indicate that a feature is deprecated:
 
-```text
+```md
 {{</* deprecated-in 0.144.0 /*/>}}
 ```
 
 You can also include details:
 
-```text
+```md
 {{</* deprecated-in 0.144.0 */>}}
-Use [`hugo.IsServer`](/functions/hugo/isserver/) instead.
+Use the [`hugo.IsServer`](/docs/reference/functions/hugo/isserver/) function instead.
 {{</* /deprecated-in */>}}
 ```
 
@@ -418,8 +461,8 @@ Use [`hugo.IsServer`](/functions/hugo/isserver/) instead.
 
 Use the embedded template URL (`eturl`) shortcode to insert an absolute URL to the source code for an embedded template. The shortcode takes a single argument, the base file name of the template (omit the file extension).
 
-```text
-This is a link to the [embedded alias template].
+```md {file="content/example.md"}
+This is a link to the [embedded alias template][].
 
 [embedded alias template]: <{{%/* eturl alias */%}}>
 ```
@@ -428,7 +471,7 @@ This is a link to the [embedded alias template].
 
 Use the `glossary-term` shortcode to insert the definition of the given glossary term.
 
-```text
+```md {file="content/example.md"}
 {{%/* glossary-term scalar */%}}
 ```
 
@@ -436,7 +479,7 @@ Use the `glossary-term` shortcode to insert the definition of the given glossary
 
 Use the `include` shortcode to include content from another page.
 
-```text
+```md {file="content/example.md"}
 {{%/* include "_common/glob-patterns.md" */%}}
 ```
 
@@ -444,13 +487,13 @@ Use the `include` shortcode to include content from another page.
 
 Use the `new-in` shortcode to indicate a new feature:
 
-```text
+```md {file="content/example.md"}
 {{</* new-in 0.144.0 /*/>}}
 ```
 
 You can also include details:
 
-```text
+```md {file="content/example.md"}
 {{</* new-in 0.144.0 */>}}
 This is a new feature.
 {{</* /new-in */>}}
@@ -511,7 +554,7 @@ Step 6
 
   For example:
 
-  ```text
+  ```sh
   git commit -m "content: Restructure the taxonomy page
 
   This restructures the taxonomy page by splitting topics into logical
@@ -541,6 +584,7 @@ Step 9
 [documentation repository]: https://github.com/gohugoio/hugoDocs/
 [fenced code blocks]: https://spec.commonmark.org/current/#fenced-code-blocks
 [indented code blocks]: https://spec.commonmark.org/current/#indented-code-blocks
+[inline links]: https://discourse.gohugo.io/t/55714
 [issues]: https://github.com/gohugoio/hugoDocs/issues
 [list items]: https://spec.commonmark.org/current/#list-items
 [project repository]: https://github.com/gohugoio/hugo

@@ -24,7 +24,7 @@ enableGitInfo = true
 
 Consider this project structure:
 
-```text
+```tree
 my-project/
 ├── content/
 │   ├── books/

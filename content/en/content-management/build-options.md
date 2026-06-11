@@ -42,7 +42,7 @@ render = 'always'
 
 Create a unpublished page whose content and resources can be included in other pages.
 
-```text
+```tree
 content/
 ├── headless/
 │   ├── a.jpg
@@ -74,7 +74,7 @@ To include the content and images on the home page:
 
 The published site will have this structure:
 
-```text
+```tree
 public/
 ├── headless/
 │   ├── a.jpg
@@ -91,7 +91,7 @@ In the example above, note that:
 
 Create a unpublished section whose content and resources can be included in other pages.
 
-```text
+```tree
 content/
 ├── headless/
 │   ├── note-1/
@@ -134,7 +134,7 @@ To include the content and images on the home page:
 
 The published site will have this structure:
 
-```text
+```tree
 public/
 ├── headless/
 │   ├── note-1/
@@ -155,7 +155,7 @@ In the example above, note that:
 
 Publish a section page without publishing the descendant pages. For example, to create a glossary:
 
-```text
+```tree
 content/
 ├── glossary/
 │   ├── _index.md
@@ -191,7 +191,7 @@ To render the glossary:
 
 The published site will have this structure:
 
-```text
+```tree
 public/
 ├── glossary/
 │   └── index.html
@@ -202,7 +202,7 @@ public/
 
 Publish a section's descendant pages without publishing the section page itself.
 
-```text
+```tree
 content/
 ├── books/
 │   ├── _index.md
@@ -222,7 +222,7 @@ list = 'never'
 
 The published site will have this structure:
 
-```text
+```tree
 public/
 ├── books/
 │   ├── book-1/
@@ -238,7 +238,7 @@ Consider this example. A documentation site has a team of contributors with acce
 
 Instead of external documentation for the shortcodes, include an `internal` section that is hidden when building the production site.
 
-```text
+```tree
 content/
 ├── internal/
 │   ├── shortcodes/
@@ -271,7 +271,7 @@ environment = 'production'
 
 The production site will have this structure:
 
-```text
+```tree
 public/
 ├── reference/
 │   ├── reference-1/

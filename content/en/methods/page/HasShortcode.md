@@ -11,7 +11,7 @@ params:
 
 By example, let's use [Plotly][] to render a chart:
 
-```text {file="content/example.md"}
+```md {file="content/example.md"}
 {{</* plotly */>}}
 {
   "data": [

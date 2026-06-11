@@ -19,7 +19,7 @@ https://www.instagram.com/p/CxOWiQNP2MO/
 
 Include this in your Markdown:
 
-```text
+```md
 {{</* instagram CxOWiQNP2MO */>}}
 ```
 

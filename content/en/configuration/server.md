@@ -8,7 +8,7 @@ keywords: []
 
 These settings are exclusive to Hugo's development server, so a dedicated [configuration directory][] for development, where the server is configured accordingly, is the recommended approach.
 
-```text
+```tree
 project/
 └── config/
     ├── _default/

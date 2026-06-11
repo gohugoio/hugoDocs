@@ -59,7 +59,7 @@ Then include this snippet at the _bottom_ of your base template, before the clos
 
 With that you can use the `mermaid` language in Markdown code blocks:
 
-````text {copy=true}
+````md {file="content/example.md" copy=true}
 ```mermaid
 sequenceDiagram
     participant Alice

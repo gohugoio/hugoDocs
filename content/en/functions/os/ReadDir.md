@@ -15,7 +15,7 @@ The `os.ReadDir` function resolves the path relative to the root of your project
 
 With this directory structure:
 
-```text
+```tree
 content/
 ├── about.md
 ├── contact.md

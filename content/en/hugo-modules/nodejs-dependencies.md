@@ -21,7 +21,7 @@ Run [`hugo mod npm pack`][] to collect Node dependencies from all modules and wr
 
 The resulting project structure:
 
-```text
+```tree
 project/
 ├── package.json                      # your project's package.json (updated with workspaces entry)
 ├── packages/

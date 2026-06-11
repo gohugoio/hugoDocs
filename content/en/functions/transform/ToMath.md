@@ -149,7 +149,7 @@ Step 3
 Step 4
 : Add some mathematical markup to your content, then test.
 
-  ```text {file="content/example.md"}
+  ```md {file="content/example.md"}
   This is an inline \(a^*=x-b^*\) equation.
 
   These are block equations:
@@ -165,7 +165,7 @@ Step 4
 
 You can also use the `transform.ToMath` function to render chemical equations, leveraging the `\ce` and `\pu` functions from the [`mhchem`][] package.
 
-```text
+```md
 $$C_p[\ce{H2O(l)}] = \pu{75.3 J // mol K}$$
 ```
 

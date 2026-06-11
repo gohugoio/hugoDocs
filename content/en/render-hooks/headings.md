@@ -46,7 +46,7 @@ Heading _render hook_ templates receive the following [context](g):
 
 ## Examples
 
-In its default configuration, Hugo renders Markdown headings according to the [CommonMark specification][] with the addition of automatic `id` attributes. To create a render hook that does the same thing:
+In its default configuration, Hugo renders Markdown headings according to the [CommonMark][] specification with the addition of automatic `id` attributes. To create a render hook that does the same thing:
 
 ```go-html-template {file="layouts/_markup/render-heading.html" copy=true}
 <h{{ .Level }} id="{{ .Anchor }}" {{- with .Attributes.class }} class="{{ . }}" {{- end }}>
@@ -65,6 +65,6 @@ To add an anchor link to the right of each heading:
 
 {{% include "/_common/render-hooks/pageinner.md" %}}
 
-[CommonMark specification]: https://spec.commonmark.org/current/
+[CommonMark]: https://spec.commonmark.org/current/
 [Markdown attributes]: /content-management/markdown-attributes/
 [`RenderShortcodes`]: /methods/page/rendershortcodes/

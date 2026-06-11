@@ -40,13 +40,13 @@ You must also be comfortable working from the command line.
 
 Verify that you have installed Hugo {{% param "minVersion" %}} or later.
 
-```text
+```sh
 hugo version
 ```
 
 Run these commands to create a Hugo project with the [Ananke][] theme. The next section provides an explanation of each command.
 
-```text
+```sh
 hugo new project quickstart
 cd quickstart
 git init
@@ -61,37 +61,37 @@ View your project at the URL displayed in your terminal. Press `Ctrl + C` to sto
 
 Create the [project skeleton][] for your project in the `quickstart` directory.
 
-```text
+```sh
 hugo new project quickstart
 ```
 
 Change the current directory to the root of your project.
 
-```text
+```sh
 cd quickstart
 ```
 
 Initialize an empty Git repository in the current directory.
 
-```text
+```sh
 git init
 ```
 
 Clone the [Ananke][] theme into the `themes` directory, adding it to your project as a [Git submodule][].
 
-```text
+```sh
 git submodule add https://github.com/gohugo-ananke/ananke themes/ananke
 ```
 
 Append a line to your project configuration file, indicating the current theme.
 
-```text
+```sh
 echo "theme = 'ananke'" >> hugo.toml
 ```
 
 Start Hugo's development server.
 
-```text
+```sh
 hugo server
 ```
 
@@ -101,13 +101,13 @@ Press `Ctrl + C` to stop Hugo's development server.
 
 Add a new page to your project.
 
-```text
+```sh
 hugo new content content/posts/my-first-post.md
 ```
 
 Hugo created the file in the `content/posts` directory. Open the file with your editor.
 
-```text
+```md
 +++
 title = 'My First Post'
 date = 2024-01-14T07:07:07+01:00
@@ -119,7 +119,7 @@ Notice the `draft` value in the [front matter][] is `true`. By default, Hugo doe
 
 Add some [Markdown][] to the body of the post, but do not change the `draft` value.
 
-```text
+```md
 +++
 title = 'My First Post'
 date = 2024-01-14T07:07:07+01:00
@@ -134,7 +134,7 @@ Visit the [Hugo](https://gohugo.io) website!
 
 Save the file, then start Hugo's development server. You can run either of the following commands to include draft content.
 
-```text
+```sh
 hugo server --buildDrafts
 hugo server -D
 ```
@@ -148,9 +148,9 @@ When satisfied with your new content, set the front matter `draft` parameter to 
 
 ## Configure the project
 
-With your editor, open your [project configuration][] file (`hugo.toml`) in the root of your project.
+With your editor, open the [project configuration][] file in the root of your project directory:
 
-```text
+```toml {file="hugo.toml"}
 baseURL = 'https://example.org/'
 locale = 'en-us'
 title = 'My New Hugo Project'
@@ -165,7 +165,7 @@ Make the following changes:
 
 Start Hugo's development server to see your changes, remembering to include draft content.
 
-```text
+```sh
 hugo server -D
 ```
 
@@ -178,7 +178,7 @@ In this step you will _publish_ your project, but you will not _deploy_ it.
 
 When you publish your project, Hugo renders all build artifacts to the `public` directory in the root of your project. This includes the HTML files for every site, along with assets such as images, CSS, and JavaScript. The command is simple.
 
-```text
+```sh
 hugo
 ```
 

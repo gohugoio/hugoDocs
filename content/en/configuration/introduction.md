@@ -25,7 +25,7 @@ Only define settings that deviate from the defaults. A smaller configuration fil
 
 Create a project configuration file in the root of your project directory, naming it `hugo.toml`, `hugo.yaml`, or `hugo.json`, with that order of precedence.
 
-```text
+```tree
 my-project/
 └── hugo.toml
 ```
@@ -65,7 +65,7 @@ hugo build --config a.toml,b.yaml,c.json
 
 Instead of a single project configuration file, split your configuration by [environment](g), root configuration key, and language. For example:
 
-```text
+```tree
 my-project/
 └── config/
     ├── _default/
@@ -127,7 +127,7 @@ path = '/articles/**'
 
 Hugo parses the `config` directory recursively, allowing you to organize the files into subdirectories. For example:
 
-```text
+```tree
 my-project/
 └── config/
     └── _default/
@@ -139,7 +139,7 @@ my-project/
 
 ### Example
 
-```text
+```tree
 my-project/
 └── config/
     ├── _default/
@@ -203,7 +203,7 @@ To satisfy these requirements, configure your site as follows:
 
 Hugo merges configuration settings from themes and modules, prioritizing the project's own settings. Given this simplified project structure with two themes:
 
-```text
+```tree
 project/
 ├── themes/
 │   ├── theme-a/

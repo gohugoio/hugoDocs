@@ -13,7 +13,7 @@ Use the `Params` method with [page resources](g). It is not applicable to either
 
 With this content structure:
 
-```text
+```tree
 content/
 ├── posts/
 │   ├── cats/

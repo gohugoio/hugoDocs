@@ -13,7 +13,7 @@ Hugo supports page-relative images and other resources packaged into `Page Bundl
 
 These terms are connected, and you also need to read about [page resources][] and [image processing][] to get the full picture.
 
-```text
+```tree
 content/
 ├── blog/
 │   ├── hugo-is-cool/

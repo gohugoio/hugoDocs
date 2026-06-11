@@ -15,7 +15,7 @@ This allows us to effectively bypass the rules governing indentation as provided
 
 Consider this Markdown, an unordered list with a small gallery of thumbnail images within each list item:
 
-```text {file="content/about.md"}
+```md {file="content/about.md"}
 - Gallery one
 
     {{</* gallery */>}}

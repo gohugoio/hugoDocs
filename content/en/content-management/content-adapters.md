@@ -11,7 +11,7 @@ A content adapter is a template that dynamically creates pages when building a s
 
 Unlike templates that reside in the `layouts` directory, content adapters reside in the `content` directory, no more than one per directory per language. When a content adapter creates a page, the page's [logical path](g) will be relative to the content adapter.
 
-```text
+```tree
 content/
 ├── articles/
 │   ├── _index.md
@@ -165,7 +165,7 @@ Create pages from remote data, where each page represents a book review.
 Step 1
 : Create the content structure.
 
-  ```text
+  ```tree
   content/
   └── books/
       ├── _content.gotmpl  <-- content adapter
@@ -287,7 +287,7 @@ weight = 2
 
 Include a language designator in the content adapter's file name.
 
-```text
+```tree
 content/
 └── books/
     ├── _content.de.gotmpl
@@ -312,7 +312,7 @@ weight = 2
 
 Create a single content adapter in each directory:
 
-```text
+```tree
 content/
 ├── de/
 │   └── books/
@@ -328,7 +328,7 @@ content/
 
 Two or more pages collide when they have the same publication path. Due to concurrency, the content of the published page is indeterminate. Consider this example:
 
-```text
+```tree
 content/
 └── books/
     ├── _content.gotmpl  <-- content adapter

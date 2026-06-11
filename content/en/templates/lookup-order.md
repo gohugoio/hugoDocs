@@ -42,7 +42,7 @@ You cannot change the lookup order to target a content page, but you can change 
 
 Consider this content structure:
 
-```text
+```tree
 content/
 ├── about.md
 └── contact.md
@@ -50,7 +50,7 @@ content/
 
 Files in the root of the `content` directory have a [content type](g) of `page`. To render these pages with a unique template, create a matching subdirectory:
 
-```text
+```tree
 layouts/
 └── page/
     └── single.html
@@ -65,7 +65,7 @@ layout = 'contact'
 
 Then create the template for the contact page:
 
-```text
+```tree
 layouts/
 └── page/
     └── contact.html  <-- renders contact.md
@@ -87,7 +87,7 @@ layout = 'contact'
 
 Now place the layouts in the corresponding directory:
 
-```text
+```tree
 layouts/
 └── miscellaneous/
     └── contact.html  <-- renders contact.md

@@ -19,13 +19,13 @@ Internally this shortcode calls the `images.QR` function. Please read the [relat
 
 Use the self-closing syntax to pass the text as an argument:
 
-```text
+```md
 {{</* qr text="https://gohugo.io" /*/>}}
 ```
 
 Or insert the text between the opening and closing tags:
 
-```text
+```md
 {{</* qr */>}}
 https://gohugo.io
 {{</* /qr */>}}
@@ -37,7 +37,7 @@ Both of the above produce this image:
 
 To create a QR code for a phone number:
 
-```text
+```md
 {{</* qr text="tel:+12065550101" /*/>}}
 ```
 
@@ -45,7 +45,7 @@ To create a QR code for a phone number:
 
 To create a QR code containing contact information in the [vCard][] format:
 
-```text
+```md
 {{</* qr level="low" scale=2 alt="QR code of vCard for John Smith" */>}}
 BEGIN:VCARD
 VERSION:2.1

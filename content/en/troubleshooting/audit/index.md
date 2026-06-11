@@ -8,7 +8,7 @@ keywords: []
 
 There are several conditions that can produce errors in your published site which are not detected during the build. Run this audit before your final build.
 
-```text {copy=true}
+```sh {copy=true}
 HUGO_MINIFY_TDEWOLFF_HTML_KEEPCOMMENTS=true HUGO_ENABLEMISSINGTRANSLATIONPLACEHOLDERS=true hugo && grep -inorE "<\!-- raw HTML omitted -->|ZgotmplZ|\[i18n\]|\(<nil>\)|(&lt;nil&gt;)|hahahugo" public/
 ```
 

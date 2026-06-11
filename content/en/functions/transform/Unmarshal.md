@@ -53,7 +53,7 @@ Use the `transform.Unmarshal` function with global, page, and remote resources.
 
 A global resource is a file within the `assets` directory, or within any directory mounted to the `assets` directory.
 
-```text
+```tree
 assets/
 └── data/
     └── books.json
@@ -79,7 +79,7 @@ assets/
 
 A page resource is a file within a [page bundle][].
 
-```text
+```tree
 content/
 ├── post/
 │   └── book-reviews/

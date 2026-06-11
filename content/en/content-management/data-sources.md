@@ -21,7 +21,7 @@ Hugo also merges data directories from themes and modules into this single data 
 
 Theme and module authors may wish to namespace their data files to prevent collisions. For example:
 
-```text
+```tree
 project/
 └── data/
     └── mytheme/
@@ -61,7 +61,7 @@ Use data sources to augment existing content. For example, create a shortcode to
 "Felix","cat","Malicious","7"
 ```
 
-```text {file="content/example.md"}
+```md {file="content/example.md"}
 {{</* csv-to-table "pets.csv" */>}}
 ```
 

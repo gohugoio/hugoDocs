@@ -51,7 +51,7 @@ File path|Front matter slug|Logical path
 
 The `Path` method on a `Page` object returns a value regardless of whether the page is backed by a file.
 
-```text
+```tree
 content/
 └── posts/
     └── post-1.md  <-- front matter: tags = ['hugo']
@@ -59,7 +59,7 @@ content/
 
 When you build the site:
 
-```text
+```tree
 public/
 ├── posts/
 │   ├── post-1/
@@ -94,7 +94,7 @@ Just as file paths form a file tree, logical paths form a logical tree.
 
 A file tree:
 
-```text
+```tree
 content/
 └── s1/
     ├── p1/
@@ -104,7 +104,7 @@ content/
 
 The same content represented as a logical tree:
 
-```text
+```tree
 content/
 └── s1/
     ├── p1

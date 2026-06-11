@@ -52,7 +52,7 @@ i18n/hugolang.toml
 
 Let's say your multilingual project supports two languages, English and Polish. Create a translation table for each language in the `i18n` directory.
 
-```text
+```tree
 i18n/
 ├── en.toml
 └── pl.toml
@@ -93,7 +93,7 @@ When viewing the Polish language site:
 
 Let's say your multilingual project supports two languages, English and Polish. Create a translation table for each language in the `i18n` directory.
 
-```text
+```tree
 i18n/
 ├── en.toml
 └── pl.toml

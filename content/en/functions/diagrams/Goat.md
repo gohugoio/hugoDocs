@@ -34,7 +34,7 @@ Hugo natively supports GoAT diagrams with an [embedded code block render hook][]
 
 This Markdown:
 
-````text
+````md
 ```goat
 .---.     .-.       .-.       .-.     .---.
 | A +--->| 1 |<--->| 2 |<--->| 3 |<---+ B |
@@ -83,7 +83,7 @@ By way of example, let's create a code block render hook to render GoAT diagrams
 
 This Markdown:
 
-````text {file="content/example.md" }
+````md {file="content/example.md" }
 ```goat {class="foo" caption="Diagram 1: Example"}
 .---.     .-.       .-.       .-.     .---.
 | A +--->| 1 |<--->| 2 |<--->| 3 |<---+ B |

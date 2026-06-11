@@ -95,7 +95,7 @@ Step 5
 Step 6
 : Test your changes:
 
-  ```text
+  ```sh
   go test ./...
   ```
 

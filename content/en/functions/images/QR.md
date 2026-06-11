@@ -119,13 +119,13 @@ Call the `qr` shortcode to insert a QR code into your content.
 
 Use the self-closing syntax to pass the text as an argument:
 
-```text
+```md
 {{</* qr text="https://gohugo.io" /*/>}}
 ```
 
 Or insert the text between the opening and closing tags:
 
-```text
+```md
 {{</* qr */>}}
 https://gohugo.io
 {{</* /qr */>}}

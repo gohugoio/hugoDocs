@@ -11,7 +11,7 @@ aliases: [/content/sections/]
 
 {{% glossary-term "section" %}}
 
-```text
+```tree
 content/
 ├── articles/             <-- section (top-level directory)
 │   ├── 2022/

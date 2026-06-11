@@ -21,7 +21,7 @@ https://x.com/SanDiegoZoo/status/1453110110599868418
 
 Include this in your Markdown:
 
-```text
+```md
 {{</* x user="SanDiegoZoo" id="1453110110599868418" */>}}
 ```
 

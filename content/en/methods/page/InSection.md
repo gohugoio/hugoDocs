@@ -15,7 +15,7 @@ The `InSection` method on a `Page` object reports whether the given page is in t
 
 With this content structure:
 
-```text
+```tree
 content/
 ├── auctions/
 │   ├── 2023-11/

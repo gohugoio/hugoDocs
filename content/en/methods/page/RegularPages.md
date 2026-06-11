@@ -21,7 +21,7 @@ Range through the page collection in your template:
 
 Consider this content structure:
 
-```text
+```tree
 content/
 ├── lessons/
 │   ├── lesson-1/

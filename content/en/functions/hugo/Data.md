@@ -18,7 +18,7 @@ Use the `hugo.Data` function to access data within the `data` directory, or with
 
 Consider this `data` directory:
 
-```text
+```tree
 data/
 ├── books/
 │   ├── fiction.yaml

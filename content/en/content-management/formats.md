@@ -10,7 +10,7 @@ aliases: [/content/markdown-extras/,/content/supported-formats/,/doc/supported-f
 
 You may mix content formats throughout your site. For example:
 
-```text
+```tree
 content/
 └── posts/
     ├── post-1.md
@@ -66,13 +66,13 @@ You can configure the AsciiDoc renderer in your [project configuration][configur
 
 In its default configuration, Hugo passes these CLI flags when calling the Asciidoctor executable:
 
-```text
+```sh
 --no-header-footer
 ```
 
 The CLI flags passed to the Asciidoctor executable depend on configuration. You may inspect the flags when building your project:
 
-```text
+```sh
 hugo build --logLevel info
 ```
 
@@ -82,7 +82,7 @@ Create your content in the [Pandoc][] format preceded by front matter. Hugo rend
 
 Hugo passes these CLI flags when calling the Pandoc executable:
 
-```text
+```sh
 --mathjax
 ```
 
@@ -92,7 +92,7 @@ Create your content in the [reStructuredText][] format preceded by front matter.
 
 Hugo passes these CLI flags when calling the rst2html executable:
 
-```text
+```sh
 --leave-comments --initial-header-level=2
 ```
 

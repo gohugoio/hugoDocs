@@ -170,7 +170,7 @@ Vercel|Shallow|Yes [^1]
 
 [^1]: To perform a deep clone when hosting on Cloudflare, Render, or Vercel, include this code in the build script after the repository has been cloned:
 
-    ```text
+    ```sh
     if [ "$(git rev-parse --is-shallow-repository)" = "true" ]; then
       git fetch --unshallow
     fi

@@ -15,7 +15,7 @@ Without a [`return`][] statement, the `partial` function returns a string of typ
 
 In this example we have three _partial_ templates:
 
-```text
+```tree
 layouts/
 └── _partials/
     ├── average.html

@@ -34,7 +34,7 @@ draft = true
 
 You can create an archetype for one or more [content types](g). For example, use one archetype for posts, and use the default archetype for everything else:
 
-```text
+```tree
 archetypes/
 ├── default.md
 └── posts.md
@@ -93,7 +93,7 @@ Although typically used as a front matter template, you can also use an archetyp
 
 For example, in a documentation site you might have a section (content type) for functions. Every page within this section should follow the same format: a brief description, the function signature, examples, and notes. We can pre-populate the page to remind content authors of the standard format.
 
-````text {file="archetypes/functions.md"}
+````md {file="archetypes/functions.md"}
 ---
 date: '{{ .Date }}'
 draft: true
@@ -129,7 +129,7 @@ For example, in a photography site you might have a section (content type) for g
 
 Create an archetype for galleries:
 
-```text
+```tree
 archetypes/
 ├── galleries/
 │   ├── images/
@@ -148,7 +148,7 @@ hugo new galleries/bryce-canyon
 
 This produces:
 
-```text
+```tree
 content/
 ├── galleries/
 │   └── bryce-canyon/
@@ -164,7 +164,7 @@ Use the `--kind` command line flag to specify an archetype when creating content
 
 For example, let's say your site has two sections: articles and tutorials. Create an archetype for each content type:
 
-```text
+```tree
 archetypes/
 ├── articles.md
 ├── default.md

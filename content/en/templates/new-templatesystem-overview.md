@@ -55,7 +55,7 @@ For templates placed in a `layouts` folder partly or completely matching a [Page
 
 ## Example folder structure
 
-```text
+```tree
 layouts
 ├── baseof.html
 ├── baseof.term.html

@@ -181,7 +181,7 @@ weight = 1
 
 With the above, Hugo publishes two sites, each with their own root:
 
-```text
+```tree
 public
 ├── en
 └── fr

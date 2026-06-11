@@ -52,7 +52,7 @@ Step 2
 Step 3
 : Create a file named `hugo.yaml` in a directory named `.github/workflows`.
 
-  ```text
+  ```sh
   mkdir -p .github/workflows
   touch .github/workflows/hugo.yaml
   ```

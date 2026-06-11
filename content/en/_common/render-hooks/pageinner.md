@@ -20,7 +20,7 @@ The primary use case for `PageInner` is to resolve links and [page resources](g)
 
 Then call the shortcode in your Markdown:
 
-```text {file="content/posts/post-1.md"}
+```md {file="content/posts/post-1.md"}
 {{%/* include "/posts/post-2" */%}}
 ```
 

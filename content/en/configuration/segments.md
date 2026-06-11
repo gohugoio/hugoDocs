@@ -103,7 +103,7 @@ rm -rf public/ && hugo build --renderSegments segment1 && tree public
 
 Consider a project with this content structure:
 
-```text
+```tree
 content/
 ├── books/
 │   ├── _index.en.md
@@ -176,7 +176,7 @@ hugo build --renderSegments segment1
 
 The published project has this structure:
 
-```text
+```tree
 public/
 ├── en/
 │   ├── books/

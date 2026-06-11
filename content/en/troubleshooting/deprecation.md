@@ -34,13 +34,13 @@ The project team will:
 
 To see the INFO messages, you must use the `--logLevel` command line flag:
 
-```text
+```sh
 hugo build --logLevel info
 ```
 
 To limit the output to deprecation notices:
 
-```text
+```sh
 hugo build --logLevel info | grep deprecate
 ```
 

@@ -13,7 +13,7 @@ params:
 
 With this content structure:
 
-```text
+```tree
 content/
 ├── lessons/
 │   ├── math/

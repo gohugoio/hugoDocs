@@ -30,7 +30,7 @@ To find the elements within `$c3` that do not exist in `$c1` or `$c2`:
 
 You can also use the `complement` function with page collections. Let's say your site has five content types:
 
-```text
+```tree
 content/
 ├── blog/
 ├── books/

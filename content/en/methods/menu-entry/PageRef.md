@@ -41,7 +41,7 @@ This example is contrived.
 
 Consider this content structure:
 
-```text
+```tree
 content/
 ├── products.md
 └── _index.md

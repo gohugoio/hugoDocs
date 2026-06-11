@@ -343,14 +343,14 @@ Some methods take an argument. Separate the argument from the method with a spac
 
 Template comments are similar to template actions. Paired opening and closing braces represent the beginning and end of a comment. For example:
 
-```text
+```go-html-template
 {{/* This is an inline comment. */}}
 {{- /* This is an inline comment with adjacent whitespace removed. */ -}}
 ```
 
 Code within a comment is not parsed, executed, or displayed. Comments may be inline, as shown above, or in block form:
 
-```text
+```go-html-template
 {{/*
 This is a block comment.
 */}}

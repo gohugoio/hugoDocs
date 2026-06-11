@@ -15,7 +15,7 @@ The `os.ReadFile` function attempts to resolve the path relative to the root of 
 
 With a file named README.md in the root of your project directory:
 
-```text
+```md
 This is **bold** text.
 ```
 

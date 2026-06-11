@@ -30,7 +30,7 @@ The path to the template is determined by the [content type](g).|You must specif
 
 Consider this layout structure:
 
-```text
+```tree
 layouts/
 ├── books/
 │   └── li.html   <-- used when content type is "books"

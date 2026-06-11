@@ -44,7 +44,7 @@ The global `page` function accesses the `Page` object passed into the top-level 
 
 With this content structure:
 
-```text
+```tree
 content/
 ├── posts/
 │   ├── post-1.md

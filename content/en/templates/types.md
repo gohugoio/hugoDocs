@@ -23,7 +23,7 @@ Create templates in the `layouts` directory in the root of your project.
 
 Although your site may not require each of these templates, the example below is typical for a site of medium complexity.
 
-```text
+```tree
 layouts/
 ├── _markup/
 │   ├── render-image.html   <-- render hook
@@ -371,7 +371,7 @@ For example, the _shortcode_ template below renders an audio element from a [glo
 
 Then call the shortcode from within markup:
 
-```text {file="content/example.md"}
+```md {file="content/example.md"}
 {{</* audio src=/audio/test.mp3 */>}}
 ```
 
