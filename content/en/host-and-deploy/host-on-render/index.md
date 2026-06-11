@@ -28,7 +28,7 @@ Please complete the following tasks before continuing:
 Step 1
 : Create a [Render Blueprint][] in the root of your project.
 
-  ``` {file="render.yaml" copy=true}
+  ```yaml {file="render.yaml" copy=true}
   services:
     - type: web
       name: hosting-render
