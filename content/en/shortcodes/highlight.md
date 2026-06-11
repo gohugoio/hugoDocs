@@ -20,7 +20,7 @@ The `highlight` shortcode calls the [`transform.Highlight`][] function to genera
 
 The `highlight` shortcode takes three arguments.
 
-```text
+```md
 {{</* highlight LANG OPTIONS */>}}
 CODE
 {{</* /highlight */>}}
@@ -37,7 +37,7 @@ CODE
 
 ## Example
 
-```text {file="content/example.md"}
+```md {file="content/example.md"}
 {{</* highlight go "linenos=inline, hl_lines=3 6-8, style=emacs" */>}}
 package main
 
@@ -67,7 +67,7 @@ func main() {
 
 You can also use the `highlight` shortcode for inline code snippets:
 
-```text
+```md
 This is some {{</* highlight go "hl_inline=true" */>}}fmt.Println("inline"){{</* /highlight */>}} code.
 ```
 
@@ -84,7 +84,7 @@ Given the verbosity of the example above, if you need to frequently highlight in
 {{ transform.Highlight $code $lang $opts }}
 ```
 
-```text
+```md
 This is some {{</* hl */>}}fmt.Println("inline"){{</* /hl */>}} code.
 ```
 

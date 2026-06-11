@@ -17,7 +17,7 @@ If Hugo cannot resolve the path to a page, the method returns nil.
 
 Consider this content structure:
 
-```text
+```tree
 content/
 ├── works/
 │   ├── paintings/
@@ -82,7 +82,7 @@ To get a page from a different language, query the `Sites` object:
 
 Consider this content structure:
 
-```text
+```tree
 content/
 ├── headless/    
 │   ├── a.jpg

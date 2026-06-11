@@ -18,7 +18,7 @@ layout = 'contact'
 
 Hugo will render the page using contact.html.
 
-```text
+```tree
 layouts/
 ├── baseof.html
 ├── contact.html

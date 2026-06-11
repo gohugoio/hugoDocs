@@ -12,7 +12,7 @@ Hugo uses [Goldmark][] to render Markdown to HTML. Goldmark supports custom exte
 
 Depending on your choice of delimiters, Hugo will classify a passthrough element as either _block_ or _inline_. Consider this contrived example:
 
-```text {file="content/example.md"}
+```md {file="content/example.md"}
 This is a
 
 \[block\]
@@ -101,7 +101,7 @@ In the above, note the use of a [noop](g) statement to force content rendering b
 
 Although you can use one template with conditional logic as shown above, you can also create separate templates for each [`Type`](#type) of passthrough element:
 
-```text
+```tree
 layouts/
   └── _markup/
       ├── render-passthrough-block.html

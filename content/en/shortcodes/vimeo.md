@@ -19,7 +19,7 @@ https://vimeo.com/19899678
 
 Include this in your Markdown:
 
-```text
+```md
 {{</* vimeo 19899678 */>}}
 ```
 
@@ -48,7 +48,7 @@ Hugo renders this to:
 
 Here's an example using some of the available arguments:
 
-```text
+```md
 {{</* vimeo id=19899678 allowFullScreen=false loading=lazy */>}}
 ```
 

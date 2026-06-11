@@ -9,7 +9,7 @@ Page resources are only accessible from [page bundles][], those directories with
 
 In this example, `first-post` is a page bundle with access to 10 page resources including audio, data, documents, images, and video. Although `second-post` is also a page bundle, it has no page resources and is unable to directly access the page resources associated with `first-post`.
 
-```text
+```tree
 content
 └── post
     ├── first-post
@@ -42,7 +42,7 @@ Use any of these methods on a `Page` object to capture page resources:
 
 The following examples assume this content structure:
 
-```text
+```tree
 content/
 └── example/
     ├── data/
@@ -211,7 +211,7 @@ weight = 2
 
 And this content:
 
-```text
+```tree
 content/
 └── my-bundle/
     ├── a.jpg     <-- shared page resource
@@ -224,7 +224,7 @@ content/
 
 With v0.122.0 and earlier, Hugo duplicated the shared page resources, creating copies for each language:
 
-```text
+```tree
 public/
 ├── de/
 │   ├── my-bundle/
@@ -246,7 +246,7 @@ public/
 
 With v0.123.0 and later, Hugo places the shared resources in the page bundle for the default content language:
 
-```text
+```tree
 public/
 ├── de/
 │   ├── my-bundle/

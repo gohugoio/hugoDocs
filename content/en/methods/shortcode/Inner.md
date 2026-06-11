@@ -11,7 +11,7 @@ params:
 
 This content:
 
-```text {file="content/services.md"}
+```md {file="content/services.md"}
 {{</* card title="Product Design" */>}}
 We design the **best** widgets in the world.
 {{</* /card */>}}
@@ -79,7 +79,7 @@ You can use the [`markdownify`][] function instead of the `RenderString` method,
 
 Instead of calling the shortcode with the `{{</* */>}}` notation, use the `{{%/* */%}}` notation:
 
-```text {file="content/services.md"}
+```md {file="content/services.md"}
 {{%/* card title="Product Design" */%}}
 We design the **best** widgets in the world.
 {{%/* /card */%}}

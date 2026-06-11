@@ -30,7 +30,7 @@ Create custom shortcodes to simplify and standardize content creation. For examp
 
 Then call the shortcode from within markup:
 
-```text {file="content/example.md"}
+```md {file="content/example.md"}
 {{</* audio src=/audio/test.mp3 */>}}
 ```
 
@@ -53,7 +53,7 @@ For more information see [configure security][].
 
 The following example demonstrates an inline shortcode, `date.inline`, that accepts a single positional argument: a date/time [layout string][].
 
-```text {file="content/example.md"}
+```md {file="content/example.md"}
 Today is
 {{</* date.inline ":date_medium" */>}}
   {{- now | time.Format (.Get 0) -}}
@@ -84,7 +84,7 @@ Shortcode calls involve three syntactical elements: tags, arguments, and notatio
 
 Some shortcodes expect content between opening and closing tags. For example, the embedded [`details`][] shortcode requires an opening and closing tag:
 
-```text
+```md
 {{</* details summary="See the details" */>}}
 This is a **bold** word.
 {{</* /details */>}}
@@ -92,13 +92,13 @@ This is a **bold** word.
 
 Some shortcodes do not accept content. For example, the embedded [`instagram`][] shortcode requires a single _positional_ argument:
 
-```text
+```md
 {{</* instagram CxOWiQNP2MO */>}}
 ```
 
 Some shortcodes optionally accept content. For example, you can call the embedded [`qr`][] shortcode with content:
 
-```text
+```md
 {{</* qr */>}}
 https://gohugo.io
 {{</* /qr */>}}
@@ -106,7 +106,7 @@ https://gohugo.io
 
 Or use the self-closing syntax with a trailing slash to pass the text as an argument:
 
-```text
+```md
 {{</* qr text=https://gohugo.io /*/>}}
 ```
 
@@ -118,31 +118,31 @@ Shortcode arguments can be either _named_ or _positional_.
 
 Named arguments are passed as case-sensitive key-value pairs, as seen in this example with the embedded [`figure`][] shortcode. The `src` argument, for instance, is required.
 
-```text
+```md
 {{</* figure src=/images/kitten.jpg */>}}
 ```
 
 Positional arguments, on the other hand, are determined by their position. The embedded `instagram` shortcode, for example, expects the first argument to be the Instagram post ID.
 
-```text
+```md
 {{</* instagram CxOWiQNP2MO */>}}
 ```
 
 Shortcode arguments are space-delimited, and arguments with internal spaces must be quoted.
 
-```text
+```md
 {{</* figure src=/images/kitten.jpg alt="A white kitten" */>}}
 ```
 
 Shortcodes accept [scalar](g) arguments, one of [string](g), [integer](g), [floating point](g), or [boolean](g).
 
-```text
+```md
 {{</* my-shortcode name="John Smith" age=24 married=false */>}}
 ```
 
 You can optionally use multiple lines when providing several arguments to a shortcode for better readability:
 
-```text
+```md
 {{</* figure
   src=/images/kitten.jpg
   alt="A white kitten"
@@ -153,7 +153,7 @@ You can optionally use multiple lines when providing several arguments to a shor
 
 Use a [raw string literal](g) if you need to pass a multiline string:
 
-```text
+```md
 {{</* myshortcode `This is some <b>HTML</b>,
 and a new line with a "quoted string".` */>}}
 ```
@@ -187,7 +187,7 @@ By way of example, with this _shortcode_ template:
 
 And this markdown:
 
-```text {file="content/example.md"}
+```md {file="content/example.md"}
 {{%/* foo */%}} ## Section 1 {{%/* /foo */%}}
 
 {{</* foo */>}} ## Section 2 {{</* /foo */>}}
@@ -210,7 +210,7 @@ In the above, "Section 1" will be included when invoking the `TableOfContents` m
 
 Shortcodes (excluding [inline](#inline) shortcodes) can be nested, creating parent-child relationships. For example, a gallery shortcode might contain several image shortcodes:
 
-```text {file="content/example.md"}
+```md {file="content/example.md"}
 {{</* gallery class="content-gallery" */>}}
   {{</* image src="/images/a.jpg" */>}}
   {{</* image src="/images/b.jpg" */>}}

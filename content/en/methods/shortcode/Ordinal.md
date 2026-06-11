@@ -16,7 +16,7 @@ The `Ordinal` method returns the zero-based ordinal of the shortcode in relation
 
 This method is useful for, among other things, assigning unique element IDs when a shortcode is called two or more times from the same page. For example:
 
-```text {file="content/about.md"}
+```md {file="content/about.md"}
 {{</* img src="images/a.jpg" */>}}
 
 {{</* img src="images/b.jpg" */>}}

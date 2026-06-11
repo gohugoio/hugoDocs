@@ -10,7 +10,7 @@ keywords: []
 
 This Markdown example contains a fenced code block:
 
-````text {file="content/example.md"}
+````md {file="content/example.md"}
 ```sh {class="my-class" id="my-codeblock" lineNos=inline tabWidth=2}
 declare a=1
 echo "$a"
@@ -89,7 +89,7 @@ To fall back to plain text when the language is not specified or not supported b
 
 Although you can use one template with conditional logic to control the behavior on a per-language basis, you can also create language-specific templates.
 
-```text
+```tree
 layouts/
   └── _markup/
       ├── render-codeblock-mermaid.html

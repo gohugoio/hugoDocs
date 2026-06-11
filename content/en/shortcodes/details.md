@@ -13,9 +13,9 @@ keywords: []
 
 ## Example
 
-With this markup:
+With this Markdown:
 
-```text
+```md
 {{</* details summary="See the details" */>}}
 This is a **bold** word.
 {{</* /details */>}}

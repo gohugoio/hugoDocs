@@ -11,7 +11,7 @@ A page bundle is a directory that encapsulates both content and associated resou
 
 By way of example, this site has an `about` page and a `privacy` page:
 
-```text
+```tree
 content/
 ├── about/
 │   ├── index.md
@@ -52,7 +52,7 @@ Files with [resource type](g) `page` include content written in Markdown, HTML, 
 
 A _leaf bundle_ is a directory that contains an&nbsp;`index.md`&nbsp;file and zero or more resources. Analogous to a physical leaf, a leaf bundle is at the end of a branch. It has no descendants.
 
-```text
+```tree
 content/
 ├── about
 │   └── index.md
@@ -102,7 +102,7 @@ another-leaf-bundle
 
 A _branch bundle_ is a directory that contains an&nbsp;`_index.md`&nbsp;file and zero or more resources. Analogous to a physical branch, a branch bundle may have descendants including leaf bundles and other branch bundles. Top-level directories with or without `_index.md`&nbsp;files are also branch bundles. This includes the home page.
 
-```text
+```tree
 content/
 ├── branch-bundle-1/
 │   ├── _index.md

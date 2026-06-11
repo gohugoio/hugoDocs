@@ -11,9 +11,9 @@ keywords: []
 
 ## Example
 
-With this markup:
+With this Markdown:
 
-```text
+```md
 {{</* figure
   src="/images/examples/zion-national-park.jpg"
   alt="A photograph of Zion National Park"

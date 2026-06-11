@@ -18,7 +18,7 @@ Specify the argument by position or by name. When calling a shortcode within Mar
 
 This shortcode call uses positional arguments:
 
-```text {file="content/about.md"}
+```md {file="content/about.md"}
 {{</* myshortcode "Hello" "world" */>}}
 ```
 
@@ -32,7 +32,7 @@ To retrieve arguments by position:
 
 This shortcode call uses named arguments:
 
-```text {file="content/about.md"}
+```md {file="content/about.md"}
 {{</* myshortcode greeting="Hello" firstName="world" */>}}
 ```
 

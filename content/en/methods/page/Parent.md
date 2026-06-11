@@ -16,7 +16,7 @@ params:
 
 Consider this content structure:
 
-```text
+```tree
 content/
 ├── auctions/
 │   ├── 2023-11/

@@ -268,7 +268,7 @@ weight = 20
 
 With a more complex menu structure, create a [configuration directory][] and split the menu entries into multiple files, one file per language. For example:
 
-```text
+```tree
 config/
 └── _default/
     ├── menus.de.toml

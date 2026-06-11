@@ -62,7 +62,7 @@ Hugo will render this to:
 
 Override Hugo's [embedded RSS template][] by creating one or more of your own. For example, to use different templates for home, section, taxonomy, and term pages:
 
-```text
+```tree
 layouts/
   ├── home.rss.xml
   ├── section.rss.xml

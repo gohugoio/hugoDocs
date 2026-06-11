@@ -23,7 +23,7 @@ When rendering Markdown to HTML, render hooks override the conversion. Each rend
 
 For example, consider this Markdown:
 
-```text
+```md
 [Hugo](https://gohugo.io)
 
 ![kitten](kitten.jpg)
@@ -45,7 +45,7 @@ By creating link and image render hooks, you can alter the conversion from Markd
 
 Each render hook is a template, with one template for each supported element type:
 
-```text
+```tree
 layouts/
   └── _markup/
       ├── render-blockquote.html
@@ -59,7 +59,7 @@ layouts/
 
 The template lookup order allows you to create different render hooks for each page [type](g), [kind](g), language, and [output format](g). For example:
 
-```text
+```tree
 layouts/
 ├── _markup/
 │   ├── render-link.html

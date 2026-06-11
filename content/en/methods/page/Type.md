@@ -13,7 +13,7 @@ The `Type` method on a `Page` object returns the [content type](g) of the given 
 
 With this content structure:
 
-```text
+```tree
 content/
 ├── auction/
 │   ├── _index.md

@@ -114,7 +114,7 @@ hugo
 
 This builds your site, publishing the files to the `public` directory. The directory structure will look something like this:
 
-```text
+```tree
 public/
 ├── categories/
 │   ├── index.html

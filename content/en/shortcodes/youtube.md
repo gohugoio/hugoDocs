@@ -19,7 +19,7 @@ https://www.youtube.com/watch?v=0RKpf3rK57I
 
 Include this in your Markdown:
 
-```texts
+```md
 {{</* youtube 0RKpf3rK57I */>}}
 ```
 
@@ -64,7 +64,7 @@ Hugo renders this to:
 
 Here's an example using some of the available arguments:
 
-```text
+```md
 {{</* youtube id=0RKpf3rK57I start=30 end=60 loading=lazy */>}}
 ```
 

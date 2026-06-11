@@ -13,7 +13,7 @@ params:
 
 {{% glossary-term branch %}}
 
-```text
+```tree
 content/
 ├── books/
 │   ├── book-1/

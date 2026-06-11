@@ -30,7 +30,7 @@ The following example demonstrates how to configure your site and create a templ
 
 The content structure for this multilingual example looks like this:
 
-```text
+```tree
 content/
 ├── examples/
 │   ├── a.de.md   aliases = ['a-old']

@@ -53,7 +53,7 @@ Link _render hook_ templates receive the following context:
 > [!note]
 > With inline elements such as images and links, remove leading and trailing whitespace using the `{{‑ ‑}}` delimiter notation to prevent whitespace between adjacent inline elements and text.
 
-In its default configuration, Hugo renders Markdown links according to the [CommonMark specification][]. To create a render hook that does the same thing:
+In its default configuration, Hugo renders Markdown links according to the [CommonMark][] specification. To create a render hook that does the same thing:
 
 ```go-html-template {file="layouts/_markup/render-link.html" copy=true}
 <a href="{{ .Destination | safeURL }}"
@@ -106,7 +106,7 @@ target = 'assets'
 
 {{% include "/_common/render-hooks/pageinner.md" %}}
 
-[CommonMark specification]: https://spec.commonmark.org/current/
+[CommonMark]: https://spec.commonmark.org/current/
 [`RenderShortcodes`]: /methods/page/rendershortcodes/
 [details]: /configuration/markup/#renderhookslinkuseembedded
 [duplication of shared page resources]: /configuration/markup/#duplicateresourcefiles

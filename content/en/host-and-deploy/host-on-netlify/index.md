@@ -30,7 +30,7 @@ Please complete the following tasks before continuing:
 Step 1
 : Create a `netlify.toml` file in the root of your project.
 
-  ```text {file="netlify.toml" copy=true}
+  ```toml {file="netlify.toml" copy=true}
   [build.environment]
   DART_SASS_VERSION = "1.100.0"
   GO_VERSION = "1.26.3"
@@ -48,7 +48,7 @@ Step 1
 
   If your site requires Dart Sass to transpile Sass to CSS, set the `DART_SASS_VERSION` and include the Dart Sass installation in the build step.
 
-  ```text {file="netlify.toml" copy=true}
+  ```toml {file="netlify.toml" copy=true}
   [build.environment]
   DART_SASS_VERSION = "1.100.0"
   GO_VERSION = "1.26.3"

@@ -20,7 +20,7 @@ Review the [comparison table](#comparison) below to understand the characteristi
 
 Use a `<!--more-->` divider to indicate the end of the summary. Hugo will not render the summary divider itself.
 
-```text {file="content/example.md"}
+```md {file="content/example.md"}
 +++
 title: 'Example'
 date: 2024-05-26T09:10:33-07:00
@@ -38,7 +38,7 @@ This is the second paragraph.
 
 Correct placement:
 
-```text {file="content/example.md"}
+```md {file="content/example.md"}
 ---
 title: 'Example'
 ---
@@ -52,7 +52,7 @@ This is another paragraph.
 
 Incorrect placement:
 
-```text {file="content/example.md"}
+```md {file="content/example.md"}
 ---
 title: 'Example'
 ---
@@ -68,7 +68,7 @@ When using the Emacs Org Mode [content format][], use a `# more` divider to indi
 
 Use front matter to define a summary independent of content.
 
-```text {file="content/example.md"}
+```md {file="content/example.md"}
 +++
 title: 'Example'
 date: 2024-05-26T09:10:33-07:00
@@ -84,7 +84,7 @@ This is the second paragraph.
 
 If you do not define the summary manually or in front matter, Hugo automatically defines the summary based on the [`summaryLength`][] in your project configuration.
 
-```text {file="content/example.md"}
+```md {file="content/example.md"}
 +++
 title: 'Example'
 date: 2024-05-26T09:10:33-07:00

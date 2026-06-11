@@ -152,7 +152,7 @@ The example below depicts the published site structure when paginating a list pa
 
 With this content:
 
-```text
+```tree
 content/
 ├── posts/
 │   ├── _index.md
@@ -184,7 +184,7 @@ And this _section_ template:
 
 The published site has this structure:
 
-```text
+```tree
 public/
 ├── posts/
 │   ├── page/
@@ -215,7 +215,7 @@ To disable alias generation for the first pager, change your project configurati
 
 Now the published site will have this structure:
 
-```text
+```tree
 public/
 ├── posts/
 │   ├── page/

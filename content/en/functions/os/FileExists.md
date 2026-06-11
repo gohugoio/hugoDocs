@@ -15,7 +15,7 @@ The `os.FileExists` function attempts to resolve the path relative to the root o
 
 With this directory structure:
 
-```text
+```tree
 content/
 ├── about.md
 ├── contact.md

@@ -118,7 +118,7 @@ author = 'authors'
 
 Then create content with one [branch bundle](g) for each term:
 
-```text
+```tree
 content/
 └── authors/
     ├── jsmith/

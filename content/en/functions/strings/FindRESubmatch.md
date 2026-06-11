@@ -29,7 +29,7 @@ By default, `findRESubmatch` finds all matches. You can limit the number of matc
 
 This Markdown:
 
-```text
+```md
 - [Example](https://example.org)
 - [Hugo](https://gohugo.io)
 ```

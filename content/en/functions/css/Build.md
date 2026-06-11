@@ -29,7 +29,7 @@ If an `@import` statement includes a media query, a feature query, or a cascade 
 
 In this example, Hugo bundles the local files referenced by `@import` statements to create and publish a single resource with inline content.
 
-```text
+```tree
 assets/
 └── css/
     ├── components/

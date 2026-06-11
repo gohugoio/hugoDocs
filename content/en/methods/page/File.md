@@ -13,7 +13,7 @@ By default, not all pages are backed by a file, including top-level [section pag
 
 To back one of the pages above with a file, create an&nbsp;`_index.md`&nbsp;file in the corresponding directory. For example:
 
-```text
+```tree
 content/
 └── books/
     ├── _index.md  <-- the top-slevel section page
@@ -134,7 +134,7 @@ Use these methods on the `File` object.
 
 Consider this content structure in a multilingual project:
 
-```text
+```tree
 content/
 ├── news/
 │   ├── b/

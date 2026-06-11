@@ -11,7 +11,5 @@ expiryDate: 2028-06-06 # deprecated 2026-06-06 in v0.163.0
 ---
 
 {{< deprecated-in 0.163.0 >}}
-Use [`IsBranch`][] instead.
-
-[`IsBranch`]: /methods/page/isbranch/
+Use the [`IsBranch`](/methods/page/isbranch/) method instead.
 {{< /deprecated-in >}}

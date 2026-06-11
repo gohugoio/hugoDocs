@@ -112,7 +112,7 @@ Each of the subdirectories contributes to content, structure, behavior, or prese
 
 Hugo creates a [unified file system](g), allowing you to mount two or more directories to the same location. For example, let's say your home directory contains a Hugo project in one directory, and shared content in another:
 
-```text
+```tree
 home/
 └── user/
     ├── my-project/            
@@ -151,7 +151,7 @@ target = 'content'
 
 After mounting, the unified file system has this structure:
 
-```text
+```tree
 home/
 └── user/
     └── my-project/
@@ -180,13 +180,13 @@ You can also mount directories from Git repositories using Hugo Modules. See [de
 
 Hugo generates a functional theme skeleton when you create a new theme. For example, this command:
 
-```text
+```sh
 hugo new theme my-theme
 ```
 
 Creates this directory structure (subdirectories not shown):
 
-```text
+```tree
 my-theme/
 ├── archetypes/
 ├── assets/

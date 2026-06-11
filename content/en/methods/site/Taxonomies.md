@@ -40,7 +40,7 @@ author = 'authors'
 
 And this content structure:
 
-```text
+```tree
 content/
 ├── books/
 │   ├── and-then-there-were-none.md --> genres: suspense

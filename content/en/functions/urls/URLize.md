@@ -33,7 +33,7 @@ authors = ['Victor Hugo']
 
 The published site will have this structure:
 
-```text
+```tree
 public/
 ├── authors/
 │   ├── victor-hugo/

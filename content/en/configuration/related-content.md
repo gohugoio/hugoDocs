@@ -60,7 +60,7 @@ Imagine we're building a book review site. Our main content will be book reviews
 
 Create the content:
 
-```text
+```tree
 content/
 └── book-reviews/
     ├── book-review-1.md

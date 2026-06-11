@@ -40,7 +40,7 @@ _comment: Do not remove front matter.
 `noClasses`
 : (`bool`) Whether to use inline CSS styles instead of an external CSS file. Default is `true`. To use an external CSS file, set this value to `false` and generate the CSS file from the command line:
 
-  ```text
+  ```sh
   hugo gen chromastyles --style=monokai > syntax.css
   ```
 

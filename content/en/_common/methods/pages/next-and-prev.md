@@ -15,7 +15,7 @@ The sorted page collection used to determine the _next_ and _previous_ page is i
 
 For example, with this content structure:
 
-```text
+```tree
 content/
 ├── pages/
 │   ├── _index.md

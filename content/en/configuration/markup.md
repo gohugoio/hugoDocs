@@ -263,7 +263,7 @@ Step 1
 Step 2
 : Generate the highlighter CSS. For example:
 
-  ```text
+  ```sh
   rougify style monokai.sublime > assets/css/syntax.css
   ```
 
