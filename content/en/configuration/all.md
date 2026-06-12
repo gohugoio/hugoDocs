@@ -123,9 +123,6 @@ aliases: [/getting-started/configuration/]
 `enableRobotsTXT`
 : (`bool`) Whether to enable generation of a `robots.txt` file. Default is `false`.
 
-`environment`
-: (`string`) The build environment. Default is `production` when running `hugo build` and `development` when running `hugo server`.
-
 `frontmatter`
 : See [configure front matter][].
 
