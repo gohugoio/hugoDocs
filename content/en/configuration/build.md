@@ -7,7 +7,7 @@ keywords: []
 aliases: [/getting-started/configuration-build/]
 ---
 
-The `build` configuration section contains global build-related configuration options.
+This is the default configuration:
 
 {{< code-toggle config=build />}}
 
@@ -25,7 +25,7 @@ The `build` configuration section contains global build-related configuration op
 
 ## Cache busters
 
-The `build.cachebusters` configuration option was added to support development using Tailwind 3.x's JIT compiler where a `build` configuration may look like this:
+The `build.cachebusters` setting was added to support development using Tailwind 3.x's JIT compiler where a `build` configuration may look like this:
 
 <!-- markdownlint-disable MD049 -->
 {{< code-toggle file=hugo >}}

@@ -8,7 +8,7 @@ weight: 10
 
 ## Sensible defaults
 
-Hugo offers many configuration options, but its defaults are often sufficient. A new project requires only these settings:
+Hugo offers many configuration settings, but its defaults are often sufficient. A new project requires only these settings:
 
 {{< code-toggle file=hugo >}}
 baseURL = 'https://example.org/'
