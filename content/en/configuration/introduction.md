@@ -255,11 +255,10 @@ You can also configure settings using operating system environment variables:
 ```sh
 export HUGO_BASEURL=https://example.org/
 export HUGO_ENABLEGITINFO=true
-export HUGO_ENVIRONMENT=staging
 hugo
 ```
 
-The above sets the [`baseURL`][], [`enableGitInfo`][], and [`environment`][] configuration options and then builds your site.
+The above configures the [`baseURL`][] and [`enableGitInfo`][] settings and then builds your site.
 
 > [!note]
 > An environment variable takes precedence over the values set in the configuration file. This means that if you set a configuration value with both an environment variable and in the configuration file, the value in the environment variable will be used.
@@ -277,6 +276,9 @@ In addition to configuring standard settings, environment variables may be used 
 
 `DART_SASS_BINARY`
 : (`string`) The absolute path to the Dart Sass executable. By default, Hugo searches for the executable in each of the paths in the `PATH` environment variable.
+
+`HUGO_ENVIRONMENT`
+: (`string`) The build environment. Default is `production` when running `hugo build` and `development` when running `hugo server`.
 
 `HUGO_FILE_LOG_FORMAT`
 : (`string`) A format string for the file path, line number, and column number displayed when reporting errors, or when calling the `Position` method from a shortcode or Markdown render hook. Valid tokens are `:file`, `:line`, and `:col`. Default is `:file::line::col`.
@@ -313,5 +315,4 @@ hugo config mounts
 [YAML]: https://yaml.org/spec/
 [`baseURL`]: /configuration/all#baseurl
 [`enableGitInfo`]: /configuration/all#enablegitinfo
-[`environment`]: /configuration/all#environment
 [permitted delimiter]: https://pubs.opengroup.org/onlinepubs/000095399/basedefs/xbd_chap08.html
