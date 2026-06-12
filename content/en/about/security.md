@@ -43,7 +43,7 @@ To prevent unintended escaping of data that developers know is safe, Hugo provid
 
 It's vital to remember that Hugo is a static site generator. This architectural choice significantly reduces the attack surface by eliminating the complexities and vulnerabilities associated with dynamic user input. Unlike dynamic websites, Hugo generates static HTML files, minimizing the risk of real-time attacks. Regarding content, Hugo's default Markdown renderer is [configured to sanitize][] potentially unsafe content. This default behavior ensures that potentially malicious code or scripts are removed or escaped. However, this setting can be reconfigured if you have a high degree of confidence in the safety of your content sources.
 
-In essence, Hugo prioritizes secure output by establishing a clear trust boundary between developers and data. By default, it errs on the side of caution, sanitizing potentially unsafe content and escaping data. Developers have the flexibility to adjust these defaults through [`safe`][] functions and [configuration options][], but they must do so with a clear understanding of the security implications. Hugo's static site generation model further strengthens its security posture by minimizing dynamic vulnerabilities.
+In essence, Hugo prioritizes secure output by establishing a clear trust boundary between developers and data. By default, it errs on the side of caution, sanitizing potentially unsafe content and escaping data. Developers have the flexibility to adjust these defaults through [`safe`][] functions and [configuration settings][], but they must do so with a clear understanding of the security implications. Hugo's static site generation model further strengthens its security posture by minimizing dynamic vulnerabilities.
 
 ## Configuration
 
@@ -54,7 +54,7 @@ See [configure security][].
 [OWASP]: https://en.wikipedia.org/wiki/OWASP
 [`safeHTML`]: /functions/safe/html/
 [`safe`]: /functions/safe/
-[configuration options]: /configuration/security/
+[configuration settings]: /configuration/security/
 [configure security]: /configuration/security/
 [configured to sanitize]: /configuration/markup/#rendererunsafe
 [content adapters]: /content-management/content-adapters/
