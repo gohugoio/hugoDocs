@@ -358,7 +358,7 @@ i18n|MISSING_TRANSLATION|en|wordCount
 To support Multilingual mode in your themes, some considerations must be taken for the URLs in the templates. If there is more than one language, URLs must meet the following criteria:
 
 - Come from the built-in `.Permalink` or `.RelPermalink`
-- Be constructed with the [`relLangURL`] or [`absLangURL`] function, or be prefixed with `{{ .LanguagePrefix }}`
+- Be constructed with the [`urls.RelLangURL`][] or [`urls.AbsLangURL`][] function, or be prefixed with `{{ .LanguagePrefix }}`
 
 If there is more than one language defined, the `LanguagePrefix` method will return `/en` (or whatever the current language is). If not enabled, it will be an empty string (and is therefore harmless for single-language Hugo websites).
 
@@ -378,13 +378,13 @@ hugo new content content/en/post/test.md
 hugo new content content/de/post/test.md
 ```
 
-[`absLangURL`]: /functions/urls/abslangurl/
 [`enableMissingTranslationPlaceholders`]: /configuration/all/#enablemissingtranslationplaceholders
 [`lang.Translate`]: /functions/lang/translate/
-[`relLangURL`]: /functions/urls/rellangurl/
 [`slug`]: /content-management/urls/#slug
 [`time.Format`]: /functions/time/format/
 [`url`]: /content-management/urls/#url
+[`urls.AbsLangURL`]: /docs/reference/functions/urls/abslangurl/
+[`urls.RelLangURL`]: /docs/reference/functions/urls/rellangurl/
 [automatically]: /content-management/menus/#define-automatically
 [configuration directory]: /configuration/introduction/#configuration-directory
 [configure languages]: /configuration/languages/
