@@ -383,8 +383,8 @@ hugo new content content/de/post/test.md
 [`slug`]: /content-management/urls/#slug
 [`time.Format`]: /functions/time/format/
 [`url`]: /content-management/urls/#url
-[`urls.AbsLangURL`]: /docs/reference/functions/urls/abslangurl/
-[`urls.RelLangURL`]: /docs/reference/functions/urls/rellangurl/
+[`urls.AbsLangURL`]: /functions/urls/abslangurl/
+[`urls.RelLangURL`]: /functions/urls/rellangurl/
 [automatically]: /content-management/menus/#define-automatically
 [configuration directory]: /configuration/introduction/#configuration-directory
 [configure languages]: /configuration/languages/
