@@ -154,7 +154,7 @@ Most of the Goldmark settings above are self-explanatory, but some require expla
   - `github-ascii`: Drop any non-ASCII characters after accent normalization
   - `blackfriday`: Generate `id` attributes compatible with the Blackfriday Markdown renderer
 
-  This is also the strategy used by the [anchorize][] function.
+  This is also the strategy used by the [`urls.Anchorize`][] function.
 
 `parser.attribute.block`
 : (`bool`) Whether to enable [Markdown attributes][] for block elements. Default is `false`.
@@ -346,7 +346,7 @@ This is the default configuration for the table of contents, applicable to Goldm
 [Pandoc]: https://pandoc.org/
 [`Fragments.Identifiers`]: /methods/page/fragments/#identifiers
 [`TableOfContents`]: /methods/page/tableofcontents/
-[anchorize]: /functions/urls/anchorize/
+[`urls.Anchorize`]: /functions/urls/anchorize/
 [asciidoctor-diagram]: https://asciidoctor.org/docs/asciidoctor-diagram/
 [attributes]: https://asciidoctor.org/docs/asciidoc-syntax-quick-reference/#attributes-and-substitutions
 [deleted text]: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/del
