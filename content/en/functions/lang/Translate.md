@@ -15,7 +15,7 @@ The `lang.Translate` function returns the value associated with the given key by
 
 If not found, the function returns an empty string.
 
-> [!note]
+> [!NOTE]
 > To list missing and fallback translations, set [`printI18nWarnings`][] to `true` in your project configuration, or use the `--printI18nWarnings` flag when building your project.
 >
 > To render placeholders for missing and fallback translations, set [`enableMissingTranslationPlaceholders`][] to `true` in your project configuration.
@@ -45,7 +45,7 @@ i18n/art-x-hugolang.toml
 i18n/hugolang.toml
 ```
 
-> [!note]
+> [!NOTE]
 > Private use subtags must not exceed 8 alphanumeric characters.
 
 ## Simple translations
@@ -72,7 +72,7 @@ privacy = 'prywatność'
 security = 'bezpieczeństwo'
 {{< /code-toggle >}}
 
-> [!note]
+> [!NOTE]
 > The examples below use the `T` alias for brevity.
 
 When viewing the English language site:
@@ -129,7 +129,7 @@ many = '{{ . }} miesięcy'
 other = '{{ . }} miesiąca'
 {{< /code-toggle >}}
 
-> [!note]
+> [!NOTE]
 > The examples below use the `T` alias for brevity.
 
 When viewing the English language site:
@@ -177,7 +177,7 @@ Template code:
 {{ T "age" (dict "name" "John" "count" 3) }} → John is 3 years old.
 ```
 
-> [!note]
+> [!NOTE]
 > Translation tables may contain both simple translations and translations with pluralization.
 
 ## Reserved keys

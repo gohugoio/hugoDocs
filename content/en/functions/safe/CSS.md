@@ -43,7 +43,7 @@ Hugo renders the above to:
 <p style="ZgotmplZ">foo</p>
 ```
 
-> [!note]
+> [!NOTE]
 > `ZgotmplZ` is a special value that indicates that unsafe content reached a CSS or URL context at runtime.
 
 To declare the string as safe:

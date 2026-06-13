@@ -51,7 +51,7 @@ Hugo provides custom Markdown features including:
 
 Create your content in [HTML][] preceded by front matter. The content is typically what you would place within an HTML document's `body` or `main` element.
 
-> [!note]
+> [!NOTE]
 > The HTML content format is denied by default. See [`security.allowContent`][].
 
 ### Emacs Org Mode

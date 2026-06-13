@@ -71,7 +71,7 @@ When `buildStats` is enabled, Hugo writes a `hugo_stats.json` file on each build
 `disableClasses`
 : (`bool`) Whether to exclude `class` attributes. Default is `false`.
 
-> [!note]
+> [!NOTE]
 > Given that CSS purging is typically limited to production builds, place the `buildStats` object below [`config/production`][].
 >
 > Built for speed, there may be "false positive" detections (e.g., HTML elements that are not HTML elements) while parsing the published site. These "false positives" are infrequent and inconsequential.

@@ -11,7 +11,7 @@ _comment: Do not remove front matter.
 `guessSyntax`
 : (`bool`) Whether to automatically detect the language if the `LANG` argument is blank or set to a language for which there is no corresponding [lexer](g). Falls back to a plain text lexer if unable to automatically detect the language. Default is `false`.
 
-  > [!note]
+  > [!NOTE]
   > The syntax highlighter includes lexers for approximately 300 languages, but only 5 of these have implemented automatic language detection.
 
 `hl_Lines`

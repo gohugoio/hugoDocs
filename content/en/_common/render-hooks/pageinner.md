@@ -31,7 +31,7 @@ Any render hook triggered while rendering `/posts/post-2` will get:
 
 `PageInner` falls back to the value of `Page` if not relevant, and always returns a value.
 
-> [!note]
+> [!NOTE]
 > The `PageInner` method is only relevant for shortcodes that invoke the [`RenderShortcodes`][] method, and you must call the shortcode using [Markdown notation][].
 
 As a practical example, Hugo's embedded link and image render hooks use the `PageInner` method to resolve markdown link and image destinations. See the source code for each:

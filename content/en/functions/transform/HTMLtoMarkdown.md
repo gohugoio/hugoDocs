@@ -11,7 +11,7 @@ params:
 
 {{< new-in 0.151.0 />}}
 
-> [!note]
+> [!NOTE]
 > This function is experimental and its API may change in the future.
 
 The `transform.HTMLToMarkdown` function converts HTML to Markdown by utilizing the [`html-to-markdown`][] Go package.

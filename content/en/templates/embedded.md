@@ -9,7 +9,7 @@ aliases: [/templates/internal]
 
 ## Disqus
 
-> [!note]
+> [!NOTE]
 > To override Hugo's embedded Disqus template, copy the [source code](<{{% eturl disqus %}}>) to a file with the same name in the `layouts/_partials` directory, then call it from your templates using the [`partial`][] function:
 >
 > `{{ partial "disqus.html" . }}`
@@ -49,7 +49,7 @@ disqus_title = 'Post title'
 disqus_url = 'https://example.org/blog/my-post/'
 {{</ code-toggle >}}
 
-> [!note]
+> [!NOTE]
 > When previewing your site locally, Hugo replaces the Disqus widget with the message "Disqus comments not available by default when the website is previewed locally."
 
 ### Privacy {#privacy-disqus}
@@ -63,7 +63,7 @@ Adjust the relevant privacy settings in your project configuration.
 
 ## Google Analytics
 
-> [!note]
+> [!NOTE]
 > To override Hugo's embedded Google Analytics template, copy the [source code](<{{% eturl google_analytics %}}>) to a file with the same name in the `layouts/_partials` directory, then call it from your templates using the [`partial`][] function:
 >
 > `{{ partial "google_analytics.html" . }}`
@@ -85,7 +85,7 @@ Provide your tracking ID in your configuration file:
 id = 'G-MEASUREMENT_ID'
 {{</ code-toggle >}}
 
-> [!note]
+> [!NOTE]
 > If the configured ID begins with `ua-` (case-insensitive), Hugo logs a warning and renders nothing. Google Universal Analytics (UA) was replaced by Google Analytics 4 (GA4) effective 1 July 2023. Create a GA4 property and data stream, then update your project configuration with the new measurement ID.
 
 ### Privacy {#privacy-google-analytics}
@@ -102,7 +102,7 @@ Adjust the relevant privacy settings in your project configuration.
 
 ## Open Graph
 
-> [!note]
+> [!NOTE]
 > To override Hugo's embedded Open Graph template, copy the [source code](<{{% eturl opengraph %}}>) to a file with the same name in the `layouts/_partials` directory, then call it from your templates using the [`partial`][] function:
 >
 > `{{ partial "opengraph.html" . }}`
@@ -190,7 +190,7 @@ For Facebook metadata, if the site configuration's `params.social.facebook_app_i
 
 ## Pagination
 
-> [!note]
+> [!NOTE]
 > To override Hugo's embedded pagination template, copy the [source code](<{{% eturl pagination %}}>) to a file with the same name in the `layouts/_partials` directory, then call it from your templates using the [`partial`][] function:
 >
 > `{{ partial "pagination.html" . }}`
@@ -205,7 +205,7 @@ The embedded pagination template has two formats: `default` and `terse`. The `te
 
 ## Schema
 
-> [!note]
+> [!NOTE]
 > To override Hugo's embedded Schema template, copy the [source code](<{{% eturl schema %}}>) to a file with the same name in the `layouts/_partials` directory, then call it from your templates using the [`partial`][] function:
 >
 > `{{ partial "schema.html" . }}`
@@ -269,7 +269,7 @@ For keyword metadata, Hugo uses the following order of precedence:
 
 ## X (Twitter) Cards
 
-> [!note]
+> [!NOTE]
 > To override Hugo's embedded Twitter Cards template, copy the [source code](<{{% eturl twitter_cards %}}>) to a file with the same name in the `layouts/_partials` directory, then call it from your templates using the [`partial`][] function:
 >
 > `{{ partial "twitter_cards.html" . }}`

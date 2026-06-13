@@ -6,10 +6,10 @@ categories: []
 keywords: []
 ---
 
-> [!note]
+> [!NOTE]
 > To override Hugo's embedded `ref` shortcode, copy the [source code][] to a file with the same name in the `layouts/_shortcodes` directory.
 
-> [!note]
+> [!NOTE]
 > When working with Markdown this shortcode is obsolete. Instead, to properly resolve Markdown link destinations, use the [embedded link render hook][] or create your own.
 >
 > In its default configuration, Hugo automatically uses the embedded link render hook for multilingual single-host projects, specifically when the [duplication of shared page resources][] feature is disabled. This is the default behavior for such projects. If custom link render hooks are defined by your project, modules, or themes, these will be used instead.
@@ -28,7 +28,7 @@ The `ref` shortcode accepts either a single positional argument (the path) or on
 
 The `ref` shortcode typically provides the destination for a Markdown link.
 
-> [!note]
+> [!NOTE]
 > Always use [Markdown notation][] notation when calling this shortcode.
 
 The following examples show the rendered output for a page on the English version of the site:

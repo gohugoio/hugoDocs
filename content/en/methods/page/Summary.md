@@ -25,7 +25,7 @@ To list the pages in a section with a summary beneath each link:
 {{ end }}
 ```
 
-> [!warning]
+> [!WARNING]
 > Automatic `.Summary` may cut block tags (e.g., `blockquote`) in the middle, causing the browser to recover the end tag. See [automatic summary][] for details and for ways to avoid this.
 
 Depending on content length and how you define the summary, the summary may be equivalent to the content itself. To determine whether the content length exceeds the summary length, use the [`Truncated`][] method on a `Page` object. This is useful for conditionally rendering a “read more” link:
@@ -40,7 +40,7 @@ Depending on content length and how you define the summary, the summary may be e
 {{ end }}
 ```
 
-> [!note]
+> [!NOTE]
 > The `Truncated` method returns `false` if you define the summary in front matter.
 
 [`Truncated`]: /methods/page/truncated/

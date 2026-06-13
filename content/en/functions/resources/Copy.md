@@ -19,5 +19,5 @@ params:
 
 The `TARGETPATH` is relative to the server root. A leading slash is optional and has no effect.
 
-> [!note]
+> [!NOTE]
 > Use the `resources.Copy` function with global, page, and remote resources.

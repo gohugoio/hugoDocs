@@ -56,7 +56,7 @@ With `baseURL = https://example.org/docs/`
 {{ absURL "/style.css" }} → https://example.org/style.css
 ```
 
-> [!note]
+> [!NOTE]
 > As illustrated by the previous example, using a leading slash is rarely desirable and can lead to unexpected outcomes. In nearly all cases, omit the leading slash.
 
 [`urls.AbsLangURL`]: /functions/urls/abslangurl/

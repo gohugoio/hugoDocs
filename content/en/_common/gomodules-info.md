@@ -2,10 +2,10 @@
 _comment: Do not remove front matter.
 ---
 
-> [!note] Hugo Modules are Go Modules
-> You need [Go][] version 1.18 or later and [Git][] to use Hugo Modules. For older sites hosted on Netlify, please ensure the `GO_VERSION` environment variable is set to `1.18` or higher.
+> [!NOTE] Hugo modules are Go modules
+> You need [Go][] version 1.18 or later and [Git][] to use Hugo modules. For older sites hosted on Netlify, please ensure the `GO_VERSION` environment variable is set to `1.18` or higher.
 >
-> Go Modules resources:
+> Go module resources:
 >
 > - [go.dev/wiki/Modules][]
 > - [blog.golang.org/using-go-modules][]

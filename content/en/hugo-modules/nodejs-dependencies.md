@@ -1,18 +1,23 @@
 ---
 title: Node.js dependencies
-description: How to manage Node dependencies in Hugo Modules.
+description: How to manage Node dependencies in Hugo modules.
 categories: []
 keywords: []
 weight: 40
 ---
 
-Hugo Modules that need Node packages (e.g. for Tailwind CSS) can declare those dependencies in a standard `package.json` at the module root. Hugo consolidates dependencies from all modules into an [npm workspace][], so you only need a single `npm install` at the project level.
+Modules that need Node packages (e.g. for Tailwind CSS) can declare those dependencies in a standard `package.json` at the module root. Hugo consolidates dependencies from all modules into an [npm workspace][], so you only need a single `npm install` at the project level.
 
 ## Declaring dependencies
 
-Each Hugo Module declares its Node dependencies in a `package.json` file in its root directory, using the standard `dependencies` and `devDependencies` fields.
+Each module declares its Node dependencies in a `package.json` file in its root directory, using the standard `dependencies` and `devDependencies` fields.
 
-> [!note]
+<!-- TODO
+In the admonition below, remove the reference to v0.159.0 somewhere 
+after v0.174.0, 15 minor releases after the improvement.
+-->
+
+> [!NOTE]
 > We improved this setup greatly in Hugo [v0.159.0][], but we kept the old `package.hugo.json` in the search path. Mostly to preserve as much backward compatibility as possible, but it may also be useful in some situations to reserve a separate set of Node dependencies for Hugo.
 
 ## Consolidating with `hugo mod npm pack`
@@ -31,8 +36,13 @@ project/
 └── ...
 ```
 
-> [!note]
-In Hugo < v0.159.0 Hugo wrote the dependencies into your project's package.json, so if you have used `hugo mod npm pack` on your project using older Hugo versions, now is the time to do a spring cleaning of your project `package.json` file: Only direct Node dependencies needs to live in this file, all incoming dependencies from imported Hugo Modules gets written to `packages/hugoautogen/package.json`.
+<!-- TODO
+In the admonition below, remove the reference to v0.159.0 somewhere 
+after v0.174.0, 15 minor releases after the improvement.
+-->
+
+> [!NOTE]
+In Hugo < v0.159.0 Hugo wrote the dependencies into your project's package.json, so if you have used `hugo mod npm pack` on your project using older Hugo versions, now is the time to do a spring cleaning of your project `package.json` file: Only direct Node dependencies needs to live in this file, all incoming dependencies from imported modules gets written to `packages/hugoautogen/package.json`.
 
 When merging, the **topmost version, starting from the project, take precedence**. If a module declares `tailwindcss@4.1` but your project already has `tailwindcss@4.0`, the project version wins and the module dependency is excluded from the generated workspace package.
 

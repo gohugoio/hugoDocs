@@ -71,7 +71,7 @@ Inside of the `with` block, the [context](g) (the dot) is the section `Page` obj
 
 The result would be wrong when rendering the `auction-1` page because we are comparing the section page to itself.
 
-> [!note]
+> [!NOTE]
 > Use the `$` to get the context passed into the template.
 
 ```go-html-template
@@ -80,7 +80,7 @@ The result would be wrong when rendering the `auction-1` page because we are com
 {{ end }}
 ```
 
-> [!note]
+> [!NOTE]
 > Gaining a thorough understanding of context is critical for anyone writing template code.
 
 [`else`]: /functions/go-template/else/

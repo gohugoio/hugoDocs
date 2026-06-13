@@ -11,7 +11,7 @@ params:
 
 The `Data` method on a `Page` object returns a unique data object for each [page kind](g).
 
-> [!note]
+> [!NOTE]
 > The `Data` method is only useful within [taxonomy](g) and [term](g) templates.
 >
 > Themes that are not actively maintained may still use `.Data.Pages` in their templates. Although that syntax remains functional, use one of these methods instead: [`Pages`][], [`RegularPages`][], or [`RegularPagesRecursive`][]
@@ -61,7 +61,7 @@ Use these methods on the `Data` object within a _taxonomy_ template.
 {{ $taxonomyObject := .Data.Terms }} 
 ```
 
-> [!note]
+> [!NOTE]
 > Once you have captured the `Taxonomy` object, use any of the [taxonomy methods][] to sort, count, or capture a subset of its weighted pages.
 
 Learn more about [taxonomy templates][].

@@ -80,7 +80,7 @@ Use these methods within a content adapter.
   {{ .Site.Title }}
   ```
 
-  > [!note]
+  > [!NOTE]
   > The `Site` object is not fully initialized while Hugo executes a content adapter.
   > Methods that depend on built pages, such as `Site.Pages`, are unavailable at this stage and return an error.
 
@@ -135,7 +135,7 @@ Key|Description|Required
 `path`|The page's [logical path](g) relative to the content adapter. Do not include a leading slash or file extension.|:heavy_check_mark:
 `title`|The page title.|&nbsp;
 
-> [!note]
+> [!NOTE]
 > While `path` is the only required field, we recommend setting `title` as well.
 >
 > When setting the `path`, Hugo transforms the given string to a logical path. For example, setting `path` to `A B C` produces a logical path of `/section/a-b-c`.
@@ -153,7 +153,7 @@ Key|Description|Required
 `path`|The resources's [logical path](g) relative to the content adapter. Do not include a leading slash.|:heavy_check_mark:
 `title`|The resource title.|&nbsp;
 
-> [!note]
+> [!NOTE]
 > When `content.value` is a string, Hugo generates a new resource with a publication path relative to the page. However, if `content.value` is already a resource, Hugo directly uses its value and publishes it relative to the site root. This latter method is more efficient.
 >
 > When setting the `path`, Hugo transforms the given string to a logical path. For example, setting `path` to `A B C/cover.jpg` produces a logical path of `/section/a-b-c/cover.jpg`.

@@ -17,7 +17,7 @@ Hugo uses an embedded instance of the [KaTeX][] display engine to render mathema
 {{ transform.ToMath "c = \\pm\\sqrt{a^2 + b^2}" }}
 ```
 
-> [!note]
+> [!NOTE]
 > By default, Hugo renders mathematical markup to [MathML][], and does not require any CSS to display the result.
 >
 > To optimize rendering quality and accessibility, use the `htmlAndMathml` output option as described below. This approach requires an external stylesheet.
@@ -102,7 +102,7 @@ Step 1
   inline = [['\(', '\)']]
   {{< /code-toggle >}}
 
-  > [!note]
+  > [!NOTE]
   > The configuration above precludes the use of the `$...$` delimiter pair for inline equations. Although you can add this delimiter pair to the configuration, you must double-escape the `$` symbol when used outside of math contexts to avoid unintended formatting.
 
 Step 2
@@ -134,7 +134,7 @@ Step 3
 
   In the above, note the use of a [noop](g) statement to force content rendering before we check the value of `hasMath` with the `Store.Get` method.
 
-  > [!note]
+  > [!NOTE]
   > This conditional approach only identifies math on the current page. Mathematical expressions will not display correctly when one page's content is embedded within another. For example, if a [list page](g) calls the [`Content`][] or [`Summary`][] methods while ranging through its page collection, the list page will not load the KaTeX CSS.
   >
   > If this affects your site, use this conditional logic instead:

@@ -49,7 +49,7 @@ A fictional example using all of the above options:
 }}
 ```
 
-> [!note]
+> [!NOTE]
 > We improved and simplified this feature in Hugo 0.111.0. Before this we had 3 different methods: `Related`, `RelatedTo` and `RelatedIndices`. Now we have only one method: `Related`. The old methods are still available but deprecated. Also see [this blog article][] for a great explanation of more advanced usage of this feature.
 
 ## Index content headings

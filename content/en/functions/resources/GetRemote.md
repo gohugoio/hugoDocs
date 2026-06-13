@@ -55,7 +55,7 @@ The `resources.GetRemote` function takes an optional map of options.
 
 ## Options examples
 
-> [!note]
+> [!NOTE]
 > For brevity, the examples below do not include [error handling](#error-handling).
 
 To include a header:
@@ -143,7 +143,7 @@ When retrieving remote data, use the [`transform.Unmarshal`][] function to [unma
 {{ end }}
 ```
 
-> [!note]
+> [!NOTE]
 > When retrieving remote data, a misconfigured server may send a response header with an incorrect [Content-Type][]. For example, the server may set the Content-Type header to `application/octet-stream` instead of `application/json`.
 >
 > In these cases, pass the resource `Content` through the `transform.Unmarshal` function instead of passing the resource itself. For example, in the above, do this instead:
@@ -154,7 +154,7 @@ When retrieving remote data, use the [`transform.Unmarshal`][] function to [unma
 
 Use the [`try`][] statement to capture HTTP request errors. If you do not handle the error yourself, Hugo will fail the build.
 
-> [!note]
+> [!NOTE]
 > Hugo does not classify an HTTP response with status code 404 as an error. In this case `resources.GetRemote` returns nil.
 
 ```go-html-template

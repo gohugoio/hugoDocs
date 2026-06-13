@@ -102,7 +102,7 @@ Instead of failing the build, we can catch the error and emit a warning:
 
 In the above, note that the [context](g) within the last conditional block is the `TryValue` object returned by the `try` statement. At this point neither the `Err` nor `Value` methods returned anything, so the current context is not useful. Use the `$` to access the [template context][] if needed.
 
-> [!note]
+> [!NOTE]
 > Hugo does not classify an HTTP response with status code 404 as an error. In this case `resources.GetRemote` returns nil.
 
 [`resources.GetRemote`]: /functions/resources/getremote/

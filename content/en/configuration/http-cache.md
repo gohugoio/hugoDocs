@@ -6,7 +6,7 @@ categories: []
 keywords: []
 ---
 
-> [!note]
+> [!NOTE]
 > This configuration is only relevant when using the [`resources.GetRemote`][] function.
 
 ## Layered caching

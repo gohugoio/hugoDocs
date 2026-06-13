@@ -31,7 +31,7 @@ Also, see the [Example folder structure](#example-folder-structure) below for a 
 
 ## Changes to template lookup order
 
-We have consolidated the template lookup so it works the same across all [template types][]. The previous setup was very hard to understand and had a massive number of variants. The new setup aims to feel natural with few surprises.
+We have consolidated the template lookup so it works the same across all [template types][]. The previous setup was difficult to understand and had a massive number of variants. The new setup aims to feel natural with few surprises.
 
 The identifiers used in the template weighting, in order of importance, are:
 
@@ -89,7 +89,7 @@ layouts
         └── list.html
 ```
 
-[^internal]: The old way of doing it made it very hard/impossible to, e.g., override `_internal/disqus.html` in a theme. Now you can just create a partial with the same name.
+[^internal]: The old way of doing it made it difficult or impossible to, e.g., override `_internal/disqus.html` in a theme. Now you can just create a partial with the same name.
 [^type]: The `type` set in front matter will effectively replace the `section` folder in [Page path][] when doing lookups.
 
 [Hugo v0.146.0]: https://github.com/gohugoio/hugo/releases/tag/v0.146.0

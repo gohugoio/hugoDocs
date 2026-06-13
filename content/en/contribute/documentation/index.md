@@ -141,7 +141,7 @@ Minimize adverbs.
 No → Hugo is extremely fast.\
 Yes → Hugo is fast.
 
-> [!note]
+> [!NOTE]
 > "It's an adverb, Sam. It's a lazy tool of a weak mind." (Outbreak, 1995).
 
 ### Function and method descriptions
@@ -219,7 +219,7 @@ alt_title = 'Whatever you want'
 
 Use of the alternate title is limited to the "See also" sidebar.
 
-> [!note]
+> [!NOTE]
 > Think carefully before setting the `alt_title`. Use it only when necessary.
 
 ## Code examples
@@ -368,43 +368,43 @@ The predominant use of the `note` callout type is a historical artifact; the pre
 In the examples below, the callout type (e.g., `note`, `warning`) is case-insensitive.
 
 ```md {file="content/example.md"}
-> [!note]
+> [!NOTE]
 > Useful information that users should know, even when skimming content.
 ```
 
-> [!note]
+> [!NOTE]
 > Useful information that users should know, even when skimming content.
 
 ```md {file="content/example.md"}
-> [!important]
+> [!IMPORTANT]
 > Key information users need to know to achieve their goal.
 ```
 
-> [!important]
+> [!IMPORTANT]
 > Key information users need to know to achieve their goal.
 
 ```md {file="content/example.md"}
-> [!tip]
+> [!TIP]
 > Helpful advice for doing things better or more easily.
 ```
 
-> [!tip]
+> [!TIP]
 > Helpful advice for doing things better or more easily.
 
 ```md {file="content/example.md"}
-> [!warning]
+> [!WARNING]
 > Urgent info that needs immediate user attention to avoid problems.
 ```
 
-> [!warning]
+> [!WARNING]
 > Urgent info that needs immediate user attention to avoid problems.
 
 ```md {file="content/example.md"}
-> [!caution]
+> [!CAUTION]
 > Advises about risks or negative outcomes of certain actions.
 ```
 
-> [!caution]
+> [!CAUTION]
 > Advises about risks or negative outcomes of certain actions.
 
 ## Shortcodes
@@ -519,7 +519,7 @@ expiryDate: 2028-03-03 # deprecated 2026-03-03 in v0.157.0
 
 ## GitHub workflow
 
-> [!note]
+> [!NOTE]
 > This section assumes that you have a working knowledge of Git and GitHub, and are comfortable working on the command line.
 
 Use this workflow to create and submit pull requests.

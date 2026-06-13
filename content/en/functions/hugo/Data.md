@@ -13,7 +13,7 @@ params:
 
 Use the `hugo.Data` function to access data within the `data` directory, or within any directory [mounted][] to the `data` directory. Supported data formats include JSON, TOML, YAML, and XML.
 
-> [!note]
+> [!NOTE]
 > Although Hugo can [unmarshal](g) CSV files with the [`transform.Unmarshal`][] function, do not place CSV files in the `data` directory. You cannot access data within CSV files using this method.
 
 Consider this `data` directory:

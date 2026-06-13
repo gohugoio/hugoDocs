@@ -118,7 +118,7 @@ weight = 1
 weight = 2
 {{< /code-toggle >}}
 
-> [!note]
+> [!NOTE]
 > Private use subtags must not exceed 8 alphanumeric characters.
 
 ## Example
@@ -153,14 +153,14 @@ weight = 2
 subtitle = 'Reference, Tutorials, and Explanations'
 {{< /code-toggle >}}
 
-> [!note]
+> [!NOTE]
 > In the example above, omit `contentDir` if [translating by file name][].
 
 ## Multihost
 
 Hugo supports multiple languages in a multihost configuration. This means you can configure a `baseURL` per `language`.
 
-> [!note]
+> [!NOTE]
 > If you define a `baseURL` for one language, you must define a unique `baseURL` for all languages.
 
 For example:

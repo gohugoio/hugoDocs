@@ -66,7 +66,7 @@ With `baseURL = https://example.org/docs/`
 {{ relURL "/style.css" }} → /style.css
 ```
 
-> [!note]
+> [!NOTE]
 > As illustrated by the previous example, using a leading slash is rarely desirable and can lead to unexpected outcomes. In nearly all cases, omit the leading slash.
 
 [`urls.RelLangURL`]: /functions/urls/rellangurl/

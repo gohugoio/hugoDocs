@@ -16,7 +16,7 @@ Use the `css.TailwindCSS` function to process your Tailwind CSS files. This func
 1. Compile those utility classes into standard CSS.
 1. Generate an optimized CSS output file.
 
-> [!note]
+> [!NOTE]
 > Use this function with Tailwind CSS v4.0 and later, which require a relatively [modern browser][] to render correctly.
 
 ## Setup
@@ -28,9 +28,12 @@ Step 1
   npm install --save-dev tailwindcss @tailwindcss/cli @tailwindcss/typography
   ```
 
-  <!-- TODO: remove the admonition below somewhere after v0.172.0 -->
-  
-  > [!note]
+  <!-- TODO
+  Remove the admonition below somewhere after v0.176.0, 15 minor releases
+  after deprecation.
+  -->
+
+  > [!NOTE]
   > As of v0.161.0, Hugo no longer supports the Tailwind [standalone binary][]. You must now install the Tailwind CSS CLI via `npm` as shown above.
 
 Step 2

@@ -9,7 +9,7 @@ params:
     signatures: [MENUENTRY.PageRef]
 ---
 
-> [!note]
+> [!NOTE]
 > The use case for this method is rare.
 > In almost also scenarios you should use the [`URL`][] method instead.
 
@@ -29,14 +29,14 @@ If a matching page is not found:
 - The [`Page`][] method returns nil
 - The [`HasMenuCurrent`][] and [`IsMenuCurrent`][] methods on a `Page` object return `false`
 
-> [!note]
+> [!NOTE]
 > In almost also scenarios you should use the [`URL`][] method instead.
 
 ## Example
 
 This example is contrived.
 
-> [!note]
+> [!NOTE]
 > In almost also scenarios you should use the [`URL`][] method instead.
 
 Consider this content structure:

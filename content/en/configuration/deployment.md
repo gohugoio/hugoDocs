@@ -6,7 +6,7 @@ categories: []
 keywords: []
 ---
 
-> [!note]
+> [!NOTE]
 > This configuration is only relevant when running `hugo deploy`. See [details][hugo deploy].
 
 ## Top-level settings

@@ -35,7 +35,7 @@ render = 'always'
   - `link`: Do not render the page to disk, but assign `Permalink` and `RelPermalink` values.
   - `never`: Never render the page to disk, and exclude it from all page collections.
 
-> [!note]
+> [!NOTE]
 > Any page, regardless of its build options, will always be available by using the [`.Page.GetPage`][] or [`.Site.GetPage`][] method.
 
 ## Example -- headless page

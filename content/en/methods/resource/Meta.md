@@ -17,7 +17,7 @@ The `Meta` method on an image `Resource` object returns an object containing [Ex
 
 While Hugo classifies many file types as images, only certain formats support metadata extraction. Supported formats include AVIF, BMP, GIF, HEIC, HEIF, JPEG, PNG, TIFF, and WebP.
 
-> [!note]
+> [!NOTE]
 > Metadata is not preserved during image transformation. Use this method with the _original_ image resource to extract metadata from supported formats.
 
 ## Usage
@@ -61,7 +61,7 @@ Use these methods on the `Meta` object.
   `7`|Mirrored horizontal and rotated 90 degrees clockwise
   `8`|Rotated 270 degrees clockwise
 
-  > [!tip]
+  > [!TIP]
   > Use the [`images.AutoOrient`][] image filter to rotate and flip an image as needed per its Exif orientation tag
 
 `Exif`

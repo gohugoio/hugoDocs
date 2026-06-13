@@ -106,7 +106,7 @@ List the titles in the data file, and throw an error if the file does not exist.
 
 The page resources' metadata is managed from the corresponding page's front matter with an array parameter named `resources`.
 
-> [!note]
+> [!NOTE]
 > Resources of type `page` get `Title` etc. from their own front matter.
 
 `src`
@@ -155,7 +155,7 @@ From the example above:
 - All `PDF` files will get the `pdf` icon and a new `Name`. The `name` parameter contains a special placeholder [`:counter`](#the-counter-placeholder-in-name-and-title), so the `Name` will be `pdf-file-1`, `pdf-file-2`, `pdf-file-3`.
 - All `.docx` files will get the `word` icon.
 
-> [!note]
+> [!NOTE]
 > For `name` and `title`, the first matching array entry wins; later matches are ignored. For `params`, all matching entries contribute; later entries take precedence for duplicate keys. Place more specific `src` patterns before broader wildcards to control which `name` and `title` values are applied.
 
 ### The `:counter` placeholder in `name` and `title`
@@ -189,7 +189,7 @@ the `Name` and `Title` will be assigned to the resource files as follows:
 
 By default, with a multilingual single-host project, Hugo does not duplicate shared page during the build.
 
-> [!note]
+> [!NOTE]
 > This behavior is limited to Markdown content. Shared page resources for other [content formats][] are copied into each language bundle.
 
 Consider this project configuration:
@@ -222,29 +222,7 @@ content/
     └── index.en.md
 ```
 
-With v0.122.0 and earlier, Hugo duplicated the shared page resources, creating copies for each language:
-
-```tree
-public/
-├── de/
-│   ├── my-bundle/
-│   │   ├── a.jpg     <-- shared page resource
-│   │   ├── b.jpg     <-- shared page resource
-│   │   ├── c.de.jpg
-│   │   └── index.html
-│   └── index.html
-├── en/
-│   ├── my-bundle/
-│   │   ├── a.jpg     <-- shared page resource (duplicate)
-│   │   ├── b.jpg     <-- shared page resource (duplicate)
-│   │   ├── c.en.jpg
-│   │   └── index.html
-│   └── index.html
-└── index.html
-
-```
-
-With v0.123.0 and later, Hugo places the shared resources in the page bundle for the default content language:
+Hugo places the shared resources in the page bundle for the default content language:
 
 ```tree
 public/
@@ -265,7 +243,7 @@ public/
 
 This approach reduces build times, storage requirements, bandwidth consumption, and deployment times, ultimately reducing cost.
 
-> [!important]
+> [!IMPORTANT]
 > To resolve Markdown link and image destinations to the correct location, you must use link and image render hooks that capture the page resource with the [`Resources.Get`][] method, and then invoke its [`RelPermalink`][] method.
 >
 > In its default configuration, Hugo automatically uses the [embedded link render hook][] and the [embedded image render hook][] for multilingual single-host projects, specifically when the [duplication of shared page resources][] feature is disabled. This is the default behavior for such projects. If custom link or image render hooks are defined by your project, modules, or themes, these will be used instead.

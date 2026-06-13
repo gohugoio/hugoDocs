@@ -10,7 +10,7 @@ params:
     signatures: ['js.Build [OPTIONS] RESOURCE']
 ---
 
-> [!note]
+> [!NOTE]
 > The `js.Build` function is backed by the [`evanw/esbuild`][] package, providing a mature, high-performance foundation for bundling, transformation, and minification.
 
 Use the `js.Build` function to:
@@ -101,7 +101,7 @@ Any imports in a file outside `assets` or that does not resolve to a component i
 
 The start directory for resolving npm packages (aka. packages that live inside a `node_modules` directory) is always the main project directory.
 
-> [!note]
+> [!NOTE]
 > If you're developing a theme/component that is supposed to be imported and depends on dependencies inside `package.json`, we recommend reading about [`hugo mod npm pack`][], a tool to consolidate all the npm dependencies in a project.
 
 ## Examples

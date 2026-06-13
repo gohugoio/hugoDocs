@@ -52,7 +52,7 @@ layouts/
 
 Hugo's [template lookup order][] determines the template path, allowing you to create unique templates for any page.
 
-> [!note]
+> [!NOTE]
 > You must have thorough understanding of the template lookup order when creating templates. Template selection is based on template type, page kind, content type, section, language, and output format.
 
 The purpose of each template type is described below.
@@ -66,7 +66,7 @@ Hugo can apply a _base_ template to the following template types: [home](#home),
 - It must include at least one [`define`][] [action](g).
 - It can only contain `define` actions, whitespace, and [template comments][]. No other content is allowed.
 
-> [!note]
+> [!NOTE]
 > If a template doesn't meet all these criteria, Hugo executes it exactly as provided, without applying a _base_ template.
 
 When Hugo applies a _base_ template, it replaces its [`block`][] actions with content from the corresponding `define` actions found in the template to which the base template is applied.

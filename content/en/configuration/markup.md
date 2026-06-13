@@ -30,7 +30,7 @@ To use a different renderer for Markdown files, specify one of `asciidocext`, `o
 
 To use AsciiDoc, Pandoc, or reStructuredText you must install the relevant renderer and update your [security policy][].
 
-> [!note]
+> [!NOTE]
 > Unless you need a unique capability provided by one of the alternative Markdown handlers, we strongly recommend that you use the default setting. Goldmark is fast, well maintained, conforms to the [CommonMark][] specification, and is compatible with [GitHub Flavored Markdown][] (GFM).
 
 ## Goldmark
@@ -134,7 +134,7 @@ Most of the Goldmark settings above are self-explanatory, but some require expla
 `duplicateResourceFiles`
 : (`bool`) Whether to duplicate shared page resources for each language on multilingual single-host projects. See [multilingual page resources][] for details. Default is `false`.
 
-  > [!note]
+  > [!NOTE]
   > With multilingual single-host projects, setting this parameter to `false` will enable Hugo's [embedded link render hook][] and [embedded image render hook][]. This is the default configuration for multilingual single-host projects.
 
 `parser.wrapStandAloneImageWithinParagraph`
@@ -154,7 +154,7 @@ Most of the Goldmark settings above are self-explanatory, but some require expla
   - `github-ascii`: Drop any non-ASCII characters after accent normalization
   - `blackfriday`: Generate `id` attributes compatible with the Blackfriday Markdown renderer
 
-  This is also the strategy used by the [anchorize][] template function.
+  This is also the strategy used by the [anchorize][] function.
 
 `parser.attribute.block`
 : (`bool`) Whether to enable [Markdown attributes][] for block elements. Default is `false`.
@@ -210,7 +210,7 @@ This is the default configuration for the AsciiDoc renderer:
 `extensions`
 : (`[]string`) An array of enabled extensions, such as `asciidoctor-html5s`, `asciidoctor-bibtex`, or `asciidoctor-diagram`.
 
-  > [!note]
+  > [!NOTE]
   > To mitigate security risks, entries in the extension array may not contain forward slashes (`/`), backslashes (`\`), or periods. Due to this restriction, extensions must be in Ruby's `$LOAD_PATH`.
 
 `failureLevel`

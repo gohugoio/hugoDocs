@@ -9,7 +9,7 @@ Although not required in all cases, [Git][], [Go][], and [Dart Sass][] are commo
 Git is required to:
 
 - Build Hugo from source
-- Use the [Hugo Modules][] feature
+- Use [Hugo modules][]
 - Install a theme as a Git submodule
 - Access [commit information][] from a local Git repository
 - Host your site on [CI/CD](g) platforms such as [Cloudflare][], [GitHub Pages][], [GitLab Pages][], [Netlify][], [Render][], or [Vercel][]
@@ -17,7 +17,7 @@ Git is required to:
 Go is required to:
 
 - Build Hugo from source
-- Use the Hugo Modules feature
+- Use Hugo modules
 
 Dart Sass is required to transpile Sass to CSS when using the latest features of the Sass language.
 
@@ -33,7 +33,7 @@ Please refer to the relevant documentation for installation instructions:
 [GitLab Pages]: /host-and-deploy/host-on-gitlab-pages/
 [Git]: https://git-scm.com/
 [Go]: https://go.dev/
-[Hugo Modules]: /hugo-modules/
+[Hugo modules]: /hugo-modules/
 [Netlify]: /host-and-deploy/host-on-netlify/
 [Render]: /host-and-deploy/host-on-render/
 [Vercel]: /host-and-deploy/host-on-vercel/

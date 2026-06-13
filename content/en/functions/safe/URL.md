@@ -42,7 +42,7 @@ Hugo renders the above to:
 <a href="#ZgotmplZ">IRC</a>
 ```
 
-> [!note]
+> [!NOTE]
 > `ZgotmplZ` is a special value that indicates that unsafe content reached a CSS or URL context at runtime.
 
 To declare the string as safe:

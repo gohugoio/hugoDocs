@@ -13,7 +13,7 @@ params:
 
 The `Fill` method returns a new resource from a [processable image](g) according to the given [processing specification](#processing-specification).
 
-> [!note]
+> [!NOTE]
 > Use the [`reflect.IsImageResourceProcessable`][] function to verify that an image can be processed.
 
 ## Usage

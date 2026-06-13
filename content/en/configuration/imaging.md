@@ -52,10 +52,10 @@ These settings apply to all image formats.
 
 These settings apply when encoding AVIF images.
 
-> [!note]
+> [!NOTE]
 > When exporting HDR AVIF images from Lightroom, in the Export dialog under File Settings, uncheck Maximize Compatibility to improve Hugo's AVIF decoding speed.
 
-> [!note]
+> [!NOTE]
 > Encoding animated images to AVIF produces a single-frame (static) image. Converting an animated AVIF to another format such as GIF works as expected.
 
 {{< code-toggle config=imaging.avif />}}
@@ -65,7 +65,7 @@ These settings apply when encoding AVIF images.
 : (`string`) The encoding strategy. Options are `lossy` or `lossless`. Default is `lossy`.
 
 `encoderSpeed`
-: (`int`) The encoder speed. Expressed as a whole number from `1` to `10`, inclusive, equivalent to the `-s` flag for the [`avifenc`][] CLI. Lower numbers reduce file size at the cost of build time. At typical web image sizes, quality is indistinguishable across settings. Values below `5` may cause very long build times. Default is `10`.
+: (`int`) The encoder speed. Expressed as a whole number from `1` to `10`, inclusive, equivalent to the `-s` flag for the [`avifenc`][] CLI. Lower numbers reduce file size at the cost of build time. At typical web image sizes, quality is indistinguishable across settings. Values below `5` may cause significantly longer build times. Default is `10`.
 
 `hint`
 : {{< new-in 0.163.0 />}}
@@ -142,7 +142,7 @@ The following parameters allow you to control how Hugo extracts and filters meta
 `fields`
 : (`[]string`) A [glob slice](g) matching the fields to include when extracting metadata. If empty, a default set excluding technical metadata is used. Set&nbsp;to&nbsp;`['**']`&nbsp;to include all fields.
 
-  > [!note]
+  > [!NOTE]
   > By default, to improve performance and decrease cache size, Hugo excludes the following fields: `ColorSpace`, `Contrast`, `Exif`, `ExposureBias`, `ExposureMode`, `ExposureProgram`, `Flash`, `GPS`, `JPEG`, `Metering`, `Resolution`, `Saturation`, `Sensing`, `Sharp`, and `WhiteBalance`.
 
 `sources`

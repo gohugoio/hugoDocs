@@ -11,7 +11,7 @@ params:
 
 {{% glossary-term section %}}
 
-> [!note]
+> [!NOTE]
 > The current section of a [section page](g), [taxonomy page](g), [term page](g), or the home page, is itself.
 
 Consider this content structure:

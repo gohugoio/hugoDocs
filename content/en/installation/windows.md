@@ -6,8 +6,8 @@ keywords: []
 weight: 30
 ---
 
-> [!note]
-> Hugo v0.121.1 and later require at least Windows 10 or Windows Server 2016.
+> [!NOTE]
+> Hugo requires Windows 10, Windows Server 2016, or later.
 
 {{% include "/_common/installation/01-editions.md" %}}
 
@@ -54,7 +54,7 @@ To build Hugo from source you must install:
 1. [Git][]
 1. [Go][] version {{% current-go-version %}} or later
 
-> [!note]
+> [!NOTE]
 > The Bash-style `KEY=VALUE cmd` syntax used in the macOS and Linux build-from-source instructions does not work in PowerShell or Command Prompt. Use the code block matching your shell.
 
 ### Standard edition
@@ -127,7 +127,7 @@ set CGO_ENABLED=1
 go install -tags extended,withdeploy github.com/gohugoio/hugo@latest
 ```
 
-> [!note]
+> [!NOTE]
 > See these [detailed instructions][] to install GCC on Windows.
 
 ## Comparison

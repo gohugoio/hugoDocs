@@ -6,7 +6,7 @@ categories: []
 keywords: []
 ---
 
-> [!note]
+> [!NOTE]
 > To override Hugo's embedded `instagram` shortcode, copy the [source code][] to a file with the same name in the `layouts/_shortcodes` directory.
 
 ## Example

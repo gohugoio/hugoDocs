@@ -35,7 +35,7 @@ Front matter fields may be [boolean](g), [integer](g), [float](g), [string](g), 
 
 The most common front matter fields are `date`, `draft`, `title`, and `weight`, but you can specify metadata using any of fields below.
 
-> [!note]
+> [!NOTE]
 > The field names below are reserved. For example, you cannot create a custom field named `type`. Create custom fields under the `params` key. See the [parameters](#parameters) section for details.
 
 `aliases`
@@ -210,7 +210,7 @@ Access taxonomy terms from a template using the [`Params`][] or [`GetTerms`][] m
 
 ## Cascade
 
-> [!note]
+> [!NOTE]
   > For multilingual projects, defining cascade values in your project configuration is often more efficient. This avoids repeating the same cascade values for each language. See [details][].
 
 A [branch](g) can cascade front matter values to its descendants. However, this cascading will be prevented if the descendant already defines the field, or if a closer ancestor branch has already cascaded a value for that same field.
@@ -226,7 +226,8 @@ color = 'red'
 ### Target
 
 <!-- TODO
-We deprecated the `_target` front matter key in favor of `target` in v0.156.0 on 2026-02-17. Remove footnote #1 on or after 2027-05-17 (15 months after deprecation).
+We deprecated the `_target` front matter key in favor of `target` in v0.156.0 on 2026-02-17. Remove footnote #1 somewhere after v0.171.0, 15 minor releases
+after deprecation.
 -->
 
 The `target` key accepts a [page matcher](g) to limit cascaded values to a subset of pages.[^1] If a target is not specified, values cascade to all descendant pages.

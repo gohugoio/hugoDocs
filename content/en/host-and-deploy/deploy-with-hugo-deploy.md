@@ -8,7 +8,7 @@ aliases: [/hosting-and-deployment/hugo-deploy/]
 
 Use the `hugo deploy` command to deploy your site Amazon S3, Azure Blob Storage, or Google Cloud Storage.
 
-> [!note]
+> [!NOTE]
 > This feature requires the deploy or extended/deploy edition. See the [installation][] section for details.
 
 ## Assumptions
@@ -58,14 +58,14 @@ For more command-line options, see `hugo help deploy` or the [CLI documentation]
 - `include`: All files are skipped by default except those that match the pattern.
 - `exclude`: Files matching the pattern are skipped.
 
-> [!note]
+> [!NOTE]
 > During local file list creation, Hugo skips `.DS_Store` files and hidden directories (those starting with a period, like `.git`), except for the [`.well-known`][] directory, which is traversed if present.
 
 ### File list comparison
 
 Hugo compares the local and remote file lists to identify necessary changes. It first compares file names. If both exist, it compares sizes and MD5 checksums. Any difference triggers a re-upload, and remote files not present locally are deleted.
 
-> [!note]
+> [!NOTE]
 > Excluded remote files (due to `include`/`exclude` configuration) won't be deleted.
 
 The `--force` flag forces all files to be re-uploaded, even if Hugo detects no local/remote differences.
@@ -76,7 +76,7 @@ The `--confirm` or `--dryRun` flags cause Hugo to display the detected differenc
 
 Hugo applies the changes to the remote bucket: uploading missing or changed files and deleting remote files not present locally. Uploaded file headers are configured remotely based on the matchers configuration.
 
-> [!note]
+> [!NOTE]
 > To prevent accidental data loss, Hugo will not delete more than 256 remote files by default. Use the `--maxDeletes` flag to override this limit.
 
 ## Advanced configuration

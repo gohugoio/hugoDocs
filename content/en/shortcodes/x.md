@@ -8,7 +8,7 @@ keywords: []
 
 {{< new-in 0.141.0 />}}
 
-> [!note]
+> [!NOTE]
 > To override Hugo's embedded `x` shortcode, copy the [source code][] to a file with the same name in the `layouts/_shortcodes` directory.
 
 ## Example

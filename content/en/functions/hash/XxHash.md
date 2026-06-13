@@ -14,7 +14,7 @@ params:
 {{ hash.XxHash "Hello world" }} → c500b0c912b376d8
 ```
 
-[xxHash][] is a very fast non-cryptographic hash algorithm. Hugo uses [this Go implementation][].
+[xxHash][] is an exceptionally fast non-cryptographic hash algorithm. Hugo uses [this Go implementation][].
 
 [this Go implementation]: https://github.com/cespare/xxhash
 [xxHash]: https://xxhash.com/
