@@ -22,7 +22,7 @@ There are three ways to define menu entries:
 1. In front matter
 1. In your project configuration
 
-> [!note]
+> [!NOTE]
 > Although you can use these methods in combination when defining a menu, the menu will be easier to conceptualize and maintain if you use one method throughout the site.
 
 ## Define automatically
@@ -55,7 +55,7 @@ menus = ['main','footer']
 
 Access the entry with `site.Menus.main` and `site.Menus.footer` in your templates. See [menu templates][] for details.
 
-> [!note]
+> [!NOTE]
 > The configuration key in the examples above is `menus`. The `menu` (singular) configuration key is an alias for `menus`.
 
 ### Properties

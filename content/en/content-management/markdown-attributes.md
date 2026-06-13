@@ -63,7 +63,7 @@ wrapStandAloneImageWithinParagraph = false # default is true
 
 You may add [global HTML attributes][], or HTML attributes specific to the current element type. Consistent with its content security model, Hugo removes HTML event attributes such as `onclick` and `onmouseover`.
 
-> [!note]
+> [!NOTE]
 > Within fenced code blocks, Hugo interprets the `style` attribute as a syntax highlighting [option][option] rather than a global HTML attribute.
 
 The attribute list consists of one or more key-value pairs, separated by spaces or commas, wrapped by braces. You must quote string values that contain spaces. Unlike HTML, boolean attributes must have both key and value.

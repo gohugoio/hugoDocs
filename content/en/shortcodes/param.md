@@ -6,7 +6,7 @@ categories: []
 keywords: []
 ---
 
-> [!note]
+> [!NOTE]
 > To override Hugo's embedded `param` shortcode, copy the [source code][] to a file with the same name in the `layouts/_shortcodes` directory.
 
 The `param` shortcode renders a parameter from front matter, falling back to a site parameter of the same name. The shortcode throws an error if the parameter does not exist.

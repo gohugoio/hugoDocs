@@ -41,10 +41,10 @@ Is rendered to:
 </div>
 ```
 
-> [!note]
+> [!NOTE]
 > Content between opening and closing shortcode tags may include leading and/or trailing newlines, depending on placement within the Markdown. Use the [`strings.TrimSpace`][] function as shown above to remove carriage returns and newlines.
 
-> [!note]
+> [!NOTE]
 > In the example above, the value returned by `Inner` is Markdown, but it was rendered as plain text. Use either of the following approaches to render Markdown to HTML.
 
 ## Use RenderString
@@ -129,7 +129,7 @@ The difference between this and the previous example is subtle but required. Not
  </div>
 ```
 
-> [!note]
+> [!NOTE]
 > Don't process the `Inner` value with `RenderString` or `markdownify` when using [Markdown notation][] to call the shortcode.
 
 [CommonMark]: https://spec.commonmark.org/current/

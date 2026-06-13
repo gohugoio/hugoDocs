@@ -36,7 +36,7 @@ In the example above, the _generic attributes_ are `class` and `id`. In the abse
 
 In the example above, the _highlighting options_ are `lineNos` and `tabWidth`. Hugo renders the code sample using its built-in syntax highlighter. You can control the appearance of the rendered code by specifying one or more [highlighting options][].
 
-> [!note]
+> [!NOTE]
 > Although `style` is a global HTML attribute, when used in an info string it is a highlighting option.
 
 ## Context

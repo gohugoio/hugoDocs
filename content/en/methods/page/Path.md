@@ -85,7 +85,7 @@ Methods|Functions|Shortcodes
 [`Shortcode.Ref`][]|&nbsp;|&nbsp;
 [`Shortcode.RelRef`][]|&nbsp;|&nbsp;
 
-> [!note]
+> [!NOTE]
 > Specify the logical path when using any of these methods, functions, or shortcodes. If you include a file extension or language identifier, Hugo will strip these values before finding the page in the logical tree.
 
 ## Logical tree
@@ -116,7 +116,7 @@ A key difference between these trees is the relative path from p1 to p2:
 - In the file tree, the relative path from p1 to p2 is `../p2.md`
 - In the logical tree, the relative path is `p2`
 
-> [!note]
+> [!NOTE]
 > Remember to use the logical path when using any of the methods, functions, or shortcodes listed in the previous section. If you include a file extension or language identifier, Hugo will strip these values before finding the page in the logical tree.
 
 [`Page.GetPage`]: /methods/page/getpage/

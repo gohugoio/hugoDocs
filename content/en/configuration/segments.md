@@ -6,7 +6,7 @@ categories: []
 keywords: []
 ---
 
-> [!note]
+> [!NOTE]
 > The `segments` configuration applies only to segmented rendering. While it controls when content is rendered, it doesn't restrict access to Hugo's complete object graph (sites and pages), which remains fully available.
 
 Segmented rendering offers several advantages:

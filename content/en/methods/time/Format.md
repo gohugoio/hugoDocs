@@ -18,7 +18,7 @@ aliases: [/methods/time/format]
 {{ $t.Format $format }} → 27 Jan 2023
 ```
 
-> [!note]
+> [!NOTE]
 > To [localize](g) the return value, use the [`time.Format`][] function instead.
 
 Use the `Format` method with any `time.Time` value, including the four predefined front matter dates:
@@ -32,7 +32,7 @@ Use the `Format` method with any `time.Time` value, including the four predefine
 {{ .Lastmod.Format $format }}
 ```
 
-> [!note]
+> [!NOTE]
 > Use the [`time.Format`][] function to format string representations of dates, and to format raw TOML dates that exclude time and time zone offset.
 
 ## Layout string

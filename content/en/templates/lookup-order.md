@@ -33,7 +33,7 @@ Type
 Section
 : Is relevant for `section`, `taxonomy` and `term` types.
 
-> [!note]
+> [!NOTE]
 > Templates can live in either the project's or the themes' `layout` directories, and the most specific templates will be chosen. Hugo will interleave the lookups listed below, finding the most specific one either in the project or themes.
 
 ## Target a template
@@ -56,7 +56,7 @@ layouts/
     └── single.html
 ```
 
-But the contact page probably has a form and requires a different template. In the front matter specify `layout`:
+The contact page, however, probably has a form and requires a different template. In the front matter specify `layout`:
 
 {{< code-toggle file=content/contact.md fm=true >}}
 title = 'Contact'

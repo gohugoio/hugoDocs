@@ -110,7 +110,7 @@ If the QR code will be printed, use the default `scale` value of `4` pixels per 
 
 Avoid using Hugo's image processing methods to resize QR codes. Resizing can introduce blurring due to anti-aliasing when a QR code module occupies a fractional number of pixels.
 
-> [!note]
+> [!NOTE]
 > Always test the rendered QR code both on-screen and in print.
 
 ## Shortcode

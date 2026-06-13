@@ -20,7 +20,7 @@ aliases: [/functions/adddate]
 {{ $d.AddDate -1 -1 -1 | time.Format "2006-01-02" }} → 2020-11-30
 ```
 
-> [!note]
+> [!NOTE]
 > When adding months or years, Hugo normalizes the final `time.Time` value if the resulting day does not exist. For example, adding one month to 31 January produces 2 March or 3 March, depending on the year.
 >
 > See [this explanation][] from the Go team.

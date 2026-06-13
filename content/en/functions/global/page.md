@@ -25,14 +25,14 @@ When a `Page` object is not in context, you can use the global `page` function:
 {{ page.Params.foo }}
 ```
 
-> [!note]
+> [!NOTE]
 > Do not use the global `page` function in shortcodes, partials called by shortcodes, or cached partials. See [warnings](#warnings) below.
 
 ## Explanation
 
 Hugo almost always passes a `Page` as the data context into the top-level template (e.g., `baseof.html`). The one exception is the multihost sitemap template. This means that you can access the current page with the `.` in the template.
 
-But when you are deeply nested inside of a [content view](g), [partial](g), or [render hook](g), it is not always practical or possible to access the `Page` object.
+However, when deeply nested inside a [content view](g), [partial](g), or [render hook](g), it is not always practical or possible to access the `Page` object.
 
 Use the global `page` function to access the `Page` object from anywhere in any template.
 

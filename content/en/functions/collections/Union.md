@@ -22,7 +22,7 @@ aliases: [/functions/union]
 
 ## OR filter in where query
 
-This is also very useful to use as `OR` filters when combined with where:
+This is also useful as `OR` filters when combined with where:
 
 ```go-html-template
 {{ $pages := where .Site.RegularPages "Type" "not in" (slice "page" "about") }}

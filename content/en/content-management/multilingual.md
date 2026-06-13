@@ -29,10 +29,10 @@ Their language is assigned according to the language code added as a suffix to t
 
 By having the same path and base file name, the content pieces are linked together as translated pages.
 
-> [!note]
+> [!NOTE]
 > The language code in a file name must be lowercase. For example, use `about.en-us.md` instead of `about.en-US.md`.
 
-> [!note]
+> [!NOTE]
 > If a file has no language code, it will be assigned the default language.
 
 ### Translation by content directory
@@ -110,12 +110,12 @@ If, across the linked bundles, two or more files share the same basename, only o
 - File from current language bundle, if present.
 - First file found across bundles by order of language `Weight`.
 
-> [!note]
+> [!NOTE]
 > Page Bundle resources follow the same language assignment logic as content files, both by file name (`image.jpg`, `image.fr.jpg`) and by directory (`english/about/header.jpg`, `french/about/header.jpg`).
 
 ## Translation of strings
 
-See the [`lang.Translate`][] template function.
+See the [`lang.Translate`][] function.
 
 ## Localization
 
@@ -341,7 +341,7 @@ If a string does not have a translation for the current language, Hugo will use 
 
 While translating a Hugo website, it can be helpful to have a visual indicator of missing translations. The [`enableMissingTranslationPlaceholders`][] configuration setting will flag all untranslated strings with the placeholder `[i18n] identifier`, where `identifier` is the id of the missing translation.
 
-> [!note]
+> [!NOTE]
 > Hugo will generate your website with these missing translation placeholders. It might not be suitable for production environments.
 
 For merging of content from other languages (i.e. missing content translations), see [lang.Merge].
@@ -358,7 +358,7 @@ i18n|MISSING_TRANSLATION|en|wordCount
 To support Multilingual mode in your themes, some considerations must be taken for the URLs in the templates. If there is more than one language, URLs must meet the following criteria:
 
 - Come from the built-in `.Permalink` or `.RelPermalink`
-- Be constructed with the [`relLangURL`] or [`absLangURL`] template function, or be prefixed with `{{ .LanguagePrefix }}`
+- Be constructed with the [`relLangURL`] or [`absLangURL`] function, or be prefixed with `{{ .LanguagePrefix }}`
 
 If there is more than one language defined, the `LanguagePrefix` method will return `/en` (or whatever the current language is). If not enabled, it will be an empty string (and is therefore harmless for single-language Hugo websites).
 

@@ -71,7 +71,7 @@ In the example above, the inline shortcode is executed twice: once upon definiti
 
 Inline shortcodes process their inner content within the same context as regular _shortcode_ templates, allowing you to use any available [shortcode method][].
 
-> [!note]
+> [!NOTE]
 > You cannot [nest](#nesting) inline shortcodes.
 
 Learn more about creating shortcodes in the [shortcode templates][] section.
@@ -203,7 +203,7 @@ Hugo renders this HTML:
 
 In the above, "Section 1" will be included when invoking the `TableOfContents` method, while "Section 2" will not.
 
-> [!note]
+> [!NOTE]
 > The shortcode author determines which notation to use. Consult each shortcode's documentation for specific usage instructions and available arguments.
 
 ## Nesting

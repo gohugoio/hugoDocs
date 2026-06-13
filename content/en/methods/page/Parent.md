@@ -11,7 +11,7 @@ params:
 
 {{% glossary-term section %}}
 
-> [!note]
+> [!NOTE]
 > The parent section of a regular page is the [current section][].
 
 Consider this content structure:

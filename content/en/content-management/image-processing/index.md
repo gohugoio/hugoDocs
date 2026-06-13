@@ -7,7 +7,7 @@ keywords: []
 
 Hugo provides methods to transform and analyze images during the build process. While Hugo can manage any image format as a resource, only [processable images](g) can be transformed using the methods below. The results are cached to ensure subsequent builds remain fast.
 
-> [!note]
+> [!NOTE]
 > Use the [`reflect.IsImageResourceProcessable`][] function to verify that an image can be processed.
 
 ## Resources
@@ -115,7 +115,7 @@ To transform an image, apply a processing method to the image resource. Hugo gen
 {{ end }}
 ```
 
-> [!note]
+> [!NOTE]
 > Metadata is not preserved during image transformation. Use the [`Meta`][] method with the original image resource to extract metadata from supported formats.
 
 Select a method from the table below for syntax and usage examples, depending on your specific transformation or metadata requirements:

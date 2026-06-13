@@ -10,10 +10,10 @@ params:
     signatures: ['js.Batch [ID]']
 ---
 
-> [!note]
+> [!NOTE]
 > The `js.Batch` function is backed by the [`evanw/esbuild`][] package, providing a mature, high-performance foundation for bundling, transformation, and minification.
 
-> [!note]
+> [!NOTE]
 > For a runnable example of this feature, see [this test and demo repo][js_batch_demo].
 
 The Batch `ID` is used to create the base directory for this batch. Forward slashes are allowed. The `js.Batch` function returns an object with an API with this structure:
@@ -245,7 +245,7 @@ Each [`Resource`][] will be of media type `application/javascript` or `text/css`
 
 In a template you would typically handle one group with a given `ID` (e.g., scripts for the current section). Because of the concurrent build, this needs to be done in a [`templates.Defer`][] block:
 
-> [!note]
+> [!NOTE]
 > The [`templates.Defer`][] acts as a synchronisation point to handle scripts added concurrently by different templates. If you have a setup with where the batch is created in one go (in one template), you don't need it.
 >
 > See [this discussion][] for more information.
@@ -273,7 +273,7 @@ In a template you would typically handle one group with a given `ID` (e.g., scri
 
 In the official documentation for the `esbuild` [code splitting][] feature, there's a warning note in the header. The two issues are:
 
-- `esm` is currently the only implemented output format. This means that it will not work for very old browsers. See [caniuse][].
+- `esm` is currently the only implemented output format. This means that it will not work for legacy browsers. See [caniuse][].
 - There's a known import ordering issue.
 
 We have not seen the ordering issue as a problem during our [extensive testing][] of this new feature with different libraries. There are two main cases:

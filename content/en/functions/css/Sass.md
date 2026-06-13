@@ -13,7 +13,12 @@ aliases: [/functions/resources/tocss/]
 
 Transpile Sass to CSS using the LibSass transpiler included in Hugo's extended and extended/deploy editions, or [install Dart Sass](#dart-sass) to use the latest features of the Sass language.
 
-> [!warning]
+<!-- TODO
+Remove the admonition below somewhere after v0.168.0, 15 minor releases
+after deprecation.
+-->
+
+> [!WARNING]
 > The embedded LibSass transpiler was deprecated in [v0.153.0][] and will be removed in a future release. Use the Dart Sass transpiler instead by setting the `transpiler` option to `dartsass` as shown in the examples below.
 
 Sass has two forms of syntax: [SCSS][] and [indented][]. Hugo supports both.
@@ -262,6 +267,11 @@ Sass has two forms of syntax: [SCSS][] and [indented][]. Hugo supports both.
 
 ## Dart Sass
 
+<!-- TODO
+Revise the paragraphs below somewhere after v0.168.0, 15 minor releases
+after the deprecation of the LibSass transpiler.
+-->
+
 Hugo's extended and extended/deploy editions include [LibSass][] to transpile Sass to CSS. In 2020, the Sass team deprecated LibSass in favor of [Dart Sass][].
 
 Use the latest features of the Sass language by installing Dart Sass in your development and production environments.
@@ -290,7 +300,7 @@ You may also install [prebuilt binaries][] for Linux, macOS, and Windows. You mu
 
 Run `hugo env` to list the active transpilers.
 
-> [!note]
+> [!NOTE]
 > If you build Hugo from source and run `mage test -v`, the test will fail if you install Dart Sass as a Snap package. This is due to the Snap package's strict confinement model.
 
 ### Installing in a production environment

@@ -6,7 +6,7 @@ categories: []
 keywords: []
 ---
 
-> [!note]
+> [!NOTE]
 > To understand Hugo's related content identification, please refer to the [related content][] page.
 
 Hugo provides a sensible default configuration for identifying related content, but you can customize it in your project configuration, either globally or per language.
@@ -17,7 +17,7 @@ This is the default configuration:
 
 {{< code-toggle config=related />}}
 
-> [!note]
+> [!NOTE]
 > Adding a `related` section to your project configuration requires you to provide a full configuration. You cannot override individual default values without specifying all related settings.
 
 ## Top-level settings

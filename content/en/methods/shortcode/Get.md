@@ -11,7 +11,7 @@ params:
 
 Specify the argument by position or by name. When calling a shortcode within Markdown, use either positional or named argument, but not both.
 
-> [!note]
+> [!NOTE]
 > Some shortcodes support positional arguments, some support named arguments, and others support both. Refer to the shortcode's documentation for usage details.
 
 ## Positional arguments
@@ -42,5 +42,5 @@ To retrieve arguments by name:
 {{ printf "%s %s." (.Get "greeting") (.Get "firstName") }} → Hello world.
 ```
 
-> [!note]
+> [!NOTE]
 > Argument names are case-sensitive.

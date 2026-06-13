@@ -39,7 +39,7 @@ Hugo has four logging levels:
   hugo build --logLevel debug
   ```
 
-> [!note]
+> [!NOTE]
 > If you do not specify a logging level with the `--logLevel` flag, warnings and errors are always displayed.
 
 ## Template functions

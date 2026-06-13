@@ -31,7 +31,7 @@ To reverse the meaning of _next_ and _previous_:
   nextPrevSortOrder = 'asc'
 {{< /code-toggle >}}
 
-> [!note]
+> [!NOTE]
 > These settings do not apply to the [`Next`][next-pages] or [`Prev`][prev-pages] methods on a `Pages` object.
 
 [`NextInSection`]: /methods/page/nextinsection/

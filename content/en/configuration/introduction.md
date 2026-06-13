@@ -18,7 +18,7 @@ title = 'My New Hugo Site'
 
 Only define settings that deviate from the defaults. A smaller configuration file is easier to read, understand, and debug. Keep your configuration concise.
 
-> [!note]
+> [!NOTE]
 > The best configuration file is a short configuration file.
 
 ## Configuration file
@@ -29,9 +29,6 @@ Create a project configuration file in the root of your project directory, namin
 my-project/
 └── hugo.toml
 ```
-
-> [!note]
-> For versions v0.109.0 and earlier, the project configuration file was named `config`. While you can still use this name, it's recommended to switch to the newer naming convention, `hugo`.
 
 A simple example:
 
@@ -58,7 +55,7 @@ Combine two or more configuration files, with left-to-right precedence:
 hugo build --config a.toml,b.yaml,c.json
 ```
 
-> [!note]
+> [!NOTE]
 > See the specifications for each file format: [TOML][], [YAML][], and [JSON][].
 
 ## Configuration directory
@@ -120,7 +117,7 @@ color = 'red'
 path = '/articles/**'
 {{< /code-toggle >}}
 
-> [!note]
+> [!NOTE]
 > Hugo unwraps the root key only when it is the sole top-level key in the file and matches the file's basename.
 
 ### Recursive parsing
@@ -245,7 +242,7 @@ Note that you don't need to be so verbose as in the default setup below; a `_mer
 
 {{< code-toggle file=hugo dataKey="config_helpers.mergeStrategy" skipHeader=true />}}
 
-> [!note]
+> [!NOTE]
 > Hugo can merge map configuration values from modules and themes into the project configuration, but cannot merge slice values. This applies to top-level slice keys such as `menus`, as well as to map keys whose values are slices, such as the per-kind format lists in `outputs`.
 
 ## Environment variables
@@ -260,12 +257,12 @@ hugo
 
 The above configures the [`baseURL`][] and [`enableGitInfo`][] settings and then builds your site.
 
-> [!note]
+> [!NOTE]
 > An environment variable takes precedence over the values set in the configuration file. This means that if you set a configuration value with both an environment variable and in the configuration file, the value in the environment variable will be used.
 
 Environment variables simplify configuration for [CI/CD](g) platforms by allowing you to set values directly within their respective configuration and workflow files.
 
-> [!note]
+> [!NOTE]
 > Environment variable names must be prefixed with `HUGO_`.
 >
 > To set custom site parameters, prefix the name with `HUGO_PARAMS_`.

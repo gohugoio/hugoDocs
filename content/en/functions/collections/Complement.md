@@ -21,7 +21,7 @@ To find the elements within `$c3` that do not exist in `$c1` or `$c2`:
 {{ complement $c1 $c2 $c3 }} → [1 2]
 ```
 
-> [!note]
+> [!NOTE]
 > Make your code simpler to understand by using a [chained pipeline][]:
 
 ```go-html-template
@@ -49,7 +49,7 @@ To list everything except blog articles (`blog`) and frequently asked questions 
 {{ end }}
 ```
 
-> [!note]
+> [!NOTE]
 > Although the example above demonstrates the `complement` function, you could use the [`where`][] function as well:
 
 ```go-html-template

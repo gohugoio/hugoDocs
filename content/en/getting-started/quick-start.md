@@ -29,7 +29,7 @@ You must also be comfortable working from the command line.
 
 ### Commands
 
-> [!note]
+> [!NOTE]
 > **If you are a Windows user:**
 >
 > - Do not use the Command Prompt
@@ -143,7 +143,7 @@ View your project at the URL displayed in your terminal. Keep the development se
 
 When satisfied with your new content, set the front matter `draft` parameter to `false`.
 
-> [!note]
+> [!NOTE]
 > Hugo's rendering engine conforms to the CommonMark [specification][] for Markdown. The CommonMark organization provides a useful [live testing tool][] powered by the reference implementation.
 
 ## Configure the project
@@ -169,7 +169,7 @@ Start Hugo's development server to see your changes, remembering to include draf
 hugo server -D
 ```
 
-> [!note]
+> [!NOTE]
 > Now that you have the Ananke theme installed, check out their [documentation][] and [demonstration site][] to learn how to configure and customize it.
 
 ## Publish the project

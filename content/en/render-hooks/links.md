@@ -50,7 +50,7 @@ Link _render hook_ templates receive the following context:
 
 ## Examples
 
-> [!note]
+> [!NOTE]
 > With inline elements such as images and links, remove leading and trailing whitespace using the `{{‑ ‑}}` delimiter notation to prevent whitespace between adjacent inline elements and text.
 
 In its default configuration, Hugo renders Markdown links according to the [CommonMark][] specification. To create a render hook that does the same thing:

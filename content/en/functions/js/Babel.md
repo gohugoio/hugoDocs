@@ -52,7 +52,7 @@ Step 3
 
 ## Configuration
 
-We add the main project's `node_modules` to `NODE_PATH` when running Babel and similar tools. There are some known [issues][] with Babel in this area, so if you have a `babel.config.js` living in a Hugo Module (and not in the project itself), we recommend using `require` to load the presets/plugins, e.g.:
+We add the main project's `node_modules` to `NODE_PATH` when running Babel and similar tools. There are some known [issues][] with Babel in this area, so if you have a `babel.config.js` living in a Hugo module (and not in the project itself), we recommend using `require` to load the presets/plugins, e.g.:
 
 ```js
 module.exports = {

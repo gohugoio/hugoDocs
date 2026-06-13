@@ -74,9 +74,10 @@ This is the default configuration:
 You can omit any of the settings above.
 
 `extended`
+: {{< deprecated-in v0.153.0 />}}
 : (`bool`) Whether the extended edition of Hugo is required, satisfied by installing either the extended or extended/deploy edition.
 
-  > [!note]
+  > [!NOTE]
   > The extended version check is disabled in v0.153.2 and later.
   >
   > Historically, certain features—specifically WebP encoding and LibSass—required the Hugo Extended binary. However, as of v0.153.0:
@@ -128,13 +129,13 @@ path = 'my-shortcodes'
 
 `version`
 : {{< new-in 0.150.0 />}}
-: (`string`) If set to a [version query][], this import becomes a direct dependency, in contrast to dependencies managed by Go Modules. See [this issue][] for more information.
+: (`string`) If set to a [version query][], this import becomes a direct dependency, in contrast to dependencies managed by Go modules. See [this issue][] for more information.
 
 ## Mounts
 
 {{% glossary-term mount %}}
 
-> [!important]
+> [!IMPORTANT]
 > If you define one or more mounts to map a file system path to a component path, do not use these legacy configuration settings: [`archetypeDir`][], [`assetDir`][], [`contentDir`][], [`dataDir`][], [`i18nDir`][], [`layoutDir`][], or [`staticDir`][].
 
 ### Default mounts

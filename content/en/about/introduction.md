@@ -20,15 +20,15 @@ Due to its flexible framework, multilingual support, and powerful taxonomy syste
 
 Use Hugo's embedded web server during development to instantly see changes to content, structure, behavior, and presentation. Then deploy the site to your host, or push changes to your Git provider for automated builds and deployment.
 
-And with [Hugo Modules][], you can share content, assets, data, translations, themes, templates, and configuration with other projects via public or private Git repositories.
+And with [modules][] you can share content, assets, data, translations, themes, templates, and configuration with other projects via public or private Git repositories.
 
 Learn more about Hugo's [features][], [privacy protections][], and [security model][].
 
 {{< youtube 0RKpf3rK57I >}}
 
 [Go]: https://go.dev
-[Hugo Modules]: /hugo-modules/
 [features]: /about/features/
+[modules]: /hugo-modules/
 [privacy protections]: /configuration/privacy/
 [security model]: /about/security/
 [static site generator]: https://en.wikipedia.org/wiki/Static_site_generator

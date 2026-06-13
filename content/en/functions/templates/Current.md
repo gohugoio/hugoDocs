@@ -10,7 +10,7 @@ params:
     signatures: [templates.Current]
 ---
 
-> [!note]
+> [!NOTE]
 > This function is experimental and subject to change.
 
 {{< new-in 0.146.0 />}}

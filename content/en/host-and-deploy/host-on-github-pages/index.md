@@ -14,7 +14,7 @@ Use these instructions to enable continuous deployment from a GitHub repository 
 
 There are three types of GitHub Pages sites: project, user, and organization. Project sites are connected to a specific project hosted on GitHub. User and organization sites are connected to a specific account on GitHub.com.
 
-> [!note]
+> [!NOTE]
 > See the [GitHub Pages documentation][] to understand the requirements for repository ownership and naming.
 
 ## Prerequisites

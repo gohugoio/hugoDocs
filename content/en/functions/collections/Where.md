@@ -88,7 +88,7 @@ Use any of the following logical operators:
 `like`
 : (`bool`) Reports whether the given field value matches the [regular expression](g) specified in `VALUE`. Use the `like` operator to compare `string` values. The `like` operator returns `false` when comparing other data types to the regular expression.
 
-> [!note]
+> [!NOTE]
 > The examples below perform comparisons within a page collection, but the same comparisons are applicable to a slice of maps.
 
 ## String comparison
@@ -173,7 +173,7 @@ To return a slice of pages where the `author` page parameter begins with either 
 
 {{% include "/_common/functions/regular-expressions.md" %}}
 
-> [!note]
+> [!NOTE]
 > Use the `like` operator to compare string values. Comparing other data types will result in an empty slice.
 
 ## Date comparison
@@ -193,7 +193,7 @@ For example, to return a slice of pages that were created before the current yea
 
 With custom front matter dates, the comparison depends on the front matter data format (TOML, YAML, or JSON).
 
-> [!note]
+> [!NOTE]
 > Using TOML for pages with custom front matter dates enables precise date comparisons.
 
 With TOML, date values are first-class citizens. TOML has a date data type while JSON and YAML do not. If you quote a TOML date, it is a string. If you do not quote a TOML date value, it is [`time.Time`][] value, enabling precise comparisons.

@@ -21,14 +21,14 @@ content/
     └── book-2.md
 ```
 
-> [!note]
+> [!NOTE]
 > Code defensively by verifying file existence as shown in the examples below.
 
 ## Methods
 
 Use these methods on the `File` object.
 
-> [!note]
+> [!NOTE]
 > The path separators (slash or backslash) in `Path`, `Dir`, and `Filename` depend on the operating system.
 
 `BaseFileName`

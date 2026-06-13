@@ -37,7 +37,7 @@ https://example.org/posts/my-first-post/
 
 Set the `url` in front matter to override the entire path. Use this with either regular pages or section pages.
 
-> [!note]
+> [!NOTE]
 > Hugo does not sanitize the `url` front matter field, allowing you to generate:
 >
 > - File paths that contain characters reserved by the operating system. For example, file paths on Windows may not contain any of these [reserved characters][]. Hugo throws an error if a file path includes a character reserved by the current operating system.
@@ -135,7 +135,7 @@ Hugo provides two mutually exclusive configuration settings to alter URLs _after
 
 #### Canonical URLs
 
-> [!caution]
+> [!CAUTION]
 > This is a legacy configuration setting, superseded by template functions and Markdown render hooks, and will likely be [removed in a future release][].
 {class="!mt-6"}
 
@@ -156,7 +156,7 @@ canonifyURLs = true
 
 #### Relative URLs
 
-> [!caution]
+> [!CAUTION]
 > Do not enable this option unless you are creating a serverless site, navigable via the file system.
 {class="!mt-6"}
 
@@ -203,7 +203,7 @@ page-relative|`../old/path`|`/en/old/path/`
 
 There are two ways to implement aliases depending on your hosting environment and preferences: client-side redirection and server-side redirection.
 
-> [!note]
+> [!NOTE]
 > Alias data is only generated for [output formats](g) where both [`isHTML`][] and [`permalinkable`][] are `true`. This affects both the creation of client-side redirect files and the results returned by the [`Aliases`][aliases_method] method used in server-side redirection.
 
 #### Client-side redirection

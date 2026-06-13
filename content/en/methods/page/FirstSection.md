@@ -11,7 +11,7 @@ params:
 
 {{% glossary-term section %}}
 
-> [!note]
+> [!NOTE]
 > When called on the home page, the `FirstSection` method returns the `Page` object of the home page itself.
 
 Consider this content structure:

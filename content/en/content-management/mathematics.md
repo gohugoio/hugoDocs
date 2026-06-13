@@ -34,7 +34,7 @@ Equations and expressions can be displayed inline with other text, or as standal
 
 Whether an equation or expression appears inline, or as a block, depends on the delimiters that surround the mathematical markup. Delimiters are defined in pairs, where each pair consists of an opening and closing delimiter. The opening and closing delimiters may be the same, or different.
 
-> [!note]
+> [!NOTE]
 > You can configure Hugo to render mathematical markup on the client side using the MathJax or KaTeX display engine, or you can render the markup with the [`transform.ToMath`][] function while building your project.
 >
 > The first approach is described below.
@@ -60,7 +60,7 @@ Step 1
 
   The configuration above enables mathematical rendering on every page unless you set the `math` parameter to `false` in front matter. To enable mathematical rendering as needed, set the `math` parameter to `false` in your project configuration, and set the `math` parameter to `true` in front matter. Use this parameter in your base template as shown in [Step 3](#step-3).
 
-  > [!note]
+  > [!NOTE]
   > The configuration above precludes the use of the `$...$` delimiter pair for inline equations. Although you can add this delimiter pair to the configuration and JavaScript, you must double-escape the `$` symbol when used outside of math contexts to avoid unintended formatting.
   >
   > See the [inline delimiters](#inline-delimiters) section for details.
@@ -163,14 +163,14 @@ If you add the `$...$` delimiter pair to your configuration and JavaScript, you 
 I will give you \\$2 if you can solve $y = x^2$.
 ```
 
-> [!note]
+> [!NOTE]
 > If you use the `$...$` delimiter pair for inline equations, and occasionally use the&nbsp;`$`&nbsp;symbol outside of math contexts, you must use MathJax instead of KaTeX to avoid unintended formatting caused by [this KaTeX limitation][].
 
 ## Engines
 
 MathJax and KaTeX are open-source JavaScript display engines.
 
-> [!note]
+> [!NOTE]
 > If you use the `$...$` delimiter pair for inline equations, and occasionally use the&nbsp;`$`&nbsp;symbol outside of math contexts, you must use MathJax instead of KaTeX to avoid unintended formatting caused by [this KaTeX limitation][].
 >
 >See the [inline delimiters](#inline-delimiters) section for details.

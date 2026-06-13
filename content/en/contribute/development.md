@@ -36,7 +36,7 @@ To build Hugo from source you must install:
 
 ## GitHub workflow
 
-> [!note]
+> [!NOTE]
 > This section assumes that you have a working knowledge of Go, Git and GitHub, and are comfortable working on the command line.
 
 Use this workflow to create and submit pull requests.

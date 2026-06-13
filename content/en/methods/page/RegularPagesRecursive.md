@@ -79,5 +79,5 @@ When rendering lesson-2, the `RegularPagesRecursive` method returns:
     lessons/lesson-2/resources/task-list.md
     lessons/lesson-2/resources/worksheet.md
 
-> [!note]
+> [!NOTE]
 > The `RegularPagesRecursive` method is not available on a `Site` object.

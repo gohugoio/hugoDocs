@@ -144,7 +144,7 @@ source = '/home/user/shared-content'
 target = 'content'
 {{< /code-toggle >}}
 
-> [!note]
+> [!NOTE]
 > Defining a custom mount replaces the default mounting for that [component](g). To overlay an external directory on top of the project default, you must explicitly mount both.
 >
 > Hugo does not follow symbolic links. If you need the functionality provided by symbolic links, use Hugo's unified file system instead.
@@ -174,7 +174,7 @@ When two or more files share the same path, the version in the highest layer tak
 
 You can mount directories to `archetypes`, `assets`, `content`, `data`, `i18n`, `layouts`, and `static`. See [details][mounts].
 
-You can also mount directories from Git repositories using Hugo Modules. See [details](/hugo-modules/).
+You can also mount directories from Git repositories using modules. See [details](/hugo-modules/).
 
 ## Theme skeleton
 

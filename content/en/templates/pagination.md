@@ -15,7 +15,7 @@ Displaying a large page collection on a list page is not user-friendly:
 
 Improve usability by paginating `home`, `section`, `taxonomy`, and `term` pages.
 
-> [!note]
+> [!NOTE]
 > The most common templating mistake related to pagination is invoking pagination more than once for a given list page. See the [caching](#caching) section below.
 
 ## Terminology
@@ -92,7 +92,7 @@ In the example above, we:
 
 ## Caching
 
-> [!note]
+> [!NOTE]
 > The most common templating mistake related to pagination is invoking pagination more than once for a given list page.
 
 Regardless of pagination method, the initial invocation is cached and cannot be changed. If you invoke pagination more than once for a given list page, subsequent invocations use the cached result. This means that subsequent invocations will not behave as written.
@@ -137,7 +137,7 @@ The `terse` format has fewer controls and page slots, consuming less space when 
 {{ partial "pagination.html" (dict "page" . "format" "terse") }}
 ```
 
-> [!note]
+> [!NOTE]
 > To override Hugo's embedded pagination template, copy the [source code][] to a file with the same name in the `layouts/_partials` directory, then call it from your templates using the [`partial`][] function:
 >
 > `{{ partial "pagination.html" . }}`

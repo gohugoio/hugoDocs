@@ -11,7 +11,7 @@ params:
 
 The `GitInfo` method on a `Page` object provides access to commit metadata from your Git history, such as the author's name, the commit hash, and the commit message.
 
-> [!note]
+> [!NOTE]
 > Hugo's Git integration is performant, but may increase build times for large projects.
 
 ## Prerequisites
@@ -24,7 +24,7 @@ You must also allow Hugo to access your repository by adding this to your projec
 enableGitInfo = true
 {{< /code-toggle >}}
 
-> [!note]
+> [!NOTE]
 > When you set [`enableGitInfo`][] to `true`, the last modification date for each content page will automatically be the Author Date of the last commit for that file.
 >
 > This is configurable. See [details][].

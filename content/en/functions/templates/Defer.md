@@ -11,7 +11,7 @@ params:
 aliases: [/functions/templates.defer]
 ---
 
-> [!note]
+> [!NOTE]
 > Do not call this function within a `partialCached` template. This restriction applies transitively: if `partialCached` calls a partial that calls `templates.Defer`, Hugo returns an error. Using this function within shortcode or render hook templates may also lead to unpredictable results.
 
 In some rare use cases, you may need to defer the execution of a template until after all sites and output formats have been rendered. One such example could be [css.TailwindCSS][] using the output of [`hugo_stats.json`][] to determine which classes and other HTML identifiers are being used in the final output:
@@ -41,7 +41,7 @@ In some rare use cases, you may need to defer the execution of a template until 
 {{ end }}
 ```
 
-> [!note]
+> [!NOTE]
 > This function only works in combination with the `with` keyword.
 >
 > Variables defined on the outside are not visible on the inside and vice versa. To pass in data, use the `data` [option](#options).

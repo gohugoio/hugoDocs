@@ -13,7 +13,7 @@ weight: 10
 
 Templates use [variables](#variables), [functions][], and [methods][] to transform your content, resources, and data into a published page.
 
-> [!note]
+> [!NOTE]
 > Hugo uses Go's [`text/template`][] and [`html/template`][] packages.
 >
 > The `text/template` package implements data-driven templates for generating textual output, while the `html/template` package implements data-driven templates for generating HTML output safe against code injection.
@@ -85,7 +85,7 @@ Hugo renders this to:
 <p>My Page Title - foo</p>
 ```
 
-> [!note]
+> [!NOTE]
 > Make sure that you thoroughly understand the concept of _context_ before you continue reading. The most common templating errors made by new users relate to context.
 
 ## Actions
@@ -184,7 +184,7 @@ These are also equivalent:
 {{ 5 | add 2 | mul 6 }} → 42
 ```
 
-> [!note]
+> [!NOTE]
 > Remember that the piped value becomes the final argument to the function or method to which you are piping.
 
 ### Line splitting
@@ -260,7 +260,7 @@ With variables that represent a slice or map, use the [`index`][] function to re
 {{ index $map "c" }} → baz
 ```
 
-> [!note]
+> [!NOTE]
 > Slices and arrays are zero-based; element 0 is the first element.
 
 With variables that represent a map or object, [chain](g) identifiers to return the desired value or to access the desired method.
@@ -273,7 +273,7 @@ With variables that represent a map or object, [chain](g) identifiers to return 
 {{ $homePage.Title }} → My Homepage
 ```
 
-> [!note]
+> [!NOTE]
 > As seen above, object and method names are capitalized. Although not required, to avoid confusion we recommend beginning variable and map key names with a lowercase letter or underscore.
 
 ## Functions
@@ -336,7 +336,7 @@ Some methods take an argument. Separate the argument from the method with a spac
 
 ## Comments
 
-> [!note]
+> [!NOTE]
 > Do not attempt to use HTML comment delimiters to comment out template code.
 >
 > Hugo strips HTML comments when rendering a page, but first evaluates any template code within the HTML comment delimiters. Depending on the template code within the HTML comment delimiters, this could cause unexpected results or fail the build.
@@ -363,7 +363,7 @@ adjacent whitespace removed.
 
 You may not nest one comment inside of another.
 
-To render an HTML comment, pass a string through the [`safeHTML`][] template function. For example:
+To render an HTML comment, pass a string through the [`safe.HTML`][] function. For example:
 
 ```go-html-template
 {{ "<!-- I am an HTML comment. -->" | safeHTML }}
@@ -391,7 +391,7 @@ Use the [`partial`][] or [`partialCached`][] function to include one or more [pa
 
 Create your _partial_ templates in the `layouts/_partials` directory.
 
-> [!note]
+> [!NOTE]
 > In the examples above, note that we are passing the current context (the dot) to each of the templates.
 
 ## Examples
@@ -562,7 +562,7 @@ In the template example above, each of the keys is a valid identifier. For examp
 [`partialCached`]: /functions/partials/includecached/
 [`partial`]: /functions/partials/include/
 [`range`]: /functions/go-template/range/
-[`safeHTML`]: /functions/safe/html/
+[`safe.HTML`]: /functions/safe/html/
 [`strings.Replace`]: /functions/strings/replace/
 [`strings.ToLower`]: /functions/strings/tolower/
 [`strings.ToUpper`]: /functions/strings/toupper/
