@@ -43,6 +43,12 @@ Hugo retrieves commit metadata for files tracked within your project's local rep
 
 Hugo also retrieves commit metadata for content provided by modules. This allows you to display commit data for remote repositories that are mounted as content directories, such as when aggregating documentation from multiple sources.
 
+> [!NOTE]
+> The `GitInfo` method returns nil for module content in these cases:
+>
+> - The module is vendored via `hugo mod vendor`
+> - A [module replacement][] is configured via a `replace` directive in `go.mod` or the [`replacements`][] configuration parameter
+
 ## Methods
 
 Use these methods on the `GitInfo` object.
@@ -181,6 +187,8 @@ Vercel|Shallow|Yes [^1]
 [^3]: To perform a deep clone when hosting on GitLab Pages, set the `GIT_DEPTH` environment variable to `0` in the workflow file.
 
 [`enableGitInfo`]: /configuration/all/#enablegitinfo
+[`replacements`]: /configuration/module/#replacements
 [details]: /configuration/front-matter/#dates
 [gitmailmap]: https://git-scm.com/docs/gitmailmap
+[module replacement]: /hugo-modules/use-modules/#replace
 [project configuration]: /configuration/front-matter/
