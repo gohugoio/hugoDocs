@@ -93,7 +93,7 @@ Step 2
 
           # Configure Git
           - echo "Configuring Git..."
-          - git config core.quotepath false
+          - git config --global core.quotepath false
       build:
         commands:
           - echo "Building site..."

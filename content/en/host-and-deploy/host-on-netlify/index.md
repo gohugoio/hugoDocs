@@ -41,7 +41,7 @@ Step 1
   [build]
   publish = "public"
   command = """\
-    git config core.quotepath false && \
+    git config --global core.quotepath false && \
     hugo build --gc --minify --baseURL "${URL}"
     """
   ```
@@ -63,7 +63,7 @@ Step 1
     tar -C "${HOME}/.local" -xf "dart-sass-${DART_SASS_VERSION}-linux-x64.tar.gz" && \
     rm "dart-sass-${DART_SASS_VERSION}-linux-x64.tar.gz" && \
     export PATH="${HOME}/.local/dart-sass:${PATH}" && \
-    git config core.quotepath false && \
+    git config --global core.quotepath false && \
     hugo build --gc --minify --baseURL "${URL}"
     """
   ```
