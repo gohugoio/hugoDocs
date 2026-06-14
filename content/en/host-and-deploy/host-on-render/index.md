@@ -116,7 +116,7 @@ Step 2
 
     # Configure Git
     echo "Configuring Git..."
-    git config core.quotepath false
+    git config --global core.quotepath false
     if [ "$(git rev-parse --is-shallow-repository)" = "true" ]; then
       git fetch --unshallow
     fi

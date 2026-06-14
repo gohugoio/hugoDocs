@@ -131,7 +131,7 @@ Step 4
             [[ -f package-lock.json || -f npm-shrinkwrap.json ]] && npm ci || true
         - name: Configure Git
           run: |
-            git config core.quotepath false
+            git config --global core.quotepath false
         - name: Cache restore
           id: cache-restore
           uses: actions/cache/restore@v5
