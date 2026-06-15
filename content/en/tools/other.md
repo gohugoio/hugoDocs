@@ -11,7 +11,6 @@ And for all the other community projects around Hugo:
 
 - [diego][] - A CLI tool that integrates with Hugo to assist in importing and utilizing exported social media data from popular services on Hugo websites.
 - [Emacs Easy Hugo][] - Emacs package for writing blog posts in Markdown or org-mode and building your project with Hugo.
-- [Hugo SFTP Upload][] - Sync the local build of your Hugo website with your remote web server via SFTP.
 - [HugoPhotoSwipe][] - Make it easy to create image galleries using PhotoSwipe.
 - [JAMStack Themes][] -  A collection of site themes filterable by static site generator and supported CMS to help build CMS-connected sites using Hugo (linking to Hugo-specific themes).
 - [flickr-hugo-embed][] - Print shortcodes to embed a set of images from an album on Flickr into Hugo.
@@ -20,7 +19,6 @@ And for all the other community projects around Hugo:
 - [plausible-hugo][] - Easy Hugo integration for Plausible Analytics, a simple, open-source, lightweight and privacy-friendly web analytics alternative to Google Analytics.
 
 [Emacs Easy Hugo]: https://github.com/masasam/emacs-easy-hugo
-[Hugo SFTP Upload]: https://github.com/thomasmey/HugoSftpUpload
 [HugoPhotoSwipe]: https://github.com/GjjvdBurg/HugoPhotoSwipe
 [JAMStack Themes]: https://jamstackthemes.dev/ssg/hugo/
 [Open API Spec]: https://openapis.org
