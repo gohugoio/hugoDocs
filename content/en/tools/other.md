@@ -20,7 +20,6 @@ And for all the other community projects around Hugo:
 - [plausible-hugo][] - Easy Hugo integration for Plausible Analytics, a simple, open-source, lightweight and privacy-friendly web analytics alternative to Google Analytics.
 
 [Emacs Easy Hugo]: https://github.com/masasam/emacs-easy-hugo
-[Hugo SFTP Upload]: https://github.com/thomasmey/HugoSftpUpload
 [HugoPhotoSwipe]: https://github.com/GjjvdBurg/HugoPhotoSwipe
 [JAMStack Themes]: https://jamstackthemes.dev/ssg/hugo/
 [Open API Spec]: https://openapis.org
