@@ -46,6 +46,8 @@ The `transform.Highlight` function uses the [`alecthomas/chroma`][] package to g
 
 ## Options
 
+The `transform.Highlight` function accepts an options map.
+
 {{% include "_common/syntax-highlighting-options.md" %}}
 
 `code`

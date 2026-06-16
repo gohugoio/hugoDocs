@@ -16,9 +16,10 @@ This function automatically resolves and includes all external references, both 
 
 ## Options
 
-{{< new-in 0.153.0 />}}
+The `openapi3.Unmarshal` function accepts an options map.
 
 `getremote`
+: {{< new-in 0.153.0 />}}
 : (`map`) This is a map of the options for the [`resources.GetRemote`][] function, useful when an OpenAPI Document includes remote external references.
 
 ## Examples

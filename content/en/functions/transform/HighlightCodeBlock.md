@@ -58,6 +58,8 @@ To fall back to plain text when the language is not supported by the highlighter
 
 ## Options
 
+The `transform.HighlightCodeBlock` function accepts an options map.
+
 {{% include "_common/syntax-highlighting-options.md" %}}
 
 `code`

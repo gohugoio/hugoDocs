@@ -29,7 +29,7 @@ Hugo uses an embedded instance of the [KaTeX][] display engine to render mathema
 
 ## Options
 
-Pass a map of options as the second argument to the `transform.ToMath` function. The options below are a subset of the KaTeX [rendering options][].
+The `transform.ToMath` function accepts an options map. These options are a subset of the KaTeX [rendering options][].
 
 `displayMode`
 : (`bool`) Whether to render in display mode instead of inline mode. Default is `false`.

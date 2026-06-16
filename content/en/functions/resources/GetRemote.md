@@ -31,7 +31,7 @@ Use the [`try`][] statement instead, as shown in the [error handling](#error-han
 
 ## Options
 
-The `resources.GetRemote` function takes an optional map of options.
+The `resources.GetRemote` function accepts an options map.
 
 `body`
 : (`string`) The data you want to transmit to the server.

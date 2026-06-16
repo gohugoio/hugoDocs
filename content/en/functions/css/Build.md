@@ -93,7 +93,7 @@ To minify the generated CSS code, use the [`minify`](#minify) option as describe
 
 ## Options
 
-The `css.Build` function takes an optional map of options to fine-tune bundling, minification, and browser compatibility.
+The `css.Build` function accepts an options map to fine-tune bundling, minification, and browser compatibility.
 
 `externals`
 : (`[]string`) A slice of path patterns to exclude from bundling. The `@import` statements for these patterns remain as-is in the generated CSS code. See [details][esb external].
@@ -290,7 +290,7 @@ The `css.Build` function takes an optional map of options to fine-tune bundling,
   When passing a `vars` map to the `css.Build` function, you can use the [`css.Quoted`][] function to explicitly indicate that a value must be treated as a quoted string, most commonly for `font-family` names or the `content` property.
 
   > [!NOTE]
-  > If you're using TailwindCSS and want to use the `vars` option to inject CSS variables, see [this section in the TailwindCSS documentation](./TailwindCSS.md#inject-css-variables-with-vars).
+  > If you're using TailwindCSS and want to use the `vars` option to inject CSS variables, see [this section in the TailwindCSS documentation](./TailwindCSS.md#inject-css-variables).
 
 ## Example
 

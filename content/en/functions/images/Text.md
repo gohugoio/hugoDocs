@@ -12,6 +12,8 @@ params:
 
 ## Options
 
+The `images.Text` filter accepts an options map.
+
 Although none of the options are required, at a minimum you will want to set the `size` to be some reasonable percentage of the image height.
 
 `alignx`
