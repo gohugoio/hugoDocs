@@ -56,7 +56,7 @@ Step 5
       {{ if hugo.IsDevelopment }}
         <link rel="stylesheet" href="{{ .RelPermalink }}">
       {{ else }}
-        {{ with . | fingerprint }}
+        {{ with . | minify | fingerprint }}
           <link rel="stylesheet" href="{{ .RelPermalink }}" integrity="{{ .Data.Integrity }}" crossorigin="anonymous">
         {{ end }}
       {{ end }}

@@ -61,6 +61,7 @@ Step 6
   {{ with resources.Get "js/main.js" }}
     {{ $opts := dict
       "minified" (cond hugo.IsDevelopment false true)
+      "noComments" (cond hugo.IsDevelopment false true)
       "sourceMap" (cond hugo.IsDevelopment "inline" "none")
     }}
     {{ with . | js.Babel $opts }}
