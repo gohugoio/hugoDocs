@@ -21,6 +21,8 @@ Although the default option values are sufficient for most applications, you sho
 
 ## Options
 
+The `images.QR` function accepts an options map.
+
 `level`
 : (`string`) The error correction level to use when encoding the text, one of `low`, `medium`, `quartile`, or `high`. Default is `medium`.
 

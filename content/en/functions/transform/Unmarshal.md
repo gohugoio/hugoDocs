@@ -15,6 +15,8 @@ The input can be a string or a [resource](g).
 
 ## Options
 
+The `transform.Unmarshal` function accepts an options map.
+
 `delimiter`
 : (`string`) Applicable to CSV files. The delimiter used. Default is `,`.
 

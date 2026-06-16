@@ -25,6 +25,8 @@ Sass has two forms of syntax: [SCSS][] and [indented][]. Hugo supports both.
 
 ## Options
 
+The `css.Sass` function accepts an options map.
+
 `enableSourceMap`
 : (`bool`) Whether to generate a source map. Default is `false`.
 

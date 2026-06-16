@@ -93,15 +93,15 @@ Step 5
 
   ```go-html-template {file="layouts/baseof.html" copy=true}
   <head>
-    ...
     {{ with (templates.Defer (dict "key" "global")) }}
       {{ partial "css.html" . }}
     {{ end }}
-    ...
   </head>
   ```
 
 ## Options
+
+The `css.TailwindCSS` function accepts an options map.
 
 `minify`
 : (`bool`) Whether to optimize and minify the output. Default is `false`.
@@ -116,7 +116,7 @@ Step 5
 `skipInlineImportsNotFound`
 : (`bool`) Whether to allow the build process to continue despite unresolved import statements, preserving the original import declarations. It is important to note that the inline importer does not process URL-based imports or those with media queries, and these will remain unaltered even when this option is disabled. Default is `false`.
 
-## Inject CSS variables with `vars`
+## Inject CSS variables
 
 The [`css.Build`][] function has a [`vars`][] option that can be used to inject CSS variables into your stylesheets. This is particularly useful for dynamically setting values based on your site's configuration or other data. To use this with Tailwind CSS, you can use `css.Build` as a preprocessor step before passing the result to `css.TailwindCSS`. Here's how you can do it:
 

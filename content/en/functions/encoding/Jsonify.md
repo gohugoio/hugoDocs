@@ -24,6 +24,8 @@ more copies of _indent_ according to the indentation nesting.
 
 ## Options
 
+The `encoding.Jsonify` function accepts an options map.
+
 `indent`
 : (`string`) Indentation to use. Default is "".
 
