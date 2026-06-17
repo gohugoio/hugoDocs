@@ -33,8 +33,8 @@ Step 1
   ```yaml {file=".gitlab-ci.yml" copy=true}
   variables:
     # Application versions
-    DART_SASS_VERSION: 1.100.0
-    HUGO_VERSION: 0.163.0
+    DART_SASS_VERSION: 1.101.0
+    HUGO_VERSION: 0.163.2
     NODE_VERSION: 24.16.0
     # Git
     GIT_DEPTH: 0
@@ -44,7 +44,7 @@ Step 1
     TZ: Europe/Oslo
 
   image:
-    name: golang:1.26.3-bookworm
+    name: golang:1.26.4-bookworm
 
   pages:
     stage: deploy
