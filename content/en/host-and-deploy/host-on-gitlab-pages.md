@@ -34,7 +34,7 @@ Step 1
   variables:
     # Application versions
     DART_SASS_VERSION: 1.101.0
-    HUGO_VERSION: 0.163.2
+    HUGO_VERSION: 0.163.3
     NODE_VERSION: 24.16.0
     # Git
     GIT_DEPTH: 0
