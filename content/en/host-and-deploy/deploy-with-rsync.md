@@ -8,7 +8,7 @@ aliases: [/hosting-and-deployment/deployment-with-rsync/]
 
 ## Assumptions
 
-- A web host running a web server. This could be a shared hosting environment or a VPS.
+- A web host running a web server. This could be a shared hosting environment or a VPS
 - Access to your web host with SSH
 - A functional static website built with Hugo
 

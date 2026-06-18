@@ -14,12 +14,12 @@ Use these instructions to enable continuous deployment from a GitLab repository.
 
 Please complete the following tasks before continuing:
 
-1. [Create](https://gitlab.com/users/sign_up) a GitLab account
-1. [Log in](https://gitlab.com/users/sign_in) to your GitLab account
-1. [Create](https://gitlab.com/projects/new) a GitLab repository for your project
-1. [Create](https://git-scm.com/docs/git-init) a local Git repository for your project with a [remote][] reference to your GitLab repository
-1. Create a Hugo project within your local Git repository and test it with the `hugo server` command
-1. Commit the changes to your local Git repository and push to your GitLab repository
+1. [Create](https://gitlab.com/users/sign_up) a GitLab account.
+1. [Log in](https://gitlab.com/users/sign_in) to your GitLab account.
+1. [Create](https://gitlab.com/projects/new) a GitLab repository for your project.
+1. [Create](https://git-scm.com/docs/git-init) a local Git repository for your project with a [remote][] reference to your GitLab repository.
+1. Create a Hugo project within your local Git repository and test it with the `hugo server` command.
+1. Commit the changes to your local Git repository and push to your GitLab repository.
 
 ## BaseURL
 
@@ -61,14 +61,14 @@ Step 1
 
         # Install Dart Sass
         echo "Installing Dart Sass ${DART_SASS_VERSION}..."
-        curl -sLJO "https://github.com/sass/dart-sass/releases/download/${DART_SASS_VERSION}/dart-sass-${DART_SASS_VERSION}-linux-x64.tar.gz"
+        curl -SLO "https://github.com/sass/dart-sass/releases/download/${DART_SASS_VERSION}/dart-sass-${DART_SASS_VERSION}-linux-x64.tar.gz"
         tar -C "${HOME}/.local" -xf "dart-sass-${DART_SASS_VERSION}-linux-x64.tar.gz"
         rm "dart-sass-${DART_SASS_VERSION}-linux-x64.tar.gz"
         export PATH="${HOME}/.local/dart-sass:${PATH}"
 
         # Install Hugo
         echo "Installing Hugo ${HUGO_VERSION}..."
-        curl -sLJO "https://github.com/gohugoio/hugo/releases/download/v${HUGO_VERSION}/hugo_${HUGO_VERSION}_linux-amd64.tar.gz"
+        curl -SLO "https://github.com/gohugoio/hugo/releases/download/v${HUGO_VERSION}/hugo_${HUGO_VERSION}_linux-amd64.tar.gz"
         mkdir -p "${HOME}/.local/hugo"
         tar -C "${HOME}/.local/hugo" -xf "hugo_${HUGO_VERSION}_linux-amd64.tar.gz"
         rm "hugo_${HUGO_VERSION}_linux-amd64.tar.gz"
@@ -76,9 +76,9 @@ Step 1
 
         # Install Node.js
         echo "Installing Node.js ${NODE_VERSION}..."
-        curl -sLJO "https://nodejs.org/dist/v${NODE_VERSION}/node-v${NODE_VERSION}-linux-x64.tar.xz"
-        tar -C "${HOME}/.local" -xf "node-v${NODE_VERSION}-linux-x64.tar.xz"
-        rm "node-v${NODE_VERSION}-linux-x64.tar.xz"
+        curl -SLO "https://nodejs.org/dist/v${NODE_VERSION}/node-v${NODE_VERSION}-linux-x64.tar.gz"
+        tar -C "${HOME}/.local" -xf "node-v${NODE_VERSION}-linux-x64.tar.gz"
+        rm "node-v${NODE_VERSION}-linux-x64.tar.gz"
         export PATH="${HOME}/.local/node-v${NODE_VERSION}-linux-x64/bin:${PATH}"
 
         # Verify installations

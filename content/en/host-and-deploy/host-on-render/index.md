@@ -14,14 +14,14 @@ Use these instructions to enable continuous deployment from a GitHub repository.
 
 Please complete the following tasks before continuing:
 
-1. [Create](https://dashboard.render.com/register) a Render account
-1. [Log in](https://dashboard.render.com/login) to your Render account
-1. [Create](https://github.com/signup) a GitHub account
-1. [Log in](https://github.com/login) to your GitHub account
-1. [Create](https://github.com/new) a GitHub repository for your project
-1. [Create](https://git-scm.com/docs/git-init) a local Git repository for your project with a [remote][] reference to your GitHub repository
-1. Create a Hugo project within your local Git repository and test it with the `hugo server` command
-1. Commit the changes to your local Git repository and push to your GitHub repository
+1. [Create](https://dashboard.render.com/register) a Render account.
+1. [Log in](https://dashboard.render.com/login) to your Render account.
+1. [Create](https://github.com/signup) a GitHub account.
+1. [Log in](https://github.com/login) to your GitHub account.
+1. [Create](https://github.com/new) a GitHub repository for your project.
+1. [Create](https://git-scm.com/docs/git-init) a local Git repository for your project with a [remote][] reference to your GitHub repository.
+1. Create a Hugo project within your local Git repository and test it with the `hugo server` command.
+1. Commit the changes to your local Git repository and push to your GitHub repository.
 
 ## Procedure
 
@@ -69,7 +69,7 @@ Step 2
 
   # Perform cleanup
   cleanup() {
-    if [[ -n "${build_temp_dir:-}" && -d "${build_temp_dir}" ]]; then
+    if [[ -n "${build_temp_dir}" && -d "${build_temp_dir}" ]]; then
       rm -rf "${build_temp_dir}"
     fi
   }
@@ -87,19 +87,19 @@ Step 2
 
     # Install Dart Sass
     echo "Installing Dart Sass ${DART_SASS_VERSION}..."
-    curl -sLJO "https://github.com/sass/dart-sass/releases/download/${DART_SASS_VERSION}/dart-sass-${DART_SASS_VERSION}-linux-x64.tar.gz"
+    curl -SLO "https://github.com/sass/dart-sass/releases/download/${DART_SASS_VERSION}/dart-sass-${DART_SASS_VERSION}-linux-x64.tar.gz"
     tar -C "${HOME}/.local" -xf "dart-sass-${DART_SASS_VERSION}-linux-x64.tar.gz"
     export PATH="${HOME}/.local/dart-sass:${PATH}"
 
     # Install Go
     echo "Installing Go ${GO_VERSION}..."
-    curl -sLJO "https://go.dev/dl/go${GO_VERSION}.linux-amd64.tar.gz"
+    curl -SLO "https://go.dev/dl/go${GO_VERSION}.linux-amd64.tar.gz"
     tar -C "${HOME}/.local" -xf "go${GO_VERSION}.linux-amd64.tar.gz"
     export PATH="${HOME}/.local/go/bin:${PATH}"
 
     # Install Hugo
     echo "Installing Hugo ${HUGO_VERSION}..."
-    curl -sLJO "https://github.com/gohugoio/hugo/releases/download/v${HUGO_VERSION}/hugo_${HUGO_VERSION}_linux-amd64.tar.gz"
+    curl -SLO "https://github.com/gohugoio/hugo/releases/download/v${HUGO_VERSION}/hugo_${HUGO_VERSION}_linux-amd64.tar.gz"
     mkdir -p "${HOME}/.local/hugo"
     tar -C "${HOME}/.local/hugo" -xf "hugo_${HUGO_VERSION}_linux-amd64.tar.gz"
     export PATH="${HOME}/.local/hugo:${PATH}"

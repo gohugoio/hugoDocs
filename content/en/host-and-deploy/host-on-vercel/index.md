@@ -13,14 +13,14 @@ Use these instructions to enable continuous deployment from a GitHub repository.
 
 Please complete the following tasks before continuing:
 
-1. [Create](https://vercel.com/signup) a Vercel account
-1. [Log in](https://vercel.com/login) to your Vercel account
-1. [Create](https://github.com/signup) a GitHub account
-1. [Log in](https://github.com/login) to your GitHub account
-1. [Create](https://github.com/new) a GitHub repository for your project
-1. [Create](https://git-scm.com/docs/git-init) a local Git repository for your project with a [remote][] reference to your GitHub repository
-1. Create a Hugo project within your local Git repository and test it with the `hugo server` command
-1. Commit the changes to your local Git repository and push to your GitHub repository
+1. [Create](https://vercel.com/signup) a Vercel account.
+1. [Log in](https://vercel.com/login) to your Vercel account.
+1. [Create](https://github.com/signup) a GitHub account.
+1. [Log in](https://github.com/login) to your GitHub account.
+1. [Create](https://github.com/new) a GitHub repository for your project.
+1. [Create](https://git-scm.com/docs/git-init) a local Git repository for your project with a [remote][] reference to your GitHub repository.
+1. Create a Hugo project within your local Git repository and test it with the `hugo server` command.
+1. Commit the changes to your local Git repository and push to your GitHub repository.
 
 ## Procedure
 
@@ -68,7 +68,6 @@ Step 2
     DART_SASS_VERSION=1.101.0
     GO_VERSION=1.26.4
     HUGO_VERSION=0.163.2
-    NODE_VERSION=24.16.0
 
     # Set the build timezone
     export TZ=Europe/Oslo
@@ -82,28 +81,22 @@ Step 2
 
     # Install Dart Sass
     echo "Installing Dart Sass ${DART_SASS_VERSION}..."
-    curl -sLJO "https://github.com/sass/dart-sass/releases/download/${DART_SASS_VERSION}/dart-sass-${DART_SASS_VERSION}-linux-x64.tar.gz"
+    curl -sLO "https://github.com/sass/dart-sass/releases/download/${DART_SASS_VERSION}/dart-sass-${DART_SASS_VERSION}-linux-x64.tar.gz"
     tar -C "${HOME}/.local" -xf "dart-sass-${DART_SASS_VERSION}-linux-x64.tar.gz"
     export PATH="${HOME}/.local/dart-sass:${PATH}"
 
     # Install Go
     echo "Installing Go ${GO_VERSION}..."
-    curl -sLJO "https://go.dev/dl/go${GO_VERSION}.linux-amd64.tar.gz"
+    curl -sLO "https://go.dev/dl/go${GO_VERSION}.linux-amd64.tar.gz"
     tar -C "${HOME}/.local" -xf "go${GO_VERSION}.linux-amd64.tar.gz"
     export PATH="${HOME}/.local/go/bin:${PATH}"
 
     # Install Hugo
     echo "Installing Hugo ${HUGO_VERSION}..."
-    curl -sLJO "https://github.com/gohugoio/hugo/releases/download/v${HUGO_VERSION}/hugo_${HUGO_VERSION}_linux-amd64.tar.gz"
+    curl -sLO "https://github.com/gohugoio/hugo/releases/download/v${HUGO_VERSION}/hugo_${HUGO_VERSION}_linux-amd64.tar.gz"
     mkdir -p "${HOME}/.local/hugo"
     tar -C "${HOME}/.local/hugo" -xf "hugo_${HUGO_VERSION}_linux-amd64.tar.gz"
     export PATH="${HOME}/.local/hugo:${PATH}"
-
-    # Install Node.js
-    echo "Installing Node.js ${NODE_VERSION}..."
-    curl -sLJO "https://nodejs.org/dist/v${NODE_VERSION}/node-v${NODE_VERSION}-linux-x64.tar.xz"
-    tar -C "${HOME}/.local" -xf "node-v${NODE_VERSION}-linux-x64.tar.xz"
-    export PATH="${HOME}/.local/node-v${NODE_VERSION}-linux-x64/bin:${PATH}"
 
     # Return to the project root
     popd > /dev/null
