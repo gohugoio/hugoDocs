@@ -21,12 +21,12 @@ There are three types of GitHub Pages sites: project, user, and organization. Pr
 
 Please complete the following tasks before continuing:
 
-1. [Create](https://github.com/signup) a GitHub account
-1. [Log in][] to your GitHub account
-1. [Create](https://github.com/new) a GitHub repository for your project
-1. [Create](https://git-scm.com/docs/git-init) a local Git repository for your project with a [remote][] reference to your GitHub repository
-1. Create a Hugo project within your local Git repository and test it with the `hugo server` command
-1. Commit the changes to your local Git repository and push to your GitHub repository
+1. [Create](https://github.com/signup) a GitHub account.
+1. [Log in][] to your GitHub account.
+1. [Create](https://github.com/new) a GitHub repository for your project.
+1. [Create](https://git-scm.com/docs/git-init) a local Git repository for your project with a [remote][] reference to your GitHub repository.
+1. Create a Hugo project within your local Git repository and test it with the `hugo server` command.
+1. Commit the changes to your local Git repository and push to your GitHub repository.
 
 ## Procedure
 
@@ -40,16 +40,6 @@ Step 1
   ![screen capture](gh-pages-02.png)
 
 Step 2
-: In your project configuration, change the location of the image cache to the [`cacheDir`][] as shown below:
-
-  {{< code-toggle file=hugo copy=true >}}
-  [caches.images]
-  dir = ':cacheDir/images'
-  {{< /code-toggle >}}
-
-  See [configure file caches][] for more information.
-
-Step 3
 : Create a file named `hugo.yaml` in a directory named `.github/workflows`.
 
   ```sh
@@ -57,7 +47,7 @@ Step 3
   touch .github/workflows/hugo.yaml
   ```
 
-Step 4
+Step 3
 : Copy and paste the YAML below into the file you created.
 
   ```yaml {file=".github/workflows/hugo.yaml" copy=true}
@@ -109,13 +99,13 @@ Step 4
             mkdir -p "${HOME}/.local"
         - name: Install Dart Sass
           run: |
-            curl -sLJO "https://github.com/sass/dart-sass/releases/download/${DART_SASS_VERSION}/dart-sass-${DART_SASS_VERSION}-linux-x64.tar.gz"
+            curl -sLO "https://github.com/sass/dart-sass/releases/download/${DART_SASS_VERSION}/dart-sass-${DART_SASS_VERSION}-linux-x64.tar.gz"
             tar -C "${HOME}/.local" -xf "dart-sass-${DART_SASS_VERSION}-linux-x64.tar.gz"
             rm "dart-sass-${DART_SASS_VERSION}-linux-x64.tar.gz"
             echo "${HOME}/.local/dart-sass" >> "${GITHUB_PATH}"
         - name: Install Hugo
           run: |
-            curl -sLJO "https://github.com/gohugoio/hugo/releases/download/v${HUGO_VERSION}/hugo_extended_${HUGO_VERSION}_linux-amd64.tar.gz"
+            curl -sLO "https://github.com/gohugoio/hugo/releases/download/v${HUGO_VERSION}/hugo_extended_${HUGO_VERSION}_linux-amd64.tar.gz"
             mkdir "${HOME}/.local/hugo"
             tar -C "${HOME}/.local/hugo" -xf "hugo_extended_${HUGO_VERSION}_linux-amd64.tar.gz"
             rm "hugo_extended_${HUGO_VERSION}_linux-amd64.tar.gz"
@@ -128,7 +118,10 @@ Step 4
             echo "Node.js: $(node --version)"
         - name: Install Node.js dependencies
           run: |
-            [[ -f package-lock.json || -f npm-shrinkwrap.json ]] && npm ci || true
+            if [ -f package-lock.json ]; then
+              echo "Installing Node.js dependencies..."
+              npm ci
+            fi
         - name: Configure Git
           run: |
             git config --global core.quotepath false
@@ -148,7 +141,6 @@ Step 4
               --baseURL "${{ steps.pages.outputs.base_url }}/" \
               --cacheDir "${{ runner.temp }}/hugo_cache"
         - name: Cache save
-          id: cache-save
           uses: actions/cache/save@v5
           with:
             path: ${{ runner.temp }}/hugo_cache
@@ -156,18 +148,28 @@ Step 4
         - name: Upload artifact
           uses: actions/upload-pages-artifact@v5
           with:
+            include-hidden-files: false
             path: ./public
     deploy:
+      runs-on: ubuntu-latest
+      needs: build
       environment:
         name: github-pages
         url: ${{ steps.deployment.outputs.page_url }}
-      runs-on: ubuntu-latest
-      needs: build
       steps:
         - name: Deploy to GitHub Pages
-          id: deployment
           uses: actions/deploy-pages@v5
   ```
+
+Step 4
+: In your project configuration, change the location of the image cache to the [`cacheDir`][] as shown below:
+
+  {{< code-toggle file=hugo copy=true >}}
+  [caches.images]
+  dir = ':cacheDir/images'
+  {{< /code-toggle >}}
+
+  See [configure file caches][] for more information.
 
 Step 5
 : Commit the changes to your local Git repository and push to your GitHub repository.

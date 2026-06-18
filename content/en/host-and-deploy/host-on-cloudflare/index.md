@@ -76,7 +76,7 @@ Step 2
     export TZ=Europe/Oslo
 
     # Set the build cache directory
-    export HUGO_CACHEDIR="${PWD}/.cache/hugo_cache"
+    export HUGO_CACHEDIR="${PWD}/.cache/hugo"
 
     # Create and move into a temporary directory for downloads
     build_temp_dir=$(mktemp -d)
@@ -106,8 +106,8 @@ Step 2
 
     # Install Node.js
     echo "Installing Node.js ${NODE_VERSION}..."
-    curl -sLO "https://nodejs.org/dist/v${NODE_VERSION}/node-v${NODE_VERSION}-linux-x64.tar.xz"
-    tar -C "${HOME}/.local" -xf "node-v${NODE_VERSION}-linux-x64.tar.xz"
+    curl -sLO "https://nodejs.org/dist/v${NODE_VERSION}/node-v${NODE_VERSION}-linux-x64.tar.gz"
+    tar -C "${HOME}/.local" -xf "node-v${NODE_VERSION}-linux-x64.tar.gz"
     export PATH="${HOME}/.local/node-v${NODE_VERSION}-linux-x64/bin:${PATH}"
 
     # Return to the project root
@@ -142,39 +142,49 @@ Step 2
   ```
 
 Step 3
-: Commit the changes to your local Git repository and push to your GitHub repository.
+: In your project configuration, change the location of the image cache to the [`cacheDir`][] as shown below:
+
+  {{< code-toggle file=hugo copy=true >}}
+  [caches.images]
+  dir = ':cacheDir/images'
+  {{< /code-toggle >}}
+
+  See [configure file caches][] for more information.
 
 Step 4
+: Commit the changes to your local Git repository and push to your GitHub repository.
+
+Step 5
 : In the upper right corner of the Cloudflare [dashboard][], press the **Add** button and select "Workers" from the drop down menu.
 
   ![screen capture](cloudflare-01.png)
 
-Step 5
+Step 6
 : Verify your account if prompted.
 
   ![screen capture](cloudflare-02.png)
 
-Step 6
+Step 7
 : On the "Create a Worker" page, under the "Ship something new" heading, press the **Connect GitHub** button.
 
   ![screen capture](cloudflare-03.png)
 
-Step 7
+Step 8
 : Select the GitHub account where you want to install the Cloudflare Workers and Pages application.
 
   ![screen capture](cloudflare-04.png)
 
-Step 8
+Step 9
 : Authorize the Cloudflare Workers and Pages application to access all repositories or only select repositories, then press the **Install & Authorize** button.
 
   ![screen capture](cloudflare-05.png)
 
-Step 9
+Step 10
 : On the "Create a Worker" page, under the "Select a repository" heading, select the repository to deploy, then press the **Next** button.
 
   ![screen capture](cloudflare-06.png)
 
-Step 10
+Step 11
 : On the "Create a Worker" page, under the "Set up your application" heading, perform the following steps:
 
   1. Provide a **Project name**.
@@ -184,7 +194,7 @@ Step 10
   1. In the **Variable value** field, enter `true`.
   1. Press the **Deploy** button.
 
-Step 11
+Step 12
 : Wait for the site to build and deploy, then press the **Visit** button in the upper left corner of your screen.
 
   ![screen capture](cloudflare-07.png)
@@ -193,13 +203,18 @@ In the future, whenever you push a change from your local Git repository, Cloudf
 
 ## Build cache
 
-The build script shown in [Step 2](#step-2) sets Hugo's [cache directory][] to the path required by Cloudflare's build cache, which is disabled by default. To enable the Cloudflare build cache:
+The build script shown in [Step 2](#step-2) sets Hugo's [`cacheDir`][] to the path required by Cloudflare's build cache, which is disabled by default. To enable the Cloudflare build cache, you must complete two steps.
+
+First, your project must have both a `package.json` and `package-lock.json` file in the project root. If you have only a package.json file, run `npm install` to create the corresponding `package-lock.json` file. If your project does not require any Node.js packages, create both files by running `npm init -y && npm install`.
+
+Second, you must enable the build cache in your project dashboard.
 
 1. Navigate to Workers & Pages Overview on the [dashboard][].
 1. Find your Workers project.
 1. Go to **Settings** > **Build** > **Build cache**.
 1. Press the **Enable** button.
 
-[cache directory]: /configuration/all/#cache-directory
+[`cacheDir`]: /configuration/all/#cachedir
+[configure file caches]: /configuration/caches/
 [dashboard]: https://dash.cloudflare.com/
 [remote]: https://git-scm.com/docs/git-remote
