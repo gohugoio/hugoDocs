@@ -292,9 +292,9 @@ When you install Dart Sass somewhere in your PATH, Hugo will find it.
 
 OS      | Package manager | Site               | Installation
 :-------|:----------------|:-------------------|:-----------------------------
-Linux   | Homebrew        | [brew.sh][]        | `brew install sass/sass/sass`
+Linux   | Homebrew        | [brew.sh][]        | `brew install dart-sass`
 Linux   | Snap            | [snapcraft.io][]   | `sudo snap install dart-sass`
-macOS   | Homebrew        | [brew.sh][]        | `brew install sass/sass/sass`
+macOS   | Homebrew        | [brew.sh][]        | `brew install dart-sass`
 Windows | Chocolatey      | [chocolatey.org][] | `choco install sass`
 Windows | Scoop           | [scoop.sh][]       | `scoop install sass`
 
