@@ -13,14 +13,14 @@ Use these instructions to enable continuous deployment from a GitHub repository.
 
 Please complete the following tasks before continuing:
 
-1. [Create](https://dash.cloudflare.com/sign-up) a Cloudflare account
-1. [Log in](https://dash.cloudflare.com/login) to your Cloudflare account
-1. [Create](https://github.com/signup) a GitHub account
-1. [Log in](https://github.com/login) to your GitHub account
-1. [Create](https://github.com/new) a GitHub repository for your project
-1. [Create](https://git-scm.com/docs/git-init) a local Git repository for your project with a [remote][] reference to your GitHub repository
-1. Create a Hugo project within your local Git repository and test it with the `hugo server` command
-1. Commit the changes to your local Git repository and push to your GitHub repository
+1. [Create](https://dash.cloudflare.com/sign-up) a Cloudflare account.
+1. [Log in](https://dash.cloudflare.com/login) to your Cloudflare account.
+1. [Create](https://github.com/signup) a GitHub account.
+1. [Log in](https://github.com/login) to your GitHub account.
+1. [Create](https://github.com/new) a GitHub repository for your project.
+1. [Create](https://git-scm.com/docs/git-init) a local Git repository for your project with a [remote][] reference to your GitHub repository.
+1. Create a Hugo project within your local Git repository and test it with the `hugo server` command.
+1. Commit the changes to your local Git repository and push to your GitHub repository.
 
 ## Procedure
 
@@ -48,8 +48,6 @@ Step 2
   #------------------------------------------------------------------------------
   # @file
   # Builds a Hugo site hosted on a Cloudflare Worker.
-  #
-  # The Cloudflare Worker automatically installs Node.js dependencies.
   #------------------------------------------------------------------------------
 
   # Exit on error, undefined variables, or pipe failures
@@ -129,6 +127,12 @@ Step 2
       git fetch --unshallow
     fi
 
+    # Install Node.js dependencies
+    if [ -f package-lock.json ]; then
+      echo "Installing Node.js dependencies..."
+      npm ci
+    fi
+
     # Build the site
     echo "Building the site..."
     hugo build --gc --minify
@@ -171,14 +175,19 @@ Step 9
   ![screen capture](cloudflare-06.png)
 
 Step 10
-: On the "Create a Worker" page, under the "Set up your application" heading, provide a project name, leave the build command blank, then press the **Deploy** button.
+: On the "Create a Worker" page, under the "Set up your application" heading, perform the following steps:
 
-  ![screen capture](cloudflare-07.png)
+  1. Provide a **Project name**.
+  1. Leave the **Build command** blank and ensure the **Deploy command** is `npx wrangler deploy`.
+  1. Expand the **Advanced settings** panel.
+  1. In the **Variable name** field, enter `SKIP_DEPENDENCY_INSTALL`.
+  1. In the **Variable value** field, enter `true`.
+  1. Press the **Deploy** button.
 
 Step 11
 : Wait for the site to build and deploy, then press the **Visit** button in the upper left corner of your screen.
 
-  ![screen capture](cloudflare-08.png)
+  ![screen capture](cloudflare-07.png)
 
 In the future, whenever you push a change from your local Git repository, Cloudflare will rebuild and deploy your site.
 
@@ -186,10 +195,10 @@ In the future, whenever you push a change from your local Git repository, Cloudf
 
 The build script shown in [Step 2](#step-2) sets Hugo's [cache directory][] to the path required by Cloudflare's build cache, which is disabled by default. To enable the Cloudflare build cache:
 
-1. Navigate to Workers & Pages Overview on the [dashboard][]
-1. Find your Workers project
-1. Go to **Settings** > **Build** > **Build cache**
-1. Press the **Enable** button
+1. Navigate to Workers & Pages Overview on the [dashboard][].
+1. Find your Workers project.
+1. Go to **Settings** > **Build** > **Build cache**.
+1. Press the **Enable** button.
 
 [cache directory]: /configuration/all/#cache-directory
 [dashboard]: https://dash.cloudflare.com/
