@@ -218,8 +218,43 @@ Second, you must enable the build cache in your project dashboard.
 1. Go to **Settings** > **Build** > **Build cache**.
 1. Press the **Enable** button.
 
+## Scheduled builds
+
+If your site uses [`resources.GetRemote`][] to fetch external data at build time, that data is embedded in the static HTML when the site is built. Without a scheduled build, the data only refreshes when someone commits code to the repository. To keep content current, you can trigger a rebuild on a schedule by creating a Cloudflare deploy hook and calling it from a GitHub Actions workflow.
+
+Step 1
+: In the Cloudflare [dashboard][], go to **Workers & Pages**. Select your project, then navigate to **Settings** > **Builds** > **Deploy Hooks**. Press **Create deploy hook**, provide a name (e.g., `github-cron`), and copy the generated URL.
+
+Step 2
+: In your GitHub repository, go to **Settings** > **Secrets and variables** > **Actions**. Press **New repository secret**, name it `CLOUDFLARE_DEPLOY_HOOK`, paste the deploy hook URL as the value, and save.
+
+Step 3
+: Create a GitHub Actions workflow file in your repository.
+
+  ```yaml {file=".github/workflows/scheduled-cloudflare-deploy.yml" copy=true}
+  name: github-cron
+
+  on:
+    schedule:
+      - cron: "42 7 * * *"
+
+  jobs:
+    deploy:
+      runs-on: ubuntu-latest
+      steps:
+        - name: Trigger Cloudflare deploy hook
+          run: curl -X POST "${{ secrets.CLOUDFLARE_DEPLOY_HOOK }}"
+  ```
+
+  Adjust the [`cron`][cron-syntax] expression to set your desired build schedule. In the example above, the job runs every day at 7:42 AM UTC.
+
+Step 4
+: Commit the changes to your local Git repository and push to your GitHub repository.
+
 [`cacheDir`]: /configuration/all/#cachedir
+[`resources.GetRemote`]: /functions/resources/getremote/
 [configure file caches]: /configuration/caches/
+[cron-syntax]: https://docs.github.com/en/actions/writing-workflows/choosing-when-your-workflow-runs/events-that-trigger-workflows#schedule
 [dashboard]: https://dash.cloudflare.com/
 [details]: https://developers.cloudflare.com/workers/wrangler/configuration/
 [remote]: https://git-scm.com/docs/git-remote
