@@ -25,18 +25,22 @@ Please complete the following tasks before continuing:
 ## Procedure
 
 Step 1
-: Create a `wrangler.toml` file in the root of your project.
+: Create a `wrangler.jsonc` file in the root of your project. See [details][].
 
-  ```toml {file="wrangler.toml" copy=true}
-  name = 'hosting-cloudflare-worker'
-  compatibility_date = '2025-07-31'
-
-  [build]
-  command = 'chmod a+x build.sh && ./build.sh'
-
-  [assets]
-  directory = './public'
-  not_found_handling = '404-page'
+  ```jsonc {file="wrangler.jsonc" copy=true}
+  {
+    // Set this to the name of your project.
+    "name": "test",
+    // Set this to today's date in YYYY-MM-DD format.
+    "compatibility_date": "2026-06-19",
+    "build": {
+      "command": "chmod a+x build.sh && ./build.sh"
+    },
+    "assets": {
+      "directory": "./public",
+      "not_found_handling": "404-page"
+    }
+  }
   ```
 
 Step 2
@@ -217,4 +221,5 @@ Second, you must enable the build cache in your project dashboard.
 [`cacheDir`]: /configuration/all/#cachedir
 [configure file caches]: /configuration/caches/
 [dashboard]: https://dash.cloudflare.com/
+[details]: https://developers.cloudflare.com/workers/wrangler/configuration/
 [remote]: https://git-scm.com/docs/git-remote
