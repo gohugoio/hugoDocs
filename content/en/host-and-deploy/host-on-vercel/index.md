@@ -55,7 +55,7 @@ Step 2
 
   # Perform cleanup
   cleanup() {
-    if [[ -n "${build_temp_dir:-}" && -d "${build_temp_dir}" ]]; then
+    if [[ -n "${build_temp_dir}" && -d "${build_temp_dir}" ]]; then
       rm -rf "${build_temp_dir}"
     fi
   }
