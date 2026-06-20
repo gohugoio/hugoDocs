@@ -231,7 +231,7 @@ Step 2
 Step 3
 : Create a GitHub Actions workflow file in your repository.
 
-  ```yaml {file=".github/workflows/scheduled-cloudflare-deploy.yml" copy=true}
+  ```yaml {file=".github/workflows/scheduled-cloudflare-deploy.yaml" copy=true}
   name: github-cron
   on:
     schedule:
@@ -250,9 +250,9 @@ Step 4
 : Commit the changes to your local Git repository and push to your GitHub repository.
 
 [`cacheDir`]: /configuration/all/#cachedir
+[`cron`]: https://docs.github.com/en/actions/writing-workflows/choosing-when-your-workflow-runs/events-that-trigger-workflows#schedule
 [`resources.GetRemote`]: /functions/resources/getremote/
 [configure file caches]: /configuration/caches/
-[cron]: https://docs.github.com/en/actions/writing-workflows/choosing-when-your-workflow-runs/events-that-trigger-workflows#schedule
 [dashboard]: https://dash.cloudflare.com/
 [details]: https://developers.cloudflare.com/workers/wrangler/configuration/
 [remote]: https://git-scm.com/docs/git-remote
