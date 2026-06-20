@@ -236,6 +236,8 @@ Step 3
   on:
     schedule:
       - cron: "42 7 * * *"
+        timezone: Etc/UTC
+
   jobs:
     deploy:
       runs-on: ubuntu-latest
@@ -244,15 +246,19 @@ Step 3
           run: curl -X POST "${{ secrets.CLOUDFLARE_DEPLOY_HOOK }}"
   ```
 
-  Adjust the [`cron`][] expression to set your desired build schedule. In the example above, the job runs every day at 7:42 AM UTC.
+  Adjust the [`cron`][] expression to set your desired build schedule. In the example above, the job is scheduled to run every day at 7:42 AM UTC.
 
 Step 4
 : Commit the changes to your local Git repository and push to your GitHub repository.
 
+> [!NOTE]
+> The schedule event can be delayed during periods of high loads of GitHub Actions workflow runs. High load times include the start of every hour. If the load is sufficiently high enough, some queued jobs may be dropped. To decrease the chance of delay, schedule your workflow to run at a different time of the hour, or use a dedicated third-party scheduling service like [cron-job.org][] for precise execution.
+
 [`cacheDir`]: /configuration/all/#cachedir
-[`cron`]: https://docs.github.com/en/actions/writing-workflows/choosing-when-your-workflow-runs/events-that-trigger-workflows#schedule
+[`cron`]: https://docs.github.com/en/actions/reference/workflows-and-actions/events-that-trigger-workflows#schedule
 [`resources.GetRemote`]: /functions/resources/getremote/
 [configure file caches]: /configuration/caches/
+[cron-job.org]: https://cron-job.org/en/
 [dashboard]: https://dash.cloudflare.com/
 [details]: https://developers.cloudflare.com/workers/wrangler/configuration/
 [remote]: https://git-scm.com/docs/git-remote
