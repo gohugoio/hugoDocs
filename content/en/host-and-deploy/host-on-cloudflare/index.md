@@ -233,11 +233,9 @@ Step 3
 
   ```yaml {file=".github/workflows/scheduled-cloudflare-deploy.yml" copy=true}
   name: github-cron
-
   on:
     schedule:
       - cron: "42 7 * * *"
-
   jobs:
     deploy:
       runs-on: ubuntu-latest
@@ -246,7 +244,7 @@ Step 3
           run: curl -X POST "${{ secrets.CLOUDFLARE_DEPLOY_HOOK }}"
   ```
 
-  Adjust the [`cron`][cron-syntax] expression to set your desired build schedule. In the example above, the job runs every day at 7:42 AM UTC.
+  Adjust the [`cron`][] expression to set your desired build schedule. In the example above, the job runs every day at 7:42 AM UTC.
 
 Step 4
 : Commit the changes to your local Git repository and push to your GitHub repository.
@@ -254,7 +252,7 @@ Step 4
 [`cacheDir`]: /configuration/all/#cachedir
 [`resources.GetRemote`]: /functions/resources/getremote/
 [configure file caches]: /configuration/caches/
-[cron-syntax]: https://docs.github.com/en/actions/writing-workflows/choosing-when-your-workflow-runs/events-that-trigger-workflows#schedule
+[cron]: https://docs.github.com/en/actions/writing-workflows/choosing-when-your-workflow-runs/events-that-trigger-workflows#schedule
 [dashboard]: https://dash.cloudflare.com/
 [details]: https://developers.cloudflare.com/workers/wrangler/configuration/
 [remote]: https://git-scm.com/docs/git-remote
