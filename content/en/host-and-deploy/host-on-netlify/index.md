@@ -6,7 +6,7 @@ keywords: []
 aliases: [/hosting-and-deployment/hosting-on-netlify/]
 ---
 
-Use these instructions to enable continuous deployment from a GitHub repository. The same general steps apply if you are using Azure DevOps, Bitbucket, or GitLab for version control.
+Use these instructions to enable continuous deployment from a GitHub repository. The same general steps apply for other Git providers such as GitLab or Bitbucket.
 
 {{% include "/_common/gitignore-public.md" %}}
 
@@ -25,14 +25,11 @@ Please complete the following tasks before continuing:
 
 ## Procedure
 
-<!-- Using "text" as the code block language because "toml" looks terrible. -->
-
 Step 1
-: Create a `netlify.toml` file in the root of your project.
+: Create a `netlify.toml` file in the root of your project, adjusting the tool versions and time zone as needed.
 
   ```toml {file="netlify.toml" copy=true}
   [build.environment]
-  DART_SASS_VERSION = "1.101.0"
   GO_VERSION = "1.26.4"
   HUGO_VERSION = "0.163.3"
   NODE_VERSION = "24.16.0"
@@ -59,7 +56,7 @@ Step 1
   [build]
   publish = "public"
   command = """\
-    curl -SLO "https://github.com/sass/dart-sass/releases/download/${DART_SASS_VERSION}/dart-sass-${DART_SASS_VERSION}-linux-x64.tar.gz" && \
+    curl -sfLO "https://github.com/sass/dart-sass/releases/download/${DART_SASS_VERSION}/dart-sass-${DART_SASS_VERSION}-linux-x64.tar.gz" && \
     tar -C "${HOME}/.local" -xf "dart-sass-${DART_SASS_VERSION}-linux-x64.tar.gz" && \
     rm "dart-sass-${DART_SASS_VERSION}-linux-x64.tar.gz" && \
     export PATH="${HOME}/.local/dart-sass:${PATH}" && \
