@@ -95,7 +95,7 @@ Step 6
 
 Step 7
 : Press the **Configure Netlify on GitHub** button.
-  
+
   ![screen capture](netlify-04.png)
 
 Step 8
