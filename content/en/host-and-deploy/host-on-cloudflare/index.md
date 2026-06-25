@@ -5,7 +5,7 @@ categories: []
 keywords: []
 ---
 
-Use these instructions to enable continuous deployment from a GitHub repository. The same general steps apply if you are using GitLab for version control.
+Use these instructions to enable continuous deployment from a GitHub repository. The same general steps apply for other Git providers such as GitLab or Bitbucket.
 
 {{% include "/_common/gitignore-public.md" %}}
 
@@ -25,7 +25,7 @@ Please complete the following tasks before continuing:
 ## Procedure
 
 Step 1
-: Create a `wrangler.jsonc` file in the root of your project. See [details][].
+: Create a `wrangler.jsonc` file in the root of your project.
 
   ```jsonc {file="wrangler.jsonc" copy=true}
   {
@@ -44,24 +44,34 @@ Step 1
   ```
 
 Step 2
-: Create a `build.sh` file in the root of your project.
+: Create a `build.sh` file in the root of your project, adjusting the tool versions and time zone as needed.
 
   ```sh {file="build.sh" copy=true}
   #!/usr/bin/env bash
 
   #------------------------------------------------------------------------------
   # @file
-  # Builds a Hugo site hosted on a Cloudflare Worker.
+  # Builds a Hugo project hosted on a Cloudflare Worker.
   #------------------------------------------------------------------------------
 
   # Exit on error, undefined variables, or pipe failures
   set -euo pipefail
 
-  build_temp_dir=""
+  # Define tool versions
+  DART_SASS_VERSION=1.101.0
+  GO_VERSION=1.26.4
+  HUGO_VERSION=0.163.3
+  NODE_VERSION=24.16.0
+
+  # Set the build time zone
+  TZ=Europe/Oslo
+
+  # Set the build cache directory
+  HUGO_CACHEDIR="${PWD}/.cache/hugo"
 
   # Perform cleanup
   cleanup() {
-    if [[ -n "${build_temp_dir}" && -d "${build_temp_dir}" ]]; then
+    if [[ -n "${build_temp_dir:-}" && -d "${build_temp_dir}" ]]; then
       rm -rf "${build_temp_dir}"
     fi
   }
@@ -70,75 +80,78 @@ Step 2
   trap cleanup EXIT SIGINT SIGTERM
 
   main() {
-    # Define tool versions
-    DART_SASS_VERSION=1.101.0
-    GO_VERSION=1.26.4
-    HUGO_VERSION=0.163.3
-    NODE_VERSION=24.16.0
+    # Export the build time zone
+    export TZ
 
-    # Set the build timezone
-    export TZ=Europe/Oslo
+    # Export the build cache directory
+    export HUGO_CACHEDIR
 
-    # Set the build cache directory
-    export HUGO_CACHEDIR="${PWD}/.cache/hugo"
-
-    # Create and move into a temporary directory for downloads
+    # Create a temporary directory for downloads
     build_temp_dir=$(mktemp -d)
-    pushd "${build_temp_dir}" > /dev/null
 
-    # Create the local tools directory
+    # Create a local tools directory
     mkdir -p "${HOME}/.local"
 
     # Install Dart Sass
     echo "Installing Dart Sass ${DART_SASS_VERSION}..."
-    curl -sLO "https://github.com/sass/dart-sass/releases/download/${DART_SASS_VERSION}/dart-sass-${DART_SASS_VERSION}-linux-x64.tar.gz"
-    tar -C "${HOME}/.local" -xf "dart-sass-${DART_SASS_VERSION}-linux-x64.tar.gz"
+    curl -sfL --output-dir "${build_temp_dir}" -O "https://github.com/sass/dart-sass/releases/download/${DART_SASS_VERSION}/dart-sass-${DART_SASS_VERSION}-linux-x64.tar.gz"
+    tar -C "${HOME}/.local" -xf "${build_temp_dir}/dart-sass-${DART_SASS_VERSION}-linux-x64.tar.gz"
     export PATH="${HOME}/.local/dart-sass:${PATH}"
 
     # Install Go
-    echo "Installing Go ${GO_VERSION}..."
-    curl -sLO "https://go.dev/dl/go${GO_VERSION}.linux-amd64.tar.gz"
-    tar -C "${HOME}/.local" -xf "go${GO_VERSION}.linux-amd64.tar.gz"
-    export PATH="${HOME}/.local/go/bin:${PATH}"
+    if [[ -f "go.mod" ]]; then
+      echo "Installing Go ${GO_VERSION}..."
+      curl -sfL --output-dir "${build_temp_dir}" -O "https://go.dev/dl/go${GO_VERSION}.linux-amd64.tar.gz"
+      tar -C "${HOME}/.local" -xf "${build_temp_dir}/go${GO_VERSION}.linux-amd64.tar.gz"
+      export PATH="${HOME}/.local/go/bin:${PATH}"
+    fi
 
     # Install Hugo
     echo "Installing Hugo ${HUGO_VERSION}..."
-    curl -sLO "https://github.com/gohugoio/hugo/releases/download/v${HUGO_VERSION}/hugo_${HUGO_VERSION}_linux-amd64.tar.gz"
+    curl -sfL --output-dir "${build_temp_dir}" -O "https://github.com/gohugoio/hugo/releases/download/v${HUGO_VERSION}/hugo_${HUGO_VERSION}_linux-amd64.tar.gz"
     mkdir -p "${HOME}/.local/hugo"
-    tar -C "${HOME}/.local/hugo" -xf "hugo_${HUGO_VERSION}_linux-amd64.tar.gz"
+    tar -C "${HOME}/.local/hugo" -xf "${build_temp_dir}/hugo_${HUGO_VERSION}_linux-amd64.tar.gz"
     export PATH="${HOME}/.local/hugo:${PATH}"
 
     # Install Node.js
-    echo "Installing Node.js ${NODE_VERSION}..."
-    curl -sLO "https://nodejs.org/dist/v${NODE_VERSION}/node-v${NODE_VERSION}-linux-x64.tar.gz"
-    tar -C "${HOME}/.local" -xf "node-v${NODE_VERSION}-linux-x64.tar.gz"
-    export PATH="${HOME}/.local/node-v${NODE_VERSION}-linux-x64/bin:${PATH}"
+    if [[ -f "package-lock.json" ]]; then
+      echo "Installing Node.js ${NODE_VERSION}..."
+      curl -sfL --output-dir "${build_temp_dir}" -O "https://nodejs.org/dist/v${NODE_VERSION}/node-v${NODE_VERSION}-linux-x64.tar.gz"
+      tar -C "${HOME}/.local" -xf "${build_temp_dir}/node-v${NODE_VERSION}-linux-x64.tar.gz"
+      export PATH="${HOME}/.local/node-v${NODE_VERSION}-linux-x64/bin:${PATH}"
+    fi
 
-    # Return to the project root
-    popd > /dev/null
-
-    # Verify installations
-    echo "Verifying installations..."
-    echo Dart Sass: "$(sass --version)"
-    echo Go: "$(go version)"
-    echo Hugo: "$(hugo version)"
-    echo Node.js: "$(node --version)"
+    # Log tool versions
+    echo "Logging tool versions..."
+    command -v sass &> /dev/null && echo "Dart Sass: $(sass --version)" || echo "Dart Sass: not installed"
+    command -v go &> /dev/null && echo "Go: $(go version)" || echo "Go: not installed"
+    command -v hugo &> /dev/null && echo "Hugo: $(hugo version)" || echo "Hugo: not installed"
+    command -v node &> /dev/null && echo "Node.js: $(node --version)" || echo "Node.js: not installed"
 
     # Configure Git
     echo "Configuring Git..."
     git config --global core.quotepath false
-    if [ "$(git rev-parse --is-shallow-repository)" = "true" ]; then
+
+    # Fetch full Git history
+    if [[ $(git rev-parse --is-shallow-repository) == true ]]; then
+      echo "Fetching full Git history..."
       git fetch --unshallow
     fi
 
+    # Initialize Git submodules
+    if [[ -f .gitmodules ]]; then
+      echo "Initializing Git submodules..."
+      git submodule update --init --recursive
+    fi
+
     # Install Node.js dependencies
-    if [ -f package-lock.json ]; then
+    if [[ -f package-lock.json ]]; then
       echo "Installing Node.js dependencies..."
       npm ci
     fi
 
-    # Build the site
-    echo "Building the site..."
+    # Build the project
+    echo "Building the project..."
     hugo build --gc --minify
   }
 
@@ -215,7 +228,7 @@ Second, you must enable the build cache in your project dashboard.
 
 1. Navigate to Workers & Pages Overview on the [dashboard][].
 1. Find your Workers project.
-1. Go to **Settings** > **Build** > **Build cache**.
+1. Go to **Settings**&nbsp;>&nbsp;**Build**&nbsp;>&nbsp;**Build cache**.
 1. Press the **Enable** button.
 
 ## Scheduled builds
@@ -223,10 +236,10 @@ Second, you must enable the build cache in your project dashboard.
 If your site uses [`resources.GetRemote`][] to fetch external data at build time, that data is embedded in the static HTML when the site is built. Without a scheduled build, the data only refreshes when someone commits code to the repository. To keep content current, you can trigger a rebuild on a schedule by creating a Cloudflare deploy hook and calling it from a GitHub Actions workflow.
 
 Step 1
-: In the Cloudflare [dashboard][], go to **Workers & Pages**. Select your project, then navigate to **Settings** > **Builds** > **Deploy Hooks**. Press **Create deploy hook**, provide a name (e.g., `github-cron`), and copy the generated URL.
+: In the Cloudflare [dashboard][], go to **Workers & Pages**. Select your project, then navigate to **Settings**&nbsp;>&nbsp;**Builds**&nbsp;>&nbsp;**Deploy Hooks**. Press **Create deploy hook**, provide a name (e.g., `github-cron`), and copy the generated URL.
 
 Step 2
-: In your GitHub repository, go to **Settings** > **Secrets and variables** > **Actions**. Press **New repository secret**, name it `CLOUDFLARE_DEPLOY_HOOK`, paste the deploy hook URL as the value, and save.
+: In your GitHub repository, go to **Settings**&nbsp;>&nbsp;**Secrets and variables**&nbsp;>&nbsp;**Actions**. Press **New repository secret**, name it `CLOUDFLARE_DEPLOY_HOOK`, paste the deploy hook URL as the value, and save.
 
 Step 3
 : Create a GitHub Actions workflow file in your repository.
@@ -252,7 +265,7 @@ Step 4
 : Commit the changes to your local Git repository and push to your GitHub repository.
 
 > [!NOTE]
-> The schedule event can be delayed during periods of high loads of GitHub Actions workflow runs. High load times include the start of every hour. If the load is sufficiently high enough, some queued jobs may be dropped. To decrease the chance of delay, schedule your workflow to run at a different time of the hour, or use a dedicated third-party scheduling service like [cron-job.org][] for precise execution.
+> The schedule event can be delayed during periods of high loads of GitHub Actions workflow runs. High load times include the start of every hour. If the load is sufficiently high enough, some queued jobs may be dropped. To decrease the chance of delay, schedule your workflow to run at a different time of the hour, or use a dedicated third-party scheduling service such as [Google Cloud Scheduler][] or [cron-job.org][].
 
 [`cacheDir`]: /configuration/all/#cachedir
 [`cron`]: https://docs.github.com/en/actions/reference/workflows-and-actions/events-that-trigger-workflows#schedule
@@ -260,5 +273,5 @@ Step 4
 [configure file caches]: /configuration/caches/
 [cron-job.org]: https://cron-job.org/en/
 [dashboard]: https://dash.cloudflare.com/
-[details]: https://developers.cloudflare.com/workers/wrangler/configuration/
 [remote]: https://git-scm.com/docs/git-remote
+[Google Cloud Scheduler]: https://docs.cloud.google.com/scheduler/docs/overview

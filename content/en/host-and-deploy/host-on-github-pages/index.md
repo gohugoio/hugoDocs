@@ -6,7 +6,7 @@ keywords: []
 aliases: [/hosting-and-deployment/hosting-on-github/]
 ---
 
-Use these instructions to enable continuous deployment from a GitHub repository using GitHub Actions.
+Use these instructions to enable continuous deployment from a GitHub repository to GitHub Pages.
 
 {{% include "/_common/gitignore-public.md" %}}
 
@@ -40,15 +40,7 @@ Step 1
   ![screen capture](gh-pages-02.png)
 
 Step 2
-: Create a file named `hugo.yaml` in a directory named `.github/workflows`.
-
-  ```sh
-  mkdir -p .github/workflows
-  touch .github/workflows/hugo.yaml
-  ```
-
-Step 3
-: Copy and paste the YAML below into the file you created.
+: Create a `hugo.yaml` file in the `.github/workflows` directory, adjusting the tool versions and time zone as needed.
 
   ```yaml {file=".github/workflows/hugo.yaml" copy=true}
   name: Build and deploy
@@ -71,10 +63,13 @@ Step 3
     build:
       runs-on: ubuntu-latest
       env:
+        # Define tool versions
         DART_SASS_VERSION: 1.101.0
         GO_VERSION: 1.26.4
         HUGO_VERSION: 0.163.3
         NODE_VERSION: 24.16.0
+
+        # Set the build time zone
         TZ: Europe/Oslo
       steps:
         - name: Checkout
@@ -82,69 +77,100 @@ Step 3
           with:
             submodules: recursive
             fetch-depth: 0
-        - name: Setup Go
+
+        - name: Setup Pages
+          id: pages
+          uses: actions/configure-pages@v6
+
+        - name: Create a local tools directory
+          run: |
+            mkdir -p "${HOME}/.local"
+
+        - name: Install Go
+          if: hashFiles('go.mod') != ''
           uses: actions/setup-go@v6
           with:
             go-version: ${{ env.GO_VERSION }}
             cache: false
-        - name: Setup Node.js
+
+        - name: Install Node.js
+          if: hashFiles('package-lock.json') != ''
           uses: actions/setup-node@v6
           with:
             node-version: ${{ env.NODE_VERSION }}
-        - name: Setup Pages
-          id: pages
-          uses: actions/configure-pages@v6
-        - name: Create directory for user-specific executable files
-          run: |
-            mkdir -p "${HOME}/.local"
+
         - name: Install Dart Sass
           run: |
-            curl -sLO "https://github.com/sass/dart-sass/releases/download/${DART_SASS_VERSION}/dart-sass-${DART_SASS_VERSION}-linux-x64.tar.gz"
-            tar -C "${HOME}/.local" -xf "dart-sass-${DART_SASS_VERSION}-linux-x64.tar.gz"
-            rm "dart-sass-${DART_SASS_VERSION}-linux-x64.tar.gz"
+            echo "Installing Dart Sass ${DART_SASS_VERSION}..."
+            curl -sfL --output-dir "${{ runner.temp }}" -O "https://github.com/sass/dart-sass/releases/download/${DART_SASS_VERSION}/dart-sass-${DART_SASS_VERSION}-linux-x64.tar.gz"
+            tar -C "${HOME}/.local" -xf "${{ runner.temp }}/dart-sass-${DART_SASS_VERSION}-linux-x64.tar.gz"
             echo "${HOME}/.local/dart-sass" >> "${GITHUB_PATH}"
+
         - name: Install Hugo
           run: |
-            curl -sLO "https://github.com/gohugoio/hugo/releases/download/v${HUGO_VERSION}/hugo_extended_${HUGO_VERSION}_linux-amd64.tar.gz"
+            echo "Installing Hugo ${HUGO_VERSION}..."
+            curl -sfL --output-dir "${{ runner.temp }}" -O "https://github.com/gohugoio/hugo/releases/download/v${HUGO_VERSION}/hugo_extended_${HUGO_VERSION}_linux-amd64.tar.gz"
             mkdir "${HOME}/.local/hugo"
-            tar -C "${HOME}/.local/hugo" -xf "hugo_extended_${HUGO_VERSION}_linux-amd64.tar.gz"
-            rm "hugo_extended_${HUGO_VERSION}_linux-amd64.tar.gz"
+            tar -C "${HOME}/.local/hugo" -xf "${{ runner.temp }}/hugo_extended_${HUGO_VERSION}_linux-amd64.tar.gz"
             echo "${HOME}/.local/hugo" >> "${GITHUB_PATH}"
-        - name: Verify installations
+
+        - name: Log tool versions
           run: |
-            echo "Dart Sass: $(sass --version)"
-            echo "Go: $(go version)"
-            echo "Hugo: $(hugo version)"
-            echo "Node.js: $(node --version)"
+            echo "Logging tool versions..."
+            command -v sass &> /dev/null && echo "Dart Sass: $(sass --version)" || echo "Dart Sass: not installed"
+            command -v go &> /dev/null && echo "Go: $(go version)" || echo "Go: not installed"
+            command -v hugo &> /dev/null && echo "Hugo: $(hugo version)" || echo "Hugo: not installed"
+            command -v node &> /dev/null && echo "Node.js: $(node --version)" || echo "Node.js: not installed"
+
+        - name: Configure Git
+          run: |
+            echo "Configuring Git..."
+            git config --global core.quotepath false
+
+        - name: Fetch full Git history
+          run: |
+            if [[ $(git rev-parse --is-shallow-repository) == true ]]; then
+              echo "Fetching full Git history..."
+              git fetch --unshallow
+            fi
+
+        - name: Initialize Git submodules
+          run: |
+            if [[ -f .gitmodules ]]; then
+              echo "Initializing Git submodules..."
+              git submodule update --init --recursive
+            fi
+
         - name: Install Node.js dependencies
           run: |
-            if [ -f package-lock.json ]; then
+            if [[ -f package-lock.json ]]; then
               echo "Installing Node.js dependencies..."
               npm ci
             fi
-        - name: Configure Git
-          run: |
-            git config --global core.quotepath false
+
         - name: Cache restore
           id: cache-restore
           uses: actions/cache/restore@v5
           with:
             path: ${{ runner.temp }}/hugo_cache
             key: hugo-${{ github.run_id }}
-            restore-keys:
-              hugo-
-        - name: Build the site
+            restore-keys: hugo-
+
+        - name: Build
           run: |
+            echo "Building the project..."
             hugo build \
               --gc \
               --minify \
               --baseURL "${{ steps.pages.outputs.base_url }}/" \
               --cacheDir "${{ runner.temp }}/hugo_cache"
+
         - name: Cache save
           uses: actions/cache/save@v5
           with:
             path: ${{ runner.temp }}/hugo_cache
             key: ${{ steps.cache-restore.outputs.cache-primary-key }}
+
         - name: Upload artifact
           uses: actions/upload-pages-artifact@v5
           with:
@@ -161,7 +187,7 @@ Step 3
           uses: actions/deploy-pages@v5
   ```
 
-Step 4
+Step 3
 : In your project configuration, change the location of the image cache to the [`cacheDir`][] as shown below:
 
   {{< code-toggle file=hugo copy=true >}}
@@ -171,20 +197,20 @@ Step 4
 
   See [configure file caches][] for more information.
 
-Step 5
+Step 4
 : Commit the changes to your local Git repository and push to your GitHub repository.
 
-Step 6
+Step 5
 : From GitHub's main menu, choose **Actions**. You will see something like this:
 
   ![screen capture](gh-pages-03.png)
 
-Step 7
+Step 6
 : When GitHub has finished building and deploying your site, the color of the status indicator will change to green.
 
   ![screen capture](gh-pages-04.png)
 
-Step 8
+Step 7
 : Click on the commit message as shown above. Under the deploy step, you will see a link to your live site.
 
   ![screen capture](gh-pages-05.png)
