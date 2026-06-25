@@ -36,7 +36,7 @@ Render Markdown content to HTML in block display mode:
 {{ $s | .RenderString $opts }} → <p>An <em>emphasized</em> word</p>
 ```
 
-Render [Pandoc] content to HTML in block display mode:
+Render [Pandoc][] content to HTML in block display mode:
 
 ```go-html-template
 {{ $s := "H~2~O" }}

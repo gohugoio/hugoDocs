@@ -106,11 +106,9 @@ Step 3
 
   ```go-html-template {file="layouts/baseof.html"}
   <head>
-    ...
     {{ if .Param "math" }}
       {{ partialCached "math.html" . }}
     {{ end }}
-    ...
   </head>
   ```
 
