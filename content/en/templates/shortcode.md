@@ -309,11 +309,9 @@ You can use the `HasShortcode` method in your base template to conditionally loa
 
 ```go-html-template {file="layouts/baseof.html"}
 <head>
-  ...
   {{ if .HasShortcode "audio" }}
     <link rel="stylesheet" src="/css/audio.css">
   {{ end }}
-  ...
 </head>
 ```
 

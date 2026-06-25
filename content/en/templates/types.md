@@ -38,8 +38,8 @@ layouts/
 │   ├── page.html
 │   └── section.html
 ├── films/
-│   ├── view_card.html      <-- content view
-│   ├── view_li.html        <-- content view
+│   ├── _views/
+│   │   └── card.html       <-- content view
 │   ├── page.html
 │   └── section.html
 ├── baseof.html
@@ -327,20 +327,20 @@ For example, Hugo applies a _base_ template to the _home_ template below, then r
   {{ .Content }}
   <ul>
     {{ range where site.RegularPages "Section" "films" }}
-      {{ .Render "view_card" }}
+      {{ .Render "_views/card" }}
     {{ end }}
   </ul>
 {{ end }}
 ```
 
-```go-html-template {file="layouts/films/view_card.html"}
+```go-html-template {file="layouts/films/_views/card.html"}
 <div class="card">
   <h2><a href="{{ .RelPermalink }}">{{ .LinkTitle }}</a></h2>
   {{ .Summary }}
 </div>
 ```
 
-In the example above, the content view template's name starts with `view_`. While not strictly required, this naming convention helps distinguish content view templates from other templates within the same directory, improving organization and clarity.
+See the [`Render`][] method documentation for guidance on naming and organizing content view templates.
 
 ## Render hook
 

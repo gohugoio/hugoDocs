@@ -23,7 +23,7 @@ aliases: [/functions/printf]
 {{ printf "Pi is approximately %.2f." $pi }} → 3.14
 ```
 
-Use the `printf` function with the [`safe.HTMLAttr`] function:
+Use the `printf` function with the [`safe.HTMLAttr`][] function:
 
 ```go-html-template
 {{ $desc := "Eat at Joe's" }}
