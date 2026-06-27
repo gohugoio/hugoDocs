@@ -1,6 +1,6 @@
 ---
 title: Host on Netlify
-description: Host your site on Netlify.
+description: Host your project on Netlify.
 categories: []
 keywords: []
 aliases: [/hosting-and-deployment/hosting-on-netlify/]
@@ -43,7 +43,7 @@ Step 1
     """
   ```
 
-  If your site requires Dart Sass to transpile Sass to CSS, set the `DART_SASS_VERSION` and include the Dart Sass installation in the build step.
+  If your project requires Dart Sass to transpile Sass to CSS, set the `DART_SASS_VERSION` and include the Dart Sass installation in the build step.
 
   ```toml {file="netlify.toml" copy=true}
   [build.environment]

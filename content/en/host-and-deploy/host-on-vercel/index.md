@@ -1,6 +1,6 @@
 ---
 title: Host on Vercel
-description: Host your site on Vercel.
+description: Host your project on Vercel.
 categories: []
 keywords: []
 ---
@@ -44,7 +44,7 @@ Step 2
 
   #------------------------------------------------------------------------------
   # @file
-  # Builds a Hugo site hosted on Vercel.
+  # Builds a Hugo project hosted on Vercel.
   #------------------------------------------------------------------------------
 
   # Exit on error, undefined variables, or pipe failures

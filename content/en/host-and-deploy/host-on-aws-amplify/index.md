@@ -1,6 +1,6 @@
 ---
 title: Host on AWS Amplify
-description: Host your site on AWS Amplify.
+description: Host your project on AWS Amplify.
 categories: []
 keywords: []
 aliases: [/hosting-and-deployment/hosting-on-aws-amplify/]

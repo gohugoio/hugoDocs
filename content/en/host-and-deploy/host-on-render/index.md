@@ -1,6 +1,6 @@
 ---
 title: Host on Render
-description: Host your site on Render.
+description: Host your project on Render.
 categories: []
 keywords: []
 aliases: [/hosting-and-deployment/hosting-on-render/]
@@ -57,7 +57,7 @@ Step 2
 
   #------------------------------------------------------------------------------
   # @file
-  # Builds a Hugo site hosted on Render.
+  # Builds a Hugo project hosted on Render.
   #
   # Render automatically installs Node.js and any Node.js dependencies.
   #------------------------------------------------------------------------------
