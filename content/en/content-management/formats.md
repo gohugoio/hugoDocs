@@ -83,8 +83,33 @@ Create your content in the [Pandoc][] format preceded by front matter. Hugo rend
 Hugo passes these CLI flags when calling the Pandoc executable:
 
 ```sh
---mathjax
+--citeproc --mathjax
 ```
+
+{{< new-in 0.164.0 />}}
+
+The `--citeproc` flag enables Pandoc's citation processing. When using Pandoc's bibliography and citations feature, control the bibliography file path, citation style, inline reference definitions, and other settings using a metadata block within the content file. For example:
+
+```md {file="content/example.pdc"}
+---
+title: home
+---
+
+This is a paragraph followed by a metadata block.
+
+---
+bibliography: foo.bib
+citation-style: ieee.csl
+link-citations: true
+---
+
+This is a citation: @einstein1905physics
+
+This is another citation: [@WatsonCrick1953, p. 33]
+```
+
+> [!NOTE]
+> Bibliography files and citation style files must exist on the local file system; they cannot be imported from Hugo modules. File paths may be relative to the project root or absolute.
 
 ### reStructuredText
 
