@@ -1,6 +1,6 @@
 ---
 title: Host on GitHub Pages
-description: Host your site on GitHub Pages.
+description: Host your project on GitHub Pages.
 categories: []
 keywords: []
 aliases: [/hosting-and-deployment/hosting-on-github/]

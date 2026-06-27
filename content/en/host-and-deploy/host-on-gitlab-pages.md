@@ -1,6 +1,6 @@
 ---
 title: Host on GitLab Pages
-description: Host your site on GitLab Pages.
+description: Host your project on GitLab Pages.
 categories: []
 keywords: []
 aliases: [/hosting-and-deployment/hosting-on-gitlab/]

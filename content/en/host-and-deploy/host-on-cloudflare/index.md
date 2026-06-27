@@ -1,6 +1,6 @@
 ---
 title: Host on Cloudflare
-description: Host your site on Cloudflare.
+description: Host your project on Cloudflare.
 categories: []
 keywords: []
 ---
