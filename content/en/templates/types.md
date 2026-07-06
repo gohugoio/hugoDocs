@@ -39,7 +39,7 @@ layouts/
 │   └── section.html
 ├── films/
 │   ├── _views/
-│   │   └── card.html       <-- content view
+│   │   └── card.html       <-- view template
 │   ├── page.html
 │   └── section.html
 ├── baseof.html
@@ -312,9 +312,9 @@ Value: {{ partial "my-inline-partial.html" . }}
 {{ end }}
 ```
 
-## Content view
+## View
 
-A _content view_ template is similar to a _partial_ template, invoked by calling the [`Render`][] method on a `Page` object. Unlike _partial_ templates, _content view_ templates:
+A _view_ template is similar to a _partial_ template, invoked by calling the [`Render`][] method on a `Page` object. Unlike _partial_ templates, _view_ templates:
 
 - Inherit the context of the current page
 - Can target any page kind, content type, logical path, language, or output format
@@ -340,7 +340,7 @@ For example, Hugo applies a _base_ template to the _home_ template below, then r
 </div>
 ```
 
-See the [`Render`][] method documentation for guidance on naming and organizing content view templates.
+See the [`Render`][] method documentation for guidance on naming and organizing _view_ templates.
 
 ## Render hook
 
@@ -359,7 +359,7 @@ Learn more about [render hook templates][].
 
 ## Shortcode
 
-A _shortcode_ template is used to render a component of your site. Unlike _partial_ or _content view_ templates, _shortcode_ templates are called from content pages.
+A _shortcode_ template is used to render a component of your site. Unlike _partial_ or _view_ templates, _shortcode_ templates are called from content pages.
 
 For example, the _shortcode_ template below renders an audio element from a [global resource](g).
 

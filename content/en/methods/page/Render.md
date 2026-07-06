@@ -1,6 +1,6 @@
 ---
 title: Render
-description: Renders a content view template with the given page as context.
+description: Renders a view template with the given page as context.
 categories: []
 keywords: []
 params:
@@ -10,13 +10,13 @@ params:
 aliases: [/functions/render]
 ---
 
-The `Render` method on a `Page` object renders a [content view][] template with the given page as context.
+The `Render` method on a `Page` object renders a [view template][] with the given page as context.
 
 {{< new-in 0.164.0 >}}
 The `VIEW` argument now supports slash-separated directory paths.
 {{< /new-in >}}
 
-The `VIEW` argument is the name of a content view template, optionally preceded by a slash-separated directory path. Do not include a file extension. Hugo resolves the template via the [template lookup order][], so the same `VIEW` value may map to different content view templates depending on the page being rendered.
+The `VIEW` argument is the name of a _view_ template, optionally preceded by a slash-separated directory path. Do not include a file extension. Hugo resolves the template via the [template lookup order][], so the same `VIEW` value may map to different _view_ templates depending on the page being rendered.
 
 Consider this layout structure:
 
@@ -55,7 +55,7 @@ For all other pages, the `Render` method calls:
 layouts/summary.html
 ```
 
-As a best practice, place content view templates together in a dedicated subdirectory. Hugo does not reserve a directory name for content views as it does for `_partials`, `_shortcodes`, and `_markup`. The examples below use `_views`, where the underscore prefix differentiates it from other path segments and conveys its purpose, but a directory named `foo` would work equally well.
+As a best practice, place _view_ templates together in a dedicated subdirectory. Hugo does not reserve a directory name for _view_ templates as it does for `_partials`, `_shortcodes`, and `_markup`. The examples below use `_views`, where the underscore prefix differentiates it from other path segments and conveys its purpose, but a directory named `foo` would work equally well.
 
 With path segments, consider this layout structure:
 
@@ -104,5 +104,5 @@ The `Page` object is automatically passed to the given template. You cannot pass
 The template is resolved automatically via the [template lookup order][].|You must specify the template name, relative to the `layouts/_partials` directory.
 
 [`partial`]: /functions/partials/include/
-[content view]: /templates/types/#content-view
 [template lookup order]: /templates/lookup-order/
+[view template]: /templates/types/#view
