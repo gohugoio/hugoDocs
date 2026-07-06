@@ -45,7 +45,7 @@ Step 4
 : Place your CSS file within the `assets/css` directory.
 
 Step 5
-: Create a partial template to process the CSS:
+: Create a _partial_ template to process the CSS:
 
   ```go-html-template {file="layouts/_partials/css.html" copy=true}
   {{ with resources.Get "css/main.css" }}
@@ -65,7 +65,7 @@ Step 5
   ```
 
 Step 6
-: Call the partial template from your base template:
+: Call the _partial_ template from your base template:
 
   ```go-html-template {file="layouts/baseof.html" copy=true}
   <head>

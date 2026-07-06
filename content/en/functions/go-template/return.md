@@ -31,13 +31,13 @@ By way of example, let's create a _partial_ template that _renders_ HTML, descri
 {{ end }}
 ```
 
-When called, the partial renders HTML:
+When called, the _partial_ template renders HTML:
 
 ```go-html-template
 {{ partial "odd-or-even.html" 42 }} → <p>42 is even</p>
 ```
 
-Instead of rendering HTML, let's create a partial that _returns_ a boolean value, reporting whether the given number is even:
+Instead of rendering HTML, let's create a _partial_ template that _returns_ a boolean value, reporting whether the given number is even:
 
 ```go-html-template {file="layouts/_partials/is-even.html"}
 {{ return math.ModBool . 2 }}
@@ -65,7 +65,7 @@ Hugo renders:
 > [!NOTE]
 > Unlike `return` statements in other languages, Hugo executes the first occurrence of the `return` statement regardless of its position within logical blocks.
 
-A partial that returns a value must contain only one `return` statement, placed at the end of the template.
+A _partial_ template that returns a value must contain only one `return` statement, placed at the end of the template.
 
 For example:
 

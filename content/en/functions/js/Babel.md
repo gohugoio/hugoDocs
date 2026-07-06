@@ -55,7 +55,7 @@ Step 5
   {{< /code-toggle >}}
 
 Step 6
-: Create a partial template to process the JavaScript:
+: Create a _partial_ template to process the JavaScript:
 
   ```go-html-template {file="layouts/_partials/js.html" copy=true}
   {{ with resources.Get "js/main.js" }}
@@ -77,7 +77,7 @@ Step 6
   ```
 
 Step 7
-: Call the partial template from your base template:
+: Call the _partial_ template from your base template:
 
   ```go-html-template {file="layouts/baseof.html" copy=true}
   <head>

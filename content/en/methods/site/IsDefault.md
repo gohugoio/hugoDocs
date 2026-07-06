@@ -37,7 +37,7 @@ weight = 2
 [versions.'v3.0.0']
 {{< /code-toggle >}}
 
-If you call an initialization partial to handle one-time build logic or global variable setup, wrap that call in an [`if`][] statement using this function. This prevents the logic from being executed for every dimensional variation.
+If you call an initialization _partial_ template to handle one-time build logic or global variable setup, wrap that call in an [`if`][] statement using this function. This prevents the logic from being executed for every dimensional variation.
 
 ```go-html-template
 {{ if .Site.IsDefault }}

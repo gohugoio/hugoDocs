@@ -81,7 +81,7 @@ To display the chain of templates that led to the current one, create a _partial
 {{ end }}
 ```
 
-Then call the partial from any template:
+Then call the _partial_ template from any template:
 
 ```go-html-template {file="layouts/_partials/footer/copyright.html" copy=true}
 {{ if site.Params.debug }}
@@ -128,7 +128,7 @@ To render links that, when clicked, will open the template in Microsoft Visual S
 {{ end }}
 ```
 
-Then call the partial from any template:
+Then call the _partial_ template from any template:
 
 ```go-html-template {file="layouts/page.html" copy=true}
 {{ define "main" }}

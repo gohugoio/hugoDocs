@@ -44,7 +44,7 @@ Step 1
         - key: HUGO_VERSION
           value: 0.164.0
         - key: NODE_VERSION
-          value: 24.16.0
+          value: 24.18.0
         - key: TZ
           value: Europe/Oslo
   ```

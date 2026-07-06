@@ -23,20 +23,20 @@ layouts/
     └── footer.html
 ```
 
-The "average" partial returns the average of one or more numbers. We pass the numbers in context:
+The "average" _partial_ template returns the average of one or more numbers. We pass the numbers in context:
 
 ```go-html-template
 {{ $numbers := slice 1 6 7 42 }}
 {{ $average := partial "average.html" $numbers }}
 ```
 
-The "breadcrumbs" partial renders [breadcrumb navigation][], and needs to receive the current page in context:
+The "breadcrumbs" _partial_ template renders [breadcrumb navigation][], and needs to receive the current page in context:
 
 ```go-html-template
 {{ partial "breadcrumbs.html" . }}
 ```
 
-The "footer" partial renders the site footer. In this contrived example, the footer does not need access to the current page, so we can omit context:
+The "footer" _partial_ template renders the site footer. In this contrived example, the footer does not need access to the current page, so we can omit context:
 
 ```go-html-template
 {{ partial "footer.html" }}

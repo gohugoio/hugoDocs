@@ -14,7 +14,7 @@ aliases: [/functions/templates.defer]
 The `templates.Defer` function defers the execution of a template until all sites and output formats have been rendered.
 
 > [!NOTE]
-> Do not call this function within a partial template called with the `partialCached` function. This restriction applies transitively: if `partialCached` calls a partial that calls `templates.Defer`, Hugo returns an error. Using this function within shortcode or render hook templates may also lead to unpredictable results.
+> Do not call this function within a _partial_ template called with the `partialCached` function. This restriction applies transitively: if `partialCached` calls a _partial_ template that calls `templates.Defer`, Hugo returns an error. Using this function within shortcode or render hook templates may also lead to unpredictable results.
 
 > [!NOTE]
 > This function only works in combination with the `with` keyword.
