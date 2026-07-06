@@ -31,7 +31,7 @@ Also, see the [Example folder structure](#example-folder-structure) below for a 
 
 ## Changes to template lookup order
 
-We have consolidated the template lookup so it works the same across all [template types][]. The previous setup was difficult to understand and had a massive number of variants. The new setup aims to feel natural with few surprises.
+We have consolidated the template lookup so it works the same across all [template types][], with the exception of _partial_ templates which are not context-aware. The previous setup was difficult to understand and had a massive number of variants. The new setup aims to feel natural with few surprises.
 
 The identifiers used in the template weighting, in order of importance, are:
 
