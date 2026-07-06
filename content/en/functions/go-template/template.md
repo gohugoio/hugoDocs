@@ -32,7 +32,7 @@ The example above can be rewritten using an inline _partial_ template:
 
 The key distinctions between the preceding two examples are:
 
-1. Inline _partial_ templates are globally scoped. That means that an inline _partial_ template defined in _one_ template may be called from _any_ template.
+1. Inline _partial_ templates are globally scoped. That means that an inline _partial_ template defined in one template may be called from any template.
 1. Leveraging the [`partialCached`][] function when calling an inline _partial_ template allows for performance optimization through result caching.
 1. An inline _partial_ template can [`return`][] a value of any data type instead of rendering a string.
 
