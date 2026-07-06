@@ -89,7 +89,7 @@ layouts
         └── list.html
 ```
 
-[^internal]: The old way of doing it made it difficult or impossible to, e.g., override `_internal/disqus.html` in a theme. Now you can just create a partial with the same name.
+[^internal]: The old way of doing it made it difficult or impossible to, e.g., override `_internal/disqus.html` in a theme. Now you can just create a _partial_ template with the same name.
 [^type]: The `type` set in front matter will effectively replace the `section` folder in [Page path][] when doing lookups.
 
 [Hugo v0.146.0]: https://github.com/gohugoio/hugo/releases/tag/v0.146.0

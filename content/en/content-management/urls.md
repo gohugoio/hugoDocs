@@ -238,7 +238,7 @@ To override this, create a file named `alias.html` in your `layouts` directory. 
 
 Alternatively, you can implement server-side redirection by using the [`Aliases`][aliases_method] method on a `Page` object to generate a single configuration file that the web server processes. This method is more efficient because the redirect happens at the HTTP header level before any page content is processed, whereas a meta refresh requires the browser to download and parse the HTML body before acting. Additionally, server-side redirection improves build and deployment times because Hugo doesn't need to write a physical directory and HTML file for every alias.
 
-To implement this, you typically create a single template to generate the necessary rules for your specific host or server. Common examples include:
+To implement this, you typically create one template to generate the necessary rules for your specific host or server. Common examples include:
 
 - A `_redirects` file for hosting services such as Cloudflare, GitLab Pages, and Netlify.
 - An `.htaccess` file for web servers such as Apache and LiteSpeed.
