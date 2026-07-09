@@ -22,7 +22,7 @@ There are three types of GitHub Pages sites: project, user, and organization. Pr
 Please complete the following tasks before continuing:
 
 1. [Create](https://github.com/signup) a GitHub account.
-1. [Log in][] to your GitHub account.
+1. [Log in](https://github.com/login) to your GitHub account.
 1. [Create](https://github.com/new) a GitHub repository for your project.
 1. [Create](https://git-scm.com/docs/git-init) a local Git repository for your project with a [remote][] reference to your GitHub repository.
 1. Create a Hugo project within your local Git repository and test it with the `hugo server` command.
@@ -227,7 +227,6 @@ In the future, whenever you push a change from your local Git repository, GitHub
 [Caching dependencies to speed up workflows]: https://docs.github.com/en/actions/using-workflows/caching-dependencies-to-speed-up-workflows
 [GitHub Pages documentation]: https://docs.github.com/en/pages/getting-started-with-github-pages/about-github-pages#types-of-github-pages-sites
 [Learn more about GitHub Actions]: https://docs.github.com/en/actions
-[Log in]: https://github.com/login
 [Manage a custom domain for your GitHub Pages site]: https://docs.github.com/en/pages/configuring-a-custom-domain-for-your-github-pages-site/about-custom-domains-and-github-pages
 [`cacheDir`]: /configuration/all/#cachedir
 [configure file caches]: /configuration/caches/
