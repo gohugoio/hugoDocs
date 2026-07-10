@@ -163,7 +163,7 @@ Step 2
 
     # Build the project
     echo "Building the project..."
-    hugo hugo build --gc --minify --baseURL "${CI_PAGES_URL}"
+    hugo build --gc --minify --baseURL "${CI_PAGES_URL}"
 
     # Compress published files
     echo "Compressing published files..."
