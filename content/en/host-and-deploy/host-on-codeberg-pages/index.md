@@ -137,7 +137,7 @@ Step 2
 
         - name: Cache restore
           id: cache-restore
-          uses: actions/cache/restore@v5
+          uses: actions/cache/restore@v6
           with:
             path: ${{ runner.temp }}/hugo_cache
             key: hugo-${{ forgejo.run_id }}
@@ -152,7 +152,7 @@ Step 2
               --cacheDir "${{ runner.temp }}/hugo_cache"
 
         - name: Cache save
-          uses: actions/cache/save@v5
+          uses: actions/cache/save@v6
           with:
             path: ${{ runner.temp }}/hugo_cache
             key: ${{ steps.cache-restore.outputs.cache-primary-key }}

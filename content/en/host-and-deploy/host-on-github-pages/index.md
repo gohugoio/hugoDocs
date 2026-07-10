@@ -73,7 +73,7 @@ Step 2
         TZ: Europe/Oslo
       steps:
         - name: Checkout
-          uses: actions/checkout@v6
+          uses: actions/checkout@v7
           with:
             submodules: recursive
             fetch-depth: 0
@@ -151,7 +151,7 @@ Step 2
 
         - name: Cache restore
           id: cache-restore
-          uses: actions/cache/restore@v5
+          uses: actions/cache/restore@v6
           with:
             path: ${{ runner.temp }}/hugo_cache
             key: hugo-${{ github.run_id }}
@@ -167,7 +167,7 @@ Step 2
               --cacheDir "${{ runner.temp }}/hugo_cache"
 
         - name: Cache save
-          uses: actions/cache/save@v5
+          uses: actions/cache/save@v6
           with:
             path: ${{ runner.temp }}/hugo_cache
             key: ${{ steps.cache-restore.outputs.cache-primary-key }}
