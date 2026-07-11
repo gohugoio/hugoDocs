@@ -15,9 +15,38 @@ We welcome corrections and improvements to the documentation. The documentation 
 
 ## Guidelines
 
-### Style
-
 Follow Google's [developer documentation style guide][] where practical.
+
+### Writing style
+
+Adhere to these writing style conventions.
+
+- Prefer active voice and present tense.  
+
+  No → With Hugo you can build a static site.\
+  Yes → Build a static site with Hugo.
+
+  No → This will cause Hugo to generate HTML files in the `public` directory.\
+  Yes → Hugo generates HTML files in the `public` directory.
+
+- Use second person instead of third person.
+
+  No → Users should exercise caution when deleting files.\
+  Better → You must be cautious when deleting files.\
+  Best → Be cautious when deleting files.
+
+- Minimize adverbs.
+
+  No → Hugo is extremely fast.\
+  Yes → Hugo is fast.
+
+- Introduce lists and code examples with a complete sentence, not a fragment. Avoid lead-ins that lack a subject or verb:
+
+  No → To copy the repository:\
+  Yes → Use the `git clone` command to copy the repository.
+
+- Use [basic english][] where possible for a global audience.
+- Prioritize current best practices over multiple options or historical information.
 
 ### Markdown
 
@@ -44,14 +73,92 @@ Adhere to these Markdown conventions:
 - Use [callouts](#callouts) instead of bold text for emphasis.
 - Do not mix [raw HTML][] within Markdown.
 - Do not use bold text in place of a heading or description term (`dt`).
+- Do not use Hugo's `ref` or `relref` shortcodes.
+- Do not place a list immediately after a heading; always precede it with a sentence.
 - Remove consecutive blank lines.
 - Remove trailing spaces.
+
+### Callouts
+
+Use callouts (admonitions) to visually emphasize important information.
+
+There are five callout types: `note`, `important`, `tip`, `warning`, and `caution`. The callout type is case-insensitive.
+
+```md {file="content/example.md"}
+> [!NOTE]
+> Useful information that users should know, even when skimming content.
+```
+
+> [!NOTE]
+> Useful information that users should know, even when skimming content.
+
+```md {file="content/example.md"}
+> [!IMPORTANT]
+> Key information users need to know to achieve their goal.
+```
+
+> [!IMPORTANT]
+> Key information users need to know to achieve their goal.
+
+```md {file="content/example.md"}
+> [!TIP]
+> Helpful advice for doing things better or more easily.
+```
+
+> [!TIP]
+> Helpful advice for doing things better or more easily.
+
+```md {file="content/example.md"}
+> [!WARNING]
+> Urgent info that needs immediate user attention to avoid problems.
+```
+
+> [!WARNING]
+> Urgent info that needs immediate user attention to avoid problems.
+
+```md {file="content/example.md"}
+> [!CAUTION]
+> Advises about risks or negative outcomes of certain actions.
+```
+
+> [!CAUTION]
+> Advises about risks or negative outcomes of certain actions.
+
+### Titles and headings
+
+Follow these conventions for titles and headings.
+
+- Use sentence-style capitalization.
+- Avoid formatted strings.
+- Keep them concise.
+- Do not create a single subsection under a section; either add more subsections or remove the heading.
+
+### Page descriptions
+
+When writing the page `description` use imperative present tense when possible. For example:
+
+{{< code-toggle file=content/en/functions/data/_index.md fm=true >}}
+title: Cast functions
+description: Use these functions to cast a value from one data type to another.
+{{< /code-toggle >}}
+
+### Function and method descriptions
+
+Start descriptions in the functions and methods sections with "Returns", or for boolean values, "Reports whether".
+
+### File paths and names
+
+Enclose directory names, file names, and file paths in backticks, except when used in:
+
+- Page titles
+- Section headings (`h1`-`h6`)
+- The `description` field in front matter
 
 ### Glossary
 
 [Glossary][] terms are defined on individual pages, providing a central repository for definitions, though these pages are not directly linked from the site.
 
-Definitions must be complete sentences, with the first sentence defining the term. Italicize the first occurrence of the term and any referenced glossary terms for consistency.
+Definitions must be complete sentences, with the first sentence defining the term. Italicize the first occurrence of the term and the first occurrence of any referenced glossary terms for consistency.
 
 Link to glossary terms using this syntax: `[term](g)`
 
@@ -104,69 +211,7 @@ When creating a [taxonomy][] template, do this...
 
 Do not italicize the template type in a title, heading, or front matter description.
 
-### Titles and headings
-
-- Use sentence-style capitalization.
-- Avoid formatted strings.
-- Keep them concise.
-
-### Page descriptions
-
-When writing the page `description` use imperative present tense when possible. For example:
-
-{{< code-toggle file=content/en/functions/data/_index.md fm=true >}}
-title: Data functions
-linkTitle: data
-description: Use these functions to read local or remote data files.
-{{< /code-toggle >}}
-
-### Writing style
-
-Prefer active voice and present tense.
-
-No → With Hugo you can build a static site.\
-Yes → Build a static site with Hugo.
-
-No → This will cause Hugo to generate HTML files in the `public` directory.\
-Yes → Hugo generates HTML files in the `public` directory.
-
-Use second person instead of third person.
-
-No → Users should exercise caution when deleting files.\
-Better → You must be cautious when deleting files.\
-Best → Be cautious when deleting files.
-
-Minimize adverbs.
-
-No → Hugo is extremely fast.\
-Yes → Hugo is fast.
-
-> [!NOTE]
-> "It's an adverb, Sam. It's a lazy tool of a weak mind." (Outbreak, 1995).
-
-### Function and method descriptions
-
-Start descriptions in the functions and methods sections with "Returns", or for booelan values, "Reports whether".
-
-### File paths and names
-
-Enclose directory names, file names, and file paths in backticks, except when used in:
-
-- Page titles
-- Section headings (`h1`-`h6`)
-- The `description` field in front matter
-
-### Miscellaneous
-
-Other best practices:
-
-- Introduce lists with a sentence or phrase, not directly under a heading.
-- Do not use Hugo's `ref` or `relref` shortcodes.
-- Prioritize current best practices over multiple options or historical information.
-- Use short, focused code examples.
-- Use [basic english][] where possible for a global audience.
-
-## Front matter fields
+## Front matter
 
 This site uses the front matter fields listed in the table below.
 
@@ -224,7 +269,7 @@ Use of the alternate title is limited to the "See also" sidebar.
 
 ## Code examples
 
-With examples of template code:
+Use short, focused code examples. When including template code examples, follow these conventions.
 
 - Indent with two spaces.
 - Insert a space after an opening action delimiter.
@@ -286,7 +331,7 @@ assets/
 ```
 ````
 
-To include a file name header and copy-to-clipboard button:
+Use the `file` and `copy` attributes to include a file name header and copy-to-clipboard button.
 
 ````md {file="content/example.md"}
 ```go-html-template {file="layouts/_partials/foo.html" copy=true}
@@ -296,7 +341,7 @@ To include a file name header and copy-to-clipboard button:
 ```
 ````
 
-To wrap the code block within an initially-opened `details` element using a non-default summary:
+Use the `details`, `open`, and `summary` attributes to wrap the code block in an initially-opened `details` element with a custom summary.
 
 ````md {file="content/example.md"}
 ```go-html-template {details=true open=true summary="layouts/_partials/foo.html" copy=true}
@@ -306,7 +351,7 @@ To wrap the code block within an initially-opened `details` element using a non-
 ```
 ````
 
-Whitespace trimming is enabled by default. To override this behavior and preserve leading and trailing whitespace:
+Whitespace trimming is enabled by default. Use `trim=false` to preserve leading and trailing whitespace.
 
 ````md {file="content/example.md"}
 ```go-html-template {trim=false}
@@ -339,7 +384,7 @@ title = 'My Site'
 {{</* /code-toggle */>}}
 ```
 
-### Front matter
+### Front matter examples
 
 Use the [code-toggle shortcode](#code-toggle) to include front matter example, setting the `fm` attribute to `true`:
 
@@ -350,62 +395,6 @@ date = 2023-11-09T12:56:07-08:00
 draft = false
 {{</* /code-toggle */>}}
 ```
-
-## Callouts
-
-Use callouts (admonitions) to visually emphasize important information.
-
-There are five callout types: `note`, `important`, `tip`, `warning`, and `caution`. These are the usage statistic as of 10 Jun 2026, including usage on this page:
-
-- note (302)
-- tip (5)
-- important (7)
-- warning (7)
-- caution (5)
-
-The predominant use of the `note` callout type is a historical artifact; the previous theme only provided a `note` shortcode, so the callouts were generic.
-
-In the examples below, the callout type (e.g., `note`, `warning`) is case-insensitive.
-
-```md {file="content/example.md"}
-> [!NOTE]
-> Useful information that users should know, even when skimming content.
-```
-
-> [!NOTE]
-> Useful information that users should know, even when skimming content.
-
-```md {file="content/example.md"}
-> [!IMPORTANT]
-> Key information users need to know to achieve their goal.
-```
-
-> [!IMPORTANT]
-> Key information users need to know to achieve their goal.
-
-```md {file="content/example.md"}
-> [!TIP]
-> Helpful advice for doing things better or more easily.
-```
-
-> [!TIP]
-> Helpful advice for doing things better or more easily.
-
-```md {file="content/example.md"}
-> [!WARNING]
-> Urgent info that needs immediate user attention to avoid problems.
-```
-
-> [!WARNING]
-> Urgent info that needs immediate user attention to avoid problems.
-
-```md {file="content/example.md"}
-> [!CAUTION]
-> Advises about risks or negative outcomes of certain actions.
-```
-
-> [!CAUTION]
-> Advises about risks or negative outcomes of certain actions.
 
 ## Shortcodes
 
@@ -467,6 +456,8 @@ This is a link to the [embedded alias template][].
 [embedded alias template]: <{{%/* eturl alias */%}}>
 ```
 
+The `eturl` shortcode looks up URLs in `data/embedded_template_urls.toml`.
+
 ### glossary-term
 
 Use the `glossary-term` shortcode to insert the definition of the given glossary term.
@@ -499,17 +490,19 @@ This is a new feature.
 {{</* /new-in */>}}
 ```
 
-## New features
+## Feature state
+
+### New features
 
 Use the [new-in](#new-in) shortcode to indicate a new feature.
 
-The new-in shortcode will trigger a build warning if the specified version is older than a predefined threshold, based on differences in major and minor versions. This serves as a reminder to remove this shortcode call. See [details][].
+The shortcode will trigger a build warning if the specified version is older than a predefined threshold, based on differences in major and minor versions. This serves as a reminder to remove the shortcode call. See [details][].
 
-## Deprecated features
+### Deprecated features
 
 Use the [deprecated-in](#deprecated-in) shortcode to indicate that a feature is deprecated.
 
-The deprecated-in shortcode will trigger a build warning if the specified version is older than a predefined threshold, based on differences in major and minor versions. This serves as a reminder to remove this shortcode call and the associated content. See [details][].
+The shortcode will trigger a build warning if the specified version is older than a predefined threshold, based on differences in major and minor versions. This serves as a reminder to remove the shortcode call and the associated content. See [details][].
 
 When deprecating a feature that has its own page, also set the `expiryDate` in front matter to two years from the date of deprecation. Include a brief comment to explain the setting:
 
