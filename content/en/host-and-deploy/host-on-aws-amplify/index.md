@@ -121,8 +121,10 @@ Step 1
             fi
       build:
         commands:
-          - echo "Building the project..."
-          - hugo build --gc --minify
+          # Build the project
+          - |
+            echo "Building the project..."
+            hugo build --gc --minify
     artifacts:
       baseDirectory: public
       files:

@@ -139,7 +139,7 @@ Step 2
           id: cache-restore
           uses: actions/cache/restore@v6
           with:
-            path: ${{ runner.temp }}/hugo_cache
+            path: ${{ runner.temp }}/.cache/hugo
             key: hugo-${{ forgejo.run_id }}
             restore-keys: hugo-
 
@@ -149,12 +149,12 @@ Step 2
             hugo build \
               --gc \
               --minify \
-              --cacheDir "${{ runner.temp }}/hugo_cache"
+              --cacheDir "${{ runner.temp }}/.cache/hugo"
 
         - name: Cache save
           uses: actions/cache/save@v6
           with:
-            path: ${{ runner.temp }}/hugo_cache
+            path: ${{ runner.temp }}/.cache/hugo
             key: ${{ steps.cache-restore.outputs.cache-primary-key }}
 
         - name: Deploy
