@@ -45,7 +45,7 @@ The example above:
 1. Creates a map with the relevant key-value pairs using the [`dict`][] function
 1. Encodes the map as a JSON string using the [`jsonify`][] function
 1. Creates a resource from the JSON string using the `resources.FromString` function
-1. Publishes the file to the root of the `public` directory using the resource's `.Publish` method
+1. Publishes the file to the root of the `public` directory using the resource's `Publish` method
 
 Combine `resources.FromString` with [`resources.ExecuteAsTemplate`][] if your string contains template actions. Rewriting the example above:
 

@@ -73,7 +73,7 @@ Hugo will throw an error:
 
     can't evaluate field Title in type int
 
-The error occurs because we are trying to use the `.Title` method on an integer instead of a `Page` object. Inside of the `with` block, if we want to render the page title, we need to get the context passed into the template.
+The error occurs because we are trying to use the `Title` method on an integer instead of a `Page` object. Inside of the `with` block, if we want to render the page title, we need to get the context passed into the template.
 
 > [!NOTE]
 > Use the `$` to get the context passed into the template.
