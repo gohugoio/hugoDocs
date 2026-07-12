@@ -43,7 +43,7 @@ And this template:
 </ul>
 ```
 
-When rendering content of type "books", the `Render` method calls:
+When rendering content of type `books`, the `Render` method calls:
 
 ```text
 layouts/books/summary.html
@@ -84,7 +84,7 @@ And this template:
 </ul>
 ```
 
-When rendering content of type "books", the `Render` method calls:
+When rendering content of type `books`, the `Render` method calls:
 
 ```text
 layouts/books/_views/summary.html
