@@ -19,6 +19,9 @@ aliases: [/tools/frontends/]
 [GitCMS][]
 : GitCMS is an AI-focused CMS for markdown-based content sites that brings together Content Agents for ChatGPT and Claude using MCP app, a friendly notion-like interface for non-technical team members, and a structured editorial publishing workflow. It is built for teams that want to manage blogs, documentation, changelogs, and other markdown content with the speed of AI assistance and the reliability of a review-driven publishing process.
 
+[HugoKit][]
+: HugoKit is a native Mac app for Hugo. It runs the development server, previews your content and templates, edits front matter and site configuration, checks a site before it ships, and publishes to GitHub Pages or over SFTP – all without the terminal. It works on the Hugo sites you already have, and leaves your files as it found them. Free.
+
 [PubCrank][]
 : PubCrank is a static site editor which lets you define templates for different front matter layouts in your site. This gives writers an easy-to-use visual interface to create and edit content while maintaining the guardrails that the developer has created. PubCrank is free for local editing.
 
@@ -44,6 +47,7 @@ aliases: [/tools/frontends/]
 [Decap CMS]: https://decapcms.org/
 [GitCMS]: https://gitcms.dev
 [Hugo/Decap CMS starter]: https://github.com/decaporg/one-click-hugo-cms
+[HugoKit]: https://hugokit.com
 [Pages CMS]: https://pagescms.org/
 [PubCrank]: https://www.pubcrank.com/
 [Quiqr Desktop]: https://quiqr.org/
