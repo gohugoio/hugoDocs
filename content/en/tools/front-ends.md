@@ -22,9 +22,6 @@ aliases: [/tools/frontends/]
 [HugoKit][]
 : HugoKit is a native Mac app for Hugo. It runs the development server, previews your content and templates, edits front matter and site configuration, checks a site before it ships, and publishes to GitHub Pages or over SFTP – all without the terminal. It works on the Hugo sites you already have, and leaves your files as it found them. Free.
 
-[PubCrank][]
-: PubCrank is a static site editor which lets you define templates for different front matter layouts in your site. This gives writers an easy-to-use visual interface to create and edit content while maintaining the guardrails that the developer has created. PubCrank is free for local editing.
-
 [Sitepins][]
 : Sitepins is a Git-based CMS built for static site generators like Hugo. It offers a clean visual editor, media management, role-based permissions, shortcode support, and more. To get started, simply connect your GitHub repository, configure your content folders, and start visually editing your Hugo site with Sitepins.
 
