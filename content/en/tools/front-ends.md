@@ -46,7 +46,6 @@ aliases: [/tools/frontends/]
 [Hugo/Decap CMS starter]: https://github.com/decaporg/one-click-hugo-cms
 [HugoKit]: https://hugokit.com
 [Pages CMS]: https://pagescms.org/
-[PubCrank]: https://www.pubcrank.com/
 [Quiqr Desktop]: https://quiqr.org/
 [Sitepins]: https://sitepins.com
 [Sveltia CMS]: https://github.com/sveltia/sveltia-cms/
