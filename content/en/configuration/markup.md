@@ -241,6 +241,7 @@ This is the default configuration for the AsciiDoc renderer:
 
 {{< code-toggle file=hugo >}}
 [markup.asciidocExt]
+backend = 'html5s'
 extensions = ['asciidoctor-html5s','asciidoctor-diagram']
 workingFolderCurrent = true
 [markup.asciidocExt.attributes]
