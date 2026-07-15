@@ -13,7 +13,7 @@ params:
 {{< new-in 0.141.0 >}}
 The `Err` method on the returned resource was removed in v0.141.0.
 
-Use the [`try`][] statement instead, as shown in the [error handling](#error-handling) example below.
+Use the [`try`](/functions/go-template/try/) statement instead, as shown in the [error handling](#error-handling) example below.
 {{< /new-in >}}
 
 ```go-html-template
