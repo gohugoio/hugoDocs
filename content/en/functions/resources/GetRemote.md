@@ -29,6 +29,10 @@ Use the [`try`](/functions/go-template/try/) statement instead, as shown in the 
 {{ end }}
 ```
 
+When you publish a remote resource with the [`Permalink`][], [`RelPermalink`][], or [`Publish`][] methods as shown above,
+Hugo places the resulting file in the root of [`publishDir`][] with the basename of the URL.
+To ensure unique cache keys, Hugo appends a hash to the original filename.
+
 ## Options
 
 The `resources.GetRemote` function accepts an options map.
@@ -237,3 +241,7 @@ Note that the entry above is:
 [`try`]: /functions/go-template/try/
 [allowlist]: https://en.wikipedia.org/wiki/Whitelist
 [configure file caches]: /configuration/caches/
+[`Permalink`]: /methods/resource/permalink/
+[`RelPermalink`]: /methods/resource/relpermalink/
+[`Publish`]: /methods/resource/publish/
+[`publishDir`]: /configuration/all/#publishdir
