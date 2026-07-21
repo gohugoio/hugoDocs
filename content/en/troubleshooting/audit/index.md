@@ -57,7 +57,7 @@ _Tested with GNU Bash 5.1 and GNU grep 3.7._
 : This is the placeholder produced instead of the default value or an empty string if a translation is missing.
 
 `(<nil>)`
-: This string will appear in the rendered HTML when passing a nil value to the `printf` function.
+: This string will appear in the rendered HTML when passing a `nil` value to the `printf` function.
 
 `(&lt;nil&gt;)`
 : Same as above when the value returned from the `printf` function has not been passed through the [`safe.HTML`][] function.

@@ -155,7 +155,7 @@ When retrieving remote data, use the [`transform.Unmarshal`][] function to [unma
 Use the [`try`][] statement to capture HTTP request errors. If you do not handle the error yourself, Hugo will fail the build.
 
 > [!NOTE]
-> Hugo does not classify an HTTP response with status code 404 as an error. In this case `resources.GetRemote` returns nil.
+> Hugo does not classify an HTTP response with status code 404 as an error. In this case `resources.GetRemote` returns `nil`.
 
 ```go-html-template
 {{ $url := "https://broken-example.org/images/a.jpg" }}

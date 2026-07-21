@@ -368,7 +368,7 @@ Is rendered to:
 To exclude a page with an undefined field from a boolean _inequality_ test:
 
 1. Create a slice using a boolean comparison
-1. Create a slice using a nil comparison
+1. Create a slice using a `nil` comparison
 1. Subtract the second slice from the first slice using the [`collections.Complement`][] function.
 
 This template:
