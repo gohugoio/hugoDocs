@@ -29,9 +29,7 @@ Use the [`try`](/functions/go-template/try/) statement instead, as shown in the 
 {{ end }}
 ```
 
-When you publish a remote resource with the [`Permalink`][], [`RelPermalink`][], or [`Publish`][] methods as shown above,
-Hugo places the resulting file in the root of [`publishDir`][] with the basename of the URL.
-To ensure unique cache keys, Hugo appends a hash to the original filename.
+When you publish a remote resource with the [`Permalink`][], [`RelPermalink`][], or [`Publish`][] methods as shown above, Hugo places the resulting file in the root of [`publishDir`][] with the basename of the URL. To ensure unique cache keys, Hugo appends a hash to the original filename.
 
 ## Options
 
@@ -237,11 +235,11 @@ Note that the entry above is:
 [Content-Type]: https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Content-Type
 [`Data.Headers`]: /methods/resource/data/#headers
 [`Data`]: /methods/resource/data/
+[`Permalink`]: /methods/resource/permalink/
+[`Publish`]: /methods/resource/publish/
+[`RelPermalink`]: /methods/resource/relpermalink/
+[`publishDir`]: /configuration/all/#publishdir
 [`transform.Unmarshal`]: /functions/transform/unmarshal/
 [`try`]: /functions/go-template/try/
 [allowlist]: https://en.wikipedia.org/wiki/Whitelist
 [configure file caches]: /configuration/caches/
-[`Permalink`]: /methods/resource/permalink/
-[`RelPermalink`]: /methods/resource/relpermalink/
-[`Publish`]: /methods/resource/publish/
-[`publishDir`]: /configuration/all/#publishdir
