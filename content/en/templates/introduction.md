@@ -7,8 +7,6 @@ keywords: []
 weight: 10
 ---
 
-{{< newtemplatesystem >}}
-
 {{% glossary-term template %}}
 
 Templates use [variables](#variables), [functions][], and [methods][] to transform your content, resources, and data into a published page.

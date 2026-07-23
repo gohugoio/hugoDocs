@@ -100,8 +100,7 @@ Although similar to the [`partial`][] function, there are key differences.
 
 `Render` method|`partial` function
 :--|:--
-The `Page` object is automatically passed to the given template. You cannot pass additional context.|You must specify the context, allowing you to pass a combination of objects, slices, maps, and scalars.
-The template is resolved automatically via the [template lookup order][].|You must specify the template name, relative to the `layouts/_partials` directory.
+The `Page` object is automatically passed to the given template. You cannot pass additional context.|You must specify the context, allowing you to pass a combination of objects, slices, maps, and scalars. The template is resolved automatically via the [template lookup order][].|You must specify the template name, relative to the `layouts/_partials` directory.
 
 [`partial`]: /functions/partials/include/
 [template lookup order]: /templates/lookup-order/

@@ -7,8 +7,6 @@ weight: 120
 aliases: [/templates/shortcode-templates/]
 ---
 
-{{< newtemplatesystem >}}
-
 > [!NOTE]
 > Before creating custom shortcodes, please review the [shortcodes][] page in the [content management][] section. Understanding the usage details will help you design and create better templates.
 
@@ -26,10 +24,13 @@ Hugo provides [embedded shortcodes][] for many common tasks, but you'll likely n
 
 ## Directory structure
 
-Create _shortcode_ templates within the `layouts/_shortcodes` directory, either at its root or organized into subdirectories.
+Place shortcode templates in `layouts/_shortcodes` for global availability, or inside a path-specific directory to scope them to pages within that path.
 
 ```tree
 layouts/
+├── books/
+│   └── _shortcodes/
+│       └── toc.html
 └── _shortcodes/
     ├── diagrams/
     │   ├── kroki.html
@@ -41,32 +42,15 @@ layouts/
     ├── capture.html
     ├── column.html
     ├── include.html
-    └── row.html
+    ├── row.html
+    └── toc.html
 ```
 
-When calling a shortcode in a subdirectory, specify its path relative to the `_shortcode` directory, excluding the file extension.
+When calling a shortcode in a subdirectory, specify its path relative to the `_shortcodes` directory, excluding the file extension.
 
 ```md
 {{</* media/audio path=/audio/podcast/episode-42.mp3 */>}}
 ```
-
-## Lookup order
-
-Hugo selects _shortcode_ templates based on the shortcode name, the current output format, and the current language. The examples below are sorted by specificity in descending order. The least specific path is at the bottom of the list.
-
-Shortcode name|Output format|Language|Template path
-:--|:--|:--|:--
-foo|html|en|`layouts/_shortcodes/foo.en.html`
-foo|html|en|`layouts/_shortcodes/foo.html.html`
-foo|html|en|`layouts/_shortcodes/foo.html`
-foo|html|en|`layouts/_shortcodes/foo.html.en.html`
-
-Shortcode name|Output format|Language|Template path
-:--|:--|:--|:--
-foo|rss|en|`layouts/_shortcodes/foo.en.rss.xml`
-foo|rss|en|`layouts/_shortcodes/foo.rss.xml`
-foo|rss|en|`layouts/_shortcodes/foo.en.xml`
-foo|rss|en|`layouts/_shortcodes/foo.xml`
 
 ## Methods
 
@@ -135,7 +119,7 @@ The example above uses:
 
 ### Insert image with error handling
 
-The previous example, while functional, silently fails if the image is missing, and does not gracefully exit if a required argument is missing. We'll add error handling to address these issues:
+The previous example silently fails if the image is missing and does not exit gracefully if a required argument is missing. This version adds error handling to address both issues:
 
 ```go-html-template {file="layouts/_shortcodes/image.html"}
 {{- with .Get "path" }}
@@ -166,19 +150,19 @@ ERROR The "image" shortcode requires a 'width' argument: see "/home/user/project
 
 ### Positional arguments
 
-Shortcode arguments can be [named or positional][]. We used named arguments previously; let's explore positional arguments. Here's the named argument version of our example:
+Shortcode arguments can be [named or positional][]. The previous examples used named arguments; this section demonstrates positional arguments. Here is the named argument version for comparison:
 
 ```md {file="content/example/index.md"}
 {{</* image path=a.jpg width=300 alt="A white kitten" */>}}
 ```
 
-Here's how to call it with positional arguments:
+Call it with positional arguments:
 
 ```md {file="content/example/index.md"}
 {{</* image a.jpg 300 "A white kitten" */>}}
 ```
 
-Using the `Get` method with zero-indexed keys, we'll initialize variables with descriptive names in our template:
+Use the `Get` method with zero-indexed keys to initialize variables with descriptive names:
 
 ```go-html-template {file="layouts/_shortcodes/image.html"}
 {{ $path := .Get 0 }}
@@ -217,7 +201,7 @@ When using named arguments, the `Params` method returns a map:
 {{ .Params.alt }} → A white kitten
 ```
 
- When using positional arguments, the `Params` method returns a slice:
+When using positional arguments, the `Params` method returns a slice:
 
 ```md {file="content/example/index.md"}
 {{</* image a.jpg 300 "A white kitten" */>}}
@@ -226,14 +210,14 @@ When using named arguments, the `Params` method returns a map:
 ```go-html-template {file="layouts/_shortcodes/image.html"}
 {{ index .Params 0 }} → a.jpg
 {{ index .Params 1 }} → 300
-{{ index .Params 1 }} → A white kitten
+{{ index .Params 2 }} → A white kitten
 ```
 
 Combine the `Params` method with the [`collections.IsSet`][] function to determine if a parameter is set, even if its value is falsy.
 
 ### Inner content
 
-Extract the content enclosed within shortcode tags using the [`Inner`][] method. This example demonstrates how to pass both content and a title to a shortcode. The shortcode then generates a `div` element containing an `h2` element (displaying the title) and the provided content.
+Use the [`Inner`][] method to extract the content enclosed within shortcode tags. This example passes a title argument and inner content to a shortcode that renders them in a `div`.
 
 ```md {file="content/example.md"}
 {{</* contrived title="A Contrived Example" */>}}
@@ -252,7 +236,7 @@ The preceding example called the shortcode using [standard notation][], requirin
 
 ### Nesting
 
-The  [`Parent`][] method provides access to the parent shortcode context when the shortcode in question is called within the context of a parent shortcode. This provides an inheritance model.
+The [`Parent`][] method provides access to the parent shortcode context when the shortcode in question is called within the context of a parent shortcode. This provides an inheritance model.
 
 The following example is contrived but demonstrates the concept. Assume you have a `gallery` shortcode that expects one named `class` argument:
 
@@ -295,7 +279,7 @@ This will output the following HTML. Note how the first two `img` shortcodes inh
 
 ### Other examples
 
-For guidance, consider examining Hugo's embedded shortcodes. The source code, available on [GitHub][], can provide a useful model.
+Examine the source code of Hugo's [embedded shortcodes][GitHub] for additional examples.
 
 ## Detection
 
