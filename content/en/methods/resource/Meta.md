@@ -2,7 +2,7 @@
 title: Meta
 description: Applicable to images, returns an object containing Exif, IPTC, and XMP metadata for supported image formats.
 categories: []
-keywords: ['metadata']
+keywords: [metadata]
 params:
   functions_and_methods:
     returnType: meta.MetaInfo
