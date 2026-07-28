@@ -299,13 +299,13 @@ For guidance, consider examining Hugo's embedded shortcodes. The source code, av
 
 ## Detection
 
-The [`HasShortcode`][] method allows you to check if a specific shortcode has been called on a page. For example, consider a custom audio shortcode:
+The [`HasShortcode`][] method allows you to check if a specific shortcode has been called on a page. For example, consider a custom `audio` shortcode:
 
 ```md {file="content/example.md"}
 {{</* audio src=/audio/test.mp3 */>}}
 ```
 
-You can use the `HasShortcode` method in your base template to conditionally load CSS if the audio shortcode was used on the page:
+You can use the `HasShortcode` method in your base template to conditionally load CSS if the `audio` shortcode was used on the page:
 
 ```go-html-template {file="layouts/baseof.html"}
 <head>

@@ -78,6 +78,14 @@ Adhere to these Markdown conventions:
 - Remove consecutive blank lines.
 - Remove trailing spaces.
 
+### Formatting
+
+Do not use formatting (backticks, bold, italic, etc.) in:
+
+- Page titles
+- Section headings (`h1`-`h6`)
+- The `description` field in front matter
+
 ### Callouts
 
 Use callouts (admonitions) to visually emphasize important information.
@@ -148,11 +156,17 @@ Start descriptions in the functions and methods sections with "Returns", or for 
 
 ### File paths and names
 
-Enclose directory names, file names, and file paths in backticks, except when used in:
+Wrap directory names, file names, and file paths in backticks.
 
-- Page titles
-- Section headings (`h1`-`h6`)
-- The `description` field in front matter
+### Shortcode names
+
+Wrap shortcode names in backticks. Link to the shortcode page using the name as the link text, not the word "shortcode":
+
+```md {file="content/example.md"}
+Use the [`highlight`] shortcode to render syntax-highlighted code.
+
+[`highlight`]: /shortcodes/highlight/
+```
 
 ### Glossary
 
@@ -171,7 +185,7 @@ Term lookups are case-insensitive, ignore formatting, and support singular and p
 [`Global Resources`](g)
 ```
 
-Use the [glossary-term shortcode](#glossary-term) to insert a term definition:
+Use the [`glossary-term`](#glossary-term) shortcode to insert a term definition:
 
 ```md {file="content/example.md"}
 {{%/* glossary-term "global resource" */%}}
@@ -374,7 +388,7 @@ Use this syntax to escape the call within examples:
 
 ### Project configuration
 
-Use the [code-toggle shortcode](#code-toggle) to include project configuration examples:
+Use the [`code-toggle`](#code-toggle) shortcode to include project configuration examples:
 
 ```md {file="content/example.md"}
 {{</* code-toggle file=hugo */>}}
@@ -386,7 +400,7 @@ title = 'My Site'
 
 ### Front matter examples
 
-Use the [code-toggle shortcode](#code-toggle) to include front matter example, setting the `fm` attribute to `true`:
+Use the [`code-toggle`](#code-toggle) shortcode to include front matter example, setting the `fm` attribute to `true`:
 
 ```md {file="content/example.md"}
 {{</* code-toggle file=content/posts/my-first-post.md fm=true */>}}
