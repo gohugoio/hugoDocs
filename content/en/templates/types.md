@@ -69,7 +69,7 @@ Hugo can apply a _base_ template to the following template types: [home](#home),
 > [!NOTE]
 > If a template doesn't meet all these criteria, Hugo executes it exactly as provided, without applying a _base_ template.
 
-When Hugo applies a _base_ template, it replaces its [`block`][] actions with content from the corresponding `define` actions found in the template to which the base template is applied.
+When Hugo applies a _base_ template, it replaces its [`block`][] actions with content from the corresponding `define` actions found in the template to which the _base_ template is applied.
 
 For example, the _base_ template below calls the [`partial`][] function to include `head`, `header`, and `footer` elements. The `block` action acts as a placeholder, and its content will be replaced by a matching `define` action  from the template to which it is applied.
 
@@ -87,7 +87,7 @@ For example, the _base_ template below calls the [`partial`][] function to inclu
     {{ block "main" . }}
       This will be replaced with content from the
       corresponding "define" action found in the template
-      to which this base template is applied.
+      to which this _base_ template is applied.
     {{ end }}
   </main>
   <footer>
@@ -100,7 +100,7 @@ For example, the _base_ template below calls the [`partial`][] function to inclu
 ```go-html-template {file="layouts/home.html"}
 {{ define "main" }}
   This will replace the content of the "block" action
-  found in the base template.
+  found in the _base_ template.
 {{ end }}
 ```
 
