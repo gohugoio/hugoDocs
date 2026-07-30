@@ -38,6 +38,10 @@ The `css.Sass` function accepts an options map.
   {{ $r := resources.Get "sass/main.scss" | css.Sass $opts }}
   ```
 
+`importContext`
+: {{< new-in 0.165.0 />}}
+: (`resource.ResourceGetter`) A [resource getter](g) to use when resolving `@use` and `@import` statements. Hugo searches this context first, matching by the path as written in the statement, before falling back to the file system. Applicable to Dart Sass.
+
 `includePaths`
 : (`slice`) A slice of paths, relative to the project root, that the transpiler will use when resolving `@use` and `@import` statements.
 

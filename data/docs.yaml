@@ -1571,6 +1571,8 @@ config:
       style: monokai
       tabWidth: 4
       wrapperClass: highlight
+    rst:
+      syntaxHighlight: long
     tableOfContents:
       endLevel: 3
       ordered: false
@@ -1595,6 +1597,10 @@ config:
       suffixes:
       - xml
       - rss
+    application/source-map:
+      delimiter: .
+      suffixes:
+      - map
     application/toml:
       delimiter: .
       suffixes:
@@ -1620,6 +1626,14 @@ config:
       delimiter: .
       suffixes:
       - ttf
+    font/woff:
+      delimiter: .
+      suffixes:
+      - woff
+    font/woff2:
+      delimiter: .
+      suffixes:
+      - woff2
     image/avif:
       delimiter: .
       suffixes:
@@ -2224,12 +2238,11 @@ config:
     enableInlineShortcodes: false
     exec:
       allow:
-      - ^(dart-)?sass(-embedded)?$
+      - ^(dart-)?sass$
       - ^go$
       - ^git$
       - ^node$
       - ^postcss$
-      - ^tailwindcss$
       osEnv:
       - '(?i)^((HTTPS?|NO)_PROXY|PATH(EXT)?|APPDATA|TE?MP|TERM|GO\w+|(XDG_CONFIG_)?HOME|USERPROFILE|SSH_AUTH_SOCK|DISPLAY|LANG|SYSTEMDRIVE|PROGRAMDATA)$'
     funcs:
@@ -2879,6 +2892,16 @@ tpl:
           Build processes the given CSS Resource with ESBuild.
           Note that this method is identical to the one in the js Namespace.
         Examples: []
+      ChromaStyles:
+        Aliases: null
+        Args:
+        - opts
+        Description: |-
+          ChromaStyles generates a CSS stylesheet for the Chroma code highlighter
+          and returns it as a Resource. This stylesheet is needed if
+          markup.highlight.noClasses is disabled in config.
+          The style defaults to the markup.highlight.style config setting.
+        Examples: []
       PostCSS:
         Aliases:
         - postCSS
@@ -3170,11 +3193,6 @@ tpl:
         Description: ''
         Examples: null
       IsExtended:
-        Aliases: null
-        Args: null
-        Description: ''
-        Examples: null
-      IsMultiHost:
         Aliases: null
         Args: null
         Description: ''
@@ -4037,6 +4055,11 @@ tpl:
         - args
         Description: 'GetRemote gets the URL (via HTTP(s)) in the first argument in args and creates Resource object that can be used for\nfurther transformations.\n\nA second argument may be provided with an option map.\n\nNote: This method does not return any error as a second return value,\nfor any error situations the error can be checked in .Err.'
         Examples: []
+      Key:
+        Aliases: null
+        Args: null
+        Description: ''
+        Examples: null
       Match:
         Aliases: null
         Args:
@@ -4072,7 +4095,7 @@ tpl:
         Aliases: null
         Args:
         - r
-        Description: PostProcess processes r after the build.
+        Description: 'PostProcess processes r after the build.\n\nDeprecated: Use templates.Defer instead.'
         Examples: []
     safe:
       CSS:
@@ -4701,6 +4724,17 @@ tpl:
           Inner executes the inner content of a partial decorator.
           Note that there is only one inner block per partial decorator, but inner may be called multiple times with, typically, different data.
         Examples: []
+    testinginternal:
+      HashString:
+        Aliases: null
+        Args: null
+        Description: ''
+        Examples: null
+      NewCachedResourceGetter:
+        Aliases: null
+        Args: null
+        Description: ''
+        Examples: null
     time:
       AsTime:
         Aliases: null

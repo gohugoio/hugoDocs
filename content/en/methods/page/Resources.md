@@ -63,14 +63,12 @@ Use these methods on the `Resources` object.
 
 `Mount`
 : {{< new-in 0.140.0 />}}
-: (`ResourceGetter`) Mounts the given resources from the two arguments base (`string`) to the given target path (`string`) and returns an object that implements [Get](#get). Note that leading slashes in target marks an absolute path. Relative target paths allows you to mount resources relative to another set, e.g. a [Page bundle][]:
+: (`resource.ResourceGetter`) Mounts the given resources, remapping from the base path (first argument) to the target path (second argument), and returns a [resource getter](g). A leading slash in the target marks an absolute path. Relative target paths allow you to mount resources relative to another set, such as a [page bundle](g):
 
   ```go-html-template
   {{ $common := resources.Match "/js/headlessui/*.*" }}
   {{ $importContext := (slice $.Page ($common.Mount "/js/headlessui" ".")) }}
   ```
-
-  This method is currently only useful when using the [`js.Batch`][] function.
 
 ## Pattern matching
 
@@ -78,8 +76,6 @@ With the `GetMatch` and `Match` methods, Hugo determines a match using a case-in
 
 {{% include "/_common/glob-patterns.md" %}}
 
-[Page bundle]: /content-management/page-bundles/
-[`js.Batch`]: /functions/js/batch/#import-context
 [`resources.ByType`]: /functions/resources/bytype/
 [`resources.GetMatch`]: /functions/resources/getmatch/
 [`resources.Get`]: /functions/resources/get/

@@ -62,6 +62,9 @@ Create your content in the [Emacs Org Mode][] format preceded by front matter. Y
 
 Create your content in the [AsciiDoc][] format preceded by front matter. Hugo renders AsciiDoc content to HTML using the Asciidoctor executable. You must install Asciidoctor and its dependencies (Ruby) to render the AsciiDoc content format.
 
+> [!NOTE]
+> Hugo's default security policy does not permit execution of the `asciidoctor` binary. You must add it to the [`security.exec.allow`][] list in your project configuration.
+
 You can configure the AsciiDoc renderer in your [project configuration][configure asciidoc].
 
 In its default configuration, Hugo passes these CLI flags when calling the Asciidoctor executable:
@@ -79,6 +82,9 @@ hugo build --logLevel info
 ### Pandoc
 
 Create your content in the [Pandoc][] format preceded by front matter. Hugo renders Pandoc content to HTML using the Pandoc executable. You must install Pandoc to render the Pandoc content format.
+
+> [!NOTE]
+> Hugo's default security policy does not permit execution of the `pandoc` binary. You must add it to the [`security.exec.allow`][] list in your project configuration.
 
 Hugo passes these CLI flags when calling the Pandoc executable:
 
@@ -115,6 +121,9 @@ This is another citation: [@WatsonCrick1953, p. 33]
 
 Create your content in the [reStructuredText][] format preceded by front matter. Hugo renders reStructuredText content to HTML using [Docutils][], specifically rst2html. You must install Docutils and its dependencies (Python) to render the reStructuredText content format.
 
+> [!NOTE]
+> Hugo's default security policy does not permit execution of the `rst2html` binary. You must add it to the [`security.exec.allow`][] list in your project configuration.
+
 Hugo passes these CLI flags when calling the rst2html executable:
 
 ```sh
@@ -146,6 +155,7 @@ Native renderers are faster than external renderers.
 [Pandoc]: https://pandoc.org/MANUAL.html#pandocs-markdown
 [Render hooks]: /render-hooks/introduction/
 [`security.allowContent`]: /configuration/security/#allowcontent
+[`security.exec.allow`]: /configuration/security/#execallow
 [configure asciidoc]: /configuration/markup/#asciidoc
 [configure goldmark]: /configuration/markup/#goldmark
 [details]: /content-management/front-matter/#emacs-org-mode
