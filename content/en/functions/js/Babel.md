@@ -51,7 +51,7 @@ Step 5
 
   {{< code-toggle file=hugo >}}
   [security.exec]
-    allow = ['^(dart-)?sass(-embedded)?$', '^go$', '^git$', '^node$', '^postcss$', '^tailwindcss$', '^babel$']
+    allow = ['^(dart-)?sass$', '^go$', '^git$', '^node$', '^postcss$', '^babel$']
   {{< /code-toggle >}}
 
 Step 6

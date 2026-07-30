@@ -82,6 +82,10 @@ The following options apply when using a PostCSS configuration file:
 `config`
 : (`string`) The path to the directory that contains the PostCSS configuration file. By default, Hugo searches the root of the project directory and any modules for `postcss.config.js`, `postcss.config.mjs`, and `postcss.config.cjs` in that order. Use this option only if your configuration file is located in a custom subdirectory.
 
+`importContext`
+: {{< new-in 0.165.0 />}}
+: (`resource.ResourceGetter`) A [resource getter](g) to use when resolving `@import` statements. Hugo searches this context first, matching by the path as written in the statement, before falling back to the file system. Applicable when [`inlineImports`](#inlineimports) is `true`.
+
 `inlineImports`
 : (`bool`) Whether to enable inlining of import statements. It does so recursively, but will only import a file once. Hugo looks for imports relative to the module mount and respects theme overrides. Default is `false`.
 
