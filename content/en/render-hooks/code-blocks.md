@@ -21,7 +21,7 @@ exit
 A fenced code block consists of:
 
 - A leading [code fence][]
-- An optional [info string][]
+- An optional [info string](g)
 - A code sample
 - A trailing code fence
 
@@ -132,4 +132,3 @@ Hugo includes an [embedded code block render hook][] to render [GoAT diagrams][]
 [diagrams]: /content-management/diagrams/#mermaid-diagrams
 [embedded code block render hook]: <{{% eturl render-codeblock-goat %}}>
 [highlighting options]: /functions/transform/highlight/#options
-[info string]: https://spec.commonmark.org/current/#info-string
