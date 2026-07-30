@@ -107,7 +107,7 @@ The `css.Sass` function accepts an options map.
   ```
 
 `targetPath`
-: (`string`) The publish path for the transformed resource, relative to the [`publishDir`][]. If unset, the target path defaults to the asset's original path with a `.css` extension.
+: (`string`) The target path of the resource, relative to the [`publishDir`][]. If unset, the target path defaults to the asset's original path with a `.css` extension.
 
   ```go-html-template
   {{ $opts := dict

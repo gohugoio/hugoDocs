@@ -265,7 +265,7 @@ Step 2
 : Generate the highlighter CSS. For example:
 
   ```sh
-  rougify style monokai.sublime > assets/css/syntax.css
+  rougify style monokai.sublime > assets/css/highlight.css
   ```
 
 Step 3
@@ -273,7 +273,7 @@ Step 3
 
   ```go-html-template {file="layouts/baseof.html"}
   <head>
-    {{ with resources.Get "css/syntax.css" }}
+    {{ with resources.Get "css/highlight.css" }}
       <link rel="stylesheet" href="{{ .RelPermalink }}" integrity="{{ .Data.Integrity }}" crossorigin="anonymous">
     {{ end }}
   </head>
@@ -326,7 +326,7 @@ Step 2
 : Generate the highlighter CSS. For example:
 
   ```sh
-  pygmentize -S monokai -f html > assets/css/syntax.css
+  pygmentize -S monokai -f html > assets/css/highlight.css
   ```
 
 Step 3
@@ -334,7 +334,7 @@ Step 3
 
   ```go-html-template {file="layouts/baseof.html"}
   <head>
-    {{ with resources.Get "css/syntax.css" }}
+    {{ with resources.Get "css/highlight.css" }}
       <link rel="stylesheet" href="{{ .RelPermalink }}" integrity="{{ .Data.Integrity }}" crossorigin="anonymous">
     {{ end }}
   </head>

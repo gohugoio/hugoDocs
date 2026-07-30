@@ -77,6 +77,8 @@ The `transform.ToMath` function accepts an options map. These options are a subs
 `throwOnError`
 : (`bool`) Whether to throw a `ParseError` when KaTeX encounters an unsupported command or invalid LaTeX. Default is `true`.
 
+Hugo caches the result, so calling the function multiple times with the same arguments incurs no additional overhead.
+
 ## Error handling
 
 There are three ways to handle errors:

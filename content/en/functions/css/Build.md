@@ -165,7 +165,7 @@ The `css.Build` function accepts an options map to fine-tune bundling, minificat
   In the example above, the target environment is roughly equivalent to the [browserlist][] "baseline widely available" profile as of March 2026.
 
 `targetPath`
-: (`string`) The path to the generated CSS file, relative to the project's [`publishDir`][]. If unset, this defaults to the asset's original path with a `.css` extension.
+: (`string`) The target path of the resource, relative to the [`publishDir`][]. If unset, the target path defaults to the asset's original path with a `.css` extension.
 
   ```go-html-template
   {{ $opts := dict "targetPath" "css/styles.css" }}
