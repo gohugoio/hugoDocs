@@ -89,7 +89,7 @@ Step 4
   ```
 
 Step 5
-: Call the _partial_ template from your base template, deferring template execution until after all sites and output formats have been rendered:
+: Call the _partial_ template from your _base_ template, deferring template execution until after all sites and output formats have been rendered:
 
   ```go-html-template {file="layouts/baseof.html" copy=true}
   <head>

@@ -86,7 +86,7 @@ Instead of client-side JavaScript rendering of mathematical markup using MathJax
 {{- end -}}
 ```
 
-Then, in your base template, conditionally include the KaTeX CSS within the head element:
+Then, in your _base_ template, conditionally include the KaTeX CSS within the head element:
 
 ```go-html-template {file="layouts/baseof.html" copy=true}
 <head>

@@ -58,7 +58,7 @@ Step 1
   math = true
   {{< /code-toggle >}}
 
-  The configuration above enables mathematical rendering on every page unless you set the `math` parameter to `false` in front matter. To enable mathematical rendering as needed, set the `math` parameter to `false` in your project configuration, and set the `math` parameter to `true` in front matter. Use this parameter in your base template as shown in [Step 3](#step-3).
+  The configuration above enables mathematical rendering on every page unless you set the `math` parameter to `false` in front matter. To enable mathematical rendering as needed, set the `math` parameter to `false` in your project configuration, and set the `math` parameter to `true` in front matter. Use this parameter in your _base_ template as shown in [Step 3](#step-3).
 
   > [!NOTE]
   > The configuration above precludes the use of the `$...$` delimiter pair for inline equations. Although you can add this delimiter pair to the configuration and JavaScript, you must double-escape the `$` symbol when used outside of math contexts to avoid unintended formatting.
@@ -102,7 +102,7 @@ Step 2
   The delimiters above must match the delimiters in your project configuration.
 
 Step 3
-: Conditionally call the _partial_ template from the base template.
+: Conditionally call the _partial_ template from the _base_ template.
 
   ```go-html-template {file="layouts/baseof.html"}
   <head>

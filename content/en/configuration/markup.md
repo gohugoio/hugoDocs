@@ -269,7 +269,7 @@ Step 2
   ```
 
 Step 3
-: In your base template add a link to the CSS file:
+: In your _base_ template add a link to the CSS file:
 
   ```go-html-template {file="layouts/baseof.html"}
   <head>
@@ -330,7 +330,7 @@ Step 2
   ```
 
 Step 3
-: In your base template add a link to the CSS file:
+: In your _base_ template add a link to the CSS file:
 
   ```go-html-template {file="layouts/baseof.html"}
   <head>

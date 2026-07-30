@@ -77,7 +77,7 @@ Step 6
   ```
 
 Step 7
-: Call the _partial_ template from your base template:
+: Call the _partial_ template from your _base_ template:
 
   ```go-html-template {file="layouts/baseof.html" copy=true}
   <head>

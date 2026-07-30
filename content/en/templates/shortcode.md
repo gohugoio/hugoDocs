@@ -305,7 +305,7 @@ The [`HasShortcode`][] method allows you to check if a specific shortcode has be
 {{</* audio src=/audio/test.mp3 */>}}
 ```
 
-You can use the `HasShortcode` method in your base template to conditionally load CSS if the `audio` shortcode was used on the page:
+You can use the `HasShortcode` method in your _base_ template to conditionally load CSS if the `audio` shortcode was used on the page:
 
 ```go-html-template {file="layouts/baseof.html"}
 <head>
