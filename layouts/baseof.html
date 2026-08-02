@@ -17,7 +17,9 @@
 		{{ with (templates.Defer (dict "key" "global")) }}
 			{{ $t := debug.Timer "tailwindcss" }}
 			{{ with resources.Get "css/styles.css" }}
-				{{ $opts := dict "minify" (not hugo.IsDevelopment) }}
+				{{ $light := css.ChromaStyles (dict "targetPath" "/css/components/chroma.css" "mode" "light") }}
+				{{ $dark := css.ChromaStyles (dict "targetPath" "/css/components/chroma_dark.css" "mode" "dark" "modeSelector" true) }}
+				{{ $opts := dict "minify" (not hugo.IsDevelopment) "importContext" (slice $light $dark) }}
 				{{ with . | css.TailwindCSS $opts }}
 					{{ partial "helpers/linkcss.html" (dict "r" .) }}
 				{{ end }}
