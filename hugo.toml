@@ -83,7 +83,7 @@ allow = ['^go$', '^git$', '^node$', '^tailwindcss$']
   [markup.highlight]
     lineNumbersInTable = false
     noClasses          = false
-    style              = 'solarized-dark'
+    style              = 'modus-operandi'
     wrapperClass       = 'highlight not-prose'
 
 [mediaTypes]
