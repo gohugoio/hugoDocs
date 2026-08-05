@@ -317,10 +317,10 @@ Follow the steps below to enable syntax highlighting.
 Step 1
 : Set `syntaxHighlight` to `short` in your project configuration.
 
-{{< code-toggle file=hugo >}}
-[markup.rst]
-  syntaxHighlight = 'short'
-{{< /code-toggle >}}
+  {{< code-toggle file=hugo >}}
+  [markup.rst]
+    syntaxHighlight = 'short'
+  {{< /code-toggle >}}
 
 Step 2
 : Generate the highlighter CSS. For example:
