@@ -82,6 +82,7 @@ Use any of the following logical operators:
 
 `not in`
 : (`bool`) Reports whether the given field value is not a member of `VALUE`. Compare string to slice, or string to string.
+
 `intersect`
 : (`bool`) Reports whether the given field value (a slice) contains one or more elements in common with `VALUE`.
 
