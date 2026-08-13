@@ -22,9 +22,6 @@ aliases: [/tools/frontends/]
 [HugoKit][]
 : HugoKit is a native Mac app for Hugo. It runs the development server, previews your content and templates, edits front matter and site configuration, checks a site before it ships, and publishes to GitHub Pages or over SFTP – all without the terminal. It works on the Hugo sites you already have, and leaves your files as it found them. Free.
 
-[Sitepins][]
-: Sitepins is a Git-based CMS built for static site generators like Hugo. It offers a clean visual editor, media management, role-based permissions, shortcode support, and more. To get started, simply connect your GitHub repository, configure your content folders, and start visually editing your Hugo site with Sitepins.
-
 ## Open-source
 
 [Decap CMS][]
@@ -35,6 +32,9 @@ aliases: [/tools/frontends/]
 
 [Quiqr Desktop][]
 : Quiqr Desktop is a open-source, cross-platform, offline desktop CMS for Hugo with built-in Git functionality for deploying static sites to any hosting server.
+
+[Sitepins][]
+: Sitepins is an open source Git-based CMS for Hugo and other static site generators, released under the AGPL-3.0 license. It reads the markdown, front matter, and TOML or YAML config already in your repository and builds a visual editor from it, with no schema configuration. Shortcodes are supported in the editor, and every change is committed straight back to the repo. Clients and non-technical editors can be invited by email without a GitHub account, while developers keep working in their IDE on the same repository.
 
 [Sveltia CMS][]
 :  Sveltia CMS is a drop-in replacement for Decap CMS which is built from the ground up with powerful and performant modern UI library Svelte. Sveltia CMS incorporates i18n into every corner of the product, while striving to radically improve UX, performance and productivity.
