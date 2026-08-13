@@ -13,6 +13,9 @@ The estimated reading time is calculated by dividing the number of words in the 
 
 By default, Hugo assumes a reading speed of 212 words per minute. For CJK languages, it assumes 500 words per minute.
 
+> [!NOTE]
+> To use the CJK reading speed, set [`hasCJKLanguage`][] to `true` in your site configuration. Hugo automatically applies the CJK rate when this setting is enabled and the page contains CJK characters.
+
 ```go-html-template
 {{ printf "Estimated reading time: %d minutes" .ReadingTime }}
 ```
@@ -45,3 +48,5 @@ Then in your template:
 ```
 
 We cast the `.WordCount` to a float to obtain a float when we divide by the reading speed. Then round up to the nearest integer.
+
+[`hasCJKLanguage`]: /configuration/all/#hascjklanguage

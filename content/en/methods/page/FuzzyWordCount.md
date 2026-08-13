@@ -15,4 +15,8 @@ params:
 
 To get the exact word count, use the [`WordCount`][] method.
 
+> [!NOTE]
+> For content in CJK languages (Chinese, Japanese, Korean), set [`hasCJKLanguage`][] to `true` in your site configuration. This setting affects FuzzyWordCount in the same way as WordCount.
+
+[`hasCJKLanguage`]: /configuration/all/#hascjklanguage
 [`WordCount`]: /methods/page/wordcount/
