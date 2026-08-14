@@ -127,7 +127,7 @@ aliases: [/getting-started/configuration/]
 : See [configure front matter][].
 
 `hasCJKLanguage`
-: (`bool`) Whether to automatically detect [CJK](g) languages in content. Affects the values returned by the [`WordCount`][] and [`FuzzyWordCount`][] methods. Default is `false`.
+: (`bool`) Whether to automatically detect [CJK](g) languages in content. Affects the values returned by the [`FuzzyWordCount`][], [`ReadingTime`][], [`Summary`][], and [`WordCount`][] methods. To override this behavior on a given page, set the [`isCJKLanguage`][] field in its front matter. Default is `false`.
 
 `HTTPCache`
 : See [configure HTTP cache][].
@@ -360,10 +360,12 @@ Some configuration settings, such as menus and custom parameters, can be defined
 [`GitInfo`]: /methods/page/gitinfo/
 [`Lastmod`]: /methods/page/lastmod/
 [`MainSections`]: /methods/site/mainsections/
+[`ReadingTime`]: /methods/page/readingtime/
 [`Summary`]: /methods/page/summary/
 [`WordCount`]: /methods/page/wordcount/
 [`disabled`]: /configuration/languages/#disabled
 [`erroridf`]: /functions/fmt/erroridf/
+[`isCJKLanguage`]: /content-management/front-matter/#iscjklanguage
 [`os.UserCacheDir`]: https://pkg.go.dev/os#UserCacheDir
 [`segments`]: /configuration/segments/
 [`strings.Title`]: /functions/strings/title/

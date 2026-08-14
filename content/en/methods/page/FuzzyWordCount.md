@@ -16,7 +16,8 @@ params:
 To get the exact word count, use the [`WordCount`][] method.
 
 > [!NOTE]
-> For content in CJK languages (Chinese, Japanese, Korean), set [`hasCJKLanguage`][] to `true` in your site configuration. This setting affects FuzzyWordCount in the same way as WordCount.
+> For content in [CJK](g) languages, set [`hasCJKLanguage`][] to `true` in your project configuration. When enabled, Hugo applies CJK word counting rules to pages containing CJK characters. To override this behavior on a given page, set the [`isCJKLanguage`][] field in its front matter.
 
-[`hasCJKLanguage`]: /configuration/all/#hascjklanguage
 [`WordCount`]: /methods/page/wordcount/
+[`hasCJKLanguage`]: /configuration/all/#hascjklanguage
+[`isCJKLanguage`]: /content-management/front-matter/#iscjklanguage
