@@ -18,7 +18,7 @@ To work with global or remote resources, see the [`resources`][] functions.
 Use these methods on the `Resources` object.
 
 `ByType`
-: (`resource.Resources`) Returns a collection of page resources of the given [media type][], or `nil` if none found. The media type is typically one of `image`, `text`, `audio`, `video`, or `application`.
+: (`resource.Resources`) Returns a collection of page resources of the given [media type](g), or `nil` if none found. The media type is typically one of `image`, `text`, `audio`, `video`, or `application`.
 
   ```go-html-template
   {{ range .Resources.ByType "image" }}
@@ -81,4 +81,3 @@ With the `GetMatch` and `Match` methods, Hugo determines a match using a case-in
 [`resources.Get`]: /functions/resources/get/
 [`resources.Match`]: /functions/resources/match/
 [`resources`]: /functions/resources/
-[media type]: https://en.wikipedia.org/wiki/Media_type
