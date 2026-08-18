@@ -58,22 +58,22 @@ aliases: [/getting-started/configuration/]
 : (`string`) The designated directory for data files. Default is `data`. {{% module-mounts-note %}}
 
 `defaultContentLanguage`
-: (`string`) The projects's [default language](g), conforming to the syntax described in [RFC 5646][].
+: (`string`) The project's [default language](g), conforming to the syntax described in [RFC 5646][]. When one or more languages are defined, this value must match one of the defined [language keys][].
 
 `defaultContentLanguageInSubdir`
 : (`bool`) Whether to publish the default content language to a subdirectory matching the [`defaultContentLanguage`](#defaultcontentlanguage). Default is `false`.
 
 `defaultContentRole`
 : {{< new-in 0.153.0 />}}
-: (`string`) The project's [default role](g).
+: (`string`) The project's [default role](g). When one or more roles are defined, this value must match one of the defined role names.
 
 `defaultContentRoleInSubdir`
 : {{< new-in 0.153.0 />}}
-: (`bool`) Whether to publish the default content [role](g) to a subdirectory matching the [`defaultContentRole`](#defaultcontentrole). Default is `false`.
+: (`bool`) Whether to publish the default content role to a subdirectory matching the [`defaultContentRole`](#defaultcontentrole). Default is `false`.
 
 `defaultContentVersion`
 : {{< new-in 0.153.0 />}}
-: (`string`) The project's [default version](g).
+: (`string`) The project's [default version](g). When one or more versions are defined, this value must match one of the defined version names.
 
 `defaultContentVersionInSubdir`
 : {{< new-in 0.153.0 />}}
@@ -411,6 +411,7 @@ Some configuration settings, such as menus and custom parameters, can be defined
 [define-automatically]: /content-management/menus/#define-automatically
 [details]: /hugo-modules/theme-components/
 [duration]: https://pkg.go.dev/time#Duration
+[language keys]: /configuration/languages/#language-keys
 [module mounts]: /configuration/module/#mounts
 [non-spacing marks]: https://www.compart.com/en/unicode/category/Mn
 [relative-urls]: /content-management/urls/#relative-urls
