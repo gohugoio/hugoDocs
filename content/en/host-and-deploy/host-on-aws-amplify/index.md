@@ -33,10 +33,10 @@ Step 1
   env:
     variables:
       # Define tool versions
-      DART_SASS_VERSION: 1.102.0
-      GO_VERSION: 1.26.5
-      HUGO_VERSION: 0.165.0
-      NODE_VERSION: 24.19.0
+      DART_SASS_VERSION: 1.104.0
+      GO_VERSION: 1.27.0
+      HUGO_VERSION: 0.166.0
+      NODE_VERSION: 24.20.0
 
       # Set the build time zone
       TZ: Europe/Oslo

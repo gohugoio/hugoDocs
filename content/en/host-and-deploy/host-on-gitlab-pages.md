@@ -33,10 +33,10 @@ Step 1
   ```yaml {file=".gitlab-ci.yml" copy=true}
   variables:
     # Define tool versions
-    DART_SASS_VERSION: 1.102.0
-    GO_VERSION: 1.26.5
-    HUGO_VERSION: 0.165.0
-    NODE_VERSION: 24.19.0
+    DART_SASS_VERSION: 1.104.0
+    GO_VERSION: 1.27.0
+    HUGO_VERSION: 0.166.0
+    NODE_VERSION: 24.20.0
 
     # Set the build timezone
     TZ: Europe/Oslo
