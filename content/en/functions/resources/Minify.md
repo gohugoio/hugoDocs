@@ -10,6 +10,8 @@ params:
     signatures: [resources.Minify RESOURCE]
 ---
 
+{{% include "/_common/methods/resource/global-page-remote-resources.md" %}}
+
 ```go-html-template
 {{ $css := resources.Get "css/main.css" }}
 {{ $style := $css | minify }}
