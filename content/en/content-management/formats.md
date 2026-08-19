@@ -58,6 +58,9 @@ Create your content in [HTML][] preceded by front matter. The content is typical
 
 Create your content in the [Emacs Org Mode][] format preceded by front matter. You can use Org Mode keywords for front matter. See [details][].
 
+> [!NOTE]
+> The Emacs Org Mode content format is denied by default. See [`security.allowContent`][].
+
 ### AsciiDoc
 
 Create your content in the [AsciiDoc][] format preceded by front matter. Hugo renders AsciiDoc content to HTML using the Asciidoctor executable. You must install Asciidoctor and its dependencies (Ruby) to render the AsciiDoc content format.
@@ -86,7 +89,15 @@ Create your content in the [Pandoc][] format preceded by front matter. Hugo rend
 > [!NOTE]
 > Hugo's default security policy does not permit execution of the `pandoc` binary. You must add it to the [`security.exec.allow`][] list in your project configuration.
 
-Hugo passes these CLI flags when calling the Pandoc executable:
+The CLI flags that Hugo passes when calling the Pandoc executable depend on the installed Pandoc version.
+
+If the installed version supports the `--math-method` flag introduced in Pandoc 3.11:
+
+```sh
+--citeproc --math-method=mathjax
+```
+
+Otherwise:
 
 ```sh
 --citeproc --mathjax

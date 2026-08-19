@@ -225,6 +225,10 @@ When creating a [taxonomy][] template, do this...
 
 Do not italicize the template type in a title, heading, or front matter description.
 
+### Version-locked dependencies
+
+Some code examples reference the version of a third-party library embedded within Hugo, such as the KaTeX display engine used by the `transform.ToMath` function. Do not update these version references unless the embedded library version changes in Hugo's source code.
+
 ## Front matter
 
 This site uses the front matter fields listed in the table below.
@@ -485,7 +489,7 @@ Use the `glossary-term` shortcode to insert the definition of the given glossary
 Use the `include` shortcode to include content from another page.
 
 ```md {file="content/example.md"}
-{{%/* include "_common/glob-patterns.md" */%}}
+{{%/* include "_common/content-format-table.md" */%}}
 ```
 
 ### new-in

@@ -38,13 +38,13 @@ Step 1
       staticPublishPath: public
       envVars:
         - key: DART_SASS_VERSION
-          value: 1.102.0
+          value: 1.104.0
         - key: GO_VERSION
-          value: 1.26.5
+          value: 1.27.0
         - key: HUGO_VERSION
-          value: 0.165.0
+          value: 0.166.0
         - key: NODE_VERSION
-          value: 24.19.0
+          value: 24.20.0
         - key: TZ
           value: Europe/Oslo
   ```

@@ -21,8 +21,6 @@ params:
 >
 > For page resources, use the [`Resources.GetMatch`][] method on a `Page` object.
 
-Hugo determines a match using a case-insensitive [glob pattern](g).
-
-{{% include "/_common/glob-patterns.md" %}}
+Hugo determines a match using a case-insensitive [glob pattern](g). For syntax rules and examples, see the [glob patterns quick reference guide](/quick-reference/glob-patterns/).
 
 [`Resources.GetMatch`]: /methods/page/resources/#getmatch
