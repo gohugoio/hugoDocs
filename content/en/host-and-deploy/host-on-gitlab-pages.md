@@ -35,7 +35,7 @@ Step 1
     # Define tool versions
     DART_SASS_VERSION: 1.102.0
     GO_VERSION: 1.26.5
-    HUGO_VERSION: 0.165.0
+    HUGO_VERSION: 0.166.0
     NODE_VERSION: 24.19.0
 
     # Set the build timezone
