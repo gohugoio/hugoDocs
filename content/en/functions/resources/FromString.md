@@ -18,9 +18,9 @@ Let's say you need to publish a file named "site.json" in the root of your `publ
 
 ```json
 {
-  "build_date": "2026-08-12T11:32:21-07:00",
-  "hugo_version": "0.165.0",
-  "last_modified": "2026-08-12T10:46:26-07:00"
+  "build_date": "2026-09-01T11:32:21-07:00",
+  "hugo_version": "0.166.0",
+  "last_modified": "2026-09-01T10:46:26-07:00"
 }
 ```
 
