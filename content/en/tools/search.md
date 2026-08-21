@@ -41,6 +41,9 @@ A static website with a dynamic search function? Yes, Hugo provides an alternati
 [INFINI Pizza for WebAssembly][]
 : Pizza is a super-lightweight yet fully featured search engine written in Rust. You can quickly add offline search functionality to your Hugo website in just five minutes with only three lines of code. For a step-by-step guide on integrating it with Hugo, check out [this blog tutorial][].
 
+[hugo-zbsearch][]
+: A Hugo Module providing client-side full-text search powered by [ZBSearch][] (community fork of Orama). Supports 27 languages with stemming, typo tolerance, field boosting, and works with any theme. The search index is built at compile time and runs entirely in the browser — no server or external services required. Distributed as a Hugo Module with zero configuration needed beyond `hugo mod get`.
+
 ## Commercial
 
 [Algolia DocSearch][]
@@ -60,6 +63,7 @@ A static website with a dynamic search function? Yes, Hugo provides an alternati
 [GitHub Gist for Fuse.js integration]: https://gist.github.com/eddiewebb/735feb48f50f0ddd65ae5606a1cb41ae
 [GitHub Gist for Hugo Workflow]: https://gist.github.com/sebz/efddfc8fdcb6b480f567
 [Hugo Lyra]: https://github.com/paolomainardi/hugo-lyra
+[hugo-zbsearch]: https://github.com/serenasensini/hugo-zbsearch
 [INFINI Pizza for WebAssembly]: https://github.com/infinilabs/pizza-docsearch
 [JS & Fuse.js tutorial]: https://makewithhugo.com/add-search-to-a-hugo-site/
 [Lyra]: https://github.com/LyraSearch/lyra
