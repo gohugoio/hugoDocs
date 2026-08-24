@@ -293,6 +293,35 @@ This will output the following HTML. Note how the first two `img` shortcodes inh
 <img src="/images/three.jpg">
 ```
 
+### Rendering order
+
+The [notation][] used to call a shortcode determines when it executes relative to Markdown rendering:
+
+1. Shortcodes called using [Markdown notation][] execute before the Markdown renderer, in document order.
+1. The Markdown renderer runs.
+1. Shortcodes called using [standard notation][] execute after the Markdown renderer, in document order.
+
+This means a shortcode called using standard notation that appears earlier in the document still executes after a shortcode called using Markdown notation that appears later.
+
+Within each phase, shortcodes at the same nesting level execute in document order, top to bottom. When shortcodes are nested, Hugo renders them from the inside out: each nested shortcode executes before its parent. The parent receives the fully rendered output of all nested shortcodes as its [`Inner`][] content.
+
+For example, given:
+
+```md {file="content/example.md"}
+{{</* outer */>}}
+  {{</* inner-a */>}}
+  {{</* inner-b */>}}
+{{</* /outer */>}}
+{{</* standalone */>}}
+```
+
+Hugo renders in this order:
+
+1. `inner-a`
+1. `inner-b`
+1. `outer` (receiving the rendered output of `inner-a` and `inner-b` as `.Inner`)
+1. `standalone`
+
 ### Other examples
 
 For guidance, consider examining Hugo's embedded shortcodes. The source code, available on [GitHub][], can provide a useful model.
@@ -333,6 +362,7 @@ You can use the `HasShortcode` method in your _base_ template to conditionally l
 [embedded shortcodes]: /shortcodes/
 [introduction to templating]: /templates/introduction/
 [named or positional]: /content-management/shortcodes/#arguments
+[notation]: /content-management/shortcodes/#notation
 [shortcodes]: /content-management/shortcodes/
 [standard notation]: /content-management/shortcodes/#standard-notation
 [whitespace]: /templates/introduction/#whitespace
