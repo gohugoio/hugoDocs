@@ -46,7 +46,7 @@ aliases: [/getting-started/configuration/]
 : See [configure cascade][].
 
 `cleanDestinationDir`
-: (`bool`) Whether to remove files from the [`publishDir`](#publishdir) that do not exist in the [`staticDir`](#staticdir) when building the site. This setting will not take effect if the `staticDir` does not exist. Note that `.gitignore` and `.gitattributes` files, along with directories named `.git`, are always preserved in the `publishDir`. Default is `false`.
+: (`bool`) Whether to remove files from the [`publishDir`](#publishdir) that do not exist in the [`staticDir`](#staticdir). Hugo performs this cleanup before rendering, so the current build's rendered output is unaffected. If the `staticDir` does not exist, the cleanup does not run. Note that `.gitignore` and `.gitattributes` files are always preserved, as are directories whose names begin with a dot, provided their parent directory also survives. Default is `false`.
 
 `contentDir`
 : (`string`) The designated directory for content files. Default is `content`. {{% module-mounts-note %}}
