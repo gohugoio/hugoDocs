@@ -5,6 +5,7 @@ description: Overview of the new template system in Hugo v0.146.0.
 categories: []
 keywords: []
 weight: 1
+draft: true
 ---
 
 In [Hugo v0.146.0][], we performed a full re-implementation of how Go templates are handled in Hugo. This includes structural changes to the `layouts` folder and a new, more powerful template lookup system.
@@ -89,10 +90,61 @@ layouts
         └── list.html
 ```
 
-[^internal]: The old way of doing it made it difficult or impossible to, e.g., override `_internal/disqus.html` in a theme. Now you can just create a _partial_ template with the same name.
+## Pages in content root
+
+Consider this content structure:
+
+```text
+content/
+├── _index.md
+├── about.md
+└── contact.md
+```
+
+To create unique templates for both `about.md` and `contact.md`, use the template structure below:
+
+```text
+layouts/
+├── about/
+│   └── page.html  <-- renders content/about.md
+├── contact/
+│   └── page.html  <-- renders content/contact.md
+├── baseof.html
+├── home.html      <-- renders content/_index_.md
+├── page.html
+├── section.html
+├── taxonomy.html
+└── term.html
+```
+
+Alternatively, you may specify `layout` in front matter:
+
+{{< code-toggle file=content/about.md fm=true >}}
+title: About
+layout: about
+{{< /code-toggle >}}
+
+{{< code-toggle file=content/content.md fm=true >}}
+title: Content
+layout: content
+{{< /code-toggle >}}
+
+```text
+layouts/
+├── about.html    <-- renders content/about.md
+├── contact.html  <-- renders content/contact.md
+├── baseof.html
+├── home.html     <-- renders content/_index_.md
+├── page.html
+├── section.html
+├── taxonomy.html
+└── term.html
+```
+
 [^type]: The `type` set in front matter will effectively replace the `section` folder in [Page path][] when doing lookups.
+[^internal]: The old way of doing it made it very hard/impossible to, e.g., override `_internal/disqus.html` in a theme. Now you can just create a _partial_ template with the same name.
 
 [Hugo v0.146.0]: https://github.com/gohugoio/hugo/releases/tag/v0.146.0
-[Page kinds]: https://gohugo.io/methods/page/kind/
-[Page path]: https://gohugo.io/methods/page/path/
+[Page kinds]: /methods/page/kind/
+[Page path]: /methods/page/path/
 [template types]: /templates/types/
