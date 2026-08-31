@@ -13,7 +13,7 @@
       }
 		</style>
 
-		{{ partial "layouts/head/head-js.html" . }}
+		{{ partialCached "layouts/head/head-js.html" . }}
 		{{ with (templates.Defer (dict "key" "global")) }}
 			{{ $t := debug.Timer "tailwindcss" }}
 			{{ with resources.Get "css/styles.css" }}
@@ -67,12 +67,12 @@
 			{{ end }}
 		</div>
 		{{/* Common icons. */}}
-		{{ partial "layouts/icons.html" . }}
+		{{ partialCached "layouts/icons.html" . }}
 		{{/* Common templates. */}}
-		{{ partial "layouts/templates.html" . }}
+		{{ partialCached "layouts/templates.html" . }}
 		{{/* Footer. */}}
 		{{ block "footer" . }}
-			{{ partial "layouts/footer.html" . }}
+			{{ partialCached "layouts/footer.html" . }}
 		{{ end }}
 		{{ partial "layouts/hooks/body-end.html" . }}
 	</body>
