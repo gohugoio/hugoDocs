@@ -17,9 +17,7 @@ params:
 {{ end }}
 ```
 
-The `TARGETPATH` is relative to the [`publishDir`][].
+The `TARGETPATH` is relative to the [site root](g).
 
 > [!NOTE]
 > Use the `resources.Copy` function with global, page, and remote resources.
-
-[`publishDir`]: /configuration/all/#publishdir
