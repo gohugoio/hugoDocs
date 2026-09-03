@@ -13,6 +13,9 @@ aliases: [/tools/frontends/]
 [CloudCannon][]
 : The intuitive Git-based CMS for your Hugo website. CloudCannon syncs changes from your Git repository and pushes content changes back, so your development and content teams are always in sync. Edit all of your content on the page with visual editing, build entire pages with reusable custom components and then publish confidently.
 
+[CMS Brew][]
+: CMS Brew is a hosted Git-based CMS where a client edits a Hugo site by describing the change in chat instead of learning an admin interface. It scans the repository on connect and maps the editable content, front matter, and data files itself, with no config file or schema to write. Safe edits publish as ordinary commits to GitHub or GitLab, and anything risky or out of scope is held for the developer to approve.
+
 [DatoCMS][]
 : DatoCMS is a fully customizable administrative area for your static websites. Use your favorite website generator, let your clients publish new content independently, and the host the site anywhere you like.
 
@@ -40,6 +43,7 @@ aliases: [/tools/frontends/]
 :  Sveltia CMS is a drop-in replacement for Decap CMS which is built from the ground up with powerful and performant modern UI library Svelte. Sveltia CMS incorporates i18n into every corner of the product, while striving to radically improve UX, performance and productivity.
 
 [CloudCannon]: https://cloudcannon.com/hugo-cms/
+[CMS Brew]: https://cmsbrew.com/cms-for/hugo?utm_source=hugo-docs
 [DatoCMS]: https://www.datocms.com
 [Decap CMS]: https://decapcms.org/
 [GitCMS]: https://gitcms.dev
