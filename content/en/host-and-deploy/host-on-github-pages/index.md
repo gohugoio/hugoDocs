@@ -89,14 +89,14 @@ Step 2
 
         - name: Install Go
           if: hashFiles('go.mod') != ''
-          uses: actions/setup-go@v6
+          uses: actions/setup-go@v7
           with:
             go-version: ${{ env.GO_VERSION }}
             cache: false
 
         - name: Install Node.js
           if: hashFiles('package-lock.json') != ''
-          uses: actions/setup-node@v6
+          uses: actions/setup-node@v7
           with:
             node-version: ${{ env.NODE_VERSION }}
 
