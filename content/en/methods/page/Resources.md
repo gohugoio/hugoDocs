@@ -72,9 +72,7 @@ Use these methods on the `Resources` object.
 
 ## Pattern matching
 
-With the `GetMatch` and `Match` methods, Hugo determines a match using a case-insensitive [glob pattern](g).
-
-{{% include "/_common/glob-patterns.md" %}}
+With the `GetMatch` and `Match` methods, Hugo determines a match using a case-insensitive [glob pattern](g). For syntax rules and examples, see the [glob patterns quick reference guide](/quick-reference/glob-patterns/).
 
 [`resources.ByType`]: /functions/resources/bytype/
 [`resources.GetMatch`]: /functions/resources/getmatch/
