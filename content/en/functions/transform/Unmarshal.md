@@ -49,7 +49,7 @@ author: Victor Hugo
 
 ## Unmarshal a resource
 
-Use the `transform.Unmarshal` function with global, page, and remote resources.
+Use the `transform.Unmarshal` function with global, page, and remote resources. Hugo caches the result, so calling the function multiple times with the same resource incurs no additional overhead.
 
 ### Global resource
 

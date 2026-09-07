@@ -28,7 +28,7 @@ Each color in the slice is an object with the following methods:
 : (`string`) Returns the [hexadecimal color][] value, prefixed with a hash sign.
 
 `Luminance`
-: (`float64`) Returns the [relative luminance][] of the color in the sRGB colorspace in the range [0, 1]. A value of `0` represents the darkest black, while a value of `1` represents the lightest white.
+: (`float64`) Returns the [relative luminance][] of the color in the sRGB colorspace in the range `[0, 1]`. A value of `0` represents the darkest black, while a value of `1` represents the lightest white.
 
 > [!NOTE]
 > Image filters such as [`images.Dither`][], [`images.Padding`][], and [`images.Text`][] accept either hexadecimal color values or `images.Color` objects as arguments. Hugo renders an `images.Color` object as a hexadecimal color value.

@@ -34,7 +34,7 @@ This is the default configuration:
 ## Per-index settings
 
 `applyFilter`
-: (`string`) Apply a `type` specific filter to the result of a search. This is only used for the `fragments` type.
+: (`bool`) Apply a `type` specific filter to the result of a search. This is only used for the `fragments` type. Default is `false`.
 
 `cardinalityThreshold`
 : (`int`) If between `1` and `100`, this is a percentage. All keywords that are used in more than this percentage of documents are removed. For example, setting this to `60` will remove all keywords that are used in more than 60% of the documents in the index. If `0`, no keyword is removed from the index. Default is `0`.

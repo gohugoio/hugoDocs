@@ -33,10 +33,10 @@ Step 1
   ```yaml {file=".gitlab-ci.yml" copy=true}
   variables:
     # Define tool versions
-    DART_SASS_VERSION: 1.101.0
-    GO_VERSION: 1.26.4
-    HUGO_VERSION: 0.163.3
-    NODE_VERSION: 24.16.0
+    DART_SASS_VERSION: 1.102.0
+    GO_VERSION: 1.26.5
+    HUGO_VERSION: 0.165.0
+    NODE_VERSION: 24.19.0
 
     # Set the build timezone
     TZ: Europe/Oslo
@@ -163,7 +163,7 @@ Step 2
 
     # Build the project
     echo "Building the project..."
-    hugo build --gc --minify
+    hugo build --gc --minify --baseURL "${CI_PAGES_URL}"
 
     # Compress published files
     echo "Compressing published files..."

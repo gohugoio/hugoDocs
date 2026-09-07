@@ -26,13 +26,13 @@ When a `Page` object is not in context, you can use the global `page` function:
 ```
 
 > [!NOTE]
-> Do not use the global `page` function in shortcodes, partials called by shortcodes, or cached partials. See [warnings](#warnings) below.
+> Do not use the global `page` function in shortcodes, _partial_ templates called by shortcodes, or cached _partial_ templates. See [warnings](#warnings) below.
 
 ## Explanation
 
 Hugo almost always passes a `Page` as the data context into the top-level template (e.g., `baseof.html`). The one exception is the multihost sitemap template. This means that you can access the current page with the `.` in the template.
 
-However, when deeply nested inside a [content view](g), [partial](g), or [render hook](g), it is not always practical or possible to access the `Page` object.
+However, when deeply nested inside a [partial template](g) or [render hook](g), it is not always practical or possible to access the `Page` object.
 
 Use the global `page` function to access the `Page` object from anywhere in any template.
 
@@ -78,8 +78,8 @@ In the example above, the global `page` function accesses the `Page` object pass
 Do not use the global `page` function in:
 
 - Shortcodes
-- Partials called by shortcodes
-- Partials cached by the [`partialCached`][] function
+- _Partial_ templates called by shortcodes
+- _Partial_ templates cached by the [`partialCached`][] function
 
 Hugo caches rendered shortcodes. If you use the global `page` function within a shortcode, and the page content is rendered in two or more templates, the cached shortcode may be incorrect.
 

@@ -18,9 +18,9 @@ Let's say you need to publish a file named "site.json" in the root of your `publ
 
 ```json
 {
-  "build_date": "2026-04-04T10:46:21-07:00",
-  "hugo_version": "0.163.3",
-  "last_modified": "2026-04-04T10:46:26-07:00"
+  "build_date": "2026-08-12T11:32:21-07:00",
+  "hugo_version": "0.165.0",
+  "last_modified": "2026-08-12T10:46:26-07:00"
 }
 ```
 
@@ -45,7 +45,7 @@ The example above:
 1. Creates a map with the relevant key-value pairs using the [`dict`][] function
 1. Encodes the map as a JSON string using the [`jsonify`][] function
 1. Creates a resource from the JSON string using the `resources.FromString` function
-1. Publishes the file to the root of the `public` directory using the resource's `.Publish` method
+1. Publishes the file to the root of the `public` directory using the resource's `Publish` method
 
 Combine `resources.FromString` with [`resources.ExecuteAsTemplate`][] if your string contains template actions. Rewriting the example above:
 

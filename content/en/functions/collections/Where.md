@@ -82,6 +82,7 @@ Use any of the following logical operators:
 
 `not in`
 : (`bool`) Reports whether the given field value is not a member of `VALUE`. Compare string to slice, or string to string.
+
 `intersect`
 : (`bool`) Reports whether the given field value (a slice) contains one or more elements in common with `VALUE`.
 
@@ -368,7 +369,7 @@ Is rendered to:
 To exclude a page with an undefined field from a boolean _inequality_ test:
 
 1. Create a slice using a boolean comparison
-1. Create a slice using a nil comparison
+1. Create a slice using a `nil` comparison
 1. Subtract the second slice from the first slice using the [`collections.Complement`][] function.
 
 This template:

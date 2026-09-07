@@ -58,7 +58,7 @@ The `transform.ToMath` function accepts an options map. These options are a subs
 `output`
 : (`string`) Determines the markup language of the output, one of `html`, `mathml`, or `htmlAndMathml`. Default is `mathml`.
 
-  With `html` and `htmlAndMathml` you must include the KaTeX style sheet within the `head` element of your base template.
+  With `html` and `htmlAndMathml` you must include the KaTeX style sheet within the `head` element of your _base_ template.
 
   ```html
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.17.0/dist/katex.min.css" integrity="sha384-vlBdW0r3AcZO/HboRPznQNowvexd3fY8qHOWkBi5q7KGgqJ+F48+DceybYmrVbmB" crossorigin="anonymous">
@@ -76,6 +76,8 @@ The `transform.ToMath` function accepts an options map. These options are a subs
 
 `throwOnError`
 : (`bool`) Whether to throw a `ParseError` when KaTeX encounters an unsupported command or invalid LaTeX. Default is `true`.
+
+Hugo caches the result, so calling the function multiple times with the same arguments incurs no additional overhead.
 
 ## Error handling
 
@@ -121,7 +123,7 @@ Step 2
   ```
 
 Step 3
-: In your base template, conditionally include the KaTeX CSS within the head element.
+: In your _base_ template, conditionally include the KaTeX CSS within the head element.
 
   ```go-html-template {file="layouts/baseof.html" copy=true}
   <head>

@@ -24,24 +24,24 @@ The `default` function returns the second argument if set, else the first argume
 The `default` function returns the second argument if set:
 
 ```go-html-template
-{{ default 42 1 }} → 1
-{{ default 42 "foo" }} → foo
-{{ default 42 (dict "k" "v") }} → map[k:v]
-{{ default 42 (slice "a" "b") }} → [a b]
-{{ default 42 true }} → true
+{{ 1             | default 42 }} → 1
+{{ "foo"         | default 42 }} → foo
+{{ dict "k" "v"  | default 42 }} → map[k:v]
+{{ slice "a" "b" | default 42 }} → [a b]
+{{ true          | default 42 }} → true
 
 <!-- As noted above, the boolean "false" is considered set -->
-{{ default 42 false }} → false
+{{ false         | default 42 }} → false
 ```
 
 The `default` function returns the first argument if the second argument is not set:
 
 ```go-html-template
-{{ default 42 0 }} → 42
-{{ default 42 "" }} → 42
-{{ default 42 dict }} → 42
-{{ default 42 slice }} → 42
-{{ default 42 nil }} → 42
+{{ 0     | default 42 }} → 42
+{{ ""    | default 42 }} → 42
+{{ dict  | default 42 }} → 42
+{{ slice | default 42 }} → 42
+{{ nil   | default 42 }} → 42
 ```
 
 [`or`]: /functions/go-template/or/
