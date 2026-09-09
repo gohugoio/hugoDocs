@@ -2253,9 +2253,10 @@ config:
       mediaTypes: null
       methods:
       - (?i)GET|POST
+      proxyFromEnvironment: false
       urls:
       - (?i)^https?://[a-z0-9]
-      - '! ^https?://\d+\.'
+      - '! (?i)^https?://\d+\.'
       - '! (?i)localhost'
       - '! (?i)^https?://[^/?#]*@'
     node:
