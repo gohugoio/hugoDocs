@@ -21,6 +21,7 @@ params:
 >
 > For page resources, use the [`Resources.Match`][] method on a `Page` object.
 
-Hugo determines a match using a case-insensitive [glob pattern](g). For syntax rules and examples, see the [glob patterns quick reference guide](/quick-reference/glob-patterns/).
+Hugo determines a match using a case-insensitive [glob pattern](g). For syntax rules and examples, see the [glob patterns quick reference guide][]s.
 
 [`Resources.Match`]: /methods/page/resources/#match
+[glob patterns quick reference guide]: /quick-reference/glob-patterns/

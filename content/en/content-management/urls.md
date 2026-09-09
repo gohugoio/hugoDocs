@@ -47,8 +47,6 @@ If you set both `slug` and `url` in front matter, the `url` value takes preceden
 
 #### Include a colon
 
-{{< new-in 0.136.0 />}}
-
 If you need to include a colon in the  `url` front matter field, escape it with backslash characters. Use one backslash if you wrap the string within single quotes, or use two backslashes if you wrap the string within double quotes. With YAML front matter, use a single backslash if you omit quotation marks.
 
 For example, with this front matter:
