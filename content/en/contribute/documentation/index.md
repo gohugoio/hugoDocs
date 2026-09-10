@@ -150,7 +150,7 @@ title: Cast functions
 description: Use these functions to cast a value from one data type to another.
 {{< /code-toggle >}}
 
-### Function and method descriptions
+### Function/method descriptions
 
 Start descriptions in the functions and methods sections with "Returns", or for boolean values, "Reports whether".
 

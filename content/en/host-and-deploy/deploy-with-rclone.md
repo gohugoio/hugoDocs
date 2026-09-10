@@ -25,7 +25,7 @@ hugo build --gc --minify
 rclone sync --interactive --sftp-host sftp.example.com --sftp-user www-data --sftp-ask-password public/ :sftp:www/
 ```
 
-## Configure Rclone for even easier usage
+## Simplify Rclone usage
 
 The easiest way is simply to run `rclone config`.
 

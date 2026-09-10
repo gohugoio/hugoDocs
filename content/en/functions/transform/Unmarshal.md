@@ -286,8 +286,6 @@ Hugo renders this to:
 </ul>
 ```
 
-### XML attributes and namespaces
-
 Let's add a `lang` attribute to the `title` nodes of our RSS feed, and a namespaced node for the ISBN number:
 
 ```xml
