@@ -139,7 +139,7 @@ Follow these conventions for titles and headings.
 - Use sentence-style capitalization.
 - Avoid formatted strings.
 - Keep them concise.
-- Do not create a single subsection under a section; either add more subsections or remove the heading.
+- Do not create a single subsection under a section; either add more subsections or remove the heading. This also applies to a single level 2 heading on an otherwise unheaded page: either add a second level 2 heading, or remove it and let the content flow as body text.
 
 ### Page descriptions
 
