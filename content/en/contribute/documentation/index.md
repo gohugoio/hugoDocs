@@ -152,7 +152,11 @@ description: Use these functions to cast a value from one data type to another.
 
 ### Function/method descriptions
 
-Start descriptions in the functions and methods sections with "Returns", or for boolean values, "Reports whether".
+Start the description with "Returns" to describe the value returned by a function or method, or with "Reports whether" if the returned value is a boolean. If a function or method is used primarily for its side effects, describe the action it performs instead, using third-person present tense. For example:
+
+- `Returns a slice containing the elements after the first N elements of the given slice.`
+- `Reports whether the given page is in the given section.`
+- `Logs a WARNING from a template.`
 
 ### File paths and names
 
