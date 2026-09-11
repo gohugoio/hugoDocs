@@ -11,6 +11,8 @@ params:
 aliases: [/functions/jsonify]
 ---
 
+## Usage
+
 To customize the printing of the JSON, pass an options map as the first
 argument. Supported options are "prefix" and "indent". Each JSON element in
 the output will begin on a new line beginning with _prefix_ followed by one or

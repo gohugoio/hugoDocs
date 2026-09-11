@@ -147,7 +147,7 @@ Hugo passes these CLI flags when calling the rst2html executable:
 
 When converting content to HTML, Hugo uses:
 
-- Native renderers for Markdown, HTML, and Emacs Org mode
+- Native renderers for Markdown, HTML, and Emacs Org Mode
 - External renderers for AsciiDoc, Pandoc, and reStructuredText
 
 Native renderers are faster than external renderers.
