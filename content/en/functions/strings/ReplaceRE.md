@@ -7,7 +7,7 @@ params:
   functions_and_methods:
     aliases: [replaceRE]
     returnType: string
-    signatures: ['strings.ReplaceRE PATTERN REPLACEMENT INPUT [LIMIT]']
+    signatures: ['strings.ReplaceRE PATTERN REPLACEMENT STRING [LIMIT]']
 aliases: [/functions/replacere]
 ---
 
