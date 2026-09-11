@@ -7,7 +7,7 @@ params:
   functions_and_methods:
     aliases: [replace]
     returnType: string
-    signatures: ['strings.Replace INPUT OLD NEW [LIMIT]']
+    signatures: ['strings.Replace STRING OLD NEW [LIMIT]']
 aliases: [/functions/replace]
 ---
 

@@ -7,7 +7,7 @@ params:
   functions_and_methods:
     aliases: []
     returnType: TryValue
-    signatures: ['try EXPRESSION']
+    signatures: ['try EXPR']
 ---
 
 {{< new-in 0.141.0 />}}

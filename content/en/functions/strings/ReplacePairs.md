@@ -7,7 +7,7 @@ params:
   functions_and_methods:
     aliases: []
     returnType: string
-    signatures: ['strings.ReplacePairs OLD NEW [OLD NEW ...] INPUT']
+    signatures: ['strings.ReplacePairs OLD NEW [OLD NEW ...] STRING']
 ---
 
 {{< new-in 0.158.0 />}}
