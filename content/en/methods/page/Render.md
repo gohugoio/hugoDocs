@@ -1,6 +1,6 @@
 ---
 title: Render
-description: Renders a view template with the given page as context, or with an optional context argument.
+description: Returns the result of rendering a view template with the given page as context, or with an optional context argument.
 categories: []
 keywords: []
 params:

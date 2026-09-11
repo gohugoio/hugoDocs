@@ -1,6 +1,6 @@
 ---
 title: Colors
-description: Applicable to images, returns a slice of the most dominant colors using a simple histogram method.
+description: Returns a slice of an image's most dominant colors, ordered from most to least dominant, using a simple histogram method.
 categories: []
 keywords: []
 params:

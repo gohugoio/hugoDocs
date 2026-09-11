@@ -1,6 +1,6 @@
 ---
 title: templates.Defer
-description: Defer execution of a template until all sites and output formats have been rendered.
+description: Defers execution of a template until all sites and output formats have been rendered.
 categories: []
 keywords: []
 params:
