@@ -1,6 +1,6 @@
 ---
 title: openapi3.Unmarshal
-description: Unmarshals the given resource into an OpenAPI 3 Description.
+description: Returns an OpenAPI 3 Description unmarshaled from the given resource.
 categories: []
 keywords: []
 params:

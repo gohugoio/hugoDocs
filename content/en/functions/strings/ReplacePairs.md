@@ -1,6 +1,6 @@
 ---
 title: strings.ReplacePairs
-description: Returns a copy of a string with multiple replacements performed in a single pass, using a slice of old and new string pairs.
+description: Returns the given string, with multiple replacements performed in a single pass using a slice of old and new string pairs.
 categories: []
 keywords: []
 params:

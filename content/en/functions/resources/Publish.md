@@ -1,6 +1,6 @@
 ---
 title: resources.Publish
-description: Publishes the given resource and returns it.
+description: Returns the given resource after publishing it.
 categories: []
 keywords: []
 params:

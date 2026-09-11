@@ -1,6 +1,6 @@
 ---
 title: strings.Replace
-description: Returns a copy of INPUT, replacing all occurrences of OLD with NEW.
+description: Returns the given string, replacing all occurrences of OLD with NEW.
 categories: []
 keywords: []
 params:

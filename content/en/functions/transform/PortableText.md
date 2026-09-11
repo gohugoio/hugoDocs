@@ -1,6 +1,6 @@
 ---
 title: transform.PortableText
-description: Converts Portable Text to Markdown.
+description: Returns the given Portable Text converted to Markdown.
 categories: []
 keywords: []
 params:

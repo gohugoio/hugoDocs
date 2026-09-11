@@ -1,6 +1,6 @@
 ---
 title: transform.Unmarshal
-description: Parses serialized data and returns a map or an array. Supports CSV, JSON, TOML, YAML, and XML.
+description: Returns a map or an array parsed from serialized data in CSV, JSON, TOML, YAML, or XML format.
 categories: []
 keywords: []
 params:

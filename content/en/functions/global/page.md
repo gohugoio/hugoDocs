@@ -1,12 +1,12 @@
 ---
 title: page
-description: Provides global access to a Page object.
+description: Returns the Page object of the current page, accessible from any context.
 categories: []
 keywords: []
 params:
   functions_and_methods:
     aliases: []
-    returnType:
+    returnType: page.Page
     signatures: [page]
 aliases: [/functions/page]
 ---

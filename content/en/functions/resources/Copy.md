@@ -1,6 +1,6 @@
 ---
 title: resources.Copy
-description: Copies the given resource to the target path.
+description: Returns a copy of the given resource at the target path.
 categories: []
 params:
   functions_and_methods:
