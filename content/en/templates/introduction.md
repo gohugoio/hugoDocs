@@ -499,7 +499,7 @@ With this project configuration:
 
 {{< code-toggle file=hugo >}}
 title = 'ABC Widgets'
-baseURL = 'https://example.org'
+baseURL = 'https://example.org/'
 [params]
   subtitle = 'The Best Widgets on Earth'
   copyright-year = '2023'
