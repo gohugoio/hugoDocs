@@ -197,7 +197,7 @@ Most of the Goldmark settings above are self-explanatory, but some require expla
 
 This is the default configuration for the AsciiDoc renderer:
 
-{{< code-toggle config=markup.asciidocExt />}}
+{{< code-toggle config=markup.asciiDocExt />}}
 
 ### Settings {#settings-asciidoc}
 
@@ -304,6 +304,10 @@ INFO 2019/12/22 09:08:48 Rendering book-as-pdf.adoc with C:\Ruby26-x64\bin\ascii
 ```
 
 ## reStructuredText
+
+This is the default configuration for the reStructuredText renderer:
+
+{{< code-toggle config=markup.rst />}}
 
 ### Settings {#settings-restructuredtext}
 

@@ -27,6 +27,8 @@ Hugo selects the content renderer based on the `markup` identifier in front matt
 
 ## Formats
 
+Hugo supports the following content formats.
+
 ### Markdown
 
 Create your content in [Markdown][] preceded by front matter.

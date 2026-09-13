@@ -18,6 +18,8 @@ You can change the structure and appearance of URLs with front matter values and
 
 ## Front matter
 
+Override the default URL for a page using these front matter fields.
+
 ### Slug
 
 Set the `slug` in front matter to override the last segment of the path. This front matter field is not applicable to `home`, `section`, `taxonomy`, or `term` pages.
@@ -118,6 +120,8 @@ Use any of these tokens:
 {{% include "/_common/permalink-tokens.md" %}}
 
 ## Project configuration
+
+Configure permalinks, URL appearance, and post-processing in your project configuration.
 
 ### Permalinks
 

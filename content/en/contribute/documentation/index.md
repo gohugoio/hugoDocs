@@ -515,6 +515,8 @@ This is a new feature.
 
 ## Feature state
 
+Use these shortcodes to indicate the state of a new or deprecated feature.
+
 ### New features
 
 Use the [new-in](#new-in) shortcode to indicate a new feature.

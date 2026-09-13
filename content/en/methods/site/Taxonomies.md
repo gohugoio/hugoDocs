@@ -9,6 +9,8 @@ params:
     signatures: [SITE.Taxonomies]
 ---
 
+## Usage
+
 Conceptually, the `Taxonomies` method on a `Site` object returns a data structure such&nbsp;as:
 
 <!-- markdownlint-disable MD007 MD032 -->
@@ -99,6 +101,8 @@ Hugo renders this to:
 > Please see the [taxonomies][] section for a complete explanation and examples.
 
 ## Examples
+
+The following examples demonstrate common uses of a site's taxonomies.
 
 ### Content by taxonomy term
 

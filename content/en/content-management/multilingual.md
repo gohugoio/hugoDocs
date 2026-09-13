@@ -228,6 +228,8 @@ Localization of menu entries depends on how you define them:
 
 ### Language-specific menus
 
+Define language-specific menu entries using a single configuration file, or using the configuration directory structure.
+
 #### Single configuration file
 
 For a simple menu with a small number of entries, use a single configuration file. For example:
