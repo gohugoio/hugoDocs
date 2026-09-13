@@ -12,5 +12,5 @@ aliases: [/functions/strings.firstupper]
 ---
 
 ```go-html-template
-{{ strings.FirstUpper "foo" }} → Foo
+{{ strings.FirstUpper "hugo" }} → Hugo
 ```
