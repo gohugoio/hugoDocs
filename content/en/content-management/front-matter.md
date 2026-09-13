@@ -126,7 +126,7 @@ The most common front matter fields are `date`, `draft`, `title`, and `weight`, 
   <!-- markdownlint-enable MD049 -->
 
 `slug`
-: (`string`) Overrides the last segment of the URL path. Not applicable to `home`, `section`, `taxonomy`, or `term` pages. See the [URL management][] page for details. Access this value from a template using the [`Slug`][] method on a `Page` object.
+: (`string`) Overrides the last segment of the URL path. Not applicable to the `home` page. See [details][url_management_slug]. Access this value from a template using the [`Slug`][] method on a `Page` object.
 
 `summary`
 : (`string`) Conceptually different than the page `description`, the summary either summarizes the content or serves as a teaser to encourage readers to visit the page. Access this value from a template using the [`Summary`][] method on a `Page` object.
@@ -144,7 +144,7 @@ The most common front matter fields are `date`, `draft`, `title`, and `weight`, 
 : Alias to [expirydate](#expirydate).
 
 `url`
-: (`string`) Overrides the entire URL path. Applicable to regular pages and section pages. See the [URL management][] page for details.
+: (`string`) Overrides the entire URL path. Not applicable to the `home` page. See [details][url_management_url].
 
 `weight`
 : (`int`) The page [weight](g), used to order the page within a [page collection](g). Access this value from a template using the [`Weight`][] method on a `Page` object.
@@ -300,7 +300,6 @@ To override the default time zone, set the [`timeZone`][] in your project config
 [Emacs Org Mode]: https://orgmode.org/
 [JSON]: https://www.json.org/
 [TOML]: https://toml.io/
-[URL management]: /content-management/urls/#slug
 [YAML]: https://yaml.org/
 [`Aliases`]: /methods/page/aliases/
 [`Date`]: /methods/page/date/
@@ -340,3 +339,5 @@ To override the default time zone, set the [`timeZone`][] in your project config
 [sitemap templates]: /templates/sitemap/
 [target a specific template]: /templates/lookup-order/#target-a-template
 [template lookup order]: /templates/lookup-order/
+[url_management_slug]: /content-management/urls/#slug
+[url_management_url]: /content-management/urls/#url
