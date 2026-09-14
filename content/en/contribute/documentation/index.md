@@ -47,6 +47,10 @@ Adhere to these writing style conventions.
 
 - Use [basic english][] where possible for a global audience.
 - Prioritize current best practices over multiple options or historical information.
+- Avoid parenthetical "e.g." expressions, em dashes, and semicolons.
+
+  No → Use inline elements (e.g., `strong`, `em`) sparingly.\
+  Yes → Use inline elements such as `strong` and `em` sparingly.
 
 ### Markdown
 
@@ -78,17 +82,9 @@ Adhere to these Markdown conventions:
 - Remove consecutive blank lines.
 - Remove trailing spaces.
 
-### Formatting
-
-Do not use formatting (backticks, bold, italic, etc.) in:
-
-- Page titles
-- Section headings (`h1`-`h6`)
-- The `description` field in front matter
-
 ### Callouts
 
-Use callouts (admonitions) to visually emphasize important information.
+Use callouts, also known as admonitions, to visually emphasize important information.
 
 There are five callout types: `note`, `important`, `tip`, `warning`, and `caution`. The callout type is case-insensitive.
 
@@ -132,17 +128,16 @@ There are five callout types: `note`, `important`, `tip`, `warning`, and `cautio
 > [!CAUTION]
 > Advises about risks or negative outcomes of certain actions.
 
-### Titles and headings
+### Page titles
 
-Follow these conventions for titles and headings.
+Do not use formatting, such as backticks, bold, or italic, in the `title` field in front matter.
 
 - Use sentence-style capitalization.
-- Avoid formatted strings.
 - Keep them concise.
-- Do not create a single subsection under a section; either add more subsections or remove the heading. This also applies to a single level 2 heading on an otherwise unheaded page: either add a second level 2 heading, or remove it and let the content flow as body text.
-- Precede the first subheading under a heading with a sentence introducing the subsections, unless the heading text alone makes the subsections' purpose obvious.
 
 ### Page descriptions
+
+Do not use formatting, such as backticks, bold, or italic, in the `description` field in front matter.
 
 When writing the page `description` use imperative present tense when possible. For example:
 
@@ -151,13 +146,20 @@ title: Cast functions
 description: Use these functions to cast a value from one data type to another.
 {{< /code-toggle >}}
 
-### Function/method descriptions
-
-Start the description with "Returns" to describe the value returned by a function or method, or with "Reports whether" if the returned value is a boolean. If a function or method is used primarily for its side effects, describe the action it performs instead, using third-person present tense. For example:
+For function and method pages, start the description with "Returns" to describe the value returned, or with "Reports whether" if the returned value is a boolean. If a function or method is used primarily for its side effects, describe the action it performs instead, using third-person present tense. For example:
 
 - `Returns a slice containing the elements after the first N elements of the given slice.`
 - `Reports whether the given page is in the given section.`
 - `Logs a WARNING from a template.`
+
+### Section headings
+
+Do not use formatting, such as backticks, bold, or italic, in section headings, levels `h1` through `h6`.
+
+- Use sentence-style capitalization.
+- Keep them concise.
+- Do not create a single subsection under a section; either add more subsections or remove the heading. This also applies to a single level 2 heading on an otherwise unheaded page: either add a second level 2 heading, or remove it and let the content flow as body text.
+- Precede the first subheading under a heading with a sentence introducing the subsections, unless the heading text alone makes the subsections' purpose obvious.
 
 ### File paths and names
 
