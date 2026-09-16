@@ -295,7 +295,7 @@ Use short, focused code examples. When including template code examples, follow 
   No → `{{ eq 1 1 }}`\
   Yes → `{{ compare.Eq 1 1 }}`
 
-  Exception: pages whose purpose is to document aliases themselves (for example, [templates/introduction](/templates/introduction/#functions) and [quick-reference/functions](/quick-reference/functions/)) may use aliases when specifically illustrating alias usage.
+  Exception: pages whose purpose is to document aliases themselves may use aliases when specifically illustrating alias usage.
 
 - Do not update version references to third-party libraries embedded within Hugo (for example, the KaTeX display engine used by the `transform.ToMath` function) unless the embedded library version changes in Hugo's source code.
 
