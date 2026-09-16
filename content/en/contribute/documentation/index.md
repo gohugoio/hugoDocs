@@ -45,6 +45,8 @@ Adhere to these writing style conventions.
   No → To copy the repository:\
   Yes → Use the `git clone` command to copy the repository.
 
+  Exception: within the `## Examples` section of a function or method reference page, use a short fragment to introduce each code block after the first. See [function and method reference pages](#function-and-method-reference-pages).
+
 - Use [basic english][] where possible for a global audience.
 - Prioritize current best practices over multiple options or historical information.
 - Avoid parenthetical "e.g." expressions, em dashes, and semicolons.
@@ -81,76 +83,6 @@ Adhere to these Markdown conventions:
 - Do not place a list immediately after a heading; always precede it with a sentence.
 - Remove consecutive blank lines.
 - Remove trailing spaces.
-
-### Callouts
-
-Use callouts, also known as admonitions, to visually emphasize important information.
-
-There are five callout types: `note`, `important`, `tip`, `warning`, and `caution`. The callout type is case-insensitive.
-
-```md {file="content/example.md"}
-> [!NOTE]
-> Useful information that users should know, even when skimming content.
-```
-
-> [!NOTE]
-> Useful information that users should know, even when skimming content.
-
-```md {file="content/example.md"}
-> [!IMPORTANT]
-> Key information users need to know to achieve their goal.
-```
-
-> [!IMPORTANT]
-> Key information users need to know to achieve their goal.
-
-```md {file="content/example.md"}
-> [!TIP]
-> Helpful advice for doing things better or more easily.
-```
-
-> [!TIP]
-> Helpful advice for doing things better or more easily.
-
-```md {file="content/example.md"}
-> [!WARNING]
-> Urgent info that needs immediate user attention to avoid problems.
-```
-
-> [!WARNING]
-> Urgent info that needs immediate user attention to avoid problems.
-
-```md {file="content/example.md"}
-> [!CAUTION]
-> Advises about risks or negative outcomes of certain actions.
-```
-
-> [!CAUTION]
-> Advises about risks or negative outcomes of certain actions.
-
-### Page titles
-
-Do not use formatting, such as backticks, bold, or italic, in the `title` field in front matter.
-
-- Use sentence-style capitalization.
-- Keep them concise.
-
-### Page descriptions
-
-Do not use formatting, such as backticks, bold, or italic, in the `description` field in front matter.
-
-When writing the page `description` use imperative present tense when possible. For example:
-
-{{< code-toggle file=content/en/functions/data/_index.md fm=true >}}
-title: Cast functions
-description: Use these functions to cast a value from one data type to another.
-{{< /code-toggle >}}
-
-For function and method pages, start the description with "Returns" to describe the value returned, or with "Reports whether" if the returned value is a boolean. If a function or method is used primarily for its side effects, describe the action it performs instead, using third-person present tense. For example:
-
-- `Returns a slice containing the elements after the first N elements of the given slice.`
-- `Reports whether the given page is in the given section.`
-- `Logs a WARNING from a template.`
 
 ### Section headings
 
@@ -232,10 +164,6 @@ When creating a [taxonomy][] template, do this...
 
 Do not italicize the template type in a title, heading, or front matter description.
 
-### Version-locked dependencies
-
-Some code examples reference the version of a third-party library embedded within Hugo, such as the KaTeX display engine used by the `transform.ToMath` function. Do not update these version references unless the embedded library version changes in Hugo's source code.
-
 ## Front matter
 
 This site uses the front matter fields listed in the table below.
@@ -274,7 +202,25 @@ Field|Description|Required
 `aliases`|Previous URLs used to access this page|&nbsp;
 `expirydate`|The expiration date|&nbsp;
 
-## Related content
+### Page titles
+
+Do not use formatting, such as backticks, bold, or italic, in the `title` field in front matter.
+
+- Use sentence-style capitalization.
+- Keep them concise.
+
+### Page descriptions
+
+Do not use formatting, such as backticks, bold, or italic, in the `description` field in front matter.
+
+When writing the page `description` use imperative present tense when possible. For example:
+
+{{< code-toggle file=content/en/functions/data/_index.md fm=true >}}
+title: Cast functions
+description: Use these functions to cast a value from one data type to another.
+{{< /code-toggle >}}
+
+### Related content
 
 When available, the "See also" sidebar displays related pages using Hugo's [related content][] feature, based on front matter keywords. We ensure consistent keyword usage by validating them against `data/keywords.yaml` during the build. If a keyword is not found, you'll be alerted and must either modify the keyword or update the data file. This validation process helps to refine the related content for better results.
 
@@ -292,6 +238,50 @@ Use of the alternate title is limited to the "See also" sidebar.
 > [!NOTE]
 > Think carefully before setting the `alt_title`. Use it only when necessary.
 
+## Function and method reference pages
+
+For function and method pages, start the front matter `description` with "Returns" to describe the value returned, or with "Reports whether" if the returned value is a boolean. If a function or method is used primarily for its side effects, describe the action it performs instead, using third-person present tense. For example:
+
+- `Returns a slice containing the elements after the first N elements of the given slice.`
+- `Reports whether the given page is in the given section.`
+- `Logs a WARNING from a template.`
+
+Structure the body of a function or method reference page with two level 2 headings, in this order:
+
+1. `## Usage`: prose describing behavior, arguments, and edge cases.
+1. `## Examples`: code blocks demonstrating the function or method.
+
+Open the `## Usage` section with a complete sentence that names the function or method by its canonical form, wrapped in backticks. Use the canonical form even when an alias exists.
+
+No → The `eq` function reports whether the first argument is equal to any of the subsequent arguments.\
+Yes → The `compare.Eq` function reports whether the first argument is equal to any of the subsequent arguments.
+
+This opening sentence typically overlaps with the front matter `description`. This is expected and intentional. Do not avoid or rephrase this overlap.
+
+When prose names an argument placeholder taken verbatim from the function's signature, wrap it in backticks. This does not apply when the argument is described in plain English instead of by its placeholder name.
+
+No → If CONTROL is truthy the function returns ARG1, otherwise it returns ARG2.\
+Yes → If `CONTROL` is truthy the function returns `ARG1`, otherwise it returns `ARG2`.
+
+Under `## Examples`, use one or more `go-html-template` code blocks to demonstrate the function or method. Always call the function or method by its canonical form, as described in [code examples](#code-examples).
+
+The first code block needs no lead-in sentence. Introduce each subsequent code block with a short lead-in ending in a colon. Do not repeat the function's name, and do not restate the `## Usage` prose:
+
+````md {file="content/example.md"}
+## Examples
+
+```go-html-template
+{{ compare.Eq 1 1 }} → true
+{{ compare.Eq 1 2 }} → false
+```
+
+Comparing numbers of different types:
+
+```go-html-template
+{{ compare.Eq 1 1.0 }} → true
+```
+````
+
 ## Code examples
 
 Use short, focused code examples. When including template code examples, follow these conventions.
@@ -300,6 +290,14 @@ Use short, focused code examples. When including template code examples, follow 
 - Insert a space after an opening action delimiter.
 - Insert a space before a closing action delimiter.
 - Do not add white space removal syntax to action delimiters unless required. For example, inline elements like `img` and `a` require whitespace removal on both sides.
+- Call a function or method by its canonical form, even when a legacy alias exists.
+
+  No → `{{ eq 1 1 }}`\
+  Yes → `{{ compare.Eq 1 1 }}`
+
+  Exception: pages whose purpose is to document aliases themselves (for example, [templates/introduction](/templates/introduction/#functions) and [quick-reference/functions](/quick-reference/functions/)) may use aliases when specifically illustrating alias usage.
+
+- Do not update version references to third-party libraries embedded within Hugo (for example, the KaTeX display engine used by the `transform.ToMath` function) unless the embedded library version changes in Hugo's source code.
 
 ````md {file="content/example.md"}
 ```go-html-template
@@ -388,9 +386,9 @@ Whitespace trimming is enabled by default. Use `trim=false` to preserve leading 
 ```
 ````
 
-### Shortcode calls
+### Escaping shortcode syntax
 
-Use this syntax to escape the call within examples:
+Use this syntax to escape a shortcode call within examples:
 
 ```md {file="content/example.md"}
 {{</*/* foo */*/>}}
@@ -420,6 +418,52 @@ date = 2023-11-09T12:56:07-08:00
 draft = false
 {{</* /code-toggle */>}}
 ```
+
+## Callouts
+
+Use callouts, also known as admonitions, to visually emphasize important information.
+
+There are five callout types: `note`, `important`, `tip`, `warning`, and `caution`. The callout type is case-insensitive.
+
+```md {file="content/example.md"}
+> [!NOTE]
+> Useful information that users should know, even when skimming content.
+```
+
+> [!NOTE]
+> Useful information that users should know, even when skimming content.
+
+```md {file="content/example.md"}
+> [!IMPORTANT]
+> Key information users need to know to achieve their goal.
+```
+
+> [!IMPORTANT]
+> Key information users need to know to achieve their goal.
+
+```md {file="content/example.md"}
+> [!TIP]
+> Helpful advice for doing things better or more easily.
+```
+
+> [!TIP]
+> Helpful advice for doing things better or more easily.
+
+```md {file="content/example.md"}
+> [!WARNING]
+> Urgent info that needs immediate user attention to avoid problems.
+```
+
+> [!WARNING]
+> Urgent info that needs immediate user attention to avoid problems.
+
+```md {file="content/example.md"}
+> [!CAUTION]
+> Advises about risks or negative outcomes of certain actions.
+```
+
+> [!CAUTION]
+> Advises about risks or negative outcomes of certain actions.
 
 ## Shortcodes
 
@@ -471,6 +515,14 @@ Use the [`hugo.IsServer`](/docs/reference/functions/hugo/isserver/) function ins
 {{</* /deprecated-in */>}}
 ```
 
+The shortcode triggers a build warning if the specified version is older than a predefined threshold, based on differences in major and minor versions. This serves as a reminder to remove the shortcode call and the associated content. See [details][].
+
+When deprecating a feature that has its own page, also set the `expiryDate` in front matter to two years from the date of deprecation. Include a brief comment to explain the setting:
+
+```yaml
+expiryDate: 2028-03-03 # deprecated 2026-03-03 in v0.157.0
+```
+
 ### eturl
 
 Use the embedded template URL (`eturl`) shortcode to insert an absolute URL to the source code for an embedded template. The shortcode takes a single argument, the base file name of the template (omit the file extension).
@@ -515,27 +567,7 @@ This is a new feature.
 {{</* /new-in */>}}
 ```
 
-## Feature state
-
-Use these shortcodes to indicate the state of a new or deprecated feature.
-
-### New features
-
-Use the [new-in](#new-in) shortcode to indicate a new feature.
-
-The shortcode will trigger a build warning if the specified version is older than a predefined threshold, based on differences in major and minor versions. This serves as a reminder to remove the shortcode call. See [details][].
-
-### Deprecated features
-
-Use the [deprecated-in](#deprecated-in) shortcode to indicate that a feature is deprecated.
-
-The shortcode will trigger a build warning if the specified version is older than a predefined threshold, based on differences in major and minor versions. This serves as a reminder to remove the shortcode call and the associated content. See [details][].
-
-When deprecating a feature that has its own page, also set the `expiryDate` in front matter to two years from the date of deprecation. Include a brief comment to explain the setting:
-
-```yaml
-expiryDate: 2028-03-03 # deprecated 2026-03-03 in v0.157.0
-```
+The shortcode triggers a build warning if the specified version is older than a predefined threshold, based on differences in major and minor versions. This serves as a reminder to remove the shortcode call. See [details][].
 
 ## GitHub workflow
 
