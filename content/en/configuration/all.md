@@ -14,7 +14,7 @@ Each top-level key in the project configuration is either a general setting or a
 A general setting is a single value, such as [`baseURL`](#baseurl) or [`title`](#title). A configuration category groups related, nested settings, such as [`markup`](#markup), [`menus`](#menus), or [`params`](#params).
 
 `_merge`
-: (`string`) Controls how Hugo merges theme and module configuration into the project configuration. Set within a configuration category to control merging for that category, or at the root of the project configuration to change the default for every category that does not specify its own value. One of `none`, `shallow`, or `deep`. See [merge configuration settings][] and the [security implications][] of changing the default `none` strategy.
+: (`string`) Controls how Hugo merges theme and module configuration into the project configuration. Set at any level of nesting within a configuration category to control merging for that section, at the root of a category to control merging for the entire category, or at the root of the project configuration to change the default for every category that does not specify its own value. One of `none`, `shallow`, or `deep`. See [merge configuration settings][] and the [security implications][] of changing the default `none` strategy.
 
 `archetypeDir`
 : (`string`) The designated directory for [archetypes](g). Default is `archetypes`. {{% module-mounts-note %}}
