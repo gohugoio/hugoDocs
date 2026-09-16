@@ -246,6 +246,13 @@ Hugo merges settings in this order:
 
 The `_merge` setting within each [configuration category](#general-settings-and-categories) controls _which_ settings are merged and _how_ they are merged.
 
+You can set `_merge` at any level of nesting within a category, not only at its top level. When merging a nested table, Hugo uses the `_merge` value set on that table if present, or inherits the value from its nearest ancestor. For example, to change the merge strategy for a single Goldmark extension without affecting the rest of the `markup` category:
+
+{{< code-toggle file=hugo >}}
+[markup.goldmark.extensions.typographer]
+_merge = 'deep'
+{{< /code-toggle >}}
+
 The value for `_merge` can be one of:
 
 `none`
