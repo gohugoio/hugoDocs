@@ -65,20 +65,20 @@ Create your content in the [Emacs Org Mode][] format preceded by front matter. Y
 
 ### AsciiDoc
 
-Create your content in the [AsciiDoc][] format preceded by front matter. Hugo renders AsciiDoc content to HTML using the Asciidoctor executable. You must install Asciidoctor and its dependencies (Ruby) to render the AsciiDoc content format.
+Create your content in the [AsciiDoc][] format preceded by front matter. Hugo renders AsciiDoc content to HTML using the `asciidoctor` executable. You must install `asciidoctor` and its dependencies (Ruby) to render the AsciiDoc content format.
 
 > [!NOTE]
 > Hugo's default security policy does not permit execution of the `asciidoctor` binary. You must add it to the [`security.exec.allow`][] list in your project configuration.
 
 You can configure the AsciiDoc renderer in your [project configuration][configure asciidoc].
 
-In its default configuration, Hugo passes these CLI flags when calling the Asciidoctor executable:
+In its default configuration, Hugo passes these CLI flags when calling the `asciidoctor` executable:
 
 ```sh
 --no-header-footer
 ```
 
-The CLI flags passed to the Asciidoctor executable depend on configuration. You may inspect the flags when building your project:
+The CLI flags passed to the `asciidoctor` executable depend on configuration. You may inspect the flags when building your project:
 
 ```sh
 hugo build --logLevel info
@@ -86,12 +86,12 @@ hugo build --logLevel info
 
 ### Pandoc
 
-Create your content in the [Pandoc][] format preceded by front matter. Hugo renders Pandoc content to HTML using the Pandoc executable. You must install Pandoc to render the Pandoc content format.
+Create your content in the [Pandoc][] format preceded by front matter. Hugo renders Pandoc content to HTML using the `pandoc` executable. You must install `pandoc` to render the Pandoc content format.
 
 > [!NOTE]
 > Hugo's default security policy does not permit execution of the `pandoc` binary. You must add it to the [`security.exec.allow`][] list in your project configuration.
 
-The CLI flags that Hugo passes when calling the Pandoc executable depend on the installed Pandoc version.
+The CLI flags that Hugo passes when calling the `pandoc` executable depend on the installed Pandoc version.
 
 If the installed version supports the `--math-method` flag introduced in Pandoc 3.11:
 
@@ -132,12 +132,12 @@ This is another citation: [@WatsonCrick1953, p. 33]
 
 ### reStructuredText
 
-Create your content in the [reStructuredText][] format preceded by front matter. Hugo renders reStructuredText content to HTML using [Docutils][], specifically rst2html. You must install Docutils and its dependencies (Python) to render the reStructuredText content format.
+Create your content in the [reStructuredText][] format preceded by front matter. Hugo renders reStructuredText content to HTML using [Docutils][], specifically `rst2html`. You must install Docutils and its dependencies (Python) to render the reStructuredText content format.
 
 > [!NOTE]
 > Hugo's default security policy does not permit execution of the `rst2html` binary. You must add it to the [`security.exec.allow`][] list in your project configuration.
 
-Hugo passes these CLI flags when calling the rst2html executable:
+Hugo passes these CLI flags when calling the `rst2html` executable:
 
 ```sh
 --leave-comments --initial-header-level=2
