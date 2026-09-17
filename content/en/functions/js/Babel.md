@@ -47,7 +47,7 @@ Step 4
 : Place your JS file within the `assets/js` directory.
 
 Step 5
-: Add the Babel executable to Hugo's `security.exec.allow` list in your project configuration:
+: Add the `babel` executable to Hugo's `security.exec.allow` list in your project configuration:
 
   {{< code-toggle file=hugo >}}
   [security.exec]

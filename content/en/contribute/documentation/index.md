@@ -148,6 +148,20 @@ Link to the [glossary][] as needed and use terms consistently. Pay particular at
 - "stylesheet" (one word)
 - "website" (one word)
 
+### Products and executables
+
+Distinguish between a product or project and its command-line executable.
+
+- Can you buy it, download it, or read about it? It is a product or project: capitalize it and use plain text. For example: Hugo, Rclone, Docker.
+- Can you run it, type it in a terminal, or install its package? It is a tool or executable: use lowercase and wrap it in backticks. For example: `hugo`, `rclone`, `docker`.
+
+Context|Meaning|Example
+:--|:--|:--
+Product or project|The framework, website, or community|"Welcome to the Hugo community."
+Documentation|The official guides or site|"Read the Rclone documentation."
+CLI or binary|The command you run, or its path|"Run `hugo server` to preview your site."
+Package|The software installed on a system|"Ensure `rclone` is installed."
+
 ### Template types
 
 When you refer to a template type, italicize it:
