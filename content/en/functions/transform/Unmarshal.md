@@ -137,6 +137,8 @@ A remote resource is a file on a remote server, accessible via HTTP or HTTPS.
 
 ## Working with CSV
 
+A CSV file is tabular, so unlike JSON, TOML, XML, and YAML, `transform.Unmarshal` always returns a collection with one entry per row instead of a single object. This is a slice of rows by default, or a slice of row maps when you set `targetType` to `map`.
+
 The examples below use this CSV file:
 
 ```csv
