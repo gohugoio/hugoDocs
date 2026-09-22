@@ -78,4 +78,3 @@ A static website with a dynamic search function? Yes, Hugo provides an alternati
 [open source]: https://github.com/searchmysite/searchmysite.net
 [Website Search Tool]: https://searchmysite.net/pages/website-search-tool/
 [blog post with a Hugo-specific example]: https://blog.searchmysite.net/posts/one-line-to-add-a-site-specific-search-to-your-site/
-
