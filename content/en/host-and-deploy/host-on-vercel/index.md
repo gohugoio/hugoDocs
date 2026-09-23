@@ -152,7 +152,7 @@ Step 2
   ```
 
 Step 3
-: In your project configuration, change the location of the image cache to the [`cacheDir`][] as shown below:
+: In the project configuration file in the root of your local Git repository, set the location of the image cache to the [`cacheDir`][] as shown below.
 
   {{< code-toggle file=hugo copy=true >}}
   [caches.images]
@@ -218,6 +218,15 @@ Step 14
 
 In the future, whenever you push a change from your local Git repository, Vercel will rebuild and deploy your site.
 
+## Related resources
+
+For more information on hosting and managing your site with Vercel, consult the official documentation:
+
+- [General documentation][]
+- [Custom domain setup][]
+
+[Custom domain setup]: https://vercel.com/docs/domains/overview
+[General documentation]: https://vercel.com/docs
 [`cacheDir`]: /configuration/all/#cachedir
 [configure file caches]: /configuration/caches/
 [remote]: https://git-scm.com/docs/git-remote
