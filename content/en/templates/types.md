@@ -301,7 +301,7 @@ Hugo uses this lookup order to find a matching template:
 1. `layouts/_partials/footer.de.html`
 1. `layouts/_partials/footer.html`
 
-### Inline partial
+## Inline partial
 
 A _partial_ template can also be defined inline within another template. However, it's important to note that the template namespace is global; ensuring unique names for these _partial_ templates is necessary to prevent conflicts.
 
