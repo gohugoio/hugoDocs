@@ -1,9 +1,9 @@
 ---
-title: Deploy with hugo
-description: Deploy your site with the hugo CLI.
+title: Deploy with Hugo
+description: Deploy your site with the Hugo CLI.
 categories: []
 keywords: []
-aliases: [/hosting-and-deployment/hugo-deploy/]
+aliases: [/hosting-and-deployment/hugo-deploy/,/host-and-deploy/deploy-with-hugo-deploy/]
 ---
 
 Use the `hugo deploy` command to deploy your site to Amazon S3, Azure Blob Storage, or Google Cloud Storage.

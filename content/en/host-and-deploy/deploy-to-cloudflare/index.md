@@ -1,8 +1,9 @@
 ---
-title: Host on Cloudflare
-description: Host your project on Cloudflare.
+title: Deploy to Cloudflare
+description: Deploy your project to Cloudflare.
 categories: []
 keywords: []
+aliases: [/host-and-deploy/host-on-cloudflare/]
 ---
 
 Use these instructions to enable continuous deployment from a GitHub repository. The same general steps apply for other Git providers such as GitLab or Bitbucket.
