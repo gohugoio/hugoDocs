@@ -1,9 +1,9 @@
 ---
-title: Host on AWS Amplify
-description: Host your project on AWS Amplify.
+title: Deploy to AWS Amplify
+description: Deploy your project to AWS Amplify.
 categories: []
 keywords: []
-aliases: [/hosting-and-deployment/hosting-on-aws-amplify/]
+aliases: [/hosting-and-deployment/hosting-on-aws-amplify/,/host-and-deploy/host-on-aws-amplify/]
 ---
 
 Use these instructions to enable continuous deployment from a GitHub repository. The same general steps apply for other Git providers such as GitLab or Bitbucket.

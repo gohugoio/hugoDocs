@@ -1,22 +1,26 @@
 ---
-title: Host on Azure Static Web Apps
-description: Host your project on Azure Static Web Apps.
+title: Deploy to GitHub Pages
+description: Deploy your project to GitHub Pages.
 categories: []
 keywords: []
-aliases: [/hosting-and-deployment/hosting-on-azure-static-web-apps/]
+aliases: [/hosting-and-deployment/hosting-on-github/,/host-and-deploy/host-on-github-pages/]
 ---
 
-Use these instructions to enable continuous deployment from a GitHub repository. The same general steps apply for other Git providers such as GitLab or Bitbucket.
+Use these instructions to enable continuous deployment from a GitHub repository to GitHub Pages.
 
 {{% include "/_common/gitignore-public.md" %}}
+
+## Types of sites
+
+There are three types of GitHub Pages sites: project, user, and organization. Project sites are connected to a specific project hosted on GitHub. User and organization sites are connected to a specific account on GitHub.com.
+
+> [!NOTE]
+> See the [GitHub Pages documentation][] to understand the requirements for repository ownership and naming.
 
 ## Prerequisites
 
 Please complete the following tasks before continuing:
 
-1. [Create](https://signup.live.com/) a Microsoft account.
-1. [Create](https://azure.microsoft.com/free/) an Azure account.
-1. [Log in](https://portal.azure.com/) to the Azure Portal.
 1. [Create](https://github.com/signup) a GitHub account.
 1. [Log in](https://github.com/login) to your GitHub account.
 1. [Create](https://github.com/new) a GitHub repository for your project.
@@ -27,64 +31,15 @@ Please complete the following tasks before continuing:
 ## Procedure
 
 Step 1
-: Create an Azure Static Web App.
+: Visit your GitHub repository. From the main menu choose **Settings**&nbsp;>&nbsp;**Pages**. In the center of your screen you will see this:
 
-  1. Go to [Static Web Apps][] in the Azure Portal.
-  1. Press the **Create** button.
+  ![screen capture](gh-pages-01.png)
 
-      ![screen capture](azure-01.png)
+  Change the **Source** to `GitHub Actions`. The change is immediate; you do not have to press a Save button.
 
-  1. Under **Project details**, select your Subscription and choose or create a Resource Group.
-
-      ![screen capture](azure-02.png)
-
-  1. Under **Static Web App details**, enter a Name for your site.
-
-      ![screen capture](azure-03.png)
-
-  1. Under **Hosting plan**, select **Free**.
-
-      ![screen capture](azure-04.png)
-
-  1. Under **Deployment details**, select **Other** as the deployment source, then press the **Review + create** button. This allows deployment using a GitHub Actions token without auto-generating default workflow files.
-
-      ![screen capture](azure-05.png)
-
-  1. Wait for the validation to complete, then press the **Create** button.
-
-      ![screen capture](azure-06.png)
-
-  1. Once the deployment is complete, press the **Go to resource** button.
-
-      ![screen capture](azure-07.png)
-
-  1. Copy the assigned URL to your clipboard.
-
-      ![screen capture](azure-08.png)
-
-  1. In the project configuration file in the root of your local Git repository, set the [`baseURL`][] to the assigned URL as shown below.
-
-      {{< code-toggle file=hugo >}}
-      baseURL = 'https://salmon-desert-04c512910.4.azurestaticapps.net/'
-      locale  = 'en-US'
-      title   = 'Hosting Test - Azure'
-      {{< /code-toggle >}}
-
-  1. Click the **Manage deployment token** link at the top of the page, and copy the deployment token to your clipboard.
-
-      ![screen capture](azure-09.png)
+  ![screen capture](gh-pages-02.png)
 
 Step 2
-: Add the deployment token to GitHub Secrets.
-
-  1. Go to your GitHub repository.
-  1. Navigate to **Settings** > **Secrets and variables** > **Actions**.
-  1. Click the **New repository secret** button.
-  1. Enter `AZURE_STATIC_WEB_APPS_API_TOKEN` for the Name.
-  1. Paste the deployment token into the Secret field.
-  1. Press the **Add secret** button.
-
-Step 3
 : Create a `hugo.yaml` file in the `.github/workflows` directory, adjusting the tool versions and time zone as needed.
 
   ```yaml {file=".github/workflows/hugo.yaml" copy=true}
@@ -105,8 +60,10 @@ Step 3
     workflow_dispatch:
   permissions:
     contents: read
+    pages: write
+    id-token: write
   concurrency:
-    group: deployment
+    group: pages
     cancel-in-progress: false
   defaults:
     run:
@@ -121,6 +78,10 @@ Step 3
             submodules: recursive
             fetch-depth: 0
             lfs: false
+
+        - name: Setup Pages
+          id: pages
+          uses: actions/configure-pages@v6
 
         - name: Create a local tools directory
           run: |
@@ -202,6 +163,7 @@ Step 3
             hugo build \
               --gc \
               --minify \
+              --baseURL "${{ steps.pages.outputs.base_url }}/" \
               --cacheDir "${{ runner.temp }}/.cache/hugo"
 
         - name: Cache save
@@ -210,50 +172,24 @@ Step 3
             path: ${{ runner.temp }}/.cache/hugo
             key: ${{ steps.cache-restore.outputs.cache-primary-key }}
 
-        - name: Upload build artifact
-          uses: actions/upload-artifact@v7
+        - name: Upload artifact
+          uses: actions/upload-pages-artifact@v5
           with:
-            name: build-artifact
-            path: public
-            retention-days: 1
+            include-hidden-files: false
+            path: ./public
     deploy:
-      needs: build
       runs-on: ubuntu-latest
+      needs: build
+      environment:
+        name: github-pages
+        url: ${{ steps.deployment.outputs.page_url }}
       steps:
-        - name: Download build artifact
-          uses: actions/download-artifact@v8
-          with:
-            name: build-artifact
-            path: public
-
-        - name: Create Azure Static Web Apps config
-          run: |
-            cat << 'EOF' > staticwebapp.config.json
-            {
-              "responseOverrides": {
-                "404": {
-                  "rewrite": "/404.html",
-                  "statusCode": 404
-                }
-              }
-            }
-            EOF
-
-        - name: Setup Node.js
-          uses: actions/setup-node@v7
-          with:
-            node-version: ${{ env.NODE_VERSION }}
-
-        - name: Install SWA CLI
-          run: npm install -g @azure/static-web-apps-cli --no-fund --no-audit --quiet
-
-        - name: Deploy
-          env:
-            SWA_CLI_DEPLOYMENT_TOKEN: ${{ secrets.AZURE_STATIC_WEB_APPS_API_TOKEN }}
-          run: swa deploy ./public --env production --api-location "" --swa-config-location ./
+        - name: Deploy to GitHub Pages
+          id: deployment
+          uses: actions/deploy-pages@v5
   ```
 
-Step 4
+Step 3
 : In the project configuration file in the root of your local Git repository, set the location of the image cache to the [`cacheDir`][] as shown below.
 
   {{< code-toggle file=hugo copy=true >}}
@@ -263,32 +199,36 @@ Step 4
 
   See [configure file caches][] for more information.
 
-Step 5
+Step 4
 : Commit the changes to your local Git repository and push to your GitHub repository.
 
-Step 6
+Step 5
 : From GitHub's main menu, choose **Actions**. You will see something like this:
 
-  ![screen capture](azure-10.png)
+  ![screen capture](gh-pages-03.png)
 
-Step 7
+Step 6
 : When GitHub has finished building and deploying your site, the color of the status indicator will change to green.
 
-  ![screen capture](azure-11.png)
+  ![screen capture](gh-pages-04.png)
 
-In the future, whenever you push a change from your local Git repository, GitHub will rebuild and deploy your site.
+Step 7
+: Click on the commit message as shown above. Under the deploy step, you will see a link to your live site.
+
+  ![screen capture](gh-pages-05.png)
+
+In the future, whenever you push a change from your local Git repository, GitHub Pages will rebuild and deploy your site.
 
 ## Related resources
 
-For more information on hosting and managing your site with Azure Static Web Apps, consult the official documentation:
+For more information on hosting and managing your site with GitHub Pages, consult the official documentation:
 
 - [General documentation][]
 - [Custom domain setup][]
 
-[Custom domain setup]: https://learn.microsoft.com/en-us/azure/static-web-apps/custom-domain-external
-[General documentation]: https://learn.microsoft.com/en-us/azure/static-web-apps/overview
-[Static Web Apps]: https://portal.azure.com/#browse/Microsoft.Web%2FStaticSites
-[`baseURL`]: /configuration/all/#baseurl
+[Custom domain setup]: https://docs.github.com/en/pages/configuring-a-custom-domain-for-your-github-pages-site
+[General documentation]: https://docs.github.com/en/pages
+[GitHub Pages documentation]: https://docs.github.com/en/pages/getting-started-with-github-pages/about-github-pages#types-of-github-pages-sites
 [`cacheDir`]: /configuration/all/#cachedir
 [configure file caches]: /configuration/caches/
 [remote]: https://git-scm.com/docs/git-remote
