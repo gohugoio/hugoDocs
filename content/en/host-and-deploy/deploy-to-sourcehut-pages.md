@@ -1,9 +1,9 @@
 ---
-title: Host on SourceHut Pages
-description: Host your project on SourceHut Pages.
+title: Deploy to SourceHut Pages
+description: Deploy your project to SourceHut Pages.
 categories: []
 keywords: []
-aliases: [/hosting-and-deployment/hosting-on-sourcehut/]
+aliases: [/hosting-and-deployment/hosting-on-sourcehut/,/host-and-deploy/host-on-sourcehut-pages/]
 ---
 
 Use these instructions to host your site on SourceHut Pages using either manual deployment or the SourceHut build system.

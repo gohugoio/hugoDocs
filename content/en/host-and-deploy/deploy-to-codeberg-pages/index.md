@@ -1,8 +1,9 @@
 ---
-title: Host on Codeberg Pages
-description: Host your project on Codeberg Pages.
+title: Deploy to Codeberg Pages
+description: Deploy your project to Codeberg Pages.
 categories: []
 keywords: []
+aliases: [/host-and-deploy/host-on-codeberg-pages/]
 ---
 
 Use these instructions to enable continuous deployment from a Codeberg repository to Codeberg Pages.
