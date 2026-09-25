@@ -160,7 +160,7 @@ content/
 
 ## Specify archetype
 
-Use the `--kind` command line flag to specify an archetype when creating content.
+Use the `--kind` command-line flag to specify an archetype when creating content.
 
 For example, let's say your site has two sections: articles and tutorials. Create an archetype for each content type:
 
