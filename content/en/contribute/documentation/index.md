@@ -135,6 +135,7 @@ Use the [`glossary-term`](#glossary-term) shortcode to insert a term definition:
 Link to the [glossary][] as needed and use terms consistently. Pay particular attention to:
 
 - "client side" (noun), "client-side" (adjective)
+- "command line" (noun), "command-line" (adjective)
 - "file name" (two words)
 - "flag" (instead of "option" for command-line flags)
 - "front matter" (two words, except when referring to the configuration key)
@@ -350,7 +351,7 @@ This is **bold** text.
 ```
 ````
 
-Set the language to `sh` when including command line examples:
+Set the language to `sh` when including command-line examples:
 
 ````md {file="content/example.md"}
 ```sh

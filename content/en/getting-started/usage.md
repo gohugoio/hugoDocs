@@ -56,7 +56,7 @@ Hugo allows you to set `draft`, `date`, `publishDate`, and `expiryDate` in the [
 > [!NOTE]
 > Hugo publishes descendants of draft, future, and expired [branch](g) pages. To prevent publication of these descendants, use the [`cascade`][] front matter field to cascade [build options][] to the descendant pages.
 
-You can override the default behavior when running `hugo build` or `hugo server` with command line flags:
+You can override the default behavior when running `hugo build` or `hugo server` with command-line flags:
 
 ```sh
 hugo build --buildDrafts    # or -D
