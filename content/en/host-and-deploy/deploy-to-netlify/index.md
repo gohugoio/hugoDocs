@@ -1,9 +1,9 @@
 ---
-title: Host on Netlify
-description: Host your project on Netlify.
+title: Deploy to Netlify
+description: Deploy your project to Netlify.
 categories: []
 keywords: []
-aliases: [/hosting-and-deployment/hosting-on-netlify/]
+aliases: [/hosting-and-deployment/hosting-on-netlify/,/host-and-deploy/host-on-netlify/]
 ---
 
 Use these instructions to enable continuous deployment from a GitHub repository. The same general steps apply for other Git providers such as GitLab or Bitbucket.
