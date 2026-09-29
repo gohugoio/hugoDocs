@@ -65,7 +65,7 @@ Step 3
 : Create a CSS entry file:
 
   ```css {file="assets/css/main.css" copy=true}
-  @import "tailwindcss";
+  @import "tailwindcss/index.css";
   @plugin "@tailwindcss/typography";
   @source "hugo_stats.json";
   ```
@@ -138,6 +138,16 @@ The [`css.Build`][] function has a [`vars`][] option that can be used to inject 
   {{ end }}
 {{ end }}
 ```
+
+## Rebuilding in Dev
+
+You can have Hugo rebuild utility classes when files are saved while running the `hugo server` command as a preview. Which is done by adding the following to the build.cachebusters map in the config file on step 2.
+
+  {{< code-toggle file=hugo copy=true >}}
+    [[build.cachebusters]]
+    source = 'assets/hugo/hugo_stats\\.json'
+    target = '(css|scss)'
+  {{< /code-toggle >}}
 
 Some notes to the above:
 
