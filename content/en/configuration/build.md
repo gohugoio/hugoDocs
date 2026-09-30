@@ -92,6 +92,8 @@ Hugo does not clear the `publishDir` before building your project. Existing file
 
 As a result, the `publishDir` can accumulate stale files over time. For example, a rendered page may remain after you delete or rename its content file, or draft, expired, and future content may remain after it no longer meets the criteria for publication. Enable `cleanDestinationDir` to have Hugo remove these stale files automatically on every build.
 
+This is the default configuration:
+
 {{< code-toggle config=build.cleanDestinationDir />}}
 
 `enable`
