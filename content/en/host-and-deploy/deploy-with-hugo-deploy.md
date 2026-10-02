@@ -47,13 +47,13 @@ To deploy to a target:
 hugo deploy [--target=<target name>]
 ```
 
-This command syncs the contents of your local `public` directory (the default publish directory) with the destination bucket. If no target is specified, Hugo deploys to the first configured target.
+This command syncs the contents of your local `public` directory with the destination bucket. If no target is specified, Hugo deploys to the first configured target.
 
 For more command-line options, see `hugo help deploy` or the [CLI documentation][].
 
 ### File list creation
 
-`hugo deploy` creates local and remote file lists by traversing the local publish directory and the remote bucket. Inclusion and exclusion are determined by the deployment target's [configuration][]:
+`hugo deploy` creates local and remote file lists by traversing the local `public` directory and the remote bucket. Inclusion and exclusion are determined by the deployment target's [configuration][]:
 
 - `include`: All files are skipped by default except those that match the pattern.
 - `exclude`: Files matching the pattern are skipped.

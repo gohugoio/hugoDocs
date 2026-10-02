@@ -169,7 +169,7 @@ The `css.Build` function accepts an options map to fine-tune bundling, minificat
   In the example above, the target environment is roughly equivalent to the [browserlist][] "baseline widely available" profile as of March 2026.
 
 `targetPath`
-: (`string`) The target path of the resource, relative to the [`publishDir`][]. If unset, the target path defaults to the asset's original path with a `.css` extension.
+: (`string`) The target path of the resource, relative to the `public` directory. If unset, the target path defaults to the asset's original path with a `.css` extension.
 
   ```go-html-template
   {{ $opts := dict "targetPath" "css/styles.css" }}
@@ -400,7 +400,6 @@ To reference a specific file within a Node package, provide the path starting wi
 
 [`css.Quoted`]: /functions/css/quoted/
 [`evanw/esbuild`]: https://github.com/evanw/esbuild
-[`publishDir`]: /configuration/all/#publishdir
 [browserlist]: https://browsersl.ist
 [esb external]: https://esbuild.github.io/api/#external
 [esb loader]: https://esbuild.github.io/api/#loader
