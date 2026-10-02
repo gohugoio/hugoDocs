@@ -124,7 +124,7 @@ The `css.Build` function accepts an options map to fine-tune bundling, minificat
   ```
 
 `mainFields`
-: (`[]string`) A prioritized slice of field names in a `package.json` file that determine the CSS entry point of a Node package. The default is `["style", "main"]`. See [details][esb mainfields].
+: (`[]string`) A prioritized slice of field names in a `package.json` file that determine the CSS entry point of a Node.js package. The default is `["style", "main"]`. See [details][esb mainfields].
 
   When an `@import` statement references a Node package, Hugo consults the metadata in the `package.json` file to find the stylesheet. Use this option to support packages that define a CSS entry point using non-standard fields.
 
@@ -361,7 +361,7 @@ For example, to render preload links for font files published by the build:
 
 The examples below cover the most frequent use cases for referencing resources within your project or within Node packages. These patterns apply to both `@import` statements and the `url()` functional notation used for images and fonts.
 
-All resources referenced by a path, including images, fonts, and stylesheets, must reside in the `assets` directory of the [unified file system](g), or within a Node package.
+All resources referenced by a path, including images, fonts, and stylesheets, must reside in the `assets` directory of the [unified file system](g), or within a Node package in an allowed location. See [file system access](#file-system-access).
 
 ### Files in the assets directory
 
@@ -397,6 +397,10 @@ To reference a specific file within a Node package, provide the path starting wi
 ```css {file="/assets/css/main.css"}
 @import "bootstrap/dist/css/bootstrap-grid.css";
 ```
+
+## File system access
+
+{{% include "/_common/functions/node-permissions/imports.md" %}}
 
 [`css.Quoted`]: /functions/css/quoted/
 [`evanw/esbuild`]: https://github.com/evanw/esbuild
