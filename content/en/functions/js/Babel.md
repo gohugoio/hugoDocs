@@ -85,6 +85,10 @@ Step 7
   </head>
   ```
 
+## File system access
+
+{{% include "/_common/functions/node-permissions/node-tools.md" %}}
+
 ## Options
 
 The `js.Babel` function accepts an options map.

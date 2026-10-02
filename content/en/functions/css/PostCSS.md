@@ -73,6 +73,10 @@ Step 6
   </head>
   ```
 
+## File system access
+
+{{% include "/_common/functions/node-permissions/node-tools.md" %}}
+
 ## Options
 
 The `css.PostCSS` function accepts an options map.

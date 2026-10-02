@@ -361,7 +361,7 @@ For example, to render preload links for font files published by the build:
 
 The examples below cover the most frequent use cases for referencing resources within your project or within Node packages. These patterns apply to both `@import` statements and the `url()` functional notation used for images and fonts.
 
-All resources referenced by a path, including images, fonts, and stylesheets, must reside in the `assets` directory of the [unified file system](g), or within a Node package.
+All resources referenced by a path, including images, fonts, and stylesheets, must reside in the `assets` directory of the [unified file system](g), or within a Node package in an allowed location. See [file system access](#file-system-access).
 
 ### Files in the assets directory
 
@@ -397,6 +397,10 @@ To reference a specific file within a Node package, provide the path starting wi
 ```css {file="/assets/css/main.css"}
 @import "bootstrap/dist/css/bootstrap-grid.css";
 ```
+
+## File system access
+
+{{% include "/_common/functions/node-permissions/imports.md" %}}
 
 [`css.Quoted`]: /functions/css/quoted/
 [`evanw/esbuild`]: https://github.com/evanw/esbuild

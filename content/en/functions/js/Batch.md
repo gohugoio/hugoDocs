@@ -269,6 +269,10 @@ In a template you would typically handle one group with a given `ID` (e.g., scri
 {{ end }}
 ```
 
+## File system access
+
+{{% include "/_common/functions/node-permissions/imports.md" %}}
+
 ## Known Issues
 
 In the official documentation for the `esbuild` [code splitting][] feature, there's a warning note in the header. The two issues are:
