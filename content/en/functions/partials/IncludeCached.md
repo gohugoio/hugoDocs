@@ -20,7 +20,7 @@ The `partialCached` function can offer significant performance gains for complex
 >
 > Hugo renders pages in parallel, and will render the _partial_ template more than once with concurrent calls to the `partialCached` function. After Hugo caches the rendered _partial_ template, new pages entering the build pipeline will use the cached result.
 
-Within a _partial_ template, a path that begins with `./` or `../` is resolved relative to the calling _partial_ template. See [`partials.Include`](/functions/partials/include/#relative-paths).
+Within a _partial_ template, a path that begins with `./` or `../` is resolved relative to the calling _partial_ template. See [`partials.Include`][].
 
 Here is the simplest usage:
 
@@ -52,3 +52,4 @@ To return a value from a _partial_ template, use the `return` statement:
 ```
 
 [`return`]: /functions/go-template/return/
+[`partials.Include`]: /functions/partials/include/#relative-paths
