@@ -111,7 +111,7 @@ The `css.Sass` function accepts an options map.
   ```
 
 `targetPath`
-: (`string`) The target path of the resource, relative to the [`publishDir`][]. If unset, the target path defaults to the asset's original path with a `.css` extension.
+: (`string`) The target path of the resource, relative to the `public` directory. If unset, the target path defaults to the asset's original path with a `.css` extension.
 
   ```go-html-template
   {{ $opts := dict
@@ -345,7 +345,6 @@ For examples of how to install Dart Sass in a production environment, see these 
 [Vercel]: /host-and-deploy/host-on-vercel/
 [`css.Quoted`]: /functions/css/quoted/
 [`css.Unquoted`]: /functions/css/unquoted/
-[`publishDir`]: /configuration/all/#publishdir
 [`useResourceCacheWhen`]: /configuration/build/#useresourcecachewhen
 [brew.sh]: https://brew.sh/
 [chocolatey.org]: https://community.chocolatey.org/packages/sass

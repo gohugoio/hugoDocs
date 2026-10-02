@@ -88,9 +88,9 @@ When [`buildStats`](#buildstats) is enabled, Hugo writes a `hugo_stats.json` fil
 
 ## Clean destination directory
 
-Hugo does not clear the `publishDir` before building your project. Existing files are overwritten, but not deleted. This behavior is intentional, preventing the inadvertent removal of files that you may have added to the `publishDir` after the build.
+Hugo does not clear the `public` directory before building your project. Existing files are overwritten, but not deleted. This behavior is intentional, preventing the inadvertent removal of files that you may have added to the `public` directory after the build.
 
-As a result, the `publishDir` can accumulate stale files over time. For example, a rendered page may remain after you delete or rename its content file, or draft, expired, and future content may remain after it no longer meets the criteria for publication. Enable `cleanDestinationDir` to have Hugo remove these stale files automatically on every build.
+As a result, the `public` directory can accumulate stale files over time. For example, a rendered page may remain after you delete or rename its content file, or draft, expired, and future content may remain after it no longer meets the criteria for publication. Enable `cleanDestinationDir` to have Hugo remove these stale files automatically on every build.
 
 This is the default configuration:
 
@@ -98,20 +98,18 @@ This is the default configuration:
 
 `enable`
 : {{< new-in 0.167.0 />}}
-: (`bool`) Whether to clean the [`publishDir`][] before rendering the site. Hugo removes every file and directory in the `publishDir` that does not have a corresponding static file, whether from the [`staticDir`][], a module mount, or a theme. This removes stale files, such as old rendered pages and deleted static assets, as well as files you added to the `publishDir` yourself, such as a `CNAME` or `_redirects` file. Use the [`keepDirs`](#keepdirs) and [`keepFiles`](#keepfiles) settings to preserve specific directories and files. This cleanup runs even if the project has no static files. Default is `false`. Override this setting for a single build with the `--cleanDestinationDir` command line flag.
+: (`bool`) Whether to clean the `public` directory before rendering the site. Hugo removes every file and directory in the `public` directory that does not have a corresponding static file, whether from the project's `static` directory, a module mount, or a theme. This removes stale files, such as old rendered pages and deleted static assets, as well as files you added to the `public` directory yourself, such as a `CNAME` or `_redirects` file. Use the [`keepDirs`](#keepdirs) and [`keepFiles`](#keepfiles) settings to preserve specific directories and files. This cleanup runs even if the project has no static files. Default is `false`. Override this setting for a single build with the `--cleanDestinationDir` command line flag.
 
 `keepDirs`
 : {{< new-in 0.167.0 />}}
-: (`[]string`) A [glob slice](g) matching directories, relative to the `publishDir`, to preserve when cleaning the destination directory. In a multilingual multihost project, patterns are relative to each language's subdirectory of the `publishDir`. A matching directory is kept along with everything beneath it, including subdirectories and their contents. The default value, shown above, matches directories whose names begin with a dot, wherever they occur in the directory tree. A value you set replaces the default rather than adding to it, so include the default pattern to continue preserving these directories.
+: (`[]string`) A [glob slice](g) matching directories, relative to the `public` directory, to preserve when cleaning the destination directory. In a multilingual multihost project, patterns are relative to each language's subdirectory of the `public` directory. A matching directory is kept along with everything beneath it, including subdirectories and their contents. The default value, shown above, matches directories whose names begin with a dot, wherever they occur in the directory tree. A value you set replaces the default rather than adding to it, so include the default pattern to continue preserving these directories.
 
 `keepFiles`
 : {{< new-in 0.167.0 />}}
-: (`[]string`) A [glob slice](g) matching files, relative to the `publishDir`, to preserve when cleaning the destination directory. In a multilingual multihost project, patterns are relative to each language's subdirectory of the `publishDir`. The default value, shown above, matches `.git`, `.gitignore`, and `.gitattributes` files, wherever they occur in the directory tree. A value you set replaces the default rather than adding to it, so include the default pattern to continue preserving these files.
+: (`[]string`) A [glob slice](g) matching files, relative to the `public` directory, to preserve when cleaning the destination directory. In a multilingual multihost project, patterns are relative to each language's subdirectory of the `public` directory. The default value, shown above, matches `.git`, `.gitignore`, and `.gitattributes` files, wherever they occur in the directory tree. A value you set replaces the default rather than adding to it, so include the default pattern to continue preserving these files.
 
 [VS Code]: https://code.visualstudio.com/
 [`config/production`]: /configuration/introduction/#configuration-directory
 [`css.TailwindCSS`]: /functions/css/tailwindcss/
 [`js.Build`]: /functions/js/build/
-[`publishDir`]: /configuration/all/#publishdir
-[`staticDir`]: /configuration/all/#staticdir
 [removing unused CSS]: /functions/templates/defer/#remove-unused-css

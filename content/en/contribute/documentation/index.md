@@ -97,6 +97,10 @@ Do not use formatting, such as backticks, bold, or italic, in section headings, 
 
 Wrap directory names, file names, and file paths in backticks.
 
+### Directory names
+
+Refer to [component](g) directories by their names within the unified file system: the `archetypes`, `assets`, `content`, `data`, `i18n`, `layouts`, and `static` directories. Refer to the publish directory as the `public` directory. Mention the corresponding configuration setting, such as `contentDir` or `publishDir`, only when describing the setting itself.
+
 ### Shortcode names
 
 Wrap shortcode names in backticks. Link to the shortcode page using the name as the link text, not the word "shortcode":
