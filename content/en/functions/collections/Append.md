@@ -61,6 +61,19 @@ Start with an empty slice:
 {{ $s }} → [a b c d e]
 ```
 
+Appending an empty slice leaves the original slice unchanged, so later appends still work as expected:
+
+```go-html-template
+{{ $s := slice "a" "b" }}
+{{ $s }} → [a b]
+
+{{ $s = $s | append slice }}
+{{ $s }} → [a b]
+
+{{ $s = $s | append (slice "c" "d") }}
+{{ $s }} → [a b c d]
+```
+
 If you start with a slice of a slice:
 
 ```go-html-template
