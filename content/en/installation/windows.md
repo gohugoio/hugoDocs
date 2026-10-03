@@ -35,9 +35,9 @@ choco install hugo-extended
 scoop install hugo-extended
 ```
 
-### Winget
+### WinGet
 
-[Winget][] is Microsoft's official free and open-source package manager for Windows. To install the extended edition of Hugo:
+[WinGet][] is Microsoft's official free and open-source package manager for Windows. To install the extended edition of Hugo:
 
 ```sh
 winget install -e --id Hugo.Hugo.Extended
@@ -151,5 +151,5 @@ Latest version available?|:heavy_check_mark:|:heavy_check_mark:|:heavy_check_mar
 [Git]: https://git-scm.com/book/en/v2/Getting-Started-Installing-Git
 [Go]: https://go.dev/doc/install
 [Scoop]: https://scoop.sh/
-[Winget]: https://learn.microsoft.com/en-us/windows/package-manager/
+[WinGet]: https://learn.microsoft.com/en-us/windows/package-manager/
 [detailed instructions]: https://discourse.gohugo.io/t/41370
