@@ -40,13 +40,13 @@ scoop install hugo-extended
 [Winget][] is Microsoft's official free and open-source package manager for Windows. To install the extended edition of Hugo:
 
 ```sh
-winget install Hugo.Hugo.Extended
+winget install -e --id Hugo.Hugo.Extended
 ```
 
 To uninstall the extended edition of Hugo:
 
 ```sh
-winget uninstall --name "Hugo (Extended)"
+winget uninstall -e --id Hugo.Hugo.Extended
 ```
 
 ## Build from source
