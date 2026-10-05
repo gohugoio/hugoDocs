@@ -1,6 +1,6 @@
 ---
 title: path.Split
-description: Returns the directory and file name components of the given path, split immediately following the final slash, after replacing path separators with slashes (`/`).
+description: Returns the directory and file name components of the given path, split immediately following the final slash, after replacing path separators with slashes (/).
 categories: []
 keywords: []
 params:
