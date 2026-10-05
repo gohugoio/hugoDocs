@@ -1,8 +1,10 @@
 ---
 title: interval
+params:
+  reference: https://en.wikipedia.org/wiki/Interval_(mathematics)
 ---
 
-An [_interval_](https://en.wikipedia.org/wiki/Interval_(mathematics)) is a range of numbers between two endpoints: closed, open, or half-open.
+An _interval_ is a range of numbers between two endpoints: closed, open, or half-open.
 
   - A _closed interval_, denoted by brackets, includes its endpoints. For example, [0,&nbsp;1]&nbsp;is the interval where `0 <= x <= 1`.
 
