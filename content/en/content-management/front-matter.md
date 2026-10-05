@@ -80,11 +80,14 @@ The most common front matter fields are `date`, `draft`, `title`, and `weight`, 
 `markup`
 : (`string`) An identifier corresponding to one of the supported [content formats][]. If not provided, Hugo determines the content renderer based on the file extension.
 
+`menu`
+: Alias to [`menus`](#menus).
+
 `menus`
 : (`string`, `[]string`, or `map`) If set, Hugo adds the page to the given menu or menus. See the [menus][] page for details.
 
 `modified`
-: Alias to [lastmod](#lastmod).
+: Alias to [`lastmod`](#lastmod).
 
 `outputs`
 : (`[]string`) The [output formats][] to render. See [configure outputs][] for more information.
@@ -93,13 +96,13 @@ The most common front matter fields are `date`, `draft`, `title`, and `weight`, 
 : (`map`) A map of custom [page parameters](#parameters).
 
 `pubdate`
-: Alias to [publishDate](#publishdate).
+: Alias to [`publishDate`](#publishdate).
 
 `publishDate`
 : (`string`) The page publication date. Before the publication date, the page will not be rendered unless you pass the `--buildFuture` flag to the `hugo` command. Note that the TOML format also supports unquoted date/time values. See the [dates](#dates) section for examples. Access this value from a template using the [`PublishDate`][] method on a `Page` object.
 
 `published`
-: Alias to [publishDate](#publishdate).
+: Alias to [`publishDate`](#publishdate).
 
 `resources`
 : (`map array`) An array of maps to provide metadata for [page resources][]. Each element supports the `src`, `name`, `title`, and `params` keys.
@@ -141,7 +144,7 @@ The most common front matter fields are `date`, `draft`, `title`, and `weight`, 
 : (`string`) The [content type](g), overriding the value derived from the top-level section in which the page resides. Access this value from a template using the [`Type`][] method on a `Page` object.
 
 `unpublishdate`
-: Alias to [expirydate](#expirydate).
+: Alias to [`expirydate`](#expirydate).
 
 `url`
 : (`string`) Overrides the entire URL path. Not applicable to the `home` page. See [details][url_management_url].
