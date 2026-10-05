@@ -6,4 +6,6 @@ Typically one of `development`, `staging`, or `production`, each _environment_ m
 
   When running the built-in development server with the `hugo server` command, the environment is set to `development`. When building your project with the `hugo build` command, the environment is set to `production`. To override the environment value, use the `--environment` command-line flag or the `HUGO_ENVIRONMENT` environment variable.
 
-  To determine the current environment within a template, use the [`hugo.Environment`](/functions/hugo/environment/) function.
+  To determine the current environment within a template, use the [`hugo.Environment`][] function.
+
+  [`hugo.Environment`]: /functions/hugo/environment/
