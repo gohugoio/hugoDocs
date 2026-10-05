@@ -1,6 +1,6 @@
 ---
 title: path.Ext
-description: Returns the file extension of the given path, after replacing path separators with slashes (`/`).
+description: Returns the file extension of the given path, after replacing path separators with slashes (/).
 categories: []
 keywords: []
 params:
