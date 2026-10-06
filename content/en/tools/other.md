@@ -17,6 +17,7 @@ And for all the other community projects around Hugo:
 - [hugo-gallery][] - Create an image gallery for Hugo sites.
 - [hugo-openapispec-shortcode][] - A shortcode that allows you to include [Open API Spec][] (formerly known as Swagger Spec) in a page.
 - [plausible-hugo][] - Easy Hugo integration for Plausible Analytics, a simple, open-source, lightweight and privacy-friendly web analytics alternative to Google Analytics.
+- [hugo-publish][] - A desktop app for writing, previewing and publishing Hugo sites.
 
 [Emacs Easy Hugo]: https://github.com/masasam/emacs-easy-hugo
 [HugoPhotoSwipe]: https://github.com/GjjvdBurg/HugoPhotoSwipe
@@ -27,3 +28,4 @@ And for all the other community projects around Hugo:
 [hugo-gallery]: https://github.com/icecreammatt/hugo-gallery
 [hugo-openapispec-shortcode]: https://github.com/tenfourty/hugo-openapispec-shortcode
 [plausible-hugo]: https://github.com/divinerites/plausible-hugo
+[hugo-publish][] - https://github.com/aligoren/hugo-publish
