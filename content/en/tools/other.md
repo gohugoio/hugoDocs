@@ -28,4 +28,4 @@ And for all the other community projects around Hugo:
 [hugo-gallery]: https://github.com/icecreammatt/hugo-gallery
 [hugo-openapispec-shortcode]: https://github.com/tenfourty/hugo-openapispec-shortcode
 [plausible-hugo]: https://github.com/divinerites/plausible-hugo
-[hugo-publish][] - https://github.com/aligoren/hugo-publish
+[hugo-publish] - https://github.com/aligoren/hugo-publish
