@@ -42,7 +42,7 @@ workspace = 'off'
 : (`string`) The proxy server to use to download remote modules. Default is `direct`, which means `git clone` and similar.
 
 `replacements`
-: (`string`) Primarily useful for local module development, a comma-separated list of mappings from module paths to directories. Paths may be absolute or relative to the [`themesDir`][].
+: (`string`) Primarily useful for local module development, a comma-separated list of mappings from module paths to directories. Paths may be absolute or relative to the [`themesDir`][]. Hugo applies this setting only from the project configuration, and ignores it if defined in a theme or module.
 
   {{< code-toggle file=hugo >}}
   [module]
