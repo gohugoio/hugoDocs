@@ -24,6 +24,10 @@ These settings apply to all image formats.
 : {{< deprecated-in 0.163.0 />}}
 : Use the format-specific `compression` setting instead, applicable to [AVIF](#avif) and [WebP](#webp) images.
 
+`firstFrameOnly`
+: {{< new-in 0.168.0 />}}
+: (`bool`) Whether to decode and process only the first frame of animated images, producing static images. Enable this setting to reduce memory usage and processing time when you do not need to preserve animations. If the target format does not support animation, such as JPEG, Hugo processes only the first frame regardless of this setting. If processing every frame of an animated image would exceed the available memory, Hugo throws an error recommending this setting. Default is `false`.
+
 `hint`
 : {{< deprecated-in 0.163.0 />}}
 : Use the format-specific `hint` setting instead, applicable to [AVIF](#avif) and [WebP](#webp) images.
