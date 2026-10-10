@@ -2,6 +2,10 @@
 _comment: Do not remove front matter.
 ---
 
+`charset`
+: {{< new-in 0.168.0 />}}
+: (`string`) The character set of the generated JavaScript code. Characters outside of this set are escaped. Either `ascii` or `utf8`. Default is `ascii`. See [details][esb charset].
+
 `defines`
 : (`map`) This option allows you to define a set of string replacements to be performed when building. It must be a map where each key will be replaced by its value.
 
@@ -11,20 +15,19 @@ _comment: Do not remove front matter.
 
 `drop`
 : {{< new-in 0.144.0 />}}
-: (`string`) Edit your source code before building to drop certain constructs: One of `debugger` or `console`.
-: See <https://esbuild.github.io/api/#drop>
+: (`string`) Edit your source code before building to drop certain constructs: One of `debugger` or `console`. See [details][esb drop].
 
 `externals`
-: (`slice`) External dependencies. Use this to trim dependencies you know will never be executed. See <https://esbuild.github.io/api/#external>.
+: (`slice`) External dependencies. Use this to trim dependencies you know will never be executed. See [details][esb external].
 
 `inject`
-: (`slice`) This option allows you to automatically replace a global variable with an import from another file. The path names must be relative to `assets`. See <https://esbuild.github.io/api/#inject>.
+: (`slice`) This option allows you to automatically replace a global variable with an import from another file. The path names must be relative to `assets`. See [details][esb inject].
 
 `JSX`
-: (`string`) How to handle/transform JSX syntax. One of: `transform`, `preserve`, `automatic`. Default is `transform`. Notably, the `automatic` transform was introduced in React 17+ and will cause the necessary JSX helper functions to be imported automatically. See <https://esbuild.github.io/api/#jsx>.
+: (`string`) How to handle/transform JSX syntax. One of: `transform`, `preserve`, `automatic`. Default is `transform`. Notably, the `automatic` transform was introduced in React 17+ and will cause the necessary JSX helper functions to be imported automatically. See [details][esb jsx].
 
 `JSXImportSource`
-: (`string`) Which library to use to automatically import its JSX helper functions from. This only works if `JSX` is set to `automatic`. The specified library needs to be installed through npm and expose certain exports. See <https://esbuild.github.io/api/#jsx-import-source>.
+: (`string`) Which library to use to automatically import its JSX helper functions from. This only works if `JSX` is set to `automatic`. The specified library needs to be installed through npm and expose certain exports. See [details][esb jsximportsource].
 
   The combination of `JSX` and `JSXImportSource` is helpful if you want to use a non-React JSX library like Preact, e.g.:
 
@@ -45,7 +48,7 @@ _comment: Do not remove front matter.
 
 `loaders`
 : {{< new-in 0.140.0 />}}
-: (`map`) Configuring a loader for a given file type lets you load that file type with an `import` statement or a `require` call. For example, configuring the `.png` file extension to use the data URL loader means importing a `.png` file gives you a data URL containing the contents of that image. Loaders available are `none`, `base64`, `binary`, `copy`,  `css`,  `dataurl`, `default`, `empty`, `file`, `global-css`, `js`, `json`, `jsx`, `local-css`,  `text`, `ts`, `tsx`. See <https://esbuild.github.io/api/#loader>.
+: (`map`) Configuring a loader for a given file type lets you load that file type with an `import` statement or a `require` call. For example, configuring the `.png` file extension to use the data URL loader means importing a `.png` file gives you a data URL containing the contents of that image. Loaders available are `none`, `base64`, `binary`, `copy`,  `css`,  `dataurl`, `default`, `empty`, `file`, `global-css`, `js`, `json`, `jsx`, `local-css`,  `text`, `ts`, `tsx`. See [details][esb loader].
 
 `minify`
 : (`bool`) Whether to minify the generated JS code. Default is `false`.
@@ -67,7 +70,7 @@ _comment: Do not remove front matter.
 
 `platform`
 : {{< new-in 0.140.0 />}}
-: (`string`) One of `browser`, `node`, `neutral`. Default is `browser`. See <https://esbuild.github.io/api/#platform>.
+: (`string`) One of `browser`, `node`, `neutral`. Default is `browser`. See [details][esb platform].
 
 `shims`
 : (`map`) This option allows swapping out a component with another. A common use case is to load dependencies like React from a CDN  (with _shims_) when in production, but running with the full bundled `node_modules` dependency during development:
@@ -105,3 +108,12 @@ _comment: Do not remove front matter.
 
 `target`
 : (`string`) The language target. One of: `es5`, `es2015`, `es2016`, `es2017`, `es2018`, `es2019`, `es2020`, `es2021`, `es2022`, `es2023`, `es2024`, `es2025`, or `esnext`. Default is `esnext`.
+
+[esb charset]: https://esbuild.github.io/api/#charset
+[esb drop]: https://esbuild.github.io/api/#drop
+[esb external]: https://esbuild.github.io/api/#external
+[esb inject]: https://esbuild.github.io/api/#inject
+[esb jsx]: https://esbuild.github.io/api/#jsx
+[esb jsximportsource]: https://esbuild.github.io/api/#jsx-import-source
+[esb loader]: https://esbuild.github.io/api/#loader
+[esb platform]: https://esbuild.github.io/api/#platform

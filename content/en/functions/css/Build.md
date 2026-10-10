@@ -95,6 +95,10 @@ To minify the generated CSS code, use the [`minify`](#minify) option as describe
 
 The `css.Build` function accepts an options map to fine-tune bundling, minification, and browser compatibility.
 
+`charset`
+: {{< new-in 0.168.0 />}}
+: (`string`) The character set of the generated CSS code. Characters outside of this set are escaped. Either `ascii` or `utf8`. Default is `ascii`. See [details][esb charset].
+
 `externals`
 : (`[]string`) A slice of path patterns to exclude from bundling. The `@import` statements for these patterns remain as-is in the generated CSS code. See [details][esb external].
 
@@ -405,6 +409,7 @@ To reference a specific file within a Node package, provide the path starting wi
 [`css.Quoted`]: /functions/css/quoted/
 [`evanw/esbuild`]: https://github.com/evanw/esbuild
 [browserlist]: https://browsersl.ist
+[esb charset]: https://esbuild.github.io/api/#charset
 [esb external]: https://esbuild.github.io/api/#external
 [esb loader]: https://esbuild.github.io/api/#loader
 [esb mainfields]: https://esbuild.github.io/api/#main-fields

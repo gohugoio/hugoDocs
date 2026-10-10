@@ -22,6 +22,10 @@ compression
 dimensions
 : The dimensions of the resulting image, in pixels. The format is `WIDTHxHEIGHT` where `WIDTH` and `HEIGHT` are whole numbers. When resizing an image, you may specify only the width (such as `600x`) or only the height (such as `x400`) for proportional scaling. Specifying both width and height when resizing an image may result in non-proportional scaling. When cropping, fitting, or filling, you must provide both width and height such as `600x400`.
 
+`firstFrameOnly`
+: {{< new-in 0.168.0 />}}
+: Whether to decode and process only the first frame of an animated image, producing a static image. Include this keyword to reduce memory usage and processing time when you do not need to preserve the animation. If the target format does not support animation, such as JPEG, Hugo processes only the first frame regardless of this option. This defaults to the `firstFrameOnly` setting in your [imaging configuration][]. If that setting is `true`, you cannot override it in the processing specification.
+
 format
 : The format of the resulting image. Valid options include `avif`, `bmp`, `gif`, `jpeg`, `png`, `tiff`, or `webp`. This defaults to the format of the source image.
 
