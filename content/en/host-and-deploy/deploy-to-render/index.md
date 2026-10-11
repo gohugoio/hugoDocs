@@ -3,7 +3,6 @@ title: Deploy to Render
 description: Deploy your project to Render.
 categories: []
 keywords: []
-aliases: [/hosting-and-deployment/hosting-on-render/,/host-and-deploy/host-on-render/]
 ---
 
 Use these instructions to enable continuous deployment from a GitHub repository. The same general steps apply for other Git providers such as GitLab or Bitbucket.

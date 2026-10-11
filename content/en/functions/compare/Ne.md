@@ -8,7 +8,6 @@ params:
     aliases: [ne]
     returnType: bool
     signatures: ['compare.Ne ARG1 ARG2 [ARG...]']
-aliases: [/functions/ne]
 ---
 
 ## Usage

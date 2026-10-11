@@ -4,7 +4,6 @@ linkTitle: Build
 description: Configure global build options.
 categories: []
 keywords: []
-aliases: [/getting-started/configuration-build/]
 ---
 
 This is the default configuration:

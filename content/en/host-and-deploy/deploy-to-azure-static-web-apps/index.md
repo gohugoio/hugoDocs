@@ -3,7 +3,6 @@ title: Deploy to Azure Static Web Apps
 description: Deploy your project to Azure Static Web Apps.
 categories: []
 keywords: []
-aliases: [/hosting-and-deployment/hosting-on-azure-static-web-apps/,/host-and-deploy/host-on-azure-static-web-apps/]
 ---
 
 Use these instructions to enable continuous deployment from a GitHub repository. The same general steps apply for other Git providers such as GitLab or Bitbucket.

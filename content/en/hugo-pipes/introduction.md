@@ -5,7 +5,6 @@ description: Hugo Pipes is Hugo's asset processing set of functions.
 categories: []
 keywords: []
 weight: 10
-aliases: [/assets/]
 ---
 
 ## Find resources in assets

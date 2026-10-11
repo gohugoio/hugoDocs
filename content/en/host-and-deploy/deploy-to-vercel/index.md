@@ -3,7 +3,6 @@ title: Deploy to Vercel
 description: Deploy your project to Vercel.
 categories: []
 keywords: []
-aliases: [/host-and-deploy/host-on-vercel/]
 ---
 
 Use these instructions to enable continuous deployment from a GitHub repository. The same general steps apply for other Git providers such as GitLab or Bitbucket.

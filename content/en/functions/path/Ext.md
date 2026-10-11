@@ -8,7 +8,6 @@ params:
     aliases: []
     returnType: string
     signatures: [path.Ext PATH]
-aliases: [/functions/path.ext]
 ---
 
 The extension is the suffix beginning at the final dot in the final slash-separated element of path; it is empty if there is no dot.

@@ -4,7 +4,6 @@ linkTitle: Summaries
 description: Create and render content summaries.
 categories: []
 keywords: []
-aliases: [/content/summaries/,/content-management/content-summaries/]
 ---
 
 <!-- Do not remove the manual summary divider below. -->

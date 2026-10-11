@@ -8,7 +8,6 @@ params:
     aliases: [after]
     returnType: '[]any'
     signatures: [collections.After N SLICE]
-aliases: [/functions/after]
 ---
 
 ## Basic usage

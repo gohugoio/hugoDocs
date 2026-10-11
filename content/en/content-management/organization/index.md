@@ -4,7 +4,6 @@ linkTitle: Organization
 description: Hugo assumes that the same structure that works to organize your source content is used to organize the rendered site.
 categories: []
 keywords: []
-aliases: [/content/sections/]
 ---
 
 ## Page bundles

@@ -3,7 +3,6 @@ title: Data sources
 description: Use local and remote data sources to augment or create content.
 categories: []
 keywords: []
-aliases: [/extras/datafiles/,/extras/datadrivencontent/,/doc/datafiles/,/templates/data-templates/]
 ---
 
 Hugo can access and [unmarshal](g) local and remote data sources including CSV, JSON, TOML, YAML, and XML. Use this data to augment existing content or to create new content.

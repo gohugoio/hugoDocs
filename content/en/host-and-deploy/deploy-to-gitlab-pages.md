@@ -3,7 +3,6 @@ title: Deploy to GitLab Pages
 description: Deploy your project to GitLab Pages.
 categories: []
 keywords: []
-aliases: [/hosting-and-deployment/hosting-on-gitlab/,/host-and-deploy/host-on-gitlab-pages/]
 ---
 
 Use these instructions to enable continuous deployment from a GitLab repository to GitLab Pages.

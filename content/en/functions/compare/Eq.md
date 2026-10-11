@@ -8,7 +8,6 @@ params:
     aliases: [eq]
     returnType: bool
     signatures: ['compare.Eq ARG1 ARG2 [ARG...]']
-aliases: [/functions/eq]
 ---
 
 ## Usage

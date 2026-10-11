@@ -3,7 +3,6 @@ title: Deploy to GitHub Pages
 description: Deploy your project to GitHub Pages.
 categories: []
 keywords: []
-aliases: [/hosting-and-deployment/hosting-on-github/,/host-and-deploy/host-on-github-pages/]
 ---
 
 Use these instructions to enable continuous deployment from a GitHub repository to GitHub Pages.

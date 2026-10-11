@@ -8,7 +8,6 @@ params:
     aliases: []
     returnType: paths.DirFile
     signatures: [path.Split PATH]
-aliases: [/functions/path.split]
 ---
 
 If there is no slash in the given path, `path.Split` returns an empty directory, and file set to path. The returned values have the property that path = dir+file.

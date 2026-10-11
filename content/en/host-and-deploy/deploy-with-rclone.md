@@ -3,7 +3,6 @@ title: Deploy with Rclone
 description: Deploy your site to a web server with Rclone.
 categories: []
 keywords: []
-aliases: [/hosting-and-deployment/deployment-with-rclone/]
 ---
 
 Use these instructions to deploy your site to a web server with [Rclone][].
