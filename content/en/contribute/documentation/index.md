@@ -3,7 +3,6 @@ title: Documentation
 description: Help us to improve the documentation by identifying issues and suggesting changes.
 categories: []
 keywords: []
-aliases: [/contribute/docs/]
 ---
 
 ## Introduction
@@ -256,6 +255,48 @@ Use of the alternate title is limited to the "See also" sidebar.
 
 > [!NOTE]
 > Think carefully before setting the `alt_title`. Use it only when necessary.
+
+## Redirects
+
+When you move or rename a page, create a redirect from the old URL to the new URL so that existing links and bookmarks continue to work. When you delete a page, do not create a redirect unless another page covers the same topic. When you build the site, Hugo generates a `_redirects` file that Netlify uses to redirect visitors.
+
+Create each redirect using either the `aliases` front matter field or the redirects data file, as described below. Both methods produce the same result.
+
+> [!IMPORTANT]
+> Define each redirect in either the `aliases` front matter field or the redirects data file, but not both. The build fails if you define the same old URL more than once, or if an old URL is the URL of an existing page.
+
+### Aliases
+
+Add the old URL to the [`aliases`][] front matter field of the page that visitors should be redirected to. Begin each alias with a slash (`/`). For example:
+
+{{< code-toggle file=content/en/section/new-name.md fm=true >}}
+title: New name
+aliases: [/section/old-name]
+{{< /code-toggle >}}
+
+Hugo redirects each alias to the page's URL. If you later move or rename the page, its aliases move with it.
+
+### Data file
+
+Add a record to the `assets/data/redirects.csv` file. For example:
+
+```csv {file="assets/data/redirects.csv"}
+"source","destination","date_added"
+"/section/old-name","/section/new-name/","2026-10-10"
+```
+
+Each record has these fields:
+
+`source`
+: (`string`) The old URL. Begin the value with a slash (`/`) and omit the trailing slash. Otherwise, the build fails.
+
+`destination`
+: (`string`) The URL of the page that visitors should be redirected to. Begin and end the value with a slash (`/`). The build fails if the value does not begin and end with a slash, or if it is not the URL of an existing page.
+
+`date_added`
+: (`string`) The date you added the record, in `YYYY-MM-DD` format. Maintainers use this field to identify and remove aged redirects.
+
+Keep the records sorted by `source`.
 
 ## Function and method reference pages
 
@@ -648,6 +689,7 @@ Step 9
 
 [ATX]: https://spec.commonmark.org/current/#atx-headings
 [Glossary]: /quick-reference/glossary/
+[`aliases`]: /content-management/front-matter/#aliases
 [basic english]: https://simple.wikipedia.org/wiki/Basic_English
 [collapsed link references]: https://discourse.gohugo.io/t/55714
 [details]: https://github.com/gohugoio/hugoDocs/blob/master/layouts/_partials/layouts/blocks/feature-state.html

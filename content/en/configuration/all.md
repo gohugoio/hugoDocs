@@ -4,7 +4,6 @@ description: The complete list of Hugo configuration settings.
 categories: []
 keywords: []
 weight: 20
-aliases: [/getting-started/configuration/]
 ---
 
 ## Settings

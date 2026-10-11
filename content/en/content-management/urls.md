@@ -3,7 +3,6 @@ title: URL management
 description: Control the structure and appearance of URLs through front matter entries and settings in your project configuration.
 categories: []
 keywords: []
-aliases: [/extras/permalinks/,/extras/aliases/,/extras/urls/,/doc/redirects/,/doc/alias/,/doc/aliases/]
 ---
 
 ## Overview

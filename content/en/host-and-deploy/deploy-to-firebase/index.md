@@ -3,7 +3,6 @@ title: Deploy to Firebase
 description: Deploy your project to Firebase.
 categories: []
 keywords: []
-aliases: [/hosting-and-deployment/hosting-on-firebase/,/host-and-deploy/host-on-firebase/]
 ---
 
 Use these instructions to enable continuous deployment from a GitHub repository. The same general steps apply for other Git providers such as GitLab or Bitbucket.

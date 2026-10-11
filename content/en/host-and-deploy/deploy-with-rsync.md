@@ -3,7 +3,6 @@ title: Deploy with Rsync
 description: Deploy your site to a web server with Rsync.
 categories: []
 keywords: []
-aliases: [/hosting-and-deployment/deployment-with-rsync/]
 ---
 
 Use these instructions to deploy your site to a web server with [Rsync][].

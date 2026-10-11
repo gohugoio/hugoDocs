@@ -4,7 +4,6 @@ description: Use the command-line interface (CLI) to perform basic tasks.
 categories: []
 keywords: []
 weight: 20
-aliases: [/overview/usage/,/extras/livereload/,/doc/usage/,/usage/]
 ---
 
 ## Test your installation

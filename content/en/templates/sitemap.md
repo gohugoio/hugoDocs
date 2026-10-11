@@ -4,7 +4,6 @@ description: Hugo provides built-in sitemap templates.
 categories: []
 keywords: []
 weight: 130
-aliases: [/layout/sitemap/,/templates/sitemap-template/]
 ---
 
 ## Overview

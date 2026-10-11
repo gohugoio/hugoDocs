@@ -8,7 +8,6 @@ params:
     aliases: [partialCached]
     returnType: any
     signatures: ['partials.IncludeCached LAYOUT CONTEXT [VARIANT...]']
-aliases: [/functions/partialcached]
 ---
 
 Without a [`return`][] statement, the `partialCached` function returns a string of type `template.HTML`. With a `return` statement, the `partialCached` function can return any data type.

@@ -6,7 +6,6 @@ keywords: []
 params:
   minVersion: v0.158.0
 weight: 10
-aliases: [/quickstart/,/overview/quickstart/]
 ---
 
 In this tutorial you will:

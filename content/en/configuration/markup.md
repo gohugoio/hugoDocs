@@ -4,7 +4,6 @@ linkTitle: Markup
 description: Configure markup.
 categories: []
 keywords: []
-aliases: [/getting-started/configuration-markup/]
 ---
 
 ## Default handler

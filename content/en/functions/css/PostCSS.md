@@ -8,7 +8,6 @@ params:
     aliases: [postCSS]
     returnType: resource.Resource
     signatures: ['css.PostCSS [OPTIONS] RESOURCE']
-aliases: [/functions/resources/postcss/]
 ---
 
 The `css.PostCSS` function transforms CSS using [PostCSS][] and any of its [plugins][].

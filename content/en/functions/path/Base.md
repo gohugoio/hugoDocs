@@ -8,7 +8,6 @@ params:
     aliases: []
     returnType: string
     signatures: [path.Base PATH]
-aliases: [/functions/path.base]
 ---
 
 ```go-html-template

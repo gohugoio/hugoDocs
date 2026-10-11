@@ -8,7 +8,6 @@ params:
     aliases: []
     returnType: string
     signatures: [path.Join ELEMENT...]
-aliases: [/functions/path.join]
 ---
 
 See Go's [`path.Join`][] and [`path.Clean`][] documentation for details.

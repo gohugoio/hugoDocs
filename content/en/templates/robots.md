@@ -5,7 +5,6 @@ description: Hugo can generate a customized robots.txt in the same way as any ot
 categories: []
 keywords: []
 weight: 190
-aliases: [/extras/robots-txt/]
 ---
 
 To generate a robots.txt file from a template, change your project configuration:

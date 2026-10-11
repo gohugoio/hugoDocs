@@ -8,7 +8,6 @@ params:
     aliases: []
     returnType: string
     signatures: [path.Clean PATH]
-aliases: [/functions/path.clean]
 ---
 
 See Go's [`path.Clean`][] documentation for details.

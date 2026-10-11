@@ -3,7 +3,6 @@ title: Taxonomies
 description: Hugo includes support for user-defined taxonomies.
 categories: []
 keywords: []
-aliases: [/taxonomies/overview/,/taxonomies/usage/,/indexes/overview/,/doc/indexes/,/extras/indexes]
 ---
 
 ## What is a taxonomy?
