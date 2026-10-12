@@ -109,7 +109,7 @@ Create a shortcode to capture an image as a page resource, resize it to the give
 
 ```go-html-template {file="layouts/_shortcodes/image.html"}
 {{- with .Page.Resources.Get (.Get "path") }}
-  {{- with .Process (printf "resize %dx wepb" ($.Get "width")) -}}
+  {{- with .Process (printf "resize %dx webp" ($.Get "width")) -}}
     <img src="{{ .RelPermalink }}" width="{{ .Width }}" height="{{ .Height }}" alt="{{ $.Get "alt" }}">
   {{- end }}
 {{- end -}}
@@ -140,7 +140,7 @@ The previous example, while functional, silently fails if the image is missing, 
 {{- with .Get "path" }}
   {{- with $r := $.Page.Resources.Get ($.Get "path") }}
     {{- with $.Get "width" }}
-      {{- with $r.Process (printf "resize %dx wepb" ($.Get "width" )) }}
+      {{- with $r.Process (printf "resize %dx webp" ($.Get "width" )) }}
         {{- $alt := or ($.Get "alt") "" -}}
         <img src="{{ .RelPermalink }}" width="{{ .Width }}" height="{{ .Height }}" alt="{{ $alt }}">
       {{- end }}
