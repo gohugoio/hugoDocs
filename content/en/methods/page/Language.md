@@ -35,6 +35,38 @@ weight = 2
   {{ .Language.Direction }} → ltr
   ```
 
+`FormatAccounting`
+: {{< new-in 0.168.0 />}}
+: (`string`) Formats a number as currency in accounting notation for this language. See [`lang.FormatAccounting`][].
+
+  ```go-html-template
+  {{ .Language.FormatAccounting 2 "EUR" -12.3 }} → -12,30 €
+  ```
+
+`FormatCurrency`
+: {{< new-in 0.168.0 />}}
+: (`string`) Formats a number as currency for this language. See [`lang.FormatCurrency`][].
+
+  ```go-html-template
+  {{ .Language.FormatCurrency 2 "EUR" 12.3 }} → 12,30 €
+  ```
+
+`FormatNumber`
+: {{< new-in 0.168.0 />}}
+: (`string`) Formats a number for this language. See [`lang.FormatNumber`][].
+
+  ```go-html-template
+  {{ .Language.FormatNumber 2 1234.5 }} → 1.234,50
+  ```
+
+`FormatPercent`
+: {{< new-in 0.168.0 />}}
+: (`string`) Formats a number as a percentage for this language. See [`lang.FormatPercent`][].
+
+  ```go-html-template
+  {{ .Language.FormatPercent 1 12.3 }} → 12,3 %
+  ```
+
 `IsDefault`
 : {{< new-in 0.153.0 />}}
 : (`bool`) Reports whether this is the [default language](g).
@@ -61,8 +93,8 @@ weight = 2
 
 `LanguageDirection`
 : {{<deprecated-in 0.158.0 />}}
+: Use [`Direction`](#direction) instead.
 
-Use [`Direction`](#direction) instead.
 `LanguageName`
 : {{<deprecated-in 0.158.0 />}}
 : Use [`Label`](#label) instead.
@@ -81,6 +113,22 @@ Use [`Direction`](#direction) instead.
 
   ```go-html-template
   {{ .Language.Name }} → de
+  ```
+
+`Translate`
+: {{< new-in 0.168.0 />}}
+: (`string`) Translates a string using the translation tables for this language. See [`lang.Translate`][].
+
+  ```go-html-template
+  {{ .Language.Translate "hello" }} → Hallo
+  ```
+
+  Use this to translate a string into each language in which the current page is available:
+
+  ```go-html-template
+  {{ range .AllTranslations }}
+    {{ .Language.Translate "hello" }}
+  {{ end }}
   ```
 
 `Weight`
@@ -112,6 +160,11 @@ Use the code below to create a language selector, allowing users to navigate bet
 
 [RFC 5646]: https://datatracker.ietf.org/doc/html/rfc5646
 [`direction`]: /configuration/languages/#direction
+[`lang.FormatAccounting`]: /functions/lang/formataccounting/
+[`lang.FormatCurrency`]: /functions/lang/formatcurrency/
+[`lang.FormatNumber`]: /functions/lang/formatnumber/
+[`lang.FormatPercent`]: /functions/lang/formatpercent/
+[`lang.Translate`]: /functions/lang/translate/
 [`label`]: /configuration/languages/#label
 [`locale`]: /configuration/languages/#locale
 [details]: /methods/site/language/
