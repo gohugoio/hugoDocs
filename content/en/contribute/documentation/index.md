@@ -329,10 +329,14 @@ For function and method pages, start the front matter `description` with "Return
 - `Reports whether the given page is in the given section.`
 - `Logs a WARNING from a template.`
 
-Structure the body of a function or method reference page with two level 2 headings, in this order:
+Structure the body of a function or method reference page with these level 2 headings, in this order:
 
-1. `## Usage`: prose describing behavior, arguments, and edge cases.
-1. `## Examples`: code blocks demonstrating the function or method.
+1. `## Usage`: Required. Prose describing behavior, return value, and edge cases.
+1. `## Arguments`: Optional. A definition list describing the arguments.
+1. `## Options`: Required if the signature includes `OPTIONS`, otherwise omit. A definition list describing each option.
+1. `## Examples`: Required. Code blocks demonstrating the function or method.
+
+Do not add other level 2 headings.
 
 Open the `## Usage` section with a complete sentence that names the function or method by its canonical form, wrapped in backticks. Use the canonical form even when an alias exists.
 
@@ -345,6 +349,25 @@ When prose names an argument placeholder taken verbatim from the function's sign
 
 No → If CONTROL is truthy the function returns ARG1, otherwise it returns ARG2.\
 Yes → If `CONTROL` is truthy the function returns `ARG1`, otherwise it returns `ARG2`.
+
+Describe the return value within `## Usage` when the front matter `description` and `returnType` are not sufficient, such as when the value depends on the arguments or the returned object has methods that the reader needs. Do not create a separate heading for the return value.
+
+Include `## Arguments` when an argument needs more than the `## Usage` prose to describe it. For example, include it when an argument accepts more than one data type, accepts a constrained set of values, or is optional with behavior that is not obvious when omitted. Otherwise, describe the arguments in the `## Usage` prose.
+
+Under `## Arguments`, describe each argument in signature order using a definition list. Wrap each term in backticks, and begin each description with the data type in parentheses. If the page also includes `## Options`, describe the `OPTIONS` argument briefly and link to the `## Options` section. Use the same format to describe each option under `## Options`.
+
+```md {file="content/example.md"}
+## Arguments
+
+`SLICE`
+: (`slice`) The slice to filter.
+
+`OPERATOR`
+: (`string`) The comparison operator. Default is `eq`.
+
+`OPTIONS`
+: (`map`) See [options](#options).
+```
 
 Under `## Examples`, use one or more `go-html-template` code blocks to demonstrate the function or method. Always call the function or method by its canonical form, as described in [code examples](#code-examples).
 
