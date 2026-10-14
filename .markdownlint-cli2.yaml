@@ -1,5 +1,6 @@
 # Glob patterns to include
 globs:
+  - "AGENTS.md"
   - "content/**/*.md"
 
 # Glob patterns to exclude
