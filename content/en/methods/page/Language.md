@@ -117,7 +117,7 @@ weight = 2
 
 `Translate`
 : {{< new-in 0.168.0 />}}
-: (`string`) Translates a string using the translation tables for this language. See [`lang.Translate`][].
+: (`string`) Translates a string using the translation table for this language. See [`lang.Translate`][].
 
   ```go-html-template
   {{ .Language.Translate "hello" }} → Hallo
