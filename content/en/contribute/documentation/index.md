@@ -66,11 +66,22 @@ Adhere to these Markdown conventions:
   [link]: https://example.org
   ```
 
+- When linking to another page on this site, set the link destination to the page's URL path, not its file path. Begin and end the path with a slash, and place any fragment after the trailing slash. For example:
+
+  ```md {file="content/example.md"}
+  See the [front matter][] and [aliases][] documentation.
+
+  [front matter]: /content-management/front-matter/
+  [aliases]: /content-management/front-matter/#aliases
+  ```
+
 - Use [inline links][] to link to fragments on the same page. For example:
 
   ```md {file="content/example.md"}
-  This is a link to a [fragment][#fragment].
+  This is a link to a [fragment](#fragment).
   ```
+
+- Use inline links within the inner content of shortcodes called with the `{{</* */>}}` notation, such as `deprecated-in` and `new-in`. The inner content is rendered separately, so link reference definitions elsewhere on the page are not available to it.
 
 - Use [fenced code blocks][] instead of [indented code blocks][].
 - Use hyphens, not asterisks, for unordered [list items][].
@@ -79,7 +90,7 @@ Adhere to these Markdown conventions:
 - Do not mix [raw HTML][] within Markdown.
 - Do not use bold text in place of a heading or description term (`dt`).
 - Do not use Hugo's `ref` or `relref` shortcodes.
-- Do not place a list immediately after a heading; always precede it with a sentence.
+- Do not place a list immediately after a heading. Always precede it with a sentence.
 - Remove consecutive blank lines.
 - Remove trailing spaces.
 
@@ -89,7 +100,7 @@ Do not use formatting, such as backticks, bold, or italic, in section headings, 
 
 - Use sentence-style capitalization.
 - Keep them concise.
-- Do not create a single subsection under a section; either add more subsections or remove the heading. This also applies to a single level 2 heading on an otherwise unheaded page: either add a second level 2 heading, or remove it and let the content flow as body text.
+- Do not create a single subsection under a section. Either add more subsections or remove the heading. This also applies to a single level 2 heading on an otherwise unheaded page: either add a second level 2 heading, or remove it and let the content flow as body text.
 - Precede the first subheading under a heading with a sentence introducing the subsections, unless the heading text alone makes the subsections' purpose obvious.
 
 ### File paths and names
@@ -105,7 +116,7 @@ Refer to [component](g) directories by their names within the unified file syste
 Wrap shortcode names in backticks. Link to the shortcode page using the name as the link text, not the word "shortcode":
 
 ```md {file="content/example.md"}
-Use the [`highlight`] shortcode to render syntax-highlighted code.
+Use the [`highlight`][] shortcode to render syntax-highlighted code.
 
 [`highlight`]: /shortcodes/highlight/
 ```
@@ -197,6 +208,18 @@ keywords: []
 
 If quotation marks are required, prefer single quotes to double quotes when possible.
 
+Use the `hugo new content` command to create a new page with the correct front matter. Hugo selects an archetype from the `archetypes` directory based on the top-level section, with dedicated archetypes for the `functions`, `methods`, and `news` sections. Specify the path relative to the `content/en` directory:
+
+```sh
+hugo new content functions/strings/ToUpper.md
+```
+
+To create a glossary entry, use the `--kind` flag to select the `glossary` archetype:
+
+```sh
+hugo new content --kind glossary quick-reference/glossary/page-kind.md
+```
+
 Field|Description|Required
 :--|:--|:--
 `title`|The page title|:heavy_check_mark:
@@ -214,7 +237,7 @@ Field|Description|Required
 `params.minversion`|Applicable to the quick start page: the minimum Hugo version required|&nbsp;
 `params.permalink`|Reserved for use by the news content adapter|&nbsp;
 `params.reference`|Applicable to glossary entries: a URL for additional information|&nbsp;
-`params.searchable`|Whether to add the content of this page to the search index. The default value is cascaded down from the project configuration; `true` if the page kind is `page`, and `false` if the page kind is one of `home`, `section`, `taxonomy`, or `term`. Add this field to override the default value.|&nbsp;
+`params.searchable`|Whether to add the content of this page to the search index. The default value is cascaded down from the project configuration. It is `true` if the page kind is `page`, and `false` if the page kind is one of `home`, `section`, `taxonomy`, or `term`. Add this field to override the default value.|&nbsp;
 `params.show_publish_date`|Whether to show the `publishDate` when rendering the page|&nbsp;
 `weight`|The page weight|&nbsp;
 `aliases`|Previous URLs used to access this page|&nbsp;
@@ -244,7 +267,7 @@ When available, the "See also" sidebar displays related pages using Hugo's [rela
 
 If the title in the "See also" sidebar is ambiguous or the same as another page, you can define an alternate title in the front matter:
 
-{{< code-toggle file=hugo >}}
+{{< code-toggle file=content/example.md fm=true >}}
 title = 'Long descriptive title'
 linkTitle = 'Short title'
 [params]
@@ -571,7 +594,7 @@ You can also include details:
 
 ```md
 {{</* deprecated-in 0.144.0 */>}}
-Use the [`hugo.IsServer`](/docs/reference/functions/hugo/isserver/) function instead.
+Use the [`hugo.IsServer`](/functions/hugo/isserver/) function instead.
 {{</* /deprecated-in */>}}
 ```
 
