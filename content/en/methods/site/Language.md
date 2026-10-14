@@ -123,7 +123,7 @@ weight = 2
   {{ .Site.Language.Translate "hello" }} → Hallo
   ```
 
-  Use this to translate a string into a language other than that of the current page:
+  Use this to translate a string into each configured language:
 
   ```go-html-template
   {{ range .Site.Languages }}
