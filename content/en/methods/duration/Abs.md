@@ -10,6 +10,6 @@ params:
 ---
 
 ```go-html-template
-{{ $d = time.ParseDuration "-3h" }}
+{{ $d := time.ParseDuration "-3h" }}
 {{ $d.Abs }} → 3h0m0s
 ```
