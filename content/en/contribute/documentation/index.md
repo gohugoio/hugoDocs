@@ -321,7 +321,7 @@ Each record has these fields:
 
 Keep the records sorted by `source`.
 
-## Function and method reference pages
+## Function and method pages
 
 For function and method pages, start the front matter `description` with "Returns" to describe the value returned, or with "Reports whether" if the returned value is a boolean. If a function or method is used primarily for its side effects, describe the action it performs instead, using third-person present tense. For example:
 
