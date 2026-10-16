@@ -209,6 +209,7 @@
 "/getting-started/configuration-markup","/configuration/markup/","2026-10-10"
 "/getting-started/glossary","/quick-reference/glossary/","2026-10-10"
 "/getting-started/installing","/installation/","2026-10-10"
+"/host-and-deploy/deploy-to-sourcehut-pages/","/host-and-deploy/deployment-methods/","2026-10-16"
 "/host-and-deploy/deploy-with-hugo-deploy","/host-and-deploy/deploy-with-hugo/","2026-10-10"
 "/host-and-deploy/host-on-aws-amplify","/host-and-deploy/deploy-to-aws-amplify/","2026-10-10"
 "/host-and-deploy/host-on-azure-static-web-apps","/host-and-deploy/deploy-to-azure-static-web-apps/","2026-10-10"
