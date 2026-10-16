@@ -21,7 +21,6 @@ Push your source code to a Git repository, and the hosting platform builds and d
 - [GitLab Pages][]
 - [Netlify][]
 - [Render][]
-- [SourceHut Pages][]
 - [Vercel][]
 
 ## Build locally and transfer
@@ -42,7 +41,6 @@ Build your site on your local machine or in your own environment, then transfer 
 [GitLab Pages]: /host-and-deploy/deploy-to-gitlab-pages/
 [Netlify]: /host-and-deploy/deploy-to-netlify/
 [Render]: /host-and-deploy/deploy-to-render/
-[SourceHut Pages]: /host-and-deploy/deploy-to-sourcehut-pages/
 [Vercel]: /host-and-deploy/deploy-to-vercel/
 [FTP]: /host-and-deploy/deploy-with-ftp/
 [Hugo]: /host-and-deploy/deploy-with-hugo/
