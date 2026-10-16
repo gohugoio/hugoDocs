@@ -98,7 +98,7 @@ the specified pattern.
 Service|URL example
 :--|:--
 Amazon Simple Storage Service (S3)|`s3://my-bucket?region=us-west-1`
-Azure Blob Storage|`azblob://my-container`
+Azure Blob Storage|`azblob://my-container?storage_account=my-account`
 Google Cloud Storage (GCS)|`gs://my-bucket`
 
 With Google Cloud Storage you can target a subdirectory:
