@@ -44,7 +44,7 @@ Adhere to these writing style conventions.
   No → To copy the repository:\
   Yes → Use the `git clone` command to copy the repository.
 
-  Exception: within the `## Examples` section of a function or method reference page, use a short fragment to introduce each code block after the first. See [function and method reference pages](#function-and-method-reference-pages).
+  Exception: within the `## Examples` section of a function or method reference page, use a short fragment to introduce each code block after the first. See [function and method page structure](#structure).
 
 - Use [basic english][] where possible for a global audience.
 - Prioritize current best practices over multiple options or historical information.
@@ -323,11 +323,17 @@ Keep the records sorted by `source`.
 
 ## Function and method pages
 
+Function and method pages follow specific conventions for the front matter description and the page structure.
+
+### Descriptions
+
 For function and method pages, start the front matter `description` with "Returns" to describe the value returned, or with "Reports whether" if the returned value is a boolean. If a function or method is used primarily for its side effects, describe the action it performs instead, using third-person present tense. For example:
 
 - `Returns a slice containing the elements after the first N elements of the given slice.`
 - `Reports whether the given page is in the given section.`
 - `Logs a WARNING from a template.`
+
+### Structure
 
 Structure the body of a function or method reference page with these level 2 headings, in this order:
 
