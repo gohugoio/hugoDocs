@@ -22,7 +22,13 @@ key-with-hyphens = 'must use index function'
   name = 'John Smith'
 {{< /code-toggle >}}
 
-The `title` and `date` fields are standard [front matter fields][], while the other fields are user-defined.
+The `title` and `date` fields are reserved [front matter fields][], while the fields under the `params` key are custom fields.
+
+Use the `Params` method to access custom fields. To access a reserved field, call the corresponding method on a `Page` object, such as [`Title`][] or [`Date`][]. See the list of [front matter fields][] for the method that corresponds to each reserved field.
+
+{{< deprecated-in 0.169.0 >}}
+Accessing a reserved field with the `Params` method, such as `.Params.title`, is deprecated. Call the corresponding method instead, such as `.Title`. To access the `summary` field, call the [`RawSummary`](/methods/page/rawsummary/) method. Hugo does not log a deprecation warning in every case.
+{{< /deprecated-in >}}
 
 Access the custom fields by [chaining](g) the [identifiers](g) when needed:
 
@@ -38,5 +44,7 @@ In the template example above, each of the keys is a valid identifier. For examp
 {{ index .Params "key-with-hyphens" }} → must use index function
 ```
 
+[`Date`]: /methods/page/date/
+[`Title`]: /methods/page/title/
 [`index`]: /functions/collections/indexfunction/
 [front matter fields]: /content-management/front-matter/#fields

@@ -41,6 +41,12 @@ The where function takes three or four arguments. The `OPERATOR` argument is opt
   {{ $result := where .Site.RegularPages "Params.foo" "bar" }}
   ```
 
+  Use the `Params` key to compare custom fields. To compare a reserved field, use the name of the corresponding `Page` method, such as `Title`.
+
+  {{< deprecated-in 0.169.0 >}}
+  Comparing a reserved field with the `Params` key, such as `Params.title`, is deprecated. Use the name of the corresponding `Page` method instead, such as `Title`. Hugo does not log a deprecation warning in every case.
+  {{< /deprecated-in >}}
+
 `OPERATOR`
 : (`string`) The logical comparison [operator](#operators).
 

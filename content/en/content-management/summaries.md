@@ -103,6 +103,8 @@ For example, with a `summaryLength` of 7, the automatic summary will be:
 <p>This is the second paragraph.</p>
 ```
 
+If the summary would end inside a container element such as a `blockquote` or list item, Hugo extends the summary to the end of that element.
+
 ## Comparison
 
 Each summary type has different characteristics:

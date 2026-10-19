@@ -4837,6 +4837,8 @@ tpl:
         Description: |-
           Emojify returns a copy of s with all emoji codes replaced with actual emojis.
           
+          If s is of type template.HTML, the result is template.HTML, else a string.
+          
           See http://www.emoji-cheat-sheet.com/
         Examples:
         - - '{{ "I :heart: Hugo" | emojify }}'
@@ -4918,7 +4920,9 @@ tpl:
         - plainify
         Args:
         - s
-        Description: Plainify returns a copy of s with all HTML tags removed.
+        Description: |-
+          Plainify returns a copy of s with all HTML tags removed.
+          If s is of type template.HTML, the result is template.HTML, else a string.
         Examples:
         - - '{{ plainify  "Hello <strong>world</strong>, gophers!" }}'
           - Hello world, gophers!
