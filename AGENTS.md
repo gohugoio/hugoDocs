@@ -9,6 +9,13 @@ Applies to all work in this repository.
   - Use imperative present tense, and keep the summary line to 50 characters or less.
   - Optionally, add a blank line followed by a detailed description, with each line 72 characters or less.
   - Optionally, add one or more `Fixes` or `Closes` keywords, each on its own line, referencing the issues addressed.
+- Follow these Git safety rules:
+  - Run `git status` and `git remote -v` before making changes. The remote pointing to `gohugoio/hugoDocs` is the upstream repository; the remote pointing to the contributor's fork is usually `origin`.
+  - **NEVER** commit directly to `master`. Create a branch from the upstream `master` branch with a descriptive name that includes the corresponding issue number, if any.
+  - **NEVER** push or open pull requests unless explicitly asked. When asked to push, push the current branch to the contributor's fork, never to the upstream repository.
+  - **NEVER** rewrite history, including amending, rebasing, resetting, or force-pushing, unless explicitly asked. Create new commits instead. When a force-push is approved, use `--force-with-lease`.
+  - **NEVER** run commands that discard work, such as `git reset --hard`, `git clean`, `git restore`, `git checkout -- <path>`, or `git branch -D`, unless explicitly asked.
+  - Stage only the files you changed. Do not use `git add -A` or `git add .`.
 
 ## Content
 
