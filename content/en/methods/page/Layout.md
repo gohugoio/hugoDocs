@@ -9,32 +9,22 @@ params:
     signatures: [PAGE.Layout]
 ---
 
-Specify the `layout` field in front matter to target a particular template. See [details][].
+The `Layout` method on a `Page` object returns the layout of the given page as defined by the [`layout`][] field in front matter. If the `layout` field is not defined, the method returns an empty string.
+
+For example, given this front matter:
 
 {{< code-toggle file=content/contact.md fm=true >}}
 title = 'Contact'
 layout = 'contact'
 {{< /code-toggle >}}
 
-Hugo will render the page using contact.html.
-
-```tree
-layouts/
-├── baseof.html
-├── contact.html
-├── home.html
-├── page.html
-├── section.html
-├── taxonomy.html
-└── term.html
-```
-
-Although rarely used within a template, you can access the value with:
+Calling the method returns:
 
 ```go-html-template
-{{ .Layout }}
+{{ .Layout }} → contact
 ```
 
-The `Layout` method returns an empty string if the `layout` field in front matter is not defined.
+This method is rarely used within a template. See [details][] for information on how the `layout` field affects template selection.
 
-[details]: /templates/lookup-order/#target-a-template
+[`layout`]: /content-management/front-matter/#layout
+[details]: /templates/lookup-order/#using-layout
