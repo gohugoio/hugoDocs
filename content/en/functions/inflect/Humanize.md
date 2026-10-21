@@ -10,14 +10,23 @@ params:
     signatures: [inflect.Humanize INPUT]
 ---
 
+## Usage
+
+The `inflect.Humanize` function returns the humanized version of the input with the first letter capitalized. It replaces hyphens and underscores with spaces, and separates camel case words.
+
+If the input is an integer or a string representation of an integer, the function returns the number with the appropriate ordinal suffix appended.
+
+## Examples
+
 ```go-html-template
-{{ humanize "my-first-post" }} → My first post
-{{ humanize "myCamelPost" }} → My camel post
+{{ inflect.Humanize "my-first-post" }} → My first post
+{{ inflect.Humanize "my_first_post" }} → My first post
+{{ inflect.Humanize "myFirstPost" }} → My first post
 ```
 
-If the input is an integer or a string representation of an integer, humanize returns the number with the proper ordinal appended.
+Converting integers and string representations of integers:
 
 ```go-html-template
-{{ humanize "52" }} → 52nd
-{{ humanize 103 }} → 103rd
+{{ inflect.Humanize "52" }} → 52nd
+{{ inflect.Humanize 103 }} → 103rd
 ```
