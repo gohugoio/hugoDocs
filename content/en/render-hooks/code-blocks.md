@@ -131,4 +131,4 @@ Hugo includes an [embedded code block render hook][] to render [GoAT diagrams][]
 [code fence]: https://spec.commonmark.org/current/#code-fence
 [diagrams]: /content-management/diagrams/#mermaid-diagrams
 [embedded code block render hook]: <{{% eturl render-codeblock-goat %}}>
-[highlighting options]: /functions/transform/highlight/#options
+[highlighting options]: /functions/transform/highlight/#options-1

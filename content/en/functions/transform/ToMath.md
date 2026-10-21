@@ -10,23 +10,38 @@ params:
     signatures: ['transform.ToMath INPUT [OPTIONS]']
 ---
 
-Hugo uses an embedded instance of the [KaTeX][] display engine to render mathematical markup to HTML. You do not need to install the KaTeX display engine.
+## Usage
 
-```go-html-template
-{{ transform.ToMath "c = \\pm\\sqrt{a^2 + b^2}" }}
-```
+The `transform.ToMath` function returns the given mathematical markup, written in the LaTeX language, rendered to HTML. Hugo uses an embedded instance of the [KaTeX][] display engine to render the markup. You do not need to install the KaTeX display engine.
+
+Call this function from a [passthrough render hook][] to render mathematical markup when you build the site, instead of on the client side with MathJax or KaTeX.
 
 Hugo caches the result to disk in the [`misc`][] file cache, so calling the function multiple times with the same arguments incurs no additional overhead.
 
 > [!NOTE]
 > By default, Hugo renders mathematical markup to [MathML][], and does not require any CSS to display the result.
 >
-> To optimize rendering quality and accessibility, use the `htmlAndMathml` output option as described below. This approach requires an external stylesheet.
+> To optimize rendering quality and accessibility, set the [`output`](#output) option to `htmlAndMathml`. This approach requires the KaTeX stylesheet, as described in the `output` option.
 
-```go-html-template
-{{ $opts := dict "output" "htmlAndMathml" }}
-{{ transform.ToMath "c = \\pm\\sqrt{a^2 + b^2}" $opts }}
+### Error handling
+
+There are three ways to handle errors:
+
+1. Let KaTeX throw an error and fail the build. This is the default behavior.
+1. Set the [`throwOnError`](#throwonerror) option to `false` to make KaTeX render the expression as an error instead of throwing an error.
+1. Handle the error in your template, as shown in the render hook example under [examples](#examples).
+
+### Chemistry
+
+{{< new-in 0.144.0 />}}
+
+You can also use the `transform.ToMath` function to render chemical equations, using the `\ce` and `\pu` functions from the [`mhchem`][] package.
+
+```md
+$$C_p[\ce{H2O(l)}] = \pu{75.3 J // mol K}$$
 ```
+
+$$C_p[\ce{H2O(l)}] = \pu{75.3 J // mol K}$$
 
 ## Options
 
@@ -59,7 +74,7 @@ The `transform.ToMath` function accepts an options map. These options are a subs
 `output`
 : (`string`) Determines the markup language of the output, one of `html`, `mathml`, or `htmlAndMathml`. Default is `mathml`.
 
-  With `html` and `htmlAndMathml` you must include the KaTeX style sheet within the `head` element of your _base_ template.
+  With `html` and `htmlAndMathml` you must include the KaTeX stylesheet within the `head` element of your _base_ template.
 
   ```html
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.18.4/dist/katex.min.css" integrity="sha384-u1zONI5gPXUx0UKI62c75/zww972y0v2rSK5ZYlVdS6xEuWDeZWUI66v6t1gvlXJ" crossorigin="anonymous">
@@ -78,19 +93,20 @@ The `transform.ToMath` function accepts an options map. These options are a subs
 `throwOnError`
 : (`bool`) Whether to throw a `ParseError` when KaTeX encounters an unsupported command or invalid LaTeX. Default is `true`.
 
-## Error handling
+## Examples
 
-There are three ways to handle errors:
+```go-html-template
+{{ transform.ToMath "c = \\pm\\sqrt{a^2 + b^2}" }}
+```
 
-1. Let KaTeX throw an error and fail the build. This is the default behavior.
-1. Set the `throwOnError` option to `false` to make KaTeX render the expression as an error instead of throwing an error. See [options](#options).
-1. Handle the error in your template.
+Rendering to HTML and MathML:
 
-The example below demonstrates error handing within a template.
+```go-html-template
+{{ $opts := dict "output" "htmlAndMathml" }}
+{{ transform.ToMath "c = \\pm\\sqrt{a^2 + b^2}" $opts }}
+```
 
-## Example
-
-Instead of client-side JavaScript rendering of mathematical markup using MathJax or KaTeX, create a passthrough render hook which calls the `transform.ToMath` function.
+In a passthrough render hook, handling errors within the template:
 
 Step 1
 : Enable and configure the Goldmark [passthrough extension][] in your project configuration. The passthrough extension preserves raw Markdown within delimited snippets of text, including the delimiters themselves.
@@ -107,7 +123,7 @@ Step 1
   > The configuration above precludes the use of the `$...$` delimiter pair for inline equations. Although you can add this delimiter pair to the configuration, you must double-escape the `$` symbol when used outside of math contexts to avoid unintended formatting.
 
 Step 2
-: Create a [passthrough render hook][] to capture and render the LaTeX markup.4
+: Create a passthrough render hook to capture and render the LaTeX markup.
 
   ```go-html-template {file="layouts/_markup/render-passthrough.html" copy=true}
   {{- $opts := dict "output" "htmlAndMathml" "displayMode" (eq .Type "block") }}
@@ -122,7 +138,7 @@ Step 2
   ```
 
 Step 3
-: In your _base_ template, conditionally include the KaTeX CSS within the head element.
+: In your _base_ template, conditionally include the KaTeX CSS within the `head` element.
 
   ```go-html-template {file="layouts/baseof.html" copy=true}
   <head>
@@ -133,10 +149,10 @@ Step 3
   </head>
   ```
 
-  In the above, note the use of a [noop](g) statement to force content rendering before we check the value of `hasMath` with the `Store.Get` method.
+  The [noop](g) statement forces content rendering before the template checks the value of `hasMath` with the `Store.Get` method.
 
   > [!NOTE]
-  > This conditional approach only identifies math on the current page. Mathematical expressions will not display correctly when one page's content is embedded within another. For example, if a [list page](g) calls the [`Content`][] or [`Summary`][] methods while ranging through its page collection, the list page will not load the KaTeX CSS.
+  > This conditional approach only identifies math on the current page. Mathematical expressions do not display correctly when one page's content is embedded within another. For example, if a [list page](g) calls the [`Content`][] or [`Summary`][] methods while ranging through its page collection, the list page does not load the KaTeX CSS.
   >
   > If this affects your site, use this conditional logic instead:
   >
@@ -159,18 +175,6 @@ Step 4
 
   $$a^*=x-b^*$$
   ```
-
-## Chemistry
-
-{{< new-in 0.144.0 />}}
-
-You can also use the `transform.ToMath` function to render chemical equations, leveraging the `\ce` and `\pu` functions from the [`mhchem`][] package.
-
-```md
-$$C_p[\ce{H2O(l)}] = \pu{75.3 J // mol K}$$
-```
-
-$$C_p[\ce{H2O(l)}] = \pu{75.3 J // mol K}$$
 
 [KaTeX]: https://katex.org/
 [MathML]: https://developer.mozilla.org/en-US/docs/Web/MathML

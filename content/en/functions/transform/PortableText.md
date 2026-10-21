@@ -13,22 +13,22 @@ params:
 
 ## Usage
 
-[Portable Text][] is a JSON structure that represents rich text content in the [Sanity][] CMS. In Hugo, this function is typically used in a [content adapter][] that creates pages from Sanity data.
+The `transform.PortableText` function returns the given Portable Text converted to Markdown. [Portable Text][] is a JSON structure that represents rich text content in the [Sanity][] CMS. Use this function in a [content adapter][] that creates pages from Sanity data.
 
-Supported types:
+The function supports these Portable Text types:
 
 - `block` and `span`
-- `image`. Note that the image handling is currently basic; we link to the `asset.url` using `asset.altText` as the image alt text and `asset.title` as the title. For more fine-grained control you may want to process the images in an [image render hook][].
-- `code` (see the [code-input][] plugin). Code will be rendered as fenced code blocks with any file name provided passed as a Markdown attribute.
+- `image`: The function links to the `asset.url`, using `asset.altText` as the image alt text and `asset.title` as the title. Image handling is basic. For more control, process the images in an [image render hook][].
+- `code`: The function renders code as fenced code blocks, passing any file name as a Markdown attribute. See the [code-input][] plugin.
 
 > [!NOTE]
-> Since the Portable Text gets converted to Markdown before it gets passed to Hugo, rendering of links, headings, images and code blocks can be controlled with [render hooks][].
+> Because Hugo converts the Portable Text to Markdown before rendering it, you can control the rendering of links, headings, images, and code blocks with [render hooks][].
 
 ## Examples
 
-The following example creates pages from Sanity data using a content adapter.
+The examples below create pages from Sanity data using a content adapter.
 
-### Content Adapter
+### Content adapter
 
 ```go-html-template {file="content/_content.gotmpl" copy=true}
 {{ $projectID := "mysanityprojectid" }}
@@ -67,7 +67,7 @@ The following example creates pages from Sanity data using a content adapter.
 {{ $body := dict "query" $q | jsonify }}
 {{ $opts := dict "method" "post" "body" $body }}
 {{ $r := resources.GetRemote $url $opts }}
-{{ $m := $r | transform.Unmarshal }}
+{{ $m := $r | unmarshal }}
 {{ $result := $m.result }}
 {{ range $result }}
   {{ if not .slug }}
@@ -96,7 +96,7 @@ The following example creates pages from Sanity data using a content adapter.
 
 ### Sanity setup
 
-The following outlines a suitable Sanity studio setup for the above example.
+This Sanity Studio setup works with the content adapter above.
 
 ```ts {file="sanity.config.ts" copy=true}
 import {defineConfig} from 'sanity'
@@ -180,11 +180,7 @@ export const postType = defineType({
 })
 ```
 
-Note that the above requires some additional plugins to be installed:
-
-```sh
-npm i sanity-plugin-media @sanity/code-input
-```
+Schema types index:
 
 ```ts {file="schemaTypes/index.ts" copy=true}
 import {postType} from './postType'
@@ -192,9 +188,15 @@ import {postType} from './postType'
 export const schemaTypes = [postType]
 ```
 
+This setup requires additional plugins:
+
+```sh
+npm i sanity-plugin-media @sanity/code-input
+```
+
 ### Server setup
 
-Unfortunately, Sanity's API does not support [RFC 7234][] and their output changes even if the data has not. A recommended setup is therefore to use their cached `apicdn` endpoint (see above) and then set up a reasonable polling and file cache strategy in your Hugo configuration, e.g:
+Sanity's API does not support [RFC 7234][], and its output changes even when the data does not. Use the cached `apicdn` endpoint, as shown in the content adapter above, then configure polling and a file cache in your project configuration:
 
 <!-- markdownlint-disable MD049 -->
 {{< code-toggle file=hugo >}}
@@ -212,11 +214,11 @@ Unfortunately, Sanity's API does not support [RFC 7234][] and their output chang
 {{< /code-toggle >}}
 <!-- markdownlint-enable MD049 -->
 
-The polling above will be used when running the server/watch mode and rebuilds when you push new content to Sanity.
+When you run the `hugo server` command or watch for changes, Hugo polls Sanity and rebuilds the site when you publish new content.
 
-See [Caching in resources.GetRemote][] for more fine-grained control.
+For more control, see [caching][] in the `resources.GetRemote` documentation.
 
-[Caching in resources.GetRemote]: /functions/resources/getremote/#caching
+[caching]: /functions/resources/getremote/#caching
 [Portable Text]: https://www.portabletext.org/
 [RFC 7234]: https://tools.ietf.org/html/rfc7234
 [Sanity]: https://www.sanity.io/
