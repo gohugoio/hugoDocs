@@ -115,5 +115,5 @@ As shown above, the attribute list for fenced code blocks is not limited to HTML
 [CommonMark]: https://spec.commonmark.org/current/
 [Goldmark]: https://github.com/yuin/goldmark
 [global HTML attributes]: https://developer.mozilla.org/en-US/docs/Web/HTML/Global_attributes
-[option]: /functions/transform/highlight/#options
+[option]: /functions/transform/highlight/#options-1
 [render hook templates]: /render-hooks/introduction/

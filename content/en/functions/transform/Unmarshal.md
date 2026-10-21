@@ -1,6 +1,6 @@
 ---
 title: transform.Unmarshal
-description: Returns a map or an array parsed from serialized data in CSV, JSON, TOML, YAML, or XML format.
+description: Returns a map or a slice parsed from serialized data in CSV, JSON, TOML, YAML, or XML format.
 categories: []
 keywords: []
 params:
@@ -10,7 +10,13 @@ params:
     signatures: ['transform.Unmarshal [OPTIONS] INPUT']
 ---
 
-The input can be a string or a [resource](g).
+## Usage
+
+The `transform.Unmarshal` function returns a map or a slice parsed from serialized data in CSV, JSON, TOML, YAML, or XML format. The `INPUT` can be a string or a [resource](g).
+
+The return type depends on the format and the data. Unmarshaling an object returns a map, and unmarshaling an array returns a slice. Unmarshaling CSV data returns a slice of rows, as described in [working with CSV](#working-with-csv).
+
+When the `INPUT` is a resource, Hugo caches the result, so calling the function multiple times with the same resource incurs no additional overhead.
 
 ## Options
 
@@ -33,7 +39,7 @@ The `transform.Unmarshal` function accepts an options map.
 : {{< new-in 0.146.7 />}}
 : (`string`) Applicable to CSV files. The target data type, either `slice` or `map`. Default is `slice`.
 
-## Unmarshal a string
+## Examples
 
 ```go-html-template
 {{ $string := `
@@ -46,9 +52,7 @@ author: Victor Hugo
 {{ $book.author }} → Victor Hugo
 ```
 
-## Unmarshal a resource
-
-Use the `transform.Unmarshal` function with global, page, and remote resources. Hugo caches the result, so calling the function multiple times with the same resource incurs no additional overhead.
+The examples below unmarshal global, page, and remote resources, then show how to work with CSV and XML data.
 
 ### Global resource
 
@@ -130,13 +134,16 @@ A remote resource is a file on a remote server, accessible via HTTP or HTTPS.
 > [!NOTE]
 > When retrieving remote data, a misconfigured server may send a response header with an incorrect [Content-Type][]. For example, the server may set the Content-Type header to `application/octet-stream` instead of `application/json`.
 >
-> In these cases, pass the resource `Content` through the `transform.Unmarshal` function instead of passing the resource itself. For example, in the above, do this instead:
+> In these cases, pass the resource `Content` through the `transform.Unmarshal` function instead of passing the resource itself. For example, in the remote resource example above, use this instead:
 >
 > `{{ $data = .Content | transform.Unmarshal }}`
 
-## Working with CSV
+### Working with CSV
 
-A CSV file is tabular, so unlike JSON, TOML, XML, and YAML, `transform.Unmarshal` always returns a collection with one entry per row instead of a single object. This is a slice of rows by default, or a slice of row maps when you set `targetType` to `map`.
+Unmarshaling CSV data returns a slice of rows. Every value is a string, even if it looks like a number. The [`targetType`](#targettype) option determines the type of each row:
+
+- With the default `slice` target, each row is a slice of values. The first row contains the header.
+- With the `map` target, each row is a map keyed by the header. The result does not include the header row. The CSV data must have a header row and at least one data row, and the header must not contain duplicate field names.
 
 The examples below use this CSV file:
 
@@ -153,8 +160,7 @@ To render an HTML table from a CSV file:
 {{ $data := slice }}
 {{ $file := "pets.csv" }}
 {{ with or (.Resources.Get $file) (resources.Get $file) }}
-  {{ $opts := dict "targetType" "slice" }}
-  {{ $data = transform.Unmarshal $opts . }}
+  {{ $data = transform.Unmarshal . }}
 {{ end }}
 
 {{ with $data }}
@@ -179,10 +185,10 @@ To render an HTML table from a CSV file:
 {{ end }}
 ```
 
-To extract a subset of the data, or to sort the data, unmarshal to a map instead of a slice:
+To filter or sort the rows by field name, set the `targetType` option to `map`:
 
 ```go-html-template
-{{ $data := dict }}
+{{ $data := slice }}
 {{ $file := "pets.csv" }}
 {{ with or (.Resources.Get $file) (resources.Get $file) }}
   {{ $opts := dict "targetType" "map" }}
@@ -213,7 +219,17 @@ To extract a subset of the data, or to sort the data, unmarshal to a map instead
 {{ end }}
 ```
 
-## Working with XML
+To compare a value as a number, convert it with the [`cast.ToInt`][] or [`cast.ToFloat`][] function. To list the pets older than five:
+
+```go-html-template
+{{ range $data }}
+  {{ if gt (int .age) 5 }}
+    {{ .name }}
+  {{ end }}
+{{ end }}
+```
+
+### Working with XML
 
 When unmarshaling an XML file, do not include the root node when accessing data. For example, after unmarshaling the RSS feed below, access the feed title with `$data.channel.title`.
 
@@ -287,7 +303,7 @@ Hugo renders this to:
 </ul>
 ```
 
-Let's add a `lang` attribute to the `title` nodes of our RSS feed, and a namespaced node for the ISBN number:
+This RSS feed adds a `lang` attribute to each `title` node, and a namespaced node for the ISBN number:
 
 ```xml
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
@@ -343,7 +359,7 @@ Each item node looks like this:
 }
 ```
 
-The title keys do not begin with an underscore or a letter---they are not valid [identifiers](g). Use the [`index`][] function to access the values:
+The title keys do not begin with an underscore or a letter, so they are not valid [identifiers](g). Use the [`collections.Index`][] function to access the values:
 
 ```go-html-template
 {{ with $data.channel.item }}
@@ -368,5 +384,7 @@ Hugo renders this to:
 ```
 
 [Content-Type]: https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Content-Type
-[`index`]: /functions/collections/indexfunction/
+[`cast.ToFloat`]: /functions/cast/tofloat/
+[`cast.ToInt`]: /functions/cast/toint/
+[`collections.Index`]: /functions/collections/indexfunction/
 [page bundle]: /content-management/page-bundles/

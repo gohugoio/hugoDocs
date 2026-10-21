@@ -12,20 +12,16 @@ params:
 
 ## Usage
 
-The format must be one of `json`, `toml`, `yaml`, or `xml`. If the input is a string of serialized data, it must be valid JSON, TOML, YAML, or XML.
+The `transform.Remarshal` function returns a string of serialized data in the specified format, marshaled from a string of serialized data or a map.
+
+The `FORMAT` must be one of `json`, `toml`, `yaml`, or `xml`. If the `INPUT` is a string of serialized data, it must be valid JSON, TOML, YAML, or XML.
 
 > [!NOTE]
 > This function is primarily a helper for Hugo's documentation, used to convert configuration and front matter examples to JSON, TOML, and YAML.
 >
-> This is not a general purpose converter, and may change without notice if required for Hugo's documentation site.
+> This is not a general-purpose converter, and may change without notice if required for Hugo's documentation site.
 
 ## Examples
-
-The following examples convert data from one serialized format to another.
-
-### TOML to JSON
-
-This example converts a string of TOML to JSON:
 
 ```go-html-template
 {{ $s := `
@@ -36,7 +32,7 @@ This example converts a string of TOML to JSON:
 <pre>{{ transform.Remarshal "json" $s }}</pre>
 ```
 
-Resulting HTML:
+The raw HTML output:
 
 ```html
 <pre>{
@@ -47,7 +43,7 @@ Resulting HTML:
 </pre>
 ```
 
-Rendered in browser:
+The rendered result in a browser:
 
 ```text
 {
@@ -57,9 +53,7 @@ Rendered in browser:
 }
 ```
 
-### Map to YAML
-
-This example converts a map to YAML:
+Converting a map to YAML:
 
 ```go-html-template
 {{ $m := dict
@@ -70,7 +64,7 @@ This example converts a map to YAML:
 <pre>{{ transform.Remarshal "yaml" $m }}</pre>
 ```
 
-Resulting HTML:
+The raw HTML output:
 
 ```html
 <pre>a: Hugo rocks!
@@ -83,7 +77,7 @@ c:
 </pre>
 ```
 
-Rendered in browser:
+The rendered result in a browser:
 
 ```text
 a: Hugo rocks!

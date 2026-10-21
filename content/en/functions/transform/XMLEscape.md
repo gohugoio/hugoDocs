@@ -10,7 +10,9 @@ params:
     signatures: [transform.XMLEscape INPUT]
 ---
 
-The `transform.XMLEscape` function removes [disallowed characters][] as defined in the XML specification, then escapes the result by replacing the following characters with [HTML entities][]:
+## Usage
+
+The `transform.XMLEscape` function removes [disallowed characters][] as defined in the XML specification, then escapes the result by replacing these characters with [HTML entities][]:
 
 - `"` → `&#34;`
 - `'` → `&#39;`
@@ -21,13 +23,22 @@ The `transform.XMLEscape` function removes [disallowed characters][] as defined 
 - `\n` → `&#xA;`
 - `\r` → `&#xD;`
 
-For example:
+The function returns a `string`. Go's [`html/template`][] package escapes strings in most contexts, which escapes the entities in the result again. To render the result as is, pass it through the [`safe.HTML`][] function.
+
+## Examples
 
 ```go-html-template
 {{ transform.XMLEscape "<p>abc</p>" }} → &lt;p&gt;abc&lt;/p&gt;
 ```
 
-When using `transform.XMLEscape` in a template rendered by Go's [`html/template`][] package, declare the string to be safe HTML to avoid double escaping. For example, in an RSS template:
+Comparing the result with and without `safe.HTML`, showing the raw HTML output:
+
+```go-html-template
+{{ transform.XMLEscape "<p>abc</p>" }} → &amp;lt;p&amp;gt;abc&amp;lt;/p&amp;gt;
+{{ transform.XMLEscape "<p>abc</p>" | safeHTML }} → &lt;p&gt;abc&lt;/p&gt;
+```
+
+In an RSS template:
 
 ```xml {file="layouts/rss.xml"}
 <description>{{ .Summary | transform.XMLEscape | safeHTML }}</description>
@@ -35,4 +46,5 @@ When using `transform.XMLEscape` in a template rendered by Go's [`html/template`
 
 [HTML entities]: https://developer.mozilla.org/en-US/docs/Glossary/Entity
 [`html/template`]: https://pkg.go.dev/html/template
+[`safe.HTML`]: /functions/safe/html/
 [disallowed characters]: https://www.w3.org/TR/xml/#charsets
