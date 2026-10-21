@@ -419,6 +419,11 @@ Use short, focused code examples. When including template code examples, follow 
   No → `{{ compare.Eq (collections.Dictionary "a" 1) (collections.Dictionary "a" 1) }}`\
   Yes → `{{ compare.Eq (dict "a" 1) (dict "a" 1) }}`
 
+- In prose, including the lead-in sentence for a code example, refer to a function by its canonical form, even when the code example uses its alias.
+
+  No → Comparing the result with and without `safeHTML`:\
+  Yes → Comparing the result with and without `safe.HTML`:
+
 - Do not update version references to third-party libraries embedded within Hugo (for example, the KaTeX display engine used by the `transform.ToMath` function) unless the embedded library version changes in Hugo's source code.
 
 ````md {file="content/example.md"}
