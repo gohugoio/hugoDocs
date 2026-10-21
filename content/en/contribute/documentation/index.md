@@ -375,7 +375,7 @@ Under `## Arguments`, describe each argument in signature order using a definiti
 : (`map`) See [options](#options).
 ```
 
-Under `## Examples`, use one or more `go-html-template` code blocks to demonstrate the function or method. Always call the function or method by its canonical form, as described in [code examples](#code-examples).
+Under `## Examples`, use one or more `go-html-template` code blocks to demonstrate the function or method. Call the documented function by its canonical form, and call any other function by its alias, as described in [code examples](#code-examples).
 
 The first code block needs no lead-in sentence. Introduce each subsequent code block with a short lead-in ending in a colon. Do not repeat the function's name, and do not restate the `## Usage` prose:
 
@@ -401,7 +401,7 @@ Comparing `string` and `template.HTML` input, showing the raw HTML output:
 
 ```go-html-template
 {{ "<b>Lilo &amp; Stitch</b>" | transform.Plainify }} → Lilo &amp;amp; Stitch
-{{ "<b>Lilo &amp; Stitch</b>" | safe.HTML | transform.Plainify }} → Lilo &amp; Stitch
+{{ "<b>Lilo &amp; Stitch</b>" | safeHTML | transform.Plainify }} → Lilo &amp; Stitch
 ```
 ````
 
@@ -413,19 +413,18 @@ Use short, focused code examples. When including template code examples, follow 
 - Insert a space after an opening action delimiter.
 - Insert a space before a closing action delimiter.
 - Do not add white space removal syntax to action delimiters unless required. For example, inline elements like `img` and `a` require whitespace removal on both sides.
-- Call a function or method by its canonical form, even when a legacy alias exists.
+- On a function's reference page, call that function by its canonical form. Everywhere else, call a function by its alias if it has one. Aliases make examples shorter and easier to read. For example, on the `compare.Eq` page:
 
-  No → `{{ eq 1 1 }}`\
-  Yes → `{{ compare.Eq 1 1 }}`
-
-  Exception: pages whose purpose is to document aliases themselves may use aliases when specifically illustrating alias usage.
+  No → `{{ eq (dict "a" 1) (dict "a" 1) }}`\
+  No → `{{ compare.Eq (collections.Dictionary "a" 1) (collections.Dictionary "a" 1) }}`\
+  Yes → `{{ compare.Eq (dict "a" 1) (dict "a" 1) }}`
 
 - Do not update version references to third-party libraries embedded within Hugo (for example, the KaTeX display engine used by the `transform.ToMath` function) unless the embedded library version changes in Hugo's source code.
 
 ````md {file="content/example.md"}
 ```go-html-template
 {{ if eq $foo $bar }}
-  {{ fmt.Printf "%s is %s" $foo $bar }}
+  {{ printf "%s is %s" $foo $bar }}
 {{ end }}
 ```
 ````
