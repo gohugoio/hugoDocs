@@ -41,6 +41,6 @@ Comparing other data types:
 
 ```go-html-template
 {{ compare.Le "ab" "a" }} → false
-{{ compare.Le time.Now (time.AsTime "1964-12-30") }} → false
+{{ compare.Le now (time "1964-12-30") }} → false
 {{ compare.Le true false }} → false
 ```

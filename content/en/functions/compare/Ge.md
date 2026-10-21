@@ -41,6 +41,6 @@ Comparing other data types:
 
 ```go-html-template
 {{ compare.Ge "ab" "a" }} → true
-{{ compare.Ge time.Now (time.AsTime "1964-12-30") }} → true
+{{ compare.Ge now (time "1964-12-30") }} → true
 {{ compare.Ge true false }} → true
 ```

@@ -45,7 +45,6 @@ When the second argument is not set:
 {{ ""    | compare.Default 42 }} → 42
 {{ dict  | compare.Default 42 }} → 42
 {{ slice | compare.Default 42 }} → 42
-
 ```
 
 [`or`]: /functions/go-template/or/
