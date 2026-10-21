@@ -20,7 +20,7 @@ Unlike [ternary operators][] in other languages, the `compare.Conditional` funct
 
 ```go-html-template
 {{ $qty := 42 }}
-{{ compare.Conditional (compare.Le $qty 3) "few" "many" }} → many
+{{ compare.Conditional (le $qty 3) "few" "many" }} → many
 ```
 
 Due to the absence of short-circuit evaluation, these examples throw an error:

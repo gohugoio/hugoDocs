@@ -36,6 +36,6 @@ Comparing other data types:
 
 ```go-html-template
 {{ compare.Ne "ab" "a" }} → true
-{{ compare.Ne time.Now (time.AsTime "1964-12-30") }} → true
+{{ compare.Ne now (time "1964-12-30") }} → true
 {{ compare.Ne true false }} → true
 ```
