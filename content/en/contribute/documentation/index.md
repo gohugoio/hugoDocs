@@ -394,6 +394,17 @@ Comparing numbers of different types:
 ```
 ````
 
+In code examples, the value after the arrow (`→`) is the value returned by the function or method. When an example shows how Hugo escapes the returned value, show the raw HTML output instead, and say so in the lead-in:
+
+````md {file="content/example.md"}
+Comparing `string` and `template.HTML` input, showing the raw HTML output:
+
+```go-html-template
+{{ "<b>Lilo &amp; Stitch</b>" | transform.Plainify }} → Lilo &amp;amp; Stitch
+{{ "<b>Lilo &amp; Stitch</b>" | safe.HTML | transform.Plainify }} → Lilo &amp; Stitch
+```
+````
+
 ## Code examples
 
 Use short, focused code examples. When including template code examples, follow these conventions.
