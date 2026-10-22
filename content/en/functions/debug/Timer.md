@@ -10,26 +10,37 @@ params:
     signatures: [debug.Timer NAME]
 ---
 
-Use the `debug.Timer` function to determine execution time for a block of code, useful for finding performance bottlenecks in templates.
+## Usage
 
-The timer starts when you instantiate it, and stops when you call its `Stop` method.
+The `debug.Timer` function returns a named timer used to measure and report elapsed execution time to the console. Use it to measure the execution time of a block of template code and find performance bottlenecks.
+
+The timer starts when you create it and stops when you call its `Stop` method. The `Stop` method returns an empty string, and calling it more than once has no effect. Hugo stops any running timers at the end of the build.
+
+Hugo groups timers by `NAME`. At the end of the build, Hugo writes one line to the console for each name, showing the number of timers with that name, their total duration, and their average and median durations. The lines are sorted by total duration in ascending order.
+
+> [!NOTE]
+> Timers are active only when you set the [logging level][] to `info` or `debug` with the `--logLevel` command-line flag. Otherwise, the function returns a timer that does nothing.
+
+## Examples
 
 ```go-html-template
-{{ $t := debug.Timer "TestSqrt" }}
 {{ range 2000 }}
+  {{ $t := debug.Timer "sqrt" }}
   {{ $f := math.Sqrt . }}
+  {{ $t.Stop }}
 {{ end }}
-{{ $t.Stop }}
 ```
 
-Use the `--logLevel info` command-line flag when you build the site.
+Building the site with info-level logging:
 
 ```sh
 hugo build --logLevel info
 ```
 
-The results are displayed in the console at the end of the build. You can have as many timers as you want and if you don't stop them, they will be stopped at the end of build.
+The resulting console output:
 
 ```text
-INFO  timer:  name TestSqrt count 1002 duration 2.496017496s average 2.491035ms median 2.282291ms
+INFO  timer:  name sqrt count 2000 duration 2.717208ms average 1.358µs median 1.159µs
 ```
+
+[logging level]: /troubleshooting/logging/
