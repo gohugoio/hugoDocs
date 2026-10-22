@@ -14,13 +14,13 @@ params:
 
 The `collections.D` function returns a sorted slice of unique random integers in the half-open [interval](g) `[0, HIGH)` using the provided [`SEED`](g) value. The number of elements in the resulting slice is `N` or `HIGH`, whichever is less.
 
-- `N` and `H` must be integers in the closed interval `[0, 1000000]`
+- `N` and `HIGH` must be integers in the closed interval `[0, 1000000]`
 - `SEED` must be an integer in the closed interval `[0, 2^64 - 1]`
 
 ## Return values
 
 Condition|Return value
-:--|:--|:--
+:--|:--
 `N <= HIGH`|A sorted random sample of size `N` using J. S. Vitter's [Method D][] for sequential random sampling
 `N > HIGH`|The full, sorted range `[0, HIGH)` of size `HIGH`
 `N == 0`|An empty slice
@@ -35,13 +35,13 @@ Condition|Return value
 ## Examples
 
 ```go-html-template
-{{ collections.D 6 7 42 }} → [4, 9, 10, 20, 22, 24, 41]
+{{ collections.D 6 7 42 }} → [4 9 10 20 22 24 41]
 ```
 
 The example above generates the _same_ random numbers each time it is called. To generate a _different_ set of 7 random numbers in the same range, change the seed value.
 
 ```go-html-template
-{{ collections.D 2 7 42 }} → [3, 11, 19, 25, 32, 33, 38]
+{{ collections.D 2 7 42 }} → [3 11 19 25 32 33 38]
 ```
 
 When `N` is greater than `HIGH`, this function returns the full, sorted range [0, `HIGH`) of size `HIGH`:
