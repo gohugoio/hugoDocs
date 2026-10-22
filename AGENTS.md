@@ -8,7 +8,7 @@ Applies to all work in this repository.
   - Begin the summary line with `content`, `theme`, `config`, `all`, or `misc`, followed by a colon, a space, and a brief description beginning with a capital letter.
   - Use imperative present tense, and keep the summary line to 50 characters or less.
   - Optionally, add a blank line followed by a detailed description, with each line 72 characters or less.
-  - Optionally, add one or more `Fixes` or `Closes` keywords, each on its own line, referencing the issues addressed.
+  - Optionally, add one or more `Fixes`, `Closes`, or `Updates` keywords, each on its own line, referencing the issues addressed. Use `Updates` for partial work that should not close the issue. Do not end these lines with a period. For example, `Closes #1234`, not `Closes #1234.`
 - Follow these Git safety rules:
   - Run `git status` and `git remote -v` before making changes. The remote pointing to `gohugoio/hugoDocs` is the upstream repository; the remote pointing to the contributor's fork is usually `origin`.
   - **NEVER** commit directly to `master`. Create a branch with a descriptive name that includes the corresponding issue number, if any, using these commands:
