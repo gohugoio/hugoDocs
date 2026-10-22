@@ -11,8 +11,16 @@ Applies to all work in this repository.
   - Optionally, add one or more `Fixes` or `Closes` keywords, each on its own line, referencing the issues addressed.
 - Follow these Git safety rules:
   - Run `git status` and `git remote -v` before making changes. The remote pointing to `gohugoio/hugoDocs` is the upstream repository; the remote pointing to the contributor's fork is usually `origin`.
-  - **NEVER** commit directly to `master`. Create a branch from the upstream `master` branch with a descriptive name that includes the corresponding issue number, if any.
-  - **NEVER** push or open pull requests unless explicitly asked. When asked to push, push the current branch to the contributor's fork, never to the upstream repository.
+  - **NEVER** commit directly to `master`. Create a branch with a descriptive name that includes the corresponding issue number, if any, using these commands:
+
+    ```sh
+    git checkout master
+    git pull upstream master
+    git checkout -b <branch>
+    ```
+
+  - **NEVER** create a branch directly from `upstream/master`, such as with `git checkout -b <branch> upstream/master`. Doing so makes the branch track the upstream repository, and `git push` fails.
+  - **NEVER** push or open pull requests unless explicitly asked. When asked to push, push the current branch to the contributor's fork, never to the upstream repository. On the first push, use `git push -u origin <branch>` so that the branch tracks the fork.
   - **NEVER** rewrite history, including amending, rebasing, resetting, or force-pushing, unless explicitly asked. Create new commits instead. When a force-push is approved, use `--force-with-lease`.
   - **NEVER** run commands that discard work, such as `git reset --hard`, `git clean`, `git restore`, `git checkout -- <path>`, or `git branch -D`, unless explicitly asked.
   - Stage only the files you changed. Do not use `git add -A` or `git add .`.
