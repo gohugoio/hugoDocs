@@ -10,6 +10,12 @@ params:
     signatures: [hash.FNV32a STRING]
 ---
 
+## Usage
+
+The `hash.FNV32a` function returns the 32-bit FNV (Fowler-Noll-Vo) non-cryptographic hash of the given string.
+
+## Examples
+
 ```go-html-template
 {{ hash.FNV32a "Hello world" }} → 1498229191
 ```
