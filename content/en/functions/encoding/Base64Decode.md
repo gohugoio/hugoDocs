@@ -10,17 +10,19 @@ params:
     signatures: [encoding.Base64Decode INPUT]
 ---
 
+## Usage
+
+The `encoding.Base64Decode` function returns the base64 decoding of the given content. The function throws an error if the input is not valid base64. Use the [`encoding.Base64Encode`][] function to reverse the operation.
+
+Use this function to decode content returned by APIs. For example, the response from GitHub's `https://api.github.com/repos/gohugoio/hugo/readme` endpoint contains the repository's README file encoded to base64.
+
+## Examples
+
 ```go-html-template
-{{ "SHVnbw==" | base64Decode }} → Hugo
+{{ "SHVnbw==" | encoding.Base64Decode }} → Hugo
 ```
 
-Use the `base64Decode` function to decode responses from APIs. For example, the result of this call to GitHub's API contains the base64-encoded representation of the repository's README file:
-
-```text
-https://api.github.com/repos/gohugoio/hugo/readme
-```
-
-To retrieve and render the content:
+Decoding and rendering a README file from the GitHub API:
 
 ```go-html-template
 {{ $url := "https://api.github.com/repos/gohugoio/hugo/readme" }}
@@ -28,11 +30,13 @@ To retrieve and render the content:
   {{ with .Err }}
     {{ errorf "%s" . }}
   {{ else with .Value }}
-    {{ with . | transform.Unmarshal }}
-      {{ .content | base64Decode | markdownify }}
+    {{ with . | unmarshal }}
+      {{ .content | encoding.Base64Decode | markdownify }}
     {{ end }}
   {{ else }}
     {{ errorf "Unable to get remote resource %q" $url }}
   {{ end }}
 {{ end }}
 ```
+
+[`encoding.Base64Encode`]: /functions/encoding/base64encode/
