@@ -1,6 +1,7 @@
 ---
 title: cast.ToInt
 description: Returns the given value converted to a decimal integer (base 10).
+categories: []
 keywords: []
 params:
   functions_and_methods:
@@ -9,41 +10,63 @@ params:
     signatures: [cast.ToInt INPUT]
 ---
 
-With a decimal (base 10) input:
+## Usage
+
+The `cast.ToInt` function returns the given value converted to a decimal integer (base 10). When converting a floating-point number, the function removes the fractional part instead of rounding.
+
+You can pass a number, or a string representation of a number, in binary, octal, or hexadecimal notation.
+
+If the input is `nil` or an empty string, the function returns `0`.
+
+> [!NOTE]
+> Values with a leading zero are octal (base 8). When converting a string representation of a decimal (base 10) number, remove leading zeros as shown in the [examples](#examples).
+
+## Examples
 
 ```go-html-template
-{{ int 11 }} → 11 (int)
-{{ int "11" }} → 11 (int)
+{{ cast.ToInt 11 }} → 11 (int)
+{{ cast.ToInt "11" }} → 11 (int)
 
-{{ int 11.1 }} → 11 (int)
-{{ int 11.9 }} → 11 (int)
+{{ cast.ToInt 11.1 }} → 11 (int)
+{{ cast.ToInt "11.1" }} → 11 (int)
+
+{{ cast.ToInt 11.9 }} → 11 (int)
+{{ cast.ToInt "11.9" }} → 11 (int)
 ```
 
 With a binary (base 2) input:
 
 ```go-html-template
-{{ int 0b11 }} → 3 (int)
-{{ int "0b11" }} → 3 (int)
+{{ cast.ToInt 0b11 }} → 3 (int)
+{{ cast.ToInt "0b11" }} → 3 (int)
 ```
 
-With an octal (base 8) input (use either notation):
+With an octal (base 8) input:
 
 ```go-html-template
-{{ int 011 }} → 9 (int)
-{{ int "011" }} → 9 (int)
+{{ cast.ToInt 011 }} → 9 (int)
+{{ cast.ToInt "011" }} → 9 (int)
 
-{{ int 0o11 }} → 9 (int)
-{{ int "0o11" }} → 9 (int)
+{{ cast.ToInt 0o11 }} → 9 (int)
+{{ cast.ToInt "0o11" }} → 9 (int)
 ```
 
 With a hexadecimal (base 16) input:
 
 ```go-html-template
-{{ int 0x11 }} → 17 (int)
-{{ int "0x11" }} → 17 (int)
+{{ cast.ToInt 0x11 }} → 17 (int)
+{{ cast.ToInt "0x11" }} → 17 (int)
 ```
 
-> [!NOTE]
-> Values with a leading zero are octal (base 8). When casting a string representation of a decimal (base 10) number, remove leading zeros:
+Removing leading zeros from a string representation of a decimal number:
 
-`{{ strings.TrimLeft "0" "0011" | int }} → 11`
+```go-html-template
+{{ strings.TrimLeft "0" "0011" | cast.ToInt }} → 11 (int)
+```
+
+With a `nil` or empty string input:
+
+```go-html-template
+{{ cast.ToInt nil }} → 0 (int)
+{{ cast.ToInt "" }} → 0 (int)
+```
