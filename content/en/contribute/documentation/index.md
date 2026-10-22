@@ -729,7 +729,7 @@ Step 6
     - Begin the summary with one of `content`, `theme`, `config`, `all`, or `misc`, followed by a colon, a space, and a brief description of the change beginning with a capital letter
     - Use imperative present tense
   - Optionally, provide a detailed description where each line is 72 characters or less, followed by a blank line.
-  - Optionally, add one or more "Fixes" or "Closes" keywords, each on its own line, referencing the [issues][] addressed by this change.
+  - Optionally, add one or more "Fixes", "Closes", or "Updates" keywords, each on its own line, referencing the [issues][] addressed by this change. Use "Updates" for partial work that should not close the issue. Do not end these lines with a period.
 
   For example:
 
