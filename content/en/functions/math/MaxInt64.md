@@ -12,11 +12,17 @@ params:
 
 {{< new-in 0.147.3 />}}
 
+## Usage
+
+The `math.MaxInt64` function returns the maximum value for a signed 64-bit integer. Use this function with the [`range`][] statement to create a loop that continues until a [`break`][] condition is met.
+
+## Examples
+
 ```go-html-template
 {{ math.MaxInt64 }} → 9223372036854775807
 ```
 
-This function is helpful for simulating a loop that continues indefinitely until a break condition is met. For example:
+Looping until a break condition is met:
 
 ```go-html-template
 {{ range math.MaxInt64 }}
@@ -25,3 +31,6 @@ This function is helpful for simulating a loop that continues indefinitely until
   {{ end }}
 {{ end }}
 ```
+
+[`break`]: /functions/go-template/break/
+[`range`]: /functions/go-template/range/

@@ -10,14 +10,21 @@ params:
     signatures: [math.Add VALUE VALUE...]
 ---
 
-If one of the numbers is a [`float`](g), the result is a `float`.
+## Usage
+
+The `math.Add` function returns the result of adding one or more numbers to the first number. If one of the numbers is a [`float`](g), the result is a `float`.
+
+You can also use this function to concatenate strings.
+
+## Examples
 
 ```go-html-template
-{{ add 12 3 2 }} → 17
+{{ math.Add 12 3 2 }} → 17
+{{ math.Add 12 3.5 }} → 15.5
 ```
 
-You can also use the `add` function to concatenate strings.
+Concatenating strings:
 
 ```go-html-template
-{{ add "hu" "go" }} → hugo
+{{ math.Add "hu" "go" }} → hugo
 ```

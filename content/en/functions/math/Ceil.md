@@ -10,6 +10,18 @@ params:
     signatures: [math.Ceil VALUE]
 ---
 
+## Usage
+
+The `math.Ceil` function returns the least integer value greater than or equal to the given number.
+
+## Examples
+
 ```go-html-template
 {{ math.Ceil 2.1 }} → 3
+```
+
+With a negative number:
+
+```go-html-template
+{{ math.Ceil -2.1 }} → -2
 ```
