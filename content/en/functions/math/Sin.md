@@ -10,6 +10,13 @@ params:
     signatures: [math.Sin VALUE]
 ---
 
+## Usage
+
+The `math.Sin` function returns the sine of the given radian number.
+
+## Examples
+
 ```go-html-template
+{{ math.Sin 0 }} → 0
 {{ math.Sin 1 }} → 0.8414709848078965
 ```

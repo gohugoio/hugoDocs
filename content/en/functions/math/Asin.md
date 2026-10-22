@@ -10,6 +10,12 @@ params:
     signatures: [math.Asin VALUE]
 ---
 
+## Usage
+
+The `math.Asin` function returns the arcsine, in radians, of the given number.
+
+## Examples
+
 ```go-html-template
 {{ math.Asin 1 }} → 1.5707963267948966
 ```

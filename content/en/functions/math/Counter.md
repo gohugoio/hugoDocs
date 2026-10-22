@@ -10,11 +10,25 @@ params:
     signatures: [math.Counter]
 ---
 
-The counter is global for both monolingual and multilingual projects, and its initial value for each build is&nbsp;1.
+## Usage
+
+The `math.Counter` function returns a global counter value, incrementing it each time the function is called. The counter is global for both monolingual and multilingual projects, and its initial value for each build is&nbsp;1.
+
+Use this function to create unique values, such as:
+
+- Messages passed to the [`fmt.Warnf`][] function, which otherwise suppresses duplicate messages.
+- Target paths passed to the [`resources.FromString`][] function, which uses the target path as the cache key.
+
+> [!NOTE]
+> Because Hugo renders pages concurrently, the value returned in a given template for a given page varies from one build to the next. You cannot use this function to assign a static identifier to each page.
+
+## Examples
 
 ```go-html-template {file="layouts/page.html"}
 {{ warnf "page.html called %d times" math.Counter }}
 ```
+
+The resulting console output:
 
 ```text
 WARN  page.html called 1 times
@@ -22,12 +36,5 @@ WARN  page.html called 2 times
 WARN  page.html called 3 times
 ```
 
-Use this function to:
-
-- Create unique warnings as shown above; the [`warnf`][] function suppresses duplicate messages
-- Create unique target paths for the `resources.FromString` function where the target path is also the cache key
-
-> [!NOTE]
-> Due to concurrency, the value returned in a given template for a given page will vary from one build to the next. You cannot use this function to assign a static id to each page.
-
-[`warnf`]: /functions/fmt/warnf/
+[`fmt.Warnf`]: /functions/fmt/warnf/
+[`resources.FromString`]: /functions/resources/fromstring/

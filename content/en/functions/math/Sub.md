@@ -10,8 +10,13 @@ params:
     signatures: [math.Sub VALUE VALUE...]
 ---
 
-If one of the numbers is a [`float`](g), the result is a `float`.
+## Usage
+
+The `math.Sub` function returns the result of subtracting one or more numbers from the first number. If one of the numbers is a [`float`](g), the result is a `float`.
+
+## Examples
 
 ```go-html-template
-{{ sub 12 3 2 }} → 7
+{{ math.Sub 12 3 2 }} → 7
+{{ math.Sub 12 3.5 }} → 8.5
 ```

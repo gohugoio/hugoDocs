@@ -10,6 +10,13 @@ params:
     signatures: [math.ToRadians VALUE]
 ---
 
+## Usage
+
+The `math.ToRadians` function returns the given degree value converted to radians.
+
+## Examples
+
 ```go-html-template
 {{ math.ToRadians 90 }} → 1.5707963267948966
+{{ math.ToRadians 180 }} → 3.141592653589793
 ```

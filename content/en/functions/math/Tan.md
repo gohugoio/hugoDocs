@@ -10,6 +10,12 @@ params:
     signatures: [math.Tan VALUE]
 ---
 
+## Usage
+
+The `math.Tan` function returns the tangent of the given radian number.
+
+## Examples
+
 ```go-html-template
 {{ math.Tan 1 }} → 1.557407724654902
 ```

@@ -10,6 +10,12 @@ params:
     signatures: [math.Acos VALUE]
 ---
 
+## Usage
+
+The `math.Acos` function returns the arccosine, in radians, of the given number.
+
+## Examples
+
 ```go-html-template
 {{ math.Acos 1 }} → 0
 ```
