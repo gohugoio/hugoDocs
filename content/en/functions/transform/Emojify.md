@@ -1,24 +1,41 @@
 ---
 title: transform.Emojify
-description: Returns the given string with emoji shortcodes replaced by their corresponding emoji characters.
+description: Returns the given input with emoji shortcodes replaced by their corresponding emoji characters.
 categories: []
 keywords: []
 params:
   functions_and_methods:
     aliases: [emojify]
-    returnType: template.HTML
+    returnType: any
     signatures: [transform.Emojify INPUT]
 ---
 
-See the list of [emoji shortcodes][] for available emoticons.
+## Usage
 
-The `emojify` function can be called in your templates but not directly in your content files by default. For emojis in content files, set [`enableEmoji`][] to `true` in your project configuration. Then you can write emoji shorthand directly into your content files;
+The `transform.Emojify` function returns the given input with emoji shortcodes replaced by their corresponding emoji characters. See the list of [emoji shortcodes][] for available emoji.
 
-```md
-I :heart: Hugo!
+{{< new-in 0.169.0 />}}
+
+The return type depends on the type of `INPUT`. If `INPUT` is of type `template.HTML`, the function returns `template.HTML`. Otherwise, it returns a `string`.
+
+Go's [`html/template`][] package treats `template.HTML` values as trusted and does not escape them. Pass a `template.HTML` value, such as the result of the [`safe.HTML`][] function, to keep HTML elements in the result from being escaped.
+
+Use this function in templates. To replace emoji shortcodes in content files, set [`enableEmoji`][] to `true` in your project configuration.
+
+## Examples
+
+```go-html-template
+{{ transform.Emojify "I :heart: Hugo" }} → I ❤️ Hugo
 ```
 
-I :heart: Hugo!
+Comparing `string` and `template.HTML` input, showing the raw HTML output:
+
+```go-html-template
+{{ "I :heart: <b>Hugo</b>" | transform.Emojify }} → I ❤️ &lt;b&gt;Hugo&lt;/b&gt;
+{{ "I :heart: <b>Hugo</b>" | safeHTML | transform.Emojify }} → I ❤️ <b>Hugo</b>
+```
 
 [`enableEmoji`]: /configuration/all/#enableemoji
+[`html/template`]: https://pkg.go.dev/html/template
+[`safe.HTML`]: /functions/safe/html/
 [emoji shortcodes]: /quick-reference/emojis/
