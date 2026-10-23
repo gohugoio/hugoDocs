@@ -3,7 +3,7 @@
 <article class="max-w-5xl lg:max-w-3xl" id="article">
 	{{ partial "layouts/docsheader.html" . }}
 	<div class="content">
-		{{ with .Params.description }}
+		{{ with .Description }}
 			<div class="lead">
 				{{ . | markdownify }}
 			</div>
