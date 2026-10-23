@@ -12,7 +12,7 @@ effort.
 {{- $t := debug.Timer "validateKeywords" }}
 {{- $allowedKeywords := collections.Apply hugo.Data.keywords "strings.ToLower" "." }}
 {{- range $p := site.Pages }}
-	{{- range .Params.keywords }}
+	{{- range .Keywords }}
 		{{- if not (in $allowedKeywords (lower .)) }}
 			{{- warnf "The word or phrase %q is not in the keywords data file. See %s." . $p.Page.String }}
 		{{- end }}
