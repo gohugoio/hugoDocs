@@ -65,7 +65,7 @@ In the above, `en` is the [language key](#language-keys).
 : (`string`) The site title for this language. Access this value from a template using the [`Title`][] method on a `Site` object.
 
 `weight`
-: (`int`) The language [weight](g). When set to a non-zero value, this is the primary sort criteria for this language.
+: (`int`) The language [weight](g). When set to a non-zero value, this is the primary sort criterion for this language.
 
 ## Sort order
 

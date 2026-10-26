@@ -32,7 +32,7 @@ Front matter fields may be [boolean](g), [integer](g), [float](g), [string](g), 
 
 ## Fields
 
-The most common front matter fields are `date`, `draft`, `title`, and `weight`, but you can specify metadata using any of fields below.
+The most common front matter fields are `date`, `draft`, `title`, and `weight`, but you can specify metadata using any of the fields below.
 
 > [!NOTE]
 > The field names below are reserved. For example, you cannot create a custom field named `type`. Create custom fields under the `params` key. See the [parameters](#parameters) section for details.
@@ -189,7 +189,7 @@ genres = ['mystery','romance']
 author = 'John Smith'
 {{< /code-toggle >}}
 
-You can add taxonomy terms to the front matter of any these [page kinds](g):
+You can add taxonomy terms to the front matter of any of these [page kinds](g):
 
 - `home`
 - `page`
