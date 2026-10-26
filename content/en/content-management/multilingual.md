@@ -322,7 +322,7 @@ weight = 20
 
 ### Use translation tables
 
-When rendering the text that appears in menu each entry, the [example menu template][] does this:
+When rendering the text that appears in each menu entry, the [example menu template][] does this:
 
 ```go-html-template
 {{ or (T .Identifier) .Name | safeHTML }}

@@ -107,7 +107,7 @@ In the example above:
 - `true` is a literal boolean value
 - `if` is the beginning of a control structure
 - `strings.ToLower` is a function that converts all characters to lowercase
-- `Title` is a method on a the `Page` object
+- `Title` is a method on the `Page` object
 - `end` is the end of a control structure
 
 Hugo renders the above to:
@@ -323,7 +323,7 @@ Object|Method|Description
 `Page`|[`Title`](methods/page/title/)|Returns the title of the given page.
 `Site`|[`Data`](methods/site/data/)|Returns a data structure composed from the files in the `data` directory.
 `Site`|[`Params`](methods/site/params/)|Returns a map of custom parameters as defined in your project configuration.
-`Site`|[`Title`](methods/site/title/)|Returns the title as defined in the your project configuration.
+`Site`|[`Title`](methods/site/title/)|Returns the title as defined in your project configuration.
 
 Chain the method to its object with a dot (`.`) as shown below, remembering that the leading dot represents the [current context](#current-context).
 
@@ -408,7 +408,7 @@ Create your _partial_ templates in the `layouts/_partials` directory.
 
 ## Examples
 
-This limited set of contrived examples demonstrates some of concepts described above. Please see the [functions][], [methods][], and [templates][] documentation for specific examples.
+This limited set of contrived examples demonstrates some of the concepts described above. Please see the [functions][], [methods][], and [templates][] documentation for specific examples.
 
 ### Conditional blocks
 
