@@ -10,7 +10,24 @@ params:
     signatures: ['template NAME [CONTEXT]']
 ---
 
-Use the `template` statement to execute a defined template:
+## Usage
+
+The `template` statement executes the given template, optionally passing context. Use it to execute a template that you create with the [`define`][] statement.
+
+Call the template from the same file where you define it. If Hugo cannot find a template with the given name, the build fails. Hugo cannot find a template defined in a different file if that file uses a [base][] template, or if the output formats of the two files have different [`isPlainText`][] settings.
+
+When you define the template, give it a unique name. See [`define`][] for details.
+
+A template executed with `template` differs from a template executed with the [`partials.Include`][] function in these ways:
+
+- It does not return a value. It writes directly to the output of the calling template, so you cannot assign the result to a variable or pipe it to a function.
+- It cannot use the [`return`][] statement to return a value. Doing so fails the build.
+- You cannot cache it with the [`partials.IncludeCached`][] function.
+- You cannot call it using a relative path.
+
+Use `template` when a template calls itself, such as when rendering a nested structure. A _partial_ template can call itself too, but each call builds its result in memory and returns it to its caller. Because `template` writes directly to the output, it is somewhat faster for large or deeply nested structures. For everything else, use the `partials.Include` function.
+
+## Examples
 
 ```go-html-template
 {{ template "foo" (dict "answer" 42) }}
@@ -20,23 +37,32 @@ Use the `template` statement to execute a defined template:
 {{ end }}
 ```
 
-The example above can be rewritten using an inline _partial_ template:
+Rendering a nested list of sections:
 
-```go-html-template
-{{ partial "inline/foo.html" (dict "answer" 42) }}
+```go-html-template {file="layouts/home.html"}
+<ul>
+  {{ template "walk" .Sections }}
+</ul>
 
-{{ define "_partials/inline/foo.html" }}
-  {{ printf "The answer is %v." .answer }}
+{{ define "walk" }}
+  {{ range . }}
+    <li>
+      <a href="{{ .RelPermalink }}">{{ .LinkTitle }}</a>
+      {{ with .Sections }}
+        <ul>
+          {{ template "walk" . }}
+        </ul>
+      {{ end }}
+    </li>
+  {{ end }}
 {{ end }}
 ```
 
-The key distinctions between the preceding two examples are:
-
-1. Inline _partial_ templates are globally scoped. That means that an inline _partial_ template defined in one template may be called from any template.
-1. Leveraging the [`partialCached`][] function when calling an inline _partial_ template allows for performance optimization through result caching.
-1. An inline _partial_ template can [`return`][] a value of any data type instead of rendering a string.
-
 {{% include "/_common/functions/go-template/text-template.md" %}}
 
-[`partialCached`]: /functions/partials/includecached/
+[`define`]: /functions/go-template/define/
+[`isPlainText`]: /configuration/output-formats/#isplaintext
+[`partials.Include`]: /functions/partials/include/
+[`partials.IncludeCached`]: /functions/partials/includecached/
 [`return`]: /functions/go-template/return/
+[base]: /templates/types/#base

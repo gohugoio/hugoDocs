@@ -101,7 +101,7 @@ A template action may contain literal values ([boolean](g), [string](g), [intege
 {{ end }}
 ```
 
-In the example above:
+The example above contains these elements:
 
 - `$convertToLower` is a variable
 - `true` is a literal boolean value
@@ -110,7 +110,13 @@ In the example above:
 - `Title` is a method on the `Page` object
 - `end` is the end of a control structure
 
-Hugo renders the above to:
+When Hugo executes an action, it either prints a value to the output or prints nothing:
+
+- An action that evaluates to a value prints the value. For example, `{{ "hello" }}` prints `hello`, and `{{ strings.ToLower .Title }}` in the example above prints the page title in lowercase.
+- An action that assigns a variable, such as `{{ $convertToLower := true }}`, prints nothing.
+- An action that begins or ends a control structure, such as `{{ if $convertToLower }}` or `{{ end }}`, prints nothing.
+
+Hugo renders the example above to:
 
 ```html {trim=false}
 
@@ -120,7 +126,7 @@ Hugo renders the above to:
 
 ### Whitespace
 
-Notice the blank lines and indentation in the previous example? Although irrelevant in production when you typically minify the output, you can remove the adjacent whitespace by using template action delimiters with hyphens:
+The rendered output in the previous example contains blank lines and indentation, which come from the whitespace around the template actions. To remove this whitespace, use template action delimiters with hyphens:
 
 ```go-html-template {file="layouts/page.html"}
 {{- $convertToLower := true -}}
@@ -136,6 +142,12 @@ Hugo renders this to:
 ```
 
 Whitespace includes spaces, horizontal tabs, carriage returns, and newlines.
+
+Whitespace in HTML output is usually harmless, but it can change the result in these cases:
+
+- Between inline elements such as `a` and `span`, whitespace renders as a visible space.
+- Within a `pre` element, the browser preserves whitespace.
+- In a _shortcode_ template called with [Markdown notation][], Hugo renders the output as Markdown. A line indented by four or more spaces can become a code block, and a blank line ends an HTML block.
 
 ### Quote characters
 
@@ -241,7 +253,7 @@ The actions above throw an error.
 
 ## Variables
 
-A variable is a user-defined [identifier](g) prepended with a dollar sign (`$`), representing a value of any data type, initialized or assigned within a template action. For example, `$foo` and `$bar` are variables.
+A variable is a user-defined [identifier](g) prepended with a dollar sign (`$`), representing a value of any [data type][], initialized or assigned within a template action. For example, `$foo` and `$bar` are variables.
 
 Variables may contain [scalars](g), [slices](g), [maps](g), or [objects](g).
 
@@ -581,6 +593,8 @@ In the template example above, each of the keys is a valid identifier. For examp
 [`template`]: /functions/go-template/template/
 [`text/template`]: https://pkg.go.dev/text/template
 [`with`]: /functions/go-template/with/
+[Markdown notation]: /content-management/shortcodes/#markdown-notation
+[data type]: /quick-reference/data-types/
 [embedded templates]: /templates/embedded/
 [front matter fields]: /content-management/front-matter/#fields
 [front matter]: /content-management/front-matter/

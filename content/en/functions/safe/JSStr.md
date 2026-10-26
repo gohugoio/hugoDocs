@@ -10,52 +10,53 @@ params:
     signatures: [safe.JSStr INPUT]
 ---
 
-## Introduction
-
-{{% include "/_common/functions/go-html-template-package.md" %}}
-
 ## Usage
 
-Use the `safe.JSStr` function to encapsulate a sequence of characters meant to be embedded between quotes in a JavaScript expression.
+The `safe.JSStr` function returns the given string declared as a safe JavaScript string. How Hugo prints the value depends on where you print it:
 
-Use of this type presents a security risk: the encapsulated content should come from a trusted source, as it will be included verbatim in the template output.
+- Where a `script` element expects a JavaScript value, Hugo wraps the value in quotes and prints it without escaping it.
+- Between quotes that you write in the template, Hugo still escapes special characters such as `&` and `"`, but keeps escape sequences such as `\n` unchanged.
+- In an event handler attribute such as `onclick`, Hugo still escapes characters such as quotation marks and ampersands for the attribute.
 
-See the [Go documentation][] for details.
+Only use this function with content from a trusted source, because Hugo does not check the content for unsafe values. See [safe types][] for an explanation of how Hugo escapes values, and how each safe data type affects escaping. See the [Go documentation][] for details.
 
-## Example
-
-Without a safe declaration:
+## Examples
 
 ```go-html-template
 {{ $title := "Lilo & Stitch" }}
 <script>
   const a = "Title: " + {{ $title }};
+  const b = "Title: " + {{ $title | safe.JSStr }};
 </script>
 ```
 
-Hugo renders the above to:
+The rendered output:
 
 ```html
 <script>
   const a = "Title: " + "Lilo \u0026 Stitch";
+  const b = "Title: " + "Lilo & Stitch";
 </script>
 ```
 
-To declare the string as safe:
+Printing a value with an escape sequence between quotes:
 
 ```go-html-template
-{{ $title := "Lilo & Stitch" }}
+{{ $text := `line1\nline2` }}
 <script>
-  const a = "Title: " + {{ $title | safeJSStr }};
+  const a = "{{ $text }}";
+  const b = "{{ $text | safe.JSStr }}";
 </script>
 ```
 
-Hugo renders the above to:
+The rendered output:
 
 ```html
 <script>
-  const a = "Title: " + "Lilo & Stitch";
+  const a = "line1\\nline2";
+  const b = "line1\nline2";
 </script>
 ```
 
 [Go documentation]: https://pkg.go.dev/html/template#JSStr
+[safe types]: /quick-reference/data-types/#safe-types

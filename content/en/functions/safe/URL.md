@@ -10,51 +10,26 @@ params:
     signatures: [safe.URL INPUT]
 ---
 
-## Introduction
-
-{{% include "/_common/functions/go-html-template-package.md" %}}
-
 ## Usage
 
-Use the `safe.URL` function to encapsulate a known safe URL or URL substring. Schemes other than the following are considered unsafe:
+The `safe.URL` function returns the given string declared as a safe URL or URL substring. Hugo considers URLs with schemes other than `http`, `https`, and `mailto` unsafe. Without a safe declaration, Hugo replaces an unsafe URL with `#ZgotmplZ`. With a safe declaration, Hugo still encodes characters such as spaces in the URL. See the [Go documentation][] for details.
 
-- `http:`
-- `https:`
-- `mailto:`
+Only use this function with content from a trusted source, because Hugo does not check the content for unsafe values. See [safe types][] for an explanation of how Hugo escapes values, and how each safe data type affects escaping.
 
-Use of this type presents a security risk: the encapsulated content should come from a trusted source, as it will be included verbatim in the template output.
-
-See the [Go documentation][] for details.
-
-## Example
-
-Without a safe declaration:
+## Examples
 
 ```go-html-template
 {{ $href := "irc://irc.freenode.net/#golang" }}
 <a href="{{ $href }}">IRC</a>
+<a href="{{ $href | safe.URL }}">IRC</a>
 ```
 
-Hugo renders the above to:
+The rendered output:
 
 ```html
 <a href="#ZgotmplZ">IRC</a>
-```
-
-> [!NOTE]
-> `ZgotmplZ` is a special value that indicates that unsafe content reached a CSS or URL context at runtime.
-
-To declare the string as safe:
-
-```go-html-template
-{{ $href := "irc://irc.freenode.net/#golang" }}
-<a href="{{ $href | safeURL }}">IRC</a>
-```
-
-Hugo renders the above to:
-
-```html
 <a href="irc://irc.freenode.net/#golang">IRC</a>
 ```
 
 [Go documentation]: https://pkg.go.dev/html/template#URL
+[safe types]: /quick-reference/data-types/#safe-types

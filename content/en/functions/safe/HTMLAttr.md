@@ -10,50 +10,26 @@ params:
     signatures: [safe.HTMLAttr INPUT]
 ---
 
-## Introduction
-
-{{% include "/_common/functions/go-html-template-package.md" %}}
-
 ## Usage
 
-Use the `safe.HTMLAttr` function to encapsulate an HTML attribute from a trusted source.
+The `safe.HTMLAttr` function returns the given key-value pair declared as a safe HTML attribute. Pass the attribute name, an equals sign, and the quoted attribute value as a single string, such as `datetime="2024-05-26T07:19:55+02:00"`. See the [Go documentation][] for details.
 
-Use of this type presents a security risk: the encapsulated content should come from a trusted source, as it will be included verbatim in the template output.
+Only use this function with content from a trusted source, because Hugo does not check the content for unsafe values. See [safe types][] for an explanation of how Hugo escapes values, and how each safe data type affects escaping.
 
-See the [Go documentation][] for details.
-
-## Example
-
-Without a safe declaration:
+## Examples
 
 ```go-html-template
-{{ with .Date }}
-  {{ $humanDate := time.Format "2 Jan 2006" . }}
-  {{ $machineDate := time.Format "2006-01-02T15:04:05-07:00" . }}
-  <time datetime="{{ $machineDate }}">{{ $humanDate }}</time>
-{{ end }}
+{{ $date := "2024-05-26T07:19:55+02:00" }}
+<time datetime="{{ $date }}">26 May 2024</time>
+<time {{ printf "datetime=%q" $date | safe.HTMLAttr }}>26 May 2024</time>
 ```
 
-Hugo renders the above to:
+The rendered output:
 
 ```html
 <time datetime="2024-05-26T07:19:55&#43;02:00">26 May 2024</time>
-```
-
-To declare the key-value pair as safe:
-
-```go-html-template
-{{ with .Date }}
-  {{ $humanDate := time.Format "2 Jan 2006" . }}
-  {{ $machineDate := time.Format "2006-01-02T15:04:05-07:00" . }}
-  <time {{ printf "datetime=%q" $machineDate | safeHTMLAttr }}>{{ $humanDate }}</time>
-{{ end }}
-```
-
-Hugo renders the above to:
-
-```html
 <time datetime="2024-05-26T07:19:55+02:00">26 May 2024</time>
 ```
 
 [Go documentation]: https://pkg.go.dev/html/template#HTMLAttr
+[safe types]: /quick-reference/data-types/#safe-types

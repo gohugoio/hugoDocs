@@ -10,44 +10,24 @@ params:
     signatures: [safe.HTML INPUT]
 ---
 
-## Introduction
-
-{{% include "/_common/functions/go-html-template-package.md" %}}
-
 ## Usage
 
-Use the `safe.HTML` function to encapsulate a known safe HTML document fragment. It should not be used for HTML from a third-party, or HTML with unclosed tags or comments.
+The `safe.HTML` function returns the given string declared as safe HTML. Use it with a known safe HTML document fragment. Do not use it with HTML from a third party, or with HTML that has unclosed tags or comments. See the [Go documentation][] for details.
 
-Use of this type presents a security risk: the encapsulated content should come from a trusted source, as it will be included verbatim in the template output.
+Only use this function with content from a trusted source, because Hugo does not check the content for unsafe values. See [safe types][] for an explanation of how Hugo escapes values, and how each safe data type affects escaping.
 
-See the [Go documentation][] for details.
-
-## Example
-
-Without a safe declaration:
+## Examples
 
 ```go-html-template
-{{ $html := "<em>emphasized</em>" }}
-{{ $html }}
+{{ safe.HTML "<em>emphasized</em>" }} → <em>emphasized</em>
 ```
 
-Hugo renders the above to:
-
-```html
-&lt;em&gt;emphasized&lt;/em&gt;
-```
-
-To declare the string as safe:
+Comparing the result with and without `safe.HTML`, showing the raw HTML output:
 
 ```go-html-template
-{{ $html := "<em>emphasized</em>" }}
-{{ $html | safeHTML }}
-```
-
-Hugo renders the above to:
-
-```html
-<em>emphasized</em>
+{{ "<em>emphasized</em>" }} → &lt;em&gt;emphasized&lt;/em&gt;
+{{ "<em>emphasized</em>" | safe.HTML }} → <em>emphasized</em>
 ```
 
 [Go documentation]: https://pkg.go.dev/html/template#HTML
+[safe types]: /quick-reference/data-types/#safe-types

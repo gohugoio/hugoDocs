@@ -5,7 +5,7 @@ categories: []
 keywords: []
 params:
   functions_and_methods:
-    returnType: maps.Params
+    returnType: hmaps.Params
     signatures: [PAGE.Params]
 ---
 
