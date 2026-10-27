@@ -557,7 +557,7 @@ key-with-hyphens = 'must use index function'
   name = 'John Smith'
 {{< /code-toggle >}}
 
-The `title` and `date` fields are standard [front matter fields][], while the other fields are user-defined.
+The `title` and `date` fields are reserved [front matter fields][], while the fields under the `params` key are custom fields.
 
 Access the custom fields by [chaining](g) the [identifiers](g) when needed:
 

@@ -51,10 +51,10 @@ Step 2
   set -euo pipefail
 
   # Define tool versions
-  DART_SASS_VERSION=1.105.1
-  GO_VERSION=1.27.2
-  HUGO_VERSION=0.168.0
-  NODE_VERSION=24.21.0
+  DART_SASS_VERSION=1.106.1
+  GO_VERSION=1.27.3
+  HUGO_VERSION=0.169.0
+  NODE_VERSION=24.22.1
 
   # Set the build time zone
   TZ=Europe/Oslo

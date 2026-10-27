@@ -36,6 +36,8 @@ The most common front matter fields are `date`, `draft`, `title`, and `weight`, 
 
 > [!NOTE]
 > The field names below are reserved. For example, you cannot create a custom field named `type`. Create custom fields under the `params` key. See the [parameters](#parameters) section for details.
+>
+> To access a reserved field from a template, call the corresponding method on a `Page` object, as described for each field below.
 
 `aliases`
 : (`[]string`) An array of one or more [page-relative](g) or [site-relative](g) paths that should redirect to the current page. Hugo resolves these to [server-relative](g) URLs during the build process. Access these values from a template using the [`Aliases`][] method on a `Page` object. See the [aliases][] section for details.
@@ -131,7 +133,7 @@ The most common front matter fields are `date`, `draft`, `title`, and `weight`, 
 : (`string`) Overrides the last segment of the URL path. Not applicable to the `home` page. See [details][url_management_slug]. Access this value from a template using the [`Slug`][] method on a `Page` object.
 
 `summary`
-: (`string`) Conceptually different than the page `description`, the summary either summarizes the content or serves as a teaser to encourage readers to visit the page. Access this value from a template using the [`Summary`][] method on a `Page` object.
+: (`string`) Conceptually different than the page `description`, the summary either summarizes the content or serves as a teaser to encourage readers to visit the page. Access this value from a template using the [`RawSummary`][] method on a `Page` object, or render it using the [`Summary`][] method.
 
 `title`
 : (`string`) The page title. Access this value from a template using the [`Title`][] method on a `Page` object.
@@ -317,6 +319,7 @@ To override the default time zone, set the [`timeZone`][] in your project config
 [`Param`]: /methods/page/param/
 [`Params`]: /methods/page/params/
 [`PublishDate`]: /methods/page/publishdate/
+[`RawSummary`]: /methods/page/rawsummary/
 [`ReadingTime`]: /methods/page/readingtime/
 [`Sitemap`]: /methods/page/sitemap/
 [`Slug`]: /methods/page/slug/
