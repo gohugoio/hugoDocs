@@ -10,7 +10,7 @@ params:
     signatures: [if EXPR]
 ---
 
-{{% include "/_common/functions/truthy-falsy.md" %}}
+{{% include "/_common/truthy-falsy.md" %}}
 
 ```go-html-template
 {{ $var := "foo" }}
@@ -45,6 +45,6 @@ Use `else if` to check multiple conditions:
 {{ end }}
 ```
 
-{{% include "/_common/functions/go-template/text-template.md" %}}
+{{% include "/_common/text-template-reference.md" %}}
 
 [`else`]: /functions/go-template/else/

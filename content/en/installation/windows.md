@@ -9,11 +9,11 @@ weight: 30
 > [!NOTE]
 > Hugo requires Windows 10, Windows Server 2016, or later.
 
-{{% include "/_common/installation/01-editions.md" %}}
+{{% include "/_common/installation-01-editions.md" %}}
 
-{{% include "/_common/installation/02-prerequisites.md" %}}
+{{% include "/_common/installation-02-prerequisites.md" %}}
 
-{{% include "/_common/installation/03-prebuilt-binaries.md" %}}
+{{% include "/_common/installation-03-prebuilt-binaries.md" %}}
 
 ## Package managers
 

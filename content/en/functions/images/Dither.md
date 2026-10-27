@@ -50,7 +50,7 @@ Or create the filter using the default settings:
 {{ $filter := images.Dither }}
 ```
 
-{{% include "/_common/functions/images/apply-image-filter.md" %}}
+{{% include "/_common/image-filter-apply.md" %}}
 
 ## Dithering methods
 

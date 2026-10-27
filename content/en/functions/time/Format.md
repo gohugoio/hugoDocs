@@ -42,7 +42,7 @@ To override the default time zone, set the [`timeZone`][] in your project config
 
 Use the `time.Format` function to localize `time.Time` values for the current language and region.
 
-{{% include "/_common/functions/locales.md" %}}
+{{% include "/_common/localization-note.md" %}}
 
 Use the layout string as described above, or one of the tokens below. For example:
 

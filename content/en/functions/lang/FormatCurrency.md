@@ -14,4 +14,4 @@ params:
 {{ 512.5032 | lang.FormatCurrency 2 "USD" }} → $512.50
 ```
 
-{{% include "/_common/functions/locales.md" %}}
+{{% include "/_common/localization-note.md" %}}

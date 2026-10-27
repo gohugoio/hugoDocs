@@ -10,7 +10,7 @@ params:
     signatures: [RESOURCE.Process SPECIFICATION]
 ---
 
-{{% include "/_common/methods/resource/global-page-remote-resources.md" %}}
+{{% include "/_common/resource-types-note.md" %}}
 
 The `Process` method returns a new resource from a [processable image](g) according to the given [processing specification](#processing-specification).
 
@@ -43,7 +43,7 @@ You can also use this method to apply simple transformations such as rotation an
 
 The `Process` method is also available as a filter. This is more effective if you need to apply multiple filters to an image. See [`images.Process`][].
 
-{{% include "/_common/methods/resource/processing-spec.md" %}}
+{{% include "/_common/image-processing-spec.md" %}}
 
 ## Example
 

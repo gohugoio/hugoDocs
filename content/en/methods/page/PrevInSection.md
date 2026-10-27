@@ -9,4 +9,4 @@ params:
     signatures: [PAGE.PrevInSection]
 ---
 
-{{% include "/_common/methods/page/nextinsection-and-previnsection.md" %}}
+{{% include "/_common/page-nextinsection-previnsection.md" %}}

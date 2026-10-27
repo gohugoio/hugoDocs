@@ -9,7 +9,7 @@ params:
     signatures: [RESOURCE.Publish]
 ---
 
-{{% include "/_common/methods/resource/global-page-remote-resources.md" %}}
+{{% include "/_common/resource-types-note.md" %}}
 
 The `Publish` method on a `Resource` object writes the given resource to the `public` directory.
 

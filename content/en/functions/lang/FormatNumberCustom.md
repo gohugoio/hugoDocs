@@ -24,6 +24,6 @@ For a simpler function that adapts to the current language, see [`lang.FormatNum
 {{ lang.FormatNumberCustom 0 -12345.6789 "-|.| " "|" }} → -12 346
 ```
 
-{{% include "/_common/functions/locales.md" %}}
+{{% include "/_common/localization-note.md" %}}
 
 [`lang.FormatNumber`]: /functions/lang/formatnumber/

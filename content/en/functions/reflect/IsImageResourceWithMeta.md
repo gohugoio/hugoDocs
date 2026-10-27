@@ -27,4 +27,4 @@ This example iterates through all project resources and uses `reflect.IsImageRes
 {{ end }}
 ```
 
-{{% include "/_common/functions/reflect/image-reflection-functions.md" %}}
+{{% include "/_common/image-reflection-functions.md" %}}

@@ -101,7 +101,7 @@ Example 4: Skip rendering if there's problem accessing a remote resource.
 {{ end }}
 ```
 
-{{% include "/_common/functions/reflect/image-reflection-functions.md" %}}
+{{% include "/_common/image-reflection-functions.md" %}}
 
 ## Processing
 

@@ -11,7 +11,7 @@ params:
 
 {{< new-in 0.155.3 />}}
 
-{{% include "/_common/methods/resource/global-page-remote-resources.md" %}}
+{{% include "/_common/resource-types-note.md" %}}
 
 The `Meta` method on an image `Resource` object returns an object containing [Exif][], [IPTC][], and [XMP][] metadata.
 
@@ -92,7 +92,7 @@ To list the creation date, latitude, longitude, and orientation:
 {{ end }}
 ```
 
-{{% include "/_common/functions/reflect/image-reflection-functions.md" %}}
+{{% include "/_common/image-reflection-functions.md" %}}
 
 [Exif]: https://en.wikipedia.org/wiki/Exif
 [IPTC]: https://en.wikipedia.org/wiki/IPTC_Information_Interchange_Model

@@ -10,7 +10,7 @@ params:
     signatures: ['resources.Fingerprint [ALGORITHM] RESOURCE']
 ---
 
-{{% include "/_common/methods/resource/global-page-remote-resources.md" %}}
+{{% include "/_common/resource-types-note.md" %}}
 
 ```go-html-template
 {{ with resources.Get "js/main.js" }}

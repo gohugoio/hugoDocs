@@ -31,7 +31,7 @@ To check whether the syntax highlighter supports a language, use the [`transform
 
 The `transform.Highlight` function accepts an options map.
 
-{{% include "_common/syntax-highlighting-options.md" %}}
+{{% include "/_common/syntax-highlighting-options.md" %}}
 
 `code`
 : {{< new-in 0.162.0 />}}

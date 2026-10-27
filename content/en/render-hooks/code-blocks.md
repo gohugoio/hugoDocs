@@ -123,7 +123,7 @@ See the [diagrams][] page for details.
 
 Hugo includes an [embedded code block render hook][] to render [GoAT diagrams][].
 
-{{% include "/_common/render-hooks/pageinner.md" %}}
+{{% include "/_common/pageinner-details.md" %}}
 
 [GoAT diagrams]: /content-management/diagrams/#goat-diagrams-ascii
 [Mermaid]: https://mermaid.js.org/

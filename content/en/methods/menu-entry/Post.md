@@ -9,4 +9,4 @@ params:
     signatures: [MENUENTRY.Post]
 ---
 
-{{% include "/_common/menu-entries/pre-and-post.md" %}}
+{{% include "/_common/menu-entry-pre-post-example.md" %}}

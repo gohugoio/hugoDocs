@@ -10,7 +10,7 @@ params:
     signatures: [resources.ExecuteAsTemplate TARGETPATH CONTEXT RESOURCE]
 ---
 
-{{% include "/_common/methods/resource/global-page-remote-resources.md" %}}
+{{% include "/_common/resource-types-note.md" %}}
 
 The `resources.ExecuteAsTemplate` function returns a resource created from a Go template, parsed and executed with the given context, caching the result using the target path as its cache key.
 

@@ -110,4 +110,4 @@ Use these methods on the data structure.
   {{ $map := $s.Values }}
   ```
 
-{{% include "_common/store-scope.md" %}}
+{{% include "/_common/store-scope.md" %}}

@@ -51,4 +51,4 @@ The typical use is to define a set of root templates that are then customized by
 {{ end }}
 ```
 
-{{% include "/_common/functions/go-template/text-template.md" %}}
+{{% include "/_common/text-template-reference.md" %}}

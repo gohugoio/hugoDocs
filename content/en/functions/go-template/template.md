@@ -58,7 +58,7 @@ Rendering a nested list of sections:
 {{ end }}
 ```
 
-{{% include "/_common/functions/go-template/text-template.md" %}}
+{{% include "/_common/text-template-reference.md" %}}
 
 [`define`]: /functions/go-template/define/
 [`isPlainText`]: /configuration/output-formats/#isplaintext

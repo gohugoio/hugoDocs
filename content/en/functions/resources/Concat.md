@@ -10,7 +10,7 @@ params:
     signatures: ['resources.Concat TARGETPATH [RESOURCE...]']
 ---
 
-{{% include "/_common/methods/resource/global-page-remote-resources.md" %}}
+{{% include "/_common/resource-types-note.md" %}}
 
 The `resources.Concat` function returns a concatenated slice of resources, caching the result using the target path as its cache key. Each resource must have the same [media type](g).
 

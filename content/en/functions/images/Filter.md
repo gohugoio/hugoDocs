@@ -10,7 +10,7 @@ params:
     signatures: [images.Filter FILTER... RESOURCE]
 ---
 
-{{% include "/_common/methods/resource/global-page-remote-resources.md" %}}
+{{% include "/_common/resource-types-note.md" %}}
 
 The `images.Filter` function returns a new resource from a [processable image](g) after applying one or more [image filters](#image-filters).
 

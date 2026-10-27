@@ -9,7 +9,7 @@ params:
     signatures: [RESOURCE.Crop SPECIFICATION]
 ---
 
-{{% include "/_common/methods/resource/global-page-remote-resources.md" %}}
+{{% include "/_common/resource-types-note.md" %}}
 
 The `Crop` method returns a new resource from a [processable image](g) according to the given [processing specification](#processing-specification).
 
@@ -30,7 +30,7 @@ When cropping, you must provide both width and height (such as `200x200`) within
 
 In the example above, `"200x200 TopRight"` is the processing specification.
 
-{{% include "/_common/methods/resource/processing-spec.md" %}}
+{{% include "/_common/image-processing-spec.md" %}}
 
 ## Example
 

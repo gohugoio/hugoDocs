@@ -236,7 +236,7 @@ after deprecation.
 
 The `target` key accepts a [page matcher](g) to limit cascaded values to a subset of pages.[^1] If a target is not specified, values cascade to all descendant pages.
 
-{{% include "/_common/configuration/page-matcher.md" %}}
+{{% include "/_common/page-matcher.md" %}}
 
 For example, to cascade the `color` page parameter from the home page to the `articles` section and its descendants:
 

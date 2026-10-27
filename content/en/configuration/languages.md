@@ -59,7 +59,7 @@ In the above, `en` is the [language key](#language-keys).
 : {{<deprecated-in 0.158.0 />}}
 : Use [`label`](#label) instead.
 
-{{% include "/_common/configuration/locale.md" %}}
+{{% include "/_common/locale-setting.md" %}}
 
 `title`
 : (`string`) The site title for this language. Access this value from a template using the [`Title`][] method on a `Site` object.

@@ -22,7 +22,7 @@ The `ref` shortcode accepts either a single positional argument (the path) or on
 
 ## Arguments
 
-{{% include "_common/ref-and-relref-options.md" %}}
+{{% include "/_common/ref-and-relref-options.md" %}}
 
 ## Examples
 
@@ -57,7 +57,7 @@ Rendered:
 
 ## Error handling
 
-{{% include "_common/ref-and-relref-error-handling.md" %}}
+{{% include "/_common/ref-and-relref-error-handling.md" %}}
 
 [Markdown notation]: /content-management/shortcodes/#notation
 [details]: /configuration/markup/#renderhookslinkuseembedded

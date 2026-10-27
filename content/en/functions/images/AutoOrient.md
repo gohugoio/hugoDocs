@@ -18,7 +18,7 @@ Create the filter:
 {{ $filter := images.AutoOrient }}
 ```
 
-{{% include "/_common/functions/images/apply-image-filter.md" %}}
+{{% include "/_common/image-filter-apply.md" %}}
 
 > [!NOTE]
 > When using with other filters, specify `images.AutoOrient` first.

@@ -9,7 +9,7 @@ params:
     signatures: [RESOURCE.ResourceType]
 ---
 
-{{% include "/_common/methods/resource/global-page-remote-resources.md" %}}
+{{% include "/_common/resource-types-note.md" %}}
 
 Common resource types include `audio`, `image`, `text`, and `video`.
 

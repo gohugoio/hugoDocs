@@ -20,7 +20,7 @@ Create the filter:
 {{ $filter := images.Padding 20 40 "#976941" }}
 ```
 
-{{% include "/_common/functions/images/apply-image-filter.md" %}}
+{{% include "/_common/image-filter-apply.md" %}}
 
 Combine with the [`Colors`][] method to create a border with one of the image's most dominant colors:
 

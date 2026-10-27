@@ -9,7 +9,7 @@ params:
     signatures: ['PAGES.GroupByParam PARAM [SORT]']
 ---
 
-{{% include "/_common/methods/pages/group-sort-order.md" %}}
+{{% include "/_common/pages-group-sort-order.md" %}}
 
 Use the `GroupByParam` method to group by a custom field. To group by a reserved field, pass the name of the corresponding `Page` method to the [`GroupBy`][] method.
 

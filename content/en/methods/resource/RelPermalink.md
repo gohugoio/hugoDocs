@@ -9,7 +9,7 @@ params:
     signatures: [RESOURCE.RelPermalink]
 ---
 
-{{% include "/_common/methods/resource/global-page-remote-resources.md" %}}
+{{% include "/_common/resource-types-note.md" %}}
 
 The `RelPermalink` method on a `Resource` object writes the resource to the `public` directory and returns its [relative permalink](g).
 

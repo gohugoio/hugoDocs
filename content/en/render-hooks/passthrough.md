@@ -108,7 +108,7 @@ layouts/
       └── render-passthrough-inline.html
 ```
 
-{{% include "/_common/render-hooks/pageinner.md" %}}
+{{% include "/_common/pageinner-details.md" %}}
 
 [Goldmark]: https://github.com/yuin/goldmark
 [Markdown attributes]: /content-management/markdown-attributes/

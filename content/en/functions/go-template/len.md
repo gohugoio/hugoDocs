@@ -43,4 +43,4 @@ You may also determine the number of pages in a collection with:
 {{ site.RegularPages.Len }} → 42
 ```
 
-{{% include "/_common/functions/go-template/text-template.md" %}}
+{{% include "/_common/text-template-reference.md" %}}

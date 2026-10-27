@@ -10,7 +10,7 @@ params:
     signatures: ['strings.ReplaceRE PATTERN REPLACEMENT STRING [LIMIT]']
 ---
 
-{{% include "/_common/functions/regular-expressions.md" %}}
+{{% include "/_common/regular-expressions.md" %}}
 
 ```go-html-template
 {{ $s := "a-b--c---d" }}

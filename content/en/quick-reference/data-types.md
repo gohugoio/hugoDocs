@@ -69,7 +69,7 @@ Map keys are case-sensitive, with one exception. The `hmaps.Params` data type, r
 
 When you use a value as a condition, such as with the [`if`][] or [`with`][] statement, Hugo evaluates it as either truthy or falsy.
 
-{{% include "/_common/functions/truthy-falsy.md" %}}
+{{% include "/_common/truthy-falsy.md" %}}
 
 ## Safe types
 

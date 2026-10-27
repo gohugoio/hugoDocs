@@ -10,7 +10,7 @@ params:
     signatures: [urls.URLize INPUT]
 ---
 
-{{% include "/_common/functions/urls/anchorize-vs-urlize.md" %}}
+{{% include "/_common/anchorize-vs-urlize.md" %}}
 
 Use the `urlize` function to create a link to a [term page](g).
 

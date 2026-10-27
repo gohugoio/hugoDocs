@@ -24,7 +24,7 @@ Create the filter:
 {{ $filter := images.UnsharpMask 10 0.4 0.03 }}
 ```
 
-{{% include "/_common/functions/images/apply-image-filter.md" %}}
+{{% include "/_common/image-filter-apply.md" %}}
 
 ## Example
 

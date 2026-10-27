@@ -104,7 +104,7 @@ source = 'static'
 target = 'assets'
 {{< /code-toggle >}}
 
-{{% include "/_common/render-hooks/pageinner.md" %}}
+{{% include "/_common/pageinner-details.md" %}}
 
 [CommonMark]: https://spec.commonmark.org/current/
 [`RenderShortcodes`]: /methods/page/rendershortcodes/

@@ -9,7 +9,7 @@ params:
     signatures: [OUTPUTFORMAT.Name]
 ---
 
-{{% include "/_common/methods/output-formats/to-use-this-method.md" %}}
+{{% include "/_common/output-format-method-note.md" %}}
 
 ```go-html-template
 {{ with .Site.Home.OutputFormats.Get "rss" }}

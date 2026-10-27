@@ -20,7 +20,7 @@ Create the image filter:
 {{ $filter := images.Brightness 12 }}
 ```
 
-{{% include "/_common/functions/images/apply-image-filter.md" %}}
+{{% include "/_common/image-filter-apply.md" %}}
 
 ## Example
 

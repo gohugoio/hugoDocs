@@ -6,11 +6,11 @@ keywords: []
 weight: 40
 ---
 
-{{% include "/_common/installation/01-editions.md" %}}
+{{% include "/_common/installation-01-editions.md" %}}
 
-{{% include "/_common/installation/02-prerequisites.md" %}}
+{{% include "/_common/installation-02-prerequisites.md" %}}
 
-{{% include "/_common/installation/03-prebuilt-binaries.md" %}}
+{{% include "/_common/installation-03-prebuilt-binaries.md" %}}
 
 ## Repository packages
 
@@ -48,7 +48,7 @@ sudo pkgin install go-hugo
 doas pkg_add hugo
 ```
 
-{{% include "/_common/installation/04-build-from-source.md" %}}
+{{% include "/_common/installation-04-build-from-source.md" %}}
 
 ## Comparison
 

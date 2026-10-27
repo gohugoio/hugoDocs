@@ -12,7 +12,7 @@ params:
 
 {{< new-in 0.156.0 />}}
 
-{{% include "/_common/functions/hugo/sites-collection.md" %}}
+{{% include "/_common/sites-collection.md" %}}
 
 With this project configuration:
 

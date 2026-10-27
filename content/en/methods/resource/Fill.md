@@ -9,7 +9,7 @@ params:
     signatures: [RESOURCE.Fill SPECIFICATION]
 ---
 
-{{% include "/_common/methods/resource/global-page-remote-resources.md" %}}
+{{% include "/_common/resource-types-note.md" %}}
 
 The `Fill` method returns a new resource from a [processable image](g) according to the given [processing specification](#processing-specification).
 
@@ -30,7 +30,7 @@ When filling, you must provide both width and height (such as `500x200`) within 
 
 In the example above, `"500x200 TopRight"` is the _processing specification.
 
-{{% include "/_common/methods/resource/processing-spec.md" %}}
+{{% include "/_common/image-processing-spec.md" %}}
 
 ## Example
 

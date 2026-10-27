@@ -271,7 +271,7 @@ The `css.Sass` function accepts an options map.
 
 ## File system access
 
-{{% include "/_common/functions/node-permissions/imports.md" %}}
+{{% include "/_common/node-permissions-imports.md" %}}
 
 ## Dart Sass
 

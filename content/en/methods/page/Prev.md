@@ -9,4 +9,4 @@ params:
     signatures: [PAGE.Prev]
 ---
 
-{{% include "/_common/methods/page/next-and-prev.md" %}}
+{{% include "/_common/page-next-prev.md" %}}

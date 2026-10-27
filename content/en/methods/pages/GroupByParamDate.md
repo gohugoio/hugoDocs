@@ -13,7 +13,7 @@ params:
 
 The [layout string](#layout-string) has the same format as the layout string for the [`time.Format`][] function. The resulting group key is [localized](g) for language and region.
 
-{{% include "/_common/methods/pages/group-sort-order.md" %}}
+{{% include "/_common/pages-group-sort-order.md" %}}
 
 Use the `GroupByParamDate` method to group by a custom date field. To group by a reserved date field, use the corresponding grouping method: [`GroupByDate`][], [`GroupByExpiryDate`][], [`GroupByLastmod`][], or [`GroupByPublishDate`][].
 
