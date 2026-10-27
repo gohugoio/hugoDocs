@@ -87,8 +87,7 @@ This template will render the page title as desired:
 {{ end }}
 ```
 
-> [!NOTE]
-> Gaining a thorough understanding of context is critical for anyone writing template code.
+{{% include "/_common/template-context.md" %}}
 
 {{% include "/_common/functions/go-template/text-template.md" %}}
 

@@ -86,8 +86,7 @@ The result would be wrong when rendering the `auction-1` page because we are com
 {{ end }}
 ```
 
-> [!NOTE]
-> Gaining a thorough understanding of context is critical for anyone writing template code.
+{{% include "/_common/template-context.md" %}}
 
 [`else`]: /functions/go-template/else/
 [`with`]: /functions/go-template/with/
