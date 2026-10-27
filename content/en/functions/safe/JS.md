@@ -10,49 +10,33 @@ params:
     signatures: [safe.JS INPUT]
 ---
 
-## Introduction
-
-{{% include "/_common/functions/go-html-template-package.md" %}}
-
 ## Usage
 
-Use the `safe.JS` function to encapsulate a known safe EcmaScript5 Expression.
+The `safe.JS` function returns the given string declared as a safe JavaScript expression. Use it with a known safe ECMAScript 5 expression.
 
-Template authors are responsible for ensuring that typed expressions do not break the intended precedence and that there is no statement/expression ambiguity as when passing an expression like `{ foo: bar() }\n['foo']()`, which is both a valid Expression and a valid Program with an entirely different meaning.
+Make sure that the expression does not break the intended precedence, and that it is not ambiguous. For example, `{ foo: bar() }\n['foo']()` is both a valid expression and a valid program, with different meanings.
 
-Use of this type presents a security risk: the encapsulated content should come from a trusted source, as it will be included verbatim in the template output.
+In an event handler attribute such as `onclick`, Hugo still escapes characters such as quotation marks and ampersands for the attribute. See the [Go documentation][] for details.
 
-Using the `safe.JS` function to include valid but untrusted JSON is not safe. A safe alternative is to parse the JSON with the [`transform.Unmarshal`][] function and then pass the resultant object into the template, where it will be converted to sanitized JSON when presented in a JavaScript context.
+Using the `safe.JS` function to include valid but untrusted JSON is not safe. Instead, parse the JSON with the [`transform.Unmarshal`][] function and print the resulting object in a JavaScript context, where Hugo converts it to sanitized JSON.
 
-See the [Go documentation][] for details.
+Only use this function with content from a trusted source, because Hugo does not check the content for unsafe values. See [safe types][] for an explanation of how Hugo escapes values, and how each safe data type affects escaping.
 
-## Example
-
-Without a safe declaration:
+## Examples
 
 ```go-html-template
 {{ $js := "x + y" }}
 <script>const a = {{ $js }}</script>
+<script>const b = {{ $js | safe.JS }}</script>
 ```
 
-Hugo renders the above to:
+The rendered output:
 
 ```html
 <script>const a = "x + y"</script>
+<script>const b = x + y</script>
 ```
 
-To declare the string as safe:
-
-```go-html-template
-{{ $js := "x + y" }}
-<script>const a = {{ $js | safeJS }}</script>
-```
-
-Hugo renders the above to:
-
-```html
-<script>const a = x + y</script>
-```
-
-[Go documentation]: https://pkg.go.dev/html/template#JS
 [`transform.Unmarshal`]: /functions/transform/unmarshal/
+[Go documentation]: https://pkg.go.dev/html/template#JS
+[safe types]: /quick-reference/data-types/#safe-types

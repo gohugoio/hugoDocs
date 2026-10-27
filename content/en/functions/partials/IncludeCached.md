@@ -1,6 +1,6 @@
 ---
 title: partials.IncludeCached
-description: Executes the given template and caches the result, optionally passing one or more variant keys. If the partial template contains a return statement, returns the given value, else returns the rendered output.
+description: Returns the cached result of executing the given partial template, optionally passing one or more variant keys.
 categories: []
 keywords: []
 params:
@@ -10,45 +10,45 @@ params:
     signatures: ['partials.IncludeCached LAYOUT CONTEXT [VARIANT...]']
 ---
 
-Without a [`return`][] statement, the `partialCached` function returns a string of type `template.HTML`. With a `return` statement, the `partialCached` function can return any data type.
+## Usage
 
-The `partialCached` function can offer significant performance gains for complex templates that don't need to be re-rendered on every invocation.
+The `partials.IncludeCached` function returns the cached result of executing the given _partial_ template, optionally passing one or more variant keys. If the _partial_ template contains a [`return`][] statement, the result is the given value. Otherwise, the result is the rendered output, as a `template.HTML` or `string` value depending on the output format of the _partial_ template. See [`partials.Include`][] for details.
+
+Use this function for complex _partial_ templates that do not need to be rendered again on every call. The first call renders the _partial_ template and caches the result. Later calls with the same `LAYOUT` and `VARIANT` values return the cached result, even when `CONTEXT` is different.
 
 > [!NOTE]
-> Each site (or language) has its own `partialCached` cache, so each site will execute a _partial_ template once.
+> Each site, such as each language, has its own cache, so each site executes a _partial_ template at least once.
 >
-> Hugo renders pages in parallel, and will render the _partial_ template more than once with concurrent calls to the `partialCached` function. After Hugo caches the rendered _partial_ template, new pages entering the build pipeline will use the cached result.
+> Hugo renders pages in parallel, so concurrent calls may render the _partial_ template more than once. After Hugo caches the result, pages that enter the build pipeline use the cached result.
 
-Within a _partial_ template, a path that begins with `./` or `../` is resolved relative to the calling _partial_ template. See [`partials.Include`][].
+## Arguments
 
-Here is the simplest usage:
+`LAYOUT`
+: (`string`) The path to the _partial_ template, relative to the `layouts/_partials` directory. Within a _partial_ template, Hugo resolves a path that begins with `./` or `../` relative to the directory of the calling _partial_ template. See [`partials.Include`][] for details.
+
+`CONTEXT`
+: (`any`) The context to pass to the _partial_ template. Unlike the `partials.Include` function, this function requires this argument. To pass no context, pass `nil`.
+
+`VARIANT`
+: (`any`) One or more values, of any data type, used to create a unique cache key. Hugo caches a separate result for each unique combination of variant values. The _partial_ template cannot access these values.
+
+## Examples
 
 ```go-html-template
-{{ partialCached "footer.html" . }}
+{{ partials.IncludeCached "footer.html" . }}
 ```
 
-Pass additional arguments to `partialCached` to create variants of the cached _partial_ template. For example, if you have a complex _partial_ template that should be identical when rendered for pages within the same section, use a variant based on section so that the _partial_ template is only rendered once per section:
+Caching one result per section, for a complex _partial_ template that renders the same output for all pages in a section:
 
 ```go-html-template {file="layouts/baseof.html"}
-{{ partialCached "footer.html" . .Section }}
+{{ partials.IncludeCached "footer.html" . .Section }}
 ```
 
-Pass additional arguments, of any data type, as needed to create unique variants:
+Caching one result per combination of two values:
 
 ```go-html-template
-{{ partialCached "footer.html" . .Params.country .Params.province }}
+{{ partials.IncludeCached "footer.html" . .Params.country .Params.province }}
 ```
 
-The variant arguments are not available to the underlying _partial_ template; they are only used to create unique cache keys.
-
-To return a value from a _partial_ template, use the `return` statement:
-
-```go-html-template
-{{ if math.ModBool . 2 }}
-  {{ return "even" }}
-{{ end }}
-{{ return "odd" }}
-```
-
+[`partials.Include`]: /functions/partials/include/
 [`return`]: /functions/go-template/return/
-[`partials.Include`]: /functions/partials/include/#relative-paths

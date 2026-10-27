@@ -1,6 +1,6 @@
 ---
 title: partials.Include
-description: Executes the given template, optionally passing context. If the  partial template contains a return statement, returns the given value, else returns the rendered output.
+description: Returns the result of executing the given partial template, optionally passing context.
 categories: []
 keywords: []
 params:
@@ -10,38 +10,64 @@ params:
     signatures: ['partials.Include NAME [CONTEXT]']
 ---
 
-Without a [`return`][] statement, the `partial` function returns a string of type `template.HTML`. With a `return` statement, the `partial` function can return any data type.
+## Usage
 
-In this example we have three _partial_ templates:
+The `partials.Include` function returns the result of executing the given _partial_ template, optionally passing context. If the _partial_ template contains a [`return`][] statement, the result is the given value. Otherwise, the result is the rendered output, as a `template.HTML` or `string` value depending on the output format of the _partial_ template.
 
-```tree
-layouts/
-└── _partials/
-    ├── average.html
-    ├── breadcrumbs.html
-    └── footer.html
-```
+The function does not write to the page. It returns the result, which the calling template prints. If you assign the result to a variable, Hugo prints nothing until you print the variable.
 
-The "average" _partial_ template returns the average of one or more numbers. We pass the numbers in context:
+With a `return` statement, the function can return any data type. Without one, the [`isPlainText`][] setting of the _partial_ template's output format determines the data type of the rendered output:
+
+- If `isPlainText` is `false`, Hugo parses the template with Go's [`html/template`][] package, and the function returns a `template.HTML` value. This type marks the output as safe HTML, so the calling template prints it without escaping it. See [safe types][] for details.
+- If `isPlainText` is `true`, Hugo parses the template with Go's [`text/template`][] package, and the function returns a `string` value. If you call the _partial_ template from an HTML template, Hugo escapes its output.
+
+By default, `isPlainText` is `true` for output formats such as `json`, `csv`, and `css`, and `false` for `html`, `rss`, and `sitemap`. You can change this setting for any output format, including the ones you [create][].
+
+_Partial_ templates are not context-aware. Hugo ignores the current page's output format, and uses the file extension of the _partial_ template to determine its output format. If the extension does not match any output format, Hugo treats the _partial_ template as HTML. For example, with the default output format configuration, `partials.Include "foo.json"` returns a `string` and `partials.Include "foo.html"` returns a `template.HTML` value, even when called from a JSON template.
+
+## Arguments
+
+`NAME`
+: (`string`) The path to the _partial_ template, relative to the `layouts/_partials` directory.
+: {{< new-in 0.167.0 />}}
+: Within a _partial_ template, Hugo resolves a path that begins with `./` or `../` relative to the directory of the calling _partial_ template. Hugo supports relative paths only within _partial_ templates. Using a relative path from any other template, or a path that resolves outside the `layouts/_partials` directory, fails the build.
+
+`CONTEXT`
+: (`any`) The context to pass to the _partial_ template, such as a page, a page collection, a scalar value, a slice, or a map. If you omit this argument, the context within the _partial_ template is `nil`.
+
+## Examples
 
 ```go-html-template
-{{ $numbers := slice 1 6 7 42 }}
-{{ $average := partial "average.html" $numbers }}
+{{ partials.Include "breadcrumbs.html" . }}
 ```
 
-The "breadcrumbs" _partial_ template renders [breadcrumb navigation][], and needs to receive the current page in context:
+Omitting context, when the _partial_ template does not need access to the current page:
 
 ```go-html-template
-{{ partial "breadcrumbs.html" . }}
+{{ partials.Include "footer.html" }}
 ```
 
-The "footer" _partial_ template renders the site footer. In this contrived example, the footer does not need access to the current page, so we can omit context:
+Assigning the result to a variable, and printing it later:
 
 ```go-html-template
-{{ partial "footer.html" }}
+{{ $footer := partials.Include "footer.html" . }}
+{{ $footer }}
 ```
 
-You can pass anything in context: a page, a page collection, a scalar value, a slice, or a map. In this example we pass the current page and three scalar values:
+Returning a value from a _partial_ template that reports whether a number is even or odd:
+
+```go-html-template {file="layouts/_partials/parity.html"}
+{{ if math.ModBool . 2 }}
+  {{ return "even" }}
+{{ end }}
+{{ return "odd" }}
+```
+
+```go-html-template
+{{ partials.Include "parity.html" 42 }} → even
+```
+
+Passing the current page and three scalar values in a map:
 
 ```go-html-template
 {{ $ctx := dict
@@ -50,49 +76,25 @@ You can pass anything in context: a page, a page collection, a scalar value, a s
   "major" "Finance"
   "gpa" 4.0
 }}
-{{ partial "render-student-info.html" $ctx }}
+{{ partials.Include "render-student-info.html" $ctx }}
 ```
 
-Then, within the _partial_ template:
-
-```go-html-template
+```go-html-template {file="layouts/_partials/render-student-info.html"}
 <p>{{ .name }} is majoring in {{ .major }}.</p>
 <p>Their grade point average is {{ .gpa }}.</p>
 <p>See <a href="{{ .page.RelPermalink }}">details.</a></p>
 ```
 
-To return a value from a _partial_ template, use the `return` statement:
+Calling a sibling and a parent _partial_ template using relative paths, from within `layouts/_partials/cards/card.html`:
 
-```go-html-template
-{{ if math.ModBool . 2 }}
-  {{ return "even" }}
-{{ end }}
-{{ return "odd" }}
+```go-html-template {file="layouts/_partials/cards/card.html"}
+{{ partials.Include "./image.html" . }}
+{{ partials.Include "../footer.html" . }}
 ```
 
-## Relative paths
-
-{{< new-in 0.167.0 />}}
-
-Within a _partial_ template, a path that begins with `./` or `../` is resolved relative to the directory of the calling _partial_ template. For example, given this structure:
-
-```tree
-layouts/
-└── _partials/
-    ├── cards/
-    │   ├── card.html
-    │   └── image.html
-    └── footer.html
-```
-
-The "card" _partial_ template can call its sibling and the "footer" _partial_ template like this:
-
-```go-html-template
-{{ partial "./image.html" . }}
-{{ partial "../footer.html" . }}
-```
-
-Relative paths are only supported from within _partial_ templates. Calling `partial "./foo.html"` from any other template, or with a path that resolves outside the `_partials` directory, is an error.
-
+[`html/template`]: https://pkg.go.dev/html/template
+[`isPlainText`]: /configuration/output-formats/#isplaintext
 [`return`]: /functions/go-template/return/
-[breadcrumb navigation]: /content-management/sections/#ancestors-and-descendants
+[`text/template`]: https://pkg.go.dev/text/template
+[create]: /configuration/output-formats/#create-an-output-format
+[safe types]: /quick-reference/data-types/#safe-types
