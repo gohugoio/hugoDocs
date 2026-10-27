@@ -420,7 +420,7 @@ Create your _partial_ templates in the `layouts/_partials` directory.
 
 ## Examples
 
-This limited set of contrived examples demonstrates some of the concepts described above. Please see the [functions][], [methods][], and [templates][] documentation for specific examples.
+This limited set of contrived examples demonstrates some of the concepts described above.
 
 ### Conditional blocks
 
@@ -604,4 +604,3 @@ In the template example above, each of the keys is a valid identifier. For examp
 [params_page]: /methods/page/params/
 [params_site]: /methods/site/params/
 [partial templates]: /templates/types/#partial
-[templates]: /templates/
