@@ -52,7 +52,7 @@
 						{{ $simpleCobraCommandShort := .RawContent | strings.ReplaceRE `(?s)^##\s.+?\n\n(.+?)\n\n.*` "$1" }}
 						{{ printf "%s." $simpleCobraCommandShort }}
 					{{ else }}
-						{{ (or .Params.description .Summary) | plainify | safeHTML }}
+						{{ (or .Description .Summary) | plainify | safeHTML }}
 					{{ end }}
 				</p>
 				{{ if and hugo.IsDevelopment site.Params.debug.display_page_metadata }}
