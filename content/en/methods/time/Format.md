@@ -75,7 +75,7 @@ Convert and format any `time.Time` value to either Coordinated Universal Time (U
 
 ## Ordinal representation
 
-Use the [`humanize`][] function to render the day of the month as an ordinal number:
+Use the [`humanize`][] function to format the day of the month as an ordinal number:
 
 ```go-html-template
 {{ $t := "2023-01-27T23:44:58-08:00" }}

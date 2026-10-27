@@ -158,6 +158,8 @@ Link to the [glossary][] as needed and use terms consistently. Pay particular at
 - "Markdown" (capitalized)
 - "Node.js" (first mention per page), "Node" (subsequent mentions), "node" (for the executable), "npm" (always lowercase)
 - "open source" (noun), "open-source" (adjective)
+- "print" (to write a value to the output, such as with an action like `{{ .Title }}`)
+- "render" (to convert a template, page, or Markdown to output)
 - "server side" (noun), "server-side" (adjective)
 - "standalone" (noun or adjective)
 - "stylesheet" (one word)

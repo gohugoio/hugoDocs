@@ -26,8 +26,6 @@ Base|Implements basic shared functionality
 CommonMark|Implements Markdown according to the [CommonMark][] specification
 Table|Implements tables according to the [GitHub Flavored Markdown][] specification
 
-The function returns a `string`. Go's [`html/template`][] package escapes strings in most contexts, which escapes special characters in the Markdown. To render the result as is, pass it through the [`safe.HTML`][] function.
-
 ## Examples
 
 ```go-html-template
@@ -43,5 +41,3 @@ Converting the content of the current page:
 [CommonMark]: https://spec.commonmark.org/current/
 [GitHub Flavored Markdown]: https://github.github.com/gfm/
 [`html-to-markdown`]: https://github.com/JohannesKaufmann/html-to-markdown?tab=readme-ov-file#readme
-[`html/template`]: https://pkg.go.dev/html/template
-[`safe.HTML`]: /functions/safe/html/

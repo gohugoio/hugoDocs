@@ -66,7 +66,7 @@ Viewed as JSON, the data structure of `$matches` in the code above is:
 ]
 ```
 
-To render the `href` attributes:
+To print the `href` attribute values:
 
 ```go-html-template
 {{ range $matches }}
