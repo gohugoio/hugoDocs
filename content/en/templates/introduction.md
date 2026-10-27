@@ -330,12 +330,12 @@ The most commonly accessed objects are the [`Page`][] and [`Site`][] objects. Th
 
 Object|Method|Description
 :--|:--|:--
-`Page`|[`Date`](methods/page/date/)|Returns the date of the given page.
-`Page`|[`Params`](methods/page/params/)|Returns a map of custom parameters as defined in the front matter of the given page.
-`Page`|[`Title`](methods/page/title/)|Returns the title of the given page.
-`Site`|[`Data`](methods/site/data/)|Returns a data structure composed from the files in the `data` directory.
-`Site`|[`Params`](methods/site/params/)|Returns a map of custom parameters as defined in your project configuration.
-`Site`|[`Title`](methods/site/title/)|Returns the title as defined in your project configuration.
+`Page`|[`Date`][]|Returns the date of the given page.
+`Page`|[`Params`][params_page]|Returns a map of custom parameters as defined in the front matter of the given page.
+`Page`|[`Title`][]|Returns the title of the given page.
+`Site`|[`Data`][]|Returns a data structure composed from the files in the `data` directory.
+`Site`|[`Params`][params_site]|Returns a map of custom parameters as defined in your project configuration.
+`Site`|[`Title`][title_site]|Returns the title as defined in your project configuration.
 
 Chain the method to its object with a dot (`.`) as shown below, remembering that the leading dot represents the [current context](#current-context).
 
@@ -573,6 +573,8 @@ In the template example above, each of the keys is a valid identifier. For examp
 {{ index .Params "key-with-hyphens" }} → must use index function
 ```
 
+[`Data`]: /methods/site/data/
+[`Date`]: /methods/page/date/
 [`Page`]: /methods/page/
 [`Site`]: /methods/site/
 [`Title`]: /methods/page/title/
@@ -604,3 +606,4 @@ In the template example above, each of the keys is a valid identifier. For examp
 [params_page]: /methods/page/params/
 [params_site]: /methods/site/params/
 [partial templates]: /templates/types/#partial
+[title_site]: /methods/site/title/
