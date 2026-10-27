@@ -9,8 +9,6 @@ params:
     signatures: [SHORTCODE.Store]
 ---
 
-{{< new-in 0.139.0 />}}
-
 Use the `Store` method to create a persistent data structure for storing and manipulating keyed values, scoped to the current shortcode. To create a data structure with a different [scope](g), refer to the [scope](#scope) section below.
 
 > [!NOTE]

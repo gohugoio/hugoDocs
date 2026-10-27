@@ -75,7 +75,6 @@ The `css.Sass` function accepts an options map.
   ```
 
 `silenceDeprecations`
-: {{< new-in 0.139.0 />}}
 : (`slice`) A slice of deprecation IDs to silence. IDs are enclosed in brackets within Dart Sass warning messages (e.g., `import` in `WARN Dart Sass: DEPRECATED [import]`). Applicable to Dart Sass.
 
   ```go-html-template

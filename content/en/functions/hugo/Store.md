@@ -9,8 +9,6 @@ params:
     signatures: [hugo.Store]
 ---
 
-{{< new-in 0.139.0 />}}
-
 Use the `hugo.Store` function to create a globally scoped persistent data structure for storing and manipulating keyed values. To create a data structure with a different [scope](g), refer to the [scope](#scope) section below.
 
 ## Methods

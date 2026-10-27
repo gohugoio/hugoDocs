@@ -9,8 +9,6 @@ params:
     signatures: [site.Store]
 ---
 
-{{< new-in 0.139.0 />}}
-
 Use the `Store` method on a `Site` object to create a persistent data structure for storing and manipulating keyed values, scoped to the current site. To create a data structure with a different [scope](g), refer to the [scope](#scope) section below.
 
 ## Methods
