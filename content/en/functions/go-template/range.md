@@ -70,8 +70,7 @@ This template will render the page title three times:
 {{ end }}
 ```
 
-> [!NOTE]
-> Gaining a thorough understanding of context is critical for anyone writing template code.
+{{% include "/_common/template-context.md" %}}
 
 ## Examples
 
