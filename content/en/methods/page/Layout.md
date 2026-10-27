@@ -16,7 +16,7 @@ title = 'Contact'
 layout = 'contact'
 {{< /code-toggle >}}
 
-Hugo will render the page using contact.html.
+Hugo renders the page using `contact.html`.
 
 ```tree
 layouts/

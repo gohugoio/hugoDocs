@@ -23,7 +23,7 @@ The `transform.XMLEscape` function removes [disallowed characters][] as defined 
 - `\n` → `&#xA;`
 - `\r` → `&#xD;`
 
-The function returns a `string`. Go's [`html/template`][] package escapes strings in most contexts, which escapes the entities in the result again. To render the result as is, pass it through the [`safe.HTML`][] function.
+When you print the result in an HTML template, Hugo escapes the entities again. To prevent this, pass the result through the [`safe.HTML`][] function. See [safe types][] for details.
 
 ## Examples
 
@@ -45,6 +45,6 @@ In an RSS template:
 ```
 
 [HTML entities]: https://developer.mozilla.org/en-US/docs/Glossary/Entity
-[`html/template`]: https://pkg.go.dev/html/template
 [`safe.HTML`]: /functions/safe/html/
 [disallowed characters]: https://www.w3.org/TR/xml/#charsets
+[safe types]: /quick-reference/data-types/#safe-types

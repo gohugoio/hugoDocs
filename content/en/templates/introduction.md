@@ -156,19 +156,19 @@ Hugo templates use different quote characters to define how text and characters 
 Use double quotes for [interpreted string literals](g). These interpret backslashes as special instructions:
 
 ```go-html-template
-{{ print "Hello world\u0021" }} → Hello world!
+{{ "Hello world\u0021" }} → Hello world!
 ```
 
 Use backticks for [raw string literals](g). These ignore backslashes and treat every character literally:
 
 ```go-html-template
-{{ print `Hello world\u0021` }} → Hello world\u0021
+{{ `Hello world\u0021` }} → Hello world\u0021
 ```
 
 Use single quotes for [rune literals](g). Unlike strings, these represent a single character as its numerical Unicode value:
 
 ```go-html-template
-{{ print '!' }} → 33
+{{ '!' }} → 33
 ```
 
 In practical terms, you will rarely, if ever, use rune literals in your template code. They are most commonly used in low-level programming; in a Hugo template, you will almost always want a string instead.
@@ -387,7 +387,7 @@ adjacent whitespace removed.
 
 You may not nest one comment inside of another.
 
-To render an HTML comment, pass a string through the [`safe.HTML`][] function. For example:
+To print an HTML comment, pass a string through the [`safe.HTML`][] function. For example:
 
 ```go-html-template
 {{ "<!-- I am an HTML comment. -->" | safeHTML }}

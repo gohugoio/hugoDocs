@@ -70,7 +70,7 @@ With this template code:
 </ul>
 ```
 
-Hugo render this HTML:
+Hugo renders this HTML:
 
 ```html
 <ul>

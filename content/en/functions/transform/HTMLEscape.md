@@ -20,7 +20,7 @@ The `transform.HTMLEscape` function returns the given string, escaping special c
 - `'` → `&#39;`
 - `"` → `&#34;`
 
-The function returns a `string`. Go's [`html/template`][] package escapes strings in most contexts, which escapes the HTML entities in the result again. To render the result as is, pass it through the [`safe.HTML`][] function.
+When you print the result in an HTML template, Hugo escapes the entities again. To prevent this, pass the result through the [`safe.HTML`][] function. See [safe types][] for details.
 
 ## Examples
 
@@ -37,5 +37,5 @@ Comparing the result with and without `safe.HTML`, showing the raw HTML output:
 ```
 
 [HTML entities]: https://developer.mozilla.org/en-US/docs/Glossary/Entity
-[`html/template`]: https://pkg.go.dev/html/template
 [`safe.HTML`]: /functions/safe/html/
+[safe types]: /quick-reference/data-types/#safe-types

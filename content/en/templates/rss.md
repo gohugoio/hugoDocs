@@ -52,7 +52,7 @@ To include a feed reference in the `head` element of your rendered pages, place 
 {{ end }}
 ```
 
-Hugo will render this to:
+Hugo renders this to:
 
 ```html
 <link rel="alternate" type="application/rss+xml" href="https://example.org/index.xml" title="ABC Widgets">
