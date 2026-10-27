@@ -15,7 +15,7 @@ The `RelRef` method requires a single argument: an options map.
 
 ## Options
 
-{{% include "_common/ref-and-relref-options.md" %}}
+{{% include "/_common/ref-and-relref-options.md" %}}
 
 ## Examples
 
@@ -34,4 +34,4 @@ The following examples show the rendered output for a page on the English versio
 
 ## Error handling
 
-{{% include "_common/ref-and-relref-error-handling.md" %}}
+{{% include "/_common/ref-and-relref-error-handling.md" %}}

@@ -14,9 +14,9 @@ Use the `Store` method to create a persistent data structure for storing and man
 > [!NOTE]
 > With the introduction of the [`newScratch`][] function, and the ability to [assign values to template variables][] after initialization, the `Store` method within a shortcode is mostly obsolete.
 
-{{% include "_common/store-methods.md" %}}
+{{% include "/_common/store-methods.md" %}}
 
-{{% include "_common/store-scope.md" %}}
+{{% include "/_common/store-scope.md" %}}
 
 [`newScratch`]: /functions/collections/newScratch/
 [assign values to template variables]: https://go.dev/doc/go1.11#texttemplatepkgtexttemplate

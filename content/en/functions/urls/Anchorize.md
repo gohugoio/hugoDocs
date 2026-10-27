@@ -10,7 +10,7 @@ params:
     signatures: [urls.Anchorize INPUT]
 ---
 
-{{% include "/_common/functions/urls/anchorize-vs-urlize.md" %}}
+{{% include "/_common/anchorize-vs-urlize.md" %}}
 
 The `ursl.Anchorize` function sanitizes the resulting string per the [`autoIDType`][] setting in your project configuration.
 

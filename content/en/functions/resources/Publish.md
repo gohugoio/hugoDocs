@@ -12,7 +12,7 @@ params:
 
 {{< new-in 0.166.0 />}}
 
-{{% include "/_common/methods/resource/global-page-remote-resources.md" %}}
+{{% include "/_common/resource-types-note.md" %}}
 
 The `resources.Publish` function writes the given resource to the `public` directory and returns the resource, making it useful within a template pipeline.
 

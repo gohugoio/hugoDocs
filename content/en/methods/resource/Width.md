@@ -9,7 +9,7 @@ params:
     signatures: [RESOURCE.Width]
 ---
 
-{{% include "/_common/methods/resource/global-page-remote-resources.md" %}}
+{{% include "/_common/resource-types-note.md" %}}
 
 Use the [`reflect.IsImageResourceWithMeta`][] function to verify that Hugo can determine the dimensions before calling the `Width` method.
 

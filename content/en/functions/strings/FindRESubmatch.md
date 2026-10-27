@@ -12,7 +12,7 @@ params:
 
 By default, `findRESubmatch` finds all matches. You can limit the number of matches with an optional LIMIT argument. A return value of `nil` indicates no match.
 
-{{% include "/_common/functions/regular-expressions.md" %}}
+{{% include "/_common/regular-expressions.md" %}}
 
 ## Demonstrative examples
 

@@ -13,7 +13,7 @@ The `ByCount` method on a `Taxonomy` object returns an [ordered taxonomy](g), so
 
 While a `Taxonomy` object is a [map](g), an ordered taxonomy is a [slice](g), where each element is an object that contains the term and a slice of its [weighted pages](g).
 
-{{% include "/_common/methods/taxonomy/get-a-taxonomy-object.md" %}}
+{{% include "/_common/taxonomy-get-object.md" %}}
 
 ## Get the ordered taxonomy
 
@@ -35,7 +35,7 @@ To inspect the data structure:
 <pre>{{ debug.Dump $taxonomyObject.ByCount }}</pre>
 ```
 
-{{% include "/_common/methods/taxonomy/ordered-taxonomy-element-methods.md" %}}
+{{% include "/_common/taxonomy-ordered-element-methods.md" %}}
 
 ## Example
 

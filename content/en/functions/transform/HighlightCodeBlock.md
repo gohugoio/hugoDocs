@@ -36,7 +36,7 @@ The function returns a `HighlightResult` object with two methods:
 
 The `transform.HighlightCodeBlock` function accepts an options map.
 
-{{% include "_common/syntax-highlighting-options.md" %}}
+{{% include "/_common/syntax-highlighting-options.md" %}}
 
 `code`
 : {{< new-in 0.162.0 />}}

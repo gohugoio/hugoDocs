@@ -404,7 +404,7 @@ To reference a specific file within a Node package, provide the path starting wi
 
 ## File system access
 
-{{% include "/_common/functions/node-permissions/imports.md" %}}
+{{% include "/_common/node-permissions-imports.md" %}}
 
 [`css.Quoted`]: /functions/css/quoted/
 [`evanw/esbuild`]: https://github.com/evanw/esbuild

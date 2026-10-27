@@ -11,7 +11,7 @@ params:
 
 {{< new-in 0.168.0 />}}
 
-{{% include "/_common/methods/resource/global-page-remote-resources.md" %}}
+{{% include "/_common/resource-types-note.md" %}}
 
 ## Usage
 

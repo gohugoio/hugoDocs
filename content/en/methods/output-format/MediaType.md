@@ -9,7 +9,7 @@ params:
     signatures: [OUTPUTFORMAT.MediaType]
 ---
 
-{{% include "/_common/methods/output-formats/to-use-this-method.md" %}}
+{{% include "/_common/output-format-method-note.md" %}}
 
 ## Example
 
@@ -29,4 +29,4 @@ params:
 
 Use these methods on the `MediaType` object.
 
-{{% include "/_common/methods/media-type/core-methods.md" %}}
+{{% include "/_common/media-type-methods.md" %}}

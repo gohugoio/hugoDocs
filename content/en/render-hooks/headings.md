@@ -63,7 +63,7 @@ To add an anchor link to the right of each heading:
 </h{{ .Level }}>
 ```
 
-{{% include "/_common/render-hooks/pageinner.md" %}}
+{{% include "/_common/pageinner-details.md" %}}
 
 [CommonMark]: https://spec.commonmark.org/current/
 [Markdown attributes]: /content-management/markdown-attributes/

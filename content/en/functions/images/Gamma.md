@@ -20,7 +20,7 @@ Create the filter:
 {{ $filter := images.Gamma 1.667 }}
 ```
 
-{{% include "/_common/functions/images/apply-image-filter.md" %}}
+{{% include "/_common/image-filter-apply.md" %}}
 
 ## Example
 

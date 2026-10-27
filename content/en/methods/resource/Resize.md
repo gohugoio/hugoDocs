@@ -9,7 +9,7 @@ params:
     signatures: [RESOURCE.Resize SPECIFICATION]
 ---
 
-{{% include "/_common/methods/resource/global-page-remote-resources.md" %}}
+{{% include "/_common/resource-types-note.md" %}}
 
 The `Resize` method returns a new resource from a [processable image](g) according to the given [processing specification](#processing-specification).
 
@@ -32,7 +32,7 @@ If you specify both width and height (such as `300x150`), the resulting image wi
 
 In the example above, `"300x"` is the processing specification.
 
-{{% include "/_common/methods/resource/processing-spec.md" %}}
+{{% include "/_common/image-processing-spec.md" %}}
 
 ## Example
 

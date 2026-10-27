@@ -51,7 +51,7 @@ Use with the [`define`][] statement:
 {{ end }}
 ```
 
-{{% include "/_common/functions/go-template/text-template.md" %}}
+{{% include "/_common/text-template-reference.md" %}}
 
 [`block`]: /functions/go-template/block/
 [`define`]: /functions/go-template/define/

@@ -43,7 +43,7 @@ path = '{/tutorials,/tutorials/**}'
 
 In both the map form and the array form, the optional `target` key accepts a [page matcher](g) to limit cascaded values to a subset of pages. If you omit `target`, values cascade to all pages.
 
-{{% include "/_common/configuration/page-matcher.md" %}}
+{{% include "/_common/page-matcher.md" %}}
 
 For example, this configuration cascades the `color` page parameter to the `articles` section and its descendants, but only for the English (`en`) and German (`de`) language sites:
 

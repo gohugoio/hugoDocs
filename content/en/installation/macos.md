@@ -6,17 +6,17 @@ keywords: []
 weight: 10
 ---
 
-{{% include "/_common/installation/01-editions.md" %}}
+{{% include "/_common/installation-01-editions.md" %}}
 
-{{% include "/_common/installation/02-prerequisites.md" %}}
+{{% include "/_common/installation-02-prerequisites.md" %}}
 
-{{% include "/_common/installation/03-prebuilt-binaries.md" %}}
+{{% include "/_common/installation-03-prebuilt-binaries.md" %}}
 
 ## Package managers
 
 You can also install Hugo using one of the following package managers.
 
-{{% include "/_common/installation/homebrew.md" %}}
+{{% include "/_common/installation-homebrew.md" %}}
 
 ### MacPorts
 
@@ -26,7 +26,7 @@ You can also install Hugo using one of the following package managers.
 sudo port install hugo
 ```
 
-{{% include "/_common/installation/04-build-from-source.md" %}}
+{{% include "/_common/installation-04-build-from-source.md" %}}
 
 ## Comparison
 

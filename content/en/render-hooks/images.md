@@ -130,7 +130,7 @@ target = 'assets'
 
 Note that the embedded image render hook does not perform image processing. Its sole purpose is to resolve Markdown image destinations.
 
-{{% include "/_common/render-hooks/pageinner.md" %}}
+{{% include "/_common/pageinner-details.md" %}}
 
 [CommonMark]: https://spec.commonmark.org/current/
 [Markdown attributes]: /content-management/markdown-attributes/

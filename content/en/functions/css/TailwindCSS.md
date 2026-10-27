@@ -103,7 +103,7 @@ Step 5
 
 ## File system access
 
-{{% include "/_common/functions/node-permissions/node-tools.md" %}}
+{{% include "/_common/node-permissions-tools.md" %}}
 
 ## Options
 

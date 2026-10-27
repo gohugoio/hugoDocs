@@ -6,11 +6,11 @@ keywords: []
 weight: 20
 ---
 
-{{% include "/_common/installation/01-editions.md" %}}
+{{% include "/_common/installation-01-editions.md" %}}
 
-{{% include "/_common/installation/02-prerequisites.md" %}}
+{{% include "/_common/installation-02-prerequisites.md" %}}
 
-{{% include "/_common/installation/03-prebuilt-binaries.md" %}}
+{{% include "/_common/installation-03-prebuilt-binaries.md" %}}
 
 ## Package managers
 
@@ -58,7 +58,7 @@ sudo snap connect hugo:ssh-keys
 sudo snap disconnect hugo:ssh-keys
 ```
 
-{{% include "/_common/installation/homebrew.md" %}}
+{{% include "/_common/installation-homebrew.md" %}}
 
 ## Repository packages
 
@@ -168,7 +168,7 @@ To install the extended edition of Hugo on [Void Linux][]:
 sudo xbps-install -S hugo
 ```
 
-{{% include "/_common/installation/04-build-from-source.md" %}}
+{{% include "/_common/installation-04-build-from-source.md" %}}
 
 ## Comparison
 

@@ -23,7 +23,7 @@ Returns an image filter that processes an image according to the given [processi
 
 In the example above, `"crop 200x200 TopRight webp q50"` is the processing specification.
 
-{{% include "/_common/methods/resource/processing-spec.md" %}}
+{{% include "/_common/image-processing-spec.md" %}}
 
 ## Usage
 
@@ -33,7 +33,7 @@ Create a filter:
 {{ $filter := images.Process "crop 200x200 TopRight webp q50" }}
 ```
 
-{{% include "/_common/functions/images/apply-image-filter.md" %}}
+{{% include "/_common/image-filter-apply.md" %}}
 
 ## Example
 

@@ -10,7 +10,7 @@ params:
     signatures: [with EXPR]
 ---
 
-{{% include "/_common/functions/truthy-falsy.md" %}}
+{{% include "/_common/truthy-falsy.md" %}}
 
 ## Usage
 
@@ -89,7 +89,7 @@ This template will render the page title as desired:
 
 {{% include "/_common/template-context.md" %}}
 
-{{% include "/_common/functions/go-template/text-template.md" %}}
+{{% include "/_common/text-template-reference.md" %}}
 
 [`else`]: /functions/go-template/else/
 [context]: /templates/introduction/#context

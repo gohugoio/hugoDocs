@@ -20,7 +20,7 @@ Create the filter:
 {{ $filter := images.Saturation 65 }}
 ```
 
-{{% include "/_common/functions/images/apply-image-filter.md" %}}
+{{% include "/_common/image-filter-apply.md" %}}
 
 ## Example
 

@@ -14,4 +14,4 @@ params:
 {{ 512.5032 | lang.FormatAccounting 2 "NOK" }} → NOK512.50
 ```
 
-{{% include "/_common/functions/locales.md" %}}
+{{% include "/_common/localization-note.md" %}}

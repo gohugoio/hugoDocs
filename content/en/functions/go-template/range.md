@@ -212,7 +212,7 @@ Ranging over a positive integer `n` executes the block `n` times, with the conte
 
 Ranging over a non-positive integer executes the block zero times.
 
-{{% include "/_common/functions/go-template/text-template.md" %}}
+{{% include "/_common/text-template-reference.md" %}}
 
 [`break`]: /functions/go-template/break/
 [`continue`]: /functions/go-template/continue/

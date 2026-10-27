@@ -10,7 +10,7 @@ params:
     signatures: [and VALUE...]
 ---
 
-{{% include "/_common/functions/truthy-falsy.md" %}}
+{{% include "/_common/truthy-falsy.md" %}}
 
 The `and` function evaluates the arguments from left to right, and returns when the result is determined.
 
@@ -25,4 +25,4 @@ The `and` function evaluates the arguments from left to right, and returns when 
 {{ and false (math.Div 1 0) }} → false (bool)
 ```
 
-{{% include "/_common/functions/go-template/text-template.md" %}}
+{{% include "/_common/text-template-reference.md" %}}

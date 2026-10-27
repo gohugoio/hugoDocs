@@ -169,7 +169,7 @@ layouts/
       └── render-blockquote-regular.html
 ```
 
-{{% include "/_common/render-hooks/pageinner.md" %}}
+{{% include "/_common/pageinner-details.md" %}}
 
 [CommonMark]: https://spec.commonmark.org/current/
 [GitHub]: https://docs.github.com/en/get-started/writing-on-github/getting-started-with-writing-and-formatting-on-github/basic-writing-and-formatting-syntax#alerts

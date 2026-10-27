@@ -11,9 +11,9 @@ params:
 
 Use the `Store` method on a `Page` object to create a persistent data structure for storing and manipulating keyed values, scoped to the current page. To create a data structure with a different [scope](g), refer to the [scope](#scope) section below.
 
-{{% include "_common/store-methods.md" %}}
+{{% include "/_common/store-methods.md" %}}
 
-{{% include "_common/store-scope.md" %}}
+{{% include "/_common/store-scope.md" %}}
 
 ## Determinate values
 

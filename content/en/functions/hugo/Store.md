@@ -89,7 +89,7 @@ Use these methods on the data structure.
   {{ hugo.Store.Delete "greeting" }}
   ```
 
-{{% include "_common/store-scope.md" %}}
+{{% include "/_common/store-scope.md" %}}
 
 ## Determinate values
 

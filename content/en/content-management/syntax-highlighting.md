@@ -62,7 +62,7 @@ func main() {
 
 ## Options
 
-{{% include "_common/syntax-highlighting-options.md" %}}
+{{% include "/_common/syntax-highlighting-options.md" %}}
 
 ## Escaping
 

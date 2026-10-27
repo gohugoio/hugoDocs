@@ -186,7 +186,7 @@ Setting the `Config` for a batch can be done from any template (including _short
 `format`
 : (`string`) Currently, `esbuild` only supports `esm` output for [code splitting][].
 
-{{% include "/_common/functions/js/options.md" %}}
+{{% include "/_common/js-build-options.md" %}}
 
 ### Script options
 
@@ -271,7 +271,7 @@ In a template you would typically handle one group with a given `ID` (e.g., scri
 
 ## File system access
 
-{{% include "/_common/functions/node-permissions/imports.md" %}}
+{{% include "/_common/node-permissions-imports.md" %}}
 
 ## Known Issues
 

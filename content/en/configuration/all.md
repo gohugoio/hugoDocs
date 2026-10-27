@@ -167,7 +167,7 @@ A general setting is a single value, such as [`baseURL`](#baseurl) or [`title`](
 `layoutDir`
 : (`string`) The designated directory for templates. Default is `layouts`. {{% module-mounts-note %}}
 
-{{% include "/_common/configuration/locale.md" %}}
+{{% include "/_common/locale-setting.md" %}}
 
   For a multilingual project, specify this value independently for each language key. See [configure languages][].
 

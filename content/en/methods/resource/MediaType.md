@@ -9,7 +9,7 @@ params:
     signatures: [RESOURCE.MediaType]
 ---
 
-{{% include "/_common/methods/resource/global-page-remote-resources.md" %}}
+{{% include "/_common/resource-types-note.md" %}}
 
 ## Example
 
@@ -27,4 +27,4 @@ params:
 
 Use these methods on the `MediaType` object.
 
-{{% include "/_common/methods/media-type/core-methods.md" %}}
+{{% include "/_common/media-type-methods.md" %}}

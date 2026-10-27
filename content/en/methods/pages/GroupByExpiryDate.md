@@ -15,7 +15,7 @@ When grouping by expiration date, the value is determined by your [project confi
 
 The [layout string](#layout-string) has the same format as the layout string for the [`time.Format`][] function. The resulting group key is [localized](g) for language and region.
 
-{{% include "/_common/methods/pages/group-sort-order.md" %}}
+{{% include "/_common/pages-group-sort-order.md" %}}
 
 To group content by year and month:
 

@@ -53,7 +53,7 @@ The `js.Build` function accepts an options map.
 `targetPath`
 : (`string`) If not set, the source path will be used as the base target path. Note that the target path's extension may change if the target MIME type is different, e.g. when the source is TypeScript.
 
-{{% include "/_common/functions/js/options.md" %}}
+{{% include "/_common/js-build-options.md" %}}
 
 ## Import from the assets directory
 
@@ -108,7 +108,7 @@ If an import does not resolve to a file in the `assets` directory, or if the imp
 
 ## File system access
 
-{{% include "/_common/functions/node-permissions/imports.md" %}}
+{{% include "/_common/node-permissions-imports.md" %}}
 
 ## Artifacts
 

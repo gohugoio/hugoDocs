@@ -677,7 +677,7 @@ Use the `glossary-term` shortcode to insert the definition of the given glossary
 Use the `include` shortcode to include content from another page.
 
 ```md {file="content/example.md"}
-{{%/* include "_common/content-format-table.md" */%}}
+{{%/* include "/_common/content-format-table.md" */%}}
 ```
 
 ### new-in

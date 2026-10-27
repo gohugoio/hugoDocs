@@ -10,7 +10,7 @@ params:
     signatures: [or VALUE...]
 ---
 
-{{% include "/_common/functions/truthy-falsy.md" %}}
+{{% include "/_common/truthy-falsy.md" %}}
 
 The `or` function evaluates the arguments from left to right, and returns when the result is determined.
 
@@ -25,4 +25,4 @@ The `or` function evaluates the arguments from left to right, and returns when t
 {{ or true (math.Div 1 0) }} → true (bool)
 ```
 
-{{% include "/_common/functions/go-template/text-template.md" %}}
+{{% include "/_common/text-template-reference.md" %}}

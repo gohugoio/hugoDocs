@@ -10,7 +10,7 @@ params:
     signatures: ['fmt.Errorf FORMAT [INPUT]']
 ---
 
-{{% include "/_common/functions/fmt/format-string.md" %}}
+{{% include "/_common/format-string.md" %}}
 
 The `errorf` function evaluates the format string, then prints the result to the ERROR log and fails the build.
 

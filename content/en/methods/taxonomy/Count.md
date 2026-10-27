@@ -11,7 +11,7 @@ params:
 
 The `Count` method on a `Taxonomy` object returns the number of [weighted pages](g) to which the given [term](g) has been assigned.
 
-{{% include "/_common/methods/taxonomy/get-a-taxonomy-object.md" %}}
+{{% include "/_common/taxonomy-get-object.md" %}}
 
 ## Count the weighted pages
 

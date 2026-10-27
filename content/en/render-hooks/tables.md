@@ -90,7 +90,7 @@ In its default configuration, Hugo renders Markdown tables according to the [Git
 </table>
 ```
 
-{{% include "/_common/render-hooks/pageinner.md" %}}
+{{% include "/_common/pageinner-details.md" %}}
 
 [GitHub Flavored Markdown specification]: https://github.github.com/gfm/#tables-extension-
 [Markdown attributes]: /content-management/markdown-attributes/

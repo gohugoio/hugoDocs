@@ -10,7 +10,7 @@ params:
     signatures: ['fmt.Printf FORMAT [INPUT]']
 ---
 
-{{% include "/_common/functions/fmt/format-string.md" %}}
+{{% include "/_common/format-string.md" %}}
 
 ```go-html-template
 {{ $var := "world" }}

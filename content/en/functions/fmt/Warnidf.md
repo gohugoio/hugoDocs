@@ -10,7 +10,7 @@ params:
     signatures: ['fmt.Warnidf ID FORMAT [INPUT]']
 ---
 
-{{% include "/_common/functions/fmt/format-string.md" %}}
+{{% include "/_common/format-string.md" %}}
 
 The `warnidf` function evaluates the format string, then prints the result to the WARNING log. Unlike the [`warnf`][] function, you may suppress warnings logged by the `warnidf` function by adding the message ID to the `ignoreLogs` array in your project configuration.
 

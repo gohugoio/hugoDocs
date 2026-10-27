@@ -94,7 +94,7 @@ This is some {{< hl >}}fmt.Println("inline"){{< /hl >}} code.
 
 ## Options
 
-{{% include "_common/syntax-highlighting-options.md" %}}
+{{% include "/_common/syntax-highlighting-options.md" %}}
 
 [`transform.Highlight`]: /functions/transform/highlight/
 [content format]: /content-management/formats/

@@ -9,7 +9,7 @@ params:
     signatures: [RESOURCE.Content]
 ---
 
-{{% include "/_common/methods/resource/global-page-remote-resources.md" %}}
+{{% include "/_common/resource-types-note.md" %}}
 
 The `Content` method on a `Resource` object returns `template.HTML` when the [resource type][] is `page`, otherwise it returns a `string`.
 

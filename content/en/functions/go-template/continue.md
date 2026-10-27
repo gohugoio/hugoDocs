@@ -29,4 +29,4 @@ Is rendered to:
 <p>baz</p>
 ```
 
-{{% include "/_common/functions/go-template/text-template.md" %}}
+{{% include "/_common/text-template-reference.md" %}}

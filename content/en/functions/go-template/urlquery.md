@@ -23,4 +23,4 @@ Is rendered to:
 <a href="https://example.org?url=https%3A%2F%2Fexample.com">Link</a>
 ```
 
-{{% include "/_common/functions/go-template/text-template.md" %}}
+{{% include "/_common/text-template-reference.md" %}}

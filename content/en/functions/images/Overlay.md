@@ -32,7 +32,7 @@ Create the filter:
 {{ $filter := images.Overlay $overlay 20 20 }}
 ```
 
-{{% include "/_common/functions/images/apply-image-filter.md" %}}
+{{% include "/_common/image-filter-apply.md" %}}
 
 ## Example
 

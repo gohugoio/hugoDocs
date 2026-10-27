@@ -9,7 +9,7 @@ params:
     signatures: [RESOURCE.Colors]
 ---
 
-{{% include "/_common/methods/resource/global-page-remote-resources.md" %}}
+{{% include "/_common/resource-types-note.md" %}}
 
 The `Colors` method returns a slice of the most dominant colors in a [processable image](g), ordered from most dominant to least dominant.
 

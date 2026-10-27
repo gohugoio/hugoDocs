@@ -76,7 +76,7 @@ path = '/articles/**'
 
 In the array form, the optional `target` key accepts a [page matcher](g) to limit the URL pattern to a subset of pages. If you omit `target`, the URL pattern applies to all pages.
 
-{{% include "/_common/configuration/page-matcher.md" %}}
+{{% include "/_common/page-matcher.md" %}}
 
 For example, this configuration defines language-specific URL patterns for the `articles` section page and its descendants:
 

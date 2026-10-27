@@ -11,7 +11,7 @@ params:
 
 The `Get` method on a `Taxonomy` object returns a slice of [weighted pages](g) to which the given [term](g) has been assigned.
 
-{{% include "/_common/methods/taxonomy/get-a-taxonomy-object.md" %}}
+{{% include "/_common/taxonomy-get-object.md" %}}
 
 ## Get the weighted pages
 
