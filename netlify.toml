@@ -1,55 +1,55 @@
 [build]
-  publish = "public"
-  command = "npm ls && hugo --gc --minify"
+	publish = "public"
+	command = "npm ls && hugo --gc --minify"
 
-  [build.environment]
-    HUGO_VERSION = "0.168.0"
+	[build.environment]
+		HUGO_VERSION = "0.169.0"
 
 [context.production.environment]
-  HUGO_ENV           = "production"
-  HUGO_ENABLEGITINFO = "true"
+	HUGO_ENV           = "production"
+	HUGO_ENABLEGITINFO = "true"
 
 [context.split1]
-  command = "npm ls && hugo --gc --minify --enableGitInfo"
+	command = "npm ls && hugo --gc --minify --enableGitInfo"
 
-  [context.split1.environment]
-    HUGO_ENV = "production"
+	[context.split1.environment]
+		HUGO_ENV = "production"
 
 [context.deploy-preview]
-  command = "npm ls && hugo --gc --minify --buildFuture -b $DEPLOY_PRIME_URL --enableGitInfo"
+	command = "npm ls && hugo --gc --minify --buildFuture -b $DEPLOY_PRIME_URL --enableGitInfo"
 
 [context.branch-deploy]
-  command = "npm ls && hugo --gc --minify -b $DEPLOY_PRIME_URL"
+	command = "npm ls && hugo --gc --minify -b $DEPLOY_PRIME_URL"
 
 [context.next.environment]
-  HUGO_ENABLEGITINFO = "true"
+	HUGO_ENABLEGITINFO = "true"
 
 [[headers]]
-  for = "/*.jpg"
+	for = "/*.jpg"
 
-  [headers.values]
-    Cache-Control = "public, max-age=31536000"
-
-[[headers]]
-  for = "/*.png"
-
-  [headers.values]
-    Cache-Control = "public, max-age=31536000"
+	[headers.values]
+		Cache-Control = "public, max-age=31536000"
 
 [[headers]]
-  for = "/*.css"
+	for = "/*.png"
 
-  [headers.values]
-    Cache-Control = "public, max-age=31536000"
-
-[[headers]]
-  for = "/*.js"
-
-  [headers.values]
-    Cache-Control = "public, max-age=31536000"
+	[headers.values]
+		Cache-Control = "public, max-age=31536000"
 
 [[headers]]
-  for = "/*.ttf"
+	for = "/*.css"
 
-  [headers.values]
-    Cache-Control = "public, max-age=31536000"
+	[headers.values]
+		Cache-Control = "public, max-age=31536000"
+
+[[headers]]
+	for = "/*.js"
+
+	[headers.values]
+		Cache-Control = "public, max-age=31536000"
+
+[[headers]]
+	for = "/*.ttf"
+
+	[headers.values]
+		Cache-Control = "public, max-age=31536000"
