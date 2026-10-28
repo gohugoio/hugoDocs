@@ -69,13 +69,15 @@ export const search = (Alpine, cfg) => ({
 	},
 
 	search: function () {
-		if (!this.query) {
+		// Capture the query so that the response can be matched to the request.
+		const query = this.query;
+		if (!query) {
 			this.result = {};
 			return;
 		}
 
 		// Check cache first.
-		const cached = this.cache.get(this.query);
+		const cached = this.cache.get(query);
 		if (cached) {
 			this.result = cached;
 			return;
@@ -84,7 +86,7 @@ export const search = (Alpine, cfg) => ({
 			requests: [
 				{
 					indexName: cfg.index,
-					params: `query=${encodeURIComponent(this.query)}`,
+					params: `query=${encodeURIComponent(query)}`,
 					attributesToHighlight: ['hierarchy', 'content'],
 					attributesToRetrieve: ['hierarchy', 'url', 'content'],
 				},
@@ -104,8 +106,14 @@ export const search = (Alpine, cfg) => ({
 		})
 			.then((response) => response.json())
 			.then((data) => {
-				this.result = groupByLvl0(adjustHits(data.results[0].hits, cfg.params.isServer));
-				this.cache.put(this.query, this.result);
+				const result = groupByLvl0(adjustHits(data.results[0].hits, cfg.params.isServer));
+				// Cache under the query that was sent, not the current query.
+				this.cache.put(query, result);
+				// Responses can arrive out of order. Ignore responses for
+				// queries that no longer match the search field.
+				if (query === this.query) {
+					this.result = result;
+				}
 			});
 	},
 	root: {

@@ -24,6 +24,8 @@ var debug = 0 ? console.log.bind(console, '[index]') : function () {};
 	// Register AlpineJS controllers.
 	{
 		// Register AlpineJS data controllers.
+		// Keep the Algolia application ID in sync with the preconnect link in
+		// layouts/_partials/layouts/head/head.html.
 		let searchConfig = {
 			index: 'hugodocs',
 			app_id: 'D1BPLZHGYQ',
