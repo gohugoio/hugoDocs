@@ -78,6 +78,7 @@ Step 3
   env:
     # Define tool versions
     DART_SASS_VERSION: 1.106.1
+    FIREBASE_TOOLS_VERSION: 15.34.0
     GO_VERSION: 1.27.3
     HUGO_VERSION: 0.169.0
     NODE_VERSION: 24.22.1
@@ -232,7 +233,9 @@ Step 3
             node-version: ${{ env.NODE_VERSION }}
 
         - name: Install Firebase CLI
-          run: npm install -g firebase-tools --no-fund --no-audit --quiet
+          run: |
+            echo "Installing Firebase CLI ${FIREBASE_TOOLS_VERSION}..."
+            npm install -g "firebase-tools@${FIREBASE_TOOLS_VERSION}" --no-fund --no-audit --quiet
 
         - name: Deploy
           env:
