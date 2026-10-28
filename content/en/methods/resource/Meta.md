@@ -34,6 +34,14 @@ Use the [`reflect.IsImageResourceWithMeta`][] function to verify that a resource
 {{ end }}
 ```
 
+By default, Hugo excludes GPS fields and XMP metadata to improve performance and decrease cache size. With the default settings, the `Lat` and `Long` methods return `0`, and the `XMP` method returns an empty collection. To include all fields from all sources, change the [`fields`][] and [`sources`][] settings in your project configuration:
+
+{{< code-toggle file=hugo >}}
+[imaging.meta]
+fields = ['**']
+sources = ['exif', 'iptc', 'xmp']
+{{< /code-toggle >}}
+
 ## Methods
 
 Use these methods on the `Meta` object.
@@ -42,10 +50,10 @@ Use these methods on the `Meta` object.
 : (`time.Time`) Returns the image creation date/time. Format with the [`time.Format`][] function.
 
 `Lat`
-: (`float64`) Returns the GPS latitude in degrees from Exif metadata, with a fallback to XMP metadata.
+: (`float64`) Returns the GPS latitude in degrees from Exif metadata, with a fallback to XMP metadata. The default `fields` setting excludes GPS fields, so this method returns `0` unless you [change the configuration](#usage). The fallback to XMP metadata also requires `xmp` in the `sources` setting.
 
 `Long`
-: (`float64`) Returns the GPS longitude in degrees from Exif metadata, with a fallback to XMP metadata.
+: (`float64`) Returns the GPS longitude in degrees from Exif metadata, with a fallback to XMP metadata. The default `fields` setting excludes GPS fields, so this method returns `0` unless you [change the configuration](#usage). The fallback to XMP metadata also requires `xmp` in the `sources` setting.
 
 `Orientation`
 : (`int`) Returns the value of the Exif `Orientation` tag, one of eight possible values.
@@ -71,7 +79,7 @@ Use these methods on the `Meta` object.
 : (`meta.Tags`) Returns a collection of available IPTC fields for this image. Availability is determined by the [`sources`][] setting and specific fields are managed via the [`fields`][] setting, both of which are managed in your project configuration.
 
 `XMP`
-: (`meta.Tags`) Returns a collection of available XMP fields for this image. Availability is determined by the [`sources`][] setting and specific fields are managed via the [`fields`][] setting, both of which are managed in your project configuration.
+: (`meta.Tags`) Returns a collection of available XMP fields for this image. Availability is determined by the [`sources`][] setting and specific fields are managed via the [`fields`][] setting, both of which are managed in your project configuration. The default `sources` setting excludes XMP metadata.
 
 ## Examples
 
@@ -86,6 +94,91 @@ To list the creation date, latitude, longitude, and orientation:
         {{ printf "%-25s %v\n" "Latitude" .Lat }}
         {{ printf "%-25s %v\n" "Longitude" .Long }}
         {{ printf "%-25s %v\n" "Orientation" .Orientation }}
+      </pre>
+    {{ end }}
+  {{ end }}
+{{ end }}
+```
+
+To list the available Exif fields:
+
+```go-html-template
+{{ with resources.GetMatch "images/featured.*" }}
+  {{ if reflect.IsImageResourceWithMeta . }}
+    {{ with .Meta }}
+      <pre>
+        {{ range $k, $v := .Exif -}}
+          {{ printf "%-25s %v\n" $k $v }}
+        {{ end }}
+      </pre>
+    {{ end }}
+  {{ end }}
+{{ end }}
+```
+
+To list the available IPTC fields:
+
+```go-html-template
+{{ with resources.GetMatch "images/featured.*" }}
+  {{ if reflect.IsImageResourceWithMeta . }}
+    {{ with .Meta }}
+      <pre>
+        {{ range $k, $v := .IPTC -}}
+          {{ printf "%-25s %v\n" $k $v }}
+        {{ end }}
+      </pre>
+    {{ end }}
+  {{ end }}
+{{ end }}
+```
+
+To list the available XMP fields:
+
+```go-html-template
+{{ with resources.GetMatch "images/featured.*" }}
+  {{ if reflect.IsImageResourceWithMeta . }}
+    {{ with .Meta }}
+      <pre>
+        {{ range $k, $v := .XMP -}}
+          {{ printf "%-25s %v\n" $k $v }}
+        {{ end }}
+      </pre>
+    {{ end }}
+  {{ end }}
+{{ end }}
+```
+
+To list the available Exif, IPTC, and XMP fields together:
+
+```go-html-template
+{{ with resources.GetMatch "images/featured.*" }}
+  {{ if reflect.IsImageResourceWithMeta . }}
+    {{ with .Meta }}
+      <pre>
+        {{ range $k, $v := merge .Exif .IPTC .XMP -}}
+          {{ printf "%-25s %v\n" $k $v }}
+        {{ end }}
+      </pre>
+    {{ end }}
+  {{ end }}
+{{ end }}
+```
+
+To list specific values:
+
+```go-html-template
+{{ with resources.GetMatch "images/featured.*" }}
+  {{ if reflect.IsImageResourceWithMeta . }}
+    {{ with .Meta }}
+      <pre>
+        {{ with .Exif.ApertureValue }}{{ printf "%-25s %v\n" "ApertureValue" . }}{{ end }}
+        {{ with .Exif.BrightnessValue }}{{ printf "%-25s %v\n" "BrightnessValue" . }}{{ end }}
+
+        {{ with .IPTC.Headline }}{{ printf "%-25s %v\n" "Headline" . }}{{ end }}
+        {{ with index .IPTC "Province-State" }}{{ printf "%-25s %v\n" "Province-State" . }}{{ end }}
+
+        {{ with .XMP.Creator }}{{ printf "%-25s %v\n" "Creator" . }}{{ end }}
+        {{ with .XMP.Subject }}{{ printf "%-25s %v\n" "Subject" . }}{{ end }}
       </pre>
     {{ end }}
   {{ end }}
