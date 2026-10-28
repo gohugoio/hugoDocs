@@ -10,15 +10,7 @@ params:
     signatures: ['css.Sass [OPTIONS] RESOURCE']
 ---
 
-Transpile Sass to CSS using the LibSass transpiler included in Hugo's extended and extended/deploy editions, or [install Dart Sass](#dart-sass) to use the latest features of the Sass language.
-
-<!-- TODO
-Remove the admonition below somewhere after v0.168.0, 15 minor releases
-after deprecation.
--->
-
-> [!WARNING]
-> The embedded LibSass transpiler was deprecated in [v0.153.0][] and will be removed in a future release. Use the Dart Sass transpiler instead by setting the `transpiler` option to `dartsass` as shown in the examples below.
+Transpile Sass to CSS using the Dart Sass transpiler. To use this function, you must first [install Dart Sass](#dart-sass).
 
 Sass has two forms of syntax: [SCSS][] and [indented][]. Hugo supports both.
 
@@ -30,58 +22,35 @@ The `css.Sass` function accepts an options map.
 : (`bool`) Whether to generate a source map. Default is `false`.
 
   ```go-html-template
-  {{ $opts := dict
-    "transpiler" "dartsass"
-    "enableSourceMap" true
-  }}
+  {{ $opts := dict "enableSourceMap" true }}
   {{ $r := resources.Get "sass/main.scss" | css.Sass $opts }}
   ```
 
 `importContext`
 : {{< new-in 0.165.0 />}}
-: (`resource.ResourceGetter`) A [resource getter](g) to use when resolving `@use` and `@import` statements. Hugo searches this context first, matching by the path as written in the statement, before falling back to the file system. Applicable to Dart Sass.
+: (`resource.ResourceGetter`) A [resource getter](g) to use when resolving `@use` and `@import` statements. Hugo searches this context first, matching by the path as written in the statement, before falling back to the file system.
 
 `includePaths`
 : (`slice`) A slice of paths, relative to the project root, that the transpiler will use when resolving `@use` and `@import` statements.
 
   ```go-html-template
-  {{ $opts := dict
-    "transpiler" "dartsass"
-    "includePaths" (slice "node_modules/bootstrap/scss")
-  }}
+  {{ $opts := dict "includePaths" (slice "node_modules/bootstrap/scss") }}
   {{ $r := resources.Get "sass/main.scss" | css.Sass $opts }}
   ```
 
 `outputStyle`
-: (`string`) The output style of the resulting CSS. With LibSass, one of `nested` (default), `expanded`, `compact`, or `compressed`. With Dart Sass, either `expanded` (default) or `compressed`.
+: (`string`) The output style of the resulting CSS, either `expanded` or `compressed`. Default is `expanded`.
 
   ```go-html-template
-  {{ $opts := dict
-    "transpiler" "dartsass"
-    "outputStyle" "compressed"
-  }}
-  {{ $r := resources.Get "sass/main.scss" | css.Sass $opts }}
-  ```
-
-`precision`
-: (`int`) The precision of floating point math. Applicable to LibSass. Default is `8`.
-
-  ```go-html-template
-  {{ $opts := dict
-    "transpiler" "dartsass"
-    "precision" 10
-  }}
+  {{ $opts := dict "outputStyle" "compressed" }}
   {{ $r := resources.Get "sass/main.scss" | css.Sass $opts }}
   ```
 
 `silenceDeprecations`
-: (`slice`) A slice of deprecation IDs to silence. IDs are enclosed in brackets within Dart Sass warning messages (e.g., `import` in `WARN Dart Sass: DEPRECATED [import]`). Applicable to Dart Sass.
+: (`slice`) A slice of deprecation IDs to silence. IDs are enclosed in brackets within Dart Sass warning messages (e.g., `import` in `WARN Dart Sass: DEPRECATED [import]`).
 
   ```go-html-template
-  {{ $opts := dict
-    "transpiler" "dartsass"
-    "silenceDeprecations" (slice "import")
-  }}
+  {{ $opts := dict "silenceDeprecations" (slice "import") }}
   {{ $r := resources.Get "sass/main.scss" | css.Sass $opts }}
   ```
 
@@ -90,20 +59,17 @@ The `css.Sass` function accepts an options map.
 : (`bool`) Whether to silence deprecation warnings from dependencies, where a dependency is considered any file transitively imported through a load path. This does not apply to `@warn` or `@debug` rules. Default is `false`.
 
   ```go-html-template
-  {{ $opts := dict
-    "transpiler" "dartsass"
-    "silenceDependencyDeprecations" true
-  }}
+  {{ $opts := dict "silenceDependencyDeprecations" true }}
   {{ $r := resources.Get "sass/main.scss" | css.Sass $opts }}
   ```
 
 `sourceMapIncludeSources`
-: (`bool`) Whether to embed sources in the generated source map. Applicable to Dart Sass. Default is `false`.
+: (`bool`) Whether to embed sources in the generated source map. Default is `false`.
 
   ```go-html-template
   {{ $opts := dict
-    "transpiler" "dartsass"
-    "enableSourceMap" true "sourceMapIncludeSources" true
+    "enableSourceMap" true
+    "sourceMapIncludeSources" true
   }}
   {{ $r := resources.Get "sass/main.scss" | css.Sass $opts }}
   ```
@@ -112,15 +78,16 @@ The `css.Sass` function accepts an options map.
 : (`string`) The target path of the resource, relative to the `public` directory. If unset, the target path defaults to the asset's original path with a `.css` extension.
 
   ```go-html-template
-  {{ $opts := dict
-    "transpiler" "dartsass"
-    "targetPath" "css/bundle.css"
-  }}
+  {{ $opts := dict "targetPath" "css/bundle.css" }}
   {{ $r := resources.Get "sass/main.scss" | css.Sass $opts }}
   ```
 
 `transpiler`
-: (`string`) The transpiler to use, either `libsass` or `dartsass`. Hugo's extended and extended/deploy editions include the LibSass transpiler. To use the Dart Sass transpiler, see the [installation instructions](#dart-sass). Default is `libsass`.
+: (`string`) The transpiler to use. The only supported value is `dartsass`. To install Dart Sass, see the [installation instructions](#dart-sass). Default is `dartsass`.
+
+  {{< new-in 0.170.0 >}}
+  The embedded LibSass transpiler was removed, and setting this option to `libsass` returns an error. To migrate, set this option to `dartsass` or remove it.
+  {{< /new-in >}}
 
   ```go-html-template
   {{ $opts := dict "transpiler" "dartsass" }}
@@ -136,10 +103,7 @@ The `css.Sass` function accepts an options map.
     "font-size" "24px"
     "primary-color" "blue"
   }}
-  {{ $opts := dict
-    "transpiler" "dartsass"
-    "vars" $vars
-  }}
+  {{ $opts := dict "vars" $vars }}
   {{ $r := resources.Get "sass/main.scss" | css.Sass $opts }}
   ```
 
@@ -179,10 +143,7 @@ The `css.Sass` function accepts an options map.
       "primary-color" "red"
     )
   }}
-  {{ $opts := dict
-    "transpiler" "dartsass"
-    "vars" $vars
-  }}
+  {{ $opts := dict "vars" $vars }}
   {{ $r := resources.Get "sass/main.scss" | css.Sass $opts }}
   ```
 
@@ -237,9 +198,7 @@ The `css.Sass` function accepts an options map.
   {{< /code-toggle >}}
 
   ```go-html-template
-  {{ $opts := dict
-    "transpiler" "dartsass"
-    "vars" site.Params.theme.style }}
+  {{ $opts := dict "vars" site.Params.theme.style }}
   {{ $r := resources.Get "sass/main.scss" | css.Sass $opts }}
   ```
 
@@ -253,7 +212,6 @@ The `css.Sass` function accepts an options map.
     "enableSourceMap" hugo.IsDevelopment
     "outputStyle" (cond hugo.IsDevelopment "expanded" "compressed")
     "targetPath" "css/main.css"
-    "transpiler" "dartsass"
     "vars" site.Params.styles
     "includePaths" (slice "node_modules/bootstrap/scss")
   }}
@@ -275,22 +233,7 @@ The `css.Sass` function accepts an options map.
 
 ## Dart Sass
 
-<!-- TODO
-Revise the paragraphs below somewhere after v0.168.0, 15 minor releases
-after the deprecation of the LibSass transpiler.
--->
-
-Hugo's extended and extended/deploy editions include [LibSass][] to transpile Sass to CSS. In 2020, the Sass team deprecated LibSass in favor of [Dart Sass][].
-
-Use the latest features of the Sass language by installing Dart Sass in your development and production environments.
-
-### Installation overview
-
-Dart Sass is compatible with Hugo v0.114.0 and later.
-
-If you have been using Embedded Dart Sass[^1] with Hugo v0.113.0 and earlier, uninstall Embedded Dart Sass, then install Dart Sass. If you have installed both, Hugo will use Dart Sass.
-
-If you install Hugo as a [Snap package][] there is no need to install Dart Sass. The Hugo Snap package includes Dart Sass.
+Hugo uses [Dart Sass][] to transpile Sass to CSS. Install Dart Sass in your development and production environments. If you install Hugo as a [Snap package][], you do not need to install Dart Sass because the Hugo Snap package includes it.
 
 ### Development environment
 
@@ -324,10 +267,7 @@ By committing the `resources` directory, you're providing the pre-built CSS file
 
 For examples of how to install Dart Sass in a production environment, see the [hosting guides][] for CI/CD platforms.
 
-[^1]: In 2023, the Sass team deprecated Embedded Dart Sass in favor of Dart Sass.
-
 [Dart Sass]: https://sass-lang.com/dart-sass/
-[LibSass]: https://sass-lang.com/libsass
 [SCSS]: https://sass-lang.com/documentation/syntax#scss
 [Snap package]: https://snapcraft.io/hugo
 [`css.Quoted`]: /functions/css/quoted/
@@ -340,4 +280,3 @@ For examples of how to install Dart Sass in a production environment, see the [h
 [prebuilt binaries]: https://github.com/sass/dart-sass/releases/latest
 [scoop.sh]: https://scoop.sh/#/apps?q=sass
 [snapcraft.io]: https://snapcraft.io/dart-sass
-[v0.153.0]: https://github.com/gohugoio/hugo/releases/tag/v0.153.0

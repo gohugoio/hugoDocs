@@ -21,7 +21,7 @@ You can also install Hugo using one of the following package managers.
 
 ### Chocolatey
 
-[Chocolatey][] is a free and open-source package manager for Windows. To install the extended edition of Hugo:
+[Chocolatey][] is a free and open-source package manager for Windows. To install Hugo:
 
 ```sh
 choco install hugo-extended
@@ -29,7 +29,7 @@ choco install hugo-extended
 
 ### Scoop
 
-[Scoop][] is a free and open-source package manager for Windows. To install the extended edition of Hugo:
+[Scoop][] is a free and open-source package manager for Windows. To install Hugo:
 
 ```sh
 scoop install hugo-extended
@@ -37,13 +37,13 @@ scoop install hugo-extended
 
 ### WinGet
 
-[WinGet][] is Microsoft's official free and open-source package manager for Windows. To install the extended edition of Hugo:
+[WinGet][] is Microsoft's official free and open-source package manager for Windows. To install Hugo:
 
 ```sh
 winget install -e --id Hugo.Hugo.Extended
 ```
 
-To uninstall the extended edition of Hugo:
+To uninstall Hugo:
 
 ```sh
 winget uninstall -e --id Hugo.Hugo.Extended
@@ -95,43 +95,6 @@ set CGO_ENABLED=0
 go install -tags withdeploy github.com/gohugoio/hugo@latest
 ```
 
-### Extended edition
-
-To build and install the extended edition, first install a C compiler such as [GCC][] or [Clang][] and then run the following command:
-
-PowerShell:
-
-```powershell
-$env:CGO_ENABLED=1; go install -tags extended github.com/gohugoio/hugo@latest
-```
-
-Command Prompt:
-
-```bat
-set CGO_ENABLED=1
-go install -tags extended github.com/gohugoio/hugo@latest
-```
-
-### Extended/deploy edition
-
-To build and install the extended/deploy edition, first install a C compiler such as [GCC][] or [Clang][] and then run the following command:
-
-PowerShell:
-
-```powershell
-$env:CGO_ENABLED=1; go install -tags extended,withdeploy github.com/gohugoio/hugo@latest
-```
-
-Command Prompt:
-
-```bat
-set CGO_ENABLED=1
-go install -tags extended,withdeploy github.com/gohugoio/hugo@latest
-```
-
-> [!NOTE]
-> See these [detailed instructions][] to install GCC on Windows.
-
 ## Comparison
 
 &nbsp;|Prebuilt binaries|Package managers|Build from source
@@ -146,10 +109,7 @@ Latest version available?|:heavy_check_mark:|:heavy_check_mark:|:heavy_check_mar
 [^2]: Easy if a previous version is still installed.
 
 [Chocolatey]: https://chocolatey.org/
-[Clang]: https://clang.llvm.org/
-[GCC]: https://gcc.gnu.org/
 [Git]: https://git-scm.com/book/en/v2/Getting-Started-Installing-Git
 [Go]: https://go.dev/doc/install
 [Scoop]: https://scoop.sh/
 [WinGet]: https://learn.microsoft.com/en-us/windows/package-manager/
-[detailed instructions]: https://discourse.gohugo.io/t/41370

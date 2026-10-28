@@ -80,18 +80,6 @@ Step 5
   CGO_ENABLED=0 go install -tags withdeploy
   ```
 
-  To build and install the extended edition, first install a C compiler such as [GCC][] or [Clang][] and then run the following command:
-
-  ```sh
-  CGO_ENABLED=1 go install -tags extended
-  ```
-
-  To build and install the extended/deploy edition, first install a C compiler such as [GCC][] or [Clang][] and then run the following command:
-
-  ```sh
-  CGO_ENABLED=1 go install -tags extended,withdeploy
-  ```
-
 Step 6
 : Test your changes:
 
@@ -131,9 +119,7 @@ Step 9
 Step 10
 : A project maintainer will review your PR and may request changes. You may delete your branch after the maintainer merges your PR.
 
-[Clang]: https://clang.llvm.org/
 [Contribution Guide]: https://github.com/gohugoio/hugo/blob/master/CONTRIBUTING.md
-[GCC]: https://gcc.gnu.org/
 [Git]: https://git-scm.com/book/en/v2/Getting-Started-Installing-Git
 [Go]: https://go.dev/doc/install
 [bugs]: https://github.com/gohugoio/hugo/issues?q=is%3Aopen+is%3Aissue+label%3ABug
