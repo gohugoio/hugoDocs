@@ -1,7 +1,5 @@
 {{- if eq .Type "alert" }}
 	{{- $alerts := dict
-		"caution" (dict "color" "red" "icon" "exclamation-triangle")
-		"important" (dict "color" "blue" "icon" "exclamation-circle")
 		"note" (dict "color" "blue" "icon" "information-circle")
 		"tip" (dict "color" "green" "icon" "light-bulb")
 		"warning" (dict "color" "orange" "icon" "exclamation-triangle")
