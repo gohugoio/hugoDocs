@@ -16,6 +16,8 @@ The `RenderString` method on a `Page` object renders markup to HTML.
 {{ $s | .RenderString }} → An <em>emphasized</em> word
 ```
 
+To render the markup within a named scope, call the `RenderString` method on the `Markup` object returned by `.Markup`. See the [`Markup`][] method on a `Page` object.
+
 ## Options
 
 The `RenderString` method on a `Page` object accepts an options map.
@@ -45,4 +47,5 @@ Render [Pandoc][] content to HTML in block display mode:
 ```
 
 [Pandoc]: /content-management/formats/#pandoc
+[`Markup`]: /methods/page/markup/
 [markup identifier]: /content-management/formats/#classification

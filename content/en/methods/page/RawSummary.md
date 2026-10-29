@@ -13,7 +13,7 @@ params:
 
 The `RawSummary` method on a `Page` object returns the summary of the given page as defined in front matter, without rendering Markdown.
 
-{{< new-in 0.169.0 />}}
+{{< new-in 0.170.0 />}}
 
 You can define a [summary][] manually, in front matter, or automatically. The `RawSummary` method returns only a front matter summary. If you define the summary manually or automatically, the method returns an empty string. To render the summary regardless of how you define it, use the [`Summary`][] method on a `Page` object.
 

@@ -47,5 +47,8 @@ Then in your template:
 
 We cast the `.WordCount` to a float to obtain a float when we divide by the reading speed. Then round up to the nearest integer.
 
+To render the content within a named scope, call the `ReadingTime` method on the `Content` object returned by `.Markup.Render`. See the [`Markup`][] method on a `Page` object.
+
+[`Markup`]: /methods/page/markup/
 [`hasCJKLanguage`]: /configuration/all/#hascjklanguage
 [`isCJKLanguage`]: /content-management/front-matter/#iscjklanguage

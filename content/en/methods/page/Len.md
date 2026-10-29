@@ -12,3 +12,7 @@ params:
 ```go-html-template
 {{ .Len }} → 42
 ```
+
+To render the content within a named scope, call the `Len` method on the `Content` object returned by `.Markup.Render`. See the [`Markup`][] method on a `Page` object.
+
+[`Markup`]: /methods/page/markup/
