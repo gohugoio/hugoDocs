@@ -8,7 +8,7 @@ keywords: []
 Use the `hugo deploy` command to deploy your site to Amazon S3, Azure Blob Storage, or Google Cloud Storage.
 
 > [!NOTE]
-> This feature requires the deploy or extended/deploy edition. See the [installation][] section for details.
+> This feature requires the deploy edition. See the [installation][] section for details.
 
 ## Assumptions
 

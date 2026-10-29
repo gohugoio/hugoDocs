@@ -19,7 +19,7 @@ Go is required to:
 - Build Hugo from source
 - Use Hugo modules
 
-Dart Sass is required to transpile Sass to CSS when using the latest features of the Sass language.
+Dart Sass is required to transpile Sass to CSS.
 
 Please refer to the relevant documentation for installation instructions:
 

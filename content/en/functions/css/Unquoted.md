@@ -22,7 +22,7 @@ In the example below, we use `css.Unquoted` to ensure the value for the `font-fa
   "font-main" ("sans-serif" | css.Unquoted)
 }}
 
-{{ $opts := dict "vars" $vars "transpiler" "dartsass" }}
+{{ $opts := dict "vars" $vars }}
 {{ with resources.Get "sass/main.scss" | css.Sass $opts }}
   <link rel="stylesheet" href="{{ .RelPermalink }}">
 {{ end }}

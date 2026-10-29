@@ -20,7 +20,7 @@ You can also install Hugo using one of the following package managers.
 
 ### MacPorts
 
-[MacPorts][] is a free and open-source package manager for macOS. To install the extended edition of Hugo:
+[MacPorts][] is a free and open-source package manager for macOS. To install Hugo:
 
 ```sh
 sudo port install hugo

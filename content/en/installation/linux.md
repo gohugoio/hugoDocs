@@ -22,7 +22,7 @@ You can also install Hugo using one of the following package managers.
 
 The Hugo snap package is [strictly confined][]. Strictly confined snaps run in complete isolation, up to a minimal access level that's deemed always safe. The sites you create and build must be located within your home directory, or on removable media.
 
-To install the extended edition of Hugo:
+To install Hugo:
 
 ```sh
 sudo snap install hugo
@@ -71,7 +71,7 @@ Most Linux distributions maintain a repository for commonly installed applicatio
 
 ### Alpine Linux
 
-To install the extended edition of Hugo on [Alpine Linux][]:
+To install Hugo on [Alpine Linux][]:
 
 ```sh
 doas apk add --no-cache --repository=https://dl-cdn.alpinelinux.org/alpine/edge/community hugo
@@ -79,7 +79,7 @@ doas apk add --no-cache --repository=https://dl-cdn.alpinelinux.org/alpine/edge/
 
 ### Arch Linux
 
-Derivatives of the [Arch Linux][] distribution of Linux include [EndeavourOS][], [Garuda Linux][], [Manjaro][], and others. To install the extended edition of Hugo:
+Derivatives of the [Arch Linux][] distribution of Linux include [EndeavourOS][], [Garuda Linux][], [Manjaro][], and others. To install Hugo:
 
 ```sh
 sudo pacman -S hugo
@@ -87,7 +87,7 @@ sudo pacman -S hugo
 
 ### Debian
 
-Derivatives of the [Debian][] distribution of Linux include [elementary OS][], [KDE neon][], [Linux Lite][], [Linux Mint][], [MX Linux][], [Pop!_OS][], [Ubuntu][], [Zorin OS][], and others. To install the extended edition of Hugo:
+Derivatives of the [Debian][] distribution of Linux include [elementary OS][], [KDE neon][], [Linux Lite][], [Linux Mint][], [MX Linux][], [Pop!_OS][], [Ubuntu][], [Zorin OS][], and others. To install Hugo:
 
 ```sh
 sudo apt install hugo
@@ -97,7 +97,7 @@ You can also download Debian packages from the [latest release][] page.
 
 ### Exherbo
 
-To install the extended edition of Hugo on [Exherbo][]:
+To install Hugo on [Exherbo][]:
 
 1. Add this line to /etc/paludis/options.conf:
 
@@ -114,7 +114,7 @@ To install the extended edition of Hugo on [Exherbo][]:
 
 ### Fedora
 
-Derivatives of the [Fedora][] distribution of Linux include [CentOS][], [Red Hat Enterprise Linux][], and others. To install the extended edition of Hugo:
+Derivatives of the [Fedora][] distribution of Linux include [CentOS][], [Red Hat Enterprise Linux][], and others. To install Hugo:
 
 ```sh
 sudo dnf install hugo
@@ -122,7 +122,7 @@ sudo dnf install hugo
 
 ### Gentoo
 
-Derivatives of the [Gentoo][] distribution of Linux include [Calculate Linux][], [Funtoo][], and others. To install the extended edition of Hugo:
+Derivatives of the [Gentoo][] distribution of Linux include [Calculate Linux][], [Funtoo][], and others. To install Hugo:
 
 1. Specify the `extended` [USE][] flag in /etc/portage/package.use/hugo:
 
@@ -138,7 +138,7 @@ Derivatives of the [Gentoo][] distribution of Linux include [Calculate Linux][],
 
 ### NixOS
 
-The NixOS distribution of Linux includes Hugo in its package repository. To install the extended edition of Hugo:
+The NixOS distribution of Linux includes Hugo in its package repository. To install Hugo:
 
 ```sh
 nix-env -iA nixos.hugo
@@ -146,7 +146,7 @@ nix-env -iA nixos.hugo
 
 ### openSUSE
 
-Derivatives of the [openSUSE][] distribution of Linux include [GeckoLinux][], [Linux Karmada][], and others. To install the extended edition of Hugo:
+Derivatives of the [openSUSE][] distribution of Linux include [GeckoLinux][], [Linux Karmada][], and others. To install Hugo:
 
 ```sh
 sudo zypper install hugo
@@ -154,7 +154,7 @@ sudo zypper install hugo
 
 ### Solus
 
-The [Solus][] distribution of Linux includes Hugo in its package repository. To install the extended edition of Hugo:
+The [Solus][] distribution of Linux includes Hugo in its package repository. To install Hugo:
 
 ```sh
 sudo eopkg install hugo
@@ -162,7 +162,7 @@ sudo eopkg install hugo
 
 ### Void Linux
 
-To install the extended edition of Hugo on [Void Linux][]:
+To install Hugo on [Void Linux][]:
 
 ```sh
 sudo xbps-install -S hugo
