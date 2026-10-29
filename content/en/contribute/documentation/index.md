@@ -14,13 +14,13 @@ We welcome corrections and improvements to the documentation. The documentation 
 
 ## Guidelines
 
-Follow Google's [developer documentation style guide][] where practical.
+Follow Google's [developer documentation style guide][] where practical. If this guide conflicts with Google's, follow this guide.
 
 ### Writing style
 
 Adhere to these writing style conventions.
 
-- Prefer active voice and present tense.  
+- Prefer active voice and present tense.
 
   No → With Hugo you can build a static site.\
   Yes → Build a static site with Hugo.
@@ -86,7 +86,7 @@ Adhere to these Markdown conventions:
 - Use [fenced code blocks][] instead of [indented code blocks][].
 - Use hyphens, not asterisks, for unordered [list items][].
 - Prefix each ordered list item with `1.` instead of numbering the items sequentially.
-- Use [callouts](#callouts) instead of bold text for emphasis.
+- Do not use bold text for emphasis. If the information needs emphasis, consider a [callout](#callouts).
 - Do not mix [raw HTML][] within Markdown.
 - Do not use bold text in place of a heading or description term (`dt`).
 - Do not use Hugo's `ref` or `relref` shortcodes.
@@ -210,18 +210,6 @@ keywords: []
 
 If quotation marks are required, prefer single quotes to double quotes when possible.
 
-Use the `hugo new content` command to create a new page with the correct front matter. Hugo selects an archetype from the `archetypes` directory based on the top-level section, with dedicated archetypes for the `functions`, `methods`, and `news` sections. Specify the path relative to the `content/en` directory:
-
-```sh
-hugo new content functions/strings/ToUpper.md
-```
-
-To create a glossary entry, use the `--kind` flag to select the `glossary` archetype:
-
-```sh
-hugo new content --kind glossary quick-reference/glossary/page-kind.md
-```
-
 Field|Description|Required
 :--|:--|:--
 `title`|The page title|:heavy_check_mark:
@@ -243,7 +231,19 @@ Field|Description|Required
 `params.show_publish_date`|Whether to show the `publishDate` when rendering the page|&nbsp;
 `weight`|The page weight|&nbsp;
 `aliases`|Previous URLs used to access this page|&nbsp;
-`expirydate`|The expiration date|&nbsp;
+`expiryDate`|The expiration date|&nbsp;
+
+Use the `hugo new content` command to create a new page with the correct front matter. Hugo selects an archetype from the `archetypes` directory based on the top-level section, with dedicated archetypes for the `functions`, `methods`, and `news` sections. Specify the path relative to the `content/en` directory:
+
+```sh
+hugo new content functions/strings/ToUpper.md
+```
+
+To create a glossary entry, use the `--kind` flag to select the `glossary` archetype:
+
+```sh
+hugo new content --kind glossary quick-reference/glossary/page-kind.md
+```
 
 ### Page titles
 
@@ -265,7 +265,7 @@ description: Use these functions to cast a value from one data type to another.
 
 ### Related content
 
-When available, the "See also" sidebar displays related pages using Hugo's [related content][] feature, based on front matter keywords. We ensure consistent keyword usage by validating them against `data/keywords.yaml` during the build. If a keyword is not found, you'll be alerted and must either modify the keyword or update the data file. This validation process helps to refine the related content for better results.
+When available, the "See also" sidebar displays related pages using Hugo's [related content][] feature, based on front matter keywords. To keep keyword usage consistent, the build validates each keyword against `data/keywords.yaml`. If a keyword is not found, the build alerts you, and you must either change the keyword or update the data file. This validation improves the quality of related content.
 
 If the title in the "See also" sidebar is ambiguous or the same as another page, you can define an alternate title in the front matter:
 
@@ -287,7 +287,7 @@ When you move or rename a page, create a redirect from the old URL to the new UR
 
 Create each redirect using either the `aliases` front matter field or the redirects data file, as described below. Both methods produce the same result.
 
-> [!IMPORTANT]
+> [!WARNING]
 > Define each redirect in either the `aliases` front matter field or the redirects data file, but not both. The build fails if you define the same old URL more than once, or if an old URL is the URL of an existing page.
 
 ### Aliases
@@ -428,6 +428,8 @@ Use short, focused code examples. When including template code examples, follow 
 
 - Do not update version references to third-party libraries embedded within Hugo (for example, the KaTeX display engine used by the `transform.ToMath` function) unless the embedded library version changes in Hugo's source code.
 
+This example follows these conventions:
+
 ````md {file="content/example.md"}
 ```go-html-template
 {{ if eq $foo $bar }}
@@ -517,6 +519,8 @@ Whitespace trimming is enabled by default. Use `trim=false` to preserve leading 
 
 ### Escaping shortcode syntax
 
+Escape a shortcode call only when showing shortcode syntax as an example. Otherwise, call the shortcode using the unescaped form, such as `{{</* foo */>}}` or `{{%/* foo */%}}`.
+
 Use this syntax to escape a shortcode call within examples:
 
 ```md {file="content/example.md"}
@@ -588,6 +592,41 @@ Use one of these three callout types. The callout type is case-insensitive.
 
 > [!WARNING]
 > Setting `_merge` to `deep` removes the protection provided by the default merge strategy.
+
+## Shared content
+
+The `content/en/_common` directory contains Markdown snippets that appear on more than one page. Hugo does not render or publish these files as pages. Use the [`include`](#include) shortcode to insert a snippet into a page. When you update a snippet, the change appears on every page that includes it.
+
+A small amount of repeated text is acceptable. Create a snippet only when keeping the copies consistent becomes a maintenance burden:
+
+- If the repeated text is one or two sentences and appears on only two pages, repeat it. A short duplicate is easier to read and edit than an include.
+- If the repeated text is three or more sentences, create a snippet. Treat a repeated table, list, or code example as long text.
+- If the same text appears on three or more pages, create a snippet, regardless of its length.
+
+Follow these conventions when you create a snippet:
+
+- Include front matter delimiters in each file. Front matter fields are not required, but the delimiters are.
+- Keep the directory flat. Do not create subdirectories.
+- Name each file with its subject first, followed by a descriptor if needed, so that related snippets sort together. For example, `image-filter-apply.md`, `image-processing-spec.md`, and `image-reflection-functions.md`.
+- Write content that makes sense on every page that includes it. Avoid phrases such as "this page" or "the example above" that depend on the surrounding content.
+- Define the link references used by a snippet within the snippet itself.
+
+This snippet contains a callout that several deployment pages share:
+
+```md {file="content/en/_common/gitignore-public.md"}
+---
+_comment: Do not remove front matter.
+---
+
+> [!NOTE]
+> Do not commit the contents of the `public` directory to your repository. Hugo recreates this directory when you build your project.
+```
+
+Use the `include` shortcode to insert the snippet into a page. Specify the path relative to the `content` directory, including the leading slash and the file extension:
+
+```md {file="content/example.md"}
+{{%/* include "/_common/gitignore-public.md" */%}}
+```
 
 ## Shortcodes
 
@@ -669,11 +708,13 @@ Use the `glossary-term` shortcode to insert the definition of the given glossary
 
 ### include
 
-Use the `include` shortcode to include content from another page.
+Use the `include` shortcode to include content from another page. Call this shortcode using the `{{%/* */%}}` notation.
 
 ```md {file="content/example.md"}
 {{%/* include "/_common/content-format-table.md" */%}}
 ```
+
+See [shared content](#shared-content) for guidance on when and how to create a snippet in the `_common` directory.
 
 ### new-in
 
@@ -722,7 +763,7 @@ Step 5
 Step 6
 : Commit your changes with a descriptive commit message:
 
-  - Provide a summary on the first line, typically 50 characters or less, followed by a blank line.
+  - Provide a summary on the first line, 50 characters or less, followed by a blank line.
     - Begin the summary with one of `content`, `theme`, `config`, `all`, or `misc`, followed by a colon, a space, and a brief description of the change beginning with a capital letter
     - Use imperative present tense
   - Optionally, provide a detailed description where each line is 72 characters or less, followed by a blank line.
