@@ -567,7 +567,7 @@ Use one of these three callout types. The callout type is case-insensitive.
 : Optional advice, such as a tool, a shortcut, or a better approach.
 
 `warning`
-: The risk of data loss, a security problem, a failed build, or a deprecated feature.
+: The risk of data loss, a security problem, a failed build, a deprecated feature, or output that is wrong or that changes from one build to the next without an error or warning.
 
 ```md {file="content/example.md"}
 > [!NOTE]
