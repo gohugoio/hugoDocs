@@ -552,47 +552,42 @@ draft = false
 
 Use callouts, also known as admonitions, to visually emphasize important information.
 
-There are five callout types: `note`, `important`, `tip`, `warning`, and `caution`. The callout type is case-insensitive.
+Use callouts sparingly. Before adding a callout, ask whether the information belongs in the surrounding prose. Do not use a callout to repeat information found elsewhere on the same page, and do not place two callouts next to each other.
+
+Use one of these three callout types. The callout type is case-insensitive.
+
+`note`
+: Information that changes how something behaves, or that readers would otherwise miss.
+
+`tip`
+: Optional advice, such as a tool, a shortcut, or a better approach.
+
+`warning`
+: The risk of data loss, a security problem, a failed build, or a deprecated feature.
 
 ```md {file="content/example.md"}
 > [!NOTE]
-> Useful information that users should know, even when skimming content.
+> Hugo does not classify an HTTP response with status code 404 as an error.
 ```
 
 > [!NOTE]
-> Useful information that users should know, even when skimming content.
-
-```md {file="content/example.md"}
-> [!IMPORTANT]
-> Key information users need to know to achieve their goal.
-```
-
-> [!IMPORTANT]
-> Key information users need to know to achieve their goal.
+> Hugo does not classify an HTTP response with status code 404 as an error.
 
 ```md {file="content/example.md"}
 > [!TIP]
-> Helpful advice for doing things better or more easily.
+> You can write and test your regular expression using regex101.com.
 ```
 
 > [!TIP]
-> Helpful advice for doing things better or more easily.
+> You can write and test your regular expression using regex101.com.
 
 ```md {file="content/example.md"}
 > [!WARNING]
-> Urgent info that needs immediate user attention to avoid problems.
+> Setting `_merge` to `deep` removes the protection provided by the default merge strategy.
 ```
 
 > [!WARNING]
-> Urgent info that needs immediate user attention to avoid problems.
-
-```md {file="content/example.md"}
-> [!CAUTION]
-> Advises about risks or negative outcomes of certain actions.
-```
-
-> [!CAUTION]
-> Advises about risks or negative outcomes of certain actions.
+> Setting `_merge` to `deep` removes the protection provided by the default merge strategy.
 
 ## Shortcodes
 
