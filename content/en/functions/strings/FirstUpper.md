@@ -10,6 +10,12 @@ params:
     signatures: [strings.FirstUpper STRING]
 ---
 
+## Usage
+
+The `strings.FirstUpper` function returns the given string, converting the first character to uppercase.
+
+## Examples
+
 ```go-html-template
 {{ strings.FirstUpper "hugo" }} → Hugo
 ```

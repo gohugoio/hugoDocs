@@ -10,7 +10,11 @@ params:
     signatures: [strings.Count SUBSTR STRING]
 ---
 
-If `SUBSTR` is an empty string, this function returns 1 plus the number of Unicode [code points](g) in `STRING`.
+## Usage
+
+The `strings.Count` function returns the number of non-overlapping instances of `SUBSTR` within `STRING`. If `SUBSTR` is an empty string, the function returns 1 plus the number of Unicode [code points](g) in `STRING`.
+
+## Examples
 
 ```go-html-template
 {{ "aaabaab" | strings.Count "a" }} → 5

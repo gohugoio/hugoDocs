@@ -10,6 +10,12 @@ params:
     signatures: [strings.ToLower STRING]
 ---
 
+## Usage
+
+The `strings.ToLower` function returns the given string, converting all characters to lowercase.
+
+## Examples
+
 ```go-html-template
-{{ lower "BatMan" }} → batman
+{{ strings.ToLower "BatMan" }} → batman
 ```

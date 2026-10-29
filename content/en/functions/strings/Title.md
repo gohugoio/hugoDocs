@@ -10,19 +10,15 @@ params:
     signatures: [strings.Title STRING]
 ---
 
+## Usage
+
+The `strings.Title` function returns the given string, converting it to title case. By default, Hugo follows the capitalization rules published in the [Associated Press Stylebook][]. To use different rules, change the [`titleCaseStyle`][] setting in your project configuration.
+
+## Examples
+
 ```go-html-template
-{{ title "table of contents (TOC)" }} → Table of Contents (TOC)
+{{ strings.Title "table of contents (TOC)" }} → Table of Contents (TOC)
 ```
 
-By default, Hugo follows the capitalization rules published in the [Associated Press Stylebook][]. Change your [project configuration][] if you would prefer to:
-
-- Follow the capitalization rules published in the [Chicago Manual of Style][]
-- Capitalize the first letter of every word
-- Capitalize the first letter of the first word
-- Disable the effects of the `title` function
-
-The last option is useful if your theme uses the `title` function, and you would prefer to manually capitalize strings as needed.
-
 [Associated Press Stylebook]: https://www.apstylebook.com/
-[Chicago Manual of Style]: https://www.chicagomanualofstyle.org/home.html
-[project configuration]: /configuration/all/#title-case-style
+[`titleCaseStyle`]: /configuration/all/#title-case-style

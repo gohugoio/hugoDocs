@@ -10,12 +10,16 @@ params:
     signatures: [strings.Chomp STRING]
 ---
 
-If the argument is of type `template.HTML`, returns `template.HTML`, else returns a `string`.
+## Usage
+
+The `strings.Chomp` function returns the given string, removing all trailing newline characters and carriage returns. If `STRING` is of type `template.HTML`, the function returns `template.HTML`, otherwise it returns a `string`.
+
+## Examples
 
 ```go-html-template
-{{ chomp "foo\n" }} → foo
-{{ chomp "foo\n\n" }} → foo
+{{ strings.Chomp "foo\n" }} → foo
+{{ strings.Chomp "foo\n\n" }} → foo
 
-{{ chomp "foo\r\n" }} → foo
-{{ chomp "foo\r\n\r\n" }} → foo
+{{ strings.Chomp "foo\r\n" }} → foo
+{{ strings.Chomp "foo\r\n\r\n" }} → foo
 ```

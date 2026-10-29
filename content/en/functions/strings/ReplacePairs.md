@@ -12,65 +12,13 @@ params:
 
 {{< new-in 0.158.0 />}}
 
-Use the `strings.ReplacePairs` function to perform multiple replacements on a string in a single operation. This approach is faster than sequentially calling the [`strings.Replace`][] function.
+## Usage
 
-Replacing strings sequentially requires multiple function calls and variable re-assignments.
+The `strings.ReplacePairs` function returns the given string, with multiple replacements performed in a single pass using a slice of old and new string pairs. Pass the pairs as individual arguments or as a single slice. This approach is faster than calling the [`strings.Replace`][] function sequentially.
 
-```go-html-template
-{{ $s := "aabbcc" }}
-{{ $s = strings.Replace $s "a" "x" }}
-{{ $s = strings.Replace $s "b" "y" }}
-{{ $s = strings.Replace $s "c" "z" }}
-{{ $s }} → xxyyzz
-```
+Because the function scans the string only once, it does not apply replacements recursively. When multiple old strings could match at the same position, the function applies the first match. To delete a string, provide an empty string as the new value in a pair.
 
-Using `strings.ReplacePairs` produces the same result with fewer function calls in less time.
-
-```go-html-template
-{{ "aabbcc" | strings.ReplacePairs "a" "x" "b" "y" "c" "z" }} → xxyyzz
-```
-
-Pairs may also be passed as a single slice:
-
-```go-html-template
-{{ $pairs := slice
-  "a" "x"
-  "b" "y"
-  "c" "z"
-}}
-{{ "aabbcc" | strings.ReplacePairs $pairs }} → xxyyzz
-```
-
-## Examples
-
-Observe that replacements are not applied recursively because the function scans the string only once.
-
-```go-html-template
-{{ $pairs := slice
-  "a" "b"
-  "b" "c"
-}}
-{{ "a" | strings.ReplacePairs $pairs }} → b
-```
-
-Apply the first match when multiple old strings could match at the same position.
-
-```go-html-template
-{{ $pairs := slice
-  "app" "pear"
-  "apple" "orange"
-}}
-{{ "apple" | strings.ReplacePairs $pairs }} → pearle
-```
-
-Delete specific strings by providing an empty string as the second value in a pair.
-
-```go-html-template
-{{ $pairs := slice "b" "" }}
-{{ "abc" | strings.ReplacePairs $pairs }} → ac
-```
-
-## Edge cases
+### Edge cases
 
 The table below outlines how the function handles various input scenarios.
 
@@ -82,24 +30,13 @@ Empty slice|Returns the input string
 Empty input string|Returns an empty string
 Empty old string|Returns the input string [interleaved](g) with the new string
 
-## Performance
+### Performance
 
-While `strings.Replace` and `strings.ReplacePairs` can produce the same results, they handle data differently. Choosing the right one can noticeably reduce the time Hugo takes to build your project.
+While `strings.Replace` and `strings.ReplacePairs` can produce the same results, they handle data differently. Choosing the right one can reduce the time Hugo takes to build your project.
 
-### Single pass vs. multiple passes
+When you use `strings.Replace`, Hugo scans the text from start to finish to find a match. If you chain three replacements together, Hugo performs three separate passes over the entire string. The `strings.ReplacePairs` function performs a single pass, applying all replacements at the same time.
 
-When using `strings.Replace`, Hugo must scan the text from start to finish to find a match. If you chain three replacements together, Hugo performs three separate passes over the entire string.
-
-The `strings.ReplacePairs` function is more efficient because it performs a single pass. Hugo looks through the text once and applies all replacements simultaneously.
-
-### Caching
-
-Unlike `strings.Replace`, which performs a direct substitution, `strings.ReplacePairs` requires an initialization step to prepare the single-pass replacement logic. To make this efficient, Hugo manages this logic using a cache:
-
-- During the initial call, Hugo initializes and stores the logic for that specific set of pairs.
-- During subsequent calls, Hugo retrieves the stored logic, skipping the initialization step and reducing the duration of the call.
-
-### Choosing the right function
+Unlike `strings.Replace`, which performs a direct substitution, `strings.ReplacePairs` requires an initialization step to prepare the single-pass replacement logic. Hugo caches this logic for each set of pairs. During the initial call, Hugo initializes and stores the logic. During subsequent calls, Hugo retrieves the stored logic, skipping the initialization step.
 
 The efficiency of `strings.ReplacePairs` increases as the text gets longer or the number of pairs grows. Consider these scenarios when deciding which function to use:
 
@@ -107,5 +44,59 @@ The efficiency of `strings.ReplacePairs` increases as the text gets longer or th
 - For multiple replacements or long strings like a long-form article, `strings.ReplacePairs` is much faster.
 
 For a document with about 8000 characters, which is roughly the length of a long-form article, `strings.ReplacePairs` outperforms five sequential `strings.Replace` calls during the initial call. Once cached, it is the faster choice for almost any situation with two or more pairs.
+
+## Examples
+
+```go-html-template
+{{ "aabbcc" | strings.ReplacePairs "a" "x" "b" "y" "c" "z" }} → xxyyzz
+```
+
+Passing the pairs as a single slice:
+
+```go-html-template
+{{ $pairs := slice
+  "a" "x"
+  "b" "y"
+  "c" "z"
+}}
+{{ "aabbcc" | strings.ReplacePairs $pairs }} → xxyyzz
+```
+
+The equivalent sequential calls to `strings.Replace`:
+
+```go-html-template
+{{ $s := "aabbcc" }}
+{{ $s = replace $s "a" "x" }}
+{{ $s = replace $s "b" "y" }}
+{{ $s = replace $s "c" "z" }}
+{{ $s }} → xxyyzz
+```
+
+Replacements are not applied recursively:
+
+```go-html-template
+{{ $pairs := slice
+  "a" "b"
+  "b" "c"
+}}
+{{ "a" | strings.ReplacePairs $pairs }} → b
+```
+
+Multiple old strings matching at the same position:
+
+```go-html-template
+{{ $pairs := slice
+  "app" "pear"
+  "apple" "orange"
+}}
+{{ "apple" | strings.ReplacePairs $pairs }} → pearle
+```
+
+Deleting a string:
+
+```go-html-template
+{{ $pairs := slice "b" "" }}
+{{ "abc" | strings.ReplacePairs $pairs }} → ac
+```
 
 [`strings.Replace`]: /functions/strings/replace/

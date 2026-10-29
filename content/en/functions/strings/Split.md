@@ -10,14 +10,17 @@ params:
     signatures: [strings.Split STRING DELIM]
 ---
 
-Examples:
+## Usage
+
+The `strings.Split` function returns a slice of strings by splitting the given string by a delimiter. If `DELIM` is an empty string, the function splits `STRING` after each character.
+
+The `strings.Split` function does the opposite of the [`collections.Delimit`][] function. While `strings.Split` creates a slice from a string, `collections.Delimit` creates a string from a slice.
+
+## Examples
 
 ```go-html-template
-{{ split "tag1,tag2,tag3" "," }} → ["tag1", "tag2", "tag3"]
-{{ split "abc" "" }} → ["a", "b", "c"]
+{{ strings.Split "tag1,tag2,tag3" "," }} → [tag1 tag2 tag3]
+{{ strings.Split "abc" "" }} → [a b c]
 ```
-
-> [!NOTE]
-> The `strings.Split` function essentially does the opposite of the [`collections.Delimit`][] function. While `split` creates a slice from a string, `delimit` creates a string from a slice.
 
 [`collections.Delimit`]: /functions/collections/delimit/

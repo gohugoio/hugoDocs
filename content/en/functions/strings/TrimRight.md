@@ -10,11 +10,17 @@ params:
     signatures: [strings.TrimRight CUTSET STRING]
 ---
 
+## Usage
+
+The `strings.TrimRight` function returns the given string, removing trailing characters specified in the cutset. The function converts the arguments to strings if possible.
+
+## Examples
+
 ```go-html-template
 {{ strings.TrimRight "a" "abba" }} → abb
 ```
 
-The `strings.TrimRight` function converts the arguments to strings if possible:
+Converting non-string arguments:
 
 ```go-html-template
 {{ strings.TrimRight 54 12345 }} → 123 (string)

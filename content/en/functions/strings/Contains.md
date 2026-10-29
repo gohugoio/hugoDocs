@@ -10,12 +10,13 @@ params:
     signatures: [strings.Contains STRING SUBSTRING]
 ---
 
+## Usage
+
+The `strings.Contains` function reports whether the given string contains the given substring. The check is case-sensitive.
+
+## Examples
+
 ```go-html-template
 {{ strings.Contains "Hugo" "go" }} → true
-```
-
-The check is case sensitive:
-
-```go-html-template
 {{ strings.Contains "Hugo" "Go" }} → false
 ```

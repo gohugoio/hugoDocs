@@ -10,6 +10,12 @@ params:
     signatures: [strings.HasSuffix STRING SUFFIX]
 ---
 
+## Usage
+
+The `strings.HasSuffix` function reports whether the given string ends with the given suffix.
+
+## Examples
+
 ```go-html-template
-{{ hasSuffix "Hugo" "go" }} → true
+{{ strings.HasSuffix "Hugo" "go" }} → true
 ```

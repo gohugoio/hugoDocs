@@ -10,6 +10,12 @@ params:
     signatures: [strings.ToUpper STRING]
 ---
 
+## Usage
+
+The `strings.ToUpper` function returns the given string, converting all characters to uppercase.
+
+## Examples
+
 ```go-html-template
-{{ upper "BatMan" }} → BATMAN
+{{ strings.ToUpper "BatMan" }} → BATMAN
 ```

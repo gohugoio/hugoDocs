@@ -12,6 +12,12 @@ params:
 
 {{< new-in 0.167.0 />}}
 
+## Usage
+
+The `strings.FirstLower` function returns the given string, converting the first character to lowercase.
+
+## Examples
+
 ```go-html-template
 {{ strings.FirstLower "HUGO" }} → hUGO
 ```

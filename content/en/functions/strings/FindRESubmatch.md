@@ -1,6 +1,6 @@
 ---
 title: strings.FindRESubmatch
-description: Returns a slice of all successive matches of the regular expression. Each element is a slice of strings holding the text of the leftmost match of the regular expression and the matches, if any, of its subexpressions.
+description: Returns a slice of all successive matches of the regular expression and its subexpressions.
 categories: []
 keywords: []
 params:
@@ -10,78 +10,43 @@ params:
     signatures: ['strings.FindRESubmatch PATTERN STRING [LIMIT]']
 ---
 
-By default, `findRESubmatch` finds all matches. You can limit the number of matches with an optional LIMIT argument. A return value of `nil` indicates no match.
+## Usage
+
+The `strings.FindRESubmatch` function returns a slice of all successive matches of the regular expression. Each element is a slice of strings holding the text of the leftmost match of the regular expression and the matches, if any, of its subexpressions.
+
+If a subexpression matches an empty string, or does not participate in the match, its element is an empty string.
+
+By default, the function finds all matches. To limit the number of matches, pass the optional `LIMIT` argument. A return value of `nil` indicates no match.
 
 {{% include "/_common/regular-expressions.md" %}}
 
-## Demonstrative examples
+## Examples
 
 ```go-html-template
-{{ findRESubmatch `a(x*)b` "-ab-" }} → [["ab" ""]]
-{{ findRESubmatch `a(x*)b` "-axxb-" }} → [["axxb" "xx"]]
-{{ findRESubmatch `a(x*)b` "-ab-axb-" }} → [["ab" ""] ["axb" "x"]]
-{{ findRESubmatch `a(x*)b` "-axxb-ab-" }} → [["axxb" "xx"] ["ab" ""]]
-{{ findRESubmatch `a(x*)b` "-axxb-ab-" 1 }} → [["axxb" "xx"]]
+{{ strings.FindRESubmatch `a(x+)b` "-axb-axxb-" }} → [[axb x] [axxb xx]]
+{{ strings.FindRESubmatch `a(x+)b` "-axb-axxb-" 1 }} → [[axb x]]
+{{ strings.FindRESubmatch `a(x+)b` "-ab-" }} → []
 ```
 
-## Practical example
+Markdown containing two links:
 
-This Markdown:
-
-```md
+```md {file="content/example.md"}
 - [Example](https://example.org)
 - [Hugo](https://gohugo.io)
 ```
 
-Produces this HTML:
-
-```html
-<ul>
-  <li><a href="https://example.org">Example</a></li>
-  <li><a href="https://gohugo.io">Hugo</a></li>
-</ul>
-```
-
-To match the anchor elements, capturing the link destination and text:
+Capturing the text and destination of each link in the rendered content:
 
 ```go-html-template
-{{ $regex := `<a\s*href="(.+?)">(.+?)</a>` }}
-{{ $matches := findRESubmatch $regex .Content }}
-```
-
-Viewed as JSON, the data structure of `$matches` in the code above is:
-
-```json
-[
-  [
-    "<a href=\"https://example.org\"></a>Example</a>",
-    "https://example.org",
-    "Example"
-  ],
-  [
-    "<a href=\"https://gohugo.io\">Hugo</a>",
-    "https://gohugo.io",
-    "Hugo"
-  ]
-]
-```
-
-To print the `href` attribute values:
-
-```go-html-template
-{{ range $matches }}
-  {{ index . 1 }}
+{{ $regex := `<a\s+href="(.+?)">(.+?)</a>` }}
+{{ range strings.FindRESubmatch $regex .Content }}
+  {{ index . 2 }}: {{ index . 1 }}
 {{ end }}
 ```
 
-Result:
+The rendered output:
 
 ```text
-https://example.org
-https://gohugo.io
+Example: https://example.org
+Hugo: https://gohugo.io
 ```
-
-> [!NOTE]
-> You can write and test your regular expression using [regex101.com][]. Be sure to select the Go flavor before you begin.
-
-[regex101.com]: https://regex101.com/
