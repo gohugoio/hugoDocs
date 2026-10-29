@@ -10,6 +10,12 @@ params:
     signatures: [strings.Trim STRING CUTSET]
 ---
 
+## Usage
+
+The `strings.Trim` function returns the given string, removing leading and trailing characters specified in the cutset.
+
+## Examples
+
 ```go-html-template
-{{ trim "++foo--" "+-" }} → foo
+{{ strings.Trim "++foo--" "+-" }} → foo
 ```

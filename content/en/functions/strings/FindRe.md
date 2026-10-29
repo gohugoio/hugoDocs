@@ -9,25 +9,22 @@ params:
     returnType: '[]string'
     signatures: ['strings.FindRE PATTERN STRING [LIMIT]']
 ---
-By default, `findRE` finds all matches. You can limit the number of matches with an optional LIMIT argument.
+
+## Usage
+
+The `strings.FindRE` function returns a slice of strings that match the regular expression. By default, the function finds all matches. To limit the number of matches, pass the optional `LIMIT` argument.
 
 {{% include "/_common/regular-expressions.md" %}}
 
-This example returns a slice of all second level headings (`h2` elements) within the rendered `.Content`:
+## Examples
 
 ```go-html-template
-{{ findRE `(?s)<h2.*?>.*?</h2>` .Content }}
+{{ strings.FindRE `a.` "paranormal" }} → [ar an al]
+{{ strings.FindRE `a.` "paranormal" 2 }} → [ar an]
 ```
 
-The `s` flag causes `.` to match `\n` as well, allowing us to find an `h2` element that contains newlines.
-
-To limit the number of matches to one:
+Finding all second-level headings (`h2` elements) within the rendered content, where the `s` flag causes `.` to match `\n` as well:
 
 ```go-html-template
-{{ findRE `(?s)<h2.*?>.*?</h2>` .Content 1 }}
+{{ strings.FindRE `(?s)<h2.*?>.*?</h2>` .Content }}
 ```
-
-> [!NOTE]
-> You can write and test your regular expression using [regex101.com][]. Be sure to select the Go flavor before you begin.
-
-[regex101.com]: https://regex101.com/

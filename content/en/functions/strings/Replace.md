@@ -10,13 +10,19 @@ params:
     signatures: ['strings.Replace STRING OLD NEW [LIMIT]']
 ---
 
+## Usage
+
+The `strings.Replace` function returns the given string, replacing all occurrences of `OLD` with `NEW`. To limit the number of replacements, pass the optional `LIMIT` argument.
+
+## Examples
+
 ```go-html-template
 {{ $s := "Batman and Robin" }}
-{{ replace $s "Robin" "Catwoman" }} → Batman and Catwoman
+{{ strings.Replace $s "Robin" "Catwoman" }} → Batman and Catwoman
 ```
 
-Limit the number of replacements using the `LIMIT` argument:
+Limiting the number of replacements:
 
 ```go-html-template
-{{ replace "aabbaabb" "a" "z" 2 }} → zzbbaabb
+{{ strings.Replace "aabbaabb" "a" "z" 2 }} → zzbbaabb
 ```

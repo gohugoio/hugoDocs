@@ -10,11 +10,17 @@ params:
     signatures: [strings.TrimLeft CUTSET STRING]
 ---
 
+## Usage
+
+The `strings.TrimLeft` function returns the given string, removing leading characters specified in the cutset. The function converts the arguments to strings if possible.
+
+## Examples
+
 ```go-html-template
 {{ strings.TrimLeft "a" "abba" }} → bba
 ```
 
-The `strings.TrimLeft` function converts the arguments to strings if possible:
+Converting non-string arguments:
 
 ```go-html-template
 {{ strings.TrimLeft 21 12345 }} → 345 (string)

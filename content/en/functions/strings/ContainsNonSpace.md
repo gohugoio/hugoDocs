@@ -10,7 +10,11 @@ params:
     signatures: [strings.ContainsNonSpace STRING]
 ---
 
-Whitespace characters include `\t`, `\n`, `\v`, `\f`, `\r`, and characters in the [Unicode Space Separator][] category.
+## Usage
+
+The `strings.ContainsNonSpace` function reports whether the given string contains any non-space characters as defined by Unicode. Whitespace characters include `\t`, `\n`, `\v`, `\f`, `\r`, and characters in the [Unicode Space Separator][] category.
+
+## Examples
 
 ```go-html-template
 {{ strings.ContainsNonSpace "\n" }} → false

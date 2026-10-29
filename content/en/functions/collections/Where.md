@@ -185,9 +185,6 @@ To return a slice of pages where the `author` page parameter begins with either 
 
 {{% include "/_common/regular-expressions.md" %}}
 
-> [!NOTE]
-> Use the `like` operator to compare string values. Comparing other data types will result in an empty slice.
-
 ### Date comparison
 
 Compare predefined front matter dates, or custom front matter dates.

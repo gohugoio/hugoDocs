@@ -10,6 +10,12 @@ params:
     signatures: [strings.TrimPrefix PREFIX STRING]
 ---
 
+## Usage
+
+The `strings.TrimPrefix` function returns the given string, removing the prefix from the beginning of the string. If `STRING` does not begin with `PREFIX`, the function returns `STRING` unchanged.
+
+## Examples
+
 ```go-html-template
 {{ strings.TrimPrefix "a" "aabbaa" }} → abbaa
 {{ strings.TrimPrefix "aa" "aabbaa" }} → bbaa

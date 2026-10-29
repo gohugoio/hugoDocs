@@ -6,7 +6,11 @@ When specifying the regular expression, use a raw [string literal][] (backticks)
 
 Go's regular expression package implements the [RE2 syntax][]. The RE2 syntax is a subset of that accepted by [PCRE][], roughly speaking, and with various [caveats][]. Note that the RE2 `\C` escape sequence is not supported.
 
+> [!TIP]
+> You can write and test your regular expression using [regex101.com][]. Be sure to select the Go flavor before you begin.
+
 [PCRE]: https://www.pcre.org/
 [RE2 syntax]: https://github.com/google/re2/wiki/Syntax/
 [caveats]: https://swtch.com/~rsc/regexp/regexp3.html#caveats
+[regex101.com]: https://regex101.com/
 [string literal]: https://go.dev/ref/spec#String_literals

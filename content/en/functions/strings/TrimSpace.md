@@ -9,7 +9,11 @@ params:
     signatures: [strings.TrimSpace STRING]
 ---
 
-Whitespace characters include `\t`, `\n`, `\v`, `\f`, `\r`, and characters in the [Unicode Space Separator][] category.
+## Usage
+
+The `strings.TrimSpace` function returns the given string, removing leading and trailing whitespace as defined by Unicode. Whitespace characters include `\t`, `\n`, `\v`, `\f`, `\r`, and characters in the [Unicode Space Separator][] category.
+
+## Examples
 
 ```go-html-template
 {{ strings.TrimSpace "\n\r\t   foo   \n\r\t" }} → foo
