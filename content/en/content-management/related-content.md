@@ -48,9 +48,6 @@ A fictional example using all of the above options:
 }}
 ```
 
-> [!NOTE]
-> We improved and simplified this feature in Hugo 0.111.0. Before this we had 3 different methods: `Related`, `RelatedTo` and `RelatedIndices`. Now we have only one method: `Related`. The old methods are still available but deprecated. Also see [this blog article][] for a great explanation of more advanced usage of this feature.
-
 ## Index content headings
 
 Hugo can index the headings in your content and use this to find related content. You can enable this by adding a index of type `fragments` to your `related` configuration:
@@ -100,4 +97,3 @@ See [configure related content][].
 
 [`keyVals`]: /functions/collections/keyvals/
 [configure related content]: /configuration/related-content/
-[this blog article]: https://regisphilibert.com/blog/2018/04/hugo-optmized-relashionships-with-related-content/

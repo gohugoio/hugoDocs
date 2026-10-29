@@ -214,8 +214,8 @@ Access taxonomy terms from a template using the [`Params`][] or [`GetTerms`][] m
 
 ## Cascade
 
-> [!NOTE]
-  > For multilingual projects, defining cascade values in your project configuration is often more efficient. This avoids repeating the same cascade values for each language. See [details][].
+> [!TIP]
+> For multilingual projects, defining cascade values in your project configuration is often more efficient. This avoids repeating the same cascade values for each language. See [details][].
 
 {{% glossary-term "cascade" %}}
 

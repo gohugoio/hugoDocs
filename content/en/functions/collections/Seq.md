@@ -30,5 +30,4 @@ A contrived example of iterating over a sequence of integers:
 {{ $product }} → 24
 ```
 
-> [!NOTE]
-> The slice created by this function is limited to 1 million elements.
+The slice created by this function is limited to 1 million elements.

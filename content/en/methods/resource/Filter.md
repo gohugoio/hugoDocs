@@ -14,8 +14,7 @@ params:
 
 The `Filter` method returns a new resource from a [processable image](g) after applying one or more [image filters](#image-filters).
 
-> [!NOTE]
-> Use the [`reflect.IsImageResourceProcessable`][] function to verify that an image can be processed.
+{{% include "/_common/image-processable-tip.md" %}}
 
 ## Usage
 
@@ -72,4 +71,3 @@ Use any of these filters with the `Filter` method.
 {{% render-list-of-pages-in-section path=/functions/images filter=functions_images_no_filters filterType=exclude %}}
 
 [`images.Filter`]: /functions/images/filter/
-[`reflect.IsImageResourceProcessable`]: /functions/reflect/isimageresourceprocessable/

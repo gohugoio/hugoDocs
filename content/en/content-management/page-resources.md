@@ -106,8 +106,7 @@ List the titles in the data file, and throw an error if the file does not exist.
 
 The page resources' metadata is managed from the corresponding page's front matter with an array parameter named `resources`.
 
-> [!NOTE]
-> Resources of type `page` get `Title` etc. from their own front matter.
+Resources of type `page` get their title and other metadata from their own front matter.
 
 `src`
 : (`string`) Required. A [glob pattern](g) matching one or more page resources by file path, relative to the page bundle. Matching is case-insensitive. When the pattern matches multiple resources, the same metadata is applied to each.
@@ -243,7 +242,7 @@ public/
 
 This approach reduces build times, storage requirements, bandwidth consumption, and deployment times, ultimately reducing cost.
 
-> [!IMPORTANT]
+> [!NOTE]
 > To resolve Markdown link and image destinations to the correct location, you must use link and image render hooks that capture the page resource with the [`Resources.Get`][] method, and then invoke its [`RelPermalink`][] method.
 >
 > In its default configuration, Hugo automatically uses the [embedded link render hook][] and the [embedded image render hook][] for multilingual single-host projects, specifically when the [duplication of shared page resources][] feature is disabled. This is the default behavior for such projects. If custom link or image render hooks are defined by your project, modules, or themes, these will be used instead.

@@ -57,8 +57,7 @@ The `resources.GetRemote` function accepts an options map.
 
 ## Options examples
 
-> [!NOTE]
-> For brevity, the examples below do not include [error handling](#error-handling).
+For brevity, the examples below do not include [error handling](#error-handling).
 
 To include a header:
 

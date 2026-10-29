@@ -48,8 +48,7 @@ disqus_title = 'Post title'
 disqus_url = 'https://example.org/blog/my-post/'
 {{</ code-toggle >}}
 
-> [!NOTE]
-> When previewing your site locally, Hugo replaces the Disqus widget with the message "Disqus comments not available by default when the website is previewed locally."
+When previewing your site locally, Hugo replaces the Disqus widget with the message "Disqus comments not available by default when the website is previewed locally."
 
 ### Privacy {#privacy-disqus}
 
@@ -83,9 +82,6 @@ Provide your tracking ID in your configuration file:
 [services.googleAnalytics]
 id = 'G-MEASUREMENT_ID'
 {{</ code-toggle >}}
-
-> [!NOTE]
-> If the configured ID begins with `ua-` (case-insensitive), Hugo logs a warning and renders nothing. Google Universal Analytics (UA) was replaced by Google Analytics 4 (GA4) effective 1 July 2023. Create a GA4 property and data stream, then update your project configuration with the new measurement ID.
 
 ### Privacy {#privacy-google-analytics}
 

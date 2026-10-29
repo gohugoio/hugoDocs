@@ -157,7 +157,7 @@ Hugo provides two mutually exclusive configuration settings to alter URLs _after
 
 #### Canonical URLs
 
-> [!CAUTION]
+> [!WARNING]
 > This is a legacy configuration setting, superseded by template functions and Markdown render hooks, and will likely be [removed in a future release][].
 {class="!mt-6"}
 
@@ -178,7 +178,7 @@ canonifyURLs = true
 
 #### Relative URLs
 
-> [!CAUTION]
+> [!WARNING]
 > Do not enable this option unless you are creating a serverless site, navigable via the file system.
 {class="!mt-6"}
 

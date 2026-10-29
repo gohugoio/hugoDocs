@@ -70,7 +70,7 @@ Use these methods on the `Meta` object.
   `8`|Rotated 270 degrees clockwise
 
   > [!TIP]
-  > Use the [`images.AutoOrient`][] image filter to rotate and flip an image as needed per its Exif orientation tag
+  > Use the [`images.AutoOrient`][] image filter to rotate and flip an image as needed per its Exif orientation tag.
 
 `Exif`
 : (`meta.Tags`) Returns a collection of available Exif fields for this image. Availability is determined by the [`sources`][] setting and specific fields are managed via the [`fields`][] setting, both of which are managed in your project configuration.

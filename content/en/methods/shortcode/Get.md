@@ -11,8 +11,7 @@ params:
 
 Specify the argument by position or by name. When calling a shortcode within Markdown, use either positional or named argument, but not both.
 
-> [!NOTE]
-> Some shortcodes support positional arguments, some support named arguments, and others support both. Refer to the shortcode's documentation for usage details.
+Some shortcodes support positional arguments, some support named arguments, and others support both. Refer to the shortcode's documentation for usage details.
 
 ## Positional arguments
 

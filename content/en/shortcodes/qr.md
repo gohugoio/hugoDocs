@@ -8,9 +8,6 @@ keywords: []
 
 {{< new-in 0.141.0 />}}
 
-> [!NOTE]
-> To override Hugo's embedded `qr` shortcode, copy the [source code][] to a file with the same name in the `layouts/_shortcodes` directory.
-
 The `qr` shortcode encodes the given text into a [QR code][] using the specified options and renders the resulting image.
 
 Internally this shortcode calls the `images.QR` function. Please read the [related documentation][] for implementation details and guidance.
@@ -99,6 +96,9 @@ END:VCARD
 
 `title`
 : (`string`) The `title` attribute of the `img` element.
+
+> [!TIP]
+> To override Hugo's embedded `qr` shortcode, copy the [source code][] to a file with the same name in the `layouts/_shortcodes` directory.
 
 [QR code]: https://en.wikipedia.org/wiki/QR_code
 [related documentation]: /functions/images/qr/

@@ -13,8 +13,7 @@ params:
 
 The `Colors` method returns a slice of the most dominant colors in a [processable image](g), ordered from most dominant to least dominant.
 
-> [!NOTE]
-> Use the [`reflect.IsImageResourceProcessable`][] function to verify that an image can be processed.
+{{% include "/_common/image-processable-tip.md" %}}
 
 ## Usage
 
@@ -30,8 +29,7 @@ Each color in the slice is an object with the following methods:
 `Luminance`
 : (`float64`) Returns the [relative luminance][] of the color in the sRGB colorspace in the range `[0, 1]`. A value of `0` represents the darkest black, while a value of `1` represents the lightest white.
 
-> [!NOTE]
-> Image filters such as [`images.Dither`][], [`images.Padding`][], and [`images.Text`][] accept either hexadecimal color values or `images.Color` objects as arguments. Hugo prints an `images.Color` object as a hexadecimal color value.
+Image filters such as [`images.Dither`][], [`images.Padding`][], and [`images.Text`][] accept either hexadecimal color values or `images.Color` objects as arguments. Hugo prints an `images.Color` object as a hexadecimal color value.
 
 ### Sorting
 
@@ -168,7 +166,6 @@ Calculate the contrast ratio to determine WCAG conformance:
 [`images.Dither`]: /functions/images/dither/
 [`images.Padding`]: /functions/images/padding/
 [`images.Text`]: /functions/images/text/
-[`reflect.IsImageResourceProcessable`]: /functions/reflect/isimageresourceprocessable/
 [contrast ratio]: https://www.w3.org/TR/WCAG21/#dfn-contrast-ratio
 [enhanced]: https://www.w3.org/WAI/WCAG22/quickref/?showtechniques=145#contrast-enhanced
 [hexadecimal color]: https://developer.mozilla.org/en-US/docs/Web/CSS/hex-color

@@ -41,10 +41,9 @@ This is the default configuration:
 `disableClasses`
 : (`bool`) Whether to exclude `class` attributes. Default is `false`.
 
-> [!NOTE]
-> Given that CSS purging is typically limited to production builds, place the `buildStats` object below [`config/production`][].
->
-> Built for speed, there may be "false positive" detections, such as HTML elements that are not HTML elements, while parsing the published site. These "false positives" are infrequent and inconsequential.
+Given that CSS purging is typically limited to production builds, place the `buildStats` object below [`config/production`][].
+
+Built for speed, there may be "false positive" detections, such as HTML elements that are not HTML elements, while parsing the published site. These "false positives" are infrequent and inconsequential.
 
 Due to the nature of partial server builds, new HTML entities are added while the server is running, but old values will not be removed until you restart the server or run `hugo build`.
 

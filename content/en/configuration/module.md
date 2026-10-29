@@ -134,7 +134,7 @@ path = 'my-shortcodes'
 
 {{% glossary-term mount %}}
 
-> [!IMPORTANT]
+> [!NOTE]
 > If you define one or more mounts to map a file system path to a component path, do not use these legacy configuration settings: [`archetypeDir`][], [`assetDir`][], [`contentDir`][], [`dataDir`][], [`i18nDir`][], [`layoutDir`][], or [`staticDir`][].
 
 ### Default mounts

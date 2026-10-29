@@ -20,6 +20,3 @@ params:
 ```
 
 The `TARGETPATH` is relative to the [site root](g).
-
-> [!NOTE]
-> Use the `resources.Copy` function with global, page, and remote resources.

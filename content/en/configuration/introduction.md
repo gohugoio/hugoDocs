@@ -36,9 +36,6 @@ title = 'ABC Widgets, Inc.'
 
 Only define settings that deviate from the defaults. A smaller configuration file is easier to read, understand, and debug. Keep your configuration concise.
 
-> [!NOTE]
-> The best configuration file is a short configuration file.
-
 {{< new-in 0.167.0 />}}
 
 Project configuration is optional. Without a [configuration file](#configuration-file) or [configuration directory](#configuration-directory), Hugo uses the default value for every setting. For example, you can build a project that contains only a `layouts/all.html` template.
@@ -79,8 +76,7 @@ hugo build --config a.toml,b.yaml,c.json
 
 Hugo loads the files in the order listed, and each file recursively overwrites matching keys from the files before it. In other words, for a conflicting key, the value from the last-listed file wins.
 
-> [!NOTE]
-> See the specifications for each file format: [TOML][], [YAML][], and [JSON][].
+See the specifications for each file format: [TOML][], [YAML][], and [JSON][].
 
 ## Configuration directory
 
@@ -296,7 +292,7 @@ A root-level `_merge` set to `none` disables merging of theme and module configu
 
 Most configuration categories default to a `none` merge strategy specifically to protect your project from third-party themes and modules.
 
-> [!CAUTION]
+> [!WARNING]
 > Setting `_merge` to `shallow` or `deep` removes that protection, whether applied directly to a security-sensitive key such as `markup` or `security`, or set at the root of your configuration to change the default for every key. Only use a permissive `_merge` value for these keys if you trust every theme and module in your project.
 
 ## Environment variables
@@ -311,8 +307,7 @@ hugo
 
 The above configures the [`baseURL`][] and [`enableGitInfo`][] settings and then builds your site.
 
-> [!NOTE]
-> An environment variable takes precedence over the values set in the configuration file. This means that if you set a configuration value with both an environment variable and in the configuration file, Hugo uses the value from the environment variable.
+An environment variable takes precedence over the values set in the configuration file. This means that if you set a configuration value with both an environment variable and in the configuration file, Hugo uses the value from the environment variable.
 
 Environment variables simplify configuration for [CI/CD](g) platforms by allowing you to set values directly within their respective configuration and workflow files.
 

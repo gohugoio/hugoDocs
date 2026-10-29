@@ -7,7 +7,7 @@ weight: 20
 ---
 
 > [!NOTE]
-> To work with modules you must install [Git][] and [Go][] 1.18 or later.
+> To work with modules you must install [Git][] and [Go][].
 
 ## Introduction
 
@@ -28,8 +28,7 @@ hugo mod init github.com/user/project
 
 This will generate a [`go.mod`][] file in the project root.
 
-> [!NOTE]
-> The module name is a unique identifier rather than a hosting requirement. Using a name like `github.com/user/project` is a common convention but it does not mean you must use Git or host your code on GitHub. You can use any name you like if you do not plan to have others import your project as a module. For example, you could use a simple name such as `my-project` when you run the initialization command.
+The module name is a unique identifier rather than a hosting requirement. Using a name like `github.com/user/project` is a common convention but it does not mean you must use Git or host your code on GitHub. You can use any name you like if you do not plan to have others import your project as a module. For example, you could use a simple name such as `my-project` when you run the initialization command.
 
 Then define one or more imports in your project configuration. This contrived example imports three modules, each containing custom shortcodes:
 
@@ -45,8 +44,7 @@ Then define one or more imports in your project configuration. This contrived ex
 
 Import precedence is top-down. For example, if `shortcodes-a`, `shortcodes-b`, and `shortcodes-c` each define an `image` shortcode, the `image` shortcode from `shortcodes-a` will take effect.
 
-> [!NOTE]
-> If multiple modules contain data files or [translation tables](g) with identical paths, the data is deeply merged, following top-down precedence.
+If multiple modules contain data files or [translation tables](g) with identical paths, the data is deeply merged, following top-down precedence.
 
 When you build your project, Hugo will:
 
@@ -126,7 +124,7 @@ This command creates a `_vendor` directory containing copies of all imported mod
 - Modules within the `themes` directory are not vendored.
 - The `--ignoreVendorPaths` flag allows you to exclude vendored modules matching a [glob pattern](g) from specific commands.
 
-> [!IMPORTANT]
+> [!NOTE]
 > Instead of modifying files directly within the `_vendor` directory, override them by creating a corresponding file with the same relative path in your project's root.
 
 To remove the vendored modules, delete the `_vendor` directory.

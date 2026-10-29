@@ -21,7 +21,7 @@ content/
     └── book-2.md
 ```
 
-> [!NOTE]
+> [!TIP]
 > Code defensively by verifying file existence as shown in the examples below.
 
 ## Methods

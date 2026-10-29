@@ -7,9 +7,6 @@ keywords: [highlight]
 ---
 
 > [!NOTE]
-> To override Hugo's embedded `highlight` shortcode, copy the [source code][] to a file with the same name in the `layouts/_shortcodes` directory.
-
-> [!NOTE]
 > With the Markdown [content format][], the `highlight` shortcode is rarely needed because, by default, Hugo automatically applies syntax highlighting to fenced code blocks.
 >
 > The primary use case for the `highlight` shortcode in Markdown is to apply syntax highlighting to inline code snippets.
@@ -95,6 +92,9 @@ This is some {{< hl >}}fmt.Println("inline"){{< /hl >}} code.
 ## Options
 
 {{% include "/_common/syntax-highlighting-options.md" %}}
+
+> [!TIP]
+> To override Hugo's embedded `highlight` shortcode, copy the [source code][] to a file with the same name in the `layouts/_shortcodes` directory.
 
 [`transform.Highlight`]: /functions/transform/highlight/
 [content format]: /content-management/formats/

@@ -14,8 +14,7 @@ params:
 
 The `Process` method returns a new resource from a [processable image](g) according to the given [processing specification](#processing-specification).
 
-> [!NOTE]
-> Use the [`reflect.IsImageResourceProcessable`][] function to verify that an image can be processed.
+{{% include "/_common/image-processable-tip.md" %}}
 
 ## Usage
 
@@ -66,4 +65,3 @@ The `Process` method is also available as a filter. This is more effective if yo
 [`Crop`]: /methods/resource/crop/
 [`Resize`]: /methods/resource/resize/
 [`images.Process`]: /functions/images/process/
-[`reflect.IsImageResourceProcessable`]: /functions/reflect/isimageresourceprocessable/

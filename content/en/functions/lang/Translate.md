@@ -14,7 +14,7 @@ The `lang.Translate` function returns the value associated with the given key by
 
 If not found, the function returns an empty string.
 
-> [!NOTE]
+> [!TIP]
 > To list missing and fallback translations, set [`printI18nWarnings`][] to `true` in your project configuration, or use the `--printI18nWarnings` flag when building your project.
 >
 > To render placeholders for missing and fallback translations, set [`enableMissingTranslationPlaceholders`][] to `true` in your project configuration.
@@ -71,8 +71,7 @@ privacy = 'prywatność'
 security = 'bezpieczeństwo'
 {{< /code-toggle >}}
 
-> [!NOTE]
-> The examples below use the `T` alias for brevity.
+The examples below use the `T` alias for brevity.
 
 When viewing the English language site:
 
@@ -128,9 +127,6 @@ many = '{{ . }} miesięcy'
 other = '{{ . }} miesiąca'
 {{< /code-toggle >}}
 
-> [!NOTE]
-> The examples below use the `T` alias for brevity.
-
 When viewing the English language site:
 
 ```go-html-template
@@ -176,8 +172,7 @@ Template code:
 {{ T "age" (dict "name" "John" "count" 3) }} → John is 3 years old.
 ```
 
-> [!NOTE]
-> Translation tables may contain both simple translations and translations with pluralization.
+Translation tables may contain both simple translations and translations with pluralization.
 
 ## Reserved keys
 

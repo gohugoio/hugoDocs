@@ -12,8 +12,7 @@ params:
 
 {{< new-in 0.158.0 />}}
 
-> [!NOTE]
-> The `css.Build` function is backed by the [`evanw/esbuild`][] package, providing a mature, high-performance foundation for bundling, transformation, and minification.
+The `css.Build` function is backed by the [`evanw/esbuild`][] package, providing a mature, high-performance foundation for bundling, transformation, and minification.
 
 Use the `css.Build` function to:
 
@@ -297,7 +296,7 @@ The `css.Build` function accepts an options map to fine-tune bundling, minificat
 
   When passing a `vars` map to the `css.Build` function, you can use the [`css.Quoted`][] function to explicitly indicate that a value must be treated as a quoted string, most commonly for `font-family` names or the `content` property.
 
-  > [!NOTE]
+  > [!TIP]
   > To use the `vars` option to inject CSS variables with Tailwind CSS, see [inject CSS variables][].
 
 ## Example

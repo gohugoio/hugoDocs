@@ -6,10 +6,7 @@ categories: []
 keywords: []
 ---
 
-> [!NOTE]
-> Use the [`Pages.Related`][] method to render related content in your templates.
-
-Hugo provides a sensible default configuration for identifying related content, but you can customize it in your project configuration, either globally or per language.
+Hugo provides a sensible default configuration for identifying related content, but you can customize it in your project configuration, either globally or per language. Use the [`Pages.Related`][] method to render related content in your templates.
 
 ## Default configuration
 

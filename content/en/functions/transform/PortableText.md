@@ -21,7 +21,7 @@ The function supports these Portable Text types:
 - `image`: The function links to the `asset.url`, using `asset.altText` as the image alt text and `asset.title` as the title. Image handling is basic. For more control, process the images in an [image render hook][].
 - `code`: The function renders code as fenced code blocks, passing any file name as a Markdown attribute. See the [code-input][] plugin.
 
-> [!NOTE]
+> [!TIP]
 > Because Hugo converts the Portable Text to Markdown before rendering it, you can control the rendering of links, headings, images, and code blocks with [render hooks][].
 
 ## Examples

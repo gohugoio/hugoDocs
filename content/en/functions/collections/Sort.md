@@ -135,7 +135,7 @@ After sorting:
 
 ## Sort a page collection
 
-> [!NOTE]
+> [!TIP]
 > Although you can use the `sort` function to sort a page collection, Hugo provides [sorting and grouping methods][] as well.
 
 In this contrived example, sort the site's regular pages by `.Type` in descending order:

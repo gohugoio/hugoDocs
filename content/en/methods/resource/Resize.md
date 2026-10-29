@@ -13,8 +13,7 @@ params:
 
 The `Resize` method returns a new resource from a [processable image](g) according to the given [processing specification](#processing-specification).
 
-> [!NOTE]
-> Use the [`reflect.IsImageResourceProcessable`][] function to verify that an image can be processed.
+{{% include "/_common/image-processable-tip.md" %}}
 
 ## Usage
 
@@ -51,5 +50,3 @@ In the example above, `"300x"` is the processing specification.
   filterArgs="resize 300x"
   example=true
 >}}
-
-[`reflect.IsImageResourceProcessable`]: /functions/reflect/isimageresourceprocessable/

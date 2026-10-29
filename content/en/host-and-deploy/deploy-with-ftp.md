@@ -45,7 +45,7 @@ Step 3
 Step 4
 : Upload the contents of the `public` directory to the document root.
 
-  > [!IMPORTANT]
+  > [!NOTE]
   > Upload the files and directories inside the `public` directory, not the `public` directory itself. For example, the `index.html` file for your home page must be at the top level of the document root.
 
 Your site is incomplete from the moment you delete the contents of the document root until the upload finishes.

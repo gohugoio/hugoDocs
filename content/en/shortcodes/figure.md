@@ -6,9 +6,6 @@ categories: []
 keywords: []
 ---
 
-> [!NOTE]
-> To override Hugo's embedded `figure` shortcode, copy the [source code][] to a file with the same name in the `layouts/_shortcodes` directory.
-
 ## Example
 
 With this Markdown:
@@ -105,5 +102,8 @@ target = 'assets'
 source = 'static'
 target = 'assets'
 {{< /code-toggle >}}
+
+> [!TIP]
+> To override Hugo's embedded `figure` shortcode, copy the [source code][] to a file with the same name in the `layouts/_shortcodes` directory.
 
 [source code]: <{{% eturl figure %}}>

@@ -44,8 +44,7 @@ Is rendered to:
 > [!NOTE]
 > Content between opening and closing shortcode tags may include leading and/or trailing newlines, depending on placement within the Markdown. Use the [`strings.TrimSpace`][] function as shown above to remove carriage returns and newlines.
 
-> [!NOTE]
-> In the example above, the value returned by `Inner` is Markdown, but it was rendered as plain text. Use either of the following approaches to render Markdown to HTML.
+In the example above, the value returned by `Inner` is Markdown, but it was rendered as plain text. Use either of the following approaches to render Markdown to HTML.
 
 ## Use RenderString
 

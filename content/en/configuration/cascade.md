@@ -8,10 +8,7 @@ keywords: []
 
 {{% glossary-term "cascade" %}}
 
-Use the `cascade` configuration to pass values down to pages. Hugo supports two forms: a map form for a single cascade, and an array form for applying different values to different subsets of pages. Both forms support the [`target`](#target) key.
-
-> [!NOTE]
-> You can also configure cascading behavior within a page's front matter. See [details][].
+Use the `cascade` configuration to pass values down to pages. Hugo supports two forms: a map form for a single cascade, and an array form for applying different values to different subsets of pages. Both forms support the [`target`](#target) key. You can also configure cascading behavior within a page's front matter. See [details][].
 
 ## Map form
 

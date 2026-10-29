@@ -39,10 +39,7 @@ layouts/
 └── term.html
 ```
 
-Hugo's [template lookup order][] determines the template path, allowing you to create unique templates for any page.
-
-> [!NOTE]
-> Understand the template lookup order before you create templates. Hugo selects a template based on template type, page kind, content type, section, language, and output format.
+Hugo's [template lookup order][] determines the template path, allowing you to create unique templates for any page. Hugo selects a template based on template type, page kind, content type, section, language, and output format.
 
 The sections below describe the purpose of each template type.
 

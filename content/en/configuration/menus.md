@@ -6,8 +6,7 @@ categories: []
 keywords: []
 ---
 
-> [!NOTE]
-> To understand Hugo's menu system, please refer to the [menus][] page.
+To understand Hugo's menu system, see the [menus][] page.
 
 There are three ways to define menu entries:
 

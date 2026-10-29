@@ -71,10 +71,7 @@ Inside of the `with` block, the [context](g) (the dot) is the section `Page` obj
 {{ end }}
 ```
 
-The result would be wrong when rendering the `auction-1` page because we are comparing the section page to itself.
-
-> [!NOTE]
-> Use the `$` to get the context passed into the template.
+The result would be wrong when rendering the `auction-1` page because we are comparing the section page to itself. Use the `$` to get the context passed into the template.
 
 ```go-html-template
 {{ with .Site.GetPage "/auctions" }}

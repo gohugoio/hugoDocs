@@ -31,8 +31,7 @@ By having the same path and base file name, the content pieces are linked togeth
 > [!NOTE]
 > The language code in a file name must be lowercase. For example, use `about.en-us.md` instead of `about.en-US.md`.
 
-> [!NOTE]
-> If a file has no language code, it will be assigned the default language.
+If a file has no language code, Hugo assigns it to the default language.
 
 ### Translation by directory
 
@@ -130,8 +129,7 @@ If, across the linked bundles, two or more files share the same basename, only o
 - File from current language bundle, if present.
 - First file found across bundles by order of language `Weight`.
 
-> [!NOTE]
-> Page Bundle resources follow the same language assignment logic as content files, both by file name (`image.jpg`, `image.fr.jpg`) and by directory (`english/about/header.jpg`, `french/about/header.jpg`).
+Page Bundle resources follow the same language assignment logic as content files, both by file name (`image.jpg`, `image.fr.jpg`) and by directory (`english/about/header.jpg`, `french/about/header.jpg`).
 
 ## Translation of strings
 

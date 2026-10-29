@@ -39,7 +39,7 @@ hugo build
 The [`hugo build`][] command builds your project, publishing the files to the `public` directory. To publish your project to a different directory, use the [`--destination`][] flag or set [`publishDir`][] in your project configuration.
 
 > [!NOTE]
-> Hugo does not clear the `public` directory before building your project. Existing files are overwritten, but not deleted. This behavior is intentional to prevent the inadvertent removal of files that you may have added to the `public` directory after the build.
+> Hugo does not clear the `public` directory before building your project. Existing files are overwritten, but not deleted. This behavior is intentional to prevent the inadvertent removal of files that you may have added to the `public` directory after the build. As a result, the `public` directory may contain draft, future, or expired content from a previous build.
 >
 > Depending on your needs, you may wish to manually clear the contents of the `public` directory before every build, or use the `--cleanDestinationDir` command line flag or the [`cleanDestinationDir`][] configuration option to have Hugo remove stale files automatically.
 
@@ -64,11 +64,6 @@ hugo build --buildFuture    # or -F
 ```
 
 Although you can also set these values in your project configuration, it can lead to unwanted results unless all content authors are aware of, and understand, the settings.
-
-> [!NOTE]
-> As noted above, Hugo does not clear the `public` directory before building your project. Depending on the _current_ evaluation of the four conditions above, after the build your `public` directory may contain extraneous files from a previous build.
->
-> A common practice is to manually clear the contents of the `public` directory before each build to remove draft, expired, and future content, or use the `--cleanDestinationDir` command line flag or the [`cleanDestinationDir`][] configuration option to have Hugo remove stale files automatically.
 
 ## Develop and test your site
 
@@ -101,9 +96,6 @@ hugo server --navigateToChanged
 ```
 
 ## Deploy your site
-
-> [!NOTE]
-> As noted above, Hugo does not clear the `public` directory before building your project. Manually clear the contents of the `public` directory before each build to remove draft, expired, and future content, or use the `--cleanDestinationDir` command line flag or the [`cleanDestinationDir`][] configuration option to have Hugo remove stale files automatically.
 
 When you are ready to deploy your site, run:
 

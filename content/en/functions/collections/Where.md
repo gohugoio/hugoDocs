@@ -98,10 +98,7 @@ Use any of the following logical operators:
 
 ## Examples
 
-The following examples demonstrate comparisons using various operators and data types.
-
-> [!NOTE]
-> The examples below perform comparisons within a page collection, but the same comparisons are applicable to a slice of maps.
+The following examples demonstrate comparisons using various operators and data types. The examples perform comparisons within a page collection, but the same comparisons are applicable to a slice of maps.
 
 ### String comparison
 
@@ -203,9 +200,6 @@ For example, to return a slice of pages that were created before the current yea
 #### Custom dates
 
 With custom front matter dates, the comparison depends on the front matter data format (TOML, YAML, or JSON).
-
-> [!NOTE]
-> Using TOML for pages with custom front matter dates enables precise date comparisons.
 
 With TOML, date values are first-class citizens. TOML has a date data type while JSON and YAML do not. If you quote a TOML date, it is a string. If you do not quote a TOML date value, it is [`time.Time`][] value, enabling precise comparisons.
 
