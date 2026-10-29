@@ -298,7 +298,7 @@ The `css.Build` function accepts an options map to fine-tune bundling, minificat
   When passing a `vars` map to the `css.Build` function, you can use the [`css.Quoted`][] function to explicitly indicate that a value must be treated as a quoted string, most commonly for `font-family` names or the `content` property.
 
   > [!NOTE]
-  > If you're using TailwindCSS and want to use the `vars` option to inject CSS variables, see [this section in the TailwindCSS documentation](./TailwindCSS.md#inject-css-variables).
+  > To use the `vars` option to inject CSS variables with Tailwind CSS, see [inject CSS variables][].
 
 ## Example
 
@@ -417,3 +417,4 @@ To reference a specific file within a Node package, provide the path starting wi
 [esb sourcemap]: https://esbuild.github.io/api/#sourcemap
 [esb sourcesContent]: https://esbuild.github.io/api/#sources-content
 [esb target]: https://esbuild.github.io/api/#target
+[inject CSS variables]: /functions/css/tailwindcss/#inject-css-variables
