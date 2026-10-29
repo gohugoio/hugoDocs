@@ -68,7 +68,7 @@ Step 1
 
   Set `SRC` to the path of your `public` directory, including the trailing slash. Set `DEST` to the path of the document root on your web server. A path that does not begin with a slash is relative to your home directory, which is common with shared hosting.
 
-  > [!IMPORTANT]
+  > [!NOTE]
   > The trailing slash on `SRC` is required. Without it, Rsync copies the directory itself, rather than its contents, to the document root.
 
 Step 2

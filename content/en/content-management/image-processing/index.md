@@ -7,8 +7,7 @@ keywords: []
 
 Hugo provides methods to transform and analyze images during the build process. While Hugo can manage any image format as a resource, only [processable images](g) can be transformed using the methods below. The results are cached to ensure subsequent builds remain fast.
 
-> [!NOTE]
-> Use the [`reflect.IsImageResourceProcessable`][] function to verify that an image can be processed.
+{{% include "/_common/image-processable-tip.md" %}}
 
 ## Resources
 
@@ -167,7 +166,6 @@ See [configure imaging][].
 [`Permalink`]: /methods/resource/permalink/
 [`RelPermalink`]: /methods/resource/relpermalink/
 [`Width`]: /methods/resource/width/
-[`reflect.IsImageResourceProcessable`]: /functions/reflect/isimageresourceprocessable/
 [configure imaging]: /configuration/imaging/
 [file cache]: /configuration/caches/
 [hosting guides]: /host-and-deploy/deployment-methods/#push-to-a-git-repository

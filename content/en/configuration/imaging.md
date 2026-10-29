@@ -57,9 +57,6 @@ These settings apply to all image formats.
 These settings apply when encoding AVIF images.
 
 > [!NOTE]
-> When exporting HDR AVIF images from Lightroom, in the Export dialog under File Settings, uncheck Maximize Compatibility to improve Hugo's AVIF decoding speed.
-
-> [!NOTE]
 > Encoding animated images to AVIF produces a single-frame (static) image. Converting an animated AVIF to another format such as GIF works as expected.
 
 {{< code-toggle config=imaging.avif />}}
@@ -86,6 +83,9 @@ These settings apply when encoding AVIF images.
 `quality`
 : {{< new-in 0.163.0 />}}
 : (`int`) The visual fidelity when using `lossy` compression. Expressed as a whole number from `1` to `100`, inclusive. Lower numbers prioritize smaller file size, while higher numbers prioritize visual clarity. Default is `60`. Quality values are encoder-specific and not directly comparable across formats; a value of `60` for AVIF is perceptually similar to `75` for JPEG.
+
+> [!TIP]
+> When exporting HDR AVIF images from Lightroom, in the Export dialog under File Settings, uncheck Maximize Compatibility to improve Hugo's AVIF decoding speed.
 
 ## JPEG
 

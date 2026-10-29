@@ -6,9 +6,6 @@ categories: []
 keywords: []
 ---
 
-> [!NOTE]
-> To override Hugo's embedded `vimeo` shortcode, copy the [source code][] to a file with the same name in the `layouts/_shortcodes` directory.
-
 ## Example
 
 To display a Vimeo video with this URL:
@@ -68,6 +65,9 @@ Adjust the relevant privacy settings in your project configuration.
 : (`bool`) Whether to enable simple mode. If `true`, the video thumbnail is fetched from Vimeo and overlaid with a play button. Clicking the thumbnail opens the video in a new Vimeo tab. Default is `false`.
 
 The source code for the simple version of the shortcode is available [in this file][].
+
+> [!TIP]
+> To override Hugo's embedded `vimeo` shortcode, copy the [source code][] to a file with the same name in the `layouts/_shortcodes` directory.
 
 [in this file]: <{{% eturl vimeo_simple %}}>
 [source code]: <{{% eturl vimeo %}}>

@@ -62,7 +62,6 @@ This example merges `$m1`, `$m3`, and `$m2`, in that order:
 {{ $merged.z.a }} → huey
 ```
 
-> [!NOTE]
-> Regardless of depth, merging only applies to maps. For slices, use the [`collections.Append`][] function.
+Regardless of depth, merging only applies to maps. For slices, use the [`collections.Append`][] function.
 
 [`collections.Append`]: /functions/collections/append/

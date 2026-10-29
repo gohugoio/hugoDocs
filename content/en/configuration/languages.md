@@ -153,8 +153,7 @@ weight = 2
 subtitle = 'Reference, Tutorials, and Explanations'
 {{< /code-toggle >}}
 
-> [!NOTE]
-> In the example above, omit `contentDir` if [translating by file name][].
+In the example above, omit `contentDir` if [translating by file name][].
 
 ## Multihost
 

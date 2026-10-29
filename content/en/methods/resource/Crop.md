@@ -13,8 +13,7 @@ params:
 
 The `Crop` method returns a new resource from a [processable image](g) according to the given [processing specification](#processing-specification).
 
-> [!NOTE]
-> Use the [`reflect.IsImageResourceProcessable`][] function to verify that an image can be processed.
+{{% include "/_common/image-processable-tip.md" %}}
 
 ## Usage
 
@@ -49,5 +48,3 @@ In the example above, `"200x200 TopRight"` is the processing specification.
   filterArgs="crop 200x200 TopRight"
   example=true
 >}}
-
-[`reflect.IsImageResourceProcessable`]: /functions/reflect/isimageresourceprocessable/

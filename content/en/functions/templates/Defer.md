@@ -14,13 +14,10 @@ params:
 
 The `templates.Defer` function defers the execution of a template until all sites and output formats have been rendered.
 
-> [!NOTE]
+> [!WARNING]
 > Do not call this function within a _partial_ template called with the `partialCached` function. This restriction applies transitively: if `partialCached` calls a _partial_ template that calls `templates.Defer`, Hugo returns an error. Using this function within shortcode or render hook templates may also lead to unpredictable results.
 
-> [!NOTE]
-> This function only works in combination with the `with` keyword.
->
-> Variables defined on the outside are not visible on the inside and vice versa. To pass in data, use the `data` option.
+This function only works in combination with the `with` keyword. Variables defined on the outside are not visible on the inside and vice versa. To pass in data, use the `data` option.
 
 The `templates.Defer` function requires a single argument, a map with the following optional keys:
 

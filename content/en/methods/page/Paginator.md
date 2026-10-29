@@ -24,13 +24,10 @@ You can invoke pagination in [home][], [section][], [taxonomy][], and [term][] t
 
 In the example above, the embedded pagination template creates navigation links between pagers.
 
-> [!NOTE]
-> Although simple to invoke, with the `Paginator` method you can neither filter nor sort the page collection. It acts upon the page collection received in context.
->
-> The [`Paginate`][] method is more flexible, and strongly recommended.
+Although simple to invoke, with the `Paginator` method you can neither filter nor sort the page collection. It acts upon the page collection received in context. The [`Paginate`][] method is more flexible, and strongly recommended.
 
 > [!NOTE]
-> Please note that the results of pagination are cached. Once you have invoked either the `Paginator` or `Paginate` method, the paginated collection is immutable. Additional invocations of these methods will have no effect.
+> The results of pagination are cached. Once you have invoked either the `Paginator` or `Paginate` method, the paginated collection is immutable. Additional invocations of these methods will have no effect.
 
 [`Paginate`]: /methods/page/paginate/
 [home]: /templates/types/#home

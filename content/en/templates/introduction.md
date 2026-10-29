@@ -13,12 +13,11 @@ weight: 10
 
 Templates use [variables](#variables), [functions][], and [methods][] to transform your content, resources, and data into a published page.
 
-> [!NOTE]
-> Hugo uses Go's [`text/template`][] and [`html/template`][] packages.
->
-> The `text/template` package implements data-driven templates for generating textual output, while the `html/template` package implements data-driven templates for generating HTML output safe against code injection.
->
-> By default, Hugo uses the `html/template` package when rendering HTML files.
+Hugo uses Go's [`text/template`][] and [`html/template`][] packages.
+
+The `text/template` package implements data-driven templates for generating textual output, while the `html/template` package implements data-driven templates for generating HTML output safe against code injection.
+
+By default, Hugo uses the `html/template` package when rendering HTML files.
 
 For example, this HTML template initializes the `$v1` and `$v2` variables, then displays them and their product within an HTML paragraph.
 
@@ -279,8 +278,7 @@ With variables that represent a slice or map, use the [`index`][] function to re
 {{ index $map "c" }} → baz
 ```
 
-> [!NOTE]
-> Slices and arrays are zero-based; element 0 is the first element.
+Slices and arrays are zero-based; element 0 is the first element.
 
 With variables that represent a map or object, [chain](g) identifiers to return the desired value or to access the desired method.
 
@@ -292,7 +290,7 @@ With variables that represent a map or object, [chain](g) identifiers to return 
 {{ $homePage.Title }} → My Homepage
 ```
 
-> [!NOTE]
+> [!TIP]
 > As seen above, object and method names are capitalized. Although not required, to avoid confusion we recommend beginning variable and map key names with a lowercase letter or underscore.
 
 ## Functions
@@ -360,7 +358,7 @@ Some methods take an argument. Separate the argument from the method with a spac
 
 ## Comments
 
-> [!NOTE]
+> [!WARNING]
 > Do not attempt to use HTML comment delimiters to comment out template code.
 >
 > Hugo strips HTML comments when rendering a page, but first evaluates any template code within the HTML comment delimiters. Depending on the template code within the HTML comment delimiters, this could cause unexpected results or fail the build.
@@ -415,8 +413,7 @@ Use the [`partial`][] or [`partialCached`][] function to include one or more [pa
 
 Create your _partial_ templates in the `layouts/_partials` directory.
 
-> [!NOTE]
-> In the examples above, note that we are passing the current context (the dot) to each of the templates.
+In the examples above, note that we are passing the current context (the dot) to each of the templates.
 
 ## Examples
 

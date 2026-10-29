@@ -39,7 +39,7 @@ Disallow: {{ .RelPermalink }}
 
 This template creates a robots.txt file with a `Disallow` directive for each page on the site. Search engines that honor the Robots Exclusion Protocol will not crawl any page on the site.
 
-> [!NOTE]
+> [!TIP]
 > To create a robots.txt file without using a template:
 >
 > 1. Set `enableRobotsTXT` to `false` in your project configuration.

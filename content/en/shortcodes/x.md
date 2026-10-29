@@ -8,9 +8,6 @@ keywords: []
 
 {{< new-in 0.141.0 />}}
 
-> [!NOTE]
-> To override Hugo's embedded `x` shortcode, copy the [source code][] to a file with the same name in the `layouts/_shortcodes` directory.
-
 ## Example
 
 To display an X post with this URL:
@@ -49,6 +46,9 @@ The source code for the simple version of the shortcode is available [in this fi
 If you enable simple mode you may want to disable the hardcoded inline styles by setting `disableInlineCSS` to `true` in your project configuration. The default value for this setting is `false`.
 
 {{< code-toggle config=services.x />}}
+
+> [!TIP]
+> To override Hugo's embedded `x` shortcode, copy the [source code][] to a file with the same name in the `layouts/_shortcodes` directory.
 
 [in this file]: <{{% eturl x_simple %}}>
 [source code]: <{{% eturl x %}}>

@@ -736,8 +736,7 @@ The shortcode triggers a build warning if the specified version is older than a 
 
 ## GitHub workflow
 
-> [!NOTE]
-> This section assumes that you have a working knowledge of Git and GitHub, and are comfortable working on the command line.
+This section assumes that you have a working knowledge of Git and GitHub, and are comfortable working on the command line.
 
 Use this workflow to create and submit pull requests.
 

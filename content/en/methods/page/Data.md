@@ -61,8 +61,7 @@ Use these methods on the `Data` object within a _taxonomy_ template.
 {{ $taxonomyObject := .Data.Terms }}
 ```
 
-> [!NOTE]
-> Once you have captured the `Taxonomy` object, use any of the [taxonomy methods][] to sort, count, or capture a subset of its weighted pages.
+Once you have captured the `Taxonomy` object, use any of the [taxonomy methods][] to sort, count, or capture a subset of its weighted pages.
 
 Learn more about [taxonomy templates][].
 

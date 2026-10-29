@@ -10,11 +10,7 @@ params:
     signatures: ['js.Batch [ID]']
 ---
 
-> [!NOTE]
-> The `js.Batch` function is backed by the [`evanw/esbuild`][] package, providing a mature, high-performance foundation for bundling, transformation, and minification.
-
-> [!NOTE]
-> For a runnable example of this feature, see [this test and demo repo][js_batch_demo].
+The `js.Batch` function is backed by the [`evanw/esbuild`][] package, providing a mature, high-performance foundation for bundling, transformation, and minification. For a runnable example of this feature, see [this test and demo repo][js_batch_demo].
 
 The Batch `ID` is used to create the base directory for this batch. Forward slashes are allowed. The `js.Batch` function returns an object with an API with this structure:
 

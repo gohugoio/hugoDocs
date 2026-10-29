@@ -34,10 +34,7 @@ Equations and expressions can be displayed inline with other text, or as standal
 
 Whether an equation or expression appears inline, or as a block, depends on the delimiters that surround the mathematical markup. Delimiters are defined in pairs, where each pair consists of an opening and closing delimiter. The opening and closing delimiters may be the same, or different.
 
-> [!NOTE]
-> You can configure Hugo to render mathematical markup on the client side using the MathJax or KaTeX display engine, or you can render the markup with the [`transform.ToMath`][] function while building your project.
->
-> The first approach is described below.
+You can configure Hugo to render mathematical markup on the client side using the MathJax or KaTeX display engine, or you can render the markup with the [`transform.ToMath`][] function while building your project. This page describes the first approach.
 
 ## Setup
 
@@ -167,11 +164,6 @@ I will give you \\$2 if you can solve $y = x^2$.
 ## Engines
 
 MathJax and KaTeX are open-source JavaScript display engines.
-
-> [!NOTE]
-> If you use the `$...$` delimiter pair for inline equations, and occasionally use the&nbsp;`$`&nbsp;symbol outside of math contexts, you must use MathJax instead of KaTeX to avoid unintended formatting caused by [this KaTeX limitation][].
->
->See the [inline delimiters](#inline-delimiters) section for details.
 
 To use KaTeX instead of MathJax, replace the _partial_ template from [Step 2](#step-2) with this:
 

@@ -8,8 +8,7 @@ weight: 120
 
 {{< newtemplatesystem >}}
 
-> [!NOTE]
-> Before creating custom shortcodes, please review the [shortcodes][] page in the [content management][] section. Understanding the usage details will help you design and create better templates.
+Before creating custom shortcodes, review the [shortcodes][] page in the [content management][] section. Understanding the usage details will help you design and create better templates.
 
 ## Introduction
 
@@ -185,7 +184,7 @@ Using the `Get` method with zero-indexed keys, we'll initialize variables with d
 {{ $alt := .Get 2 }}
 ```
 
-> [!NOTE]
+> [!TIP]
 > Positional arguments work well for frequently used shortcodes with one or two arguments. Since you'll use them often, the argument order will be easy to remember. For less frequently used shortcodes, or those with more than two arguments, named arguments improve readability and reduce the chance of errors.
 
 ### Either named or positional

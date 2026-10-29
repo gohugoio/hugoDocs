@@ -17,7 +17,7 @@ For example, with Microsoft Defender Antivirus:
 
 Then type `hugo.exe` and press the **Add** button.
 
-> [!NOTE]
+> [!WARNING]
 > Virus scanning exclusions are common, but use caution when changing these settings. See the [Microsoft Defender Antivirus documentation][] for details.
 
 Other virus scanners have similar exclusion mechanisms. See their respective documentation.
@@ -175,15 +175,14 @@ total count
 template
 : The path to the template, relative to the `layouts` directory.
 
-> [!NOTE]
-> Hugo builds pages in parallel where multiple pages are generated simultaneously. Because of this parallelism, the sum of "cumulative duration" values is usually greater than the actual time it takes to build a site.
+Hugo builds pages in parallel where multiple pages are generated simultaneously. Because of this parallelism, the sum of "cumulative duration" values is usually greater than the actual time it takes to build a site.
 
 ## Caching
 
 Some _partial_ templates such as sidebars or menus are executed many times during a site build. Depending on the content within the _partial_ template and the desired output, the template may benefit from caching to reduce the number of executions. The [`partialCached`][] function provides caching capabilities for _partial_ templates.
 
-> [!NOTE]
-> Note that you can create cached variants of each _partial_ template by passing additional arguments to `partialCached` beyond the initial context. See the `partialCached` documentation for more details.
+> [!TIP]
+> You can create cached variants of each _partial_ template by passing additional arguments to `partialCached` beyond the initial context. See the `partialCached` documentation for more details.
 
 ## Timers
 

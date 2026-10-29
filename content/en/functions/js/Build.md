@@ -10,8 +10,7 @@ params:
     signatures: ['js.Build [OPTIONS] RESOURCE']
 ---
 
-> [!NOTE]
-> The `js.Build` function is backed by the [`evanw/esbuild`][] package, providing a mature, high-performance foundation for bundling, transformation, and minification.
+The `js.Build` function is backed by the [`evanw/esbuild`][] package, providing a mature, high-performance foundation for bundling, transformation, and minification.
 
 Use the `js.Build` function to:
 
@@ -103,7 +102,7 @@ Use the `js.Build` function to include Node dependencies. Run `npm install` to i
 
 If an import does not resolve to a file in the `assets` directory, or if the importing file is outside the `assets` directory, [`esbuild`][] resolves the import. It looks for packages in `node_modules` directories, starting from the project directory, but only within the allowed paths. See [file system access](#file-system-access).
 
-> [!NOTE]
+> [!TIP]
 > If you're developing a theme/component that is supposed to be imported and depends on dependencies inside `package.json`, we recommend reading about [`hugo mod npm pack`][], a tool to consolidate all the npm dependencies in a project.
 
 ## File system access

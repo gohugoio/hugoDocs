@@ -18,10 +18,7 @@ Delimit a slice:
 {{ delimit $s ", " " and "}} → b, a and c
 ```
 
-Delimit a map:
-
-> [!NOTE]
-> The `delimit` function sorts maps by key, returning the values.
+Delimit a map, which the `delimit` function sorts by key, returning the values:
 
 ```go-html-template
 {{ $m := dict "b" 2 "a" 1 "c" 3 }}

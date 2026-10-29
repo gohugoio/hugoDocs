@@ -39,8 +39,7 @@ Depending on content length and how you define the summary, the summary may be e
 {{ end }}
 ```
 
-> [!NOTE]
-> The `Truncated` method returns `false` if you define the summary in front matter.
+{{% include "/_common/summary-truncated-note.md" %}}
 
 [`RawSummary`]: /methods/page/rawsummary/
 [`Truncated`]: /methods/page/truncated/

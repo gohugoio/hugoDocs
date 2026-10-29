@@ -29,7 +29,7 @@ To use a different renderer for Markdown files, specify one of `asciidocext`, `o
 
 To use AsciiDoc, Pandoc, or reStructuredText you must install the relevant renderer and update your [security policy][].
 
-> [!NOTE]
+> [!TIP]
 > Unless you need a unique capability provided by one of the alternative Markdown handlers, we strongly recommend that you use the default setting. Goldmark is fast, well maintained, conforms to the [CommonMark][] specification, and is compatible with [GitHub Flavored Markdown][] (GFM).
 
 ## Goldmark

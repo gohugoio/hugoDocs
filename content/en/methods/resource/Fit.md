@@ -13,8 +13,7 @@ params:
 
 The `Fit` method returns a new resource from a [processable image](g) according to the given [processing specification](#processing-specification).
 
-> [!NOTE]
-> Use the [`reflect.IsImageResourceProcessable`][] function to verify that an image can be processed.
+{{% include "/_common/image-processable-tip.md" %}}
 
 ## Usage
 
@@ -52,4 +51,3 @@ In the example above, `"300x175"` is the processing specification.
 
 [`Fill`]: /methods/resource/fill/
 [`Resize`]: /methods/resource/resize/
-[`reflect.IsImageResourceProcessable`]: /functions/reflect/isimageresourceprocessable/

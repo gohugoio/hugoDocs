@@ -6,9 +6,6 @@ categories: []
 keywords: []
 ---
 
-> [!NOTE]
-> To override Hugo's embedded `param` shortcode, copy the [source code][] to a file with the same name in the `layouts/_shortcodes` directory.
-
 The `param` shortcode inserts the value of a parameter from front matter, falling back to a site parameter of the same name. The shortcode throws an error if the parameter does not exist.
 
 ```md {file="content/example.md"}
@@ -34,5 +31,8 @@ Access nested values by [chaining](g) the [identifiers](g):
 ```md
 {{%/* param my.nested.param */%}}
 ```
+
+> [!TIP]
+> To override Hugo's embedded `param` shortcode, copy the [source code][] to a file with the same name in the `layouts/_shortcodes` directory.
 
 [source code]: <{{% eturl param %}}>

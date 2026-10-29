@@ -64,8 +64,7 @@ For more command-line options, see `hugo help deploy` or the [CLI documentation]
 
 Hugo compares the local and remote file lists to identify necessary changes. It first compares file names. If both exist, it compares sizes and MD5 checksums. Any difference triggers a re-upload, and remote files not present locally are deleted.
 
-> [!NOTE]
-> Excluded remote files (due to `include`/`exclude` configuration) won't be deleted.
+Hugo does not delete remote files excluded by the `include` or `exclude` configuration.
 
 The `--force` flag forces all files to be re-uploaded, even if Hugo detects no local/remote differences.
 

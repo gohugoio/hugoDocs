@@ -63,8 +63,8 @@ Image _render hook_ templates receive the following context:
 
 ## Examples
 
-> [!NOTE]
-> With inline elements such as images and links, remove leading and trailing whitespace using the `{{‑ ‑}}` delimiter notation to prevent whitespace between adjacent inline elements and text.
+> [!TIP]
+> With inline elements such as images and links, remove leading and trailing whitespace using the `{{- -}}` delimiter notation to prevent whitespace between adjacent inline elements and text.
 
 In its default configuration, Hugo renders Markdown images according to the [CommonMark][] specification. To create a render hook that does the same thing:
 
