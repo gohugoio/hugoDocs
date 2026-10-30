@@ -9,12 +9,14 @@ params:
     signatures: [PAGE.ContentWithoutSummary]
 ---
 
-Applicable when using manual or automatic [content summaries][], the `ContentWithoutSummary` method on a `Page` object renders Markdown and shortcodes to HTML, excluding the content summary from the result.
+## Usage
+
+The `ContentWithoutSummary` method on a `Page` object is an alias for [`Page.Markup.Render.ContentWithoutSummary`][].
+
+## Examples
 
 ```go-html-template
 {{ .ContentWithoutSummary }}
 ```
 
-The `ContentWithoutSummary` method returns the same as `Content` if you define the content summary in front matter.
-
-[content summaries]: /content-management/summaries/#manual-summary
+[`Page.Markup.Render.ContentWithoutSummary`]: /methods/page/markup/render/contentwithoutsummary/

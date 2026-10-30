@@ -9,38 +9,14 @@ params:
     signatures: [PAGE.Summary]
 ---
 
-<!-- Do not remove the manual summary divider below. -->
-<!-- If you do, you will break its first literal usage on this page. -->
+## Usage
 
-<!--more-->
+The `Summary` method on a `Page` object is an alias for [`Page.Markup.Render.Summary`][]. It returns the rendered summary, equivalent to `Page.Markup.Render.Summary.Text`.
 
-You can define a [summary][] manually, in front matter, or automatically. A manual summary takes precedence over a front matter summary, and a front matter summary takes precedence over an automatic summary.
-
-To get the front matter summary without rendering Markdown, use the [`RawSummary`][] method on a `Page` object.
-
-To list the pages in a section with a summary beneath each link:
+## Examples
 
 ```go-html-template
-{{ range .Pages }}
-  <h2><a href="{{ .RelPermalink }}">{{ .LinkTitle }}</a></h2>
-  {{ .Summary }}
-{{ end }}
+{{ .Summary }}
 ```
 
-Depending on content length and how you define the summary, the summary may be equivalent to the content itself. To determine whether the content length exceeds the summary length, use the [`Truncated`][] method on a `Page` object. This is useful for conditionally rendering a “read more” link:
-
-```go-html-template
-{{ range .Pages }}
-  <h2><a href="{{ .RelPermalink }}">{{ .LinkTitle }}</a></h2>
-  {{ .Summary }}
-  {{ if .Truncated }}
-    <a href="{{ .RelPermalink }}">Read more...</a>
-  {{ end }}
-{{ end }}
-```
-
-{{% include "/_common/summary-truncated-note.md" %}}
-
-[`RawSummary`]: /methods/page/rawsummary/
-[`Truncated`]: /methods/page/truncated/
-[summary]: /content-management/summaries/
+[`Page.Markup.Render.Summary`]: /methods/page/markup/render/summary/

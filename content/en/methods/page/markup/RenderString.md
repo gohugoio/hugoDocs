@@ -1,0 +1,49 @@
+---
+title: RenderString
+description: Returns the given markup rendered to HTML.
+categories: []
+keywords: []
+params:
+  functions_and_methods:
+    aliases: [PAGE.RenderString]
+    returnType: template.HTML
+    signatures: ['PAGE.Markup.RenderString [OPTIONS] MARKUP']
+---
+
+The `RenderString` method on a `Markup` object renders markup to HTML.
+
+```go-html-template
+{{ $s := "An *emphasized* word" }}
+{{ $s | .Markup.RenderString }} → An <em>emphasized</em> word
+```
+
+## Options
+
+The `RenderString` method on a `Markup` object accepts an options map.
+
+`display`
+: (`string`) Specify either `inline` or `block`. If `inline`, removes surrounding `p` tags from short snippets. Default is `inline`.
+
+`markup`
+: (`string`) Specify a [markup identifier][] for the provided markup. Default is the `markup` front matter value, falling back to the value derived from the page's file extension.
+
+## Examples
+
+Render Markdown content to HTML in block display mode:
+
+```go-html-template
+{{ $opts := dict "display" "block" }}
+{{ $s | .Markup.RenderString $opts }} → <p>An <em>emphasized</em> word</p>
+```
+
+Render [Pandoc][] content to HTML in block display mode:
+
+```go-html-template
+{{ $s := "H~2~O" }}
+
+{{ $opts := dict "markup" "pandoc" "display" "block" }}
+{{ $s | .Markup.RenderString $opts }} → H<sub>2</sub>O
+```
+
+[Pandoc]: /content-management/formats/#pandoc
+[markup identifier]: /content-management/formats/#classification

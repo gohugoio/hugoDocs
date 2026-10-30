@@ -9,8 +9,14 @@ params:
     signatures: [PAGE.Content]
 ---
 
-The `Content` method on a `Page` object renders Markdown and shortcodes to HTML.
+## Usage
+
+The `Content` method on a `Page` object is an alias for [`Page.Markup.Render.Content`][].
+
+## Examples
 
 ```go-html-template
 {{ .Content }}
 ```
+
+[`Page.Markup.Render.Content`]: /methods/page/markup/render/content/

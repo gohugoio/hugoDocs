@@ -9,15 +9,14 @@ params:
     signatures: [PAGE.Plain]
 ---
 
-The `Plain` method on a `Page` object renders Markdown and [shortcodes](g) to HTML, then strips the HTML [tags][]. It does not strip HTML [entities][].
+## Usage
 
-To prevent Go's [`html/template`][] package from escaping HTML entities, pass the result through the [`htmlUnescape`][] function.
+The `Plain` method on a `Page` object is an alias for [`Page.Markup.Render.Plain`][].
+
+## Examples
 
 ```go-html-template
-{{ .Plain | htmlUnescape }}
+{{ .Plain }}
 ```
 
-[`html/template`]: https://pkg.go.dev/html/template
-[`htmlUnescape`]: /functions/transform/htmlunescape/
-[entities]: https://developer.mozilla.org/en-US/docs/Glossary/Entity
-[tags]: https://developer.mozilla.org/en-US/docs/Glossary/Tag
+[`Page.Markup.Render.Plain`]: /methods/page/markup/render/plain/

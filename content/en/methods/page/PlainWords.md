@@ -9,20 +9,14 @@ params:
     signatures: [PAGE.PlainWords]
 ---
 
-The `PlainWords` method on a `Page` object calls the [`Plain`][] method, then uses Go's [`strings.Fields`][] function to split the result into words.
+## Usage
 
-The `strings.Fields` function splits the string around each instance of one or more consecutive whitespace characters, as defined by [`unicode.IsSpace`][]. As a result, elements within the slice may contain leading or trailing punctuation.
+The `PlainWords` method on a `Page` object is an alias for [`Page.Markup.Render.PlainWords`][].
+
+## Examples
 
 ```go-html-template
 {{ .PlainWords }}
 ```
 
-To determine the approximate number of unique words on a page:
-
-```go-html-template
-{{ .PlainWords | uniq }} → 42
-```
-
-[`Plain`]: /methods/page/plain/
-[`strings.Fields`]: https://pkg.go.dev/strings#Fields
-[`unicode.IsSpace`]: https://pkg.go.dev/unicode#IsSpace
+[`Page.Markup.Render.PlainWords`]: /methods/page/markup/render/plainwords/

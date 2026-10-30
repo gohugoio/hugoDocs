@@ -9,20 +9,14 @@ params:
     signatures: [PAGE.Truncated]
 ---
 
-You can define a [summary][] manually, in front matter, or automatically. A manual summary takes precedence over a front matter summary, and a front matter summary takes precedence over an automatic summary.
+## Usage
 
-The `Truncated` method returns `true` if the content length exceeds the summary length. This is useful for conditionally rendering a "read more" link:
+The `Truncated` method on a `Page` object is an alias for [`Page.Markup.Render.Summary.Truncated`][].
+
+## Examples
 
 ```go-html-template
-{{ range .Pages }}
-  <h2><a href="{{ .RelPermalink }}">{{ .LinkTitle }}</a></h2>
-  {{ .Summary }}
-  {{ if .Truncated }}
-    <a href="{{ .RelPermalink }}">Read more...</a>
-  {{ end }}
-{{ end }}
+{{ .Truncated }}
 ```
 
-{{% include "/_common/summary-truncated-note.md" %}}
-
-[summary]: /content-management/summaries/
+[`Page.Markup.Render.Summary.Truncated`]: /methods/page/markup/render/summary/truncated/
