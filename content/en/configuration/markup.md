@@ -400,7 +400,7 @@ This is the default configuration for the table of contents, applicable to Goldm
 [PHP Markdown Extra: Definition lists]: https://michelf.ca/projects/php-markdown/extra/#def-list
 [PHP Markdown Extra: Footnotes]: https://michelf.ca/projects/php-markdown/extra/#footnotes
 [Pandoc]: https://pandoc.org/
-[`Fragments.Identifiers`]: /methods/page/fragments/#identifiers
+[`Fragments.Identifiers`]: /methods/page/markup/fragments/#identifiers
 [`TableOfContents`]: /methods/page/tableofcontents/
 [`highlight`]: /shortcodes/highlight/
 [`transform.HighlightCodeBlock`]: /functions/transform/highlightcodeblock/
