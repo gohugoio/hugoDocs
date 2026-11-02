@@ -41,6 +41,9 @@ Depending on content length and how you define the summary, the summary may be e
 
 {{% include "/_common/summary-truncated-note.md" %}}
 
+To render the content in a named scope, call [`Markup.Render.Summary`][] on a `Page` object.
+
+[`Markup.Render.Summary`]: /methods/page/markup/#summary
 [`RawSummary`]: /methods/page/rawsummary/
 [`Truncated`]: /methods/page/truncated/
 [summary]: /content-management/summaries/

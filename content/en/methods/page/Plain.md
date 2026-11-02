@@ -17,7 +17,10 @@ To prevent Go's [`html/template`][] package from escaping HTML entities, pass th
 {{ .Plain | htmlUnescape }}
 ```
 
+To render the content in a named scope, call [`Markup.Render.Plain`][] on a `Page` object.
+
 [`html/template`]: https://pkg.go.dev/html/template
 [`htmlUnescape`]: /functions/transform/htmlunescape/
+[`Markup.Render.Plain`]: /methods/page/markup/#plain
 [entities]: https://developer.mozilla.org/en-US/docs/Glossary/Entity
 [tags]: https://developer.mozilla.org/en-US/docs/Glossary/Tag

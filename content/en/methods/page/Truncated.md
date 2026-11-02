@@ -25,4 +25,7 @@ The `Truncated` method returns `true` if the content length exceeds the summary 
 
 {{% include "/_common/summary-truncated-note.md" %}}
 
+To render the content in a named scope, call [`Markup.Render.Summary.Truncated`][] on a `Page` object.
+
+[`Markup.Render.Summary.Truncated`]: /methods/page/markup/#truncated
 [summary]: /content-management/summaries/

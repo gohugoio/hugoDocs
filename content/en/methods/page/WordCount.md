@@ -18,6 +18,8 @@ To round up to the nearest multiple of 100, use the [`FuzzyWordCount`][] method.
 > [!NOTE]
 > For content in CJK languages, set [`hasCJKLanguage`][] to `true` in your project configuration. When enabled, Hugo applies CJK word counting rules to pages containing CJK characters. To override this behavior on a given page, set the [`isCJKLanguage`][] field in its front matter.
 
+To render the content in a named scope, call [`Markup.Render.WordCount`][] on a `Page` object.
+
 ## Examples
 
 ```go-html-template
@@ -44,4 +46,5 @@ Counting words in the page above:
 [`FuzzyWordCount`]: /methods/page/fuzzywordcount/
 [`hasCJKLanguage`]: /configuration/all/#hascjklanguage
 [`isCJKLanguage`]: /content-management/front-matter/#iscjklanguage
+[`Markup.Render.WordCount`]: /methods/page/markup/#wordcount
 [`strings.CountWords`]: /functions/strings/countwords/
