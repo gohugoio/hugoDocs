@@ -734,6 +734,8 @@ This is a new feature.
 
 The shortcode triggers a build warning if the specified version is older than a predefined threshold, based on differences in major and minor versions. This serves as a reminder to remove the shortcode call. See [details][].
 
+On a function or method page, place the shortcode where the new feature is documented. If the entire function or method is new, place it on the first line of the page body, before the first heading. If an argument, option, or section is new, place it with that argument, option, or section.
+
 ## GitHub workflow
 
 This section assumes that you have a working knowledge of Git and GitHub, and are comfortable working on the command line.

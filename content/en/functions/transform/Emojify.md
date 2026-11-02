@@ -10,11 +10,11 @@ params:
     signatures: [transform.Emojify INPUT]
 ---
 
+{{< new-in 0.169.0 />}}
+
 ## Usage
 
 The `transform.Emojify` function returns the given input with emoji shortcodes replaced by their corresponding emoji characters. See the list of [emoji shortcodes][] for available emoji.
-
-{{< new-in 0.169.0 />}}
 
 The return type depends on the type of `INPUT`. If `INPUT` is of type `template.HTML`, the function returns `template.HTML`. Otherwise, it returns a `string`.
 
