@@ -10,11 +10,11 @@ params:
     signatures: [transform.Plainify INPUT]
 ---
 
+{{< new-in 0.169.0 />}}
+
 ## Usage
 
 The `transform.Plainify` function returns the given input with all HTML tags removed.
-
-{{< new-in 0.169.0 />}}
 
 The return type depends on the type of `INPUT`. If `INPUT` is of type `template.HTML`, the function returns `template.HTML`. Otherwise, it returns a `string`.
 
