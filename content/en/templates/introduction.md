@@ -237,7 +237,7 @@ Other than using the `nil` keyword in comparisons, you may not use it as an argu
   <p>42 is greater than nil</p>
 {{ end }}
 
-{{ $pages := where .Site.RegularPages "Params.color" "ne" nil }}
+{{ $pages := where site.RegularPages "Params.color" "ne" nil }}
 ```
 
 These, on the other hand, are invalid:
@@ -286,7 +286,7 @@ With variables that represent a map or object, [chain](g) identifiers to return 
 {{ $map := dict "a" "foo" "b" "bar" "c" "baz" }}
 {{ $map.c }} → baz
 
-{{ $homePage := .Site.Home }}
+{{ $homePage := site.Home }}
 {{ $homePage.Title }} → My Homepage
 ```
 
@@ -331,22 +331,25 @@ Object|Method|Description
 `Page`|[`Date`][]|Returns the date of the given page.
 `Page`|[`Params`][params_page]|Returns a map of custom parameters as defined in the front matter of the given page.
 `Page`|[`Title`][]|Returns the title of the given page.
-`Site`|[`Data`][]|Returns a data structure composed from the files in the `data` directory.
 `Site`|[`Params`][params_site]|Returns a map of custom parameters as defined in your project configuration.
 `Site`|[`Title`][title_site]|Returns the title as defined in your project configuration.
 
 Chain the method to its object with a dot (`.`) as shown below, remembering that the leading dot represents the [current context](#current-context).
 
 ```go-html-template {file="layouts/page.html"}
-{{ .Site.Title }} → My Site Title
 {{ .Page.Title }} → My Page Title
 ```
 
 The context passed into most templates is a `Page` object, so this is equivalent to the previous example:
 
 ```go-html-template {file="layouts/page.html"}
-{{ .Site.Title }} → My Site Title
 {{ .Title }} → My Page Title
+```
+
+To access the `Site` object from any context, use the global [`site`][site_function] function, then chain the method to the returned object:
+
+```go-html-template {file="layouts/page.html"}
+{{ site.Title }} → My Site Title
 ```
 
 Some methods take an argument. Separate the argument from the method with a space. For example:
@@ -389,7 +392,7 @@ To print an HTML comment, pass a string through the [`safe.HTML`][] function. Fo
 
 ```go-html-template
 {{ "<!-- I am an HTML comment. -->" | safeHTML }}
-{{ printf "<!-- This is the %s site. -->" .Site.Title | safeHTML }}
+{{ printf "<!-- This is the %s site. -->" site.Title | safeHTML }}
 ```
 
 ## Include
@@ -530,11 +533,11 @@ baseURL = 'https://example.org/'
 Access the custom site parameters by chaining the identifiers:
 
 ```go-html-template
-{{ .Site.Params.subtitle }} → The Best Widgets on Earth
-{{ .Site.Params.author.name }} → John Smith
+{{ site.Params.subtitle }} → The Best Widgets on Earth
+{{ site.Params.author.name }} → John Smith
 
-{{ $layout := .Site.Params.layouts.rfc_1123 }}
-{{ .Site.Lastmod.Format $layout }} → Tue, 17 Oct 2023 13:21:02 PDT
+{{ $layout := site.Params.layouts.rfc_1123 }}
+{{ site.Lastmod.Format $layout }} → Tue, 17 Oct 2023 13:21:02 PDT
 ```
 
 ### Access page parameters
@@ -570,7 +573,6 @@ In the template example above, each of the keys is a valid identifier. For examp
 {{ index .Params "key-with-hyphens" }} → must use index function
 ```
 
-[`Data`]: /methods/site/data/
 [`Date`]: /methods/page/date/
 [`Page`]: /methods/page/
 [`Site`]: /methods/site/
@@ -603,4 +605,5 @@ In the template example above, each of the keys is a valid identifier. For examp
 [params_page]: /methods/page/params/
 [params_site]: /methods/site/params/
 [partial templates]: /templates/types/#partial
+[site_function]: /functions/global/site/
 [title_site]: /methods/site/title/

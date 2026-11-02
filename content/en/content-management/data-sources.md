@@ -30,7 +30,7 @@ project/
 > [!NOTE]
 > Do not place CSV files in the `data` directory. Access CSV files as page, global, or remote resources.
 
-See the documentation for the [`Data`][] method on a `Site` object for details and examples.
+See the documentation for the [`hugo.Data`][] function for details and examples.
 
 ## Global resources
 
@@ -106,7 +106,7 @@ Felix|cat|Malicious|7
 
 Use [content adapters][] to create new content.
 
-[`Data`]: /methods/site/data/
+[`hugo.Data`]: /functions/hugo/data/
 [content adapters]: /content-management/content-adapters/
 [global-resource]: /functions/transform/unmarshal/#global-resource
 [page-resource]: /functions/transform/unmarshal/#page-resource

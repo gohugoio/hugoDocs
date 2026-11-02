@@ -26,17 +26,17 @@ With this project configuration:
 Access the custom parameters by [chaining](g) the [identifiers](g):
 
 ```go-html-template
-{{ .Site.Params.subtitle }} → The Best Widgets on Earth
-{{ .Site.Params.author.name }} → John Smith
+{{ site.Params.subtitle }} → The Best Widgets on Earth
+{{ site.Params.author.name }} → John Smith
 
-{{ $layout := .Site.Params.layouts.rfc_1123 }}
-{{ .Site.Lastmod.Format $layout }} → Tue, 17 Oct 2023 13:21:02 PDT
+{{ $layout := site.Params.layouts.rfc_1123 }}
+{{ site.Lastmod.Format $layout }} → Tue, 17 Oct 2023 13:21:02 PDT
 ```
 
 In the template example above, each of the keys is a valid identifier. For example, none of the keys contains a hyphen. To access a key that is not a valid identifier, use the [`index`][] function:
 
 ```go-html-template
-{{ index .Site.Params "copyright-year" }} → 2023
+{{ index site.Params "copyright-year" }} → 2023
 ```
 
 [`index`]: /functions/collections/indexfunction/

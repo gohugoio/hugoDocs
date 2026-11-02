@@ -18,7 +18,7 @@ mainSections = ['books','films']
 Template:
 
 ```go-html-template
-{{ .Site.MainSections }} → [books films]
+{{ site.MainSections }} → [books films]
 ```
 
 If `mainSections` is not defined in your project configuration, this method returns a slice with one element---the top-level section with the most pages.
@@ -40,7 +40,7 @@ content/
 Template:
 
 ```go-html-template
-{{ .Site.MainSections }} → [films]
+{{ site.MainSections }} → [films]
 ```
 
 When creating a theme, instead of hardcoding section names when listing the most relevant pages on the front page, instruct users to set `mainSections` in their project configuration.
@@ -48,7 +48,7 @@ When creating a theme, instead of hardcoding section names when listing the most
 Then your _home_ template can do something like this:
 
 ```go-html-template {file="layouts/home.html"}
-{{ range where .Site.RegularPages "Section" "in" .Site.MainSections }}
+{{ range where site.RegularPages "Section" "in" site.MainSections }}
   <h2><a href="{{ .RelPermalink }}">{{ .LinkTitle }}</a></h2>
 {{ end }}
 ```

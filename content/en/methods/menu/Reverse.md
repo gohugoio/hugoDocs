@@ -34,7 +34,7 @@ To sort the entries by name in descending order:
 
 ```go-html-template
 <ul>
-  {{ range .Site.Menus.main.ByName.Reverse }}
+  {{ range site.Menus.main.ByName.Reverse }}
     <li><a href="{{ .URL }}">{{ .Name }}</a></li>
   {{ end }}
 </ul>

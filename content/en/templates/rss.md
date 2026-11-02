@@ -70,6 +70,6 @@ layouts/
   └── term.rss.xml
 ```
 
-RSS templates receive the `.Page` and `.Site` objects in context.
+RSS templates receive a `Page` object in context.
 
 [embedded RSS template]: <{{% eturl rss %}}>

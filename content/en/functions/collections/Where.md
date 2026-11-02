@@ -23,7 +23,7 @@ collections.Where SLICE KEY [OPERATOR] VALUE
 Hugo will test for equality if you do not provide an `OPERATOR` argument. For example:
 
 ```go-html-template
-{{ $pages := where .Site.RegularPages "Section" "books" }}
+{{ $pages := where site.RegularPages "Section" "books" }}
 {{ $books := where hugo.Data.books "genres" "suspense" }}
 ```
 
@@ -38,7 +38,7 @@ The where function takes three or four arguments. The `OPERATOR` argument is opt
 : (`string`) The key of the page or map value to compare with `VALUE`. With page collections, commonly used comparison keys are `Section`, `Type`, and `Params`. To compare with a member of the page `Params` map, [chain](g) the subkey as shown below:
 
   ```go-html-template
-  {{ $result := where .Site.RegularPages "Params.foo" "bar" }}
+  {{ $result := where site.RegularPages "Params.foo" "bar" }}
   ```
 
   Use the `Params` key to compare custom fields. To compare a reserved field, use the name of the corresponding `Page` method, such as `Title`.
@@ -105,8 +105,8 @@ The following examples demonstrate comparisons using various operators and data 
 Compare the value of the given field to a [`string`](g):
 
 ```go-html-template
-{{ $pages := where .Site.RegularPages "Section" "eq" "books" }}
-{{ $pages := where .Site.RegularPages "Section" "ne" "books" }}
+{{ $pages := where site.RegularPages "Section" "eq" "books" }}
+{{ $pages := where site.RegularPages "Section" "ne" "books" }}
 ```
 
 ### Numeric comparison
@@ -177,7 +177,7 @@ For example, to return a slice of pages where any of the terms in the `genres` t
 To return a slice of pages where the `author` page parameter begins with either "victor" or "Victor":
 
 ```go-html-template
-{{ $pages := where .Site.RegularPages "Params.author" "like" `(?i)^victor` }}
+{{ $pages := where site.RegularPages "Params.author" "like" `(?i)^victor` }}
 ```
 
 {{% include "/_common/regular-expressions.md" %}}
@@ -194,7 +194,7 @@ For example, to return a slice of pages that were created before the current yea
 
 ```go-html-template
 {{ $startOfYear := time.AsTime (printf "%d-01-01" now.Year) }}
-{{ $pages := where .Site.RegularPages "Date" "lt" $startOfYear }}
+{{ $pages := where site.RegularPages "Date" "lt" $startOfYear }}
 ```
 
 #### Custom dates
@@ -215,14 +215,14 @@ eventDate = 2024-04-01
 To return a slice of future events:
 
 ```go-html-template
-{{ $events := where .Site.RegularPages "Type" "events" }}
+{{ $events := where site.RegularPages "Type" "events" }}
 {{ $futureEvents := where $events "Params.eventDate" "gt" now }}
 ```
 
 When working with YAML or JSON, or quoted TOML values, custom dates are strings; you cannot compare them with `time.Time` values. String comparisons may be possible if the custom date layout is consistent from one page to the next. To be safe, filter the pages by ranging over the slice:
 
 ```go-html-template
-{{ $events := where .Site.RegularPages "Type" "events" }}
+{{ $events := where site.RegularPages "Type" "events" }}
 {{ $futureEvents := slice }}
 {{ range $events }}
   {{ if gt (time.AsTime .Params.eventDate) now }}
@@ -236,13 +236,13 @@ When working with YAML or JSON, or quoted TOML values, custom dates are strings;
 To return a slice of pages where the "color" parameter is present in front matter, compare to `nil`:
 
 ```go-html-template
-{{ $pages := where .Site.RegularPages "Params.color" "ne" nil }}
+{{ $pages := where site.RegularPages "Params.color" "ne" nil }}
 ```
 
 To return a slice of pages where the "color" parameter is not present in front matter, compare to `nil`:
 
 ```go-html-template
-{{ $pages := where .Site.RegularPages "Params.color" "eq" nil }}
+{{ $pages := where site.RegularPages "Params.color" "eq" nil }}
 ```
 
 In both examples above, note that `nil` is not quoted.
@@ -252,12 +252,12 @@ In both examples above, note that `nil` is not quoted.
 These are equivalent:
 
 ```go-html-template
-{{ $pages := where .Site.RegularPages "Type" "tutorials" }}
+{{ $pages := where site.RegularPages "Type" "tutorials" }}
 {{ $pages = where $pages "Params.level" "eq" "beginner" }}
 ```
 
 ```go-html-template
-{{ $pages := where (where .Site.RegularPages "Type" "tutorials") "Params.level" "eq" "beginner" }}
+{{ $pages := where (where site.RegularPages "Type" "tutorials") "Params.level" "eq" "beginner" }}
 ```
 
 ### Portable section comparison
@@ -265,7 +265,7 @@ These are equivalent:
 Useful for theme authors, avoid hardcoding section names by using the `where` function with the [`MainSections`][] method on a `Site` object.
 
 ```go-html-template
-{{ $pages := where .Site.RegularPages "Section" "in" .Site.MainSections }}
+{{ $pages := where site.RegularPages "Section" "in" site.MainSections }}
 ```
 
 With this construct, a theme author can instruct users to specify their main sections in their project configuration:
@@ -298,7 +298,7 @@ This template:
 
 ```go-html-template
 <ul>
-  {{ range where .Site.RegularPages "Params.exclude" "eq" false }}
+  {{ range where site.RegularPages "Params.exclude" "eq" false }}
     <li><a href="{{ .RelPermalink }}">{{ .LinkTitle }}</a></li>
   {{ end }}
 </ul>
@@ -316,7 +316,7 @@ This template:
 
 ```go-html-template
 <ul>
-  {{ range where .Site.RegularPages "Params.exclude" "eq" true }}
+  {{ range where site.RegularPages "Params.exclude" "eq" true }}
     <li><a href="{{ .RelPermalink }}">{{ .LinkTitle }}</a></li>
   {{ end }}
 </ul>
@@ -336,7 +336,7 @@ This template:
 
 ```go-html-template
 <ul>
-  {{ range where .Site.RegularPages "Params.exclude" "ne" false }}
+  {{ range where site.RegularPages "Params.exclude" "ne" false }}
     <li><a href="{{ .RelPermalink }}">{{ .LinkTitle }}</a></li>
   {{ end }}
 </ul>
@@ -355,7 +355,7 @@ This template:
 
 ```go-html-template
 <ul>
-  {{ range where .Site.RegularPages "Params.exclude" "ne" true }}
+  {{ range where site.RegularPages "Params.exclude" "ne" true }}
     <li><a href="{{ .RelPermalink }}">{{ .LinkTitle }}</a></li>
   {{ end }}
 </ul>
@@ -379,8 +379,8 @@ To exclude a page with an undefined field from a boolean _inequality_ test:
 This template:
 
 ```go-html-template
-{{ $p1 := where .Site.RegularPages "Params.exclude" "ne" true }}
-{{ $p2 := where .Site.RegularPages "Params.exclude" "eq" nil }}
+{{ $p1 := where site.RegularPages "Params.exclude" "ne" true }}
+{{ $p2 := where site.RegularPages "Params.exclude" "eq" nil }}
 <ul>
   {{ range $p1 | complement $p2 }}
     <li><a href="{{ .RelPermalink }}">{{ .LinkTitle }}</a></li>
@@ -399,8 +399,8 @@ Is rendered to:
 This template:
 
 ```go-html-template
-{{ $p1 := where .Site.RegularPages "Params.exclude" "ne" false }}
-{{ $p2 := where .Site.RegularPages "Params.exclude" "eq" nil }}
+{{ $p1 := where site.RegularPages "Params.exclude" "ne" false }}
+{{ $p2 := where site.RegularPages "Params.exclude" "eq" nil }}
 <ul>
   {{ range $p1 | complement $p2 }}
     <li><a href="{{ .RelPermalink }}">{{ .LinkTitle }}</a></li>

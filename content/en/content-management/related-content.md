@@ -68,7 +68,7 @@ weight      = 80
 - If `applyFilter` is enabled, the `.HeadingsFiltered` on each page in the result will reflect the filtered headings. This is useful if you want to show the headings in the related content listing:
 
 ```go-html-template
-{{ $related := .Site.RegularPages.Related . | first 5 }}
+{{ $related := site.RegularPages.Related . | first 5 }}
 {{ with $related }}
   <h2>See Also</h2>
   <ul>

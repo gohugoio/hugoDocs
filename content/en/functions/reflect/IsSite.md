@@ -13,7 +13,7 @@ params:
 {{< new-in 0.154.0 />}}
 
 ```go-html-template {file="layouts/page.html"}
-{{ with .Site  }}
+{{ with site }}
   {{ reflect.IsSite . }} → true
 {{ end }}
 

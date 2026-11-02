@@ -23,12 +23,12 @@ Use these methods on the `Role` object.
 : (`bool`) Reports whether this is the [default role](g).
 
   ```go-html-template
-  {{ .Site.Role.IsDefault }} → true
+  {{ site.Role.IsDefault }} → true
   ```
 
 `Name`
 : (`string`) Returns the role name. This is the lowercased key from your project configuration.
 
   ```go-html-template
-  {{ .Site.Role.Name }} → guest
+  {{ site.Role.Name }} → guest
   ```

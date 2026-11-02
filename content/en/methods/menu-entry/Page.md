@@ -34,7 +34,7 @@ If the entry is not associated with a page, we use its `url` and `name` properti
 
 ```go-html-template
 <ul>
-  {{ range .Site.Menus.main }}
+  {{ range site.Menus.main }}
     {{ with .Page }}
       <li><a href="{{ .RelPermalink }}">{{ .Title }}</a></li>
     {{ else }}

@@ -32,7 +32,7 @@ weight = 2
 : (`string`) Returns the [`direction`][] from the language definition.
 
   ```go-html-template
-  {{ .Site.Language.Direction }} → ltr
+  {{ site.Language.Direction }} → ltr
   ```
 
 `FormatAccounting`
@@ -40,7 +40,7 @@ weight = 2
 : (`string`) Formats a number as currency in accounting notation for this language. See [`lang.FormatAccounting`][].
 
   ```go-html-template
-  {{ .Site.Language.FormatAccounting 2 "EUR" -12.3 }} → -12,30 €
+  {{ site.Language.FormatAccounting 2 "EUR" -12.3 }} → -12,30 €
   ```
 
 `FormatCurrency`
@@ -48,7 +48,7 @@ weight = 2
 : (`string`) Formats a number as currency for this language. See [`lang.FormatCurrency`][].
 
   ```go-html-template
-  {{ .Site.Language.FormatCurrency 2 "EUR" 12.3 }} → 12,30 €
+  {{ site.Language.FormatCurrency 2 "EUR" 12.3 }} → 12,30 €
   ```
 
 `FormatNumber`
@@ -56,7 +56,7 @@ weight = 2
 : (`string`) Formats a number for this language. See [`lang.FormatNumber`][].
 
   ```go-html-template
-  {{ .Site.Language.FormatNumber 2 1234.5 }} → 1.234,50
+  {{ site.Language.FormatNumber 2 1234.5 }} → 1.234,50
   ```
 
 `FormatPercent`
@@ -64,7 +64,7 @@ weight = 2
 : (`string`) Formats a number as a percentage for this language. See [`lang.FormatPercent`][].
 
   ```go-html-template
-  {{ .Site.Language.FormatPercent 1 12.3 }} → 12,3 %
+  {{ site.Language.FormatPercent 1 12.3 }} → 12,3 %
   ```
 
 `IsDefault`
@@ -72,7 +72,7 @@ weight = 2
 : (`bool`) Reports whether this is the [default language](g).
 
   ```go-html-template
-  {{ .Site.Language.IsDefault }} → true
+  {{ site.Language.IsDefault }} → true
   ```
 
 `Label`
@@ -80,7 +80,7 @@ weight = 2
 : (`string`) Returns the [`label`][] from the language definition.
 
   ```go-html-template
-  {{ .Site.Language.Label }} → Deutsch
+  {{ site.Language.Label }} → Deutsch
   ```
 
 `Lang`
@@ -104,7 +104,7 @@ weight = 2
 : (`string`) Returns the [`locale`][] from the language definition, falling back to [`Name`](#name).
 
   ```go-html-template
-  {{ .Site.Language.Locale }} → de-DE
+  {{ site.Language.Locale }} → de-DE
   ```
 
 `Name`
@@ -112,7 +112,7 @@ weight = 2
 : (`string`) Returns the language tag as defined by [RFC 5646][]. This is the lowercased key from the language definition.
 
   ```go-html-template
-  {{ .Site.Language.Name }} → de
+  {{ site.Language.Name }} → de
   ```
 
 `Translate`
@@ -120,13 +120,13 @@ weight = 2
 : (`string`) Translates a string using the translation table for this language. See [`lang.Translate`][].
 
   ```go-html-template
-  {{ .Site.Language.Translate "hello" }} → Hallo
+  {{ site.Language.Translate "hello" }} → Hallo
   ```
 
   Use this to translate a string into each configured language:
 
   ```go-html-template
-  {{ range .Site.Languages }}
+  {{ range site.Languages }}
     {{ .Translate "hello" }}
   {{ end }}
   ```
@@ -140,8 +140,8 @@ Some of the methods above are commonly used in a _base_ template as attributes f
 
 ```go-html-template
 <html
-  lang="{{ .Site.Language.Locale }}"
-  dir="{{ or .Site.Language.Direction `ltr` }}"
+  lang="{{ site.Language.Locale }}"
+  dir="{{ or site.Language.Direction `ltr` }}"
 >
 ```
 

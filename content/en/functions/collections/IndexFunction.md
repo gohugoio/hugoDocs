@@ -42,8 +42,8 @@ You may also use a slice of keys to access a nested value:
 Use the `collections.Index` function to access a nested value when the key is variable. For example, these are equivalent:
 
 ```go-html-template
-{{ .Site.Params.foo }}
+{{ site.Params.foo }}
 
 {{ $k := "foo" }}
-{{ index .Site.Params $k }}
+{{ index site.Params $k }}
 ```

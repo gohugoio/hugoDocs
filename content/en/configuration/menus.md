@@ -40,7 +40,7 @@ weight = 30
 This creates a menu structure that you can access with [`Menus`][] method on a `Site` object:
 
 ```go-html-template
-{{ range .Site.Menus.main }}
+{{ range site.Menus.main }}
   ...
 {{ end }}
 ```
@@ -64,7 +64,7 @@ weight = 20
 Access this menu structure in the same way:
 
 ```go-html-template
-{{ range .Site.Menus.footer }}
+{{ range site.Menus.footer }}
   ...
 {{ end }}
 ```

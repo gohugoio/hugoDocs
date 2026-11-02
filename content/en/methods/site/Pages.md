@@ -14,7 +14,7 @@ This method returns all page [kinds](g) in the current language, in the [default
 In most cases you should use the [`RegularPages`][] method instead.
 
 ```go-html-template
-{{ range .Site.Pages }}
+{{ range site.Pages }}
   <h2><a href="{{ .RelPermalink }}">{{ .LinkTitle }}</a></h2>
 {{ end }}
 ```

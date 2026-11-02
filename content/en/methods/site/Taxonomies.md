@@ -79,7 +79,7 @@ To list the "suspense" books:
 
 ```go-html-template
 <ul>
-  {{ range .Site.Taxonomies.genres.suspense }}
+  {{ range site.Taxonomies.genres.suspense }}
     <li><a href="{{ .RelPermalink }}">{{ .LinkTitle }}</a></li>
   {{ end }}
 </ul>
@@ -107,7 +107,7 @@ If you are using a taxonomy for something like a series of posts, you can list i
 
 ```go-html-template
 <ul>
-  {{ range .Site.Taxonomies.series.golang }}
+  {{ range site.Taxonomies.series.golang }}
     <li><a href="{{ .Page.RelPermalink }}">{{ .Page.Title }}</a></li>
   {{ end }}
 </ul>
@@ -120,7 +120,7 @@ This is useful in a sidebar as "featured content". You could even have different
 ```go-html-template
 <section id="menu">
   <ul>
-    {{ range $term, $taxonomy := .Site.Taxonomies.featured }}
+    {{ range $term, $taxonomy := site.Taxonomies.featured }}
       <li>{{ $term }}</li>
       <ul>
         {{ range $taxonomy.Pages }}
@@ -138,7 +138,7 @@ The following example displays all terms in a site's tags taxonomy:
 
 ```go-html-template
 <ul>
-  {{ range .Site.Taxonomies.tags }}
+  {{ range site.Taxonomies.tags }}
     <li><a href="{{ .Page.Permalink }}">{{ .Page.Title }}</a> {{ .Count }}</li>
   {{ end }}
 </ul>
@@ -147,7 +147,7 @@ The following example displays all terms in a site's tags taxonomy:
 This example will list all taxonomies and their terms, as well as all the content assigned to each of the terms.
 
 ```go-html-template {file="layouts/_partials/all-taxonomies.html"}
-{{ with .Site.Taxonomies }}
+{{ with site.Taxonomies }}
   {{ $numberOfTerms := 0 }}
   {{ range $taxonomy, $terms := . }}
     {{ $numberOfTerms = len . | add $numberOfTerms }}

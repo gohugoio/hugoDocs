@@ -35,7 +35,7 @@ In the example above "lessons" is the top-level section.
 The `Section` method is often used with the [`where`][] function to build a page collection.
 
 ```go-html-template
-{{ range where .Site.RegularPages "Section" "lessons" }}
+{{ range where site.RegularPages "Section" "lessons" }}
   <h2><a href="{{ .RelPermalink }}">{{ .LinkTitle }}</a></h2>
 {{ end }}
 ```
@@ -43,7 +43,7 @@ The `Section` method is often used with the [`where`][] function to build a page
 This is similar to using the [`Type`][] method with the `where` function
 
 ```go-html-template
-{{ range where .Site.RegularPages "Type" "lessons" }}
+{{ range where site.RegularPages "Type" "lessons" }}
   <h2><a href="{{ .RelPermalink }}">{{ .LinkTitle }}</a></h2>
 {{ end }}
 ```

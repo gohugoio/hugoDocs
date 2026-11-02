@@ -426,6 +426,11 @@ Use short, focused code examples. When including template code examples, follow 
   No → Comparing the result with and without `safeHTML`:\
   Yes → Comparing the result with and without `safe.HTML`:
 
+- Use the global `site` function to access the `Site` object instead of the `Site` method on a `Page` or `Shortcode` object. Use the `Site` method only on pages that document it, or when the example requires the site of a page other than the current page, such as within a `range` over translations.
+
+  No → `{{ .Site.Title }}`\
+  Yes → `{{ site.Title }}`
+
 - Do not update version references to third-party libraries embedded within Hugo (for example, the KaTeX display engine used by the `transform.ToMath` function) unless the embedded library version changes in Hugo's source code.
 
 This example follows these conventions:

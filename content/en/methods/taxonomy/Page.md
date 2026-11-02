@@ -12,7 +12,7 @@ params:
 This `TAXONOMY` method returns `nil` if the taxonomy has no terms, so you must code defensively:
 
 ```go-html-template
-{{ with .Site.Taxonomies.tags.Page }}
+{{ with site.Taxonomies.tags.Page }}
   <a href="{{ .RelPermalink }}">{{ .LinkTitle }}</a>
 {{ end }}
 ```

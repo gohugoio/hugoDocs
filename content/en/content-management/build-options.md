@@ -35,7 +35,7 @@ render = 'always'
   - `never`: Never render the page to disk, and exclude it from all page collections.
 
 > [!NOTE]
-> Any page, regardless of its build options, will always be available by using the [`.Page.GetPage`][] or [`.Site.GetPage`][] method.
+> Any page, regardless of its build options, will always be available by using the [`Page.GetPage`][] or [`Site.GetPage`][] method.
 
 ## Headless page
 
@@ -63,7 +63,7 @@ title = 'Headless page'
 To include the content and images on the home page:
 
 ```go-html-template {file="layouts/home.html"}
-{{ with .Site.GetPage "/headless" }}
+{{ with site.GetPage "/headless" }}
   {{ .Content }}
   {{ range .Resources.ByType "image" }}
     <img src="{{ .RelPermalink }}" width="{{ .Width }}" height="{{ .Height }}" alt="">
@@ -121,7 +121,7 @@ In the front matter above, note that we have set `list` to `local` to include th
 To include the content and images on the home page:
 
 ```go-html-template {file="layouts/home.html"}
-{{ with .Site.GetPage "/headless" }}
+{{ with site.GetPage "/headless" }}
   {{ range .Pages }}
     {{ .Content }}
     {{ range .Resources.ByType "image" }}
@@ -287,10 +287,10 @@ public/
 └── index.html
 ```
 
-[`.Page.GetPage`]: /methods/page/getpage/
-[`.Site.GetPage`]: /methods/site/getpage/
+[`Page.GetPage`]: /methods/page/getpage/
 [`Permalink`]: /methods/resource/permalink/
 [`Publish`]: /methods/resource/publish/
 [`RelPermalink`]: /methods/resource/relpermalink/
+[`Site.GetPage`]: /methods/site/getpage/
 [page bundles]: /content-management/page-bundles/
 [page resources]: /content-management/page-resources/

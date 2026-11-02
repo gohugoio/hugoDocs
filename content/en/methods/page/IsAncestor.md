@@ -33,19 +33,19 @@ content/
 When rendering the `auctions` page:
 
 ```go-html-template
-{{ with .Site.GetPage "/" }}
+{{ with site.GetPage "/" }}
   {{ $.IsAncestor . }} → false
 {{ end }}
 
-{{ with .Site.GetPage "/auctions" }}
+{{ with site.GetPage "/auctions" }}
   {{ $.IsAncestor . }} → false
 {{ end }}
 
-{{ with .Site.GetPage "/auctions/2023-11" }}
+{{ with site.GetPage "/auctions/2023-11" }}
   {{ $.IsAncestor . }} → true
 {{ end }}
 
-{{ with .Site.GetPage "/auctions/2023-11/auction-2" }}
+{{ with site.GetPage "/auctions/2023-11/auction-2" }}
   {{ $.IsAncestor . }} → true
 {{ end }}
 ```
@@ -54,7 +54,7 @@ In the examples above we are coding defensively using the [`with`][] statement, 
 
 ```go-html-template
 {{ $path := "/auctions/2023-11" }}
-{{ with .Site.GetPage $path }}
+{{ with site.GetPage $path }}
   {{ $.IsAncestor . }} → true
 {{ else }}
   {{ errorf "Unable to find the section with path %s" $path }}
@@ -66,7 +66,7 @@ In the examples above we are coding defensively using the [`with`][] statement, 
 Inside of the `with` block, the [context](g) (the dot) is the section `Page` object, not the `Page` object passed into the template. If we were to use this syntax:
 
 ```go-html-template
-{{ with .Site.GetPage "/auctions" }}
+{{ with site.GetPage "/auctions" }}
   {{ .IsAncestor . }} → true
 {{ end }}
 ```
@@ -74,7 +74,7 @@ Inside of the `with` block, the [context](g) (the dot) is the section `Page` obj
 The result would be wrong when rendering the `auction-1` page because we are comparing the section page to itself. Use the `$` to get the context passed into the template.
 
 ```go-html-template
-{{ with .Site.GetPage "/auctions" }}
+{{ with site.GetPage "/auctions" }}
   {{ $.IsAncestor . }} → true
 {{ end }}
 ```

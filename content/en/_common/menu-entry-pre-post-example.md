@@ -26,7 +26,7 @@ To render the menu:
 
 ```go-html-template
 <ul>
-  {{ range .Site.Menus.main }}
+  {{ range site.Menus.main }}
     <li>
       {{ .Pre | markdownify }}
       <a href="{{ .URL }}">{{ .Name }}</a>

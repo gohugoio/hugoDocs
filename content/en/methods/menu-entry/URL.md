@@ -13,7 +13,7 @@ For menu entries associated with a page, the `URL` method returns the page's [`R
 
 ```go-html-template
 <ul>
-  {{ range .Site.Menus.main }}
+  {{ range site.Menus.main }}
     <li><a href="{{ .URL }}">{{ .Name }}</a></li>
   {{ end }}
 </ul>

@@ -15,4 +15,8 @@ See [Site methods][].
 {{ .Site.Title }}
 ```
 
+> [!TIP]
+> To simplify your templates, use the global [`site`][] function instead. Unlike the `Site` method, the `site` function is available in any context.
+
 [Site methods]: /methods/site/
+[`site`]: /functions/global/site/

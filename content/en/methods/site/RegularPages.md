@@ -12,7 +12,7 @@ params:
 The `RegularPages` method on a `Site` object returns a collection of all [regular pages](g), in the [default sort order](g).
 
 ```go-html-template
-{{ range .Site.RegularPages }}
+{{ range site.RegularPages }}
   <h2><a href="{{ .RelPermalink }}">{{ .LinkTitle }}</a></h2>
 {{ end }}
 ```
@@ -24,7 +24,7 @@ The `RegularPages` method on a `Site` object returns a collection of all [regula
 To change the sort order, use any of the `Pages` [sorting methods][]. For example:
 
 ```go-html-template
-{{ range .Site.RegularPages.ByTitle }}
+{{ range site.RegularPages.ByTitle }}
   <h2><a href="{{ .RelPermalink }}">{{ .Title }}</a></h2>
 {{ end }}
 ```

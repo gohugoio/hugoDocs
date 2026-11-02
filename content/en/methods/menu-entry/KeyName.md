@@ -28,7 +28,7 @@ This example uses the `KeyName` method when querying the translation table on a 
 
 ```go-html-template
 <ul>
-  {{ range .Site.Menus.main }}
+  {{ range site.Menus.main }}
     <li><a href="{{ .URL }}">{{ or (T (.KeyName | lower)) .Name }}</a></li>
   {{ end }}
 </ul>

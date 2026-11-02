@@ -48,7 +48,7 @@ To create a link to the term page:
 ```go-html-template
 {{ $taxonomy := "authors" }}
 {{ $term := "Victor Hugo" }}
-{{ with index .Site.Taxonomies $taxonomy (urlize $term) }}
+{{ with index site.Taxonomies $taxonomy (urlize $term) }}
   <a href="{{ .Page.RelPermalink }}">{{ .Page.LinkTitle }}</a>
 {{ end }}
 ```

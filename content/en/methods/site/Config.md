@@ -25,7 +25,7 @@ id = 'G-XXXXXXXXX'
 To access this value from a template:
 
 ```go-html-template
-{{ .Site.Config.Services.GoogleAnalytics.ID }} → G-XXXXXXXXX
+{{ site.Config.Services.GoogleAnalytics.ID }} → G-XXXXXXXXX
 ```
 
 You must capitalize each identifier as shown above.
@@ -44,7 +44,7 @@ disable = true
 To access this value from a template:
 
 ```go-html-template
-{{ .Site.Config.Privacy.YouTube.Disable }} → true
+{{ site.Config.Privacy.YouTube.Disable }} → true
 ```
 
 You must capitalize each identifier as shown above.
