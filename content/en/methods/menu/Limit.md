@@ -34,7 +34,7 @@ To sort the entries by name, and limit to the first 2 entries:
 
 ```go-html-template
 <ul>
-  {{ range .Site.Menus.main.ByName.Limit 2 }}
+  {{ range site.Menus.main.ByName.Limit 2 }}
     <li><a href="{{ .URL }}">{{ .Name }}</a></li>
   {{ end }}
 </ul>

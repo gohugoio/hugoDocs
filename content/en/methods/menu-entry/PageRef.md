@@ -57,7 +57,7 @@ With this template code:
 
 ```go-html-template {file="layouts/_partials/menu.html"}
 <ul>
-  {{ range .Site.Menus.main }}
+  {{ range site.Menus.main }}
     <li><a href="{{ .URL }}">{{ .Name }}</a></li>
   {{ end }}
 </ul>
@@ -78,7 +78,7 @@ With this template code:
 
 ```go-html-template {file="layouts/_partials/menu.html"}
 <ul>
-  {{ range .Site.Menus.main }}
+  {{ range site.Menus.main }}
     <li><a href="{{ or .URL .PageRef }}">{{ .Name }}</a></li>
   {{ end }}
 </ul>

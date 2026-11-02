@@ -17,7 +17,7 @@ In this contrived example, we limit the number of menu entries based on weight:
 
 ```go-html-template
 <ul>
-  {{ range .Site.Menus.main }}
+  {{ range site.Menus.main }}
     {{ if le .Weight 42 }}
       <li><a href="{{ .URL }}">{{ .Name }}</a></li>
     {{ end }}

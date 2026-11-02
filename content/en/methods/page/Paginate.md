@@ -18,7 +18,7 @@ There is also a `Paginator` method on `Page` objects, but it can neither filter 
 You can invoke pagination in [home][], [section][], [taxonomy][], and [term][] templates.
 
 ```go-html-template {file="layouts/section.html"}
-{{ $pages := where .Site.RegularPages "Section" "articles" }}
+{{ $pages := where site.RegularPages "Section" "articles" }}
 {{ $pages = $pages.ByTitle }}
 {{ range (.Paginate $pages 7).Pages }}
   <h2><a href="{{ .RelPermalink }}">{{ .Title }}</a></h2>

@@ -27,7 +27,7 @@ content/
 This template:
 
 ```go-html-template
-{{ range .Site.Sections }}
+{{ range site.Sections }}
   <h2><a href="{{ .RelPermalink }}">{{ .LinkTitle }}</a></h2>
 {{ end }}
 ```

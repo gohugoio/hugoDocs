@@ -41,7 +41,7 @@ Reading speed varies by language. Create language-specific estimated reading tim
 Then in your template:
 
 ```go-html-template
-{{ $readingTime := div (float .WordCount) .Site.Params.reading_speed }}
+{{ $readingTime := div (float .WordCount) site.Params.reading_speed }}
 {{ $readingTime = math.Ceil $readingTime }}
 ```
 

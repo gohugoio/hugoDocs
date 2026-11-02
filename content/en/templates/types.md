@@ -99,7 +99,7 @@ For example, Hugo applies a _base_ template to the _home_ template below, then r
 ```go-html-template {file="layouts/home.html"}
 {{ define "main" }}
   {{ .Content }}
-  {{ range .Site.RegularPages }}
+  {{ range site.RegularPages }}
     <h2><a href="{{ .RelPermalink }}">{{ .LinkTitle }}</a></h2>
   {{ end }}
 {{ end }}
@@ -229,7 +229,7 @@ For example, Hugo applies a _base_ template to the _all_ template below, then co
 {{ define "main" }}
   {{ if eq .Kind "home" }}
     {{ .Content }}
-    {{ range .Site.RegularPages }}
+    {{ range site.RegularPages }}
       <h2><a href="{{ .RelPermalink }}">{{ .LinkTitle }}</a></h2>
     {{ end }}
   {{ else if eq .Kind "page" }}

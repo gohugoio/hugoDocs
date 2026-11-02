@@ -29,7 +29,7 @@ This example uses the `Identifier` method when querying the translation table on
 
 ```go-html-template
 <ul>
-  {{ range .Site.Menus.main }}
+  {{ range site.Menus.main }}
     <li><a href="{{ .URL }}">{{ or (T .Identifier) .Name }}</a></li>
   {{ end }}
 </ul>

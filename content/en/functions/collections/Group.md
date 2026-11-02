@@ -11,8 +11,8 @@ params:
 ---
 
 ```go-html-template
-{{ $new := .Site.RegularPages | first 10 | group "New" }}
-{{ $old := .Site.RegularPages | last 10 | group "Old" }}
+{{ $new := site.RegularPages | first 10 | group "New" }}
+{{ $old := site.RegularPages | last 10 | group "Old" }}
 {{ $groups := slice $new $old }}
 {{ range $groups }}
   <h3>{{ .Key }}{{/* Prints "New", "Old" */}}</h3>

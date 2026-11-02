@@ -33,19 +33,19 @@ weight = 2
 When visiting the German language site:
 
 ```go-html-template
-{{ .Site.LanguagePrefix }} → ""
+{{ site.LanguagePrefix }} → ""
 ```
 
 When visiting the English language site:
 
 ```go-html-template
-{{ .Site.LanguagePrefix }} → /en
+{{ site.LanguagePrefix }} → /en
 ```
 
 If you change `defaultContentLanguageInSubdir` to `true`, when visiting the German language site:
 
 ```go-html-template
-{{ .Site.LanguagePrefix }} → /de
+{{ site.LanguagePrefix }} → /de
 ```
 
 You may use the `LanguagePrefix` method with both monolingual and multilingual projects.

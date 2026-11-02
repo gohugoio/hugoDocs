@@ -29,7 +29,7 @@ content/
 To capture the "genres" `Taxonomy` object from within any template, use the [`Taxonomies`][] method on a `Site` object.
 
 ```go-html-template
-{{ $taxonomyObject := .Site.Taxonomies.genres }}
+{{ $taxonomyObject := site.Taxonomies.genres }}
 ```
 
 To capture the "genres" `Taxonomy` object when rendering its page with a _taxonomy_ template, use the [`Terms`][] method on the page's [`Data`][] object:

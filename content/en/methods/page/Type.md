@@ -33,7 +33,7 @@ content/
 To list the books, regardless of [section](g):
 
 ```go-html-template
-{{ range where .Site.RegularPages.ByTitle "Type" "books" }}
+{{ range where site.RegularPages.ByTitle "Type" "books" }}
   <h2><a href="{{ .RelPermalink }}">{{ .Title }}</a></h2>
 {{ end }}
 ```

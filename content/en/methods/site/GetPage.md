@@ -35,7 +35,7 @@ content/
 This _home_ template:
 
 ```go-html-template {file="layouts/home.html"}
-{{ with .Site.GetPage "/works/paintings" }}
+{{ with site.GetPage "/works/paintings" }}
   <ul>
     {{ range .Pages }}
       <li>{{ .Title }} by {{ .Params.artist }}</li>
@@ -56,7 +56,7 @@ Is rendered to:
 To get a regular page instead of a section page:
 
 ```go-html-template {file="layouts/home.html"}
-{{ with .Site.GetPage "/works/paintings/starry-night" }}
+{{ with site.GetPage "/works/paintings/starry-night" }}
   {{ .Title }} → Starry Night
   {{ .Params.artist }} → Vincent van Gogh
 {{ end }}
@@ -95,7 +95,7 @@ content/
 In the _home_ template, use the `GetPage` method on a `Site` object to render all the images in the headless [page bundle](g):
 
 ```go-html-template {file="layouts/home.html"}
-{{ with .Site.GetPage "/headless" }}
+{{ with site.GetPage "/headless" }}
   {{ range .Resources.ByType "image" }}
     <img src="{{ .RelPermalink }}" width="{{ .Width }}" height="{{ .Height }}" alt="">
   {{ end }}

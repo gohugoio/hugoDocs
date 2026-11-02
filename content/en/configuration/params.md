@@ -22,8 +22,8 @@ phone = '+1 206-555-1212'
 Access the custom parameters from your templates using the [`Params`][] method on a `Site` object:
 
 ```go-html-template
-{{ .Site.Params.subtitle }} → Reference, Tutorials, and Explanations
-{{ .Site.Params.contact.email }} → info@example.org
+{{ site.Params.subtitle }} → Reference, Tutorials, and Explanations
+{{ site.Params.contact.email }} → info@example.org
 ```
 
 Key names should use camelCase or snake_case. While TOML, YAML, and JSON allow kebab-case keys, they are not valid [identifiers](g) and cannot be used when [chaining](g) identifiers.
@@ -31,14 +31,14 @@ Key names should use camelCase or snake_case. While TOML, YAML, and JSON allow k
 For example, you can do either of these:
 
 ```go-html-template
-{{ .Site.params.camelCase.foo }}
-{{ .Site.params.snake_case.foo }}
+{{ site.Params.camelCase.foo }}
+{{ site.Params.snake_case.foo }}
 ```
 
 But you cannot do this:
 
 ```go-html-template
-{{ .Site.params.kebab-case.foo }}
+{{ site.Params.kebab-case.foo }}
 ```
 
 ## Multilingual projects
@@ -91,7 +91,7 @@ font = '#222222'
 To access the module/theme settings:
 
 ```go-html-template
-{{ $cfg := .Site.Params.module.mymodule }}
+{{ $cfg := site.Params.module.mymodule }}
 
 {{ $cfg.colors.background }} → #efefef
 {{ $cfg.colors.font }} → #222222

@@ -10,7 +10,7 @@ params:
 ---
 
 ```go-html-template
-{{ range .Site.Menus.main }}
+{{ range site.Menus.main }}
   {{ .Menu }} → main
 {{ end }}
 ```

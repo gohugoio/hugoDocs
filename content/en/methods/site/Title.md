@@ -18,5 +18,5 @@ title = 'My Documentation Site'
 Template:
 
 ```go-html-template
-{{ .Site.Title }} → My Documentation Site
+{{ site.Title }} → My Documentation Site
 ```

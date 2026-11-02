@@ -1,6 +1,6 @@
 ---
 title: site
-description: Returns the Site object of the current site, accessible from any context.
+description: Returns the Site object of the site being rendered, accessible from any context.
 categories: []
 keywords: []
 params:

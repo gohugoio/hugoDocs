@@ -17,20 +17,20 @@ The `DIMENSION` argument must be one of `language`, `version`, or `role`.
 
 Example|Returns|Equivalent to
 :--|:--|:--
-`{{ .Site.Dimension "language" }}`|`langs.Language`|`{{ .Site.Language }}`
-`{{ .Site.Dimension "version" }}`|`version.Version`|`{{ .Site.Version }}`
-`{{ .Site.Dimension "role" }}`|`roles.Role`|`{{ .Site.Role }}`
+`{{ site.Dimension "language" }}`|`langs.Language`|`{{ site.Language }}`
+`{{ site.Dimension "version" }}`|`version.Version`|`{{ site.Version }}`
+`{{ site.Dimension "role" }}`|`roles.Role`|`{{ site.Role }}`
 
 ```go-html-template
-{{ $languageObject := .Site.Dimension "language" }}
+{{ $languageObject := site.Dimension "language" }}
 {{ $languageObject.IsDefault }} → true
 {{ $languageObject.Name }} → en
 
-{{ $versionObject := .Site.Dimension "version" }}
+{{ $versionObject := site.Dimension "version" }}
 {{ $versionObject.IsDefault }} → true
 {{ $versionObject.Name }} → v1.0.0
 
-{{ $roleObject := .Site.Dimension "role" }}
+{{ $roleObject := site.Dimension "role" }}
 {{ $roleObject.IsDefault }} → true
 {{ $roleObject.Name }} → guest
 ```

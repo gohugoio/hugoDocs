@@ -18,7 +18,7 @@ baseURL = 'https://example.org/docs/'
 Template:
 
 ```go-html-template
-{{ .Site.BaseURL }} → https://example.org/docs/
+{{ site.BaseURL }} → https://example.org/docs/
 ```
 
 > [!TIP]

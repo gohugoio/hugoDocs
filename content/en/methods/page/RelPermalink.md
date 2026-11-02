@@ -19,6 +19,6 @@ baseURL = 'https://example.org/docs/'
 Template:
 
 ```go-html-template
-{{ $page := .Site.GetPage "/about" }}
+{{ $page := site.GetPage "/about" }}
 {{ $page.RelPermalink }} → /docs/about/
 ```

@@ -17,7 +17,7 @@ params:
   {{ reflect.IsPage . }} → true
 {{ end }}
 
-{{ with .Site  }}
+{{ with site }}
   {{ reflect.IsPage . }} → false
 {{ end }}
 ```

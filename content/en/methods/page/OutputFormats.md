@@ -22,7 +22,7 @@ Use these methods on the `OutputFormats` object.
 : (`page.OutputFormat`) Returns the [canonical output format](g) for the current page, if defined. Once you have captured the object, use any of its [associated methods][].
 
   ```go-html-template
-  {{ with .Site.Home.OutputFormats.Canonical }}
+  {{ with site.Home.OutputFormats.Canonical }}
     {{ .MediaType.Type }} → text/html
     {{ .MediaType.MainType }} → text
     {{ .MediaType.SubType }} → html
@@ -37,7 +37,7 @@ Use these methods on the `OutputFormats` object.
 : (`page.OutputFormat`) Returns the `OutputFormat` object with the given identifier. Once you have captured the object, use any of its [associated methods][].
 
   ```go-html-template
-  {{ with .Site.Home.OutputFormats.Get "rss" }}
+  {{ with site.Home.OutputFormats.Get "rss" }}
     {{ .MediaType.Type }} → application/rss+xml
     {{ .MediaType.MainType }} → application
     {{ .MediaType.SubType }} → rss

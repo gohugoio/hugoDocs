@@ -71,7 +71,7 @@ In the last example, the collection includes pages in the resources subdirectory
 > When used with the `Site` object, the `RegularPages` method recursively returns all regular pages within the site. See [details][].
 
 ```go-html-template
-{{ range .Site.RegularPages.ByTitle }}
+{{ range site.RegularPages.ByTitle }}
   <h2><a href="{{ .RelPermalink }}">{{ .Title }}</a></h2>
 {{ end }}
 ```

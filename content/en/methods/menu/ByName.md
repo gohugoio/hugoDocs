@@ -34,7 +34,7 @@ To sort the entries by `name`:
 
 ```go-html-template
 <ul>
-  {{ range .Site.Menus.main.ByName }}
+  {{ range site.Menus.main.ByName }}
     <li><a href="{{ .URL }}">{{ .Name }}</a></li>
   {{ end }}
 </ul>
@@ -54,7 +54,7 @@ You can also sort menu entries using the [`sort`][] function. For example, to so
 
 ```go-html-template
 <ul>
-  {{ range sort .Site.Menus.main "Name" "desc" }}
+  {{ range sort site.Menus.main "Name" "desc" }}
     <li><a href="{{ .URL }}">{{ .Name }}</a></li>
   {{ end }}
 </ul>

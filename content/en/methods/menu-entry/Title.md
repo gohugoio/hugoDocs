@@ -13,7 +13,7 @@ The `Title` method returns the `title` property of the given menu entry. If the 
 
 ```go-html-template
 <ul>
-  {{ range .Site.Menus.main }}
+  {{ range site.Menus.main }}
     <li><a href="{{ .URL }}" title="{{ .Title }}>{{ .Name }}</a></li>
   {{ end }}
 </ul>

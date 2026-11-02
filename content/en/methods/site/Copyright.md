@@ -18,5 +18,5 @@ copyright = '© 2023 ABC Widgets, Inc.'
 Template:
 
 ```go-html-template
-{{ .Site.Copyright }} → © 2023 ABC Widgets, Inc.
+{{ site.Copyright }} → © 2023 ABC Widgets, Inc.
 ```

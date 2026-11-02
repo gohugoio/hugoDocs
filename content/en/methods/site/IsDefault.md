@@ -40,7 +40,7 @@ weight = 2
 If you call an initialization _partial_ template to handle one-time build logic or global variable setup, wrap that call in an [`if`][] statement using this function. This prevents the logic from being executed for every dimensional variation.
 
 ```go-html-template
-{{ if .Site.IsDefault }}
+{{ if site.IsDefault }}
   {{ partial "init.html" . }}
 {{ end }}
 ```

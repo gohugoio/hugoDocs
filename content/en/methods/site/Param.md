@@ -17,12 +17,12 @@ display_toc = true
 {{< /code-toggle >}}
 
 ```go-html-template
-{{ .Site.Param "display_toc" }} → true
+{{ site.Param "display_toc" }} → true
 ```
 
 The above is equivalent to either of these:
 
 ```go-html-template
-{{ .Site.Params.display_toc }}
-{{ index .Site.Params "display_toc" }}
+{{ site.Params.display_toc }}
+{{ index site.Params "display_toc" }}
 ```

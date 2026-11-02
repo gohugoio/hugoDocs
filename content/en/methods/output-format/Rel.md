@@ -12,7 +12,7 @@ params:
 {{% include "/_common/output-format-method-note.md" %}}
 
 ```go-html-template
-{{ with .Site.Home.OutputFormats.Get "rss" }}
+{{ with site.Home.OutputFormats.Get "rss" }}
   {{ .Rel }} → alternate
 {{ end }}
 ```

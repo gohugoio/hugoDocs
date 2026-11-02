@@ -14,7 +14,7 @@ params:
 ## Example
 
 ```go-html-template
-{{ with .Site.Home.OutputFormats.Get "rss" }}
+{{ with site.Home.OutputFormats.Get "rss" }}
   {{ with .MediaType }}
     {{ .Type }} → application/rss+xml
     {{ .MainType }} → application
