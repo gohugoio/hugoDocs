@@ -28,7 +28,7 @@ Create _shortcode_ templates within the `layouts/_shortcodes` directory, either 
 
 ```tree
 layouts/
-└── _shortcodes/
+└── s/
     ├── diagrams/
     │   ├── kroki.html
     │   └── plotly.html
@@ -42,7 +42,7 @@ layouts/
     └── row.html
 ```
 
-When calling a shortcode in a subdirectory, specify its path relative to the `_shortcode` directory, excluding the file extension.
+When calling a shortcode in a subdirectory, specify its path relative to the `_shortcodes` directory, excluding the file extension.
 
 ```md
 {{</* media/audio path=/audio/podcast/episode-42.mp3 */>}}
@@ -224,7 +224,7 @@ When using named arguments, the `Params` method returns a map:
 ```go-html-template {file="layouts/_shortcodes/image.html"}
 {{ index .Params 0 }} → a.jpg
 {{ index .Params 1 }} → 300
-{{ index .Params 1 }} → A white kitten
+{{ index .Params 2 }} → A white kitten
 ```
 
 Combine the `Params` method with the [`collections.IsSet`][] function to determine if a parameter is set, even if its value is falsy.
