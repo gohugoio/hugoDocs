@@ -305,7 +305,7 @@ export HUGO_ENABLEGITINFO=true
 hugo
 ```
 
-The above configures the [`baseURL`][] and [`enableGitInfo`][] settings and then builds your site.
+The above configures the [`baseURL`][] and [`enableGitInfo`][] settings and then builds your project.
 
 An environment variable takes precedence over the values set in the configuration file. This means that if you set a configuration value with both an environment variable and in the configuration file, Hugo uses the value from the environment variable.
 
@@ -330,7 +330,7 @@ In addition to configuring standard settings, environment variables may be used 
 : (`string`) A format string for the file path, line number, and column number displayed when reporting errors, or when calling the `Position` method from a shortcode or Markdown render hook. Valid tokens are `:file`, `:line`, and `:col`. Default is `:file::line::col`.
 
 `HUGO_MEMORYLIMIT`
-: (`int`) The maximum amount of system memory, in gigabytes, that Hugo can use while rendering your site. Default is 25% of total system memory. Note that `HUGO_MEMORYLIMIT` is a "best effort" setting. Don't expect Hugo to build a million pages with only 1 GB of memory. You can get more information about how this behaves during the build by running `hugo build --logLevel info` and look for the `dynacache` label.
+: (`int`) The maximum amount of system memory, in gigabytes, that Hugo can use while building your project. Default is 25% of total system memory. Note that `HUGO_MEMORYLIMIT` is a "best effort" setting. Don't expect Hugo to build a million pages with only 1 GB of memory. You can get more information about how this behaves during the build by running `hugo build --logLevel info` and look for the `dynacache` label.
 
 `HUGO_NUMWORKERMULTIPLIER`
 : (`int`) The number of workers used in parallel processing. Default is the number of logical CPUs.

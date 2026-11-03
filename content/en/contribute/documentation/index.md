@@ -165,6 +165,18 @@ Link to the [glossary][] as needed and use terms consistently. Pay particular at
 - "stylesheet" (one word)
 - "website" (one word)
 
+Distinguish between a [project](g) and a [site](g). A project is the collection of files used to generate one or more sites, where each site is a unique combination of language, role, and version. Use "project" when referring to the project directory, the project configuration, or the build as a whole, such as "when building your project." Use "site" when referring to a single site, the `Site` object, or the website that you deploy and that visitors see, such as "deploy your site." Some configuration settings are site-specific, so "site configuration" is sometimes correct.
+
+When the distinction is unclear, rewrite the sentence to name the specific thing instead, such as a directory, a file, or the build. If that is not practical, use "site."
+
+No → The published site will have this structure:\
+Yes → The `public` directory will have this structure:
+
+No → Some templates are executed many times during a site build.\
+Yes → Some templates are executed many times during a build.
+
+Use "[build artifacts](g)" when referring to the output of a build as a whole, such as "Hugo writes the build artifacts to the `public` directory." When referring to specific files or their contents, name them instead, such as "the rendered HTML files." Use "published site" only when referring to the deployed website.
+
 ### Products and executables
 
 Distinguish between a product or project and its command-line executable.
@@ -283,7 +295,7 @@ Use of the alternate title is limited to the "See also" sidebar.
 
 ## Redirects
 
-When you move or rename a page, create a redirect from the old URL to the new URL so that existing links and bookmarks continue to work. When you delete a page, do not create a redirect unless another page covers the same topic. When you build the site, Hugo generates a `_redirects` file that Netlify uses to redirect visitors.
+When you move or rename a page, create a redirect from the old URL to the new URL so that existing links and bookmarks continue to work. When you delete a page, do not create a redirect unless another page covers the same topic. When you build the project, Hugo generates a `_redirects` file that Netlify uses to redirect visitors.
 
 Create each redirect using either the `aliases` front matter field or the redirects data file, as described below. Both methods produce the same result.
 

@@ -30,7 +30,7 @@ This is the default configuration:
 {{< code-toggle config=build.buildStats />}}
 
 `enable`
-: (`bool`) Whether to create a `hugo_stats.json` file in the root of your project. This file contains arrays of the `class` attributes, `id` attributes, and tags of every HTML element within your published site. Use this file as data source when [removing unused CSS][] from your site. This process is also known as pruning, purging, or tree shaking. Default is `false`.
+: (`bool`) Whether to create a `hugo_stats.json` file in the root of your project. This file contains arrays of the `class` attributes, `id` attributes, and tags of every element in the rendered HTML files. Use this file as data source when [removing unused CSS][] from your site. This process is also known as pruning, purging, or tree shaking. Default is `false`.
 
 `disableIDs`
 : (`bool`) Whether to exclude `id` attributes. Default is `false`.
@@ -43,7 +43,7 @@ This is the default configuration:
 
 Given that CSS purging is typically limited to production builds, place the `buildStats` object below [`config/production`][].
 
-Built for speed, there may be "false positive" detections, such as HTML elements that are not HTML elements, while parsing the published site. These "false positives" are infrequent and inconsequential.
+Built for speed, there may be "false positive" detections, such as HTML elements that are not HTML elements, while parsing the rendered HTML files. These "false positives" are infrequent and inconsequential.
 
 Due to the nature of partial server builds, new HTML entities are added while the server is running, but old values will not be removed until you restart the server or run `hugo build`.
 
@@ -96,7 +96,7 @@ This is the default configuration:
 
 `enable`
 : {{< new-in 0.167.0 />}}
-: (`bool`) Whether to clean the `public` directory before rendering the site. Hugo removes every file and directory in the `public` directory that does not have a corresponding static file, whether from the project's `static` directory, a module mount, or a theme. This removes stale files, such as old rendered pages and deleted static assets, as well as files you added to the `public` directory yourself, such as a `CNAME` or `_redirects` file. Use the [`keepDirs`](#keepdirs) and [`keepFiles`](#keepfiles) settings to preserve specific directories and files. This cleanup runs even if the project has no static files. Default is `false`. Override this setting for a single build with the `--cleanDestinationDir` command line flag.
+: (`bool`) Whether to clean the `public` directory before building the project. Hugo removes every file and directory in the `public` directory that does not have a corresponding static file, whether from the project's `static` directory, a module mount, or a theme. This removes stale files, such as old rendered pages and deleted static assets, as well as files you added to the `public` directory yourself, such as a `CNAME` or `_redirects` file. Use the [`keepDirs`](#keepdirs) and [`keepFiles`](#keepfiles) settings to preserve specific directories and files. This cleanup runs even if the project has no static files. Default is `false`. Override this setting for a single build with the `--cleanDestinationDir` command line flag.
 
 `keepDirs`
 : {{< new-in 0.167.0 />}}

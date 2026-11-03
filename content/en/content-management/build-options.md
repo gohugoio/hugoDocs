@@ -1,6 +1,6 @@
 ---
 title: Build options
-description: Build options help define how Hugo must treat a given page when building the site.
+description: Build options help define how Hugo must treat a given page when building your project.
 categories: []
 keywords: []
 ---
@@ -71,7 +71,7 @@ To include the content and images on the home page:
 {{ end }}
 ```
 
-The published site will have this structure:
+The `public` directory will have this structure:
 
 ```tree
 public/
@@ -131,7 +131,7 @@ To include the content and images on the home page:
 {{ end }}
 ```
 
-The published site will have this structure:
+The `public` directory will have this structure:
 
 ```tree
 public/
@@ -188,7 +188,7 @@ To render the glossary:
 </dl>
 ```
 
-The published site will have this structure:
+The `public` directory will have this structure:
 
 ```tree
 public/
@@ -219,7 +219,7 @@ render = 'never'
 list = 'never'
 {{< /code-toggle >}}
 
-The published site will have this structure:
+The `public` directory will have this structure:
 
 ```tree
 public/
@@ -268,7 +268,7 @@ list = 'never'
 environment = 'production'
 {{< /code-toggle >}}
 
-The production site will have this structure:
+When building for production, the `public` directory will have this structure:
 
 ```tree
 public/

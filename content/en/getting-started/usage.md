@@ -73,13 +73,13 @@ To view your site while developing layouts or creating content, `cd` into your p
 hugo server
 ```
 
-The [`hugo server`][] command builds your site and serves your pages using a minimal HTTP server. When you run `hugo server` it will display the URL of your local site:
+The [`hugo server`][] command builds your project and serves your pages using a minimal HTTP server. When you run `hugo server` it will display the URL of your local site:
 
 ```text
 Web Server is available at http://localhost:1313/
 ```
 
-While the server is running, it watches your project directory for changes to assets, configuration, content, data, layouts, translations, and static files. When it detects a change, the server rebuilds your site and refreshes your browser using [LiveReload][].
+While the server is running, it watches your project directory for changes to assets, configuration, content, data, layouts, translations, and static files. When it detects a change, the server rebuilds your project and refreshes your browser using [LiveReload][].
 
 Most Hugo builds are so fast that you may not notice the change unless you are looking directly at your browser.
 
@@ -103,7 +103,7 @@ When you are ready to deploy your site, run:
 hugo
 ```
 
-This builds your site, publishing the files to the `public` directory. The directory structure will look something like this:
+This builds your project, writing the build artifacts to the `public` directory. The directory structure will look something like this:
 
 ```tree
 public/
@@ -127,7 +127,7 @@ In a simple hosting environment, where you typically `ftp`, `rsync`, or `scp` yo
 
 Most of our users deploy their sites to a [CI/CD](g) platform, where a push[^1] to their remote Git repository triggers a build and deployment. Learn more in the [host and deploy][] section.
 
-[^1]: The Git repository contains the entire project directory, typically excluding the `public` directory because the site is built _after_ the push.
+[^1]: The Git repository contains the entire project directory, typically excluding the `public` directory because the project is built _after_ the push.
 
 [LiveReload]: https://github.com/livereload/livereload-js
 [`--destination`]: /commands/hugo/#options
