@@ -1,6 +1,6 @@
 ---
 title: Sitemap templates
-description: Hugo provides built-in sitemap templates.
+description: Hugo provides embedded sitemap templates.
 categories: []
 keywords: []
 weight: 130
@@ -12,18 +12,18 @@ Hugo's embedded sitemap templates conform to v0.9 of the [sitemap protocol][].
 
 With a monolingual project, Hugo generates a sitemap.xml file in the root of the `public` directory using the [embedded sitemap template][].
 
-With a multilingual project, Hugo generates:
+With a multilingual project, Hugo generates these files:
 
-- A sitemap.xml file in the root of each site (language) using the [embedded sitemap template][]
+- A sitemap.xml file in the root of each site (language) using the embedded sitemap template
 - A sitemap.xml file in the root of the `public` directory using the [embedded sitemapindex template][]
 
 ## Configuration
 
-See [configure sitemap][].
+Set the default values for all pages in your [sitemap configuration][configure sitemap].
 
 ## Override default values
 
-Override the default values for a given page in front matter.
+Override the default values for a given page in front matter:
 
 {{< code-toggle file=news.md fm=true >}}
 title = 'News'
@@ -33,15 +33,17 @@ title = 'News'
   priority = 0.8
 {{</ code-toggle >}}
 
-## Override built-in templates
+## Override the embedded templates
 
-To override the built-in sitemap.xml template, create a new `layouts/sitemap.xml` file. When ranging through the page collection, access the _change frequency_ and _priority_ with `.Sitemap.ChangeFreq` and `.Sitemap.Priority` respectively.
+To override the embedded sitemap template, create a `layouts/sitemap.xml` file in your project or in a [module](g). When ranging through the page collection, access the change frequency and priority of each page with `.Sitemap.ChangeFreq` and `.Sitemap.Priority`.
 
-To override the built-in sitemapindex.xml template, create a new `layouts/sitemapindex.xml` file.
+To override the embedded sitemapindex template, create a `layouts/sitemapindex.xml` file.
+
+To use a different sitemap template for a language, role, or version, include an [identifier][] in the file name, such as `layouts/sitemap.de.xml` or `layouts/sitemap._role_member_.xml`.
 
 ## Disable sitemap generation
 
-You may disable sitemap generation in your project configuration:
+To disable sitemap generation, add this to your project configuration:
 
 {{< code-toggle file=hugo >}}
 disableKinds = ['sitemap']
@@ -50,4 +52,5 @@ disableKinds = ['sitemap']
 [configure sitemap]: /configuration/sitemap/
 [embedded sitemap template]: <{{% eturl sitemap %}}>
 [embedded sitemapindex template]: <{{% eturl sitemapindex %}}>
+[identifier]: /templates/lookup-order/#file-names
 [sitemap protocol]: https://www.sitemaps.org/protocol.html

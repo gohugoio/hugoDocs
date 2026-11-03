@@ -159,7 +159,7 @@ Each `Page` object provides two methods to access output formats. The [`OutputFo
 
 The URL returned by a `Page` object's [`Permalink`][] and [`RelPermalink`][] methods depends on the current output format. For output formats with [`permalinkable`](#permalinkable) set to `true`, such as `html` and `amp`, the methods return that format's own URL. For all other output formats, the methods return the URL of the page's [primary output format](g).
 
-For example, in a `page.json.json` template, these methods return these values:
+For example, in a `page.json` template, these methods return these values:
 
 ```go-html-template
 {{ .RelPermalink }} → /that-page/
@@ -170,7 +170,7 @@ For example, in a `page.json.json` template, these methods return these values:
 
 To make these methods return the URL of the current template's output format, set [`permalinkable`](#permalinkable) to `true` for that format.
 
-With `permalinkable` set to `true` for the `json` output format, in the same `page.json.json` template, these methods return these values:
+With `permalinkable` set to `true` for the `json` output format, in the same `page.json` template, these methods return these values:
 
 ```go-html-template
 {{ .RelPermalink }} → /that-page/index.json
@@ -179,23 +179,9 @@ With `permalinkable` set to `true` for the `json` output format, in the same `pa
 {{ end }}
 ```
 
-## Template lookup order
+## Template selection
 
-Each output format requires a template conforming to the [template lookup order][].
-
-For the highest specificity in the template lookup order, include the page kind, output format, and suffix in the file name:
-
-```text
-[page kind].[output format].[suffix]
-```
-
-For example, the table below shows the template path for section pages in each of three output formats.
-
-Output format|Template path
-:--|:--
-`html`|`layouts/section.html.html`
-`json`|`layouts/section.json.json`
-`rss`|`layouts/section.rss.xml`
+Each output format requires a template. Include the output format name in the template's file name, such as `layouts/section.rss.xml`, and Hugo selects the template using the [template lookup order][].
 
 [`AlternativeOutputFormats`]: /methods/page/alternativeoutputformats/
 [`OutputFormats`]: /methods/page/outputformats/

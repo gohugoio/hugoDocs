@@ -6,8 +6,6 @@ keywords: []
 weight: 120
 ---
 
-{{< newtemplatesystem >}}
-
 Before creating custom shortcodes, review the [shortcodes][] page in the [content management][] section. Understanding the usage details will help you design and create better templates.
 
 ## Introduction
@@ -48,23 +46,13 @@ When calling a shortcode in a subdirectory, specify its path relative to the `_s
 {{</* media/audio path=/audio/podcast/episode-42.mp3 */>}}
 ```
 
-## Lookup order
+## Template selection
 
-Hugo selects _shortcode_ templates based on the shortcode name, the current output format, and the current language. The examples below are sorted by specificity in descending order. The least specific path is at the bottom of the list.
+Hugo selects _shortcode_ templates using the [template lookup order][], based on the shortcode name, the location of the template, the current page kind, the current output format, and the current language.
 
-Shortcode name|Output format|Language|Template path
-:--|:--|:--|:--
-foo|html|en|`layouts/_shortcodes/foo.en.html`
-foo|html|en|`layouts/_shortcodes/foo.html.html`
-foo|html|en|`layouts/_shortcodes/foo.html`
-foo|html|en|`layouts/_shortcodes/foo.html.en.html`
+When rendering a page in an output format other than `html`, such as `rss`, Hugo uses a shortcode template for that output format if one exists, such as `layouts/_shortcodes/example.rss.xml`. Otherwise, Hugo uses the `html` template, such as `layouts/_shortcodes/example.html`.
 
-Shortcode name|Output format|Language|Template path
-:--|:--|:--|:--
-foo|rss|en|`layouts/_shortcodes/foo.en.rss.xml`
-foo|rss|en|`layouts/_shortcodes/foo.rss.xml`
-foo|rss|en|`layouts/_shortcodes/foo.en.xml`
-foo|rss|en|`layouts/_shortcodes/foo.xml`
+To render a shortcode template with a plain text media type, such as `layouts/_shortcodes/example.txt`, in HTML output, call it using [Markdown notation][], such as `{{%/* example */%}}`. Hugo does not use these templates for shortcodes called using standard notation.
 
 ## Methods
 
@@ -363,4 +351,5 @@ You can use the `HasShortcode` method in your _base_ template to conditionally l
 [notation]: /content-management/shortcodes/#notation
 [shortcodes]: /content-management/shortcodes/
 [standard notation]: /content-management/shortcodes/#standard-notation
+[template lookup order]: /templates/lookup-order/
 [whitespace]: /templates/introduction/#whitespace

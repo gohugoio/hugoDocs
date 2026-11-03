@@ -24,7 +24,7 @@ To disable feed generation for all [page kinds](g):
 disableKinds = ['rss']
 {{< /code-toggle >}}
 
-By default, the number of items in each feed is unlimited. Change this as needed in your project configuration:
+By default, the number of items in each feed is unlimited. To limit the number of items, change your project configuration:
 
 {{< code-toggle file=hugo >}}
 [services.rss]
@@ -33,7 +33,7 @@ limit = 42
 
 Set `limit` to `-1` to generate an unlimited number of items per feed.
 
-The built-in RSS template will render the following values, if present, from your project configuration:
+The embedded RSS template renders these values from your project configuration, if present:
 
 {{< code-toggle file=hugo >}}
 copyright = '© 2023 ABC Widgets, Inc.'
@@ -58,18 +58,19 @@ Hugo renders this to:
 <link rel="alternate" type="application/rss+xml" href="https://example.org/index.xml" title="ABC Widgets">
 ```
 
-## Custom templates
+## Override the embedded template
 
-Override Hugo's [embedded RSS template][] by creating one or more of your own. For example, to use different templates for home, section, taxonomy, and term pages:
+Override Hugo's [embedded RSS template][] by creating one or more of your own. Hugo selects RSS templates using the [template lookup order][]. To use one template for all feeds, create `layouts/rss.xml`. To use different templates for home, section, taxonomy, and term pages, create these templates:
 
 ```tree
 layouts/
-  ├── home.rss.xml
-  ├── section.rss.xml
-  ├── taxonomy.rss.xml
-  └── term.rss.xml
+├── home.rss.xml
+├── section.rss.xml
+├── taxonomy.rss.xml
+└── term.rss.xml
 ```
 
 RSS templates receive a `Page` object in context.
 
 [embedded RSS template]: <{{% eturl rss %}}>
+[template lookup order]: /templates/lookup-order/
