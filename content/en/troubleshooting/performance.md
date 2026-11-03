@@ -9,7 +9,7 @@ keywords: []
 
 Virus scanners are an essential component of system protection, but the performance impact can be severe for applications like Hugo that frequently read and write to disk. For example, with Microsoft Defender Antivirus, build times for some sites may increase by 400% or more.
 
-Before building a site, your virus scanner has already evaluated the files in your project directory. Scanning them again while building the site is superfluous. To improve performance, add Hugo's executable to your virus scanner's process exclusion list.
+Before building your project, your virus scanner has already evaluated the files in your project directory. Scanning them again while building the project is superfluous. To improve performance, add Hugo's executable to your virus scanner's process exclusion list.
 
 For example, with Microsoft Defender Antivirus:
 
@@ -175,11 +175,11 @@ total count
 template
 : The path to the template, relative to the `layouts` directory.
 
-Hugo builds pages in parallel where multiple pages are generated simultaneously. Because of this parallelism, the sum of "cumulative duration" values is usually greater than the actual time it takes to build a site.
+Hugo builds pages in parallel where multiple pages are generated simultaneously. Because of this parallelism, the sum of "cumulative duration" values is usually greater than the actual time it takes to build the project.
 
 ## Caching
 
-Some _partial_ templates such as sidebars or menus are executed many times during a site build. Depending on the content within the _partial_ template and the desired output, the template may benefit from caching to reduce the number of executions. The [`partialCached`][] function provides caching capabilities for _partial_ templates.
+Some _partial_ templates such as sidebars or menus are executed many times during a build. Depending on the content within the _partial_ template and the desired output, the template may benefit from caching to reduce the number of executions. The [`partialCached`][] function provides caching capabilities for _partial_ templates.
 
 > [!TIP]
 > You can create cached variants of each _partial_ template by passing additional arguments to `partialCached` beyond the initial context. See the `partialCached` documentation for more details.

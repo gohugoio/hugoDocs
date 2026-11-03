@@ -92,7 +92,7 @@ hugo mod tidy
 
 ## Cache
 
-Hugo caches modules to avoid repeated downloads during site builds. By default, these are stored in the `modules` directory within the [`cacheDir`][].
+Hugo caches modules to avoid repeated downloads during builds. By default, these are stored in the `modules` directory within the [`cacheDir`][].
 
 To clean the module cache for the current project:
 

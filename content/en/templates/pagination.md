@@ -144,7 +144,7 @@ Create custom navigation components using any of the `Pager` methods:
 
 ## Structure
 
-The example below depicts the published site structure when paginating a list page.
+The example below depicts the structure of the `public` directory when paginating a list page.
 
 With this content:
 
@@ -178,7 +178,7 @@ And this _section_ template:
 {{ partial "pagination.html" . }}
 ```
 
-The published site has this structure:
+The `public` directory has this structure:
 
 ```tree
 public/
@@ -209,7 +209,7 @@ To disable alias generation for the first pager, change your project configurati
   path = 'page'
 {{< /code-toggle >}}
 
-Now the published site will have this structure:
+Now the `public` directory will have this structure:
 
 ```tree
 public/

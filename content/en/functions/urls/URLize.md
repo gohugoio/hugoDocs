@@ -28,7 +28,7 @@ title = 'Les Misérables'
 authors = ['Victor Hugo']
 {{< /code-toggle >}}
 
-The published site will have this structure:
+The `public` directory will have this structure:
 
 ```tree
 public/
