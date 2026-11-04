@@ -41,6 +41,7 @@ To render it, add the following code where you want comments to appear:
 Commercial commenting systems:
 
 - [Commentix][]
+- [EchoThread][]
 - [Emote][]
 - [FastComments][]
 - [Graph Comment][]
@@ -68,6 +69,7 @@ Open-source commenting systems:
 [Commentix]: https://www.commentix.com/
 [Discourse]: https://meta.discourse.org/t/embed-discourse-comments-on-another-website-via-javascript/31963
 [Disqus]: https://disqus.com/
+[EchoThread]: https://echothread.io/docs/guides/hugo/
 [Emote]: https://emote.com/
 [FastComments]: https://fastcomments.com/commenting-system-for-hugo
 [Giscus]: https://giscus.app/
