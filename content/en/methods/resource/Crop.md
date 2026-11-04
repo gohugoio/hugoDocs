@@ -30,7 +30,7 @@ When cropping, you must provide both width and height (such as `200x200`) within
 In the example above, `"200x200 TopRight"` is the processing specification.
 
 > [!TIP]
-> To remove a specific number of pixels from each edge of an image, use the [`images.Padding`][] filter with negative values. For example, `images.Padding -50 -100 -150 -200` removes 50 pixels from the top, 100 pixels from the right, 150 pixels from the bottom, and 200 pixels from the left.
+> To remove a specific number of pixels from one or more edges of an image, use the [`images.Padding`][] filter with negative values. For example, `images.Padding -50 -100 -150 -200` removes 50 pixels from the top, 100 pixels from the right, 150 pixels from the bottom, and 200 pixels from the left. Use `0` for any edge you want to keep, such as `images.Padding 0 0 0 -200` to remove 200 pixels from the left edge only.
 
 {{% include "/_common/image-processing-spec.md" %}}
 
