@@ -10,9 +10,6 @@ params:
     signatures: [templates.Current]
 ---
 
-> [!NOTE]
-> This function is experimental and subject to change.
-
 {{< new-in 0.146.0 />}}
 
 The `templates.Current` function provides introspection capabilities, allowing you to access details about the currently executing templates. This is useful for debugging complex template hierarchies and understanding the flow of execution during rendering.
