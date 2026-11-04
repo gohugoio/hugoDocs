@@ -45,7 +45,7 @@ Combine with the [`Colors`][] method to create a border with one of the image's 
 
 ## Other recipes
 
-This example resizes an image to 300px wide, converts it to the WebP format, adds 20px vertical padding and 50px horizontal padding, then sets the canvas color to dark green with 33% opacity.
+This example resizes an image to 300 pixels wide, converts it to the WebP format, adds 20 pixels of vertical padding and 50 pixels of horizontal padding, then sets the canvas color to dark green with 33% opacity.
 
 In the example below, conversion to WebP is required to support transparency. AVIF, PNG, and WebP images have an alpha channel; JPEG and GIF do not.
 
@@ -58,13 +58,13 @@ In the example below, conversion to WebP is required to support transparency. AV
 {{ $img = $img.Filter $filters }}
 ```
 
-To add a 2px gray border to an image:
+To add a 2-pixel gray border to an image:
 
 ```go-html-template
 {{ $img = $img.Filter (images.Padding 2 "#777") }}
 ```
 
-Use negative values to crop an image. This example removes 50px from the top, 100px from the right, 150px from the bottom, and 200px from the left. With a 600x400 image, the result is a 300x200 image extracted from the original, starting 200px from the left edge and 50px from the top edge.
+Use negative values to crop an image. This example removes 50 pixels from the top, 100 pixels from the right, 150 pixels from the bottom, and 200 pixels from the left. With a 600x400 image, the result is a 300x200 image extracted from the original, starting 200 pixels from the left edge and 50 pixels from the top edge.
 
 ```go-html-template
 {{ $img = $img.Filter (images.Padding -50 -100 -150 -200) }}
