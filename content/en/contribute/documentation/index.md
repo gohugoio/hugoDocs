@@ -53,6 +53,11 @@ Adhere to these writing style conventions.
   No → Use inline elements (e.g., `strong`, `em`) sparingly.\
   Yes → Use inline elements such as `strong` and `em` sparingly.
 
+- Spell out units of measure in prose, and insert a space between the number and the unit. Hyphenate the measurement when it modifies a noun. Use abbreviations such as `px` only in code.
+
+  No → Resize the image to 300px wide and add a 2 px border.\
+  Yes → Resize the image to 300 pixels wide and add a 2-pixel border.
+
 ### Markdown
 
 Adhere to these Markdown conventions:

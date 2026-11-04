@@ -66,7 +66,7 @@ Render a single image, and throw an error if the file does not exist:
 {{ end }}
 ```
 
-Render all images, resized to 300 px wide:
+Render all images, resized to 300 pixels wide:
 
 ```go-html-template
 {{ range .Resources.ByType "image" }}
