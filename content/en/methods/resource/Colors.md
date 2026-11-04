@@ -92,7 +92,7 @@ The following examples use an image's dominant colors to style page elements.
 
 ### Image borders
 
-To add a 5 pixel border to an image using the most dominant color:
+To add a 5-pixel border to an image using the most dominant color:
 
 ```go-html-template
 {{ with resources.Get "images/a.jpg" }}
@@ -104,7 +104,7 @@ To add a 5 pixel border to an image using the most dominant color:
 {{ end }}
 ```
 
-To add a 5 pixel border to an image using the darkest dominant color:
+To add a 5-pixel border to an image using the darkest dominant color:
 
 ```go-html-template
 {{ with resources.Get "images/a.jpg" }}

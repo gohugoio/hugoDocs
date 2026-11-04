@@ -146,7 +146,7 @@ For best results, if the dithering palette is grayscale, convert the image to gr
 
 The example above:
 
-1. Resizes the image to be 800 px wide
+1. Resizes the image to be 800 pixels wide
 1. Converts the image to grayscale
 1. Dithers the image using the default (`FloydSteinberg`) dithering method with a grayscale palette
 1. Converts the image to the PNG format
