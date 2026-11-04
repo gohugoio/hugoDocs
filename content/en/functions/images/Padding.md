@@ -64,6 +64,12 @@ To add a 2px gray border to an image:
 {{ $img = $img.Filter (images.Padding 2 "#777") }}
 ```
 
+Use negative values to crop an image. This example removes 50px from the top, 100px from the right, 150px from the bottom, and 200px from the left. With a 600x400 image, the result is a 300x200 image extracted from the original, starting 200px from the left edge and 50px from the top edge.
+
+```go-html-template
+{{ $img = $img.Filter (images.Padding -50 -100 -150 -200) }}
+```
+
 [`Colors`]: /methods/resource/colors/
 [hexadecimal color]: https://developer.mozilla.org/en-US/docs/Web/CSS/hex-color
 [shorthand property]: https://developer.mozilla.org/en-US/docs/Web/CSS/Shorthand_properties#edges_of_a_box
