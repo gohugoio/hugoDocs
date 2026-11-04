@@ -94,6 +94,38 @@ Adhere to these Markdown conventions:
 - Remove consecutive blank lines.
 - Remove trailing spaces.
 
+### Links
+
+Add a link only when readers are likely to need the destination to complete the task or understand the topic at hand. Every link invites readers to leave the page, so a page with fewer, well-chosen links is easier to follow.
+
+Follow these guidelines when adding links:
+
+- Link to a page, including a glossary term, once per page at its first occurrence. On reference pages, where readers often arrive at a fragment instead of the top of the page, you may link to it once per level 2 section.
+- Do not link to common technologies and formats that readers already know, such as HTML, CSS, JSON, or Markdown, unless the link points to a specification that the text depends on.
+- Write link text that describes the destination. Do not use "here," "this page," or "this link" as link text.
+- Do not place links in headings.
+- Prefer linking within a sentence to adding a separate sentence that begins with "See."
+
+  No → `Hugo can resize images. See [image processing][].`\
+  Yes → `Hugo can [resize images][] when you build your project.`
+
+- Link to primary sources, such as official documentation and specifications, instead of articles or blog posts.
+- Do not link to related pages at the end of a page. The "See also" sidebar displays [related content](#related-content).
+
+Choose links based on the type of page you are writing:
+
+Tutorial
+: A tutorial teaches through a series of steps that produce a working result. Link to prerequisites at the beginning and to next steps at the end. Do not link to other pages within the steps, because each link pulls readers out of the lesson.
+
+Guide
+: A guide describes how to complete a specific task. Link to prerequisites, and to the reference entries for the settings, functions, and methods used in each step. Do not link to explanations that readers do not need to complete the task.
+
+Concept
+: A concept page explains how something works and why. Link to related concepts, and to the reference entries that the explanation depends on.
+
+Reference
+: A reference page describes a setting, function, method, or other component. Link to other reference entries, such as data types and related functions or settings. Link to a concept page for background instead of explaining the concept in the entry.
+
 ### Section headings
 
 Do not use formatting, such as backticks, bold, or italic, in section headings, levels `h1` through `h6`.
@@ -146,7 +178,7 @@ Use the [`glossary-term`](#glossary-term) shortcode to insert a term definition:
 
 ### Terminology
 
-Link to the [glossary][] as needed and use terms consistently. Pay particular attention to:
+Link to [glossary][] terms as described in [links](#links), and use terms consistently. Pay particular attention to:
 
 - "client side" (noun), "client-side" (adjective)
 - "command line" (noun), "command-line" (adjective)
