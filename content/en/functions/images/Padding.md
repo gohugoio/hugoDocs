@@ -70,6 +70,12 @@ Use negative values to crop an image. This example removes 50 pixels from the to
 {{ $img = $img.Filter (images.Padding -50 -100 -150 -200) }}
 ```
 
+Use `0` for any edge you want to keep. This example removes 200 pixels from the left edge only:
+
+```go-html-template
+{{ $img = $img.Filter (images.Padding 0 0 0 -200) }}
+```
+
 [`Colors`]: /methods/resource/colors/
 [hexadecimal color]: https://developer.mozilla.org/en-US/docs/Web/CSS/hex-color
 [shorthand property]: https://developer.mozilla.org/en-US/docs/Web/CSS/Shorthand_properties#edges_of_a_box
