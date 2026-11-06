@@ -51,6 +51,8 @@ When the output format name and media type suffix are the same, as with the `htm
 
 If two templates in the same directory have equivalent file names, Hugo uses the template with fewer identifiers in its file name, and ignores the other. For example, Hugo uses `section.json` instead of `section.json.json`. This applies to templates in the project and in modules: a module's `page.html` takes precedence over a project's `page.html.html`.
 
+If the media type defines more than one suffix, you can end the file name with any of them. For example, the `text/html` media type defines the `html` and `htm` suffixes, so Hugo uses `layouts/page.htm` to render regular pages in the `html` output format. If two templates in the same directory have the same identifiers and differ only by suffix, Hugo uses the template whose suffix appears first in the media type's `suffixes` list. For example, Hugo uses `page.html.html` instead of `page.html.htm`.
+
 Follow these guidelines when naming templates:
 
 - Use lowercase identifiers. For example, use `page.en-us.html` instead of `page.en-US.html`.
