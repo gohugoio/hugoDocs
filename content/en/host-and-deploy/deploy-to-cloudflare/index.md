@@ -11,7 +11,7 @@ Use these instructions to enable continuous deployment from a GitHub repository.
 
 ## Prerequisites
 
-Please complete the following tasks before continuing:
+Complete the following tasks before continuing:
 
 1. [Create](https://dash.cloudflare.com/sign-up) a Cloudflare account.
 1. [Log in](https://dash.cloudflare.com/login) to your Cloudflare account.

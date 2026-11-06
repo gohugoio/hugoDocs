@@ -11,7 +11,7 @@ Use these instructions to enable continuous deployment from a GitHub repository.
 
 ## Prerequisites
 
-Please complete the following tasks before continuing:
+Complete the following tasks before continuing:
 
 1. [Create](https://app.netlify.com/signup) a Netlify account.
 1. [Log in](https://app.netlify.com/login) to your Netlify account.

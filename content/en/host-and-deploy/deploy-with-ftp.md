@@ -18,7 +18,7 @@ FTP clients do not meet these requirements. The procedure below removes orphaned
 
 ## Prerequisites
 
-Please complete the following tasks before continuing:
+Complete the following tasks before continuing:
 
 1. Create a Hugo project and test it with the `hugo server` command.
 1. Set the [`baseURL`][] in your project configuration to the URL of your production site.

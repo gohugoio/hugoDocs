@@ -11,7 +11,7 @@ Use these instructions to enable continuous deployment from a GitHub repository.
 
 ## Prerequisites
 
-Please complete the following tasks before continuing:
+Complete the following tasks before continuing:
 
 1. [Create](https://accounts.google.com/) a Google account.
 1. [Log in](https://accounts.google.com/) to your Google account.

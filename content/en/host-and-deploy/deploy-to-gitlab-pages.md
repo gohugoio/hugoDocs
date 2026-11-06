@@ -11,7 +11,7 @@ Use these instructions to enable continuous deployment from a GitLab repository 
 
 ## Prerequisites
 
-Please complete the following tasks before continuing:
+Complete the following tasks before continuing:
 
 1. [Create](https://gitlab.com/users/sign_up) a GitLab account.
 1. [Log in](https://gitlab.com/users/sign_in) to your GitLab account.

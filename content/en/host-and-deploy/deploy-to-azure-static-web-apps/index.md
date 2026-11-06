@@ -11,7 +11,7 @@ Use these instructions to enable continuous deployment from a GitHub repository.
 
 ## Prerequisites
 
-Please complete the following tasks before continuing:
+Complete the following tasks before continuing:
 
 1. [Create](https://signup.live.com/) a Microsoft account.
 1. [Create](https://azure.microsoft.com/free/) an Azure account.
