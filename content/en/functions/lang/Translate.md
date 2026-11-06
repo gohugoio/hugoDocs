@@ -211,7 +211,50 @@ Hugo uses the [`nicksnyder/go-i18n`][] package to look up values in translation 
 `other`
 : (`string`) The content of the message for the [CLDR][] plural form "other".
 
-If you need to provide a translation for one of the reserved keys, you can prepend the word with an underscore. For example:
+If a translation table uses a reserved key as a simple translation, and also contains other keys, the build fails with an error:
+
+```text
+failed to load translations: reserved keys [description] mixed with unreserved keys [privacy]: see the lang.Translate documentation for a list of reserved keys
+```
+
+To provide a translation for a reserved key, define the translation as a table with an `other` key. For example:
+
+{{< code-toggle file=i18n/es >}}
+[description]
+other = 'descripción'
+
+[few]
+other = 'pocos'
+
+[many]
+other = 'muchos'
+
+[one]
+other = 'uno'
+
+[other]
+other = 'otro'
+
+[two]
+other = 'dos'
+
+[zero]
+other = 'cero'
+{{< /code-toggle >}}
+
+Then in your templates:
+
+```go-html-template
+{{ T "description" }} → descripción
+{{ T "few" }} → pocos
+{{ T "many" }} → muchos
+{{ T "one" }} → uno
+{{ T "two" }} → dos
+{{ T "zero" }} → cero
+{{ T "other" }} → otro
+```
+
+Alternatively, prepend the key with an underscore. For example:
 
 {{< code-toggle file=i18n/es >}}
 _description = 'descripción'
