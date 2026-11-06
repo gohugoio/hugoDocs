@@ -69,7 +69,7 @@ Step 3
   To preview changes without modifying anything in your bucket or container, add the `--dryRun` flag to the `hugo deploy` command.
 
   > [!NOTE]
-  > The `hugo deploy` command does not upload `.DS_Store` files, or files within hidden directories such as `.git`. It does upload files within the [`.well-known`][] directory.
+  > The `hugo deploy` command does not upload `.DS_Store` files or files within hidden directories such as `.git`. It does upload files within the [`.well-known`][] directory.
 
 ## Command-line flags
 
@@ -120,7 +120,7 @@ For more information on deploying your site with Hugo, consult the documentation
 [Google Cloud Storage]: https://cloud.google.com/storage/docs/hosting-static-website
 [SignInLocalDevelopmentAccess]: https://docs.aws.amazon.com/aws-managed-policy/latest/reference/SignInLocalDevelopmentAccess.html
 [Storage Blob Data Contributor]: https://learn.microsoft.com/en-us/azure/role-based-access-control/built-in-roles/storage#storage-blob-data-contributor
-[`.well-known`]: https://en.wikipedia.org/wiki/Well-known_URI
+[`.well-known`]: https://www.rfc-editor.org/info/rfc8615/
 [`aws login`]: https://docs.aws.amazon.com/cli/latest/userguide/cli-configure-sign-in.html
 [`az login`]: https://learn.microsoft.com/en-us/cli/azure/authenticate-azure-cli
 [`baseURL`]: /configuration/all/#baseurl
