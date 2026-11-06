@@ -82,6 +82,56 @@ To recursively update all modules to the latest version:
 hugo mod get -u ./...
 ```
 
+## Pin
+
+To pin an import to a specific version, set its [`version`][] in your project configuration. For example:
+
+{{< code-toggle file=hugo >}}
+[[module.imports]]
+path = 'github.com/user/shortcodes-c'
+version = 'v1.2.3'
+{{< /code-toggle >}}
+
+When you pin an import, Hugo downloads the requested version directly, and the `hugo mod get` command ignores the import. To change the version, edit your project configuration.
+
+The version can be any [version query][], including:
+
+- A semantic version such as `v1.2.3`
+- A version prefix such as `v1.2`
+- A comparison such as `>=v1.2.0`
+- The string `latest`
+- A branch name such as `main`
+- A commit hash
+
+Use a semantic version where possible so that Hugo can cache the module instead of downloading it each time you build your project. If the module's Git tags are not valid semantic versions, such as `v8.0`, pin a commit hash instead.
+
+For major versions 2 and later, if the module has a `go.mod` file, the module path must end with the major version, and the version must match it. For example:
+
+{{< code-toggle file=hugo >}}
+[[module.imports]]
+path = 'github.com/user/theme/v3'
+version = 'v3.0.0'
+{{< /code-toggle >}}
+
+To list the available versions of a module, run `go list -m -versions` with the module path:
+
+```sh
+go list -m -versions github.com/user/theme/v3
+```
+
+You can import the same module more than once, pinning each import to a different version and mounting each version to a different location. A common pattern is to leave the current version unpinned so that you can update it with `hugo mod get`, and to pin older versions. For example, this configuration mounts the current version of a module to the `content` directory, and version 0.1.0 to the `content/v1` directory:
+
+{{< code-toggle file=hugo >}}
+[[module.imports]]
+path = 'github.com/user/content'
+[[module.imports]]
+path = 'github.com/user/content'
+version = 'v0.1.0'
+[[module.imports.mounts]]
+source = 'content'
+target = 'content/v1'
+{{< /code-toggle >}}
+
 ## Tidy
 
 To remove unused entries from the `go.mod` and `go.sum` files:
@@ -190,8 +240,10 @@ See [configuring module mounts][] for details.
 [`go.mod`]: https://go.dev/ref/mod#go-mod-file
 [`go.sum`]: https://go.dev/ref/mod#go-sum-files
 [`replacements`]: /configuration/module/#replacements
+[`version`]: /configuration/module/#version
 [`workspace`]: /configuration/module/#workspace
 [configuring file caches]: /configuration/caches/
 [configuring module imports]: /configuration/module/#imports
 [configuring module mounts]: /configuration/module/#mounts
 [merge configuration settings]: /configuration/introduction/#merge-configuration-settings
+[version query]: https://go.dev/ref/mod#version-queries
