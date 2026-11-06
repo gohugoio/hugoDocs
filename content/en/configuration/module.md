@@ -45,7 +45,7 @@ workspace = 'off'
 
   {{< code-toggle file=hugo >}}
   [module]
-  replacements = 'github.com/bep/my-theme -> ../..,github.com/bep/shortcodes -> /some/path'
+  replacements = 'github.com/user/theme -> ../..,github.com/user/shortcodes -> /some/path'
   {{< /code-toggle >}}
 
 `vendorClosest`
@@ -58,7 +58,7 @@ You may also use environment variables to set any of the above. For example:
 
 ```sh
 export HUGO_MODULE_PROXY="https://proxy.example.org"
-export HUGO_MODULE_REPLACEMENTS="github.com/bep/my-theme -> ../.."
+export HUGO_MODULE_REPLACEMENTS="github.com/user/theme -> ../.."
 export HUGO_MODULE_WORKSPACE="/my/hugo.work"
 ```
 
@@ -99,7 +99,7 @@ You can omit any of the settings above.
 disable = false
 ignoreConfig = false
 ignoreImports = false
-path = 'github.com/gohugoio/hugoTestModules1_linux/modh1_2_1v'
+path = 'github.com/user/shortcodes'
 [[module.imports]]
 path = 'my-shortcodes'
 {{< /code-toggle >}}
@@ -119,16 +119,16 @@ path = 'my-shortcodes'
 `noVendor`
 : (`bool`) Whether to disable vendoring for this import. This setting is restricted to the main project. Default is `false`.
 
+`path`
+: (`string`) The module path, either a valid Go module path such as `github.com/user/shortcodes`, or the directory name if stored in the [`themesDir`][].
+
 `usePackageJSON`
 : {{< new-in 0.159.0 />}}
 : (`string`) Whether to use the import's npm dependencies in [hugo mod npm pack](commands/hugo_mod_npm_pack/). One of `auto` (default), `always` or `never`. When set to `auto`, Hugo will enable this if either there is a Hugo config file (e.g. `hugo.toml`) or a `package.hugo.json` file in the module root.
 
-`path`
-: (`string`) The module path, either a valid Go module path (e.g., `github.com/gohugoio/myShortcodes`) or the directory name if stored in the [`themesDir`][].
-
 `version`
 : {{< new-in 0.150.0 />}}
-: (`string`) If set to a [version query][], this import becomes a direct dependency, in contrast to dependencies managed by Go modules. See [this issue][] for more information.
+: (`string`) A [version query][] that pins the import to a specific version. See [pinning module versions][] for details.
 
 ## Mounts
 
@@ -139,9 +139,9 @@ path = 'my-shortcodes'
 
 ### Default mounts
 
-Defining a mount for a component within a project configuration removes the default mount for that component.
+Defining a mount for a component in the project configuration removes the default mount for that component.
 
-Defining a mount for a component within a module configuration removes all default mounts for that module.
+Defining one or more mounts in a module configuration, or in the corresponding module import in the project configuration, removes all default mounts for that module. This lets you control exactly which files Hugo uses from the module.
 
 If you still need any of the default mounts, you must explicitly add them along with the new mount.
 
@@ -150,7 +150,17 @@ These are the default mounts:
 {{< code-toggle config=module.mounts />}}
 
 `source`
-: (`string`) The source directory of the mount. For the main project, this can be either project-relative or absolute. For other modules it must be project-relative.
+: (`string`) The source directory of the mount. For the main project, this can be either project-relative or absolute. For other modules, it must be relative to the module root and must not resolve to a path outside of the module.
+
+  {{< new-in 0.152.2 />}}
+
+  The exception is a path that begins with `node_modules/`. When a module mounts such a path, Hugo first looks for it within the module, then relative to the project root. This allows a theme or other module to use npm packages installed in the project. For example:
+
+  {{< code-toggle file=hugo >}}
+  [[module.mounts]]
+  source = 'node_modules/bootstrap'
+  target = 'assets/vendor/bootstrap'
+  {{< /code-toggle >}}
 
 `target`
 : (`string`) Where the mount will reside within Hugo's [unified file system](g). It must begin with one of Hugo's [component](g) directories: archetypes, assets, content, data, i18n, layouts, or static. For example, content/blog.
@@ -203,5 +213,5 @@ target = 'assets'
 [`layoutDir`]: /configuration/all/#layoutdir
 [`staticDir`]: /configuration/all/#staticdir
 [`themesDir`]: /configuration/all/#themesdir
-[this issue]: https://github.com/gohugoio/hugo/pull/13966
+[pinning module versions]: /hugo-modules/use-modules/#pin
 [version query]: https://go.dev/ref/mod#version-queries
