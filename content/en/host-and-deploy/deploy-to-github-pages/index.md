@@ -17,7 +17,7 @@ See the [GitHub Pages documentation][] to understand the requirements for reposi
 
 ## Prerequisites
 
-Please complete the following tasks before continuing:
+Complete the following tasks before continuing:
 
 1. [Create](https://github.com/signup) a GitHub account.
 1. [Log in](https://github.com/login) to your GitHub account.

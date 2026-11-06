@@ -11,7 +11,7 @@ Use these instructions to enable continuous deployment from a Codeberg repositor
 
 ## Prerequisites
 
-Please complete the following tasks before continuing:
+Complete the following tasks before continuing:
 
 1. [Create](https://codeberg.org/user/sign_up) a Codeberg account.
 1. [Log in](https://codeberg.org/user/login) to your Codeberg account.

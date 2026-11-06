@@ -11,7 +11,7 @@ Use these instructions to enable continuous deployment from a GitHub repository.
 
 ## Prerequisites
 
-Please complete the following tasks before continuing:
+Complete the following tasks before continuing:
 
 1. [Create](https://aws.amazon.com/resources/create-account/) an AWS account.
 1. [Log in](https://console.aws.amazon.com/) to your AWS account.
