@@ -90,6 +90,24 @@ For example, the _base_ template below calls the [`partials.Include`][] function
 {{ end }}
 ```
 
+To use a different _base_ template for some templates, add identifiers to the file name after `baseof`, or place the _base_ template in a subdirectory of the `layouts` directory. Hugo selects a _base_ template using the same lookup order it uses for other templates. For example:
+
+```tree
+layouts/
+├── docs/
+│   └── baseof.html     <-- applied to page.html when rendering pages in the docs section
+├── baseof.de.html      <-- applied to home.html and page.html when rendering German pages
+├── baseof.html         <-- applied to home.html and page.html when rendering all other pages
+├── baseof.section.html <-- applied to section.html
+├── home.html
+├── page.html
+└── section.html
+```
+
+In the example above, the page kind and language identifiers rank higher than the page path. Hugo applies `baseof.section.html` to the docs section page, and `baseof.de.html` to German pages in the docs section, instead of `docs/baseof.html`.
+
+Hugo matches the page kind and layout identifiers in a _base_ template's file name against the file name of the template being rendered, not against the page. For example, Hugo applies `baseof.section.html` to `section.html`, but not to `list.html`, even when `list.html` renders a section page.
+
 ## Home
 
 A _home_ template renders your site's home page.

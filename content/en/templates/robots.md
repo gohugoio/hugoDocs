@@ -19,16 +19,15 @@ By default, Hugo generates robots.txt using an [embedded template][].
 User-agent: *
 ```
 
-Search engines that honor the Robots Exclusion Protocol will interpret this as permission to crawl everything on the site.
+Search engines that honor the Robots Exclusion Protocol interpret this as permission to crawl everything on the site.
 
-## robots.txt template lookup order
+## Override the embedded template
 
-You may overwrite the internal template with a custom template. Hugo selects the template using this lookup order:
+To override the embedded template, create a `layouts/robots.txt` file in your project or in a [module](g).
 
-1. `/layouts/robots.txt`
-1. `/themes/<THEME>/layouts/robots.txt`
+In a multilingual project with a single host, Hugo generates one robots.txt file in the root of the `public` directory. In a [multihost][] project, Hugo generates a robots.txt file for each language. To use a different template for a language, include the language key in the file name, such as `layouts/robots.de.txt`.
 
-## robots.txt template example
+## Example
 
 ```text {file="layouts/robots.txt"}
 User-agent: *
@@ -37,7 +36,7 @@ Disallow: {{ .RelPermalink }}
 {{ end }}
 ```
 
-This template creates a robots.txt file with a `Disallow` directive for each page on the site. Search engines that honor the Robots Exclusion Protocol will not crawl any page on the site.
+This template creates a robots.txt file with a `Disallow` directive for each page on the site. Search engines that honor the Robots Exclusion Protocol do not crawl any page on the site.
 
 > [!TIP]
 > To create a robots.txt file without using a template:
@@ -48,3 +47,4 @@ This template creates a robots.txt file with a `Disallow` directive for each pag
 > Remember that Hugo copies everything in the `static` directory to the root of the `public` directory when you build your project.
 
 [embedded template]: <{{% eturl robots %}}>
+[multihost]: /configuration/languages/#multihost

@@ -47,32 +47,17 @@ Each render hook is a template, with one template for each supported element typ
 
 ```tree
 layouts/
-  └── _markup/
-      ├── render-blockquote.html
-      ├── render-codeblock.html
-      ├── render-heading.html
-      ├── render-image.html
-      ├── render-link.html
-      ├── render-passthrough.html
-      └── render-table.html
+└── _markup/
+    ├── render-blockquote.html
+    ├── render-codeblock.html
+    ├── render-heading.html
+    ├── render-image.html
+    ├── render-link.html
+    ├── render-passthrough.html
+    └── render-table.html
 ```
 
-The template lookup order allows you to create different render hooks for each page [type](g), [kind](g), language, and [output format](g). For example:
-
-```tree
-layouts/
-├── _markup/
-│   ├── render-link.html
-│   └── render-link.rss.xml
-├── books/
-│   └── _markup/
-│       ├── render-link.html
-│       └── render-link.rss.xml
-└── films/
-    └── _markup/
-        ├── render-link.html
-        └── render-link.rss.xml
-```
+Using the [template lookup order][], you can create different render hooks for different parts of your site, languages, and [output formats](g).
 
 The remaining pages in this section describe each type of render hook, including examples and the context received by each template.
 
@@ -84,3 +69,4 @@ The remaining pages in this section describe each type of render hook, including
 [Passthrough elements]: /render-hooks/passthrough/
 [Tables]: /render-hooks/tables/
 [content formats]: /content-management/formats/
+[template lookup order]: /templates/lookup-order/

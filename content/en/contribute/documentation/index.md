@@ -140,6 +140,14 @@ Do not use formatting, such as backticks, bold, or italic, in section headings, 
 - Do not create a single subsection under a section. Either add more subsections or remove the heading. This also applies to a single level 2 heading on an otherwise unheaded page: either add a second level 2 heading, or remove it and let the content flow as body text.
 - Precede the first subheading under a heading with a sentence introducing the subsections, unless the heading text alone makes the subsections' purpose obvious.
 
+Use these headings for sections that serve a common purpose across pages:
+
+`## Template selection`
+: Summarizes how Hugo selects a template for the feature described on the page, then links to the [template lookup order][] page. Do not repeat the lookup rules.
+
+`## Override the embedded template`
+: Describes how to replace an embedded template with a custom template. Use `## Override the embedded templates` when the section covers more than one embedded template. Link to the template lookup order page only when the template follows the lookup rules, such as RSS templates.
+
 ### File paths and names
 
 Wrap directory names, file names, and file paths in backticks.
@@ -864,3 +872,4 @@ Step 9
 [raw HTML]: https://spec.commonmark.org/current/#raw-html
 [related content]: /content-management/related-content/
 [setext]: https://spec.commonmark.org/current/#setext-heading
+[template lookup order]: /templates/lookup-order/

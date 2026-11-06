@@ -73,7 +73,7 @@ The most common front matter fields are `date`, `draft`, `title`, and `weight`, 
 : (`string`) The date that the page was last modified. Note that the TOML format also supports unquoted date/time values. See the [dates](#dates) section for examples. Access this value from a template using the [`Lastmod`][] method on a `Page` object.
 
 `layout`
-: (`string`) Provide a template name to [target a specific template][],  overriding the default [template lookup order][]. Set the value to the base file name of the template, excluding its extension. Access this value from a template using the [`Layout`][] method on a `Page` object.
+: (`string`) A custom layout name to [target a specific template][]. Access this value from a template using the [`Layout`][] method on a `Page` object.
 
 `linkTitle`
 : (`string`) Typically a shorter version of the `title`. Access this value from a template using the [`LinkTitle`][] method on a `Page` object.
@@ -142,7 +142,7 @@ The most common front matter fields are `date`, `draft`, `title`, and `weight`, 
 : (`string`) An arbitrary value used to relate two or more translations of the same page, useful when the translated pages do not share a common path. Access this value from a template using the [`TranslationKey`][] method on a `Page` object.
 
 `type`
-: (`string`) The [content type](g), overriding the value derived from the top-level section in which the page resides. Access this value from a template using the [`Type`][] method on a `Page` object.
+: (`string`) The [content type](g), overriding the value derived from the top-level section in which the page resides. Access this value from a template using the [`Type`][] method on a `Page` object. You can also set this field to [target a specific template][].
 
 `unpublishdate`
 : Alias to [`expirydate`](#expirydate).
@@ -229,12 +229,7 @@ color = 'red'
 
 ### Target
 
-<!-- TODO
-We deprecated the `_target` front matter key in favor of `target` in v0.156.0 on 2026-02-17. Remove footnote #1 somewhere after v0.171.0, 15 minor releases
-after deprecation.
--->
-
-The `target` key accepts a [page matcher](g) to limit cascaded values to a subset of pages.[^1] If a target is not specified, values cascade to all descendant pages.
+The `target` key accepts a [page matcher](g) to limit cascaded values to a subset of pages. If a target is not specified, values cascade to all descendant pages.
 
 {{% include "/_common/page-matcher.md" %}}
 
@@ -299,8 +294,6 @@ To override the default time zone, set the [`timeZone`][] in your project config
 1. The time zone specified in your project configuration
 1. The `Etc/UTC` time zone
 
-[^1]: The `_target` alias for `target` is deprecated and will be removed in a future release.
-
 [Emacs Org Mode]: https://orgmode.org/
 [JSON]: https://www.json.org/
 [TOML]: https://toml.io/
@@ -343,6 +336,5 @@ To override the default time zone, set the [`timeZone`][] in your project config
 [page resources]: /content-management/page-resources/#metadata
 [sitemap templates]: /templates/sitemap/
 [target a specific template]: /templates/lookup-order/#target-a-template
-[template lookup order]: /templates/lookup-order/
 [url_management_slug]: /content-management/urls/#slug
 [url_management_url]: /content-management/urls/#url
