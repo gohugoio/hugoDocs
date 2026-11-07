@@ -34,7 +34,7 @@ Each page kind identifier applies only to that page kind. For example, Hugo uses
 > [!NOTE]
 > Templates can live in the project's `layouts` directory or in the `layouts` directory of any [module](g), including a [theme](g). Hugo searches all of these locations and selects the most specific template. If the project and a module provide templates with the same file name, Hugo uses the template in the project.
 >
-> To override a template provided by a module or theme, create a template with the same file name in the same directory within your project's `layouts` directory.
+> To override a template provided by a module, create a template with the same file name in the same directory within your project's `layouts` directory.
 
 ## File names
 

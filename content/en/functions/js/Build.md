@@ -62,7 +62,7 @@ The `js.Build` function accepts an options map.
 import { hello } from 'my/module';
 ```
 
-And it will resolve to the top-most `index.{js,ts,tsx,jsx}` inside `assets/my/module` in the layered file system.
+And it will resolve to the top-most `index.{js,ts,tsx,jsx}` inside `assets/my/module` in the unified file system.
 
 ```js
 import { hello3 } from 'my/module/hello3';
@@ -103,7 +103,7 @@ Use the `js.Build` function to include Node dependencies. Run `npm install` to i
 If an import does not resolve to a file in the `assets` directory, or if the importing file is outside the `assets` directory, [`esbuild`][] resolves the import. It looks for packages in `node_modules` directories, starting from the project directory, but only within the allowed paths. See [file system access](#file-system-access).
 
 > [!TIP]
-> If you're developing a theme/component that is supposed to be imported and depends on dependencies inside `package.json`, we recommend reading about [`hugo mod npm pack`][], a tool to consolidate all the npm dependencies in a project.
+> If you're developing a module that is supposed to be imported and depends on dependencies inside `package.json`, we recommend reading about [`hugo mod npm pack`][], a tool to consolidate all the npm dependencies in a project.
 
 ## File system access
 

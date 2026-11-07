@@ -56,7 +56,7 @@ These examples unmarshal global, page, and remote resources, then show how to wo
 
 ### Global resource
 
-A global resource is a file within the `assets` directory, or within any directory mounted to the `assets` directory.
+A global resource is a file within the `assets` directory of the [unified file system](g).
 
 ```tree
 assets/

@@ -199,7 +199,7 @@ my-theme/
 
 Using the unified file system described above, Hugo mounts each of these directories to the corresponding location in the project. When two files have the same path, the file in the project directory takes precedence. This allows you, for example, to override a theme's template by placing a copy in the same location within the project directory.
 
-If you are simultaneously using components from two or more themes or modules, and there's a path collision, the first mount takes precedence.
+If you are simultaneously using components from two or more modules, and there's a path collision, the first mount takes precedence.
 
 [asset pipelines]: /hugo-pipes/introduction/
 [build-your-project]: /getting-started/usage/#build-your-project

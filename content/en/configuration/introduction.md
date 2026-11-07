@@ -218,7 +218,7 @@ To satisfy these requirements, configure your site as follows:
 
 ## Merge configuration settings
 
-Hugo merges configuration settings from themes and modules, prioritizing the project's own settings. This is distinct from combining configuration files with the `--config` flag, or splitting configuration across a [configuration directory](#configuration-directory), both of which always overwrite keys of the same name. Given this simplified project structure with two themes:
+Hugo merges configuration settings from [modules](g), including [themes](g), prioritizing the project's own settings. This is distinct from combining configuration files with the `--config` flag, or splitting configuration across a [configuration directory](#configuration-directory), both of which always overwrite keys of the same name. Given this simplified project structure with two themes:
 
 ```tree
 project/
@@ -283,17 +283,17 @@ title = 'My New Hugo Site'
 theme = ['theme-a','theme-b']
 {{< /code-toggle >}}
 
-A root-level `_merge` set to `none` disables merging of theme and module configuration entirely, regardless of any `_merge` value set on individual configuration categories. A root-level `_merge` set to `shallow` or `deep` instead changes the default merge strategy for configuration categories that do not specify their own `_merge` value.
+A root-level `_merge` set to `none` disables merging of module configuration entirely, regardless of any `_merge` value set on individual configuration categories. A root-level `_merge` set to `shallow` or `deep` instead changes the default merge strategy for configuration categories that do not specify their own `_merge` value.
 
 > [!NOTE]
-> Hugo can merge map configuration values from modules and themes into the project configuration, but cannot merge slice values. This applies to slice-typed configuration categories such as `menus`, as well as to map keys whose values are slices, such as the per-kind format lists in `outputs`.
+> Hugo can merge map configuration values from modules into the project configuration, but cannot merge slice values. This applies to slice-typed configuration categories such as `menus`, as well as to map keys whose values are slices, such as the per-kind format lists in `outputs`.
 
 ### Security implications
 
-Most configuration categories default to a `none` merge strategy specifically to protect your project from third-party themes and modules.
+Most configuration categories default to a `none` merge strategy specifically to protect your project from third-party modules.
 
 > [!WARNING]
-> Setting `_merge` to `shallow` or `deep` removes that protection, whether applied directly to a security-sensitive key such as `markup` or `security`, or set at the root of your configuration to change the default for every key. Only use a permissive `_merge` value for these keys if you trust every theme and module in your project.
+> Setting `_merge` to `shallow` or `deep` removes that protection, whether applied directly to a security-sensitive key such as `markup` or `security`, or set at the root of your configuration to change the default for every key. Only use a permissive `_merge` value for these keys if you trust every module in your project.
 
 ## Environment variables
 

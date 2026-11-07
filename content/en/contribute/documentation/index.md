@@ -157,6 +157,8 @@ Wrap directory names, file names, and file paths in backticks.
 
 Refer to [component](g) directories by their names within the unified file system: the `archetypes`, `assets`, `content`, `data`, `i18n`, `layouts`, and `static` directories. Refer to the publish directory as the `public` directory. Mention the corresponding configuration setting, such as `contentDir` or `publishDir`, only when describing the setting itself.
 
+When it does not matter where a file comes from, do not list its possible sources, such as the project, its mounts, or its modules. Refer to the component directory instead.
+
 ### Shortcode names
 
 Wrap shortcode names in backticks. Link to the shortcode page using the name as the link text, not the word "shortcode":
@@ -222,6 +224,17 @@ No → Some templates are executed many times during a site build.\
 Yes → Some templates are executed many times during a build.
 
 Use "[build artifacts](g)" when referring to the output of a build as a whole, such as "Hugo writes the build artifacts to the `public` directory." When referring to specific files or their contents, name them instead, such as "the rendered HTML files." Use "published site" only when referring to the deployed website.
+
+Distinguish between a [module](g) and a [theme](g). A theme is a module that provides a complete set of components defining a site's layout, presentation, and behavior. Use "module" when a statement applies to any module, such as when describing templates, configuration merging, or mounts. Use "theme" only when a statement applies to themes specifically, such as when describing how to choose or install a theme, or the `theme` configuration setting.
+
+Do not pair the terms, because pairing them implies that a theme is not a module.
+
+No → If your project, modules, or themes define custom render hooks, Hugo uses those instead.\
+Yes → If your project or its modules define custom render hooks, Hugo uses those instead.
+
+When readers may not realize that a theme is a module, write "modules, including themes" at the first mention on the page. Use "module" after that.
+
+Do not use "module" to refer to the project, even though you define project mounts under the `module` configuration key.
 
 ### Products and executables
 

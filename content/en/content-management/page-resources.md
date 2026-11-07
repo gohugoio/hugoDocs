@@ -249,7 +249,7 @@ This approach reduces build times, storage requirements, bandwidth consumption, 
 > [!NOTE]
 > To resolve Markdown link and image destinations to the correct location, use link and image render hooks that get the page resource with the `Get` method, and then call its `RelPermalink` method.
 >
-> By default, Hugo uses the [embedded link render hook][] and the [embedded image render hook][] for multilingual single-host projects when the [duplication of shared page resources][] is disabled. If your project, modules, or themes define custom link or image render hooks, Hugo uses those instead.
+> By default, Hugo uses the [embedded link render hook][] and the [embedded image render hook][] for multilingual single-host projects when the [duplication of shared page resources][] is disabled. If your project or its modules define custom link or image render hooks, Hugo uses those instead.
 >
 > You can also configure Hugo to `always` use the embedded link or image render hook, to use it only as a `fallback`, or to `never` use it, as described in [`useEmbedded`][].
 
