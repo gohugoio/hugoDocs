@@ -10,46 +10,39 @@ params:
     signatures: [os.Getenv VARIABLE]
 ---
 
-## Security
+## Usage
 
-By default, when using the `os.Getenv` function Hugo allows access to:
+The `os.Getenv` function returns the value of the given environment variable, or an empty string if the environment variable is not set.
 
-- The `CI` environment variable
-- Any environment variable beginning with `HUGO_`
+By default, Hugo allows access to the `CI` environment variable and to any environment variable beginning with `HUGO_`. Access to any other environment variable fails the build.
 
-To access other environment variables, adjust your project configuration. For example, to allow access to the `HOME` and `USER` environment variables:
+To allow access to other environment variables, set `getenv` in the [security configuration][]. This setting replaces the default list, so include the default patterns to keep access to those environment variables. For example, to also allow access to the `HOME` and `USER` environment variables:
 
 {{< code-toggle file=hugo >}}
 [security.funcs]
 getenv = ['^HUGO_', '^CI$', '^USER$', '^HOME$']
 {{< /code-toggle >}}
 
-For more information see [configure security][].
-
 ## Examples
 
+These examples assume that you have allowed access to the `HOME` and `USER` environment variables as shown above:
+
 ```go-html-template
-{{ getenv "HOME" }} → /home/victor
-{{ getenv "USER" }} → victor
+{{ os.Getenv "HOME" }} → /home/victor
+{{ os.Getenv "USER" }} → victor
 ```
 
-You can pass values when building your project:
+Setting environment variables when building your project:
 
 ```sh
-MY_VAR1=foo MY_VAR2=bar hugo
-
-OR
-
-export MY_VAR1=foo
-export MY_VAR2=bar
-hugo
+HUGO_MY_VAR1=foo HUGO_MY_VAR2=bar hugo build
 ```
 
-And then retrieve the values within a template:
+Retrieving the values:
 
 ```go-html-template
-{{ getenv "MY_VAR1" }} → foo
-{{ getenv "MY_VAR2" }} → bar
+{{ os.Getenv "HUGO_MY_VAR1" }} → foo
+{{ os.Getenv "HUGO_MY_VAR2" }} → bar
 ```
 
-[configure security]: /configuration/security/
+[security configuration]: /configuration/security/
