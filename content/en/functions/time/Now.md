@@ -10,32 +10,39 @@ params:
     signatures: [time.Now]
 ---
 
-For example, when building a site on October 15, 2023 in the America/Los_Angeles time zone:
+## Usage
+
+The `time.Now` function returns the current local time as a `time.Time` value. The returned value uses the time zone of the system running Hugo, not the [`timeZone`][] setting in your project configuration.
+
+Use any of the [time methods][] with the returned value. To format and [localize](g) the returned value, pass it to the [`time.Format`][] function. To represent the returned value in a different time zone, pass it to the [`time.In`][] function.
+
+To set the current time used by Hugo, such as when testing, use the `--clock` flag with the [`hugo build`][] command.
+
+## Examples
+
+The examples below assume a build on October 15, 2023, in the `America/Los_Angeles` time zone.
 
 ```go-html-template
-{{ time.Now }}
+{{ time.Now }} → 2023-10-15 12:59:28.337140706 -0700 PDT m=+0.041752605
 ```
 
-This produces a `time.Time` value, with a string representation such as:
-
-```text
-2023-10-15 12:59:28.337140706 -0700 PDT m=+0.041752605
-```
-
-To format and [localize](g) the value, pass it through the [`time.Format`][] function:
+Formatting the returned value:
 
 ```go-html-template
-{{ time.Now | time.Format "Jan 2006" }} → Oct 2023
+{{ time.Now | dateFormat "Jan 2006" }} → Oct 2023
 ```
 
-The `time.Now` function returns a `time.Time` value, so you can chain any of the [time methods][] to the resulting value. For example:
+Calling methods on the returned value:
 
 ```go-html-template
 {{ time.Now.Year }} → 2023 (int)
 {{ time.Now.Weekday.String }} → Sunday
 {{ time.Now.Month.String }} → October
-{{ time.Now.Unix }} → 1697400955 (int64)
+{{ time.Now.Unix }} → 1697399968 (int64)
 ```
 
+[`hugo build`]: /commands/hugo_build/
 [`time.Format`]: /functions/time/format/
+[`time.In`]: /functions/time/in/
+[`timeZone`]: /configuration/all/#timezone
 [time methods]: /methods/time/
