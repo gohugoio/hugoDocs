@@ -106,7 +106,7 @@ Add a link only when readers are likely to need the destination to complete the 
 
 Follow these guidelines when adding links:
 
-- Link to a page, including a glossary term, once per page at its first occurrence. On reference pages, where readers often arrive at a fragment instead of the top of the page, you may link to it once per level 2 section.
+- Link to a page, including a glossary term, once per page at its first occurrence. On reference pages, where readers often arrive at a fragment instead of the top of the page, you may link to it once per level 2 section. This guideline applies only to the links you write. Content inserted by a shortcode, such as a glossary definition inserted by the [`glossary-term`](#glossary-term) shortcode or a snippet inserted by the [`include`](#include) shortcode, may link to a page that you also link to.
 - Do not link to common technologies and formats that readers already know, such as HTML, CSS, JSON, or Markdown, unless the link points to a specification that the text depends on.
 - Write link text that describes the destination. Do not use "here," "this page," or "this link" as link text.
 - Do not place links in headings.

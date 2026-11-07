@@ -17,7 +17,7 @@ The front matter at the top of each content file is metadata that:
 
 Provide front matter using a serialization format, one of [JSON][], [TOML][], or [YAML][]. Hugo determines the front matter format by examining the delimiters that separate the front matter from the page content.
 
-See examples of front matter delimiters by toggling between the serialization formats below.
+Toggle between the serialization formats in this example to see the front matter delimiters for each format:
 
 {{< code-toggle file=content/example.md fm=true >}}
 title = 'Example'
@@ -32,24 +32,24 @@ Front matter fields may be [boolean](g), [integer](g), [float](g), [string](g), 
 
 ## Fields
 
-The most common front matter fields are `date`, `draft`, `title`, and `weight`, but you can specify metadata using any of the fields below.
+The most common front matter fields are `date`, `draft`, `title`, and `weight`, but you can specify metadata using any of these fields.
 
 > [!NOTE]
-> The field names below are reserved. For example, you cannot create a custom field named `type`. Create custom fields under the `params` key. See the [parameters](#parameters) section for details.
+> These field names are reserved. For example, you cannot create a custom field named `type`. Create custom fields under the `params` key, as described in [parameters](#parameters).
 >
-> To access a reserved field from a template, call the corresponding method on a `Page` object, as described for each field below.
+> To access a reserved field from a template, call the corresponding method on a `Page` object, as described for each field.
 
 `aliases`
-: (`[]string`) An array of one or more [page-relative](g) or [site-relative](g) paths that should redirect to the current page. Hugo resolves these to [server-relative](g) URLs during the build process. Access these values from a template using the [`Aliases`][] method on a `Page` object. See the [aliases][] section for details.
+: (`[]string`) An array of one or more [page-relative](g) or [site-relative](g) paths that should redirect to the current page. Hugo resolves these to [server-relative](g) URLs during the build process. Hugo creates a redirect from each path, as described in [aliases][]. Access these values from a template using the [`Aliases`][] method on a `Page` object.
 
 `build`
 : (`map`) A map of [build options][].
 
 `cascade`
-: (`map`) A map (or array of maps) of front matter keys whose values are passed down to the page's descendants unless overwritten by self or a closer ancestor's cascade. See the [cascade](#cascade-1) section for details.
+: (`map`) A map (or array of maps) of front matter keys whose values are passed down to the page's descendants unless overwritten by self or a closer ancestor's cascade, as described in [cascade](#cascade-1).
 
 `date`
-: (`string`) The date associated with the page, typically the creation date. Note that the TOML format also supports unquoted date/time values. See the [dates](#dates) section for examples. Access this value from a template using the [`Date`][] method on a `Page` object.
+: (`string`) The date associated with the page, typically the creation date. Use one of the [date formats](#dates). Access this value from a template using the [`Date`][] method on a `Page` object.
 
 `description`
 : (`string`) Conceptually different than the page `summary`, the description is typically rendered within a `meta` element within the `head` element of the published HTML file. Access this value from a template using the [`Description`][] method on a `Page` object.
@@ -58,10 +58,10 @@ The most common front matter fields are `date`, `draft`, `title`, and `weight`, 
 : (`bool`) Whether to disable rendering unless you pass the `--buildDrafts` flag to the `hugo` command. Access this value from a template using the [`Draft`][] method on a `Page` object.
 
 `expiryDate`
-: (`string`) The page expiration date. On or after the expiration date, the page will not be rendered unless you pass the `--buildExpired` flag to the `hugo` command. Note that the TOML format also supports unquoted date/time values. See the [dates](#dates) section for examples. Access this value from a template using the [`ExpiryDate`][] method on a `Page` object.
+: (`string`) The page expiration date. On or after the expiration date, Hugo does not render the page unless you pass the `--buildExpired` flag to the `hugo` command. Use one of the date formats. Access this value from a template using the [`ExpiryDate`][] method on a `Page` object.
 
 `headless`
-: (`bool`) Applicable to [leaf bundles][], whether to set the `render` and `list` [build options][] to `never`, creating a headless bundle of [page resources][].
+: (`bool`) Applicable to [leaf bundles][], whether to set the `render` and `list` build options to `never`, creating a headless bundle of page resources.
 
 `isCJKLanguage`
 : (`bool`) Whether the content is in a [CJK](g) language. This value determines how Hugo calculates word count, and affects the values returned by the [`FuzzyWordCount`][], [`ReadingTime`][], [`Summary`][], and [`WordCount`][] methods on a `Page` object. When set, this value takes precedence over the automatic detection enabled by the [`hasCJKLanguage`][] setting in your project configuration.
@@ -70,7 +70,7 @@ The most common front matter fields are `date`, `draft`, `title`, and `weight`, 
 : (`[]string`) An array of keywords, typically rendered within a `meta` element within the `head` element of the published HTML file, or used as a [taxonomy](g) to classify content. Access these values from a template using the [`Keywords`][] method on a `Page` object.
 
 `lastmod`
-: (`string`) The date that the page was last modified. Note that the TOML format also supports unquoted date/time values. See the [dates](#dates) section for examples. Access this value from a template using the [`Lastmod`][] method on a `Page` object.
+: (`string`) The date that the page was last modified. Use one of the date formats. Access this value from a template using the [`Lastmod`][] method on a `Page` object.
 
 `layout`
 : (`string`) A custom layout name to [target a specific template][]. Access this value from a template using the [`Layout`][] method on a `Page` object.
@@ -85,31 +85,31 @@ The most common front matter fields are `date`, `draft`, `title`, and `weight`, 
 : Alias to [`menus`](#menus).
 
 `menus`
-: (`string`, `[]string`, or `map`) If set, Hugo adds the page to the given menu or menus. See the [menus][] page for details.
+: (`string`, `[]string`, or `map`) If set, Hugo adds the page to the given [menus][].
 
 `modified`
 : Alias to [`lastmod`](#lastmod).
 
 `outputs`
-: (`[]string`) The [output formats][] to render. See [configure outputs][] for more information.
+: (`[]string`) The [output formats][] to render, overriding the [output formats for the page kind][].
 
 `params`
-: (`map`) A map of custom [page parameters](#parameters).
+: (`map`) A map of custom page parameters.
 
 `pubdate`
 : Alias to [`publishDate`](#publishdate).
 
 `publishDate`
-: (`string`) The page publication date. Before the publication date, the page will not be rendered unless you pass the `--buildFuture` flag to the `hugo` command. Note that the TOML format also supports unquoted date/time values. See the [dates](#dates) section for examples. Access this value from a template using the [`PublishDate`][] method on a `Page` object.
+: (`string`) The page publication date. Before the publication date, Hugo does not render the page unless you pass the `--buildFuture` flag to the `hugo` command. Use one of the date formats. Access this value from a template using the [`PublishDate`][] method on a `Page` object.
 
 `published`
-: Alias to [`publishDate`](#publishdate).
+: Alias to `publishDate`.
 
 `resources`
 : (`map array`) An array of maps to provide metadata for [page resources][]. Each element supports the `src`, `name`, `title`, and `params` keys.
 
 `sitemap`
-: (`map`) A map of sitemap options. See the [sitemap templates][] page for details. Access these values from a template using the [`Sitemap`][] method on a `Page` object.
+: (`map`) A map of options for the [sitemap template][]. Access these values from a template using the [`Sitemap`][] method on a `Page` object.
 
 `sites`
 : {{< new-in 0.153.0 />}}
@@ -130,10 +130,10 @@ The most common front matter fields are `date`, `draft`, `title`, and `weight`, 
   <!-- markdownlint-enable MD049 -->
 
 `slug`
-: (`string`) Overrides the last segment of the URL path. Not applicable to the `home` page. See [details][url_management_slug]. Access this value from a template using the [`Slug`][] method on a `Page` object.
+: (`string`) Overrides the last segment of the URL path, as described in [slug][]. Not applicable to the `home` page. Access this value from a template using the [`Slug`][] method on a `Page` object.
 
 `summary`
-: (`string`) Conceptually different than the page `description`, the summary either summarizes the content or serves as a teaser to encourage readers to visit the page. Access this value from a template using the [`RawSummary`][] method on a `Page` object, or render it using the [`Summary`][] method.
+: (`string`) Conceptually different than the page `description`, the summary either summarizes the content or serves as a teaser to encourage readers to visit the page. Access this value from a template using the [`RawSummary`][] method on a `Page` object, or render it using the `Summary` method.
 
 `title`
 : (`string`) The page title. Access this value from a template using the [`Title`][] method on a `Page` object.
@@ -142,13 +142,13 @@ The most common front matter fields are `date`, `draft`, `title`, and `weight`, 
 : (`string`) An arbitrary value used to relate two or more translations of the same page, useful when the translated pages do not share a common path. Access this value from a template using the [`TranslationKey`][] method on a `Page` object.
 
 `type`
-: (`string`) The [content type](g), overriding the value derived from the top-level section in which the page resides. Access this value from a template using the [`Type`][] method on a `Page` object. You can also set this field to [target a specific template][].
+: (`string`) The [content type](g), overriding the value derived from the top-level section in which the page resides. Access this value from a template using the [`Type`][] method on a `Page` object. You can also set this field to target a specific template.
 
 `unpublishdate`
 : Alias to [`expirydate`](#expirydate).
 
 `url`
-: (`string`) Overrides the entire URL path. Not applicable to the `home` page. See [details][url_management_url].
+: (`string`) Overrides the entire URL path, as described in [url][]. Not applicable to the `home` page.
 
 `weight`
 : (`int`) The page [weight](g), used to order the page within a [page collection](g). Access this value from a template using the [`Weight`][] method on a `Page` object.
@@ -178,7 +178,7 @@ tag = 'tags'
 genre = 'genres'
 {{< /code-toggle >}}
 
-Add taxonomy terms as shown below:
+Add taxonomy terms to front matter:
 
 {{< code-toggle file=content/example.md fm=true >}}
 title = 'Example'
@@ -215,7 +215,7 @@ Access taxonomy terms from a template using the [`Params`][] or [`GetTerms`][] m
 ## Cascade
 
 > [!TIP]
-> For multilingual projects, defining cascade values in your project configuration is often more efficient. This avoids repeating the same cascade values for each language. See [details][].
+> For multilingual projects, defining [cascade values in your project configuration][] is often more efficient. This avoids repeating the same cascade values for each language.
 
 {{% glossary-term "cascade" %}}
 
@@ -288,6 +288,8 @@ When populating a date field, whether a [custom page parameter](#parameters) or 
 
 {{% include "/_common/parsable-date-time-strings.md" %}}
 
+The TOML format also supports unquoted date/time values.
+
 To override the default time zone, set the [`timeZone`][] in your project configuration. The order of precedence for determining the time zone is:
 
 1. The time zone offset in the date/time string
@@ -326,15 +328,15 @@ To override the default time zone, set the [`timeZone`][] in your project config
 [`timeZone`]: /configuration/all/#timezone
 [aliases]: /content-management/urls/#aliases
 [build options]: /content-management/build-options/
-[configure outputs]: /configuration/outputs/#outputs-per-page
+[output formats for the page kind]: /configuration/outputs/#outputs-per-page
 [content format]: /content-management/formats/
 [content formats]: /content-management/formats/#classification
-[details]: /configuration/cascade/
-[leaf bundles]: /content-management/page-bundles/#leaf-bundles
+[cascade values in your project configuration]: /configuration/cascade/
+[leaf bundles]: /content-management/organization/#leaf-bundles
 [menus]: /content-management/menus/#define-in-front-matter
 [output formats]: /configuration/output-formats/
 [page resources]: /content-management/page-resources/#metadata
-[sitemap templates]: /templates/sitemap/
+[sitemap template]: /templates/sitemap/
 [target a specific template]: /templates/lookup-order/#target-a-template
-[url_management_slug]: /content-management/urls/#slug
-[url_management_url]: /content-management/urls/#url
+[slug]: /content-management/urls/#slug
+[url]: /content-management/urls/#url
