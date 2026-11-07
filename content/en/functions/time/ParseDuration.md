@@ -10,21 +10,24 @@ params:
     signatures: [time.ParseDuration DURATION]
 ---
 
-The `time.ParseDuration` function returns a [`time.Duration`][] value that you can use with any of the `Duration` [methods][].
+## Usage
 
-A duration string is a possibly signed sequence of decimal numbers, each with optional fraction and a unit suffix, such as `300ms`, `-1.5h` or `2h45m`. Valid time units are `ns`, `us` (or `µs`), `ms`, `s`, `m`, `h`.
+The `time.ParseDuration` function returns a [`time.Duration`][] value by parsing the given duration string. Use any of the `Duration` [methods][] with the returned value.
 
-This template:
+The `DURATION` is a sequence of decimal numbers, each with an optional fraction and a unit suffix, such as `300ms`, `-1.5h`, or `2h45m`. Precede the sequence with a minus sign to create a negative duration. Valid units are `ns`, `us` or `µs`, `ms`, `s`, `m`, and `h`.
+
+## Examples
 
 ```go-html-template
-{{ $duration := time.ParseDuration "24h" }}
-{{ printf "There are %.0f seconds in one day." $duration.Seconds }}
+{{ time.ParseDuration "2h45m" }} → 2h45m0s
+{{ time.ParseDuration "-1.5h" }} → -1h30m0s
+{{ time.ParseDuration "300ms" }} → 300ms
 ```
 
-Is rendered to:
+Calling a method on the returned value:
 
-```text
-There are 86400 seconds in one day.
+```go-html-template
+{{ (time.ParseDuration "24h").Seconds }} → 86400
 ```
 
 [`time.Duration`]: https://pkg.go.dev/time#Duration

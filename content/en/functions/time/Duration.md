@@ -10,31 +10,30 @@ params:
     signatures: [time.Duration TIME_UNIT NUMBER]
 ---
 
-The `time.Duration` function returns a [`time.Duration`][] value that you can use with any of the `Duration` [methods][].
+## Usage
 
-This template:
+The `time.Duration` function returns a [`time.Duration`][] value using the given time unit and number. Use any of the `Duration` [methods][] with the returned value.
+
+## Arguments
+
+`TIME_UNIT`
+: (`string`) The unit of time, one of `hour`, `minute`, `second`, `millisecond`, `microsecond`, or `nanosecond`. You can also use the abbreviations `h`, `m`, `s`, `ms`, `us`, and `ns`, or `µs` for microseconds.
+
+`NUMBER`
+: (`int`) The number of time units. If you pass a floating-point number, the function discards the fractional part.
+
+## Examples
 
 ```go-html-template
-{{ $duration := time.Duration "hour" 24 }}
-{{ printf "There are %.0f seconds in one day." $duration.Seconds }}
+{{ time.Duration "hour" 24 }} → 24h0m0s
+{{ time.Duration "ms" 1500 }} → 1.5s
 ```
 
-Is rendered to:
+Calling a method on the returned value:
 
-```text
-There are 86400 seconds in one day.
+```go-html-template
+{{ (time.Duration "hour" 24).Seconds }} → 86400
 ```
-
-The time unit must be one of the following:
-
-Duration|Valid time units
-:--|:--
-hours|`hour`, `h`
-minutes|`minute`, `m`
-seconds|`second`, `s`
-milliseconds|`millisecond`, `ms`
-microseconds|`microsecond`, `us`, `µs`
-nanoseconds|`nanosecond`, `ns`
 
 [`time.Duration`]: https://pkg.go.dev/time#Duration
 [methods]: /methods/duration/
