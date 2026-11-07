@@ -10,7 +10,7 @@ This is the default configuration:
 
 {{< code-toggle config=minify />}}
 
-See the [`tdewolff/minify`][] project page for details, but note the following:
+See the documentation for the [`tdewolff/minify`][] package for details, but note the following:
 
 - `css.inline` is for internal use. Changing this setting has no effect.
 - `html.keepConditionalComments` has been deprecated. Use `html.keepSpecialComments` instead.

@@ -237,6 +237,22 @@ Documentation|The official guides or site|"Read the Rclone documentation."
 CLI or binary|The command you run, or its path|"Run `hugo server` to preview your site."
 Package|The software installed on a system|"Ensure `rclone` is installed."
 
+### Go packages
+
+Wrap Go package names in backticks, and follow each name with the word "package."
+
+- Refer to a package in the Go standard library by its import path, preceded by "Go's."
+
+  No → Hugo parses the template with the `html/template` package.\
+  Yes → Hugo parses the template with Go's `html/template` package.
+
+- Refer to a third-party package by its owner and repository name, omitting the host.
+
+  No → Hugo uses the `chroma` Go package.\
+  Yes → Hugo uses the `alecthomas/chroma` package.
+
+Link to the package's repository. If readers need the type definitions, such as the fields and methods of a returned value, link to the package's documentation on pkg.go.dev instead.
+
 ### Template types
 
 When you refer to a template type, italicize it:

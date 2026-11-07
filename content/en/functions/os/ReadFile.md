@@ -10,24 +10,30 @@ params:
     signatures: [os.ReadFile PATH]
 ---
 
-The `os.ReadFile` function attempts to resolve the path relative to the root of your project directory, then relative to the root of each [module](g). If a matching file is not found, it will attempt to resolve the path relative to the `content` directory of the [unified file system](g). A leading path separator (`/`) is optional.
+## Usage
 
-With a file named README.md in the root of your project directory:
+The `os.ReadFile` function returns the contents of the file at the given `PATH`. The function resolves the path relative to the root of your [project](g) directory, then relative to the root of each [module](g). If it does not find a matching file, it resolves the path relative to the `content` directory of the [unified file system](g). A leading path separator (`/`) is optional.
 
-```md
+The function returns the raw content of the file without rendering it, or an empty string if the file does not exist.
+
+## Examples
+
+These examples use a `README.md` file in the root of your project directory:
+
+```md {file="README.md"}
 This is **bold** text.
 ```
 
-This template code:
+Reading the file:
 
 ```go-html-template
-{{ readFile "README.md" }}
+{{ os.ReadFile "README.md" }} → This is **bold** text.
 ```
 
-Produces:
+Rendering the content with the [`transform.Markdownify`][] function:
 
-```html
-This is **bold** text.
+```go-html-template
+{{ os.ReadFile "README.md" | markdownify }} → This is <strong>bold</strong> text.
 ```
 
-Note that `os.ReadFile` returns raw (uninterpreted) content.
+[`transform.Markdownify`]: /functions/transform/markdownify/

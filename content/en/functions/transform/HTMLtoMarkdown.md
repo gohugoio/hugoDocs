@@ -13,7 +13,7 @@ params:
 
 ## Usage
 
-The `transform.HTMLToMarkdown` function returns the given HTML converted to Markdown, using the [`html-to-markdown`][] Go package.
+The `transform.HTMLToMarkdown` function returns the given HTML converted to Markdown, using the [`JohannesKaufmann/html-to-markdown`][] package.
 
 > [!NOTE]
 > This function is experimental and its API may change in the future.
@@ -40,4 +40,4 @@ Converting the content of the current page:
 
 [CommonMark]: https://spec.commonmark.org/current/
 [GitHub Flavored Markdown]: https://github.github.com/gfm/
-[`html-to-markdown`]: https://github.com/JohannesKaufmann/html-to-markdown?tab=readme-ov-file#readme
+[`JohannesKaufmann/html-to-markdown`]: https://github.com/JohannesKaufmann/html-to-markdown

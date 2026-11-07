@@ -10,9 +10,13 @@ params:
     signatures: [os.FileExists PATH]
 ---
 
-The `os.FileExists` function attempts to resolve the path relative to the root of your project directory, then relative to the root of each [module](g). If a matching file or directory is not found, it will attempt to resolve the path relative to the `content` directory of the [unified file system](g). A leading path separator (`/`) is optional.
+## Usage
 
-With this directory structure:
+The `os.FileExists` function reports whether the file or directory at the given `PATH` exists. The function resolves the path relative to the root of your [project](g) directory, then relative to the root of each [module](g). If it does not find a matching file or directory, it resolves the path relative to the `content` directory of the [unified file system](g). A leading path separator (`/`) is optional.
+
+## Examples
+
+These examples use this content structure:
 
 ```tree
 content/
@@ -23,14 +27,19 @@ content/
     └── article-2.md
 ```
 
-The function returns these values:
+Paths relative to the project directory:
 
 ```go-html-template
-{{ fileExists "content" }} → true
-{{ fileExists "content/news" }} → true
-{{ fileExists "content/news/article-1" }} → false
-{{ fileExists "content/news/article-1.md" }} → true
-{{ fileExists "news" }} → true
-{{ fileExists "news/article-1" }} → false
-{{ fileExists "news/article-1.md" }} → true
+{{ os.FileExists "content" }} → true
+{{ os.FileExists "content/news" }} → true
+{{ os.FileExists "content/news/article-1" }} → false
+{{ os.FileExists "content/news/article-1.md" }} → true
+```
+
+Paths relative to the `content` directory:
+
+```go-html-template
+{{ os.FileExists "news" }} → true
+{{ os.FileExists "news/article-1" }} → false
+{{ os.FileExists "news/article-1.md" }} → true
 ```
