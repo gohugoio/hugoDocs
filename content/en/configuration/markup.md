@@ -169,10 +169,10 @@ Most of the Goldmark settings above are self-explanatory, but some require expla
 : {{< new-in 0.148.0 />}}
 : (`string`) When to use the [embedded image render hook][]. One of `auto`, `never`, `always`, or `fallback`. Default is `auto`.
 
-  - `auto`: Use the embedded image render hook only for multilingual single-host projects where the [duplication of shared page resources][] feature is disabled. If custom image render hooks are defined by your project, modules, or themes, these will be used instead.
-  - `never`: Never use the embedded image render hook. If custom image render hooks are defined by your project, modules, or themes, these will be used instead.
-  - `always`: Always use the embedded image render hook, even if custom image render hooks are provided by your project, modules, or themes.
-  - `fallback`: Use the embedded image render hook only if custom image render hooks are not provided by your project, modules, or themes. If custom image render hooks exist, these will be used instead.
+  - `auto`: Use the embedded image render hook only for multilingual single-host projects where the [duplication of shared page resources][] feature is disabled. If your project or its modules define custom image render hooks, Hugo uses those instead.
+  - `never`: Never use the embedded image render hook. If your project or its modules define custom image render hooks, Hugo uses those instead.
+  - `always`: Always use the embedded image render hook, even if your project or its modules define custom image render hooks.
+  - `fallback`: Use the embedded image render hook only if your project and its modules do not define custom image render hooks. Otherwise, Hugo uses the custom image render hooks.
 
 `renderHooks.link.enableDefault`
 : {{< deprecated-in 0.148.0 />}}
@@ -181,10 +181,10 @@ Most of the Goldmark settings above are self-explanatory, but some require expla
 `renderHooks.link.useEmbedded`
 : (`string`) When to use the [embedded link render hook][]. One of `auto`, `never`, `always`, or `fallback`. Default is `auto`.
 
-  - `auto`: Use the embedded link render hook only for multilingual single-host projects where the [duplication of shared page resources][] feature is disabled. If custom link render hooks are defined by your project, modules, or themes, these will be used instead.
-  - `never`: Never use the embedded link render hook. If custom link render hooks are defined by your project, modules, or themes, these will be used instead.
-  - `always`: Always use the embedded link render hook, even if custom link render hooks are provided by your project, modules, or themes.
-  - `fallback`: Use the embedded link render hook only if custom link render hooks are not provided by your project, modules, or themes. If custom link render hooks exist, these will be used instead.
+  - `auto`: Use the embedded link render hook only for multilingual single-host projects where the [duplication of shared page resources][] feature is disabled. If your project or its modules define custom link render hooks, Hugo uses those instead.
+  - `never`: Never use the embedded link render hook. If your project or its modules define custom link render hooks, Hugo uses those instead.
+  - `always`: Always use the embedded link render hook, even if your project or its modules define custom link render hooks.
+  - `fallback`: Use the embedded link render hook only if your project and its modules do not define custom link render hooks. Otherwise, Hugo uses the custom link render hooks.
 
 `renderer.hardWraps`
 : (`bool`) Whether to replace newline characters within a paragraph with `br` elements. Default is `false`.

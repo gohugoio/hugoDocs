@@ -1,6 +1,6 @@
 ---
 title: hugo.Deps
-description: Returns a slice of project dependencies, either modules or local theme components.
+description: Returns a slice of the modules that the project depends on.
 categories: []
 keywords: []
 params:
@@ -10,7 +10,7 @@ params:
     signatures: [hugo.Deps]
 ---
 
-The `hugo.Deps` function returns a slice of project dependencies, either modules or local theme components.
+The `hugo.Deps` function returns a slice of the [modules](g) that the project depends on, including modules in the `themes` directory.
 
 ## Methods
 

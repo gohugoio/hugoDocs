@@ -80,7 +80,7 @@ phone = '+1 206-555-1212'
 
 ## Namespacing
 
-To prevent naming conflicts, module and theme developers should namespace any custom parameters specific to their module or theme.
+To prevent naming conflicts, [module](g) developers should namespace any custom parameters specific to their module. This applies to all modules, including [themes](g).
 
 {{< code-toggle file=hugo >}}
 [params.modules.myModule.colors]
@@ -88,7 +88,7 @@ background = '#efefef'
 font = '#222222'
 {{< /code-toggle >}}
 
-To access the module/theme settings:
+To access the module settings:
 
 ```go-html-template
 {{ $cfg := site.Params.module.mymodule }}

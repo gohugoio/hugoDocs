@@ -90,7 +90,7 @@ The following options apply when using a PostCSS configuration file:
 : (`resource.ResourceGetter`) A [resource getter](g) to use when resolving `@import` statements. Hugo searches this context first, matching by the path as written in the statement, before falling back to the file system. Applicable when [`inlineImports`](#inlineimports) is `true`.
 
 `inlineImports`
-: (`bool`) Whether to enable inlining of import statements. It does so recursively, but will only import a file once. Hugo looks for imports relative to the module mount and respects theme overrides. Default is `false`.
+: (`bool`) Whether to enable inlining of import statements. It does so recursively, but will only import a file once. Hugo resolves each import relative to the importing file, within the `assets` directory of the [unified file system](g). Default is `false`.
 
   Note that Hugo's internal import routine does not adhere to the CSS specification; you can place `@import` statements anywhere in the file. However, external URL imports and imports with media queries are ignored during the inlining process.
 

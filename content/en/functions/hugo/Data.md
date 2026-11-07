@@ -11,7 +11,7 @@ params:
 
 {{< new-in 0.156.0 />}}
 
-Use the `hugo.Data` function to access data within the `data` directory, or within any directory [mounted][] to the `data` directory. Supported data formats include JSON, TOML, YAML, and XML.
+Use the `hugo.Data` function to access data within the `data` directory of the [unified file system](g). Supported data formats include JSON, TOML, YAML, and XML.
 
 > [!NOTE]
 > Although Hugo can [unmarshal](g) CSV files with the [`transform.Unmarshal`][] function, do not place CSV files in the `data` directory. You cannot access data within CSV files using this method.
@@ -102,4 +102,3 @@ In the template examples above, each of the keys is a valid identifier. For exam
 
 [`index`]: /functions/collections/indexfunction/
 [`transform.Unmarshal`]: /functions/transform/unmarshal/
-[mounted]: /configuration/module/#mounts

@@ -96,7 +96,7 @@ This is the default configuration:
 
 `enable`
 : {{< new-in 0.167.0 />}}
-: (`bool`) Whether to clean the `public` directory before building the project. Hugo removes every file and directory in the `public` directory that does not have a corresponding static file, whether from the project's `static` directory, a module mount, or a theme. This removes stale files, such as old rendered pages and deleted static assets, as well as files you added to the `public` directory yourself, such as a `CNAME` or `_redirects` file. Use the [`keepDirs`](#keepdirs) and [`keepFiles`](#keepfiles) settings to preserve specific directories and files. This cleanup runs even if the project has no static files. Default is `false`. Override this setting for a single build with the `--cleanDestinationDir` command line flag.
+: (`bool`) Whether to clean the `public` directory before building the project. Hugo removes every file and directory in the `public` directory that does not have a corresponding file in the `static` directory of the [unified file system](g). This removes stale files, such as old rendered pages and deleted static assets, as well as files you added to the `public` directory yourself, such as a `CNAME` or `_redirects` file. Use the [`keepDirs`](#keepdirs) and [`keepFiles`](#keepfiles) settings to preserve specific directories and files. This cleanup runs even if the project has no static files. Default is `false`. Override this setting for a single build with the `--cleanDestinationDir` command line flag.
 
 `keepDirs`
 : {{< new-in 0.167.0 />}}

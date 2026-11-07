@@ -41,7 +41,7 @@ workspace = 'off'
 : (`string`) The proxy server to use to download remote modules. Default is `direct`, which means `git clone` and similar.
 
 `replacements`
-: (`string`) Primarily useful for local module development, a comma-separated list of mappings from module paths to directories. Paths may be absolute or relative to the [`themesDir`][]. Hugo applies this setting only from the project configuration, and ignores it if defined in a theme or module.
+: (`string`) Primarily useful for local module development, a comma-separated list of mappings from module paths to directories. Paths may be absolute or relative to the [`themesDir`][]. Hugo applies this setting only from the project configuration, and ignores it if defined in a module.
 
   {{< code-toggle file=hugo >}}
   [module]
@@ -154,7 +154,7 @@ These are the default mounts:
 
   {{< new-in 0.152.2 />}}
 
-  The exception is a path that begins with `node_modules/`. When a module mounts such a path, Hugo first looks for it within the module, then relative to the project root. This allows a theme or other module to use npm packages installed in the project. For example:
+  The exception is a path that begins with `node_modules/`. When a module mounts such a path, Hugo first looks for it within the module, then relative to the project root. This allows a module to use npm packages installed in the project. For example:
 
   {{< code-toggle file=hugo >}}
   [[module.mounts]]
