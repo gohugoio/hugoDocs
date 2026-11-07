@@ -35,11 +35,11 @@ render = 'always'
   - `never`: Never render the page to disk, and exclude it from all page collections.
 
 > [!NOTE]
-> Any page, regardless of its build options, will always be available by using the [`Page.GetPage`][] or [`Site.GetPage`][] method.
+> The [`Page.GetPage`][] and [`Site.GetPage`][] methods return any page, regardless of its build options.
 
 ## Headless page
 
-Create a unpublished page whose content and resources can be included in other pages.
+Create an unpublished page whose content and resources you can include in other pages. Consider this content structure:
 
 ```tree
 content/
@@ -50,7 +50,7 @@ content/
 └── _index.md     <-- home page
 ```
 
-Set the build options in front matter:
+Set the build options in front matter of the leaf bundle:
 
 {{< code-toggle file=content/headless/index.md fm=true >}}
 title = 'Headless page'
@@ -60,7 +60,7 @@ title = 'Headless page'
   render = 'never'
 {{< /code-toggle >}}
 
-To include the content and images on the home page:
+Use the `Site.GetPage` method in the _home_ template to include the content and images on the home page:
 
 ```go-html-template {file="layouts/home.html"}
 {{ with site.GetPage "/headless" }}
@@ -71,7 +71,7 @@ To include the content and images on the home page:
 {{ end }}
 ```
 
-The `public` directory will have this structure:
+When you build the project, the `public` directory has this structure:
 
 ```tree
 public/
@@ -81,14 +81,11 @@ public/
 └── index.html
 ```
 
-In the example above, note that:
-
-1. Hugo did not publish an HTML file for the page.
-1. Despite setting `publishResources` to `false` in front matter, Hugo published the [page resources][] because we invoked the [`RelPermalink`][] method on each resource. This is the expected behavior.
+Hugo does not publish an HTML file for the headless page. Hugo publishes the page resources even though `publishResources` is `false`, because the template calls the `RelPermalink` method on each resource.
 
 ## Headless section
 
-Create a unpublished section whose content and resources can be included in other pages.
+Create an unpublished section whose content and resources you can include in other pages. Consider this content structure:
 
 ```tree
 content/
@@ -105,7 +102,7 @@ content/
 └── _index.md         <-- home page
 ```
 
-Set the build options in front matter, using the `cascade` keyword to "cascade" the values down to descendant pages.
+Set the build options in front matter of the branch bundle, using the `cascade` keyword to apply the values to the descendant pages:
 
 {{< code-toggle file=content/headless/_index.md fm=true >}}
 title = 'Headless section'
@@ -116,9 +113,9 @@ title = 'Headless section'
   render = 'never'
 {{< /code-toggle >}}
 
-In the front matter above, note that we have set `list` to `local` to include the descendant pages in local page collections.
+Setting `list` to `local` includes the descendant pages in local page collections, such as the collection returned by the `Pages` method on the section page.
 
-To include the content and images on the home page:
+Use the `Site.GetPage` method in the _home_ template to include the content and images on the home page:
 
 ```go-html-template {file="layouts/home.html"}
 {{ with site.GetPage "/headless" }}
@@ -131,7 +128,7 @@ To include the content and images on the home page:
 {{ end }}
 ```
 
-The `public` directory will have this structure:
+When you build the project, the `public` directory has this structure:
 
 ```tree
 public/
@@ -145,14 +142,11 @@ public/
 └── index.html
 ```
 
-In the example above, note that:
-
-1. Hugo did not publish an HTML file for the page.
-1. Despite setting `publishResources` to `false` in front matter, Hugo correctly published the [page resources][] because we invoked the [`RelPermalink`][] method on each resource. This is the expected behavior.
+Hugo does not publish an HTML file for the section page or its descendant pages. Hugo publishes the page resources even though `publishResources` is `false`, because the template calls the `RelPermalink` method on each resource.
 
 ## List without publishing
 
-Publish a section page without publishing the descendant pages. For example, to create a glossary:
+Publish a section page without publishing the descendant pages. For example, consider this content structure for a glossary:
 
 ```tree
 content/
@@ -164,7 +158,7 @@ content/
 └── _index.md
 ```
 
-Set the build options in front matter, using the `cascade` keyword to "cascade" the values down to descendant pages.
+Set the build options in front matter of the branch bundle, using the `cascade` keyword to apply the values to the descendant pages:
 
 {{< code-toggle file=content/glossary/_index.md fm=true >}}
 title = 'Glossary'
@@ -177,7 +171,7 @@ render = 'always'
   render = 'never'
 {{< /code-toggle >}}
 
-To render the glossary:
+Use the `Pages` method in the _section_ template to render the glossary:
 
 ```go-html-template {file="layouts/glossary/section.html"}
 <dl>
@@ -188,7 +182,7 @@ To render the glossary:
 </dl>
 ```
 
-The `public` directory will have this structure:
+When you build the project, the `public` directory has this structure:
 
 ```tree
 public/
@@ -199,7 +193,7 @@ public/
 
 ## Publish without listing
 
-Publish a section's descendant pages without publishing the section page itself.
+Publish the descendant pages of a section without publishing the section page itself. Consider this content structure:
 
 ```tree
 content/
@@ -210,7 +204,7 @@ content/
 └── _index.md
 ```
 
-Set the build options in front matter:
+Set the build options in front matter of the branch bundle:
 
 {{< code-toggle file=content/books/_index.md fm=true >}}
 title = 'Books'
@@ -219,7 +213,7 @@ render = 'never'
 list = 'never'
 {{< /code-toggle >}}
 
-The `public` directory will have this structure:
+When you build the project, the `public` directory has this structure:
 
 ```tree
 public/
@@ -233,9 +227,9 @@ public/
 
 ## Conditionally hide a section
 
-Consider this example. A documentation site has a team of contributors with access to 20 custom shortcodes. Each shortcode takes several arguments, and requires documentation for the contributors to reference when using them.
+For example, a documentation site has a team of contributors with access to 20 custom shortcodes. Each shortcode takes several arguments, and requires documentation for the contributors to reference when using them.
 
-Instead of external documentation for the shortcodes, include an `internal` section that is hidden when building the production site.
+Instead of external documentation for the shortcodes, include an `internal` section that Hugo hides when you build for production. Consider this content structure:
 
 ```tree
 content/
@@ -256,7 +250,7 @@ content/
 └── _index.md
 ```
 
-Set the build options in front matter, using the `cascade` keyword to "cascade" the values down to descendant pages, and use the `target` keyword to target the production environment.
+Set the build options in front matter of the branch bundle, using the `cascade` keyword to apply the values to the descendant pages, and the `target` keyword to apply them only in the production environment:
 
 {{< code-toggle file=content/internal/_index.md >}}
 title = 'Internal'
@@ -268,7 +262,7 @@ list = 'never'
 environment = 'production'
 {{< /code-toggle >}}
 
-When building for production, the `public` directory will have this structure:
+When you build the project for production, the `public` directory has this structure:
 
 ```tree
 public/
@@ -292,5 +286,5 @@ public/
 [`Publish`]: /methods/resource/publish/
 [`RelPermalink`]: /methods/resource/relpermalink/
 [`Site.GetPage`]: /methods/site/getpage/
-[page bundles]: /content-management/page-bundles/
+[page bundles]: /content-management/organization/#page-bundles
 [page resources]: /content-management/page-resources/

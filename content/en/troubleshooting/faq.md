@@ -6,7 +6,7 @@ categories: []
 keywords: []
 ---
 
-Hugo's [forum][] is an active community of users and developers who answer questions, share knowledge, and provide examples. A quick search of over 20,000 topics will often answer your question. Please be sure to read about [requesting help][] before asking your first question.
+Hugo's [forum][] is an active community of users and developers who answer questions, share knowledge, and provide examples. A quick search of over 20,000 topics often answers your question. Read about [requesting help][] before asking your first question.
 
 These are just a few of the questions most frequently asked by new users.
 
@@ -40,10 +40,10 @@ Why is a given page not published?
   If the answer to any of these questions is yes, either change the field values, or use one of these command-line flags: `--buildDrafts`, `--buildFuture`, or `--buildExpired`.
 
 Why can't I see any of a page's descendants?
-: You may have an&nbsp;`index.md`&nbsp;file instead of an&nbsp;`_index.md`&nbsp;file. See [details][page bundles].
+: You may have an `index.md` file instead of an `_index.md` file. Hugo does not create pages from the content files in a leaf bundle, including the content files in its subdirectories.
 
-What is the difference between an&nbsp;`index.md`&nbsp;file and an&nbsp;`_index.md`&nbsp;file?
-: A directory with an `index.md file` is a [leaf bundle](g). A directory with an&nbsp;`_index.md`&nbsp;file is a [branch bundle](g). See [details][page bundles].
+What is the difference between an `index.md` file and an `_index.md` file?
+: A directory with an `index.md` file is a [leaf bundle](g). A directory with an `_index.md` file is a [branch bundle](g). Learn more about [page bundles][].
 
 Why is my _partial_ template not rendered as expected?
 : You may have neglected to pass the required [context](g) when calling the _partial_ template. For example:
@@ -57,20 +57,20 @@ Why is my _partial_ template not rendered as expected?
   ```
 
 In a template, what's the difference between `:=` and `=` when assigning values to variables?
-: Use `:=` to initialize a variable, and use `=` to assign a value to a variable that has been previously initialized. See [details][variables].
+: Use `:=` to initialize a variable, and use `=` to assign a value to a variable that has been previously initialized, as described in the [Go template documentation][].
 
 When I paginate a list page, why is the page collection not filtered as specified?
-: You are probably invoking the [`Paginate`][] or [`Paginator`][] method more than once on the same page. See [details][pagination].
+: You are probably invoking the [`Paginate`][] or [`Paginator`][] method more than once on the same page. Call the method once, as described in [pagination][].
 
 Why are there two ways to call a shortcode?
 : Use the `{{%/* shortcode */%}}` notation if the _shortcode_ template, or the content between the opening and closing shortcode tags, contains Markdown. Otherwise use the\
-`{{</* shortcode */>}}` notation. See [details][notation].
+`{{</* shortcode */>}}` notation, as described in [shortcode notation][].
 
 Can I use environment variables to control configuration?
-: Yes. See [details][environment-variables].
+: Yes. You can set any configuration value with [environment variables][].
 
 Why am I seeing inconsistent output from one build to the next?
-: The most common causes are page collisions (publishing two pages to the same path) and the effects of concurrency. Use the `--printPathWarnings` command-line flag to check for page collisions, and create a topic on the [forum][] if you suspect concurrency problems.
+: The most common causes are page collisions (publishing two pages to the same path) and the effects of concurrency. Use the `--printPathWarnings` command-line flag to check for page collisions, and create a topic on the forum if you suspect concurrency problems.
 
 Why isn't Hugo's development server detecting file changes?
 : In its default configuration, Hugo's file watcher may not be able detect file changes when:
@@ -96,16 +96,16 @@ Why is my page Store missing a value?
 Which page methods trigger content rendering?
 : The following methods on a `Page` object trigger content rendering: `Content`, `ContentWithoutSummary`, `FuzzyWordCount`, `Len`, `Plain`, `PlainWords`, `ReadingTime`, `Summary`, `Truncated`, and `WordCount`.
 
-For other questions please visit the [forum][]. A quick search of over 20,000 topics will often answer your question. Please be sure to read about [requesting help][] before asking your first question.
+For other questions, visit the forum.
 
 [`Paginate`]: /methods/page/paginate/
 [`Paginator`]: /methods/page/paginator/
 [`Store`]: /methods/page/store/
-[environment-variables]: /configuration/introduction/#environment-variables
+[environment variables]: /configuration/introduction/#environment-variables
 [forum]: https://discourse.gohugo.io
 [installation]: /installation/
-[notation]: /content-management/shortcodes/#notation
-[page bundles]: /content-management/page-bundles/
+[shortcode notation]: /content-management/shortcodes/#notation
+[page bundles]: /content-management/organization/#page-bundles
 [pagination]: /templates/pagination/
 [requesting help]: https://discourse.gohugo.io/t/requesting-help/9132
-[variables]: https://pkg.go.dev/text/template#hdr-Variables
+[Go template documentation]: https://pkg.go.dev/text/template#hdr-Variables

@@ -24,18 +24,97 @@ content/
 └── _index.md         <-- https://example.org/
 ```
 
-Two file names have a special role. The directory that contains either file is a [page bundle](g):
+Hugo creates a page from each content file, except for the content files in a [leaf bundle](#leaf-bundles). Hugo also creates pages that are not backed by a file, such as `taxonomy` and `term` pages.
 
-- An `index.md` file contains the front matter and content of a regular page. Its directory is a [leaf bundle](g). The other files in the directory, such as `team.jpg` above, are [page resources](g) of the page, including other content files.
-- An `_index.md` file contains the front matter and content of a `home`, `section`, `taxonomy`, or `term` page. Its directory is a [branch bundle](g). The other content files in the directory are pages, and the remaining files are page resources of the branch page.
-
-The file extension depends on the [content format](g), such as `index.html` or `_index.adoc`. Learn more about [page bundles][] and when to use each type.
+Every other file in the `content` directory, such as `team.jpg`, is a [page resource](g). A page resource belongs to a page, and you can use it in that page's templates. For example, the `about` page can render `team.jpg`. The content files in a leaf bundle are also page resources.
 
 To change the URL of a page without moving its content file, set the [`slug`][] or [`url`][] field in front matter, or configure [permalinks][].
 
+## Page bundles
+
+{{% glossary-term "page bundle" %}}
+
+Two file names have a special role. The directory that contains either file is a page bundle:
+
+- An `index.md` file contains the front matter and content of a regular page. Its directory is a [leaf bundle](g).
+- An `_index.md` file contains the front matter and content of a `home`, `section`, `taxonomy`, or `term` page. Its directory is a [branch bundle](g).
+
+The file extension depends on the [content format](g), such as `index.html` or `_index.adoc`. In the [content structure](#content-structure) example, `about` is a leaf bundle, and `posts` and the `content` directory itself are branch bundles.
+
+Leaf and branch bundles differ in how Hugo treats the files they contain:
+
+&nbsp;|Leaf bundle|Branch bundle
+:--|:--|:--
+Index file|`index.md`|`_index.md`
+[Page kind](g)|`page`|`home`, `section`, `taxonomy`, or `term`
+Other content files|Page resources of the bundle|Pages
+Other files|Page resources of the bundle|Page resources of the bundle
+Descendant pages|None|Zero or more
+
+Use a leaf bundle to keep a page together with its images and other files. Use a branch bundle to define the front matter and content of a list page, such as a section page.
+
+### Leaf bundles
+
+A leaf bundle includes every file in its directory and subdirectories, at any depth. Hugo does not create a page from any content file in a leaf bundle, including an `index.md` or `_index.md` file in a subdirectory. Instead, each content file is a page resource of the bundle, with [resource type](g) `page`. Consider this content structure:
+
+```tree
+content/
+└── posts/
+    └── post-1/
+        ├── images/
+        │   └── a.jpg
+        ├── part-2/
+        │   └── index.md
+        ├── index.md
+        └── notes.md
+```
+
+Hugo creates one page from `content/posts/post-1/index.md`. The `images/a.jpg`, `part-2/index.md`, and `notes.md` files are page resources of that page. To make `part-2` a separate page, move it out of the `post-1` directory.
+
+### Branch bundles
+
+A branch bundle includes the files in its directory and in subdirectories that are not bundles themselves. The content files are pages, and the other files are page resources of the branch bundle. Consider this content structure:
+
+```tree
+content/
+├── posts/
+│   ├── assets/
+│   │   └── diagram.png
+│   ├── post-1/
+│   │   ├── a.jpg
+│   │   └── index.md
+│   ├── _index.md
+│   ├── banner.jpg
+│   └── post-2.md
+├── _index.md
+└── logo.png
+```
+
+The `posts` section page has two page resources, `banner.jpg` and `assets/diagram.png`. The `a.jpg` file is a page resource of the `post-1` leaf bundle, and `logo.png` is a page resource of the home page. The `post-1` and `post-2` pages belong to the `posts` section.
+
+The `content` directory is the branch bundle of the home page. A top-level directory without an `_index.md` file is also a branch bundle, unless it is a leaf bundle.
+
+### Headless bundles
+
+Use [build options][] in front matter to create a leaf or branch bundle that Hugo does not render or list, but whose content and page resources you can use in other pages. For example, a headless leaf bundle can hold content and images that you render on the home page with the [`Site.GetPage`][] method.
+
+### Taxonomy bundles
+
+To add front matter and content to a `taxonomy` or `term` page, create a branch bundle in a directory named after the [taxonomy](g):
+
+```tree
+content/
+└── tags/
+    ├── red/
+    │   └── _index.md  <-- term page
+    └── _index.md      <-- taxonomy page
+```
+
+Do not create other content files in a taxonomy directory. For example, Hugo renders `content/tags/blue.md` as a regular page, not as a term page.
+
 ## Sections
 
-{{% glossary-term "section" %}} A top-level directory that is a leaf bundle, such as `about` in the example above, is not a section.
+{{% glossary-term "section" %}} A top-level directory that is a leaf bundle, such as `about` in the content structure example, is not a section.
 
 Consider this content structure:
 
@@ -83,7 +162,7 @@ File path|Logical path
 
 The logical path does not change when you set the `slug` or `url` field in front matter. Use the [`Path`][] method on a `Page` object to get the logical path of a page, including pages that are not backed by a file, such as `taxonomy` and `term` pages.
 
-Just as file paths form a file tree, logical paths form a logical tree. Consider this file tree:
+Just as file paths form a file tree, logical paths form a [logical tree](g). Consider this file tree:
 
 ```tree
 content/
@@ -110,7 +189,7 @@ Use these methods, functions, and shortcodes to find a page by its path:
 
 Methods|Functions|Shortcodes
 :--|:--|:--
-[`Site.GetPage`][]|[`urls.Ref`][]|[`ref`][]
+`Site.GetPage`|[`urls.Ref`][]|[`ref`][]
 [`Page.GetPage`][]|[`urls.RelRef`][]|[`relref`][]
 [`Page.Ref`][]|&nbsp;|&nbsp;
 [`Page.RelRef`][]|&nbsp;|&nbsp;
@@ -136,7 +215,7 @@ Before finding the page, Hugo converts the given path to a logical path. Hugo co
 
 A language identifier in the path does not select a language. For example, `/posts/my-post.de.md` finds the page in the current language.
 
-If a relative path begins with `../` and includes a file extension, Hugo resolves it in the file tree instead of the logical tree, as shown in the [path resolution](#path-resolution) example below.
+If a relative path begins with `../` and includes a file extension, Hugo resolves it in the file tree instead of the logical tree, as shown in the [path resolution](#path-resolution) example.
 
 ### Path resolution
 
@@ -188,7 +267,7 @@ Hugo creates the URL path of a page from its logical path, replacing the last se
 1. Converts the result to lower case, unless you set [`disablePathToLower`][] to `true` in your project configuration.
 1. Removes [non-spacing marks][] from composite characters if you set [`removePathAccents`][] to `true` in your project configuration.
 
-The table below shows the logical path and the URL path for several file names, using the default configuration:
+This table shows the logical path and the URL path for several file names, using the default configuration:
 
 File path|Logical path|URL path
 :--|:--|:--
@@ -201,7 +280,7 @@ File path|Logical path|URL path
 `content/posts/C#.md`|`/posts/c#`|`/posts/c%23/`
 `content/posts/Ça va.md`|`/posts/ça-va`|`/posts/%C3%A7a-va/`
 
-Because the logical path replaces each space with a hyphen, removing a character that is surrounded by spaces leaves two consecutive hyphens in the URL path, as shown with `Tips & Tricks.md` above. The [`Permalink`][] and [`RelPermalink`][] methods percent-encode the `#` character and non-ASCII characters.
+Because the logical path replaces each space with a hyphen, removing a character that is surrounded by spaces leaves two consecutive hyphens in the URL path, as shown with `Tips & Tricks.md` in the table. The [`Permalink`][] and [`RelPermalink`][] methods percent-encode the `#` character and non-ASCII characters.
 
 If you set `disablePathToLower` to `true`, the URL path preserves the case of the file path. For example, the URL path of `content/posts/My First Post.md` is `/posts/My-First-Post/`. The logical path remains lower case.
 
@@ -229,7 +308,7 @@ The language key in a file name must be lowercase. For example, use `about.en-us
 
 To assign a file to a role or version, use a prefixed identifier. A prefixed identifier begins and ends with an underscore, and contains the name of the [dimension](g), an underscore, and the value. You can also use a prefixed identifier to assign a file to a language.
 
-The table below shows the prefixed identifiers for each dimension:
+This table shows the prefixed identifiers for each dimension:
 
 Identifier|Example
 :--|:--
@@ -267,5 +346,5 @@ Hugo does not recognize a role or version name without the prefix. You can combi
 [`urls.RelRef`]: /functions/urls/relref/
 [embedded link render hook]: /render-hooks/links/#embedded
 [non-spacing marks]: https://www.compart.com/en/unicode/category/Mn
-[page bundles]: /content-management/page-bundles/
+[build options]: /content-management/build-options/#headless-page
 [permalinks]: /configuration/permalinks/

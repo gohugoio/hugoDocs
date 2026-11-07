@@ -52,7 +52,7 @@ author: Victor Hugo
 {{ $book.author }} → Victor Hugo
 ```
 
-The examples below unmarshal global, page, and remote resources, then show how to work with CSV and XML data.
+These examples unmarshal global, page, and remote resources, then show how to work with CSV and XML data.
 
 ### Global resource
 
@@ -134,7 +134,7 @@ A remote resource is a file on a remote server, accessible via HTTP or HTTPS.
 > [!NOTE]
 > When retrieving remote data, a misconfigured server may send a response header with an incorrect [Content-Type][]. For example, the server may set the Content-Type header to `application/octet-stream` instead of `application/json`.
 >
-> In these cases, pass the resource `Content` through the `transform.Unmarshal` function instead of passing the resource itself. For example, in the remote resource example above, use this instead:
+> In these cases, pass the resource `Content` through the `transform.Unmarshal` function instead of passing the resource itself. For example, in the [remote resource](#remote-resource) example, use this instead:
 >
 > `{{ $data = .Content | transform.Unmarshal }}`
 
@@ -145,7 +145,7 @@ Unmarshaling CSV data returns a slice of rows. Every value is a string, even if 
 - With the default `slice` target, each row is a slice of values. The first row contains the header.
 - With the `map` target, each row is a map keyed by the header. The result does not include the header row. The CSV data must have a header row and at least one data row, and the header must not contain duplicate field names.
 
-The examples below use this CSV file:
+These examples use this CSV file:
 
 ```csv
 "name","type","breed","age"
@@ -231,7 +231,7 @@ To compare a value as a number, convert it with the [`cast.ToInt`][] or [`cast.T
 
 ### Working with XML
 
-When unmarshaling an XML file, do not include the root node when accessing data. For example, after unmarshaling the RSS feed below, access the feed title with `$data.channel.title`.
+When unmarshaling an XML file, do not include the root node when accessing data. For example, after unmarshaling this RSS feed, access the feed title with `$data.channel.title`:
 
 ```xml
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
@@ -387,4 +387,4 @@ Hugo renders this to:
 [`cast.ToFloat`]: /functions/cast/tofloat/
 [`cast.ToInt`]: /functions/cast/toint/
 [`collections.Index`]: /functions/collections/indexfunction/
-[page bundle]: /content-management/page-bundles/
+[page bundle]: /content-management/organization/#page-bundles

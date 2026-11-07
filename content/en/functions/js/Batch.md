@@ -306,5 +306,5 @@ console.log('entrypoints-workaround.js');
 [entire namespace]: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/import#namespace_import
 [extensive testing]: https://github.com/bep/hugojsbatchdemo
 [js_batch_demo]: https://github.com/bep/hugojsbatchdemo/
-[page bundle]: /content-management/page-bundles/
+[page bundle]: /content-management/organization/#page-bundles
 [this discussion]: https://discourse.gohugo.io/t/js-batch-with-simple-global-script/53002/5
