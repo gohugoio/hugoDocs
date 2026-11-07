@@ -18,3 +18,13 @@ params:
 {{ $s := "abc" }}
 {{ in $s "b" }} → true
 ```
+
+The function compares [`time.Time`][] values by the moment they represent, regardless of time zone:
+
+```go-html-template
+{{ $utc := time.AsTime "2023-07-19T17:42:36Z" }}
+{{ $tokyo := $utc | time.In "Asia/Tokyo" }}
+{{ in (slice $utc) $tokyo }} → true
+```
+
+[`time.Time`]: /quick-reference/data-types/#dates-and-times

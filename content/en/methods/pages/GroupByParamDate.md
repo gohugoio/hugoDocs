@@ -14,7 +14,7 @@ The [layout string](#layout-string) has the same format as the layout string for
 
 {{% include "/_common/pages-group-sort-order.md" %}}
 
-Use the `GroupByParamDate` method to group by a custom date field. To group by a reserved date field, use the corresponding grouping method: [`GroupByDate`][], [`GroupByExpiryDate`][], [`GroupByLastmod`][], or [`GroupByPublishDate`][].
+Use the `GroupByParamDate` method to group by a [custom date parameter][]. To group by a reserved date field, use the corresponding grouping method: [`GroupByDate`][], [`GroupByExpiryDate`][], [`GroupByLastmod`][], or [`GroupByPublishDate`][].
 
 {{< deprecated-in 0.169.0 >}}
 Passing the name of a reserved field, such as `date`, to the `GroupByParamDate` method is deprecated. Use the corresponding grouping method instead, such as `GroupByDate`. Hugo does not log a deprecation warning in every case.
@@ -68,3 +68,4 @@ The pages within each group will also be sorted by the parameter date, either as
 [`GroupByLastmod`]: /methods/pages/groupbylastmod/
 [`GroupByPublishDate`]: /methods/pages/groupbypublishdate/
 [`time.Format`]: /functions/time/format/
+[custom date parameter]: /content-management/front-matter/#parameters

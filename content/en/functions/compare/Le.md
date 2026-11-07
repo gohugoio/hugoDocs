@@ -13,6 +13,8 @@ params:
 
 The `compare.Le` function reports whether the first argument is less than or equal to all of the subsequent arguments. Numbers are compared by value, regardless of type. You can also use this function to compare strings, boolean values, dates, and other comparable data types.
 
+{{% include "/_common/time-comparison-note.md" %}}
+
 ## Examples
 
 ```go-html-template
@@ -42,4 +44,12 @@ Comparing other data types:
 {{ compare.Le "ab" "a" }} → false
 {{ compare.Le now (time "1964-12-30") }} → false
 {{ compare.Le true false }} → false
+```
+
+Comparing the same moment in different time zones:
+
+```go-html-template
+{{ $utc := time.AsTime "2023-07-19T17:42:36Z" }}
+{{ $tokyo := $utc | time.In "Asia/Tokyo" }}
+{{ compare.Le $utc $tokyo }} → true
 ```

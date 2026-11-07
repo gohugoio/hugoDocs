@@ -16,7 +16,7 @@ The `hugo.Version` function returns the current version of the Hugo binary. Use 
 ## Examples
 
 ```go-html-template
-{{ hugo.Version }} → 0.169.0
+{{ hugo.Version }} → 0.170.0
 ```
 
 Comparing versions:

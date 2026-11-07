@@ -13,7 +13,7 @@ params:
 
 The `collections.Apply` function returns a slice by transforming each element of the given slice using a specific function and parameters. Hugo calls the function once for each element, passing `PARAM` as its arguments.
 
-The returned slice is always of type `[]any`, regardless of the data type returned by the applied function. Some functions require a typed slice and fail when you pass a `[]any`. For example, the [`resources.Concat`][] function requires a slice of type `resource.Resources`, so you cannot pass it a slice of resources created with `collections.Apply`. To create a typed slice, use the [`collections.Append`][] function within a `range` loop instead.
+The returned slice is always of type `[]any`, regardless of the data type returned by the applied function.
 
 ## Arguments
 
@@ -43,6 +43,3 @@ Using a function alias:
 ```go-html-template
 {{ collections.Apply (slice "a" "b") "upper" "." }} → [A B]
 ```
-
-[`collections.Append`]: /functions/collections/append/
-[`resources.Concat`]: /functions/resources/concat/

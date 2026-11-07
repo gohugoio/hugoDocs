@@ -306,7 +306,7 @@ hugo
 
 The above configures the [`baseURL`][] and [`enableGitInfo`][] settings and then builds your project.
 
-An environment variable takes precedence over the values set in the configuration file. This means that if you set a configuration value with both an environment variable and in the configuration file, Hugo uses the value from the environment variable.
+An environment variable overrides the same setting in your project configuration, and a command-line flag overrides both, as described in the [order of precedence](#order-of-precedence).
 
 Environment variables simplify configuration for [CI/CD](g) platforms by allowing you to set values directly within their respective configuration and workflow files.
 
@@ -323,7 +323,7 @@ In addition to configuring standard settings, environment variables may be used 
 : (`string`) The absolute path to the Dart Sass executable. By default, Hugo searches for the executable in each of the paths in the `PATH` environment variable.
 
 `HUGO_ENVIRONMENT`
-: (`string`) The build environment. Default is `development` when running `hugo server`, and `production` otherwise.
+: (`string`) The build environment. Default is `development` when running `hugo server`, and `production` otherwise. The `--environment` command-line flag overrides this value.
 
 `HUGO_FILE_LOG_FORMAT`
 : (`string`) A format string for the file path, line number, and column number displayed when reporting errors, or when calling the `Position` method from a shortcode or Markdown render hook. Valid tokens are `:file`, `:line`, and `:col`. Default is `:file::line::col`.
@@ -333,6 +333,23 @@ In addition to configuring standard settings, environment variables may be used 
 
 `HUGO_NUMWORKERMULTIPLIER`
 : (`int`) The number of workers used in parallel processing. Default is the number of logical CPUs.
+
+## Order of precedence
+
+Hugo determines the value of each setting from these sources, listed from lowest to highest precedence:
+
+1. The default value
+1. Your project configuration, including settings from the [configuration directory](#configuration-directory) and settings [merged from modules](#merge-configuration-settings)
+1. An operating system environment variable, such as `HUGO_BUILDDRAFTS`
+1. A command-line flag, such as `--buildDrafts`
+
+For a conflicting setting, the value from the source with the highest precedence wins. For example, Hugo includes draft content when you run this command, because the command-line flag overrides the environment variable:
+
+```sh
+HUGO_BUILDDRAFTS=false hugo build --buildDrafts
+```
+
+The same applies to the environment. If you set both the `HUGO_ENVIRONMENT` environment variable and the `--environment` flag, Hugo uses the value from the flag, both to select the environment-specific configuration directory and as the value returned by the [`hugo.Environment`][] function.
 
 ## Current configuration
 
@@ -360,6 +377,7 @@ hugo config mounts
 [YAML]: https://yaml.org/spec/
 [`baseURL`]: /configuration/all#baseurl
 [`enableGitInfo`]: /configuration/all#enablegitinfo
+[`hugo.Environment`]: /functions/hugo/environment/
 [`imaging`]: /configuration/all#imaging
 [`locale`]: /configuration/all#locale
 [`params`]: /configuration/all#params

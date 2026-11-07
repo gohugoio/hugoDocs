@@ -16,5 +16,5 @@ The `hugo.GoVersion` function returns the Go version used to compile the Hugo bi
 ## Examples
 
 ```go-html-template
-{{ hugo.GoVersion }} → go1.27.3
+{{ hugo.GoVersion }} → go1.27.4
 ```

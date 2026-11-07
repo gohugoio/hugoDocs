@@ -183,11 +183,11 @@ To return a slice of pages where the `author` page parameter begins with either 
 
 ### Date comparison
 
-Compare predefined front matter dates, or custom front matter dates.
+Compare predefined front matter dates, or custom dates that you specify as [custom page parameters][] under the `params` key in front matter. The function compares [`time.Time`][] values by the moment they represent, regardless of time zone.
 
 #### Predefined dates
 
-There are four predefined front matter dates: [`date`][], [`publishDate`][], [`lastmod`][], and [`expiryDate`][]. Regardless of the front matter data format (TOML, YAML, or JSON) these are [`time.Time`][] values, allowing precise comparisons.
+There are four predefined front matter dates: [`date`][], [`publishDate`][], [`lastmod`][], and [`expiryDate`][]. Regardless of the front matter data format (TOML, YAML, or JSON), these are `time.Time` values, allowing precise comparisons.
 
 For example, to return a slice of pages that were created before the current year:
 
@@ -198,15 +198,14 @@ For example, to return a slice of pages that were created before the current yea
 
 #### Custom dates
 
-With custom front matter dates, the comparison depends on the front matter data format (TOML, YAML, or JSON).
+With custom dates, the comparison depends on the front matter data format (TOML, YAML, or JSON) and on whether you quote the date.
 
-With TOML, date values are first-class citizens. TOML has a date data type while JSON and YAML do not. If you quote a TOML date, it is a string. If you do not quote a TOML date value, it is [`time.Time`][] value, enabling precise comparisons.
-
-In the TOML example below, note that the event date is not quoted.
+TOML has a date data type, while JSON and YAML do not. If you do not quote a TOML date, the function compares it as a `time.Time` value. In the TOML example below, the event date is not quoted:
 
 ```md {file="content/events/2024-user-conference.md"}
 +++
-title = '2024 User Conference"
+title = '2024 User Conference'
+[params]
 eventDate = 2024-04-01
 +++
 ```
@@ -218,7 +217,7 @@ To return a slice of future events:
 {{ $futureEvents := where $events "Params.eventDate" "gt" now }}
 ```
 
-When working with YAML or JSON, or quoted TOML values, custom dates are strings; you cannot compare them with `time.Time` values. String comparisons may be possible if the custom date layout is consistent from one page to the next. To be safe, filter the pages by ranging over the slice:
+Custom dates in JSON or YAML front matter, and quoted custom dates in TOML front matter, are strings. Comparing a string with a `time.Time` value matches no pages, regardless of the operator. To compare these dates, range over the pages and convert each date with the [`time.AsTime`][] function:
 
 ```go-html-template
 {{ $events := where site.RegularPages "Type" "events" }}
@@ -418,5 +417,9 @@ Is rendered to:
 [`MainSections`]: /methods/site/mainsections/
 [`collections.Complement`]: /functions/collections/complement/
 [`date`]: /methods/page/date/
+[`expiryDate`]: /methods/page/expirydate/
 [`lastmod`]: /methods/page/lastmod/
-[`time.Time`]: https://pkg.go.dev/time#Time
+[`publishDate`]: /methods/page/publishdate/
+[`time.AsTime`]: /functions/time/astime/
+[`time.Time`]: /quick-reference/data-types/#dates-and-times
+[custom page parameters]: /content-management/front-matter/#parameters

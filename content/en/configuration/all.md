@@ -306,7 +306,7 @@ A general setting is a single value, such as [`baseURL`](#baseurl) or [`title`](
 : (`string`) The timeout for generating page content, either as a [duration][] or in seconds. This timeout is used to prevent infinite recursion during content generation. You may need to increase this value if your pages take a long time to generate, for example, due to extensive image processing or reliance on remote content. Default is `60s`.
 
 `timeZone`
-: (`string`) The time zone used to parse dates without time zone offsets, including front matter date fields and values passed to the [`time.AsTime`][] and [`time.Format`][] functions. The list of valid values may be system dependent, but should include `UTC`, `Local`, and any location in the [IANA Time Zone Database][]. For example, `America/Los_Angeles` and `Europe/Oslo` are valid time zones.
+: (`string`) The [time zone](g) used to parse dates without [time zone offsets](g), including front matter date fields and values passed to the [`time.AsTime`][] and [`time.Format`][] functions. The list of valid values may be system dependent, but should include `UTC`, `Local`, and any location in the [IANA Time Zone Database][]. For example, `America/Los_Angeles` and `Europe/Oslo` are valid time zones.
 
 `title`
 : (`string`) The site title.
@@ -322,7 +322,7 @@ A general setting is a single value, such as [`baseURL`](#baseurl) or [`title`](
 
 ## Cache directory
 
-Hugo's file cache directory is configurable via the [`cacheDir`](#cachedir) setting or the `HUGO_CACHEDIR` environment variable. If neither is set, Hugo will use, in order of preference:
+Hugo's file cache directory is configurable via the [`cacheDir`](#cachedir) setting, the `HUGO_CACHEDIR` environment variable, or the `--cacheDir` command-line flag, following the [order of precedence][]. If none is set, Hugo will use, in order of preference:
 
 1. If running on Netlify: `/opt/build/cache/hugo_cache/`. This means that if you run your builds on Netlify, all caches configured with `:cacheDir` will be saved and restored on the next build. For other [CI/CD](g) platforms, please read their documentation. For a CircleCI example, see [this configuration][].
 1. In a `hugo_cache` directory below the OS user cache directory as defined by Go's [`os.UserCacheDir`][] function. On Unix systems, per the [XDG base directory specification][], this is `$XDG_CACHE_HOME` if non-empty, else `$HOME/.cache`. On MacOS, this is `$HOME/Library/Caches`. On Windows, this is`%LocalAppData%`. On Plan 9, this is `$home/lib/cache`.
@@ -423,6 +423,7 @@ Some configuration settings, such as menus and custom parameters, can be defined
 [merge configuration settings]: /configuration/introduction/#merge-configuration-settings
 [module mounts]: /configuration/module/#mounts
 [non-spacing marks]: https://www.compart.com/en/unicode/category/Mn
+[order of precedence]: /configuration/introduction/#order-of-precedence
 [relative-urls]: /content-management/urls/#relative-urls
 [security implications]: /configuration/introduction/#security-implications
 [template-metrics]: /troubleshooting/performance/#template-metrics

@@ -64,6 +64,37 @@ The example above renders `a` and then `b`.
 
 Map keys are case-sensitive, with one exception. The `hmaps.Params` data type, returned by the [`Params`][] method on a `Page` or `Site` object, has case-insensitive keys.
 
+## Dates and times
+
+Hugo uses these data types for dates and times:
+
+Data type|Description|Example
+:--|:--|:--
+`time.Time`|A moment in time and a location, either a [time zone](g) or a fixed [time zone offset](g)|`time.AsTime "2023-10-15T13:18:50-07:00"`
+`time.Duration`|A [duration](g)|`time.ParseDuration "1h30m"`
+
+Every `time.Time` value has a location, which determines its time zone offset. The location is either a time zone, such as the time zone set by the [`timeZone`][] setting for a date without an offset or the time zone passed to the [`time.In`][] function, or an unnamed location fixed at a single offset. A value created from a date/time string with an offset might have an unnamed location, which affects the time zone name when you format it with the [`time.Format`][] function.
+
+Format and [localize](g) a `time.Time` value with the `time.Format` function, or use it with any of the [time methods][]. Compare two `time.Time` values with the [`compare.Eq`][], [`compare.Ne`][], [`compare.Lt`][], [`compare.Le`][], [`compare.Gt`][], and [`compare.Ge`][] functions, or with the [`Equal`][], [`Before`][], and [`After`][] methods. These functions and methods compare the moments that the values represent, regardless of their time zones. Subtracting one `time.Time` value from another with the [`Sub`][] method returns a `time.Duration` value.
+
+Not every date is a `time.Time` value. A custom date is a date/time value that you specify in a [custom page parameter][] under the `params` key in front matter. The data type of a date depends on where it comes from:
+
+Source|Data type
+:--|:--
+The four predefined [front matter dates][]|`time.Time`
+The [`time.AsTime`][], `time.In`, and [`time.Now`][] functions|`time.Time`
+Custom dates in JSON or YAML front matter|`string`
+Quoted custom dates in TOML front matter|`string`
+Unquoted custom dates in TOML front matter, with a time zone offset|`time.Time`
+Unquoted custom dates in TOML front matter, without a time zone offset|`toml.LocalDate` or `toml.LocalDateTime`
+
+Only unquoted TOML custom dates with a time zone offset are `time.Time` values. To use any other custom date with the time methods, convert it to a `time.Time` value with the `time.AsTime` function:
+
+```go-html-template
+{{ printf "%T" .Params.eventDate }} → string
+{{ printf "%T" (time.AsTime .Params.eventDate) }} → time.Time
+```
+
 ## Truthy and falsy values
 
 When you use a value as a condition, such as with the [`if`][] or [`with`][] statement, Hugo evaluates it as either truthy or falsy.
@@ -126,7 +157,10 @@ Some function and method pages show `any` as the returned data type. This means 
 
 Similarly, some function pages show `[]any` as the returned data type when the function returns a slice whose data type depends on the arguments. For example, the [`collections.Where`][] function returns a `resource.Resources` value when you pass it a `resource.Resources` value. The [`collections.Apply`][] function is an exception. It always returns a `[]any` value, regardless of its arguments.
 
+[`After`]: /methods/time/after/
+[`Before`]: /methods/time/before/
 [`Content`]: /methods/page/content/
+[`Equal`]: /methods/time/equal/
 [`Params`]: /methods/page/params/
 [`Resources`]: /methods/page/resources/
 [`cast.ToFloat`]: /functions/cast/tofloat/
@@ -137,6 +171,12 @@ Similarly, some function pages show `[]any` as the returned data type when the f
 [`collections.Index`]: /functions/collections/indexfunction/
 [`collections.Slice`]: /functions/collections/slice/
 [`collections.Where`]: /functions/collections/where/
+[`compare.Eq`]: /functions/compare/eq/
+[`compare.Ge`]: /functions/compare/ge/
+[`compare.Gt`]: /functions/compare/gt/
+[`compare.Le`]: /functions/compare/le/
+[`compare.Lt`]: /functions/compare/lt/
+[`compare.Ne`]: /functions/compare/ne/
 [`fmt.Printf`]: /functions/fmt/printf/
 [`if`]: /functions/go-template/if/
 [`isPlainText`]: /configuration/output-formats/#isplaintext
@@ -151,6 +191,12 @@ Similarly, some function pages show `[]any` as the returned data type when the f
 [`safe.JS`]: /functions/safe/js/
 [`safe.URL`]: /functions/safe/url/
 [`strings.Split`]: /functions/strings/split/
+[`Sub`]: /methods/time/sub/
+[`time.AsTime`]: /functions/time/astime/
+[`time.Format`]: /functions/time/format/
+[`time.In`]: /functions/time/in/
+[`time.Now`]: /functions/time/now/
+[`timeZone`]: /configuration/all/#timezone
 [`transform.Markdownify`]: /functions/transform/markdownify/
 [`with`]: /functions/go-template/with/
 [Duration]: /methods/duration/
@@ -165,3 +211,6 @@ Similarly, some function pages show `[]any` as the returned data type when the f
 [Site]: /methods/site/
 [Taxonomy]: /methods/taxonomy/
 [Time]: /methods/time/
+[custom page parameter]: /content-management/front-matter/#parameters
+[front matter dates]: /content-management/front-matter/#dates
+[time methods]: /methods/time/
