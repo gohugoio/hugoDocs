@@ -6,4 +6,4 @@ params:
 
 A _rune literal_ is the textual representation of a [_rune_](g) within a [_template_](g). It consists of a character sequence enclosed in single quotes, such as `'x'`, `'\n'`, or `'ü'`.
 
-  Unlike [_interpreted string literals_](g) or [_raw string literals_](g), which represent a sequence of characters, a rune literal represents a single [_integer_](g) value identifying a Unicode [_code point_](g). Within the quotes, any character may appear except a newline or an unescaped single quote. Multi-character sequences starting with a backslash (`\`) can be used to encode specific values, such as `\n` for a newline or `\u00FC` for the letter `ü`.
+  Unlike [_interpreted string literals_](g) or [_raw string literals_](g), which represent a sequence of characters, a rune literal represents a single [_integer_](g) value identifying a Unicode [_code point_](g). Within the quotes, any character may appear except a newline or an unescaped single quote. Use multi-character sequences that begin with a backslash (`\`) to encode specific values, such as `\n` for a newline or `\u00FC` for the letter `ü`.

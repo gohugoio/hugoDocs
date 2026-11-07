@@ -1,7 +1,7 @@
 ---
 title: mount
 params:
-  reference: /configuration/module
+  reference: /configuration/module/
 ---
 
 A _mount_ is a configuration object that maps a file path (source) to a [_component_](g) path (target) within Hugo's [_unified file system_](g).
