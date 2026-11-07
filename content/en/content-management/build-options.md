@@ -25,7 +25,7 @@ render = 'always'
 : Applicable to [page bundles][], determines whether to publish the associated [page resources][]. Specify one of:
 
   - `true`: Always publish resources. This is the default value.
-  - `false`: Only publish a resource when invoking its [`Permalink`][], [`RelPermalink`][], or [`Publish`][] method within a template.
+  - `false`: Only publish a resource when a template calls its [`Permalink`][], [`RelPermalink`][], or [`Publish`][] method, or passes it to the [`resources.Publish`][] function.
 
 `render`
 : When to render the page. Specify one of:
@@ -285,6 +285,7 @@ public/
 [`Permalink`]: /methods/resource/permalink/
 [`Publish`]: /methods/resource/publish/
 [`RelPermalink`]: /methods/resource/relpermalink/
+[`resources.Publish`]: /functions/resources/publish/
 [`Site.GetPage`]: /methods/site/getpage/
 [page bundles]: /content-management/organization/#page-bundles
 [page resources]: /content-management/page-resources/

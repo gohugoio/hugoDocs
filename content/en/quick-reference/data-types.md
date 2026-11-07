@@ -125,15 +125,19 @@ For most Hugo objects, the `fmt.Printf` function prints the name of an internal 
 
 Some function and method pages show `any` as the returned data type. This means that the data type depends on the arguments or on the context. For example, the [`collections.Index`][] function returns an element of a collection, so the data type of the result is the data type of that element.
 
+Similarly, some function pages show `[]any` as the returned data type when the function returns a slice whose data type depends on the arguments. For example, the [`collections.Where`][] function returns a `resource.Resources` value when you pass it a `resource.Resources` value. The [`collections.Apply`][] function is an exception. It always returns a `[]any` value, regardless of its arguments.
+
 [`Content`]: /methods/page/content/
 [`Params`]: /methods/page/params/
 [`Resources`]: /methods/page/resources/
 [`cast.ToFloat`]: /functions/cast/tofloat/
 [`cast.ToInt`]: /functions/cast/toint/
 [`cast.ToString`]: /functions/cast/tostring/
+[`collections.Apply`]: /functions/collections/apply/
 [`collections.Dictionary`]: /functions/collections/dictionary/
 [`collections.Index`]: /functions/collections/indexfunction/
 [`collections.Slice`]: /functions/collections/slice/
+[`collections.Where`]: /functions/collections/where/
 [`fmt.Printf`]: /functions/fmt/printf/
 [`if`]: /functions/go-template/if/
 [`isPlainText`]: /configuration/output-formats/#isplaintext
