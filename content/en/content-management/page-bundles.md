@@ -122,7 +122,7 @@ home page
 : This branch bundle contains an index file, two descendant branch bundles, and no resources.
 
 branch-bundle-1
-:  This branch bundle contains an index file, two resources of [resource type](g) `page`, and two resources of resource type `image`.
+: This branch bundle contains an index file, two descendant pages, and two resources of [resource type](g) `image`.
 
 branch-bundle-2
 : This branch bundle contains an index file and a leaf bundle.

@@ -41,3 +41,5 @@ With the structure above, we can range through page resources of type `page` to 
   {{ .Content }}
 {{ end }}
 ```
+
+{{% include "/_common/page-resource-front-matter.md" %}}
