@@ -12,42 +12,42 @@ params:
 
 ## Usage
 
-The `templates.Defer` function defers the execution of a template until all sites and output formats have been rendered.
+The `templates.Defer` function defers execution of a template block until Hugo renders all sites and output formats. Use it when the template block depends on the result of rendering every page, such as CSS processing that reads the `hugo_stats.json` file.
+
+Call this function with the `with` statement, passing an `OPTIONS` map. Hugo executes the enclosed block after rendering, in place of the call.
+
+The deferred block is isolated from the calling template. Variables defined outside of the block are not available inside of it, and the dot (`.`) within the block is `nil`. To pass data to the block, use the `data` option.
+
+The deferred block retains the [output format][], [site][], and [language][] of the calling template. For example, `site.Language.Name` returns the same value inside and outside of the block.
 
 > [!WARNING]
-> Do not call this function within a _partial_ template called with the `partialCached` function. This restriction applies transitively: if `partialCached` calls a _partial_ template that calls `templates.Defer`, Hugo returns an error. Using this function within shortcode or render hook templates may also lead to unpredictable results.
+> Do not call this function within a _partial_ template called with the `partials.IncludeCached` function. This restriction applies transitively: if `partials.IncludeCached` calls a _partial_ template that calls `templates.Defer`, the build fails. Calling this function within shortcode or render hook templates may also lead to unpredictable results.
 
-This function only works in combination with the `with` keyword. Variables defined on the outside are not visible on the inside and vice versa. To pass in data, use the `data` option.
-
-The `templates.Defer` function requires a single argument, a map with the following optional keys:
+## Options
 
 `key`
-: (`string`) The key to use for the deferred template. This will, combined with a hash of the template content, be used as a cache key. Without this key, Hugo executes the deferred template on every render, which is inefficient for shared resources like CSS and JavaScript.
+: (`string`) A key to identify the deferred block. Hugo executes the block once per unique combination of key and block content. Without a key, Hugo executes the block once per call, which is inefficient for shared resources such as CSS and JavaScript.
 
 `data`
-: (`map`) Optional map to pass as data to the deferred template. This will be available in the deferred template as `.` or `$`.
-
-```go-html-template
-Language Outside: {{ site.Language.Name }}
-Page Outside: {{ .RelPermalink }}
-I18n Outside: {{ i18n "hello" }}
-{{ $data := (dict "page" . )}}
-{{ with (templates.Defer (dict "data" $data )) }}
-     Language Inside: {{ site.Language.Name }}
-     Page Inside: {{ .page.RelPermalink }}
-     I18n Inside: {{ i18n "hello" }}
-{{ end }}
-```
-
-The [output format][], [site][], and [language][] will be the same, even if the execution is deferred. In the example above, this means that the `site.Language.Name` and `.RelPermalink` will be the same on the inside and the outside of the deferred template.
+: (`any`) The data to pass to the deferred block, available within the block as the dot (`.`) and as `$`.
 
 ## Examples
 
-The following examples defer CSS processing until Hugo has finished rendering all pages.
+```go-html-template
+Language outside: {{ site.Language.Name }}
+Page outside: {{ .RelPermalink }}
+{{ $data := dict "page" . }}
+{{ with (templates.Defer (dict "data" $data)) }}
+  Language inside: {{ site.Language.Name }}
+  Page inside: {{ .page.RelPermalink }}
+{{ end }}
+```
+
+The following examples defer CSS processing until Hugo renders all pages.
 
 ### Process Tailwind CSS
 
-The [`css.TailwindCSS`][] function uses [`hugo_stats.json`][] to determine which classes and other HTML identifiers are in use. Because Hugo must finish rendering all pages before writing this file, use the following templates to defer the CSS processing:
+The [`css.TailwindCSS`][] function reads the [`hugo_stats.json`][] file to determine which classes and other HTML identifiers are in use. Hugo writes this file after rendering all pages, so you must defer the CSS processing:
 
 ```go-html-template {file="layouts/baseof.html" copy=true}
 <head>
@@ -72,7 +72,7 @@ The [`css.TailwindCSS`][] function uses [`hugo_stats.json`][] to determine which
 {{ end }}
 ```
 
-For the above to work well when running the server (or `hugo -w`), add the following configuration:
+Configuring the project to rebuild the CSS when the `hugo_stats.json` file changes while running `hugo server`:
 
 {{< code-toggle file=hugo >}}
 [build]
@@ -96,7 +96,7 @@ For the above to work well when running the server (or `hugo -w`), add the follo
 
 ### Remove unused CSS
 
-The `postcss.config.mjs` configuration file created in [Step 4](#step-4) directs the [`PurgeCSS`][] plugin to read [`hugo_stats.json`][] when the [`css.PostCSS`][] function runs. Because Hugo only writes this file after all pages are rendered, the CSS processing must be deferred.
+The `postcss.config.mjs` file created in [Step 4](#step-4) directs the [`PurgeCSS`][] plugin to read the `hugo_stats.json` file when the [`css.PostCSS`][] function runs. Hugo writes this file after rendering all pages, so you must defer the CSS processing.
 
 Step 1
 : Install [Node.js][].
@@ -109,17 +109,15 @@ Step 2
   ```
 
 Step 3
-: Enable creation of the [`hugo_stats.json`][] file when building the site. If you are only using this for the production build, consider placing it below [`config/production`][].
+: Enable creation of the `hugo_stats.json` file in your project configuration. To create the file for production builds only, place this setting in the [`config/production`][] directory.
 
   {{< code-toggle file=hugo copy=true >}}
   [build.buildStats]
   enable = true
   {{< /code-toggle >}}
 
-  See the [configure build][] documentation for details and options.
-
 Step 4
-: Create a configuration file for the `PurgeCSS` and `autoprefixer` plugins in the root of your project.
+: Create a configuration file for the `PurgeCSS` and `autoprefixer` plugins in the root of your project:
 
   ```js {file="postcss.config.mjs" copy=true}
   import autoprefixer from 'autoprefixer';
@@ -151,7 +149,7 @@ Step 5
 : Place your CSS file within the `assets/css` directory.
 
 Step 6
-: Defer CSS processing so it runs after the site has been rendered:
+: Defer the CSS processing until Hugo renders all pages:
 
   ```go-html-template {file="layouts/baseof.html" copy=true}
   <head>
@@ -179,7 +177,6 @@ Step 6
 [`css.PostCSS`]: /functions/css/postcss/
 [`css.TailwindCSS`]: /functions/css/tailwindcss/
 [`hugo_stats.json`]: /configuration/build/
-[configure build]: /configuration/build/
 [language]: /methods/site/language/
 [output format]: /configuration/output-formats/
 [site]: /methods/page/site/

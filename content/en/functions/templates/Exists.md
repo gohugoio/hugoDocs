@@ -10,17 +10,21 @@ params:
     signatures: [templates.Exists PATH]
 ---
 
-A template file is any file within the `layouts` directory of either the project or any of its theme components.
+## Usage
 
-Use the `templates.Exists` function with dynamic template paths:
+The `templates.Exists` function reports whether a template file exists under the given path relative to the `layouts` directory. Include the file extension in `PATH`, such as `_partials/footer.html`.
+
+The function searches for the template file in the `layouts` directory of your [project](g), in the `layouts` directory of each [module](g), and among the [embedded templates](g).
+
+Use this function to check for a template before calling it, such as when you build the template path from page data.
+
+## Examples
 
 ```go-html-template
 {{ $partialPath := printf "headers/%s.html" .Type }}
-{{ if templates.Exists ( printf "_partials/%s" $partialPath ) }}
+{{ if templates.Exists (printf "_partials/%s" $partialPath) }}
   {{ partial $partialPath . }}
 {{ else }}
   {{ partial "headers/default.html" . }}
 {{ end }}
 ```
-
-In the example above, if a "headers" _partial_ template does not exist for the given content type, Hugo falls back to a default template.

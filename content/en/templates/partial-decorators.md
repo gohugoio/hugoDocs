@@ -25,7 +25,7 @@ To use a partial decorator, use a block-style call in your templates. The [`with
 {{ end }}
 ```
 
-Inside the _partial_ template, place the `templates.Inner` function call where the wrapped content should appear.
+Inside the _partial_ template, place the [`templates.Inner`][] function call where the wrapped content should appear.
 
 ```go-html-template {file="layouts/_partials/components/wrapper.html" copy=true}
 <div class="wrapper-styling">
@@ -35,9 +35,9 @@ Inside the _partial_ template, place the `templates.Inner` function call where t
 
 The `with` statement creates a new [scope](g). Variables defined outside of the `with` block are not available inside it. To use external data within the wrapped content, you must ensure it is part of the [context](g) passed in the _partial_ template call.
 
-A key feature of the `templates.Inner` function is its ability to accept a context argument. By passing a context to the function, you define what the dot (`.`) represents inside the wrapped block. This ensures that the injected content has access to the correct data even when nested inside multiple layers of wrappers.
+The `templates.Inner` function requires a context argument, which determines the value of the dot (`.`) inside the wrapped block. To use the context passed to the _partial_ template, pass the dot, as in `{{ templates.Inner . }}`. Passing the context this way gives the wrapped content access to the correct data, even when it is nested inside multiple layers of wrappers.
 
-A partial decorator can call the [`templates.Inner`][] function more than once, such as within a `range` statement, to render the wrapped content for each item in a collection. See [repeated execution](#repeated-execution) for an example.
+A partial decorator can call the `templates.Inner` function more than once, such as within a `range` statement, to render the wrapped content for each item in a collection. See [repeated execution](#repeated-execution) for an example.
 
 ## Benefits of composition
 
