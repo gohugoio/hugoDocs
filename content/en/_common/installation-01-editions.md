@@ -4,20 +4,14 @@ _comment: Do not remove front matter.
 
 ## Editions
 
-Hugo is available in several editions. Use the standard edition unless you need additional features.
+Hugo is available in two editions, standard and deploy. Use the standard edition unless you need to deploy your site directly from Hugo.
 
-Feature|standard|deploy (1)|extended|extended/deploy
-:--|:-:|:-:|:-:|:-:
-Core features|:heavy_check_mark:|:heavy_check_mark:|:heavy_check_mark:|:heavy_check_mark:
-Direct cloud deployment (2)|:x:|:heavy_check_mark:|:x:|:heavy_check_mark:
-LibSass support (3)|:x:|:x:|:heavy_check_mark:|:heavy_check_mark:
+{{< new-in v0.159.2 />}} The deploy edition includes every feature of the standard edition, and adds the ability to [deploy your site][] to a Google Cloud Storage bucket, an AWS S3 bucket, or an Azure Storage container.
 
-(1) {{< new-in v0.159.2 />}}
+{{< new-in 0.170.0 >}}
+The extended and extended/deploy editions are no longer available or needed.
 
-(2) Deploy your site directly to a Google Cloud Storage bucket, an AWS S3 bucket, or an Azure Storage container. See [details][].
+These editions provided WebP image encoding and an embedded LibSass transpiler. The standard and deploy editions now support WebP image encoding, and Hugo uses [Dart Sass](/functions/css/sass/#dart-sass) to transpile Sass to CSS. If you previously used the extended edition, use the standard edition instead. If you previously used the extended/deploy edition, use the deploy edition instead.
+{{< /new-in >}}
 
-(3) [Transpile Sass to CSS][] via embedded LibSass. Note that embedded LibSass was deprecated in v0.153.0 and will be removed in a future release. Use the [Dart Sass][] transpiler instead, which is compatible with any edition.
-
-[Dart Sass]: /functions/css/sass/#dart-sass
-[Transpile Sass to CSS]: /functions/css/sass/
-[details]: /host-and-deploy/deploy-with-hugo/
+[deploy your site]: /host-and-deploy/deploy-with-hugo/

@@ -19,7 +19,7 @@ Complete the following tasks before continuing:
 
 1. Create a Hugo project and test it with the `hugo server` command.
 1. Set the [`baseURL`][] in your project configuration to the URL of your production site.
-1. Install the deploy or extended/deploy edition of Hugo. See the [installation][] section for details.
+1. Install the deploy edition of Hugo. See the [installation][] section for details.
 1. Create a bucket or container. To serve your site directly from it, configure it to host a static website. See the documentation for [Amazon S3][], [Azure Blob Storage][], or [Google Cloud Storage][].
 1. Install the command-line tool for your cloud provider, then use it to log in. Hugo uses the credentials that the tool stores on your local machine.
 
