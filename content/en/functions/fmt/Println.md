@@ -10,7 +10,14 @@ params:
     signatures: [fmt.Println INPUT]
 ---
 
+## Usage
+
+The `fmt.Println` function returns the default string representation of the given arguments, followed by a line break. The function always adds a space between adjacent arguments.
+
+## Examples
+
 ```go-html-template
-{{ println "foo" }} → foo\n
-{{ println "foo" "bar" }} → foo bar\n
+{{ fmt.Println "foo" }} → foo\n
+{{ fmt.Println "foo" "bar" }} → foo bar\n
+{{ fmt.Println 1 2 }} → 1 2\n
 ```

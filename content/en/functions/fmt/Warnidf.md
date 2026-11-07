@@ -10,28 +10,33 @@ params:
     signatures: ['fmt.Warnidf ID FORMAT [INPUT]']
 ---
 
+## Usage
+
+The `fmt.Warnidf` function logs a suppressible WARNING from a template. The function formats `INPUT` according to `FORMAT` and writes the result to the WARNING log. The function returns an empty string.
+
 {{% include "/_common/format-string.md" %}}
 
-The `warnidf` function evaluates the format string, then prints the result to the WARNING log. Unlike the [`warnf`][] function, you may suppress warnings logged by the `warnidf` function by adding the message ID to the `ignoreLogs` array in your project configuration.
+Unlike the [`fmt.Warnf`][] function, you can suppress warnings logged by the `fmt.Warnidf` function. To suppress a warning, add its `ID` to the [`ignoreLogs`][] array in your project configuration.
 
-This template code:
+## Examples
 
 ```go-html-template
-{{ warnidf "warning-42" "You should consider fixing this." }}
+{{ fmt.Warnidf "warning-42" "You should consider fixing this." }}
 ```
 
-Produces this console log:
+The resulting console output:
 
 ```text
-WARN You should consider fixing this.
+WARN  You should consider fixing this.
 You can suppress this warning by adding the following to your project configuration:
 ignoreLogs = ['warning-42']
 ```
 
-To suppress this message:
+Suppressing the warning in your project configuration:
 
 {{< code-toggle file=hugo >}}
 ignoreLogs = ["warning-42"]
 {{< /code-toggle >}}
 
-[`warnf`]: /functions/fmt/warnf/
+[`fmt.Warnf`]: /functions/fmt/warnf/
+[`ignoreLogs`]: /configuration/all/#ignorelogs
