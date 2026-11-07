@@ -13,6 +13,8 @@ By default, when Hugo renders a page, the resulting URL matches the file path wi
 content/posts/post-1.md → https://example.org/posts/post-1/
 ```
 
+Hugo derives [URL paths][] from the [logical path](g) of each page, removing some characters and converting the result to lower case.
+
 You can change the structure and appearance of URLs with front matter values and configuration settings.
 
 ## Front matter
@@ -269,6 +271,7 @@ See the [`Aliases`][aliases_method] method page for a complete example of how to
 
 If you implement server-side redirects, you should disable the generation of individual HTML files by setting [`disableAliases`][] to `true` in your project configuration. This setting only prevents the generation of the physical HTML files; the `Aliases` method on a `Page` object remains available for use in your configuration templates.
 
+[URL paths]: /content-management/organization/#url-paths
 [`baseURL`]: /configuration/all/#baseurl
 [`disableAliases`]: /configuration/all/#disablealiases
 [`isHTML`]: /configuration/output-formats/#ishtml

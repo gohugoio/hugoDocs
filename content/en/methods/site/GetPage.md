@@ -9,11 +9,17 @@ params:
     signatures: [SITE.GetPage PATH]
 ---
 
-The `GetPage` method is also available on `Page` objects, allowing you to specify a path relative to the current page. See [details][].
+## Usage
 
-When using the `GetPage` method on a `Site` object, specify a path relative to the `content` directory.
+The `GetPage` method on a `Site` object returns the page with the given [logical path](g), relative to the `content` directory. The [`GetPage`][] method on a `Page` object also accepts a path relative to the current page.
 
-If Hugo cannot resolve the path to a page, the method returns `nil`.
+If the path does not contain a slash and Hugo has not found the page, the method searches for a page with the same base name. If more than one page has the same base name, Hugo throws an error and fails the build.
+
+If the [path resolution][] rules do not find a page, the method returns `nil`.
+
+With multilingual projects, the method returns the page in the current language. To get a page in a different language, query the `Sites` object as shown below.
+
+## Examples
 
 Consider this content structure:
 
@@ -53,7 +59,7 @@ Is rendered to:
 </ul>
 ```
 
-To get a regular page instead of a section page:
+Getting a regular page instead of a section page:
 
 ```go-html-template {file="layouts/home.html"}
 {{ with site.GetPage "/works/paintings/starry-night" }}
@@ -62,11 +68,7 @@ To get a regular page instead of a section page:
 {{ end }}
 ```
 
-## Multilingual projects
-
-With multilingual projects, the `GetPage` method on a `Site` object resolves the given path to a page in the current language.
-
-To get a page from a different language, query the `Sites` object:
+Getting a page in a different language by querying the `Sites` object:
 
 ```go-html-template
 {{ with where hugo.Sites "Language.Name" "eq" "de" }}
@@ -78,21 +80,7 @@ To get a page from a different language, query the `Sites` object:
 {{ end }}
 ```
 
-## Page bundles
-
-Consider this content structure:
-
-```tree
-content/
-├── headless/
-│   ├── a.jpg
-│   ├── b.jpg
-│   ├── c.jpg
-│   └── index.md  <-- front matter: headless = true
-└── _index.md
-```
-
-In the _home_ template, use the `GetPage` method on a `Site` object to render all the images in the headless [page bundle](g):
+Rendering the images in a [headless bundle](g) at `content/headless/index.md`:
 
 ```go-html-template {file="layouts/home.html"}
 {{ with site.GetPage "/headless" }}
@@ -102,4 +90,5 @@ In the _home_ template, use the `GetPage` method on a `Site` object to render al
 {{ end }}
 ```
 
-[details]: /methods/page/getpage/
+[`GetPage`]: /methods/page/getpage/
+[path resolution]: /content-management/organization/#path-resolution
