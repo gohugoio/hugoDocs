@@ -37,6 +37,8 @@ The `with` statement creates a new [scope](g). Variables defined outside of the 
 
 A key feature of the `templates.Inner` function is its ability to accept a context argument. By passing a context to the function, you define what the dot (`.`) represents inside the wrapped block. This ensures that the injected content has access to the correct data even when nested inside multiple layers of wrappers.
 
+A partial decorator can call the [`templates.Inner`][] function more than once, such as within a `range` statement, to render the wrapped content for each item in a collection. See [repeated execution](#repeated-execution) for an example.
+
 ## Benefits of composition
 
 Using partial decorators to build wrapper components provides several advantages:
@@ -47,7 +49,9 @@ Using partial decorators to build wrapper components provides several advantages
 
 This approach separates container logic from content logic. The wrapper handles structural requirements like specific class hierarchies or CSS grid containers. The calling template retains control over the inner markup and how data is displayed.
 
-## Example
+## Examples
+
+### Nested wrappers
 
 The following templates illustrate how to nest three wrapper components including a section, a column, and a card while passing context through each layer.
 
@@ -122,4 +126,43 @@ The card component defines the visual boundary for the content:
 </div>
 ```
 
+### Repeated execution
+
+A partial decorator can execute the wrapped content zero or more times. Call the `templates.Inner` function within a `range` statement to repeat the same block for each item in a collection, passing the current item as the context. The calling template defines the markup for a single item, and the partial decorator controls the iteration and the surrounding structure.
+
+The _home_ template passes a page collection to a grid component, and defines the markup for a single card:
+
+```go-html-template {file="layouts/home.html" copy=true}
+{{ $ctx := dict
+  "label" "Recent Posts"
+  "pageCollection" ((site.GetPage "/posts").RegularPages)
+}}
+
+{{ with partial "components/grid.html" $ctx }}
+  {{ with partial "components/card.html" (dict "page" . "url" .RelPermalink "title" .LinkTitle) }}
+    <p>
+      {{ .page.Content | plainify | strings.Truncate 240 }}
+    </p>
+  {{ end }}
+{{ end }}
+```
+
+The grid component iterates over the page collection, executing the wrapped content once for each page:
+
+```go-html-template {file="layouts/_partials/components/grid.html" copy=true}
+<section class="content-section">
+  {{ with .label }}
+    <h2 class="section-label">{{ . }}</h2>
+  {{ end }}
+  <div class="grid-wrapper">
+    {{ range .pageCollection }}
+      {{ templates.Inner . }}
+    {{ end }}
+  </div>
+</section>
+```
+
+Within the wrapped block, the dot (`.`) is the current page in each iteration. The card component is the same as in the [previous example](#nested-wrappers).
+
+[`templates.Inner`]: /functions/templates/inner/
 [`with`]: /functions/go-template/with/
