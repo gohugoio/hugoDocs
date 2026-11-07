@@ -32,4 +32,4 @@ Learn more about [date configuration][].
 [`time.Format`]: /functions/time/format/
 [date configuration]: /configuration/front-matter/#dates
 [time methods]: /methods/time/
-[`time.Time`]: https://pkg.go.dev/time#Time
+[`time.Time`]: /quick-reference/data-types/#dates-and-times

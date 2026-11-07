@@ -18,7 +18,7 @@ Hugo injects this element into the `head` element of the home page unless the pa
 ## Examples
 
 ```go-html-template
-{{ hugo.Generator }} → <meta name="generator" content="Hugo 0.169.0">
+{{ hugo.Generator }} → <meta name="generator" content="Hugo 0.170.0">
 ```
 
 [`disableHugoGeneratorInject`]: /configuration/all/#disablehugogeneratorinject

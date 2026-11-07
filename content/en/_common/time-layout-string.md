@@ -21,9 +21,10 @@ Hour|`"15" "3" "03"`
 Minute|`"4" "04"`
 Second|`"5" "05"`
 AM/PM mark|`"PM"`
+Time zone abbreviation|`"MST"`
 Time zone offsets|`"-0700" "-07:00" "-07" "-070000" "-07:00:00"`
 
-Replace the sign in the layout string with a Z to print Z instead of an offset for the UTC zone.
+Replace the sign in the layout string with a `Z` to print `Z` instead of the offset when the offset is zero.
 
 Description|Valid components
 :--|:--
@@ -37,10 +38,6 @@ Time zone offsets|`"Z0700" "Z07:00" "Z07" "Z070000" "Z07:00:00"`
 {{ $t }} → Jan 27, 2023 11:44 PM -08:00
 ```
 
-Strings such as `PST` and `CET` are not time zones. They are time zone _abbreviations_.
-
-Strings such as `-07:00` and `+01:00` are not time zones. They are time zone _offsets_.
-
-A time zone is a geographic area with the same local time. For example, the time zone abbreviated by `PST` and `PDT` (depending on Daylight Savings Time) is `America/Los_Angeles`.
+The `MST` component prints the abbreviation of the date/time's [time zone](g), such as `PST` or `CET`. If the date/time has a [time zone offset](g) but no time zone, the component prints the offset instead, such as `-0800`. Whether a date/time created from a string with an offset has a time zone can depend on the time zone of the system running Hugo.
 
 [Go's reference time]: https://pkg.go.dev/time#pkg-constants

@@ -17,18 +17,17 @@ The `resources.Concat` function returns a resource created by concatenating the 
 
 Hugo publishes the resource to the target path when you call its [`Publish`][], [`Permalink`][], or [`RelPermalink`][] method, or pass it to the [`resources.Publish`][] function.
 
+{{< new-in 0.170.0 >}}
+The `SLICE` argument now accepts a `[]any` slice of resources, such as the slice returned by the [`collections.Apply`](/functions/collections/apply/) function.
+{{< /new-in >}}
+
 ## Arguments
 
 `TARGETPATH`
 : (`string`) The path of the published resource, relative to the [site root](g).
 
 `SLICE`
-: (`resource.Resources`) A slice of the resources to concatenate, in order. The [`collections.Slice`][] function returns this type when every element is a resource, as do the [`resources.ByType`][] and [`resources.Match`][] functions. Other slices cause an error, including:
-
-  - A slice that contains a `nil` element, such as the value returned by the [`resources.Get`][] function when it cannot find the file.
-  - The slice returned by the [`collections.Apply`][] function, which is always of type `[]any`.
-
-  To create a slice of resources from a list of file paths, use the [`collections.Append`][] function within a `range` loop, as shown in the [examples](#examples).
+: (`resource.Resources` or `[]any`) A slice of the resources to concatenate, in order, such as the slice returned by the [`collections.Slice`][], [`collections.Apply`][], [`resources.ByType`][], or [`resources.Match`][] function. Every element must be a resource. For example, a slice that contains a `nil` element, such as the value returned by the [`resources.Get`][] function when it cannot find the file, causes an error.
 
 ## Examples
 
@@ -36,6 +35,14 @@ Hugo publishes the resource to the target path when you call its [`Publish`][], 
 {{ $plugins := resources.Get "js/plugins.js" }}
 {{ $global := resources.Get "js/global.js" }}
 {{ $js := slice $plugins $global | resources.Concat "js/bundle.js" }}
+```
+
+Creating the slice from a list of file paths:
+
+```go-html-template
+{{ $paths := slice "js/plugins.js" "js/global.js" }}
+{{ $resources := apply $paths "resources.Get" "." }}
+{{ $js := resources.Concat "js/bundle.js" $resources }}
 ```
 
 Creating the slice from a list of file paths, skipping files that do not exist:
@@ -54,7 +61,6 @@ Creating the slice from a list of file paths, skipping files that do not exist:
 [`Permalink`]: /methods/resource/permalink/
 [`Publish`]: /methods/resource/publish/
 [`RelPermalink`]: /methods/resource/relpermalink/
-[`collections.Append`]: /functions/collections/append/
 [`collections.Apply`]: /functions/collections/apply/
 [`collections.Slice`]: /functions/collections/slice/
 [`resources.ByType`]: /functions/resources/bytype/

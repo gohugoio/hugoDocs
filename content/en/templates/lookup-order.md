@@ -139,7 +139,7 @@ layouts/
 └── term.html
 ```
 
-Like other templates, _render hook_ and _shortcode_ templates can include the page kind, output format, and language identifiers, such as `render-link.section.html`, `render-link.rss.xml`, or `example.de.html`. Hugo also uses the content type when searching for these templates. For example, Hugo uses the templates in `layouts/books/_markup` and `layouts/books/_shortcodes` for pages with a content type of `books`. Hugo does not consider the current page when selecting a [partial template][partial templates].
+Like other templates, _render hook_ and _shortcode_ templates can include the page kind, custom layout, output format, and language identifiers, such as `render-link.section.html`, `render-link.contact.html`, `render-link.rss.xml`, or `example.de.html`. Hugo also uses the content type when searching for these templates. For example, Hugo uses the templates in `layouts/books/_markup` and `layouts/books/_shortcodes` for pages with a content type of `books`. Hugo does not consider the current page when selecting a [partial template][partial templates].
 
 ## Target a template
 

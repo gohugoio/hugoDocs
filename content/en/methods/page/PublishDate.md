@@ -17,7 +17,7 @@ title = 'Article 1'
 publishDate = 2023-10-19T00:40:04-07:00
 {{< /code-toggle >}}
 
-The publish date is a [time.Time][] value. Format and localize the value with the [`time.Format`][] function, or use it with any of the [time methods][].
+The publish date is a [`time.Time`][] value. Format and localize the value with the [`time.Format`][] function, or use it with any of the [time methods][].
 
 ```go-html-template
 {{ .PublishDate | time.Format ":date_medium" }} → Oct 19, 2023
@@ -28,4 +28,4 @@ In the example above we explicitly set the publish date in front matter. With Hu
 [`time.Format`]: /functions/time/format/
 [details]: /configuration/front-matter/#dates
 [time methods]: /methods/time/
-[time.Time]: https://pkg.go.dev/time#Time
+[`time.Time`]: /quick-reference/data-types/#dates-and-times

@@ -18,10 +18,10 @@ The `time.In` function returns the given date/time as represented in the specifi
 ## Arguments
 
 `TIMEZONE`
-: (`string`) The time zone. Use an empty string or `UTC` for [UTC](g), `Local` for the system's local time zone, or any valid IANA [time zone name][].
+: (`string`) The [time zone](g). Use an empty string or `UTC` for [UTC](g), `Local` for the system's local time zone, or any valid IANA [time zone name][].
 
 `INPUT`
-: (`time.Time`) The date/time value. To use a string representation of a date/time value, convert it with the [`time.AsTime`][] function first.
+: (`time.Time`) The date/time value. To use a string representation of a date/time value, such as a [custom date parameter][] in front matter, convert it with the [`time.AsTime`][] function first.
 
 ## Examples
 
@@ -35,4 +35,5 @@ The `time.In` function returns the given date/time as represented in the specifi
 ```
 
 [`time.AsTime`]: /functions/time/astime/
+[custom date parameter]: /content-management/front-matter/#parameters
 [time zone name]: https://en.wikipedia.org/wiki/List_of_tz_database_time_zones#List

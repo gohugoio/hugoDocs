@@ -289,11 +289,7 @@ When populating a date field, whether a [custom page parameter](#parameters) or 
 
 The TOML format also supports unquoted date/time values.
 
-To override the default time zone, set the [`timeZone`][] in your project configuration. The order of precedence for determining the time zone is:
-
-1. The time zone offset in the date/time string
-1. The time zone specified in your project configuration
-1. The `Etc/UTC` time zone
+If a date/time string includes a time zone offset, Hugo uses that offset. Otherwise, Hugo uses the time zone set by the [`timeZone`][] setting in your project configuration, falling back to `Etc/UTC`.
 
 [Emacs Org Mode]: https://orgmode.org/
 [JSON]: https://www.json.org/
