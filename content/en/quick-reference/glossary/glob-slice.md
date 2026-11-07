@@ -13,4 +13,4 @@ A _glob slice_ is a [_slice_](g) of [_glob patterns_](g). Within the slice, a gl
   roles = [ "{member, guest}" ]
   ```
 
-  The `versions` example above evaluates as: `(not v1.2.3) AND (v1.*.* OR v2.*.*)`.
+  In this example, the `versions` setting evaluates as: `(not v1.2.3) AND (v1.*.* OR v2.*.*)`.

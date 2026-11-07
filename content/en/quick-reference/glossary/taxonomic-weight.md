@@ -4,4 +4,4 @@ params:
   reference: /content-management/taxonomies/#taxonomic-weight
 ---
 
-Defined in front matter and unique to each taxonomy, a _taxonomic weight_ is a [_weight_](g) that determines the sort order of page collections contained within a [`Taxonomy`](g) object.
+Defined in front matter and unique to each taxonomy, a _taxonomic weight_ is a [_weight_](g) that determines the sort order of page collections contained within a [_taxonomy object_](g).
