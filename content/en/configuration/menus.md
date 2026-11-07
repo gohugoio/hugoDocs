@@ -78,7 +78,7 @@ These are the available menu entry properties:
 {{% include "/_common/menu-entry-properties.md" %}}
 
 `pageRef`
-: (`string`) The [logical path](g) of the target page. For example:
+: (`string`) The [logical path](g) of the target page. The [path resolution][] rules for the `Site.GetPage` method apply. For example:
 
   page kind|pageRef
   :--|:--
@@ -134,3 +134,4 @@ rel = 'external'
 [front matter]: /content-management/menus/#define-in-front-matter
 [menu templates]: /templates/menu/
 [menus]: /content-management/menus/
+[path resolution]: /content-management/organization/#path-resolution

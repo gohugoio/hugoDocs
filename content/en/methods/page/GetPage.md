@@ -9,11 +9,13 @@ params:
     signatures: [PAGE.GetPage PATH]
 ---
 
-The `GetPage` method is also available on a `Site` object. See [details][].
+## Usage
 
-When using the `GetPage` method on the `Page` object, specify a path relative to the current directory or relative to the `content` directory.
+The `GetPage` method on a `Page` object returns the page with the given [logical path](g), relative to the current page or to the `content` directory. For a `home`, `section`, `taxonomy`, or `term` page, a relative path is relative to the page itself. For other pages, a relative path is relative to the parent of the page in the [logical tree](g).
 
-If Hugo cannot resolve the path to a page, the method returns `nil`. If the path is ambiguous, Hugo throws an error and fails the build.
+If the [path resolution][] rules do not find a page, the method returns `nil`. Unlike the [`GetPage`][] method on a `Site` object, this method does not search for a page by its base name, so it does not throw an error when more than one page has the same base name.
+
+## Examples
 
 Consider this content structure:
 
@@ -60,4 +62,5 @@ The examples below depict the result of rendering `works/paintings/the-mona-lisa
 {{ end }}
 ```
 
-[details]: /methods/site/getpage/
+[`GetPage`]: /methods/site/getpage/
+[path resolution]: /content-management/organization/#path-resolution

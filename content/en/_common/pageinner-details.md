@@ -14,7 +14,7 @@ The primary use case for `PageInner` is to resolve links and [page resources](g)
     {{ errorf "The %q shortcode was unable to find %q. See %s" $.Name . $.Position }}
   {{ end }}
 {{ else }}
-  {{ errorf "The %q shortcode requires a positional parameter indicating the logical path of the file to include. See %s" .Name .Position }}
+  {{ errorf "The %q shortcode requires a positional parameter indicating the logical path of the page to include. See %s" .Name .Position }}
 {{ end }}
 ```
 

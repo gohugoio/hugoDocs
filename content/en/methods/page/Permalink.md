@@ -9,16 +9,22 @@ params:
     signatures: [PAGE.Permalink]
 ---
 
-Project configuration:
+## Usage
+
+The `Permalink` method on a `Page` object returns the absolute URL of the given page. Hugo creates the [URL path][] from the [logical path](g) of the page, the `slug` and `url` fields in front matter, and your project configuration.
+
+## Examples
+
+Consider this project configuration:
 
 {{< code-toggle file=hugo >}}
 title = 'Documentation'
 baseURL = 'https://example.org/docs/'
 {{< /code-toggle >}}
 
-Template:
-
 ```go-html-template
 {{ $page := site.GetPage "/about" }}
 {{ $page.Permalink }} → https://example.org/docs/about/
 ```
+
+[URL path]: /content-management/organization/#url-paths

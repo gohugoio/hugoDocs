@@ -65,7 +65,7 @@ This is the default configuration that matches the table above:
 : (`bool`) Whether to disable ugly URLs for this output format when [`uglyURLs`][] are enabled in your project configuration. Default is `false`.
 
 `path`
-: (`string`) The first segment of the publication path for this output format. This path segment is relative to the root of your `public` directory. If omitted, Hugo uses the file's original content path for publishing.
+: (`string`) The first segment of the [publication path](g) and URL path for this output format. For example, if you set `path` to `feeds`, Hugo publishes the page with URL path `/posts/post-1/` to `feeds/posts/post-1/index.html` in this output format. If omitted, Hugo uses the same publication path as the other output formats of the page.
 
 `permalinkable`
 : (`bool`) Whether to return the rendering output format rather than the main output format when invoking the [`Permalink`][] and [`RelPermalink`][] methods on a `Page` object. Along with [`isHTML`](#ishtml), this must be `true` to create [alias redirects][]. Default is `false`, except for the `html`, `amp`, and `404` output formats, where the default is `true`.

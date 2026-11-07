@@ -1,143 +1,215 @@
 ---
 title: Content organization
 linkTitle: Organization
-description: Hugo assumes that the same structure that works to organize your source content is used to organize the rendered site.
+description: Learn how Hugo identifies pages, resolves page references, and creates URLs from the structure of the content directory.
 categories: []
 keywords: []
 ---
 
-## Page bundles
+## Content structure
 
-Hugo supports page-relative images and other resources packaged into `Page Bundles`.
-
-These terms are connected, and you also need to read about [page resources][] and [image processing][] to get the full picture.
+Organize the `content` directory to match the structure of the site you want to publish. By default, the URL of each page reflects the location of its content file:
 
 ```tree
 content/
-├── blog/
-│   ├── hugo-is-cool/
-│   │   ├── images/
-│   │   │   ├── funnier-cat.jpg
-│   │   │   └── funny-cat.jpg
-│   │   ├── cats-info.md
-│   │   └── index.md
-│   ├── posts/
-│   │   ├── post1.md
-│   │   └── post2.md
-│   ├── 1-landscape.jpg
-│   ├── 2-sunset.jpg
-│   ├── _index.md
-│   ├── content-1.md
-│   └── content-2.md
-├── 1-logo.png
+├── about/
+│   ├── index.md      <-- https://example.org/about/
+│   └── team.jpg
+├── posts/
+│   ├── happy/
+│   │   └── ness.md   <-- https://example.org/posts/happy/ness/
+│   ├── _index.md     <-- https://example.org/posts/
+│   ├── post-1.md     <-- https://example.org/posts/post-1/
+│   └── post-2.md     <-- https://example.org/posts/post-2/
+└── _index.md         <-- https://example.org/
+```
+
+Two file names have a special role. The directory that contains either file is a [page bundle](g):
+
+- An `index.md` file contains the front matter and content of a regular page. Its directory is a [leaf bundle](g). The other files in the directory, such as `team.jpg` above, are [page resources](g) of the page, including other content files.
+- An `_index.md` file contains the front matter and content of a `home`, `section`, `taxonomy`, or `term` page. Its directory is a [branch bundle](g). The other content files in the directory are pages, and the remaining files are page resources of the branch page.
+
+The file extension depends on the [content format](g), such as `index.html` or `_index.adoc`. Learn more about [page bundles][] and when to use each type.
+
+To change the URL of a page without moving its content file, set the [`slug`][] or [`url`][] field in front matter, or configure [permalinks][].
+
+## Sections
+
+{{% glossary-term "section" %}} A top-level directory that is a leaf bundle, such as `about` in the example above, is not a section.
+
+Consider this content structure:
+
+```tree
+content/
+├── articles/             <-- section (top-level directory)
+│   ├── 2025/
+│   │   └── article-1.md
+│   └── 2026/
+│       └── article-2.md
+├── products/             <-- section (top-level directory)
+│   ├── product-1/        <-- section (contains _index.md)
+│   │   ├── _index.md
+│   │   └── feature-1.md
+│   ├── product-2/        <-- section (contains _index.md)
+│   │   ├── _index.md
+│   │   └── feature-2.md
+│   └── _index.md
 └── _index.md
 ```
 
-The file tree above shows three bundles. Note that the home page bundle cannot contain other content pages, although other files (images etc.) are allowed.
+The `articles/2025` and `articles/2026` directories are not sections, so Hugo does not create a page for either directory. Both articles belong to the `articles` section, and the [`Pages`][] method on the `articles` section page returns both articles.
 
-## Organization of content source
+Each directory under `products` is a nested section. The `Pages` method on the `products` section page returns the `product-1` and `product-2` section pages, but not the pages within them. Use the [`RegularPagesRecursive`][] method to return the regular pages of a section and its nested sections.
 
-In Hugo, your content should be organized in a manner that reflects the rendered website.
+Sections determine the page hierarchy. The parent of `feature-1.md` is the `product-1` section page, and its ancestors are the `product-1`, `products`, and home pages. Use the [`Parent`][] and [`Ancestors`][] methods to navigate this hierarchy, such as when rendering breadcrumb navigation.
 
-While Hugo supports content nested at any level, the top levels (i.e. `content/<DIRECTORIES>`) are special in Hugo and are considered the content type used to determine layouts etc. To read more about sections, including how to nest them, see [sections][].
+The top-level section of a page determines its default [content type](g), which Hugo uses to select templates. You cannot change the section of a page in front matter, but you can change the content type with the [`type`][] front matter field.
 
-Without any additional configuration, the following will automatically work:
+## Logical paths
 
-```txt
-.
-└── content
-    └── about
-    |   └── index.md  // <- https://example.org/about/
-    ├── posts
-    |   ├── firstpost.md   // <- https://example.org/posts/firstpost/
-    |   ├── happy
-    |   |   └── ness.md  // <- https://example.org/posts/happy/ness/
-    |   └── secondpost.md  // <- https://example.org/posts/secondpost/
-    └── quote
-        ├── first.md       // <- https://example.org/quote/first/
-        └── second.md      // <- https://example.org/quote/second/
+Hugo identifies each page by its logical path, not by its file path or its URL.
+
+{{% glossary-term "logical path" %}}
+
+File path|Logical path
+:--|:--
+`content/_index.md`|`/`
+`content/posts/_index.md`|`/posts`
+`content/posts/post-1.md`|`/posts/post-1`
+`content/posts/post-1.de.md`|`/posts/post-1`
+`content/posts/post-2/index.md`|`/posts/post-2`
+`content/posts/My Post.md`|`/posts/my-post`
+`content/about._version_v2.0.0_.md`|`/about`
+
+The logical path does not change when you set the `slug` or `url` field in front matter. Use the [`Path`][] method on a `Page` object to get the logical path of a page, including pages that are not backed by a file, such as `taxonomy` and `term` pages.
+
+Just as file paths form a file tree, logical paths form a logical tree. Consider this file tree:
+
+```tree
+content/
+└── s1/
+    ├── p1/
+    │   └── index.md
+    └── p2.md
 ```
 
-## Path breakdown in Hugo
+This is the same content represented as a logical tree:
 
-The following demonstrates the relationships between your content organization and the output URL structure for your Hugo website when it renders. These examples assume you are [using pretty URLs][pretty], which is the default behavior for Hugo. The examples also assume a key-value of `baseURL = "https://example.org/"` in your [project configuration][].
-
-### Index pages
-
-`_index.md` has a special role in Hugo. It allows you to add front matter and content to `home`, `section`, `taxonomy`, and `term` pages.
-
-Access the content and metadata within an `_index.md` file by invoking the `GetPage` method on a `Site` or `Page` object.
-
-You can create one `_index.md` for your home page and one in each of your content sections, taxonomies, and terms. The following shows typical placement of an `_index.md` that would contain content and front matter for a `posts` section list page on a Hugo website:
-
-```txt
-.         url
-.       ⊢--^-⊣
-.        path    slug
-.       ⊢--^-⊣⊢---^---⊣
-.           file path
-.       ⊢------^------⊣
-content/posts/_index.md
+```tree
+content/
+└── s1/
+    ├── p1
+    └── p2
 ```
 
-At build, this will output to the following destination with the associated values:
+In the file tree, the relative path from p1 to p2 is `../p2.md`. In the logical tree, the relative path is `p2`.
 
-```txt
+## Page references
 
-                     url ("/posts/")
-                    ⊢-^-⊣
-       baseurl      section ("posts")
-⊢--------^---------⊣⊢-^-⊣
-        permalink
-⊢----------^-------------⊣
-https://example.org/posts/index.html
+Use these methods, functions, and shortcodes to find a page by its path:
+
+Methods|Functions|Shortcodes
+:--|:--|:--
+[`Site.GetPage`][]|[`urls.Ref`][]|[`ref`][]
+[`Page.GetPage`][]|[`urls.RelRef`][]|[`relref`][]
+[`Page.Ref`][]|&nbsp;|&nbsp;
+[`Page.RelRef`][]|&nbsp;|&nbsp;
+[`Shortcode.Ref`][]|&nbsp;|&nbsp;
+[`Shortcode.RelRef`][]|&nbsp;|&nbsp;
+
+Specify the logical path of the page, such as `/posts/my-post` for the page backed by `content/posts/My Post.md`. You cannot find a page by its URL. For example, if you set the `slug` field in front matter to `my-first-post`, the path `/posts/my-first-post` does not find the page.
+
+To find a page in a different language, use the `lang` option with the `Ref` and `RelRef` methods, functions, and shortcodes, or query the [`Sites`][] object.
+
+### File paths
+
+Hugo also accepts a file path relative to the `content` directory or to the current page. This allows Markdown link destinations such as `[Post 1](post-1.md)` to work both in Hugo and in other Markdown viewers, such as a code editor or a Git hosting service. The [embedded link render hook][] passes each link destination to the `Page.GetPage` method.
+
+Before finding the page, Hugo converts the given path to a logical path. Hugo converts the path to lower case, replaces spaces with hyphens, and removes the file extension and any language, role, or version identifiers. For example, each of these paths finds the page backed by `content/posts/My Post.md`:
+
+```text
+/posts/my-post
+/posts/My Post
+/posts/My Post.md
+/posts/my-post.de.md
 ```
 
-The [sections][] can be nested as deeply as you want. The important thing to understand is that to make the section tree fully navigational, at least the lower-most section must include a content file. (i.e. `_index.md`).
+A language identifier in the path does not select a language. For example, `/posts/my-post.de.md` finds the page in the current language.
 
-### Single pages in sections
+If a relative path begins with `../` and includes a file extension, Hugo resolves it in the file tree instead of the logical tree, as shown in the [path resolution](#path-resolution) example below.
 
-Single content files in each of your sections will be rendered by a [page template][]. Here is an example of a single `post` within `posts`:
+### Path resolution
 
-```txt
-                   path ("posts/my-first-hugo-post.md")
-.       ⊢-----------^------------⊣
-.      section        slug
-.       ⊢-^-⊣⊢--------^----------⊣
-content/posts/my-first-hugo-post.md
+Hugo resolves the given path based on its form.
+
+Absolute path
+: A path that begins with a slash is relative to the `content` directory.
+
+Relative path
+: A path that does not begin with a slash is relative to the current page. For a `home`, `section`, `taxonomy`, or `term` page, the path is relative to the page itself. For other pages, it is relative to the parent of the page in the logical tree. A path that begins with `../` and includes a file extension is relative to the directory that contains the content file. If Hugo does not find the page, and the path does not begin with a dot, Hugo resolves the path relative to the `content` directory.
+
+Base name
+: If Hugo does not find the page, and the path does not contain a slash, the `Site.GetPage` method and the `Ref` and `RelRef` methods, functions, and shortcodes search the entire logical tree for a page with the same base name. If more than one page has the same base name, Hugo throws an error and fails the build. The `Page.GetPage` method does not perform this search.
+
+For example, consider this content structure:
+
+```tree
+content/
+├── books/
+│   ├── book-1/
+│   │   └── index.md
+│   ├── _index.md
+│   └── book-2.md
+├── films/
+│   ├── _index.md
+│   └── film-1.md
+└── book-2.md
 ```
 
-When Hugo builds your site, the content will be output to the following destination:
+This table shows the page found by the `Page.GetPage` method for each path when rendering `content/books/book-1/index.md`:
 
-```txt
+Path|Page found
+:--|:--
+`/books/book-2`|`content/books/book-2.md`
+`book-2`|`content/books/book-2.md`
+`../book-2`|`content/book-2.md`
+`../book-2.md`|`content/books/book-2.md`
+`films/film-1`|`content/films/film-1.md`
+`film-1`|none
 
-                               url ("/posts/my-first-hugo-post/")
-                   ⊢------------^----------⊣
-       baseurl     section     slug
-⊢--------^--------⊣⊢-^--⊣⊢-------^---------⊣
-                 permalink
-⊢--------------------^---------------------⊣
-https://example.org/posts/my-first-hugo-post/index.html
-```
+With the `Page.Ref` and `Page.RelRef` methods, the path `film-1` finds `content/films/film-1.md` by its base name.
 
-## Paths explained
+## URL paths
 
-The following concepts provide more insight into the relationship between your project's organization and the default Hugo behavior when building output for the website.
+Hugo creates the URL path of a page from its logical path, replacing the last segment with the value of the `slug` field in front matter, if set. A `slug` set on a `section`, `taxonomy`, or `term` page also replaces the corresponding segment in the URL paths of the pages beneath it. Hugo then sanitizes each segment of the URL path:
 
-section
-: A default content type is determined by the section in which a content item is stored. The section is determined by the location within the project's `content` directory. The section cannot be specified or overridden in front matter.
+1. Replaces each sequence of whitespace characters with a single hyphen.
+1. Removes all characters except letters, digits, combining marks, hyphens, percent-encoded characters such as `%20`, and these characters: `.` `_` `~` `+` `#` `@`
+1. Converts the result to lower case, unless you set [`disablePathToLower`][] to `true` in your project configuration.
+1. Removes [non-spacing marks][] from composite characters if you set [`removePathAccents`][] to `true` in your project configuration.
 
-slug
-: The slug is the last segment of the URL path, defined by the last segment of the page's [logical path](g) and optionally overridden by a `slug` value in front matter. See [URL management][slug] for details.
+The table below shows the logical path and the URL path for several file names, using the default configuration:
 
-path
-: A content's path is determined by the section's path to the file. The file path:
+File path|Logical path|URL path
+:--|:--|:--
+`content/posts/My First Post.md`|`/posts/my-first-post`|`/posts/my-first-post/`
+`content/posts/Q&A.md`|`/posts/q&a`|`/posts/qa/`
+`content/posts/Why (Not).md`|`/posts/why-(not)`|`/posts/why-not/`
+`content/posts/Tips & Tricks.md`|`/posts/tips-&-tricks`|`/posts/tips--tricks/`
+`content/posts/C++ Tips.md`|`/posts/c++-tips`|`/posts/c++-tips/`
+`content/posts/a~b.md`|`/posts/a~b`|`/posts/a~b/`
+`content/posts/C#.md`|`/posts/c#`|`/posts/c%23/`
+`content/posts/Ça va.md`|`/posts/ça-va`|`/posts/%C3%A7a-va/`
 
-  - Is based on the path to the content's location AND
-  - Does not include the slug
+Because the logical path replaces each space with a hyphen, removing a character that is surrounded by spaces leaves two consecutive hyphens in the URL path, as shown with `Tips & Tricks.md` above. The [`Permalink`][] and [`RelPermalink`][] methods percent-encode the `#` character and non-ASCII characters.
 
-url
-: The url is the entire URL path, defined by the file path and optionally overridden by a `url` value in front matter. See [URL management][url] for details.
+If you set `disablePathToLower` to `true`, the URL path preserves the case of the file path. For example, the URL path of `content/posts/My First Post.md` is `/posts/My-First-Post/`. The logical path remains lower case.
+
+If you set `removePathAccents` to `true`, the URL path of `content/posts/Ça va.md` is `/posts/ca-va/`.
+
+Hugo does not sanitize the value of the `url` field in front matter, or the file names of page resources. For example, the URL path of `content/about/Team Photo.jpg` is `/about/Team%20Photo.jpg`.
+
+Hugo writes each page to a [publication path](g) derived from its URL path. For example, Hugo writes the page with URL path `/posts/my-first-post/` to `posts/my-first-post/index.html` in the `public` directory.
 
 ## File names
 
@@ -169,12 +241,31 @@ Hugo does not recognize a role or version name without the prefix. You can combi
 
 [Template file names][] use the same identifiers.
 
-[image processing]: /content-management/image-processing/
-[page resources]: /content-management/page-resources/
-[page template]: /templates/types/#page
-[pretty]: /content-management/urls/#appearance
-[project configuration]: /configuration/
-[sections]: /content-management/sections/
-[slug]: /content-management/urls/#slug
 [Template file names]: /templates/lookup-order/#file-names
-[url]: /content-management/urls/#url
+[`Ancestors`]: /methods/page/ancestors/
+[`Page.GetPage`]: /methods/page/getpage/
+[`Page.Ref`]: /methods/page/ref/
+[`Page.RelRef`]: /methods/page/relref/
+[`Pages`]: /methods/page/pages/
+[`Parent`]: /methods/page/parent/
+[`Path`]: /methods/page/path/
+[`Permalink`]: /methods/page/permalink/
+[`RegularPagesRecursive`]: /methods/page/regularpagesrecursive/
+[`RelPermalink`]: /methods/page/relpermalink/
+[`Shortcode.Ref`]: /methods/shortcode/ref/
+[`Shortcode.RelRef`]: /methods/shortcode/relref/
+[`Site.GetPage`]: /methods/site/getpage/
+[`Sites`]: /methods/page/sites/
+[`disablePathToLower`]: /configuration/all/#disablepathtolower
+[`ref`]: /shortcodes/ref/
+[`relref`]: /shortcodes/relref/
+[`removePathAccents`]: /configuration/all/#removepathaccents
+[`slug`]: /content-management/urls/#slug
+[`type`]: /content-management/front-matter/#type
+[`url`]: /content-management/urls/#url
+[`urls.Ref`]: /functions/urls/ref/
+[`urls.RelRef`]: /functions/urls/relref/
+[embedded link render hook]: /render-hooks/links/#embedded
+[non-spacing marks]: https://www.compart.com/en/unicode/category/Mn
+[page bundles]: /content-management/page-bundles/
+[permalinks]: /configuration/permalinks/

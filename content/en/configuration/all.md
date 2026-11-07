@@ -116,7 +116,7 @@ A general setting is a single value, such as [`baseURL`](#baseurl) or [`title`](
 : (`bool`) Whether to disable automatic live reloading of the browser window. Default is `false`.
 
 `disablePathToLower`
-: (`bool`) Whether to disable transformation of page URLs to lower case. Default is `false`.
+: (`bool`) Whether to disable the conversion of [URL paths][] to lower case. Default is `false`.
 
 `enableEmoji`
 : (`bool`) Whether to allow emoji in Markdown. Default is `false`.
@@ -253,7 +253,7 @@ A general setting is a single value, such as [`baseURL`](#baseurl) or [`title`](
 : (`bool`) See [details][relative-urls] before enabling this feature. Default is `false`.
 
 `removePathAccents`
-: (`bool`) Whether to remove [non-spacing marks][] from [composite characters][] in content paths. Default is `false`.
+: (`bool`) Whether to remove [non-spacing marks][] from [composite characters][] in URL paths. Default is `false`.
 
 `renderSegments`
 : (`[]string`) A slice of [segments](g) to render. If omitted, all segments are rendered. This option is typically set via a command-line flag, such as `hugo build --renderSegments segment1,segment2`. The provided segment names must correspond to those defined in the [`segments`][] configuration.
@@ -362,6 +362,7 @@ Some configuration settings, such as menus and custom parameters, can be defined
 [Chicago Manual of Style]: https://www.chicagomanualofstyle.org/home.html
 [IANA Time Zone Database]: https://en.wikipedia.org/wiki/List_of_tz_database_time_zones
 [RFC 5646]: https://datatracker.ietf.org/doc/html/rfc5646#section-2.1
+[URL paths]: /content-management/organization/#url-paths
 [XDG base directory specification]: https://specifications.freedesktop.org/basedir-spec/latest/
 [`FuzzyWordCount`]: /methods/page/fuzzywordcount/
 [`GitInfo`]: /methods/page/gitinfo/
