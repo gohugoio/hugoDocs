@@ -53,7 +53,7 @@ The command above uses these environment variables, `grep` options, and patterns
 : By default, Hugo strips raw HTML from your Markdown prior to rendering, and leaves this HTML comment in its place.
 
 `ZgotmplZ`
-: ZgotmplZ is a special value that indicates that unsafe content reached a CSS or URL context at runtime. See [details][].
+: ZgotmplZ is a special value that indicates that unsafe content reached a CSS or URL context at runtime, as described in the documentation for Go's [`html/template`][] package.
 
 `[i18n]`
 : This is the placeholder produced instead of the default value or an empty string if a translation is missing.
@@ -67,5 +67,5 @@ The command above uses these environment variables, `grep` options, and patterns
 `HAHAHUGO`
 : Under certain conditions a rendered shortcode may include all or a portion of the string H&#xfeff;AHAHUGOSHORTCODE in either uppercase or lowercase. This is difficult to detect in all circumstances, but a case-insensitive search of the output for `HAHAHUGO` is likely to catch the majority of cases without producing false positives.
 
+[`html/template`]: https://pkg.go.dev/html/template
 [`safe.HTML`]: /functions/safe/html/
-[details]: https://pkg.go.dev/html/template

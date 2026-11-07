@@ -18,7 +18,7 @@ The `openapi3.Unmarshal` function returns an [OpenAPI Description][] unmarshaled
 
 The function resolves all external references, both local and remote, and includes their content in the returned value. For a global resource, the function resolves a local reference path that begins with a slash (`/`) relative to the `assets` directory, and all other local reference paths relative to the directory of the global resource. For a page resource or a remote resource, the function resolves all local reference paths relative to the `assets` directory. To resolve remote references, the function calls the [`resources.GetRemote`][] function, passing the [`getremote`](#getremote) option if provided.
 
-The function creates the returned value with the [`kin-openapi`][] package. Many fields of the returned value are structs or pointers instead of maps, so you must use accessors or other methods to index them or to range over them. For example, the `Paths` field is a pointer, so use its `Map` method to range over the API paths.
+The function creates the returned value with the [`getkin/kin-openapi`][] package. Many fields of the returned value are structs or pointers instead of maps, so you must use accessors or other methods to index them or to range over them. For example, the `Paths` field is a pointer, so use its `Map` method to range over the API paths.
 
 Hugo caches the result, so calling the function multiple times with the same resource and options incurs no additional overhead.
 
@@ -101,5 +101,5 @@ The rendered output:
 
 [OpenAPI Description]: https://swagger.io/specification/#openapi-description
 [OpenAPI Document]: https://swagger.io/specification/#openapi-document
-[`kin-openapi`]: https://pkg.go.dev/github.com/getkin/kin-openapi/openapi3
+[`getkin/kin-openapi`]: https://pkg.go.dev/github.com/getkin/kin-openapi/openapi3
 [`resources.GetRemote`]: /functions/resources/getremote/

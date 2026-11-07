@@ -54,7 +54,7 @@ Or create the filter using the default settings:
 
 ## Dithering methods
 
-See the [Go documentation][] for descriptions of each of the dithering methods below.
+The documentation for the [`makeworld-the-better-one/dither`][] package describes each of the dithering methods below.
 
 Error diffusion dithering methods:
 
@@ -151,5 +151,5 @@ The example above:
 1. Dithers the image using the default (`FloydSteinberg`) dithering method with a grayscale palette
 1. Converts the image to the PNG format
 
-[Go documentation]: https://pkg.go.dev/github.com/makeworld-the-better-one/dither/v2#pkg-variables
+[`makeworld-the-better-one/dither`]: https://pkg.go.dev/github.com/makeworld-the-better-one/dither/v2#pkg-variables
 [hexadecimal]: https://developer.mozilla.org/en-US/docs/Web/CSS/hex-color
