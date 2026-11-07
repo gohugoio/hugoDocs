@@ -29,6 +29,23 @@ content
         └── index.md (root of page bundle)
 ```
 
+## Resource types
+
+Each page resource has a [resource type](g), the main type of its [media type](g). By default, content files such as Markdown, HTML, AsciiDoc, Pandoc, reStructuredText, and Emacs Org Mode have resource type `page`. You can change this with the [`contentTypes`][] configuration. Use the [`ResourceType`][] method on a `Resource` object to get the resource type.
+
+```tree
+content/
+└── example/
+    ├── index.md
+    ├── manual.pdf     <-- resource type = application
+    ├── notes.txt      <-- resource type = text
+    ├── photo.jpg      <-- resource type = image
+    ├── snippet.md     <-- resource type = page
+    └── trailer.mp4    <-- resource type = video
+```
+
+{{% include "/_common/page-resource-front-matter.md" %}}
+
 ## Examples
 
 Use any of these methods on a `Page` object to capture page resources:
@@ -259,11 +276,13 @@ duplicateResourceFiles = true
 [`Name`]: /methods/resource/name/
 [`RelPermalink`]: /methods/resource/relpermalink/
 [`Resource`]: /methods/resource/
+[`ResourceType`]: /methods/resource/resourcetype/
 [`Resources.ByType`]: /methods/page/resources#bytype
 [`Resources.GetMatch`]: /methods/page/resources#getmatch
 [`Resources.Get`]: /methods/page/resources/#get
 [`Resources.Match`]: /methods/page/resources#match
 [`Title`]: /methods/resource/title/
+[`contentTypes`]: /configuration/content-types/
 [content formats]: /content-management/formats/
 [details]: /configuration/markup/#renderhookslinkuseembedded
 [duplication of shared page resources]: /configuration/markup/#duplicateresourcefiles
