@@ -63,6 +63,8 @@ wrapStandAloneImageWithinParagraph = false # default is true
 
 You may add [global HTML attributes][], or HTML attributes specific to the current element type. Consistent with its content security model, Hugo removes HTML event attributes such as `onclick` and `onmouseover`.
 
+You can also add attributes with other keys, such as `foo`. Render hooks receive these attributes from the `Attributes` method, along with the HTML attributes. Without a render hook, Hugo keeps these attributes on fenced code blocks, headings, and tables, but removes them from blockquotes, horizontal rules, images, lists, and paragraphs. To add a custom attribute that Hugo keeps on every element, use a `data-*` attribute such as `data-foo`.
+
 > [!NOTE]
 > Within fenced code blocks, Hugo interprets the `style` attribute as a syntax highlighting [option][option] rather than a global HTML attribute.
 
