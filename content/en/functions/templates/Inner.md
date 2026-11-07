@@ -1,71 +1,60 @@
 ---
 title: templates.Inner
-description: Executes the content block enclosed by a partial call.
+description: Returns the result of executing the template block enclosed by a partial decorator call, using the given context.
 categories: []
 keywords: [decorator]
 params:
   functions_and_methods:
     aliases: [inner]
     returnType: any
-    signatures: ['templates.Inner [CONTEXT]']
+    signatures: [templates.Inner CONTEXT]
 ---
 
 {{< new-in 0.154.0 />}}
 
-The `templates.Inner` function defines the injection point for code nested within a block style _partial_ template call. This is the core mechanism used to create a [partial decorator][].
-
-## Overview
-
-The `templates.Inner` function acts as a placeholder within a _partial_ template. When a _partial_ template is called as a decorator, it captures a block of code from the calling template rather than rendering it immediately. The `templates.Inner` function tells Hugo exactly where to inject that captured content.
-
-This signals a reversal of execution where the callee becomes the caller. The _partial_ template manages the outer structure while the calling template remains in control of the inner content.
-
 ## Usage
 
-To use this function, the calling template must use the block style syntax with a [`with`][] statement. This allows decorators to be deeply nested.
+The `templates.Inner` function returns the result of executing the template block enclosed by a [partial decorator][] call, using the given context. Call this function within the _partial_ template to define where the enclosed block appears.
 
-```go-html-template {file="layouts/home.html"}
-{{ with partial "components/card.html" . }}
-  <p>This content is passed to the partial.</p>
-{{ end }}
-```
+To call a _partial_ template as a decorator, use a [`with`][] statement in the calling template. Hugo does not render the enclosed block when it executes the `with` statement. Instead, the _partial_ template renders the block each time it calls `templates.Inner`. The _partial_ template controls the outer structure, while the calling template controls the inner content.
 
-Inside the _partial_ template, call `templates.Inner` to render the captured block.
+The `CONTEXT` argument determines the value of the dot (`.`) within the enclosed block. To use the context passed to the _partial_ template, pass the dot, as in `{{ templates.Inner . }}`. The `with` statement creates a new [scope](g), so variables defined in the calling template outside of the block are not available within it.
+
+A _partial_ template can call `templates.Inner` zero or more times. If the _partial_ template does not call the function, Hugo does not render the enclosed block.
+
+## Examples
 
 ```go-html-template {file="layouts/_partials/components/card.html"}
-<div class="card-frame">
+<div class="card">
   {{ templates.Inner . }}
 </div>
 ```
 
-## Arguments
+Calling the _partial_ template as a decorator:
 
-The function accepts one optional argument: the [context](g). This argument determines the value of the dot (`.`) inside the captured block when it is rendered.
+```go-html-template {file="layouts/home.html"}
+{{ with partial "components/card.html" . }}
+  <h2>{{ .Title }}</h2>
+{{ end }}
+```
 
-- If you provide an argument, such as `{{ templates.Inner .SomeData }}`, the dot inside the captured block is rebound to that specific data.
-- If you do not provide an argument, the captured block uses the context of the caller where the _partial_ template was first invoked.
+Rendering the enclosed block once for each item in a collection:
 
-## Context and scope
-
-When using decorators, the `with` statement creates a new [scope](g). Variables defined outside the with block in the calling template are not automatically available inside the captured block.
-
-By passing a context to `templates.Inner`, you ensure that the injected content has access to the correct data even when nested inside multiple layers of wrappers. This is critical when the decorator is used inside a loop or a specific data overlay.
-
-## Repeated execution
-
-A decorator can execute the captured content zero or more times. This is useful when the wrapper needs to repeat the same decoration for a collection of items, such as a list or a grid.
-
-```go-html-template {file="layouts/_partials/list-decorator.html"}
-<ul class="styled-list">
+```go-html-template {file="layouts/_partials/list.html"}
+<ul>
   {{ range .items }}
-    <li>
-      {{ templates.Inner . }}
-    </li>
+    <li>{{ templates.Inner . }}</li>
   {{ end }}
 </ul>
 ```
 
-In this example, the code provided by the caller is rendered once for every item in the .items collection, with the dot . updated to the current item in each iteration.
+Calling the _partial_ template as a decorator, passing a collection of pages:
+
+```go-html-template {file="layouts/home.html"}
+{{ with partial "list.html" (dict "items" site.RegularPages) }}
+  <a href="{{ .RelPermalink }}">{{ .LinkTitle }}</a>
+{{ end }}
+```
 
 [`with`]: /functions/go-template/with/
 [partial decorator]: /templates/partial-decorators/

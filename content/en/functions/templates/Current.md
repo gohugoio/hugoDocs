@@ -12,30 +12,30 @@ params:
 
 {{< new-in 0.146.0 />}}
 
-The `templates.Current` function provides introspection capabilities, allowing you to access details about the currently executing templates. This is useful for debugging complex template hierarchies and understanding the flow of execution during rendering.
+## Usage
 
-## Methods
+The `templates.Current` function returns information about the currently executing template. Use it to debug complex template hierarchies and to understand the order of execution during rendering.
 
-Use these methods on the `CurrentTemplateInfo` object.
+Use these methods on the `CurrentTemplateInfo` object:
 
 `Ancestors`
-: (`tpl.CurrentTemplateInfos`) Returns a slice containing information about each template in the current execution chain, starting from the parent of the current template and going up towards the initial template called. It excludes any _base_ template applied via `define` and `block`. You can chain the `Reverse` method to this result to get the slice in chronological execution order.
+: (`tpl.CurrentTemplateInfos`) Returns a slice containing information about each template in the current execution chain, starting with the parent of the current template and ending with the first template called. The slice excludes any _base_ template applied with `define` and `block`. To sort the slice in execution order, chain the `Reverse` method to the result.
 
 `Base`
-: (`tpl.CurrentTemplateInfoCommonOps`) Returns an object representing the _base_ template that was applied to the current template, if any. This may be `nil`.
+: (`tpl.CurrentTemplateInfoCommonOps`) Returns an object representing the _base_ template applied to the current template, or `nil` if there is none.
 
 `Filename`
-: (`string`) Returns the absolute path of the current template. This will be empty for embedded templates.
+: (`string`) Returns the absolute path of the current template. The value is empty for [embedded templates](g).
 
 `Name`
-: (`string`) Returns the name of the current template. This is usually the path relative to the `layouts` directory.
+: (`string`) Returns the name of the current template, typically its path relative to the `layouts` directory.
 
 `Parent`
-: (`tpl.CurrentTemplateInfo`) Returns an object representing the parent of the current template, if any. This may be `nil`.
+: (`tpl.CurrentTemplateInfo`) Returns an object representing the parent of the current template, or `nil` if there is none.
 
 ## Examples
 
-The examples below help visualize template execution and require a `debug` parameter set to `true` in your project configuration:
+These examples show template execution only when the `debug` parameter in your project configuration is `true`:
 
 {{< code-toggle file=hugo >}}
 [params]
@@ -44,7 +44,7 @@ debug = true
 
 ### Boundaries
 
-To visually mark where a template begins and ends execution:
+Marking where a template begins and ends execution:
 
 ```go-html-template {file="layouts/page.html"}
 {{ define "main" }}
@@ -63,7 +63,7 @@ To visually mark where a template begins and ends execution:
 
 ### Call stack
 
-To display the chain of templates that led to the current one, create a _partial_ template that iterates through its ancestors:
+Displaying the chain of templates that led to the current template, using a _partial_ template that iterates through its ancestors:
 
 ```go-html-template {file="layouts/_partials/template-call-stack.html" copy=true}
 {{ with templates.Current }}
@@ -78,7 +78,7 @@ To display the chain of templates that led to the current one, create a _partial
 {{ end }}
 ```
 
-Then call the _partial_ template from any template:
+Calling the _partial_ template from any template:
 
 ```go-html-template {file="layouts/_partials/footer/copyright.html" copy=true}
 {{ if site.Params.debug }}
@@ -86,7 +86,7 @@ Then call the _partial_ template from any template:
 {{ end }}
 ```
 
-The rendered template stack would look something like this:
+The resulting output:
 
 ```text
 /home/user/project/layouts/_partials/footer/copyright.html
@@ -95,7 +95,7 @@ The rendered template stack would look something like this:
 /home/user/project/themes/foo/layouts/baseof.html
 ```
 
-To reverse the order of the entries, chain the `Reverse` method to the `Ancestors` method:
+Reversing the order of the entries by chaining the `Reverse` method to the `Ancestors` method:
 
 ```go-html-template {file="layouts/_partials/template-call-stack.html" copy=true}
 {{ with templates.Current }}
@@ -112,7 +112,7 @@ To reverse the order of the entries, chain the `Reverse` method to the `Ancestor
 
 ### VS Code
 
-To render links that, when clicked, will open the template in Microsoft Visual Studio Code, create a _partial_ template with anchor elements that use the `vscode` URI scheme:
+Rendering links that open the templates in Visual Studio Code, using a _partial_ template with anchor elements that use the `vscode` URI scheme:
 
 ```go-html-template {file="layouts/_partials/template-open-in-vs-code.html" copy=true}
 {{ with templates.Current.Parent }}
@@ -125,7 +125,7 @@ To render links that, when clicked, will open the template in Microsoft Visual S
 {{ end }}
 ```
 
-Then call the _partial_ template from any template:
+Calling the _partial_ template from any template:
 
 ```go-html-template {file="layouts/page.html" copy=true}
 {{ define "main" }}
@@ -138,7 +138,7 @@ Then call the _partial_ template from any template:
 {{ end }}
 ```
 
-Use the same approach to render the entire call stack as links:
+Rendering the entire call stack as links:
 
 ```go-html-template {file="layouts/_partials/template-call-stack.html" copy=true}
 {{ with templates.Current }}
