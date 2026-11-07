@@ -13,7 +13,7 @@ Before building your project, your virus scanner has already evaluated the files
 
 For example, with Microsoft Defender Antivirus:
 
-**Start**&nbsp;> **Settings**&nbsp;> **Privacy&nbsp;&&nbsp;security**&nbsp;> **Windows&nbsp;Security**&nbsp;> **Open&nbsp;Windows&nbsp;Security**&nbsp;> **Virus&nbsp;&&nbsp;threat&nbsp;protection**&nbsp;> **Manage&nbsp;settings**&nbsp;> **Add&nbsp;or&nbsp;remove&nbsp;exclusions**&nbsp;> **Add&nbsp;an&nbsp;exclusion**&nbsp;> **Process**
+**Start** > **Settings** > **Privacy & security** > **Windows Security** > **Open Windows Security** > **Virus & threat protection** > **Manage settings** > **Add or remove exclusions** > **Add an exclusion** > **Process**
 
 Then type `hugo.exe` and press the **Add** button.
 

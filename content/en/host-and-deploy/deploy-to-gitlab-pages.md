@@ -188,7 +188,7 @@ Step 4
 : Commit the changes to your local Git repository and push to your GitLab repository.
 
 Step 5
-: From your GitLab repository, navigate to **Build**&nbsp;>&nbsp;**Pipelines** to follow the CI pipeline building your page.
+: From your GitLab repository, navigate to **Build** > **Pipelines** to follow the CI pipeline building your page.
 
 Step 6
 : When the pipeline has passed, your new website is available at `https://<YourUsername>.gitlab.io/<your-hugo-site>/`.

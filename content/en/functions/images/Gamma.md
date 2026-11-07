@@ -10,7 +10,7 @@ params:
     signatures: [images.Gamma GAMMA]
 ---
 
-The gamma value must be positive. A value greater than 1 lightens the image, while a value less than 1 darkens the image. The filter has no effect when the gamma value is&nbsp;1.
+The gamma value must be positive. A value greater than 1 lightens the image, while a value less than 1 darkens the image. The filter has no effect when the gamma value is 1.
 
 ## Usage
 

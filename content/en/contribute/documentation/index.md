@@ -93,6 +93,7 @@ Adhere to these Markdown conventions:
 - Prefix each ordered list item with `1.` instead of numbering the items sequentially.
 - Do not use bold text for emphasis. If the information needs emphasis, consider a [callout](#callouts).
 - Do not mix [raw HTML][] within Markdown.
+- Do not use the `&nbsp;` HTML entity in prose to prevent line breaks. Use it only to fill an empty table cell.
 - Do not use bold text in place of a heading or description term (`dt`).
 - Do not use Hugo's `ref` or `relref` shortcodes.
 - Do not place a list immediately after a heading. Always precede it with a sentence.

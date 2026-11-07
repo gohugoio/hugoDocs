@@ -11,7 +11,7 @@ params:
 
 ## Usage
 
-Conceptually, the `Taxonomies` method on a `Site` object returns a data structure such&nbsp;as:
+Conceptually, the `Taxonomies` method on a `Site` object returns a data structure such as:
 
 <!-- markdownlint-disable MD007 MD032 -->
 {{< code-toggle file=hugo >}}

@@ -11,7 +11,7 @@ params:
 
 By default, not all pages are backed by a file, including top-level [section pages](g), [taxonomy pages](g), and [term pages](g). By definition, you cannot retrieve file information when the file does not exist.
 
-To back one of the pages above with a file, create an&nbsp;`_index.md`&nbsp;file in the corresponding directory. For example:
+To back one of the pages above with a file, create an `_index.md` file in the corresponding directory. For example:
 
 ```tree
 content/

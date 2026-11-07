@@ -67,7 +67,7 @@ Use these methods on the `Fragments` object.
   ```
 
 `ToHTML`
-: (`template.HTML`) Returns a TOC as a nested list, either ordered or unordered, identical to the HTML returned by the [`TableOfContents`][] method. This method take three arguments: the start level&nbsp;(`int`), the end level&nbsp;(`int`), and a boolean (`true` to return an ordered list, `false` to return an unordered list).
+: (`template.HTML`) Returns a TOC as a nested list, either ordered or unordered, identical to the HTML returned by the [`TableOfContents`][] method. This method take three arguments: the start level (`int`), the end level (`int`), and a boolean (`true` to return an ordered list, `false` to return an unordered list).
 
   Use this method when you want to control the start level, end level, or list type independently from the table of contents settings in your project configuration.
 

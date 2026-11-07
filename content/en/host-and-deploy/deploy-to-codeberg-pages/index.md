@@ -23,7 +23,7 @@ Complete the following tasks before continuing:
 ## Procedure
 
 Step 1
-: Visit your Codeberg repository. Go to **Settings**&nbsp;>&nbsp;**Units**&nbsp;>&nbsp;**Overview**. Enable **Actions** and press the **Save Settings** button.
+: Visit your Codeberg repository. Go to **Settings** > **Units** > **Overview**. Enable **Actions** and press the **Save Settings** button.
 
   ![screen capture](cb-pages-01.png)
 

@@ -228,7 +228,7 @@ Second, you must enable the build cache in your project dashboard.
 
 1. Navigate to Workers & Pages Overview on the [dashboard][].
 1. Find your Workers project.
-1. Go to **Settings**&nbsp;>&nbsp;**Build**&nbsp;>&nbsp;**Build cache**.
+1. Go to **Settings** > **Build** > **Build cache**.
 1. Press the **Enable** button.
 
 ## Scheduled builds
@@ -236,10 +236,10 @@ Second, you must enable the build cache in your project dashboard.
 If your site uses [`resources.GetRemote`][] to fetch external data at build time, that data is embedded in the static HTML when the site is built. Without a scheduled build, the data only refreshes when someone commits code to the repository. To keep content current, you can trigger a rebuild on a schedule by creating a Cloudflare deploy hook and calling it from a GitHub Actions workflow.
 
 Step 1
-: In the Cloudflare [dashboard][], go to **Workers & Pages**. Select your project, then navigate to **Settings**&nbsp;>&nbsp;**Builds**&nbsp;>&nbsp;**Deploy Hooks**. Press **Create deploy hook**, provide a name (e.g., `github-cron`), and copy the generated URL.
+: In the Cloudflare [dashboard][], go to **Workers & Pages**. Select your project, then navigate to **Settings** > **Builds** > **Deploy Hooks**. Press **Create deploy hook**, provide a name (e.g., `github-cron`), and copy the generated URL.
 
 Step 2
-: In your GitHub repository, go to **Settings**&nbsp;>&nbsp;**Secrets and variables**&nbsp;>&nbsp;**Actions**. Press **New repository secret**, name it `CLOUDFLARE_DEPLOY_HOOK`, paste the deploy hook URL as the value, and save.
+: In your GitHub repository, go to **Settings** > **Secrets and variables** > **Actions**. Press **New repository secret**, name it `CLOUDFLARE_DEPLOY_HOOK`, paste the deploy hook URL as the value, and save.
 
 Step 3
 : Create a GitHub Actions workflow file in your repository.
