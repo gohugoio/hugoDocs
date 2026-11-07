@@ -29,7 +29,7 @@ Use the [`try`](/functions/go-template/try/) statement instead, as shown in the 
 {{ end }}
 ```
 
-When you publish a remote resource with the [`Permalink`][], [`RelPermalink`][], or [`Publish`][] methods as shown above, Hugo places the resulting file in the root of the `public` directory with the basename of the URL. To ensure unique cache keys, Hugo appends a hash to the original filename.
+When you publish a remote resource by calling its [`Permalink`][], [`RelPermalink`][], or [`Publish`][] method, or by passing it to the [`resources.Publish`][] function, Hugo places the resulting file in the root of the `public` directory with the basename of the URL. To ensure unique cache keys, Hugo appends a hash to the original file name.
 
 ## Options
 
@@ -237,6 +237,7 @@ Note that the entry above is:
 [`Permalink`]: /methods/resource/permalink/
 [`Publish`]: /methods/resource/publish/
 [`RelPermalink`]: /methods/resource/relpermalink/
+[`resources.Publish`]: /functions/resources/publish/
 [`transform.Unmarshal`]: /functions/transform/unmarshal/
 [`try`]: /functions/go-template/try/
 [allowlist]: https://en.wikipedia.org/wiki/Whitelist

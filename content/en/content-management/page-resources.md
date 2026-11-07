@@ -65,7 +65,7 @@ A content file in a leaf bundle, such as `snippet.md`, has resource type `page`.
 
 Hugo publishes each page resource to a [publication path](g) relative to the page that owns it. For example, Hugo publishes `content/posts/post-1/images/a.jpg` to `posts/post-1/images/a.jpg` in the `public` directory.
 
-By default, Hugo publishes every page resource, other than content files, even if no template uses it. To publish only the page resources that a template uses, set the `publishResources` [build option][] to `false` in front matter. Hugo then publishes a page resource only when you call its `Permalink`, [`RelPermalink`][], or `Publish` method.
+By default, Hugo publishes every page resource, other than content files, even if no template uses it. To publish only the page resources that a template uses, set the `publishResources` [build option][] to `false` in front matter. Hugo then publishes a page resource only when you call its [`Permalink`][], [`RelPermalink`][], or [`Publish`][] method, or pass it to the [`resources.Publish`][] function.
 
 ## Examples
 
@@ -269,9 +269,12 @@ duplicateResourceFiles = true
 [`Match`]: /methods/page/resources/#match
 [`Name`]: /methods/resource/name/
 [`Params`]: /methods/resource/params/
+[`Permalink`]: /methods/resource/permalink/
+[`Publish`]: /methods/resource/publish/
 [`RelPermalink`]: /methods/resource/relpermalink/
 [`Resource`]: /methods/resource/
 [`resources`]: /functions/resources/
+[`resources.Publish`]: /functions/resources/publish/
 [`ResourceType`]: /methods/resource/resourcetype/
 [`Title`]: /methods/resource/title/
 [`useEmbedded`]: /configuration/markup/#renderhookslinkuseembedded

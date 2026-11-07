@@ -44,7 +44,7 @@ Asset files must reside in the `assets` directory of the [unified file system](g
 
 ## Asset publishing
 
-Hugo publishes assets to the `public` directory when you invoke `.Permalink`, `.RelPermalink`, or `.Publish`. You can use `.Content` to inline the asset.
+Hugo publishes assets to the `public` directory when you invoke `.Permalink`, `.RelPermalink`, or `.Publish`, or pass the asset to the [`resources.Publish`][] function. You can use `.Content` to inline the asset.
 
 ## Go Pipes
 
@@ -74,5 +74,6 @@ The pipe chain is only invoked the first time it is encountered in a site build,
 [`resources.GetRemote`]: /functions/resources/getremote/
 [`resources.Get`]: /functions/resources/get/
 [`resources.Match`]: /functions/resources/match/
+[`resources.Publish`]: /functions/resources/publish/
 [mounted]: /configuration/module/#mounts
 [page resources]: /content-management/page-resources/
