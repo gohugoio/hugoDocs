@@ -6,7 +6,7 @@ categories: []
 keywords: []
 ---
 
-{{% glossary-term "ugly url" %}}&nbsp;For example:
+{{% glossary-term "ugly url" %}} For example:
 
 ```text
 https://example.org/section/article.html

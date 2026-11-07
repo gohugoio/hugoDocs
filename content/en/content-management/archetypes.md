@@ -137,7 +137,7 @@ archetypes/
 └── default.md
 ```
 
-Subdirectories within an archetype must contain at least one file. Without a file, Hugo will not create the subdirectory when you create new content. The name and size of the file are irrelevant. The example above includes a&nbsp;`.gitkeep` file, an empty file commonly used to preserve otherwise empty directories in a Git repository.
+Subdirectories within an archetype must contain at least one file. Without a file, Hugo will not create the subdirectory when you create new content. The name and size of the file are irrelevant. The example above includes a `.gitkeep` file, an empty file commonly used to preserve otherwise empty directories in a Git repository.
 
 To create a new gallery:
 

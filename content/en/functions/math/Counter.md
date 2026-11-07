@@ -12,7 +12,7 @@ params:
 
 ## Usage
 
-The `math.Counter` function returns a global counter value, incrementing it each time the function is called. The counter is global for both monolingual and multilingual projects, and its initial value for each build is&nbsp;1.
+The `math.Counter` function returns a global counter value, incrementing it each time the function is called. The counter is global for both monolingual and multilingual projects, and its initial value for each build is 1.
 
 Use this function to create unique values, such as:
 

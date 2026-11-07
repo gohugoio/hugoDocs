@@ -17,7 +17,7 @@ Blockquote _render hook_ templates receive the following [context](g):
 : (`template.HTML`) Applicable when [`Type`](#type) is `alert`, this is the alert title. See the [alerts](#alerts) section below.
 
 `AlertSign`
-: (`string`) Applicable when [`Type`](#type) is `alert`, this is the alert sign. Typically used to indicate whether an alert is graphically foldable, this is one of&nbsp;`+`,&nbsp;`-`,&nbsp;or an empty string. See the [alerts](#alerts) section below.
+: (`string`) Applicable when [`Type`](#type) is `alert`, this is the alert sign. Typically used to indicate whether an alert is graphically foldable, this is one of `+`, `-`, or an empty string. See the [alerts](#alerts) section below.
 
 `Attributes`
 : (`map`) The [Markdown attributes][], available if you configure your site as follows:
@@ -106,7 +106,7 @@ The basic syntax is compatible with [GitHub][], [Obsidian][], and [Typora][].
 
 ### Extended syntax
 
-With the extended Markdown syntax, you may optionally include an alert sign and/or an alert title. The alert sign is one of&nbsp;`+`&nbsp;or&nbsp;`-`, typically used to indicate whether an alert is graphically foldable. For example:
+With the extended Markdown syntax, you may optionally include an alert sign and/or an alert title. The alert sign is one of `+` or `-`, typically used to indicate whether an alert is graphically foldable. For example:
 
 ```md {file="content/example.md"}
 > [!WARNING]+ Radiation hazard

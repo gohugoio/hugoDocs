@@ -29,7 +29,7 @@ Complete the following tasks before continuing:
 ## Procedure
 
 Step 1
-: Visit your GitHub repository. From the main menu choose **Settings**&nbsp;>&nbsp;**Pages**. In the center of your screen you will see this:
+: Visit your GitHub repository. From the main menu choose **Settings** > **Pages**. In the center of your screen you will see this:
 
   ![screen capture](gh-pages-01.png)
 

@@ -36,4 +36,4 @@ The matching logic follows these rules:
 - Negation (`!`) matches any character except those specified in a list or range when used inside brackets.
 - Character ranges (`[a-z]`) match any single character within the specified range.
 
-The delimiter is a slash (`/`), except when matching semantic version strings, where the delimiter is a dot&nbsp;(`.`).
+The delimiter is a slash (`/`), except when matching semantic version strings, where the delimiter is a dot (`.`).

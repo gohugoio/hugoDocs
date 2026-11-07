@@ -159,7 +159,7 @@ I will give you \\$2 if you can solve $y = x^2$.
 ```
 
 > [!NOTE]
-> If you use the `$...$` delimiter pair for inline equations, and occasionally use the&nbsp;`$`&nbsp;symbol outside of math contexts, you must use MathJax instead of KaTeX to avoid unintended formatting caused by [this KaTeX limitation][].
+> If you use the `$...$` delimiter pair for inline equations, and occasionally use the `$` symbol outside of math contexts, you must use MathJax instead of KaTeX to avoid unintended formatting caused by [this KaTeX limitation][].
 
 ## Engines
 
