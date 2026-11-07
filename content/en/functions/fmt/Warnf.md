@@ -10,23 +10,29 @@ params:
     signatures: ['fmt.Warnf FORMAT [INPUT]']
 ---
 
+## Usage
+
+The `fmt.Warnf` function logs a WARNING from a template. The function formats `INPUT` according to `FORMAT` and writes the result to the WARNING log. The function returns an empty string.
+
 {{% include "/_common/format-string.md" %}}
 
-The `warnf` function evaluates the format string, then prints the result to the WARNING log. Hugo prints each unique message once to avoid flooding the log with duplicate warnings.
+To avoid flooding the log with duplicate warnings, Hugo logs each unique message once. When you use the `fmt.Warnf` function for debugging, make each message unique with the [`math.Counter`][] function to log every message.
+
+To allow suppression of specific warnings, use the [`fmt.Warnidf`][] function instead.
+
+## Examples
 
 ```go-html-template
-{{ warnf "The %q shortcode was unable to find %s. See %s" .Name $file .Position }}
+{{ fmt.Warnf "The %q shortcode was unable to find %s. See %s" .Name $file .Position }}
 ```
 
-Use the [`warnidf`][] function to allow optional suppression of specific warnings.
-
-To prevent suppression of duplicate messages when using `warnf` for debugging, make each message unique with the [`math.Counter`][] function. For example:
+Making each message unique for debugging:
 
 ```go-html-template
 {{ range site.RegularPages }}
-  {{ .Section | warnf "%#[2]v [%[1]d]" math.Counter }}
+  {{ .Section | fmt.Warnf "%#[2]v [%[1]d]" math.Counter }}
 {{ end }}
 ```
 
+[`fmt.Warnidf`]: /functions/fmt/warnidf/
 [`math.Counter`]: /functions/math/counter/
-[`warnidf`]: /functions/fmt/warnidf/
