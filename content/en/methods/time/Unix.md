@@ -1,7 +1,6 @@
 ---
 title: Unix
 description: Returns the given time.Time value expressed as the number of seconds elapsed since January 1, 1970 UTC.
-categories: []
 params:
   functions_and_methods:
     returnType: int64

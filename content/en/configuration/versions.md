@@ -2,7 +2,6 @@
 title: Configure versions
 linkTitle: Versions
 description: Configure versions.
-categories: []
 keywords: []
 ---
 

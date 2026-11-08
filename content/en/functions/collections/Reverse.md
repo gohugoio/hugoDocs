@@ -1,7 +1,6 @@
 ---
 title: collections.Reverse
 description: Returns a slice by reversing the order of elements in the given slice.
-categories: []
 keywords: []
 params:
   functions_and_methods:

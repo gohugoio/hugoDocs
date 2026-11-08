@@ -2,7 +2,6 @@
 title: Blockquote render hooks
 linkTitle: Blockquotes
 description: Create blockquote render hook templates to override the rendering of Markdown blockquotes to HTML.
-categories: []
 keywords: []
 ---
 

@@ -2,7 +2,6 @@
 title: Configure params
 linkTitle: Params
 description: Create custom site parameters.
-categories: []
 keywords: []
 ---
 

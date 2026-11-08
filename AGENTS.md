@@ -3,7 +3,7 @@
 Applies to all work in this repository.
 
 - Install dependencies with `npm i`, then preview the site with `hugo server`.
-- **NEVER** edit generated files: `content/en/commands/**`, `data/docs.yaml`, `public/`, or `hugo_stats.json`.
+- **NEVER** edit generated files: `content/en/commands/**` (except `content/en/commands/_index.md`), `data/docs.yaml`, `public/`, or `hugo_stats.json`.
 - Write commit messages in this format:
   - Begin the summary line with `content`, `theme`, `config`, `all`, or `misc`, followed by a colon, a space, and a brief description beginning with a capital letter.
   - Use imperative present tense, and keep the summary line to 50 characters or less.

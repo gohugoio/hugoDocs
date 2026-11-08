@@ -1,7 +1,6 @@
 ---
 title: resources.GetRemote
 description: Returns a remote resource from the given URL, or nil if none found.
-categories: []
 keywords: []
 params:
   functions_and_methods:

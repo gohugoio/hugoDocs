@@ -1,7 +1,6 @@
 ---
 title: images.Colorize
 description: Returns an image filter that produces a colorized version of an image.
-categories: []
 keywords: []
 params:
   functions_and_methods:

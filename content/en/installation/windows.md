@@ -1,7 +1,6 @@
 ---
 title: Windows
 description: Install Hugo on Windows.
-categories: []
 keywords: []
 weight: 30
 ---

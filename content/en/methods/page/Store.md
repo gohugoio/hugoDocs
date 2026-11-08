@@ -1,7 +1,6 @@
 ---
 title: Store
 description: Returns a persistent data structure for storing and manipulating keyed values, scoped to the current page.
-categories: []
 keywords: []
 params:
   functions_and_methods:

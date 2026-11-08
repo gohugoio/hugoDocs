@@ -2,7 +2,6 @@
 title: Vimeo shortcode
 linkTitle: Vimeo
 description: Embed a Vimeo video in your content using the vimeo shortcode.
-categories: []
 keywords: []
 ---
 

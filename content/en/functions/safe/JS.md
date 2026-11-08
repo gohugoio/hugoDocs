@@ -1,7 +1,6 @@
 ---
 title: safe.JS
 description: Returns the given string declared as a safe JavaScript expression.
-categories: []
 keywords: []
 params:
   functions_and_methods:

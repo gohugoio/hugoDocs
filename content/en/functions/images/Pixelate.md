@@ -1,7 +1,6 @@
 ---
 title: images.Pixelate
 description: Returns an image filter that applies a pixelation effect to an image.
-categories: []
 keywords: []
 params:
   functions_and_methods:

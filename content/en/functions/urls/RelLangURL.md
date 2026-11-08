@@ -1,7 +1,6 @@
 ---
 title: urls.RelLangURL
 description: Returns a relative URL with a language prefix, if any.
-categories: []
 keywords: []
 params:
   functions_and_methods:

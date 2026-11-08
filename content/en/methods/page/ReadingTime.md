@@ -1,7 +1,6 @@
 ---
 title: ReadingTime
 description: Returns the estimated reading time, in minutes, for the given page.
-categories: []
 keywords: []
 params:
   functions_and_methods:

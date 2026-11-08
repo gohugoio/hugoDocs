@@ -1,7 +1,6 @@
 ---
 title: Weekday
 description: Returns the day of the week of the given time.Time value.
-categories: []
 keywords: []
 params:
   functions_and_methods:

@@ -1,7 +1,6 @@
 ---
 title: path.Base
 description: Returns the last element of the given path, after replacing path separators with slashes (/).
-categories: []
 keywords: []
 params:
   functions_and_methods:

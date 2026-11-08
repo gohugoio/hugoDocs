@@ -1,7 +1,6 @@
 ---
 title: collections.First
 description: Returns the first N elements of the given slice or string.
-categories: []
 keywords: []
 params:
   functions_and_methods:

@@ -1,7 +1,6 @@
 ---
 title: images.Invert
 description: Returns an image filter that negates the colors of an image.
-categories: []
 keywords: []
 params:
   functions_and_methods:

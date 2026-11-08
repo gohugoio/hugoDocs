@@ -1,7 +1,6 @@
 ---
 title: Day
 description: Returns the day of the month of the given time.Time value.
-categories: []
 keywords: []
 params:
   functions_and_methods:

@@ -1,7 +1,6 @@
 ---
 title: IsDST
 description: Reports whether the given time.Time value is in Daylight Savings Time.
-categories: []
 keywords: []
 params:
   functions_and_methods:

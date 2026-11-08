@@ -1,7 +1,6 @@
 ---
 title: BaseURL
 description: Returns the base URL as defined in your project configuration.
-categories: []
 keywords: []
 params:
   functions_and_methods:

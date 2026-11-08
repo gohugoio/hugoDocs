@@ -1,7 +1,6 @@
 ---
 title: hash.XxHash
 description: Returns the 64-bit xxHash non-cryptographic hash of the given string.
-categories: []
 keywords: []
 params:
   functions_and_methods:

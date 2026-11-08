@@ -1,7 +1,6 @@
 ---
 title: time.Duration
 description: Returns a time.Duration value using the given time unit and number.
-categories: []
 keywords: []
 params:
   functions_and_methods:

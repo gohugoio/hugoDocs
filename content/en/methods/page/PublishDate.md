@@ -1,7 +1,6 @@
 ---
 title: PublishDate
 description: Returns the publish date of the given page.
-categories: []
 keywords: []
 params:
   functions_and_methods:

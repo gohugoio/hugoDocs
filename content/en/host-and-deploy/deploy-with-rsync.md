@@ -1,7 +1,6 @@
 ---
 title: Deploy with Rsync
 description: Deploy your site to a web server with Rsync.
-categories: []
 keywords: []
 ---
 

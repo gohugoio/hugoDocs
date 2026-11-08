@@ -1,7 +1,6 @@
 ---
 title: PagerSize
 description: Returns the number of pages per pager.
-categories: []
 keywords: []
 params:
   functions_and_methods:

@@ -1,7 +1,6 @@
 ---
 title: Introduction
 description: Hugo is a static site generator written in Go, optimized for speed and designed for flexibility.
-categories: []
 keywords: []
 weight: 10
 ---

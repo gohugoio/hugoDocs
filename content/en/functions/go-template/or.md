@@ -1,7 +1,6 @@
 ---
 title: or
 description: Returns the first truthy argument. If all arguments are falsy, returns the last argument.
-categories: []
 keywords: []
 params:
   functions_and_methods:

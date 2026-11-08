@@ -1,7 +1,6 @@
 ---
 title: IsHome
 description: Reports whether the given page is the home page.
-categories: []
 keywords: []
 params:
   functions_and_methods:

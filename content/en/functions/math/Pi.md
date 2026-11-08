@@ -1,7 +1,6 @@
 ---
 title: math.Pi
 description: Returns the mathematical constant pi.
-categories: []
 keywords: []
 params:
   functions_and_methods:

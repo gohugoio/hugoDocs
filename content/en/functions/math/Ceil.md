@@ -1,7 +1,6 @@
 ---
 title: math.Ceil
 description: Returns the least integer value greater than or equal to the given number.
-categories: []
 keywords: []
 params:
   functions_and_methods:

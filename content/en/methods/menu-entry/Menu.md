@@ -1,7 +1,6 @@
 ---
 title: Menu
 description: Returns the identifier of the menu that contains the given menu entry.
-categories: []
 keywords: []
 params:
   functions_and_methods:

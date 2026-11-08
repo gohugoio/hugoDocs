@@ -2,7 +2,6 @@
 title: Image render hooks
 linkTitle: Images
 description: Create image render hook templates to override the rendering of Markdown images to HTML.
-categories: []
 keywords: []
 ---
 

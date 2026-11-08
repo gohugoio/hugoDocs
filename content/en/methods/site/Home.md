@@ -1,7 +1,6 @@
 ---
 title: Home
 description: Returns the home Page object for the given site.
-categories: []
 keywords: []
 params:
   functions_and_methods:

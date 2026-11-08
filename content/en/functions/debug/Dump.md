@@ -1,7 +1,6 @@
 ---
 title: debug.Dump
 description: Returns an object dump as a string.
-categories: []
 keywords: []
 params:
   functions_and_methods:

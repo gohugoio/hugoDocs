@@ -1,7 +1,6 @@
 ---
 title: fmt.Warnidf
 description: Logs a suppressible WARNING from a template.
-categories: []
 keywords: []
 params:
   functions_and_methods:

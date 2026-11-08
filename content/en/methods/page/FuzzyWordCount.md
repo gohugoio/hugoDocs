@@ -1,7 +1,6 @@
 ---
 title: FuzzyWordCount
 description: Returns the number of words in the content of the given page, rounded up to the nearest multiple of 100.
-categories: []
 keywords: []
 params:
   functions_and_methods:

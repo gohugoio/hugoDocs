@@ -1,7 +1,6 @@
 ---
 title: Page resources
 description: Use page resources to keep images, data files, and other files together with the page that uses them.
-categories: []
 keywords: []
 ---
 

@@ -1,7 +1,6 @@
 ---
 title: Rotate
 description: Returns a collection of pages that vary along the specified dimension while sharing the current page's values for the other dimensions, including the current page, sorted by the dimension's default sort order.
-categories: []
 keywords: []
 params:
   functions_and_methods:

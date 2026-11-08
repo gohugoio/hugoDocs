@@ -1,7 +1,6 @@
 ---
 title: crypto.MD5
 description: Returns the MD5 checksum of the given input, encoded to a hexadecimal string.
-categories: []
 keywords: []
 params:
   functions_and_methods:

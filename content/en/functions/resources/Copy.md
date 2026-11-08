@@ -1,7 +1,6 @@
 ---
 title: resources.Copy
 description: Returns a copy of the given resource at the target path.
-categories: []
 params:
   functions_and_methods:
     aliases: []

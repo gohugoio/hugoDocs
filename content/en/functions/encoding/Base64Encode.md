@@ -1,7 +1,6 @@
 ---
 title: encoding.Base64Encode
 description: Returns the base64 encoding of the given content.
-categories: []
 keywords: []
 params:
   functions_and_methods:

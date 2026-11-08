@@ -1,7 +1,6 @@
 ---
 title: math.Abs
 description: Returns the absolute value of the given number.
-categories: []
 keywords: []
 params:
   functions_and_methods:

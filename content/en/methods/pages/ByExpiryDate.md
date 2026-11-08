@@ -1,7 +1,6 @@
 ---
 title: ByExpiryDate
 description: Returns the given page collection sorted by expiration date in ascending order.
-categories: []
 keywords: []
 params:
   functions_and_methods:

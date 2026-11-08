@@ -1,7 +1,6 @@
 ---
 title: Features
 description: Hugo's rich and powerful feature set provides the framework and tools to create static sites that build in seconds, often less.
-categories: []
 keywords: []
 weight: 20
 ---

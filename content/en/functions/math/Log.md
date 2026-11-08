@@ -1,7 +1,6 @@
 ---
 title: math.Log
 description: Returns the natural logarithm of the given number.
-categories: []
 keywords: []
 params:
   functions_and_methods:

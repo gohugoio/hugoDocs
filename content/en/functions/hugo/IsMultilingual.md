@@ -1,7 +1,6 @@
 ---
 title: hugo.IsMultilingual
 description: Reports whether there are two or more configured languages.
-categories: []
 keywords: []
 params:
   functions_and_methods:

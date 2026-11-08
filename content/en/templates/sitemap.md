@@ -1,7 +1,6 @@
 ---
 title: Sitemap templates
 description: Hugo provides embedded sitemap templates.
-categories: []
 keywords: []
 weight: 130
 ---

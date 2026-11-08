@@ -1,7 +1,6 @@
 ---
 title: urls.RelURL
 description: Returns a relative URL.
-categories: []
 keywords: []
 params:
   functions_and_methods:

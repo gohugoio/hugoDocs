@@ -1,7 +1,6 @@
 ---
 title: math.Sin
 description: Returns the sine of the given radian number.
-categories: []
 keywords: []
 params:
   functions_and_methods:

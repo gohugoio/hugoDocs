@@ -1,7 +1,6 @@
 ---
 title: Ancestors
 description: Returns a collection of Page objects, one for each ancestor section of the given page.
-categories: []
 keywords: []
 params:
   functions_and_methods:

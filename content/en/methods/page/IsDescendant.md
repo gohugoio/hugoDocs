@@ -1,7 +1,6 @@
 ---
 title: IsDescendant
 description: Reports whether PAGE1 is a descendant of PAGE2.
-categories: []
 keywords: []
 params:
   functions_and_methods:

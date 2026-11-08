@@ -1,7 +1,6 @@
 ---
 title: hugo.Version
 description: Returns the current version of the Hugo binary.
-categories: []
 keywords: []
 params:
   functions_and_methods:

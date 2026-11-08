@@ -1,7 +1,6 @@
 ---
 title: fmt.Warnf
 description: Logs a WARNING from a template.
-categories: []
 keywords: []
 params:
   functions_and_methods:

@@ -1,7 +1,6 @@
 ---
 title: math.Mod
 description: Returns the modulus of two integers.
-categories: []
 keywords: []
 params:
   functions_and_methods:

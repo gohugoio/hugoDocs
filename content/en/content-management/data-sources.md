@@ -1,7 +1,6 @@
 ---
 title: Data sources
 description: Use local and remote data sources to augment or create content.
-categories: []
 keywords: []
 ---
 

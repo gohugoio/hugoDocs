@@ -2,7 +2,6 @@
 title: Configure pagination
 linkTitle: Pagination
 description: Configure pagination.
-categories: []
 keywords: []
 ---
 

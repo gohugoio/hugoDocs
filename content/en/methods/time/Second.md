@@ -1,7 +1,6 @@
 ---
 title: Second
 description: Returns the second offset within the minute of the given time.Time value, in the range [0, 59].
-categories: []
 keywords: []
 params:
   functions_and_methods:

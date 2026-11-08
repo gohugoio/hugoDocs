@@ -1,7 +1,6 @@
 ---
 title: images.Mask
 description: Returns an image filter that applies a mask to the source image.
-categories: []
 keywords: []
 params:
   functions_and_methods:

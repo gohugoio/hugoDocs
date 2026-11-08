@@ -1,7 +1,6 @@
 ---
 title: RegularPages
 description: Returns a collection of regular pages within the current section.
-categories: []
 keywords: []
 params:
   functions_and_methods:

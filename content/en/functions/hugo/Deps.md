@@ -1,7 +1,6 @@
 ---
 title: hugo.Deps
 description: Returns a slice of the modules that the project depends on.
-categories: []
 keywords: []
 params:
   functions_and_methods:

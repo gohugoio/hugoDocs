@@ -1,7 +1,6 @@
 ---
 title: time.Format
 description: Returns the given date/time as a formatted and localized string.
-categories: []
 keywords: []
 params:
   functions_and_methods:

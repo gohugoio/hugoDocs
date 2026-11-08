@@ -1,7 +1,6 @@
 ---
 title: collections.Complement
 description: Returns a slice by identifying elements in the last given slice that do not appear in any of the preceding slices.
-categories: []
 keywords: []
 params:
   functions_and_methods:

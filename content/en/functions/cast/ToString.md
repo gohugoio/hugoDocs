@@ -1,7 +1,6 @@
 ---
 title: cast.ToString
 description: Returns the given value converted to a string.
-categories: []
 keywords: []
 params:
   functions_and_methods:

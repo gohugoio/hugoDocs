@@ -1,7 +1,6 @@
 ---
 title: math.ToDegrees
 description: Returns the given radian value converted to degrees.
-categories: []
 keywords: []
 params:
   functions_and_methods:

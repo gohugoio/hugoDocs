@@ -2,7 +2,6 @@
 title: Configure cascade
 linkTitle: Cascade
 description: Configure cascade.
-categories: []
 keywords: []
 ---
 

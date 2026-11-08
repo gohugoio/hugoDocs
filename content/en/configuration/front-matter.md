@@ -2,7 +2,6 @@
 title: Configure front matter
 linkTitle: Front matter
 description: Configure front matter.
-categories: []
 keywords: []
 ---
 

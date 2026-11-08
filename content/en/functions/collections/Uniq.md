@@ -1,7 +1,6 @@
 ---
 title: collections.Uniq
 description: Returns a slice by removing duplicate elements from the given slice.
-categories: []
 keywords: []
 params:
   functions_and_methods:

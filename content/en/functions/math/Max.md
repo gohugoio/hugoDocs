@@ -1,7 +1,6 @@
 ---
 title: math.Max
 description: Returns the greatest of all numbers. Accepts scalars, slices, or both.
-categories: []
 keywords: []
 params:
   functions_and_methods:

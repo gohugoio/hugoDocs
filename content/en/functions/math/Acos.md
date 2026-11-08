@@ -1,7 +1,6 @@
 ---
 title: math.Acos
 description: Returns the arccosine, in radians, of the given number.
-categories: []
 keywords: []
 params:
   functions_and_methods:

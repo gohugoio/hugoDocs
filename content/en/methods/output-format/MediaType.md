@@ -1,7 +1,6 @@
 ---
 title: MediaType
 description: Returns the media type of the given output format.
-categories: []
 keywords: []
 params:
   functions_and_methods:

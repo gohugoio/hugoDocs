@@ -1,7 +1,6 @@
 ---
 title: math.Sum
 description: Returns the sum of all numbers. Accepts scalars, slices, or both.
-categories: []
 keywords: []
 params:
   functions_and_methods:

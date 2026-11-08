@@ -1,7 +1,6 @@
 ---
 title: strings.Substr
 description: Returns a substring of the given string, beginning with the start position and ending after the given length.
-categories: []
 keywords: []
 params:
   functions_and_methods:

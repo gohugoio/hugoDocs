@@ -1,7 +1,6 @@
 ---
 title: lang.Merge
 description: Returns a copy of the given page collection with missing translations filled in from another page collection.
-categories: []
 keywords: []
 params:
   functions_and_methods:

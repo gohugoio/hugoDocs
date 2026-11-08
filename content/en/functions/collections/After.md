@@ -1,7 +1,6 @@
 ---
 title: collections.After
 description: Returns a slice containing the elements after the first N elements of the given slice.
-categories: []
 keywords: []
 params:
   functions_and_methods:

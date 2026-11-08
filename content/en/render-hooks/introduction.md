@@ -1,7 +1,6 @@
 ---
 title: Introduction
 description: An introduction to Hugo's render hooks.
-categories: []
 keywords: []
 weight: 10
 ---

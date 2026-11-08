@@ -1,7 +1,6 @@
 ---
 title: PageGroups
 description: Returns the page groups in the current pager.
-categories: []
 keywords: []
 params:
   functions_and_methods:

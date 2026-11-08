@@ -1,7 +1,6 @@
 ---
 title: Type
 description: Returns the content type of the given page.
-categories: []
 keywords: []
 params:
   functions_and_methods:

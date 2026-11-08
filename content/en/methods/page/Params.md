@@ -1,7 +1,6 @@
 ---
 title: Params
 description: Returns a map of custom parameters as defined in the front matter of the given page.
-categories: []
 keywords: []
 params:
   functions_and_methods:

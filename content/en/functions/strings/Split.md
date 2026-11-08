@@ -1,7 +1,6 @@
 ---
 title: strings.Split
 description: Returns a slice of strings by splitting the given string by a delimiter.
-categories: []
 keywords: []
 params:
   functions_and_methods:

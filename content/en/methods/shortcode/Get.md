@@ -1,7 +1,6 @@
 ---
 title: Get
 description: Returns the value of the given argument.
-categories: []
 keywords: []
 params:
   functions_and_methods:

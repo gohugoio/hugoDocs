@@ -1,7 +1,6 @@
 ---
 title: Resources
 description: Returns a collection of page resources.
-categories: []
 keywords: []
 params:
   functions_and_methods:

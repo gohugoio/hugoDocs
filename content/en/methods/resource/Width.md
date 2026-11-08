@@ -1,7 +1,6 @@
 ---
 title: Width
 description: Returns the width of the given image resource.
-categories: []
 keywords: []
 params:
   functions_and_methods:

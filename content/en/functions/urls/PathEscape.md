@@ -1,7 +1,6 @@
 ---
 title: urls.PathEscape
 description: Returns the given string, applying percent-encoding to special characters and reserved delimiters so it can be safely used as a segment within a URL path.
-categories: []
 keywords: []
 params:
   functions_and_methods:

@@ -1,7 +1,6 @@
 ---
 title: strings.HasPrefix
 description: Reports whether the given string begins with the given prefix.
-categories: []
 keywords: []
 params:
   functions_and_methods:

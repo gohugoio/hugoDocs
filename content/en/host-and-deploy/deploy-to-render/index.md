@@ -1,7 +1,6 @@
 ---
 title: Deploy to Render
 description: Deploy your project to Render.
-categories: []
 keywords: []
 ---
 

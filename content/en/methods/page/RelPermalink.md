@@ -1,7 +1,6 @@
 ---
 title: RelPermalink
 description: Returns the relative permalink of the given page.
-categories: []
 keywords: []
 params:
   functions_and_methods:

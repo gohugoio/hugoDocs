@@ -1,7 +1,6 @@
 ---
 title: AlternativeOutputFormats
 description: Returns a slice of OutputFormat objects, excluding the current output format, each representing one of the output formats enabled for the given page.
-categories: []
 keywords: []
 params:
   functions_and_methods:

@@ -1,7 +1,6 @@
 ---
 title: Archetypes
 description: An archetype is a template for new content.
-categories: []
 keywords: []
 ---
 

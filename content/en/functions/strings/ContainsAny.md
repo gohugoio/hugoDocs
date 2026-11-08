@@ -1,7 +1,6 @@
 ---
 title: strings.ContainsAny
 description: Reports whether the given string contains any character within the given set.
-categories: []
 keywords: []
 params:
   functions_and_methods:

@@ -1,7 +1,6 @@
 ---
 title: images.Overlay
 description: Returns an image filter that overlays the source image at the given coordinates, relative to the upper left corner.
-categories: []
 keywords: []
 params:
   functions_and_methods:

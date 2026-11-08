@@ -1,7 +1,6 @@
 ---
 title: images.Opacity
 description: Returns an image filter that changes the opacity of an image.
-categories: []
 keywords: []
 params:
   functions_and_methods:

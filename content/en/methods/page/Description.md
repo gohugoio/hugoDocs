@@ -1,7 +1,6 @@
 ---
 title: Description
 description: Returns the description of the given page as defined in front matter.
-categories: []
 keywords: []
 params:
   functions_and_methods:

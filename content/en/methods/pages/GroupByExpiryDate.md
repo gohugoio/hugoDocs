@@ -1,7 +1,6 @@
 ---
 title: GroupByExpiryDate
 description: Returns the given page collection grouped by expiration date in descending order.
-categories: []
 keywords: []
 params:
   functions_and_methods:

@@ -1,7 +1,6 @@
 ---
 title: images.Config
 description: Returns an image.Config structure from the image at the specified path, relative to the working directory.
-categories: []
 keywords: []
 params:
   functions_and_methods:

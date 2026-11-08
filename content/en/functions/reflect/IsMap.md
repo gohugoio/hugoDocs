@@ -1,7 +1,6 @@
 ---
 title: reflect.IsMap
 description: Reports whether the given value is a map.
-categories: []
 keywords: []
 params:
   functions_and_methods:

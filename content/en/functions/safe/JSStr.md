@@ -1,7 +1,6 @@
 ---
 title: safe.JSStr
 description: Returns the given string declared as a safe JavaScript string.
-categories: []
 keywords: []
 params:
   functions_and_methods:

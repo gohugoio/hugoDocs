@@ -1,7 +1,6 @@
 ---
 title: InnerDeindent
 description: Returns the content between opening and closing shortcode tags, with indentation removed, applicable when the shortcode call includes a closing tag.
-categories: []
 keywords: []
 params:
   functions_and_methods:

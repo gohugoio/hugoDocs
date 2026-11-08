@@ -1,7 +1,6 @@
 ---
 title: urls.AbsLangURL
 description: Returns an absolute URL with a language prefix, if any.
-categories: []
 keywords: []
 params:
   functions_and_methods:

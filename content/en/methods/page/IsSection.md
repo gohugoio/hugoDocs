@@ -1,7 +1,6 @@
 ---
 title: IsSection
 description: Reports whether the given page is a section page.
-categories: []
 keywords: []
 params:
   functions_and_methods:

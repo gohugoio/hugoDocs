@@ -1,7 +1,6 @@
 ---
 title: hugo.IsProduction
 description: Reports whether the current running environment is "production".
-categories: []
 keywords: []
 params:
   functions_and_methods:

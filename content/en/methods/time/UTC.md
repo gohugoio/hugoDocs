@@ -1,7 +1,6 @@
 ---
 title: UTC
 description: Returns the given time.Time value with the location set to UTC.
-categories: []
 keywords: []
 params:
   functions_and_methods:

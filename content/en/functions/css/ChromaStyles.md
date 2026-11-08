@@ -1,7 +1,6 @@
 ---
 title: css.ChromaStyles
 description: Returns a CSS stylesheet for the syntax highlighter.
-categories: []
 keywords: [highlight]
 params:
   functions_and_methods:

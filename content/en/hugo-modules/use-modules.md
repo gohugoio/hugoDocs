@@ -1,7 +1,6 @@
 ---
 title: Use modules
 description: Use modules to manage the content, layout, presentation, and behavior of your site.
-categories: []
 keywords: []
 weight: 20
 ---

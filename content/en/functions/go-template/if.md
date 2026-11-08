@@ -1,7 +1,6 @@
 ---
 title: if
 description: Executes the block if the expression is truthy.
-categories: []
 keywords: []
 params:
   functions_and_methods:

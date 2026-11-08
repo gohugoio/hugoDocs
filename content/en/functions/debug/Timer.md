@@ -1,7 +1,6 @@
 ---
 title: debug.Timer
 description: Returns a named timer used to measure and report elapsed execution time to the console.
-categories: []
 keywords: []
 params:
   functions_and_methods:

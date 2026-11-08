@@ -1,7 +1,6 @@
 ---
 title: ByLanguage
 description: Returns the given page collection sorted by language.
-categories: []
 keywords: []
 params:
   functions_and_methods:

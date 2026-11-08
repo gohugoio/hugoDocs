@@ -1,7 +1,6 @@
 ---
 title: ResourceType
 description: Returns the main type of the given resource's media type.
-categories: []
 keywords: []
 params:
   functions_and_methods:

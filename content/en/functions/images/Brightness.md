@@ -1,7 +1,6 @@
 ---
 title: images.Brightness
 description: Returns an image filter that changes the brightness of an image.
-categories: []
 keywords: []
 params:
   functions_and_methods:

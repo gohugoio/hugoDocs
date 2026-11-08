@@ -1,7 +1,6 @@
 ---
 title: images.ColorBalance
 description: Returns an image filter that changes the color balance of an image.
-categories: []
 keywords: []
 params:
   functions_and_methods:

@@ -1,7 +1,6 @@
 ---
 title: os.ReadDir
 description: Returns a slice of FileInfo objects sorted by file name, one for each entry in the given directory.
-categories: []
 keywords: []
 params:
   functions_and_methods:

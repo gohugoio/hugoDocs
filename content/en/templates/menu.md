@@ -1,7 +1,6 @@
 ---
 title: Menu templates
 description: Create templates to render one or more menus.
-categories: []
 keywords: []
 weight: 150
 ---

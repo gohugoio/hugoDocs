@@ -1,7 +1,6 @@
 ---
 title: reflect.IsPage
 description: Reports whether the given value is a Page object.
-categories: []
 keywords: []
 params:
   functions_and_methods:

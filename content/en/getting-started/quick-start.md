@@ -1,7 +1,6 @@
 ---
 title: Quick start
 description: Create your first Hugo project.
-categories: []
 keywords: []
 params:
   minVersion: v0.158.0

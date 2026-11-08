@@ -1,7 +1,6 @@
 ---
 title: hugo.WorkingDir
 description: Returns the project working directory.
-categories: []
 keywords: []
 params:
   functions_and_methods:

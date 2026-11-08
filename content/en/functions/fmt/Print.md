@@ -1,7 +1,6 @@
 ---
 title: fmt.Print
 description: Returns the default string representation of the given arguments.
-categories: []
 keywords: []
 params:
   functions_and_methods:

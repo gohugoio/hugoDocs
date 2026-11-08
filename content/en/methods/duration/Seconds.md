@@ -1,7 +1,6 @@
 ---
 title: Seconds
 description: Returns the time.Duration value as a floating point number of seconds.
-categories: []
 keywords: []
 params:
   functions_and_methods:

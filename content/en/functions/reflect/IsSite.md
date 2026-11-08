@@ -1,7 +1,6 @@
 ---
 title: reflect.IsSite
 description: Reports whether the given value is a Site object.
-categories: []
 keywords: []
 params:
   functions_and_methods:

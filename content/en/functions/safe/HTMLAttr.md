@@ -1,7 +1,6 @@
 ---
 title: safe.HTMLAttr
 description: Returns the given key-value pair declared as a safe HTML attribute.
-categories: []
 keywords: []
 params:
   functions_and_methods:

@@ -1,7 +1,6 @@
 ---
 title: Reverse
 description: Returns the given menu, reversing the sort order of its entries.
-categories: []
 keywords: []
 params:
   functions_and_methods:

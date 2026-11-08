@@ -1,7 +1,6 @@
 ---
 title: strings.TrimSuffix
 description: Returns the given string, removing the suffix from the end of the string.
-categories: []
 keywords: []
 params:
   functions_and_methods:

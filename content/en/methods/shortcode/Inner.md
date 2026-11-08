@@ -1,7 +1,6 @@
 ---
 title: Inner
 description: Returns the content between opening and closing shortcode tags, applicable when the shortcode call includes a closing tag.
-categories: []
 keywords: []
 params:
   functions_and_methods:

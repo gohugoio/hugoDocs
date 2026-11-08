@@ -1,7 +1,6 @@
 ---
 title: Fill
 description: Returns a new image resource cropped and resized according to the given processing specification.
-categories: []
 keywords: []
 params:
   functions_and_methods:

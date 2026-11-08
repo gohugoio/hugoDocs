@@ -1,7 +1,6 @@
 ---
 title: Content
 description: Returns the content of the given resource.
-categories: []
 keywords: []
 params:
   functions_and_methods:

@@ -1,7 +1,6 @@
 ---
 title: strings.Chomp
 description: Returns the given string, removing all trailing newline characters and carriage returns.
-categories: []
 keywords: []
 params:
   functions_and_methods:

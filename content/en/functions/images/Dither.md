@@ -1,7 +1,6 @@
 ---
 title: images.Dither
 description: Returns an image filter that dithers an image.
-categories: []
 keywords: []
 params:
   functions_and_methods:

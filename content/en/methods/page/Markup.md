@@ -1,7 +1,6 @@
 ---
 title: Markup
 description: Returns a Markup object used to render the content of the given page, optionally in a named scope.
-categories: []
 keywords: []
 params:
   functions_and_methods:

@@ -2,7 +2,6 @@
 title: Configure security
 linkTitle: Security
 description: Configure security.
-categories: []
 keywords: []
 ---
 

@@ -2,7 +2,6 @@
 title: Configure sitemap
 linkTitle: Sitemap
 description: Configure the sitemap.
-categories: []
 keywords: []
 ---
 

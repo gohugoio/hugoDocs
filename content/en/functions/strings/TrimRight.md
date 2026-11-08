@@ -1,7 +1,6 @@
 ---
 title: strings.TrimRight
 description: Returns the given string, removing trailing characters specified in the cutset.
-categories: []
 keywords: []
 params:
   functions_and_methods:

@@ -2,7 +2,6 @@
 title: Configure build
 linkTitle: Build
 description: Configure global build options.
-categories: []
 keywords: []
 ---
 

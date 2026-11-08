@@ -1,7 +1,6 @@
 ---
 title: NumberOfElements
 description: Returns the number of pages in the current pager.
-categories: []
 keywords: []
 params:
   functions_and_methods:

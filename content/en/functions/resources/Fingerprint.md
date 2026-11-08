@@ -1,7 +1,6 @@
 ---
 title: resources.Fingerprint
 description: Returns a fingerprinted resource, created by cryptographically hashing the content of the given resource.
-categories: []
 keywords: []
 params:
   functions_and_methods:

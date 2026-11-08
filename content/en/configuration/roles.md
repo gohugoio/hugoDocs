@@ -2,7 +2,6 @@
 title: Configure roles
 linkTitle: Roles
 description: Configure roles.
-categories: []
 keywords: []
 ---
 

@@ -2,7 +2,6 @@
 title: Minify
 linkTitle: Asset minification
 description: Minify a given resource.
-categories: []
 keywords: []
 ---
 

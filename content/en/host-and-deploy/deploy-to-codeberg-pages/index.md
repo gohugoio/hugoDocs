@@ -1,7 +1,6 @@
 ---
 title: Deploy to Codeberg Pages
 description: Deploy your project to Codeberg Pages.
-categories: []
 keywords: []
 ---
 

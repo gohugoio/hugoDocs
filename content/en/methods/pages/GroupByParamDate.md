@@ -1,7 +1,6 @@
 ---
 title: GroupByParamDate
 description: Returns the given page collection grouped by the given date parameter in descending order.
-categories: []
 keywords: []
 params:
   functions_and_methods:

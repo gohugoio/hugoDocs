@@ -1,7 +1,6 @@
 ---
 title: math.Product
 description: Returns the product of all numbers. Accepts scalars, slices, or both.
-categories: []
 keywords: []
 params:
   functions_and_methods:

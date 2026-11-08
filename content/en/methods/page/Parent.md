@@ -1,7 +1,6 @@
 ---
 title: Parent
 description: Returns the Page object of the parent section of the given page.
-categories: []
 keywords: []
 params:
   functions_and_methods:

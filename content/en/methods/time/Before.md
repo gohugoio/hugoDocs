@@ -1,7 +1,6 @@
 ---
 title: Before
 description: Reports whether TIME1 is before TIME2.
-categories: []
 keywords: []
 params:
   functions_and_methods:

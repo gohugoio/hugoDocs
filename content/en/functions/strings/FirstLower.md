@@ -1,7 +1,6 @@
 ---
 title: strings.FirstLower
 description: Returns the given string, converting the first character to lowercase.
-categories: []
 keywords: []
 params:
   functions_and_methods:

@@ -2,7 +2,6 @@
 title: Data inspection
 linkTitle: Inspection
 description: Use template functions to inspect values and data structures.
-categories: []
 keywords: []
 ---
 

@@ -1,7 +1,6 @@
 ---
 title: RenderString
 description: Returns the given markup rendered to HTML.
-categories: []
 keywords: []
 params:
   functions_and_methods:

@@ -1,7 +1,6 @@
 ---
 title: GetPage
 description: Returns a Page object from the given path.
-categories: []
 keywords: []
 params:
   functions_and_methods:

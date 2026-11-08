@@ -1,7 +1,6 @@
 ---
 title: math.Min
 description: Returns the smallest of all numbers. Accepts scalars, slices, or both.
-categories: []
 keywords: []
 params:
   functions_and_methods:

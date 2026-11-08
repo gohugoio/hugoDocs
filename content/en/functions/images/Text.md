@@ -1,7 +1,6 @@
 ---
 title: images.Text
 description: Returns an image filter that adds text to an image.
-categories: []
 keywords: []
 params:
   functions_and_methods:

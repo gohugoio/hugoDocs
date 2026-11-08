@@ -2,7 +2,6 @@
 title: Configure taxonomies
 linkTitle: Taxonomies
 description: Configure taxonomies.
-categories: []
 keywords: []
 ---
 

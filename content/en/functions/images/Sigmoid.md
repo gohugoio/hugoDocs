@@ -1,7 +1,6 @@
 ---
 title: images.Sigmoid
 description: Returns an image filter that changes the contrast of an image using a sigmoidal function.
-categories: []
 keywords: []
 params:
   functions_and_methods:

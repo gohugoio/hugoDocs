@@ -2,7 +2,6 @@
 title: Content organization
 linkTitle: Organization
 description: Learn how Hugo identifies pages, resolves page references, and creates URLs from the structure of the content directory.
-categories: []
 keywords: []
 ---
 

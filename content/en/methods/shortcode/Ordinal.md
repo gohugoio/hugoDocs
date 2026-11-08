@@ -1,7 +1,6 @@
 ---
 title: Ordinal
 description: Returns the zero-based ordinal of the shortcode in relation to its parent.
-categories: []
 keywords: []
 params:
   functions_and_methods:

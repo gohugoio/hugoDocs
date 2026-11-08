@@ -1,7 +1,6 @@
 ---
 title: Pagers
 description: Returns the pagers collection.
-categories: []
 keywords: []
 params:
   functions_and_methods:

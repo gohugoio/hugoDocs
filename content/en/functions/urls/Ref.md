@@ -1,7 +1,6 @@
 ---
 title: urls.Ref
 description: Returns the absolute URL of the page with the given path, language, and output format.
-categories: []
 keywords: []
 params:
   functions_and_methods:

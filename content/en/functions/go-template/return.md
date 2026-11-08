@@ -1,7 +1,6 @@
 ---
 title: return
 description: Terminates execution of the current template and, when used within a partial template, returns the given value, if any.
-categories: []
 keywords: []
 params:
   functions_and_methods:

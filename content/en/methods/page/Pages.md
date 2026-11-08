@@ -1,7 +1,6 @@
 ---
 title: Pages
 description: Returns a collection of regular pages within the current section, and section pages of immediate descendant sections.
-categories: []
 keywords: []
 params:
   functions_and_methods:

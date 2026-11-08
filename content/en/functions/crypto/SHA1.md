@@ -1,7 +1,6 @@
 ---
 title: crypto.SHA1
 description: Returns the SHA1 checksum of the given input, encoded to a hexadecimal string.
-categories: []
 keywords: []
 params:
   functions_and_methods:

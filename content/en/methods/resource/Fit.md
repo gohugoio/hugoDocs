@@ -1,7 +1,6 @@
 ---
 title: Fit
 description: Returns a new image resource downscaled to fit according to the given processing specification.
-categories: []
 keywords: []
 params:
   functions_and_methods:

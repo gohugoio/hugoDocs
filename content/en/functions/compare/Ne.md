@@ -1,7 +1,6 @@
 ---
 title: compare.Ne
 description: Reports whether the first argument is not equal to any of the subsequent arguments.
-categories: []
 keywords: []
 params:
   functions_and_methods:

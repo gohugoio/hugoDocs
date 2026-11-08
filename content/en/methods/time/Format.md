@@ -1,7 +1,6 @@
 ---
 title: Format
 description: Returns a textual representation of the time.Time value formatted according to the layout string.
-categories: []
 keywords: []
 params:
   functions_and_methods:

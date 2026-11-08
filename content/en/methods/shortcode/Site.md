@@ -1,7 +1,6 @@
 ---
 title: Site
 description: Returns the Site object.
-categories: []
 keywords: []
 params:
   functions_and_methods:

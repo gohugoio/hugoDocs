@@ -1,7 +1,6 @@
 ---
 title: collections.SymDiff
 description: Returns a slice containing the symmetric difference of two given slices.
-categories: []
 keywords: []
 params:
   functions_and_methods:

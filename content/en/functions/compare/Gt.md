@@ -1,7 +1,6 @@
 ---
 title: compare.Gt
 description: Reports whether the first argument is greater than all of the subsequent arguments.
-categories: []
 keywords: []
 params:
   functions_and_methods:

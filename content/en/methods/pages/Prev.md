@@ -1,7 +1,6 @@
 ---
 title: Prev
 description: Returns the previous page in a page collection, relative to the given page.
-categories: []
 keywords: []
 params:
   functions_and_methods:

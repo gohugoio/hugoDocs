@@ -1,7 +1,6 @@
 ---
 title: Data
 description: Returns supplemental information about resources produced by the resources.GetRemote, css.Build, and js.Build functions.
-categories: []
 keywords: []
 params:
   functions_and_methods:

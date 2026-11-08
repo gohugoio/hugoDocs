@@ -1,7 +1,6 @@
 ---
 title: images.GaussianBlur
 description: Returns an image filter that applies a gaussian blur to an image.
-categories: []
 keywords: []
 params:
   functions_and_methods:

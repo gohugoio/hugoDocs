@@ -1,7 +1,6 @@
 ---
 title: images.UnsharpMask
 description: Returns an image filter that sharpens an image.
-categories: []
 keywords: []
 params:
   functions_and_methods:

@@ -1,7 +1,6 @@
 ---
 title: Related content
 description: List related content in "See Also" sections.
-categories: []
 keywords: []
 ---
 

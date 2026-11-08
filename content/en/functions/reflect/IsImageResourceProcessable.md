@@ -1,7 +1,6 @@
 ---
 title: reflect.IsImageResourceProcessable
 description: Reports whether the given value is a Resource object representing an image from which Hugo can extract dimensions and perform processing such as converting, resizing, cropping, or filtering.
-categories: []
 keywords: []
 params:
   functions_and_methods:

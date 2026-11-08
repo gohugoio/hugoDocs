@@ -1,7 +1,6 @@
 ---
 title: InSection
 description: Reports whether the given page is in the given section.
-categories: []
 keywords: []
 params:
   functions_and_methods:

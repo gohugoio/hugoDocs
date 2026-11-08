@@ -1,7 +1,6 @@
 ---
 title: Deploy to Azure Static Web Apps
 description: Deploy your project to Azure Static Web Apps.
-categories: []
 keywords: []
 ---
 

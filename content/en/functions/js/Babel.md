@@ -1,7 +1,6 @@
 ---
 title: js.Babel
 description: Returns a resource created by transpiling the given JavaScript resource using Babel.
-categories: []
 keywords: []
 params:
   functions_and_methods:

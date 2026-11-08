@@ -1,7 +1,6 @@
 ---
 title: transform.XMLEscape
 description: Returns the given string, removing disallowed characters then escaping the result to its XML equivalent.
-categories: []
 keywords: []
 params:
   functions_and_methods:

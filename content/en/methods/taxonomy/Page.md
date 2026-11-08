@@ -1,7 +1,6 @@
 ---
 title: Page
 description: Returns the taxonomy page or nil if the taxonomy has no terms.
-categories: []
 keywords: []
 params:
   functions_and_methods:

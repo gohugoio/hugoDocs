@@ -1,7 +1,6 @@
 ---
 title: GitInfo
 description: Returns commit metadata for the given page.
-categories: []
 keywords: []
 params:
   functions_and_methods:

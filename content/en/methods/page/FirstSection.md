@@ -1,7 +1,6 @@
 ---
 title: FirstSection
 description: Returns the Page object of the top-level section of which the given page is a descendant.
-categories: []
 keywords: []
 params:
   functions_and_methods:

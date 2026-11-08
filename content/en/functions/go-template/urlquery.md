@@ -1,7 +1,6 @@
 ---
 title: urlquery
 description: Returns the escaped value of the textual representation of its arguments in a form suitable for embedding in a URL query.
-categories: []
 keywords: []
 params:
   functions_and_methods:

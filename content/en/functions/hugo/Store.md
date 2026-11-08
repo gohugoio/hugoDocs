@@ -1,7 +1,6 @@
 ---
 title: hugo.Store
 description: Returns a globally scoped persistent data structure for storing and manipulating keyed values.
-categories: []
 keywords: []
 params:
   functions_and_methods:

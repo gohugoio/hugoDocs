@@ -1,7 +1,6 @@
 ---
 title: Data types
 description: A quick reference guide to the data types you encounter in Hugo templates, including scalars, collections, safe types, and Hugo objects.
-categories: []
 keywords: []
 ---
 

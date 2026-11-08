@@ -1,7 +1,6 @@
 ---
 title: time.AsTime
 description: Returns the given string representation of a date/time value as a time.Time value.
-categories: []
 keywords: []
 params:
   functions_and_methods:

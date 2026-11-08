@@ -1,7 +1,6 @@
 ---
 title: Linux
 description: Install Hugo on Linux.
-categories: []
 keywords: []
 weight: 20
 ---

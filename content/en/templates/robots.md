@@ -2,7 +2,6 @@
 title: robots.txt template
 linkTitle: robots.txt templates
 description: Hugo can generate a customized robots.txt in the same way as any other template.
-categories: []
 keywords: []
 weight: 190
 ---

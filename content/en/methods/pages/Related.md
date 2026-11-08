@@ -1,7 +1,6 @@
 ---
 title: Related
 description: Returns a collection of pages related to the given page.
-categories: []
 keywords: []
 params:
   functions_and_methods:

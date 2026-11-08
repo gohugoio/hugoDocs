@@ -1,7 +1,6 @@
 ---
 title: Diagrams
 description: Use fenced code blocks and Markdown render hooks to include diagrams in your content.
-categories: []
 keywords: []
 ---
 

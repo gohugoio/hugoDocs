@@ -1,7 +1,6 @@
 ---
 title: hugo.IsMultihost
 description: Reports whether each configured language has a unique base URL.
-categories: []
 keywords: []
 params:
   functions_and_methods:

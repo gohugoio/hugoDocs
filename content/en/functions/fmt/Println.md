@@ -1,7 +1,6 @@
 ---
 title: fmt.Println
 description: Returns the default string representation of the given arguments, followed by a line break.
-categories: []
 keywords: []
 params:
   functions_and_methods:

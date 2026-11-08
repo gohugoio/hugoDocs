@@ -2,7 +2,6 @@
 title: Configure outputs
 linkTitle: Outputs
 description: Configure which output formats to render for each page kind.
-categories: []
 keywords: []
 ---
 

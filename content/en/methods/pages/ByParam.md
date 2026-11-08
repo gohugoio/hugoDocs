@@ -1,7 +1,6 @@
 ---
 title: ByParam
 description: Returns the given page collection sorted by the given parameter in ascending order.
-categories: []
 keywords: []
 params:
   functions_and_methods:

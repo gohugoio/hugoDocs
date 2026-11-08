@@ -1,7 +1,6 @@
 ---
 title: Page
 description: Returns the Page object associated with the given menu entry.
-categories: []
 keywords: []
 params:
   functions_and_methods:

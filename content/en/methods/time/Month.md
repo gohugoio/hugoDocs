@@ -1,7 +1,6 @@
 ---
 title: Month
 description: Returns the month of the year of the given time.Time value.
-categories: []
 keywords: []
 params:
   functions_and_methods:

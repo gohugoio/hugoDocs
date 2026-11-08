@@ -1,7 +1,6 @@
 ---
 title: os.FileExists
 description: Reports whether the file or directory exists.
-categories: []
 keywords: []
 params:
   functions_and_methods:

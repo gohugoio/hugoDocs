@@ -2,7 +2,6 @@
 title: Configure content types
 linkTitle: Content types
 description: Configure content types.
-categories: []
 keywords: []
 ---
 

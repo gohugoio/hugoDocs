@@ -1,7 +1,6 @@
 ---
 title: break
 description: Stops the innermost range iteration and bypasses any remaining iterations.
-categories: []
 keywords: []
 params:
   functions_and_methods:

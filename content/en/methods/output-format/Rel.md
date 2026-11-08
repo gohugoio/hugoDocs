@@ -1,7 +1,6 @@
 ---
 title: Rel
 description: Returns the rel value of the given output format, either the default or as defined in your project configuration.
-categories: []
 keywords: []
 params:
   functions_and_methods:

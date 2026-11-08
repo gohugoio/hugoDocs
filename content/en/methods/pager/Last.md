@@ -1,7 +1,6 @@
 ---
 title: Last
 description: Returns the last pager in the pager collection.
-categories: []
 keywords: []
 params:
   functions_and_methods:

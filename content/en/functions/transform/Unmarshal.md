@@ -1,7 +1,6 @@
 ---
 title: transform.Unmarshal
 description: Returns a map or a slice parsed from serialized data in CSV, JSON, TOML, YAML, or XML format.
-categories: []
 keywords: []
 params:
   functions_and_methods:

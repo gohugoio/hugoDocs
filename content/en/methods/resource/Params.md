@@ -1,7 +1,6 @@
 ---
 title: Params
 description: Returns a map of resource parameters as defined in front matter.
-categories: []
 keywords: []
 params:
   functions_and_methods:

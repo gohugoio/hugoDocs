@@ -1,7 +1,6 @@
 ---
 title: hugo.Environment
 description: Returns the current running environment.
-categories: []
 keywords: []
 params:
   functions_and_methods:

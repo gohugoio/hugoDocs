@@ -1,7 +1,6 @@
 ---
 title: Publish
 description: Publishes the given resource.
-categories: []
 keywords: []
 params:
   functions_and_methods:

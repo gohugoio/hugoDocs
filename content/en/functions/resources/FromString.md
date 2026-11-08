@@ -1,7 +1,6 @@
 ---
 title: resources.FromString
 description: Returns a resource created from a string.
-categories: []
 keywords: []
 params:
   functions_and_methods:

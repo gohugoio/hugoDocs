@@ -1,7 +1,6 @@
 ---
 title: Taxonomies
 description: Returns a data structure containing the site's Taxonomy objects, the terms within each Taxonomy object, and the pages to which the terms are assigned.
-categories: []
 keywords: []
 params:
   functions_and_methods:

@@ -1,7 +1,6 @@
 ---
 title: Name
 description: Returns the identifier of the given output format.
-categories: []
 keywords: []
 params:
   functions_and_methods:

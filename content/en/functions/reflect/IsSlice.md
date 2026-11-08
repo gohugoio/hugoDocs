@@ -1,7 +1,6 @@
 ---
 title: reflect.IsSlice
 description: Reports whether the given value is a slice.
-categories: []
 keywords: []
 params:
   functions_and_methods:

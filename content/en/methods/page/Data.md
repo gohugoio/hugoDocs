@@ -1,7 +1,6 @@
 ---
 title: Data
 description: Returns a unique data object for each page kind.
-categories: []
 keywords: []
 params:
   functions_and_methods:

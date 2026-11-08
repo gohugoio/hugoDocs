@@ -1,7 +1,6 @@
 ---
 title: Process
 description: Returns a new image resource processed according to the given processing specification.
-categories: []
 keywords: [process]
 params:
   alt_title: RESOURCE.Process

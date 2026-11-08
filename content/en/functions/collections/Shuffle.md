@@ -1,7 +1,6 @@
 ---
 title: collections.Shuffle
 description: Returns a slice by randomizing the element order of the given slice.
-categories: []
 keywords: [random]
 params:
   functions_and_methods:

@@ -1,7 +1,6 @@
 ---
 title: inflect.Humanize
 description: Returns the humanized version of the input with the first letter capitalized.
-categories: []
 keywords: []
 params:
   functions_and_methods:

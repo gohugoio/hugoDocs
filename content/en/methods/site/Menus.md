@@ -1,7 +1,6 @@
 ---
 title: Menus
 description: Returns a collection of menu objects for the given site.
-categories: []
 keywords: []
 params:
   functions_and_methods:

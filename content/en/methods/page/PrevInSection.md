@@ -1,7 +1,6 @@
 ---
 title: PrevInSection
 description: Returns the previous regular page in a section, relative to the given page.
-categories: []
 keywords: []
 params:
   functions_and_methods:

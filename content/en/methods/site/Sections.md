@@ -1,7 +1,6 @@
 ---
 title: Sections
 description: Returns a collection of top-level section pages.
-categories: []
 keywords: []
 params:
   functions_and_methods:

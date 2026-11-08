@@ -1,7 +1,6 @@
 ---
 title: Limit
 description: Returns the first N pages from the given page collection.
-categories: []
 keywords: []
 params:
   functions_and_methods:

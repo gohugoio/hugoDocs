@@ -1,7 +1,6 @@
 ---
 title: resources.Publish
 description: Returns the given resource after publishing it.
-categories: []
 keywords: []
 params:
   functions_and_methods:

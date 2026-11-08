@@ -1,7 +1,6 @@
 ---
 title: Config
 description: Returns a subset of your project configuration.
-categories: []
 keywords: []
 params:
   functions_and_methods:

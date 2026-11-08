@@ -1,7 +1,6 @@
 ---
 title: collections.KeyVals
 description: Returns a KeyVals struct by pairing a given key and values.
-categories: []
 keywords: []
 params:
   functions_and_methods:

@@ -1,7 +1,6 @@
 ---
 title: ByLength
 description: Returns the given page collection sorted by content length in ascending order.
-categories: []
 keywords: []
 params:
   functions_and_methods:

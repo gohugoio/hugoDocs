@@ -1,7 +1,6 @@
 ---
 title: Err
 description: Returns an error message if the HTTP request for a remote resource fails, else nil.
-categories: []
 keywords: []
 params:
   functions_and_methods:

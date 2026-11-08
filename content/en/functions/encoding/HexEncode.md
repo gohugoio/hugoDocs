@@ -1,7 +1,6 @@
 ---
 title: encoding.HexEncode
 description: Returns the hexadecimal encoding of the given content.
-categories: []
 keywords: []
 params:
   functions_and_methods:

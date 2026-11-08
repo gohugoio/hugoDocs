@@ -1,7 +1,6 @@
 ---
 title: Deploy to Vercel
 description: Deploy your project to Vercel.
-categories: []
 keywords: []
 ---
 

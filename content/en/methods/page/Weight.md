@@ -1,7 +1,6 @@
 ---
 title: Weight
 description: Returns the weight of the given page as defined in front matter.
-categories: []
 keywords: []
 params:
   functions_and_methods:

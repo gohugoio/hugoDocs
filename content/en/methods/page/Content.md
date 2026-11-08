@@ -1,7 +1,6 @@
 ---
 title: Content
 description: Returns the rendered content of the given page.
-categories: []
 keywords: []
 params:
   functions_and_methods:

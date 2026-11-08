@@ -1,7 +1,6 @@
 ---
 title: Copyright
 description: Returns the copyright notice as defined in your project configuration.
-categories: []
 keywords: []
 params:
   functions_and_methods:

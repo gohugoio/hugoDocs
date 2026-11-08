@@ -2,7 +2,6 @@
 title: Multilingual mode
 linkTitle: Multilingual
 description: Localize your project for each language and region, including translations, images, dates, currencies, numbers, percentages, and collation sequence. Hugo's multilingual framework supports single-host and multihost configurations.
-categories: []
 keywords: []
 ---
 

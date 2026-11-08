@@ -1,7 +1,6 @@
 ---
 title: lang.FormatNumberCustom
 description: Returns a numeric representation of a number with the given precision using negative, decimal, and grouping options.
-categories: []
 keywords: []
 params:
   functions_and_methods:

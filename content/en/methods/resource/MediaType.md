@@ -1,7 +1,6 @@
 ---
 title: MediaType
 description: Returns a media type object for the given resource.
-categories: []
 keywords: []
 params:
   functions_and_methods:

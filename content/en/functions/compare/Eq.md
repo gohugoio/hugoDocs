@@ -1,7 +1,6 @@
 ---
 title: compare.Eq
 description: Reports whether the first argument is equal to any of the subsequent arguments.
-categories: []
 keywords: []
 params:
   functions_and_methods:

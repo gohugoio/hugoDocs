@@ -1,7 +1,6 @@
 ---
 title: transform.PortableText
 description: Returns the given Portable Text converted to Markdown.
-categories: []
 keywords: []
 params:
   functions_and_methods:

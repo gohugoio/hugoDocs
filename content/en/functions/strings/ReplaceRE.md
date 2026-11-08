@@ -1,7 +1,6 @@
 ---
 title: strings.ReplaceRE
 description: Returns the given string, replacing all occurrences of a regular expression with a replacement pattern.
-categories: []
 keywords: []
 params:
   functions_and_methods:

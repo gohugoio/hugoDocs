@@ -1,7 +1,6 @@
 ---
 title: File
 description: Returns file information for the given page, or nil if the page is not backed by a file.
-categories: []
 keywords: []
 params:
   functions_and_methods:

@@ -2,7 +2,6 @@
 title: ToCSS
 linkTitle: Transpile Sass to CSS
 description: Transpile Sass to CSS.
-categories: []
 keywords: []
 ---
 

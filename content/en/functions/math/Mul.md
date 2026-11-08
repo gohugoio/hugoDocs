@@ -1,7 +1,6 @@
 ---
 title: math.Mul
 description: Returns the result of multiplying the first number by one or more numbers.
-categories: []
 keywords: []
 params:
   functions_and_methods:

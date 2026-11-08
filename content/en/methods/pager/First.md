@@ -1,7 +1,6 @@
 ---
 title: First
 description: Returns the first pager in the pager collection.
-categories: []
 keywords: []
 params:
   functions_and_methods:

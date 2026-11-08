@@ -1,7 +1,6 @@
 ---
 title: ByLinkTitle
 description: Returns the given page collection sorted by link title in ascending order, falling back to title if link title is not defined.
-categories: []
 keywords: []
 params:
   functions_and_methods:

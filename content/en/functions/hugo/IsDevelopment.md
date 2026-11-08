@@ -1,7 +1,6 @@
 ---
 title: hugo.IsDevelopment
 description: Reports whether the current running environment is "development".
-categories: []
 keywords: []
 params:
   functions_and_methods:

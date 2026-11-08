@@ -1,7 +1,6 @@
 ---
 title: IsDefault
 description: Reports whether the given site is the default site across all dimensions.
-categories: []
 keywords: []
 params:
   functions_and_methods:

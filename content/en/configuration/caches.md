@@ -2,7 +2,6 @@
 title: Configure file caches
 linkTitle: Caches
 description: Configure file caches.
-categories: []
 keywords: []
 ---
 

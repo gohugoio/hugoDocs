@@ -1,7 +1,6 @@
 ---
 title: ByName
 description: Returns the given menu with its entries sorted by name.
-categories: []
 keywords: []
 params:
   functions_and_methods:

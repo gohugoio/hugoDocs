@@ -1,7 +1,6 @@
 ---
 title: Pages
 description: Returns the pages in the current pager.
-categories: []
 keywords: []
 params:
   functions_and_methods:

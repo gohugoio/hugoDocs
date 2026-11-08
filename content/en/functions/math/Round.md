@@ -1,7 +1,6 @@
 ---
 title: math.Round
 description: Returns the nearest integer, rounding half away from zero.
-categories: []
 keywords: []
 params:
   functions_and_methods:

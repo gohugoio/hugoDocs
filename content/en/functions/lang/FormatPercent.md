@@ -1,7 +1,6 @@
 ---
 title: lang.FormatPercent
 description: Returns a percentage representation of a number with the given precision for the current language and region.
-categories: []
 keywords: []
 params:
   functions_and_methods:

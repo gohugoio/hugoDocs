@@ -1,7 +1,6 @@
 ---
 title: safe.URL
 description: Returns the given string declared as a safe URL or URL substring.
-categories: []
 keywords: []
 params:
   functions_and_methods:

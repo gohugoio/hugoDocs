@@ -1,7 +1,6 @@
 ---
 title: Section
 description: Returns the name of the top-level section in which the given page resides.
-categories: []
 keywords: []
 params:
   functions_and_methods:

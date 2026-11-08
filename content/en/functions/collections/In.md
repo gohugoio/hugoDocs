@@ -1,7 +1,6 @@
 ---
 title: collections.In
 description: Reports whether a value exists within the given slice or string.
-categories: []
 keywords: []
 params:
   functions_and_methods:

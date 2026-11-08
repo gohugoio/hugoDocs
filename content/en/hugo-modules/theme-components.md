@@ -1,7 +1,6 @@
 ---
 title: Theme components
 description: Hugo provides advanced theming support with theme components.
-categories: []
 keywords: []
 weight: 30
 ---

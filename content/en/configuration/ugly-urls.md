@@ -2,7 +2,6 @@
 title: Configure ugly URLs
 linkTitle: Ugly URLs
 description: Configure ugly URLs.
-categories: []
 keywords: []
 ---
 

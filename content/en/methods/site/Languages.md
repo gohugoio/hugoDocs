@@ -1,7 +1,6 @@
 ---
 title: Languages
 description: Returns a collection of language objects for all sites, ordered by language weight.
-categories: []
 keywords: []
 params:
   functions_and_methods:

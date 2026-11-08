@@ -2,7 +2,6 @@
 title: Configure the HTTP cache
 linkTitle: HTTP cache
 description: Configure the HTTP cache.
-categories: []
 keywords: []
 ---
 

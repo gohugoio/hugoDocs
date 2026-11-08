@@ -1,7 +1,6 @@
 ---
 title: Permalink
 description: Returns the permalink of the given page.
-categories: []
 keywords: []
 params:
   functions_and_methods:

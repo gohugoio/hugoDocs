@@ -1,7 +1,6 @@
 ---
 title: js.Build
 description: Returns a resource created by bundling, transpiling, tree shaking, and minifying the given JavaScript resource.
-categories: []
 keywords: []
 params:
   functions_and_methods:

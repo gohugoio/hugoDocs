@@ -1,7 +1,6 @@
 ---
 title: Build options
 description: Build options help define how Hugo must treat a given page when building your project.
-categories: []
 keywords: []
 ---
 

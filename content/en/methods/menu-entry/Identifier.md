@@ -1,7 +1,6 @@
 ---
 title: Identifier
 description: Returns the identifier property of the given menu entry.
-categories: []
 keywords: []
 params:
   functions_and_methods:

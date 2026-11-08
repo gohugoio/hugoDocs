@@ -1,7 +1,6 @@
 ---
 title: os.Stat
 description: Returns a FileInfo object describing a file or directory.
-categories: []
 keywords: []
 params:
   functions_and_methods:

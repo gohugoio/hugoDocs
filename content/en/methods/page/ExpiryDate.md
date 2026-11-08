@@ -1,7 +1,6 @@
 ---
 title: ExpiryDate
 description: Returns the expiry date of the given page.
-categories: []
 keywords: []
 params:
   functions_and_methods:

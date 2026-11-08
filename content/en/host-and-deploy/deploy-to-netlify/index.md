@@ -1,7 +1,6 @@
 ---
 title: Deploy to Netlify
 description: Deploy your project to Netlify.
-categories: []
 keywords: []
 ---
 

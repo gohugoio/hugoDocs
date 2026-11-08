@@ -1,7 +1,6 @@
 ---
 title: Role
 description: Returns the Role object for the given site.
-categories: []
 keywords: []
 params:
   functions_and_methods:

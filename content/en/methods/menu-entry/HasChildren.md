@@ -1,7 +1,6 @@
 ---
 title: HasChildren
 description: Reports whether the given menu entry has child menu entries.
-categories: []
 keywords: []
 params:
   functions_and_methods:

@@ -1,7 +1,6 @@
 ---
 title: math.MaxInt64
 description: Returns the maximum value for a signed 64-bit integer.
-categories: []
 keywords: []
 params:
   functions_and_methods:

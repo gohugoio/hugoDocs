@@ -1,7 +1,6 @@
 ---
 title: images.Hue
 description: Returns an image filter that rotates the hue of an image.
-categories: []
 keywords: []
 params:
   functions_and_methods:

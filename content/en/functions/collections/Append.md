@@ -1,7 +1,6 @@
 ---
 title: collections.Append
 description: Returns a slice by adding one or more elements, or an entire second slice, to the end of the given slice.
-categories: []
 keywords: []
 params:
   functions_and_methods:

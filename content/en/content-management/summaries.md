@@ -2,7 +2,6 @@
 title: Content summaries
 linkTitle: Summaries
 description: Create and render content summaries.
-categories: []
 keywords: []
 ---
 

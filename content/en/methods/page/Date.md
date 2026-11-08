@@ -1,7 +1,6 @@
 ---
 title: Date
 description: Returns the date of the given page.
-categories: []
 keywords: []
 params:
   functions_and_methods:

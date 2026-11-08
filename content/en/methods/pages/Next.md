@@ -1,7 +1,6 @@
 ---
 title: Next
 description: Returns the next page in a page collection, relative to the given page.
-categories: []
 keywords: []
 params:
   functions_and_methods:

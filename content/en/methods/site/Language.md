@@ -1,7 +1,6 @@
 ---
 title: Language
 description: Returns the Language object for the given site.
-categories: []
 keywords: []
 params:
   functions_and_methods:

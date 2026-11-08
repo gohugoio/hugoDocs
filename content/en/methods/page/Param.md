@@ -1,7 +1,6 @@
 ---
 title: Param
 description: Returns a page parameter with the given key, falling back to a site parameter if present.
-categories: []
 keywords: []
 params:
   functions_and_methods:

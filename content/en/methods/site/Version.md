@@ -1,7 +1,6 @@
 ---
 title: Version
 description: Returns the Version object for the given site.
-categories: []
 keywords: []
 params:
   functions_and_methods:

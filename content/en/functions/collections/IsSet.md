@@ -1,7 +1,6 @@
 ---
 title: collections.IsSet
 description: Reports whether a specific key or index exists in the given map or slice.
-categories: []
 keywords: []
 params:
   functions_and_methods:

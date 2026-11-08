@@ -1,7 +1,6 @@
 ---
 title: Development
 description: Contribute to the development of Hugo.
-categories: []
 keywords: []
 ---
 

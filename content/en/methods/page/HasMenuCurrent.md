@@ -1,7 +1,6 @@
 ---
 title: HasMenuCurrent
 description: Reports whether the given Page object matches the Page object associated with one of the child menu entries under the given menu entry in the given menu.
-categories: []
 keywords: []
 params:
   functions_and_methods:

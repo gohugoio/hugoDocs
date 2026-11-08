@@ -1,7 +1,6 @@
 ---
 title: transform.Plainify
 description: Returns the given input with all HTML tags removed.
-categories: []
 keywords: []
 params:
   functions_and_methods:

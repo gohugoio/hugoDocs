@@ -1,7 +1,6 @@
 ---
 title: Hour
 description: Returns the hour within the day of the given time.Time value, in the range [0, 23].
-categories: []
 keywords: []
 params:
   functions_and_methods:

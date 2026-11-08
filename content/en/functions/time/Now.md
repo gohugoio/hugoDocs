@@ -1,7 +1,6 @@
 ---
 title: time.Now
 description: Returns the current local time.
-categories: []
 keywords: []
 params:
   functions_and_methods:

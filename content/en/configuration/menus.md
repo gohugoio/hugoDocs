@@ -2,7 +2,6 @@
 title: Configure menus
 linkTitle: Menus
 description: Centrally define menu entries for one or more menus.
-categories: []
 keywords: []
 ---
 

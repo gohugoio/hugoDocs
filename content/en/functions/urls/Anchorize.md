@@ -1,7 +1,6 @@
 ---
 title: urls.Anchorize
 description: Returns the given string, sanitized for usage in an HTML id attribute.
-categories: []
 keywords: []
 params:
   functions_and_methods:
