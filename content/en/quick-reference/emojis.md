@@ -1,14 +1,16 @@
 ---
 title: Emojis
-description: Include emoji shortcodes in your Markdown or templates.
+description: Look up the emoji shortcodes you can use in Markdown and templates.
 keywords: []
 params:
   searchable: false
 ---
 
+An emoji shortcode is a name enclosed in colons, such as `:wave:`, that Hugo can replace with the corresponding emoji.
+
 ## Attribution
 
-This quick reference guide was generated using the [ikatyang/emoji-cheat-sheet][] project which reads from the [GitHub Emoji API][] and the [Unicode Full Emoji List][].
+This reference guide was generated using the [ikatyang/emoji-cheat-sheet][] project which reads from the [GitHub Emoji API][] and the [Unicode Full Emoji List][].
 
 Note that GitHub [custom emoji](#github-custom-emoji) are not supported.
 

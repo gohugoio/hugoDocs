@@ -1,7 +1,9 @@
 ---
 title: Functions
-description: A quick reference guide to Hugo's functions, grouped by namespace.
+description: Look up Hugo's functions, grouped by namespace.
 keywords: []
 ---
+
+{{% glossary-term function %}}
 
 {{% quick-reference section="functions" %}}

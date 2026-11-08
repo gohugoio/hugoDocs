@@ -1,7 +1,9 @@
 ---
 title: Methods
-description: A quick reference guide to Hugo's methods, grouped by object.
+description: Look up Hugo's methods, grouped by object.
 keywords: []
 ---
+
+{{% glossary-term method %}}
 
 {{% quick-reference section="methods" %}}

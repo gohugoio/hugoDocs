@@ -1,6 +1,6 @@
 ---
 title: Glossary
-description: Terms commonly used throughout the documentation.
+description: Look up terms used throughout the documentation.
 keywords: []
 build:
   render: always

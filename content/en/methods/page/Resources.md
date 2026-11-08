@@ -32,7 +32,7 @@ Use these methods on the collection returned by the `Resources` method:
 : {{< new-in 0.140.0 />}}
 : (`resource.ResourceGetter`) Mounts the given resources, remapping from the base path (first argument) to the target path (second argument), and returns a [resource getter](g). A leading slash in the target marks an absolute path. Relative target paths allow you to mount resources relative to another set, such as a [page bundle](g).
 
-With the `GetMatch` and `Match` methods, Hugo determines a match using a case-insensitive glob pattern. Within a pattern, `*` matches any sequence of characters except the path separator, and `**` matches any sequence of characters including the path separator. For example, `images/*` matches `images/a.jpg` but not `images/sub/d.jpg`, while `images/**` matches both. The [glob patterns quick reference guide][] describes the other syntax rules.
+With the `GetMatch` and `Match` methods, Hugo determines a match using a case-insensitive glob pattern. Within a pattern, `*` matches any sequence of characters except the path separator, and `**` matches any sequence of characters including the path separator. For example, `images/*` matches `images/a.jpg` but not `images/sub/d.jpg`, while `images/**` matches both. The [glob patterns reference guide][] describes the other syntax rules.
 
 If you set the `name` of a page resource in front matter, you can use the new name with the `Get`, `GetMatch`, and `Match` methods, as described in [page resource metadata][].
 
@@ -99,6 +99,6 @@ Mounting a directory of global resources relative to the page bundle, using the 
 [`resources.Get`]: /functions/resources/get/
 [`resources.Match`]: /functions/resources/match/
 [`resources`]: /functions/resources/
-[glob patterns quick reference guide]: /quick-reference/glob-patterns/
+[glob patterns reference guide]: /quick-reference/glob-patterns/
 [page resource metadata]: /content-management/page-resources/#metadata
 [page, global, and remote resources]: /content-management/page-resources/#page-global-and-remote-resources

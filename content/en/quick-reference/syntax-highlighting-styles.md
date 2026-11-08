@@ -1,10 +1,10 @@
 ---
 title: Syntax highlighting styles
-description: Highlight code examples using one of these styles.
+description: Look up the syntax highlighting styles you can apply to code examples.
 keywords: [highlight]
 ---
 
-## Overview
+A syntax highlighting style defines the colors and font styles of each element in a code example, such as keywords, strings, and comments.
 
 Hugo provides several methods to add syntax highlighting to code examples:
 
