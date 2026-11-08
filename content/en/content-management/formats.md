@@ -1,6 +1,6 @@
 ---
 title: Content formats
-description: Create your content using Markdown, HTML, Emacs Org Mode, AsciiDoc, Pandoc, or reStructuredText.
+description: Create content using Markdown, HTML, Emacs Org Mode, AsciiDoc, Pandoc, or reStructuredText.
 keywords: []
 ---
 
