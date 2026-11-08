@@ -17,6 +17,6 @@ params:
 
 {{% include "/_common/global-resources-note.md" %}}
 
-Hugo determines a match using a case-insensitive [glob pattern](g). For syntax rules and examples, see the [glob patterns quick reference guide][].
+Hugo determines a match using a case-insensitive [glob pattern](g). For syntax rules and examples, see the [glob patterns reference guide][].
 
-[glob patterns quick reference guide]: /quick-reference/glob-patterns/
+[glob patterns reference guide]: /quick-reference/glob-patterns/

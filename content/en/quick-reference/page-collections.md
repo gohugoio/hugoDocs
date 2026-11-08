@@ -1,8 +1,12 @@
 ---
 title: Page collections
-description: A quick reference guide to Hugo's page collections.
+description: Look up the methods and functions that return, filter, sort, and group page collections.
 keywords: []
 ---
+
+{{% glossary-term "page collection" %}}
+
+Methods on `Page` and `Site` objects return page collections, and other methods and functions filter, sort, and group them.
 
 ## Page
 

@@ -1,7 +1,6 @@
 ---
-title: Quick reference guides
-linkTitle: Quick reference
-description: Use these quick reference guides for quick access to key information.
+title: Quick reference
+description: Look up data types, functions, methods, glossary terms, and other key information.
 keywords: []
 weight: 10
 ---

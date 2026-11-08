@@ -1,6 +1,6 @@
 ---
 title: Glob patterns
-description: A quick reference guide to glob pattern syntax and matching rules for wildcards, character sets, and delimiters, featuring illustrative examples.
+description: Look up glob pattern syntax and matching rules for wildcards, character sets, and delimiters, with examples.
 keywords: []
 ---
 
