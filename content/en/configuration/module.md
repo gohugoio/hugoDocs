@@ -5,7 +5,8 @@ description: Configure modules.
 keywords: []
 ---
 
-{{% include "/_common/gomodules-info.md" %}}
+> [!NOTE]
+> To work with modules you must install [Git][] and [Go][].
 
 ## Top-level settings
 
@@ -214,3 +215,5 @@ target = 'assets'
 [`themesDir`]: /configuration/all/#themesdir
 [pinning module versions]: /hugo-modules/use-modules/#pin
 [version query]: https://go.dev/ref/mod#version-queries
+[Git]: https://git-scm.com/book/en/v2/Getting-Started-Installing-Git
+[Go]: https://go.dev/doc/install

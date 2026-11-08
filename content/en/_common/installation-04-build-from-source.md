@@ -13,7 +13,7 @@ To build Hugo from source you must install:
 
 To build and install the standard edition:
 
-```sh
+```sh {copy=true}
 CGO_ENABLED=0 go install github.com/gohugoio/hugo@latest
 ```
 
@@ -23,7 +23,7 @@ CGO_ENABLED=0 go install github.com/gohugoio/hugo@latest
 
 To build and install the deploy edition:
 
-```sh
+```sh {copy=true}
 CGO_ENABLED=0 go install -tags withdeploy github.com/gohugoio/hugo@latest
 ```
 
@@ -31,7 +31,7 @@ CGO_ENABLED=0 go install -tags withdeploy github.com/gohugoio/hugo@latest
 
 To build and install the extended edition, first install a C compiler such as [GCC][] or [Clang][] and then run the following command:
 
-```sh
+```sh {copy=true}
 CGO_ENABLED=1 go install -tags extended github.com/gohugoio/hugo@latest
 ```
 
@@ -39,7 +39,7 @@ CGO_ENABLED=1 go install -tags extended github.com/gohugoio/hugo@latest
 
 To build and install the extended/deploy edition, first install a C compiler such as [GCC][] or [Clang][] and then run the following command:
 
-```sh
+```sh {copy=true}
 CGO_ENABLED=1 go install -tags extended,withdeploy github.com/gohugoio/hugo@latest
 ```
 
