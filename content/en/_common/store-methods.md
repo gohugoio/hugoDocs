@@ -1,81 +1,24 @@
 ---
-# Do not remove front matter.
+_comment: Do not remove front matter.
 ---
-
-## Methods
-
-Use these methods on the data structure.
 
 `Set`
 : Sets the value of the given key.
 
-  ```go-html-template
-  {{ .Store.Set "greeting" "Hello" }}
-  ```
-
 `Get`
-: (`any`) Gets the value of the given key.
-
-  ```go-html-template
-  {{ .Store.Set "greeting" "Hello" }}
-  {{ .Store.Get "greeting" }} → Hello
-  ```
+: (`any`) Returns the value of the given key.
 
 `Add`
-: Adds the given value to the existing value(s) of the given key.
-
-  For single values, `Add` accepts values that support Go's `+` operator. If the first `Add` for a key is an array or slice, the following adds will be appended to that list.
-
-  ```go-html-template
-  {{ .Store.Set "greeting" "Hello" }}
-  {{ .Store.Add "greeting" "Welcome" }}
-  {{ .Store.Get "greeting" }} → HelloWelcome
-  ```
-
-  ```go-html-template
-  {{ .Store.Set "total" 3 }}
-  {{ .Store.Add "total" 7 }}
-  {{ .Store.Get "total" }} → 10
-  ```
-
-  ```go-html-template
-  {{ .Store.Set "greetings" (slice "Hello") }}
-  {{ .Store.Add "greetings" (slice "Welcome" "Cheers") }}
-  {{ .Store.Get "greetings" }} → [Hello Welcome Cheers]
-  ```
+: Adds the given value to the existing value of the given key. If the existing value is a slice, `Add` appends the given value to the slice. Otherwise, `Add` combines the values with Go's `+` operator, such as adding two numbers or joining two strings. If the key does not exist, `Add` sets the value of the key.
 
 `SetInMap`
-: Takes a `key`, `mapKey` and `value` and adds a map of `mapKey` and `value` to the given `key`.
-
-  ```go-html-template
-  {{ .Store.SetInMap "greetings" "english" "Hello" }}
-  {{ .Store.SetInMap "greetings" "french" "Bonjour" }}
-  {{ .Store.Get "greetings" }} → map[english:Hello french:Bonjour]
-  ```
+: Takes a key, a map key, and a value, and sets the value of the map key within the map stored under the given key.
 
 `DeleteInMap`
-: Takes a `key` and `mapKey` and removes the map of `mapKey` from the given `key`.
-
-  ```go-html-template
-  {{ .Store.SetInMap "greetings" "english" "Hello" }}
-  {{ .Store.SetInMap "greetings" "french" "Bonjour" }}
-  {{ .Store.DeleteInMap "greetings" "english" }}
-  {{ .Store.Get "greetings" }} → map[french:Bonjour]
-  ```
+: Takes a key and a map key, and removes the map key from the map stored under the given key.
 
 `GetSortedMapValues`
-: (`[]any`) Returns an array of values from `key` sorted by `mapKey`.
-
-  ```go-html-template
-  {{ .Store.SetInMap "greetings" "english" "Hello" }}
-  {{ .Store.SetInMap "greetings" "french" "Bonjour" }}
-  {{ .Store.GetSortedMapValues "greetings" }} → [Hello Bonjour]
-  ```
+: (`[]any`) Returns the values of the map stored under the given key, sorted by map key.
 
 `Delete`
 : Removes the given key.
-
-  ```go-html-template
-  {{ .Store.Set "greeting" "Hello" }}
-  {{ .Store.Delete "greeting" }}
-  ```
