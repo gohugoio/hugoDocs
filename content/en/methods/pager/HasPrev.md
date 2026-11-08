@@ -1,7 +1,6 @@
 ---
 title: HasPrev
 description: Reports whether there is a pager before the current pager.
-categories: []
 keywords: []
 params:
   functions_and_methods:

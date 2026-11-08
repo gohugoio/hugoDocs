@@ -1,7 +1,6 @@
 ---
 title: math.Counter
 description: Returns a global counter value, incrementing it each time the function is called.
-categories: []
 keywords: []
 params:
   functions_and_methods:

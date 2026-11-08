@@ -1,7 +1,6 @@
 ---
 title: safe.CSS
 description: Returns the given string declared as safe CSS.
-categories: []
 keywords: []
 params:
   functions_and_methods:

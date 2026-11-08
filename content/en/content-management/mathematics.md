@@ -2,7 +2,6 @@
 title: Mathematics in Markdown
 linkTitle: Mathematics
 description: Include mathematical equations and expressions in Markdown using LaTeX markup.
-categories: []
 keywords: []
 ---
 

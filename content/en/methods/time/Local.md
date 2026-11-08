@@ -1,7 +1,6 @@
 ---
 title: Local
 description: Returns the given time.Time value with the location set to local time.
-categories: []
 keywords: []
 params:
   functions_and_methods:

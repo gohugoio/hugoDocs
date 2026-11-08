@@ -1,7 +1,6 @@
 ---
 title: Eq
 description: Reports whether two Page objects are equal.
-categories: []
 keywords: []
 params:
   functions_and_methods:

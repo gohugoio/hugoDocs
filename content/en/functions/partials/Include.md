@@ -1,7 +1,6 @@
 ---
 title: partials.Include
 description: Returns the result of executing the given partial template, optionally passing context.
-categories: []
 keywords: []
 params:
   functions_and_methods:

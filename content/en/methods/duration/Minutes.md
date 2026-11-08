@@ -1,7 +1,6 @@
 ---
 title: Minutes
 description: Returns the time.Duration value as a floating point number of minutes.
-categories: []
 keywords: []
 params:
   functions_and_methods:

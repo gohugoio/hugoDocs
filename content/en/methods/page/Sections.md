@@ -1,7 +1,6 @@
 ---
 title: Sections
 description: Returns a collection of section pages, one for each immediate descendant section of the given page.
-categories: []
 keywords: []
 params:
   functions_and_methods:

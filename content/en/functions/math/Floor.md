@@ -1,7 +1,6 @@
 ---
 title: math.Floor
 description: Returns the greatest integer value less than or equal to the given number.
-categories: []
 keywords: []
 params:
   functions_and_methods:

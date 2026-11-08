@@ -1,7 +1,6 @@
 ---
 title: Path
 description: Returns the logical path of the given page.
-categories: []
 keywords: []
 params:
   functions_and_methods:

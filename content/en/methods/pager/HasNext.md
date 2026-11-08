@@ -1,7 +1,6 @@
 ---
 title: HasNext
 description: Reports whether there is a pager after the current pager.
-categories: []
 keywords: []
 params:
   functions_and_methods:

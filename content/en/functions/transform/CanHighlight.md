@@ -1,7 +1,6 @@
 ---
 title: transform.CanHighlight
 description: Reports whether the given language is supported for syntax highlighting.
-categories: []
 keywords: [highlight]
 params:
   functions_and_methods:

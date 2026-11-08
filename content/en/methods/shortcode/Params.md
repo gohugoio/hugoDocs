@@ -1,7 +1,6 @@
 ---
 title: Params
 description: Returns a collection of the shortcode arguments.
-categories: []
 keywords: []
 params:
   functions_and_methods:

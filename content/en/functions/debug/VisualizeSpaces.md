@@ -1,7 +1,6 @@
 ---
 title: debug.VisualizeSpaces
 description: Returns the given string with spaces and other whitespace characters replaced by visible placeholders.
-categories: []
 keywords: []
 params:
   functions_and_methods:

@@ -1,7 +1,6 @@
 ---
 title: IsNamedParams
 description: Reports whether the shortcode call uses named arguments.
-categories: []
 keywords: []
 params:
   functions_and_methods:

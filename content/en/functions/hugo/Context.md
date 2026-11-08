@@ -1,7 +1,6 @@
 ---
 title: hugo.Context
 description: Returns a Context object that provides access to values that depend on how Hugo is rendering the current content.
-categories: []
 keywords: []
 params:
   functions_and_methods:

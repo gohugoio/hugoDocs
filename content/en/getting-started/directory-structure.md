@@ -1,7 +1,6 @@
 ---
 title: Directory structure
 description: An overview of Hugo's directory structure.
-categories: []
 keywords: []
 weight: 30
 ---

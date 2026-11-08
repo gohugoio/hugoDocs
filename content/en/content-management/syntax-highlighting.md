@@ -1,7 +1,6 @@
 ---
 title: Syntax highlighting
 description: Add syntax highlighting to code examples.
-categories: []
 keywords: [highlight]
 ---
 

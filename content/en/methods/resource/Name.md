@@ -1,7 +1,6 @@
 ---
 title: Name
 description: Returns the name of the given resource as optionally defined in front matter, falling back to its file path.
-categories: []
 keywords: []
 params:
   functions_and_methods:

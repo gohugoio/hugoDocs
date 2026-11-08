@@ -1,7 +1,6 @@
 ---
 title: Truncate
 description: Returns the result of rounding DURATION1 toward zero to a multiple of DURATION2.
-categories: []
 keywords: []
 params:
   functions_and_methods:

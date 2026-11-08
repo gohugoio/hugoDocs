@@ -2,7 +2,6 @@
 title: Configure output formats
 linkTitle: Output formats
 description: Configure output formats.
-categories: []
 keywords: []
 ---
 

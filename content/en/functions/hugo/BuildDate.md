@@ -1,7 +1,6 @@
 ---
 title: hugo.BuildDate
 description: Returns the compile date of the Hugo binary.
-categories: []
 keywords: []
 params:
   functions_and_methods:

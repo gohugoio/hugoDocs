@@ -1,7 +1,6 @@
 ---
 title: AllPages
 description: Returns a collection of all pages in all languages.
-categories: []
 keywords: []
 params:
   functions_and_methods:

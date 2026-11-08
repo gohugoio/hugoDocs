@@ -1,7 +1,6 @@
 ---
 title: Translations
 description: Returns all translations of the given page, excluding the current language, sorted by language weight then language name.
-categories: []
 keywords: []
 params:
   functions_and_methods:

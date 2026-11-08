@@ -1,7 +1,6 @@
 ---
 title: urls.PathUnescape
 description: Returns the given string, replacing all percent-encoded sequences with the corresponding unescaped characters.
-categories: []
 keywords: []
 params:
   functions_and_methods:

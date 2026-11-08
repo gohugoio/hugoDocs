@@ -2,7 +2,6 @@
 title: Configure languages
 linkTitle: Languages
 description: Configure the languages in your multilingual project.
-categories: []
 keywords: []
 ---
 

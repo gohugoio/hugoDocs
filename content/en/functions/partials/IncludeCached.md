@@ -1,7 +1,6 @@
 ---
 title: partials.IncludeCached
 description: Returns the cached result of executing the given partial template, optionally passing one or more variant keys.
-categories: []
 keywords: []
 params:
   functions_and_methods:

@@ -1,7 +1,6 @@
 ---
 title: FrameCount
 description: Returns the number of frames in the given image resource.
-categories: []
 keywords: []
 params:
   functions_and_methods:

@@ -1,7 +1,6 @@
 ---
 title: HasShortcode
 description: Reports whether the given shortcode is called by the given page.
-categories: []
 keywords: []
 params:
   functions_and_methods:

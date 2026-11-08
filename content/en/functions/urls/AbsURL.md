@@ -1,7 +1,6 @@
 ---
 title: urls.AbsURL
 description: Returns an absolute URL.
-categories: []
 keywords: []
 params:
   functions_and_methods:

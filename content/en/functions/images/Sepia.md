@@ -1,7 +1,6 @@
 ---
 title: images.Sepia
 description: Returns an image filter that produces a sepia-toned version of an image.
-categories: []
 keywords: []
 params:
   functions_and_methods:

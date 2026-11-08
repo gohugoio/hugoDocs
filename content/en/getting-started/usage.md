@@ -1,7 +1,6 @@
 ---
 title: Basic usage
 description: Use the command-line interface (CLI) to perform basic tasks.
-categories: []
 keywords: []
 weight: 20
 ---

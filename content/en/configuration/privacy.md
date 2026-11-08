@@ -2,7 +2,6 @@
 title: Configure privacy
 linkTitle: Privacy
 description: Configure your site to help comply with regional privacy regulations.
-categories: []
 keywords: []
 ---
 

@@ -1,7 +1,6 @@
 ---
 title: Round
 description: Returns the result of rounding DURATION1 to the nearest multiple of DURATION2.
-categories: []
 keywords: []
 params:
   functions_and_methods:

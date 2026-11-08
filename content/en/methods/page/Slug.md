@@ -1,7 +1,6 @@
 ---
 title: Slug
 description: Returns the URL slug of the given page as defined in front matter.
-categories: []
 keywords: []
 params:
   functions_and_methods:

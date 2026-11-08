@@ -1,7 +1,6 @@
 ---
 title: templates.Inner
 description: Returns the result of executing the template block enclosed by a partial decorator call, using the given context.
-categories: []
 keywords: [decorator]
 params:
   functions_and_methods:

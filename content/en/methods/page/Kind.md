@@ -1,7 +1,6 @@
 ---
 title: Kind
 description: Returns the kind of the given page.
-categories: []
 keywords: []
 params:
   functions_and_methods:

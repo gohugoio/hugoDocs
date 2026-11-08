@@ -1,7 +1,6 @@
 ---
 title: Title
 description: Returns the title of the given page.
-categories: []
 keywords: []
 params:
   functions_and_methods:

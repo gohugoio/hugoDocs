@@ -1,7 +1,6 @@
 ---
 title: template
 description: Executes the given template, optionally passing context.
-categories: []
 keywords: []
 params:
   functions_and_methods:

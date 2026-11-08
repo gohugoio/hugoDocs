@@ -1,7 +1,6 @@
 ---
 title: define
 description: Defines a template.
-categories: []
 keywords: []
 params:
   functions_and_methods:

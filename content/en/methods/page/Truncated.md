@@ -1,7 +1,6 @@
 ---
 title: Truncated
 description: Reports whether the content length exceeds the summary length.
-categories: []
 keywords: []
 params:
   functions_and_methods:

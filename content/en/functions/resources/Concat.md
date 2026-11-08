@@ -1,7 +1,6 @@
 ---
 title: resources.Concat
 description: Returns a resource created by concatenating the given slice of resources.
-categories: []
 keywords: []
 params:
   functions_and_methods:

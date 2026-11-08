@@ -1,7 +1,6 @@
 ---
 title: css.Sass
 description: Returns a resource created by transpiling the given Sass resource to CSS.
-categories: []
 keywords: []
 params:
   functions_and_methods:

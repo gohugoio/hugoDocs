@@ -1,7 +1,6 @@
 ---
 title: strings.CountWords
 description: Returns the number of words in the given string, excluding HTML tags.
-categories: []
 keywords: []
 params:
   functions_and_methods:

@@ -2,7 +2,6 @@
 title: Configure services
 linkTitle: Services
 description: Configure embedded templates.
-categories: []
 keywords: []
 ---
 

@@ -1,7 +1,6 @@
 ---
 title: Plain
 description: Returns the rendered content of the given page, removing all HTML tags.
-categories: []
 keywords: []
 params:
   functions_and_methods:

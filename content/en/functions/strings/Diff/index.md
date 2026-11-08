@@ -1,7 +1,6 @@
 ---
 title: strings.Diff
 description: Returns an anchored diff of the two given texts in the unified diff format.
-categories: []
 keywords: []
 params:
   functions_and_methods:

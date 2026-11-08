@@ -1,7 +1,6 @@
 ---
 title: URL
 description: Returns the URL of the current pager relative to the site root.
-categories: []
 keywords: []
 params:
   functions_and_methods:

@@ -1,7 +1,6 @@
 ---
 title: Deploy to Firebase
 description: Deploy your project to Firebase.
-categories: []
 keywords: []
 ---
 

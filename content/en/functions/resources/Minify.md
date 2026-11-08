@@ -1,7 +1,6 @@
 ---
 title: resources.Minify
 description: Returns a minified version of the given resource.
-categories: []
 keywords: []
 params:
   functions_and_methods:

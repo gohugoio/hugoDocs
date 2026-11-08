@@ -1,7 +1,6 @@
 ---
 title: Parent
 description: Returns the parent shortcode context in nested shortcodes.
-categories: []
 keywords: []
 params:
   functions_and_methods:

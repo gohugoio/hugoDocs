@@ -1,7 +1,6 @@
 ---
 title: Page
 description: Returns the Page object from which the shortcode was called.
-categories: []
 keywords: []
 params:
   functions_and_methods:

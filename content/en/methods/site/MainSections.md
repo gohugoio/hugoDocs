@@ -1,7 +1,6 @@
 ---
 title: MainSections
 description: Returns a slice of the main section names as defined in your project configuration, falling back to the top-level section with the most pages.
-categories: []
 keywords: []
 params:
   functions_and_methods:

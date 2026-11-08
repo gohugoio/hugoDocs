@@ -1,7 +1,6 @@
 ---
 title: Image processing
 description: Transform images to change their size, shape, and appearance.
-categories: []
 keywords: []
 ---
 

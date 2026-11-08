@@ -1,7 +1,6 @@
 ---
 title: ByWeight
 description: Returns the given page collection sorted by weight in ascending order.
-categories: []
 keywords: []
 params:
   functions_and_methods:

@@ -2,7 +2,6 @@
 title: Passthrough render hooks
 linkTitle: Passthrough
 description: Create passthrough render hook templates to override the rendering of text snippets captured by the Goldmark Passthrough extension.
-categories: []
 keywords: []
 ---
 

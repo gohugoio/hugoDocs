@@ -1,7 +1,6 @@
 ---
 title: Themes
 description: If you've built a Hugo theme and want to contribute back to the Hugo Community, please share it with us.
-categories: []
 keywords: []
 ---
 

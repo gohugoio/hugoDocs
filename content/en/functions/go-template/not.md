@@ -1,7 +1,6 @@
 ---
 title: not
 description: Returns the boolean negation of its single argument.
-categories: []
 keywords: []
 params:
   functions_and_methods:

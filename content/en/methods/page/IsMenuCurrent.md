@@ -1,7 +1,6 @@
 ---
 title: IsMenuCurrent
 description: Reports whether the given Page object matches the Page object associated with the given menu entry in the given menu.
-categories: []
 keywords: []
 params:
   functions_and_methods:

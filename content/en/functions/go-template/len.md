@@ -1,7 +1,6 @@
 ---
 title: len
 description: Returns the length of a string, slice, map, or collection.
-categories: []
 keywords: []
 params:
   functions_and_methods:

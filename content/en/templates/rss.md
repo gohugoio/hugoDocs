@@ -1,7 +1,6 @@
 ---
 title: RSS templates
 description: Use the embedded RSS template, or create your own.
-categories: []
 keywords: []
 weight: 140
 ---

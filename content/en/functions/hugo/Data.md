@@ -1,7 +1,6 @@
 ---
 title: hugo.Data
 description: Returns a data structure composed from the files in the data directory.
-categories: []
 keywords: []
 params:
   functions_and_methods:

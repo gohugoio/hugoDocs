@@ -1,7 +1,6 @@
 ---
 title: range
 description: Iterates over a non-empty collection, binds context (the dot) to successive elements, and executes the block.
-categories: []
 keywords: []
 params:
   functions_and_methods:

@@ -1,7 +1,6 @@
 ---
 title: URL management
 description: Control the structure and appearance of URLs through front matter entries and settings in your project configuration.
-categories: []
 keywords: []
 ---
 

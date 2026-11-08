@@ -1,7 +1,6 @@
 ---
 title: strings.Title
 description: Returns the given string, converting it to title case.
-categories: []
 keywords: []
 params:
   functions_and_methods:

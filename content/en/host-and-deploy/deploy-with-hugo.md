@@ -1,7 +1,6 @@
 ---
 title: Deploy with Hugo
 description: Deploy your site to a cloud storage bucket with Hugo.
-categories: []
 keywords: []
 ---
 

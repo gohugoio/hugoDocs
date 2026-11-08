@@ -2,7 +2,6 @@
 title: Configure imaging
 linkTitle: Imaging
 description: Configure imaging.
-categories: []
 keywords: []
 ---
 

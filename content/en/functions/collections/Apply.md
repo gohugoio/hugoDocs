@@ -1,7 +1,6 @@
 ---
 title: collections.Apply
 description: Returns a slice by transforming each element of the given slice using a specific function and parameters.
-categories: []
 keywords: []
 params:
   functions_and_methods:

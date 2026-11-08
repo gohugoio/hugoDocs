@@ -1,7 +1,6 @@
 ---
 title: Deploy to GitHub Pages
 description: Deploy your project to GitHub Pages.
-categories: []
 keywords: []
 ---
 

@@ -1,7 +1,6 @@
 ---
 title: collections.Last
 description: Returns the last N elements of the given slice or string.
-categories: []
 keywords: []
 params:
   functions_and_methods:

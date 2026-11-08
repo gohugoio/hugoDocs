@@ -1,7 +1,6 @@
 ---
 title: Template types
 description: Create templates of different types to render your content, resources, and data.
-categories: []
 keywords: []
 weight: 30
 ---

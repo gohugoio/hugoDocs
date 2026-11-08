@@ -1,7 +1,6 @@
 ---
 title: strings.ToUpper
 description: Returns the given string, converting all characters to uppercase.
-categories: []
 keywords: []
 params:
   functions_and_methods:

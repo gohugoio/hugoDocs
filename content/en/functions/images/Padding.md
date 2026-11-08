@@ -1,7 +1,6 @@
 ---
 title: images.Padding
 description: Returns an image filter that resizes the image canvas without resizing the image.
-categories: []
 keywords: []
 params:
   functions_and_methods:

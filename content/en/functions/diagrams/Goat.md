@@ -1,7 +1,6 @@
 ---
 title: diagrams.Goat
 description: Returns an SVGDiagram object created from the given GoAT markup.
-categories: []
 keywords: []
 params:
   functions_and_methods:

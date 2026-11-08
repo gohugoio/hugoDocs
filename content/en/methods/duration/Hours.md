@@ -1,7 +1,6 @@
 ---
 title: Hours
 description: Returns the time.Duration value as a floating point number of hours.
-categories: []
 keywords: []
 params:
   functions_and_methods:

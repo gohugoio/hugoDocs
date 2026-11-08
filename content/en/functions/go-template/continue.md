@@ -1,7 +1,6 @@
 ---
 title: continue
 description: Stops the innermost range iteration and continues with the next iteration.
-categories: []
 keywords: []
 params:
   functions_and_methods:

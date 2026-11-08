@@ -1,7 +1,6 @@
 ---
 title: css.Quoted
 description: Returns the given string, setting its data type to indicate that it must be quoted when used in CSS.
-categories: []
 keywords: []
 params:
   functions_and_methods:

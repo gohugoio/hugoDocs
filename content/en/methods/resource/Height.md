@@ -1,7 +1,6 @@
 ---
 title: Height
 description: Returns the height of the given image resource.
-categories: []
 keywords: []
 params:
   functions_and_methods:

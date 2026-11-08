@@ -1,7 +1,6 @@
 ---
 title: Page
 description: Returns the Page object of the given page.
-categories: []
 keywords: []
 params:
   functions_and_methods:

@@ -1,7 +1,6 @@
 ---
 title: TableOfContents
 description: Returns a table of contents for the given page.
-categories: []
 keywords: []
 params:
   functions_and_methods:

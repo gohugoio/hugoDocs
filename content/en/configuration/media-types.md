@@ -2,7 +2,6 @@
 title: Configure media types
 linkTitle: Media types
 description: Configure media types.
-categories: []
 keywords: []
 ---
 

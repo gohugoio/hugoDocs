@@ -1,7 +1,6 @@
 ---
 title: os.Getenv
 description: Returns the value of an environment variable, or an empty string if the environment variable is not set.
-categories: []
 keywords: []
 params:
   functions_and_methods:

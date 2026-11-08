@@ -1,7 +1,6 @@
 ---
 title: collections.Delimit
 description: Returns a string by joining the values of the given slice or map with a delimiter.
-categories: []
 keywords: []
 params:
   functions_and_methods:

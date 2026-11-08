@@ -1,7 +1,6 @@
 ---
 title: Next
 description: Returns the next pager in the pager collection.
-categories: []
 keywords: []
 params:
   functions_and_methods:

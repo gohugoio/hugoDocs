@@ -1,7 +1,6 @@
 ---
 title: Dimension
 description: Returns the dimension object for the given dimension for the given site.
-categories: []
 keywords: []
 params:
   functions_and_methods:

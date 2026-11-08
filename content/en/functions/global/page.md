@@ -1,7 +1,6 @@
 ---
 title: page
 description: Returns the Page object passed to the top-level template, accessible from any context.
-categories: []
 keywords: []
 params:
   functions_and_methods:

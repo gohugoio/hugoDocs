@@ -1,7 +1,6 @@
 ---
 title: Introduction
 description: Configure your site using files, directories, and environment variables.
-categories: []
 keywords: []
 weight: 10
 ---

@@ -1,7 +1,6 @@
 ---
 title: GroupByPublishDate
 description: Returns the given page collection grouped by publish date in descending order.
-categories: []
 keywords: []
 params:
   functions_and_methods:

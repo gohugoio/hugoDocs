@@ -1,7 +1,6 @@
 ---
 title: Paginate
 description: Returns a pager created by paginating the given collection of pages.
-categories: []
 keywords: []
 params:
   functions_and_methods:

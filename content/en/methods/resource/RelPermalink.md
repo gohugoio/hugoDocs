@@ -1,7 +1,6 @@
 ---
 title: RelPermalink
 description: Returns the relative permalink of the given resource, publishing it in the process.
-categories: []
 keywords: []
 params:
   functions_and_methods:

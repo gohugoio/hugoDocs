@@ -2,7 +2,6 @@
 title: Heading render hooks
 linkTitle: Headings
 description: Create heading render hook templates to override the rendering of Markdown headings to HTML.
-categories: []
 keywords: []
 ---
 

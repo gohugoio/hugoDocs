@@ -1,7 +1,6 @@
 ---
 title: ByPublishDate
 description: Returns the given page collection sorted by publish date in ascending order.
-categories: []
 keywords: []
 params:
   functions_and_methods:

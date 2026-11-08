@@ -1,7 +1,6 @@
 ---
 title: PageNumber
 description: Returns the current pager's number within the pager collection.
-categories: []
 keywords: []
 params:
   functions_and_methods:

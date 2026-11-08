@@ -1,7 +1,6 @@
 ---
 title: Pagination
 description: Split a list page into two or more subsets.
-categories: []
 keywords: []
 weight: 160
 ---

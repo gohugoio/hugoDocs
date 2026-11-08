@@ -1,7 +1,6 @@
 ---
 title: strings.Contains
 description: Reports whether the given string contains the given substring.
-categories: []
 keywords: []
 params:
   functions_and_methods:

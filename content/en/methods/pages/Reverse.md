@@ -1,7 +1,6 @@
 ---
 title: Reverse
 description: Returns the given page collection in reverse order.
-categories: []
 keywords: []
 params:
   functions_and_methods:

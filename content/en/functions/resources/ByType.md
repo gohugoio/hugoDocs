@@ -1,7 +1,6 @@
 ---
 title: resources.ByType
 description: Returns a collection of global resources of the given media type, or nil if none found.
-categories: []
 keywords: []
 params:
   functions_and_methods:

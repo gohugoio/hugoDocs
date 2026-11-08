@@ -1,7 +1,6 @@
 ---
 title: strings.Repeat
 description: Returns the given string repeated the given number of times.
-categories: []
 keywords: []
 params:
   functions_and_methods:

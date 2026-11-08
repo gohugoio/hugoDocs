@@ -1,7 +1,6 @@
 ---
 title: IsPage
 description: Reports whether the given page is a regular page.
-categories: []
 keywords: []
 params:
   functions_and_methods:

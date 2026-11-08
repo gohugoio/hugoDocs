@@ -2,7 +2,6 @@
 title: Hugo Pipes
 linkTitle: Introduction
 description: Hugo Pipes is Hugo's asset processing set of functions.
-categories: []
 keywords: []
 weight: 10
 ---

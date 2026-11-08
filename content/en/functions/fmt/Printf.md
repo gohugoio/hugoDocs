@@ -1,7 +1,6 @@
 ---
 title: fmt.Printf
 description: Returns a string formatted according to the given format string.
-categories: []
 keywords: []
 params:
   functions_and_methods:

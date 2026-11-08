@@ -1,7 +1,6 @@
 ---
 title: Markdown attributes
 description: Use Markdown attributes to add HTML attributes when rendering Markdown to HTML.
-categories: []
 keywords: []
 ---
 

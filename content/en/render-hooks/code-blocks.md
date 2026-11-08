@@ -2,7 +2,6 @@
 title: Code block render hooks
 linkTitle: Code blocks
 description: Create code block render hook templates to override the rendering of Markdown code blocks to HTML.
-categories: []
 keywords: []
 ---
 

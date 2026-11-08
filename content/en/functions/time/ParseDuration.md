@@ -1,7 +1,6 @@
 ---
 title: time.ParseDuration
 description: Returns a time.Duration value by parsing the given duration string.
-categories: []
 keywords: []
 params:
   functions_and_methods:

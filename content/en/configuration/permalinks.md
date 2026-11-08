@@ -2,7 +2,6 @@
 title: Configure permalinks
 linkTitle: Permalinks
 description: Configure permalinks.
-categories: []
 keywords: []
 ---
 

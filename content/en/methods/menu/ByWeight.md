@@ -1,7 +1,6 @@
 ---
 title: ByWeight
 description: Returns the given menu with its entries sorted by weight, then by name, then by identifier.
-categories: []
 keywords: []
 params:
   functions_and_methods:

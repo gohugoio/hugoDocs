@@ -1,7 +1,6 @@
 ---
 title: ByCount
 description: Returns an ordered taxonomy, sorted by the number of pages associated with each term.
-categories: []
 keywords: []
 params:
   functions_and_methods:

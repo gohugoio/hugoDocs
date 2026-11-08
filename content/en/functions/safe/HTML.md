@@ -1,7 +1,6 @@
 ---
 title: safe.HTML
 description: Returns the given string declared as safe HTML.
-categories: []
 keywords: []
 params:
   functions_and_methods:

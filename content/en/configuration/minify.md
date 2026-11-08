@@ -2,7 +2,6 @@
 title: Configure minify
 linkTitle: Minify
 description: Configure minify.
-categories: []
 keywords: []
 ---
 

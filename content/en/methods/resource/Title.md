@@ -1,7 +1,6 @@
 ---
 title: Title
 description: Returns the title of the given resource as optionally defined in front matter, falling back to a relative path or hashed file name depending on resource type.
-categories: []
 keywords: []
 params:
   functions_and_methods:

@@ -1,7 +1,6 @@
 ---
 title: Colors
 description: Returns a slice of an image's most dominant colors, ordered from most to least dominant, using a simple histogram method.
-categories: []
 keywords: []
 params:
   functions_and_methods:

@@ -1,7 +1,6 @@
 ---
 title: Layout
 description: Returns the layout of the given page as defined in front matter.
-categories: []
 keywords: []
 params:
   functions_and_methods:

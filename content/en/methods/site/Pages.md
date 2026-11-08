@@ -1,7 +1,6 @@
 ---
 title: Pages
 description: Returns a collection of all pages.
-categories: []
 keywords: []
 params:
   functions_and_methods:

@@ -1,7 +1,6 @@
 ---
 title: Shortcode templates
 description: Create custom shortcodes to simplify and standardize content creation.
-categories: []
 keywords: []
 weight: 120
 ---

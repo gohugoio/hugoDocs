@@ -1,7 +1,6 @@
 ---
 title: transform.ToMath
 description: Returns the given mathematical markup, written in the LaTeX language, rendered to HTML.
-categories: []
 keywords: []
 params:
   functions_and_methods:

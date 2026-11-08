@@ -1,7 +1,6 @@
 ---
 title: reflect.IsImageResource
 description: Reports whether the given value is a Resource object representing an image as defined by its media type.
-categories: []
 keywords: []
 params:
   functions_and_methods:

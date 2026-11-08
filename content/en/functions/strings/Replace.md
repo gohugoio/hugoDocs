@@ -1,7 +1,6 @@
 ---
 title: strings.Replace
 description: Returns the given string, replacing all occurrences of OLD with NEW.
-categories: []
 keywords: []
 params:
   functions_and_methods:

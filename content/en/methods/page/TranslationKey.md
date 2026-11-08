@@ -1,7 +1,6 @@
 ---
 title: TranslationKey
 description: Returns the translation key of the given page.
-categories: []
 keywords: []
 params:
   functions_and_methods:

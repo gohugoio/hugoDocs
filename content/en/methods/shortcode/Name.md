@@ -1,7 +1,6 @@
 ---
 title: Name
 description: Returns the shortcode file name, excluding the file extension.
-categories: []
 keywords: []
 params:
   functions_and_methods:

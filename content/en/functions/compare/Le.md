@@ -1,7 +1,6 @@
 ---
 title: compare.Le
 description: Reports whether the first argument is less than or equal to all of the subsequent arguments.
-categories: []
 keywords: []
 params:
   functions_and_methods:

@@ -1,7 +1,6 @@
 ---
 title: hugo.GoVersion
 description: Returns the Go version used to compile the Hugo binary.
-categories: []
 keywords: []
 params:
   functions_and_methods:

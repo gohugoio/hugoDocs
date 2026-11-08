@@ -1,7 +1,6 @@
 ---
 title: else
 description: Begins an alternate block for if, with, and range statements.
-categories: []
 keywords: []
 params:
   functions_and_methods:

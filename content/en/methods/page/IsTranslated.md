@@ -1,7 +1,6 @@
 ---
 title: IsTranslated
 description: Reports whether the given page has one or more translations.
-categories: []
 keywords: []
 params:
   functions_and_methods:

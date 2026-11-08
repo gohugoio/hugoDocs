@@ -2,7 +2,6 @@
 title: X shortcode
 linkTitle: X
 description: Embed an X post in your content using the x shortcode.
-categories: []
 keywords: []
 ---
 

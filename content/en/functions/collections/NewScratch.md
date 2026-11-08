@@ -1,7 +1,6 @@
 ---
 title: collections.NewScratch
 description: Returns a locally scoped persistent data structure for storing and manipulating keyed values.
-categories: []
 keywords: []
 params:
   functions_and_methods:

@@ -1,7 +1,6 @@
 ---
 title: math.Div
 description: Returns the result of dividing the first number by one or more numbers.
-categories: []
 keywords: []
 params:
   functions_and_methods:

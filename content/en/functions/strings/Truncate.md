@@ -1,7 +1,6 @@
 ---
 title: strings.Truncate
 description: Returns the given string, truncating it to a maximum length without cutting words or leaving unclosed HTML tags.
-categories: []
 keywords: []
 params:
   functions_and_methods:

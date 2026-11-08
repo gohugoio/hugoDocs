@@ -1,7 +1,6 @@
 ---
 title: transform.HTMLEscape
 description: Returns the given string, escaping special characters by replacing them with HTML entities.
-categories: []
 keywords: []
 params:
   functions_and_methods:

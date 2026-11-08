@@ -1,7 +1,6 @@
 ---
 title: transform.Remarshal
 description: Returns a string of serialized data in the specified format, marshaled from a string of serialized data or a map.
-categories: []
 keywords: []
 params:
   functions_and_methods:

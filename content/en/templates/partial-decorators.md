@@ -1,7 +1,6 @@
 ---
 title: Partial decorators
 description: Use partial decorators to create reusable wrapper components that enclose and compose template content.
-categories: []
 keywords: [decorator]
 weight: 170
 ---

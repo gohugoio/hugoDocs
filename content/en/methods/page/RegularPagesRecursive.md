@@ -1,7 +1,6 @@
 ---
 title: RegularPagesRecursive
 description: Returns a collection of regular pages within the current section, and regular pages within all descendant sections.
-categories: []
 keywords: []
 params:
   functions_and_methods:

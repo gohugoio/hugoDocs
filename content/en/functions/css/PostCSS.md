@@ -1,7 +1,6 @@
 ---
 title: css.PostCSS
 description: Returns a resource created by processing the given CSS resource with PostCSS.
-categories: []
 keywords: []
 params:
   functions_and_methods:

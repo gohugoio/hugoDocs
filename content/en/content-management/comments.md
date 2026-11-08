@@ -1,7 +1,6 @@
 ---
 title: Comments
 description: Hugo ships with an embedded Disqus partial, but this isn't the only commenting system that will work with your new Hugo website.
-categories: []
 keywords: []
 ---
 

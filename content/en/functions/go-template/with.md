@@ -1,7 +1,6 @@
 ---
 title: with
 description: Binds context (the dot) to the expression and executes the block if expression is truthy.
-categories: []
 keywords: []
 params:
   functions_and_methods:

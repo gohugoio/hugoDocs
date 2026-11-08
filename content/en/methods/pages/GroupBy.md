@@ -1,7 +1,6 @@
 ---
 title: GroupBy
 description: Returns the given page collection grouped by the given field in ascending order.
-categories: []
 keywords: []
 params:
   functions_and_methods:

@@ -1,7 +1,6 @@
 ---
 title: TotalPages
 description: Returns the number of pagers in the pager collection.
-categories: []
 keywords: []
 params:
   functions_and_methods:

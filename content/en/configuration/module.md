@@ -2,7 +2,6 @@
 title: Configure modules
 linkTitle: Modules
 description: Configure modules.
-categories: []
 keywords: []
 ---
 

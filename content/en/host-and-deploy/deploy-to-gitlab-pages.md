@@ -1,7 +1,6 @@
 ---
 title: Deploy to GitLab Pages
 description: Deploy your project to GitLab Pages.
-categories: []
 keywords: []
 ---
 

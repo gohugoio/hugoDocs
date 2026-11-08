@@ -1,7 +1,6 @@
 ---
 title: Taxonomies
 description: Hugo includes support for user-defined taxonomies.
-categories: []
 keywords: []
 ---
 

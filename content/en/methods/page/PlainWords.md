@@ -1,7 +1,6 @@
 ---
 title: PlainWords
 description: Returns a slice of words created by calling the Plain method and splitting the result.
-categories: []
 keywords: []
 params:
   functions_and_methods:

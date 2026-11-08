@@ -1,7 +1,6 @@
 ---
 title: collections.Group
 description: Returns a map by grouping the given page collection (slice) by a specific key.
-categories: []
 keywords: []
 params:
   functions_and_methods:

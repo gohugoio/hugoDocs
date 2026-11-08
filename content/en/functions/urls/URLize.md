@@ -1,7 +1,6 @@
 ---
 title: urls.URLize
 description: Returns the given string, sanitized for usage in a URL.
-categories: []
 keywords: []
 params:
   functions_and_methods:

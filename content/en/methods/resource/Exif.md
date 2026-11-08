@@ -1,7 +1,6 @@
 ---
 title: Exif
 description: Returns an object containing Exif metadata for supported image formats.
-categories: []
 keywords: [metadata]
 params:
   functions_and_methods:

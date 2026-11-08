@@ -1,7 +1,6 @@
 ---
 title: images.Saturation
 description: Returns an image filter that changes the saturation of an image.
-categories: []
 keywords: []
 params:
   functions_and_methods:

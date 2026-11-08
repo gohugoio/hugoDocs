@@ -1,7 +1,6 @@
 ---
 title: IndexOf
 description: Returns the zero-based index of the given page within the given page collection.
-categories: []
 keywords: []
 params:
   functions_and_methods:

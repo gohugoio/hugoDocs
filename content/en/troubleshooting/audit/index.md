@@ -2,7 +2,6 @@
 title: Site audit
 linkTitle: Audit
 description: Run this audit before deploying your production site.
-categories: []
 keywords: []
 ---
 

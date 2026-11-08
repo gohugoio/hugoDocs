@@ -1,7 +1,6 @@
 ---
 title: cast.ToFloat
 description: Returns the given value converted to a decimal floating-point number (base 10).
-categories: []
 keywords: []
 params:
   functions_and_methods:

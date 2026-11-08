@@ -1,7 +1,6 @@
 ---
 title: Aliases
 description: Returns the aliases defined in front matter as server-relative URLs, resolved according to the current content dimension.
-categories: []
 keywords: []
 params:
   functions_and_methods:

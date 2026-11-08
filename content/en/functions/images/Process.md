@@ -1,7 +1,6 @@
 ---
 title: images.Process
 description: Returns an image filter that processes an image according to the given processing specification.
-categories: []
 keywords: [process]
 params:
   functions_and_methods:

@@ -1,7 +1,6 @@
 ---
 title: math.Asin
 description: Returns the arcsine, in radians, of the given number.
-categories: []
 keywords: []
 params:
   functions_and_methods:

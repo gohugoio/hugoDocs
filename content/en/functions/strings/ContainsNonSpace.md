@@ -1,7 +1,6 @@
 ---
 title: strings.ContainsNonSpace
 description: Reports whether the given string contains any non-space characters as defined by Unicode.
-categories: []
 keywords: []
 params:
   functions_and_methods:

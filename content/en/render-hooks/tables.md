@@ -2,7 +2,6 @@
 title: Table render hooks
 linkTitle: Tables
 description: Create table render hook templates to override the rendering of Markdown tables to HTML.
-categories: []
 keywords: []
 ---
 

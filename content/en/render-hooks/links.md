@@ -2,7 +2,6 @@
 title: Link render hooks
 linkTitle: Links
 description: Create a link render hook to override the rendering of Markdown links to HTML.
-categories: []
 keywords: []
 ---
 

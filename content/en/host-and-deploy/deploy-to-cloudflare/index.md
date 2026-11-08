@@ -1,7 +1,6 @@
 ---
 title: Deploy to Cloudflare
 description: Deploy your project to Cloudflare.
-categories: []
 keywords: []
 ---
 

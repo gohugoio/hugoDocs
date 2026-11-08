@@ -1,7 +1,6 @@
 ---
 title: TotalNumberOfElements
 description: Returns the number of pages in the pager collection.
-categories: []
 keywords: []
 params:
   functions_and_methods:

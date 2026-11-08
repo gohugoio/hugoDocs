@@ -1,7 +1,6 @@
 ---
 title: LinkTitle
 description: Returns the link title of the given page.
-categories: []
 keywords: []
 params:
   functions_and_methods:

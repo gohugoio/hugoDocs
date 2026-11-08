@@ -1,7 +1,6 @@
 ---
 title: Keywords
 description: Returns a slice of keywords as defined in front matter.
-categories: []
 keywords: []
 params:
   functions_and_methods:

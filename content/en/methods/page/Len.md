@@ -1,7 +1,6 @@
 ---
 title: Len
 description: Returns the length, in bytes, of the rendered content of the given page.
-categories: []
 keywords: []
 params:
   functions_and_methods:

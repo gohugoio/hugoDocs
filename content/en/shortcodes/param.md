@@ -2,7 +2,6 @@
 title: Param shortcode
 linkTitle: Param
 description: Insert a parameter from front matter or your project configuration into your content using the param shortcode.
-categories: []
 keywords: []
 ---
 

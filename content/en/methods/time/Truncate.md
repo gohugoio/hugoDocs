@@ -1,7 +1,6 @@
 ---
 title: Truncate
 description: Returns the result of rounding TIME down to a multiple of DURATION since January 1, 0001, 00:00:00 UTC.
-categories: []
 keywords: []
 params:
   functions_and_methods:

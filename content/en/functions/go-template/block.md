@@ -1,7 +1,6 @@
 ---
 title: block
 description: Defines a template and executes it in place.
-categories: []
 keywords: []
 params:
   functions_and_methods:

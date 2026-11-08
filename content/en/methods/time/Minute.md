@@ -1,7 +1,6 @@
 ---
 title: Minute
 description: Returns the minute offset within the hour of the given time.Time value, in the range [0, 59].
-categories: []
 keywords: []
 params:
   functions_and_methods:

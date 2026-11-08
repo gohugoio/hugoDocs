@@ -2,7 +2,6 @@
 title: Configure related content
 linkTitle: Related content
 description: Configure related content.
-categories: []
 keywords: []
 ---
 

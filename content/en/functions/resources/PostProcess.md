@@ -1,7 +1,6 @@
 ---
 title: resources.PostProcess
 description: Returns a resource that is processed after the build.
-categories: []
 keywords: []
 params:
   functions_and_methods:

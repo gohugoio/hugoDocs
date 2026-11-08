@@ -1,7 +1,6 @@
 ---
 title: resources.Match
 description: Returns a collection of global resources from paths matching the given glob pattern, or nil if none found.
-categories: []
 keywords: []
 params:
   functions_and_methods:

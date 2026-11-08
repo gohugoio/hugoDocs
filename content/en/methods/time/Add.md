@@ -1,7 +1,6 @@
 ---
 title: Add
 description: Returns the given time plus the given duration.
-categories: []
 keywords: []
 params:
   functions_and_methods:

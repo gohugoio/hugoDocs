@@ -1,7 +1,6 @@
 ---
 title: strings.TrimSpace
 description: Returns the given string, removing leading and trailing whitespace as defined by Unicode.
-categories: []
 keywords: []
 params:
   functions_and_methods:

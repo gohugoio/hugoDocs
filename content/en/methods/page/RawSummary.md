@@ -1,7 +1,6 @@
 ---
 title: RawSummary
 description: Returns the summary of the given page as defined in front matter, without rendering Markdown.
-categories: []
 keywords: []
 params:
   functions_and_methods:

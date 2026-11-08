@@ -2,7 +2,6 @@
 title: Template lookup order
 linkTitle: Lookup order
 description: Learn how Hugo selects a template based on file names and directory structure.
-categories: []
 keywords: []
 weight: 20
 ---

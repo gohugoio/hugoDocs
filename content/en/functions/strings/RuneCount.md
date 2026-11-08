@@ -1,7 +1,6 @@
 ---
 title: strings.RuneCount
 description: Returns the number of runes in the given string, including whitespace and HTML tags.
-categories: []
 keywords: []
 params:
   functions_and_methods:

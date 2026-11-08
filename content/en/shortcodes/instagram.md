@@ -2,7 +2,6 @@
 title: Instagram shortcode
 linkTitle: Instagram
 description: Embed an Instagram post in your content using the instagram shortcode.
-categories: []
 keywords: []
 ---
 

@@ -1,7 +1,6 @@
 ---
 title: GroupByLastmod
 description: Returns the given page collection grouped by last modification date in descending order.
-categories: []
 keywords: []
 params:
   functions_and_methods:

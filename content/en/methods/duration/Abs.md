@@ -1,7 +1,6 @@
 ---
 title: Abs
 description: Returns the absolute value of the given time.Duration value.
-categories: []
 keywords: []
 params:
   functions_and_methods:

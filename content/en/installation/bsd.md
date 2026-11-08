@@ -1,7 +1,6 @@
 ---
 title: BSD
 description: Install Hugo on BSD derivatives.
-categories: []
 keywords: []
 weight: 40
 ---

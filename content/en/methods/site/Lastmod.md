@@ -1,7 +1,6 @@
 ---
 title: Lastmod
 description: Returns the last modification date of site content.
-categories: []
 keywords: []
 params:
   functions_and_methods:

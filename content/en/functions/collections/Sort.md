@@ -1,7 +1,6 @@
 ---
 title: collections.Sort
 description: Returns a sorted map or slice by reordering the given collection by a key and order.
-categories: []
 keywords: []
 params:
   functions_and_methods:

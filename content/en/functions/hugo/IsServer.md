@@ -1,7 +1,6 @@
 ---
 title: hugo.IsServer
 description: Reports whether the built-in development server is running.
-categories: []
 keywords: []
 params:
   functions_and_methods:

@@ -1,7 +1,6 @@
 ---
 title: math.Sqrt
 description: Returns the square root of the given number.
-categories: []
 keywords: []
 params:
   functions_and_methods:

@@ -1,7 +1,6 @@
 ---
 title: ByLastmod
 description: Returns the given page collection sorted by last modification date in ascending order.
-categories: []
 keywords: []
 params:
   functions_and_methods:

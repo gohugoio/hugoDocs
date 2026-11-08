@@ -1,7 +1,6 @@
 ---
 title: Children
 description: Returns a collection of child menu entries, if any, under the given menu entry.
-categories: []
 keywords: []
 params:
   functions_and_methods:

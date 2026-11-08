@@ -1,7 +1,6 @@
 ---
 title: lang.FormatNumber
 description: Returns a numeric representation of a number with the given precision for the current language and region.
-categories: []
 keywords: []
 params:
   functions_and_methods:

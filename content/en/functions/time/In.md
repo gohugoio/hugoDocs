@@ -1,7 +1,6 @@
 ---
 title: time.In
 description: Returns the given date/time as represented in the specified IANA time zone.
-categories: []
 keywords: []
 params:
   functions_and_methods:

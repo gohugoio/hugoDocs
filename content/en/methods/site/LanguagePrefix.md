@@ -1,7 +1,6 @@
 ---
 title: LanguagePrefix
 description: Returns the URL language prefix, if any, for the given site.
-categories: []
 keywords: []
 params:
   functions_and_methods:

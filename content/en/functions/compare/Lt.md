@@ -1,7 +1,6 @@
 ---
 title: compare.Lt
 description: Reports whether the first argument is less than all of the subsequent arguments.
-categories: []
 keywords: []
 params:
   functions_and_methods:

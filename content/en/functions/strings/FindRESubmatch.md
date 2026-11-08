@@ -1,7 +1,6 @@
 ---
 title: strings.FindRESubmatch
 description: Returns a slice of all successive matches of the regular expression and its subexpressions.
-categories: []
 keywords: []
 params:
   functions_and_methods:

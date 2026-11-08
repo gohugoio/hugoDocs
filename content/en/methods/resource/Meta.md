@@ -1,7 +1,6 @@
 ---
 title: Meta
 description: Returns an image's Exif, IPTC, and XMP metadata, if the format supports it.
-categories: []
 keywords: [metadata]
 params:
   functions_and_methods:

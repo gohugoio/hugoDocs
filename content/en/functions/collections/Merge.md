@@ -1,7 +1,6 @@
 ---
 title: collections.Merge
 description: Returns a map by combining two or more given maps.
-categories: []
 keywords: []
 params:
   functions_and_methods:

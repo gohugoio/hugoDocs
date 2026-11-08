@@ -2,7 +2,6 @@
 title: Configure deployment
 linkTitle: Deployment
 description: Configure deployments to Amazon S3, Azure Blob Storage, or Google Cloud Storage.
-categories: []
 keywords: []
 ---
 

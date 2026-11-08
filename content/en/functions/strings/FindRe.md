@@ -1,7 +1,6 @@
 ---
 title: strings.FindRE
 description: Returns a slice of strings that match the regular expression.
-categories: []
 keywords: []
 params:
   functions_and_methods:

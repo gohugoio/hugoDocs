@@ -1,7 +1,6 @@
 ---
 title: hugo.Sites
 description: Returns a collection of all sites for all dimensions.
-categories: []
 keywords: []
 params:
   functions_and_methods:

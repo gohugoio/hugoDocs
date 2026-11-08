@@ -1,7 +1,6 @@
 ---
 title: templates.Current
 description: Returns information about the currently executing template.
-categories: []
 keywords: []
 params:
   functions_and_methods:

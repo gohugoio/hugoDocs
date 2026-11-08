@@ -1,7 +1,6 @@
 ---
 title: Deploy to AWS Amplify
 description: Deploy your project to AWS Amplify.
-categories: []
 keywords: []
 ---
 

@@ -1,7 +1,6 @@
 ---
 title: crypto.HMAC
 description: Returns a cryptographic hash that uses a key to sign a message.
-categories: []
 keywords: []
 params:
   functions_and_methods:

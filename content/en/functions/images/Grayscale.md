@@ -1,7 +1,6 @@
 ---
 title: images.Grayscale
 description: Returns an image filter that produces a grayscale version of an image.
-categories: []
 keywords: []
 params:
   functions_and_methods:

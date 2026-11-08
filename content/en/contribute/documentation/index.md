@@ -1,7 +1,6 @@
 ---
 title: Documentation
 description: Help us to improve the documentation by identifying issues and suggesting changes.
-categories: []
 keywords: []
 ---
 
@@ -292,12 +291,11 @@ Do not italicize the template type in a title, heading, or front matter descript
 
 This site uses the front matter fields listed in the table below.
 
-Of the four required fields, only `title` and `description` require data.
+Of the three required fields, only `title` and `description` require data.
 
 {{< code-toggle file=content/example.md fm=true >}}
 title: The title
 description: The description
-categories: []
 keywords: []
 {{< /code-toggle >}}
 
@@ -308,8 +306,7 @@ Field|Description|Required
 `title`|The page title|:heavy_check_mark:
 `linkTitle`|A short version of the page title|&nbsp;
 `description`|A complete sentence describing the page|:heavy_check_mark:
-`categories`|An array of terms in the categories taxonomy|:heavy_check_mark: [^1]
-`keywords`|An array of keywords used to identify related content|:heavy_check_mark: [^1]
+`keywords`|An array of keywords used to identify related content|:heavy_check_mark:
 `publishDate`|Applicable to news items: the publication date|&nbsp;
 `params.alt_title`|An alternate title: used in the "see also" panel if provided|&nbsp;
 `params.functions_and_methods.aliases`|Applicable to function and method pages: an array of alias names|&nbsp;
@@ -888,8 +885,6 @@ Step 8
 
 Step 9
 : A project maintainer will review your PR and may request changes. You may delete your branch after the maintainer merges your PR.
-
-[^1]: The field is required, but its data is not.
 
 [ATX]: https://spec.commonmark.org/current/#atx-headings
 [Glossary]: /quick-reference/glossary/

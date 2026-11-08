@@ -1,7 +1,6 @@
 ---
 title: compare.Conditional
 description: Returns one of two arguments depending on the value of the control argument.
-categories: []
 keywords: []
 params:
   functions_and_methods:

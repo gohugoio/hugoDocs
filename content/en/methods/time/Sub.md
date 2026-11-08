@@ -1,7 +1,6 @@
 ---
 title: Sub
 description: Returns the duration computed by subtracting TIME2 from TIME1.
-categories: []
 keywords: []
 params:
   functions_and_methods:

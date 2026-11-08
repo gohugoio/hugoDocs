@@ -1,7 +1,6 @@
 ---
 title: strings.TrimPrefix
 description: Returns the given string, removing the prefix from the beginning of the string.
-categories: []
 keywords: []
 params:
   functions_and_methods:

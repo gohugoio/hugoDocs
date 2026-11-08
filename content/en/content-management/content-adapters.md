@@ -1,7 +1,6 @@
 ---
 title: Content adapters
 description: Create content adapters to dynamically add content when building your project.
-categories: []
 keywords: []
 ---
 

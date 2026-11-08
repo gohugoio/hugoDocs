@@ -1,7 +1,6 @@
 ---
 title: ContentWithoutSummary
 description: Returns the rendered content of the given page, excluding the content summary.
-categories: []
 keywords: []
 params:
   functions_and_methods:

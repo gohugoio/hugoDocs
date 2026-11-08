@@ -1,7 +1,6 @@
 ---
 title: RawContent
 description: Returns the raw content of the given page.
-categories: []
 keywords: []
 params:
   functions_and_methods:

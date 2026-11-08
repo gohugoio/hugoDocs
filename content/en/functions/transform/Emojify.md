@@ -1,7 +1,6 @@
 ---
 title: transform.Emojify
 description: Returns the given input with emoji shortcodes replaced by their corresponding emoji characters.
-categories: []
 keywords: []
 params:
   functions_and_methods:

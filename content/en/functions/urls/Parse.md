@@ -1,7 +1,6 @@
 ---
 title: urls.Parse
 description: Returns a URL structure parsed from the given URL.
-categories: []
 keywords: []
 params:
   functions_and_methods:

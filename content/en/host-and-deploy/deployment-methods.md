@@ -1,7 +1,6 @@
 ---
 title: Deployment methods
 description: Choose a method to deploy your site.
-categories: []
 keywords: []
 weight: 10
 ---

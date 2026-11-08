@@ -1,7 +1,6 @@
 ---
 title: math.ModBool
 description: Reports whether the modulus of two integers equals 0.
-categories: []
 keywords: []
 params:
   functions_and_methods:

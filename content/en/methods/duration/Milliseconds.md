@@ -1,7 +1,6 @@
 ---
 title: Milliseconds
 description: Returns the time.Duration value as an integer millisecond count.
-categories: []
 keywords: []
 params:
   functions_and_methods:

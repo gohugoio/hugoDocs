@@ -2,7 +2,6 @@
 title: Details shortcode
 linkTitle: Details
 description: Insert an HTML details element into your content using the details shortcode.
-categories: []
 keywords: []
 ---
 

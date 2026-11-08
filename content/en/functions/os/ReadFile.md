@@ -1,7 +1,6 @@
 ---
 title: os.ReadFile
 description: Returns the contents of a file.
-categories: []
 keywords: []
 params:
   functions_and_methods:

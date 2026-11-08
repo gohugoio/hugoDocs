@@ -2,7 +2,6 @@
 title: Frequently asked questions
 linkTitle: FAQs
 description: These questions are frequently asked by new users.
-categories: []
 keywords: []
 ---
 

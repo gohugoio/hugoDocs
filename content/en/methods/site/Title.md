@@ -1,7 +1,6 @@
 ---
 title: Title
 description: Returns the title as defined in your project configuration.
-categories: []
 keywords: []
 params:
   functions_and_methods:

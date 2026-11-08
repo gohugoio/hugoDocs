@@ -1,7 +1,6 @@
 ---
 title: lang.FormatAccounting
 description: Returns a currency representation of a number for the given currency and precision for the current language and region in accounting notation.
-categories: []
 keywords: []
 params:
   functions_and_methods:

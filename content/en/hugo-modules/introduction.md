@@ -1,7 +1,6 @@
 ---
 title: Introduction
 description: A brief introduction to Hugo modules.
-categories: []
 keywords: []
 weight: 10
 ---

@@ -1,7 +1,6 @@
 ---
 title: hugo.CommitHash
 description: Returns the Git commit hash of the Hugo binary.
-categories: []
 keywords: []
 params:
   functions_and_methods:

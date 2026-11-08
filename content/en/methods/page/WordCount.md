@@ -1,7 +1,6 @@
 ---
 title: WordCount
 description: Returns the number of words in the content of the given page.
-categories: []
 keywords: []
 params:
   functions_and_methods:

@@ -1,7 +1,6 @@
 ---
 title: collections.Where
 description: Returns a slice by filtering the given slice based on a key, operator, and value.
-categories: []
 keywords: []
 params:
   functions_and_methods:

@@ -2,7 +2,6 @@
 title: Configure page
 linkTitle: Page
 description: Configure page behavior.
-categories: []
 keywords: []
 ---
 

@@ -1,7 +1,6 @@
 ---
 title: collections.Union
 description: Returns a slice containing the unique elements from two given slices.
-categories: []
 keywords: []
 params:
   functions_and_methods:

@@ -1,7 +1,6 @@
 ---
 title: collections.Intersect
 description: Returns a slice containing the common elements found in two given slices, in the same order as the first slice.
-categories: []
 keywords: []
 params:
   functions_and_methods:

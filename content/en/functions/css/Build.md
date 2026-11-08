@@ -1,7 +1,6 @@
 ---
 title: css.Build
 description: Returns a resource created by bundling, transforming, and minifying the given CSS resource.
-categories: []
 keywords: []
 params:
   functions_and_methods:

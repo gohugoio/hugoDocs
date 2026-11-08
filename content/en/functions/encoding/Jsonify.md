@@ -1,7 +1,6 @@
 ---
 title: encoding.Jsonify
 description: Returns the given object encoded to JSON.
-categories: []
 keywords: []
 params:
   functions_and_methods:

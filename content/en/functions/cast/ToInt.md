@@ -1,7 +1,6 @@
 ---
 title: cast.ToInt
 description: Returns the given value converted to a decimal integer (base 10).
-categories: []
 keywords: []
 params:
   functions_and_methods:

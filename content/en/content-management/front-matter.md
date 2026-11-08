@@ -1,7 +1,6 @@
 ---
 title: Front matter
 description: Use front matter to add metadata to your content.
-categories: []
 keywords: []
 ---
 

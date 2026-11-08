@@ -1,7 +1,6 @@
 ---
 title: Limit
 description: Returns the given menu, limited to the first N entries.
-categories: []
 keywords: []
 params:
   functions_and_methods:

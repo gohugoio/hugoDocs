@@ -1,7 +1,6 @@
 ---
 title: Get
 description: Returns a slice of weighted pages to which the given term has been assigned.
-categories: []
 keywords: []
 params:
   functions_and_methods:

@@ -1,7 +1,6 @@
 ---
 title: Sitemap
 description: Returns the sitemap settings for the given page as defined in front matter, falling back to the sitemap settings as defined in your project configuration.
-categories: []
 keywords: []
 params:
   functions_and_methods:

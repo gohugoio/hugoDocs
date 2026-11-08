@@ -1,7 +1,6 @@
 ---
 title: Prev
 description: Returns the previous pager in the pager collection.
-categories: []
 keywords: []
 params:
   functions_and_methods:

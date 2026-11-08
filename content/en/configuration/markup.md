@@ -2,7 +2,6 @@
 title: Configure markup
 linkTitle: Markup
 description: Configure markup.
-categories: []
 keywords: []
 ---
 

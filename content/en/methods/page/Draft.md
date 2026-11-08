@@ -1,7 +1,6 @@
 ---
 title: Draft
 description: Reports whether the given page is a draft as defined in front matter.
-categories: []
 keywords: []
 params:
   functions_and_methods:

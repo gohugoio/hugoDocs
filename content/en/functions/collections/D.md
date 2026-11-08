@@ -1,7 +1,6 @@
 ---
 title: collections.D
 description: Returns a sorted slice of unique random integers based on a given seed, count, and maximum value.
-categories: []
 keywords: [random]
 params:
   functions_and_methods:

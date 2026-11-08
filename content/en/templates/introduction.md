@@ -2,7 +2,6 @@
 title: Introduction to templating
 linkTitle: Introduction
 description: An introduction to Hugo's templating syntax.
-categories: []
 keywords: []
 weight: 10
 ---

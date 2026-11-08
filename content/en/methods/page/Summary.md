@@ -1,7 +1,6 @@
 ---
 title: Summary
 description: Returns the summary of the given page.
-categories: []
 keywords: []
 params:
   functions_and_methods:

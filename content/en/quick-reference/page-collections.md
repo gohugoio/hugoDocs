@@ -1,7 +1,6 @@
 ---
 title: Page collections
 description: A quick reference guide to Hugo's page collections.
-categories: []
 keywords: []
 ---
 

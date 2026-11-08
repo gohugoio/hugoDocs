@@ -1,7 +1,6 @@
 ---
 title: end
 description: Terminates if, with, range, block, and define statements.
-categories: []
 keywords: []
 params:
   functions_and_methods:

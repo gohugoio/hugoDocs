@@ -1,7 +1,6 @@
 ---
 title: compare.Default
 description: Returns the second argument if set, else the first argument.
-categories: []
 keywords: []
 params:
   functions_and_methods:

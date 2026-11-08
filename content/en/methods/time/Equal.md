@@ -1,7 +1,6 @@
 ---
 title: Equal
 description: Reports whether TIME1 is equal to TIME2.
-categories: []
 keywords: []
 params:
   functions_and_methods:

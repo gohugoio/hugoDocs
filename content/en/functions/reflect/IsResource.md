@@ -1,7 +1,6 @@
 ---
 title: reflect.IsResource
 description: Reports whether the given value is a Resource object.
-categories: []
 keywords: []
 params:
   functions_and_methods:

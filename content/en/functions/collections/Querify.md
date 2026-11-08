@@ -1,7 +1,6 @@
 ---
 title: collections.Querify
 description: Returns a URL query string from the given map, slice, or sequence of key-value pairs.
-categories: []
 keywords: []
 params:
   functions_and_methods:

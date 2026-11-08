@@ -1,7 +1,6 @@
 ---
 title: Param
 description: Returns the site parameter with the given key.
-categories: []
 keywords: []
 params:
   functions_and_methods:

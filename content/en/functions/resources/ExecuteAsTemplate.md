@@ -1,7 +1,6 @@
 ---
 title: resources.ExecuteAsTemplate
 description: Returns a resource created from a Go template, parsed and executed with the given context.
-categories: []
 keywords: []
 params:
   functions_and_methods:

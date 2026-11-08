@@ -1,7 +1,6 @@
 ---
 title: BundleType
 description: Returns the bundle type of the given page, or an empty string if the page is not a page bundle.
-categories: []
 keywords: []
 params:
   functions_and_methods:

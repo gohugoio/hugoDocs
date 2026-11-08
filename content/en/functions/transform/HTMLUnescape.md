@@ -1,7 +1,6 @@
 ---
 title: transform.HTMLUnescape
 description: Returns the given string, replacing each HTML entity with its corresponding character.
-categories: []
 keywords: []
 params:
   functions_and_methods:

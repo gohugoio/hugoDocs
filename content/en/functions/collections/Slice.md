@@ -1,7 +1,6 @@
 ---
 title: collections.Slice
 description: Returns a slice created from the given values.
-categories: []
 keywords: []
 params:
   functions_and_methods:

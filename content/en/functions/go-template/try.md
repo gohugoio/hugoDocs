@@ -1,7 +1,6 @@
 ---
 title: try
 description: Returns a TryValue object after evaluating the given expression.
-categories: []
 keywords: []
 params:
   functions_and_methods:

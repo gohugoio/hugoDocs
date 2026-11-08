@@ -1,7 +1,6 @@
 ---
 title: Params
 description: Returns a map of custom parameters as defined in your project configuration.
-categories: []
 keywords: []
 params:
   functions_and_methods:

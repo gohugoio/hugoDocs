@@ -2,7 +2,6 @@
 title: Configure segments
 linkTitle: Segments
 description: Configure your site for segmented rendering.
-categories: []
 keywords: []
 ---
 

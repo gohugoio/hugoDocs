@@ -1,7 +1,6 @@
 ---
 title: Deprecation
 description: The Hugo project follows a formal and consistent process to deprecate functions, methods, and configuration settings.
-categories: []
 keywords: []
 ---
 

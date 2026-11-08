@@ -1,7 +1,6 @@
 ---
 title: Round
 description: Returns the result of rounding TIME to the nearest multiple of DURATION since January 1, 0001, 00:00:00 UTC.
-categories: []
 keywords: []
 params:
   functions_and_methods:

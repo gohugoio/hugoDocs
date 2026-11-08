@@ -1,7 +1,6 @@
 ---
 title: After
 description: Reports whether TIME1 is after TIME2.
-categories: []
 keywords: []
 params:
   functions_and_methods:

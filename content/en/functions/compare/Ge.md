@@ -1,7 +1,6 @@
 ---
 title: compare.Ge
 description: Reports whether the first argument is greater than or equal to all of the subsequent arguments.
-categories: []
 keywords: []
 params:
   functions_and_methods:

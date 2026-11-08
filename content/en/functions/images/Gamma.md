@@ -1,7 +1,6 @@
 ---
 title: images.Gamma
 description: Returns an image filter that performs gamma correction on an image.
-categories: []
 keywords: []
 params:
   functions_and_methods:

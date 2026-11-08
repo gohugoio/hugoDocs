@@ -1,7 +1,6 @@
 ---
 title: collections.Index
 description: Returns an element or value from the given slice or map at the specified key(s).
-categories: []
 keywords: []
 params:
   functions_and_methods:

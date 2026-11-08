@@ -1,7 +1,6 @@
 ---
 title: CurrentSection
 description: Returns the Page object of the section in which the given page resides.
-categories: []
 keywords: []
 params:
   functions_and_methods:

@@ -1,7 +1,6 @@
 ---
 title: CodeOwners
 description: Returns a slice of code owners for the given page, derived from the CODEOWNERS file in the root of the project directory.
-categories: []
 keywords: []
 params:
   functions_and_methods:

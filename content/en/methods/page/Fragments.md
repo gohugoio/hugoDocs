@@ -1,7 +1,6 @@
 ---
 title: Fragments
 description: Returns a data structure of the fragments in the given page.
-categories: []
 keywords: []
 params:
   functions_and_methods:

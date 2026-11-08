@@ -1,7 +1,6 @@
 ---
 title: Filter
 description: Returns a new image resource with one or more image filters applied.
-categories: []
 keywords: [filter]
 params:
   alt_title: RESOURCE.Filter

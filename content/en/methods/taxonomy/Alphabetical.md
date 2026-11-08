@@ -1,7 +1,6 @@
 ---
 title: Alphabetical
 description: Returns an ordered taxonomy, sorted alphabetically by term.
-categories: []
 keywords: []
 params:
   functions_and_methods:

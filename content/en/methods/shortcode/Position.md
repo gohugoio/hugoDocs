@@ -1,7 +1,6 @@
 ---
 title: Position
 description: Returns the file name and position from which the shortcode was called.
-categories: []
 keywords: []
 params:
   functions_and_methods:

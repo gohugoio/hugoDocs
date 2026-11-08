@@ -2,7 +2,6 @@
 title: Configure server
 linkTitle: Server
 description: Configure the development server.
-categories: []
 keywords: []
 ---
 

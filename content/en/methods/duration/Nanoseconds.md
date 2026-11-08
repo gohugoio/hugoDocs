@@ -1,7 +1,6 @@
 ---
 title: Nanoseconds
 description: Returns the time.Duration value as an integer nanosecond count.
-categories: []
 keywords: []
 params:
   functions_and_methods:

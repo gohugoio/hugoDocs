@@ -1,7 +1,6 @@
 ---
 title: GroupByParam
 description: Returns the given page collection grouped by the given parameter in ascending order.
-categories: []
 keywords: []
 params:
   functions_and_methods:

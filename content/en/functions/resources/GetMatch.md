@@ -1,7 +1,6 @@
 ---
 title: resources.GetMatch
 description: Returns the first global resource from paths matching the given glob pattern, or nil if none found.
-categories: []
 keywords: []
 params:
   functions_and_methods:

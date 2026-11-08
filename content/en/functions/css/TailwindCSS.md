@@ -1,7 +1,6 @@
 ---
 title: css.TailwindCSS
 description: Returns a resource created by processing the given resource with the Tailwind CSS CLI.
-categories: []
 keywords: []
 params:
   functions_and_methods:

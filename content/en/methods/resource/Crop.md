@@ -1,7 +1,6 @@
 ---
 title: Crop
 description: Returns a new image resource cropped according to the given processing specification.
-categories: []
 keywords: []
 params:
   functions_and_methods:
