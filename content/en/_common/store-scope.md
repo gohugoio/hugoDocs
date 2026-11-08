@@ -2,9 +2,7 @@
 _comment: Do not remove front matter.
 ---
 
-## Scope
-
-The method or function used to create the data structure determines its scope. For example, use the `Store` method on a `Page` object to create a data structure scoped to the page.
+The method or function used to create the data structure determines its [scope](g). For example, use the `Store` method on a `Page` object to create a data structure scoped to the page.
 
 Scope|Method or function
 :--|:--

@@ -8,26 +8,83 @@ params:
     signatures: [PAGE.Store]
 ---
 
-Use the `Store` method on a `Page` object to create a persistent data structure for storing and manipulating keyed values, scoped to the current page. To create a data structure with a different [scope](g), refer to the [scope](#scope) section below.
+## Usage
+
+The `Store` method on a `Page` object returns a persistent data structure for storing and manipulating keyed values, scoped to the current page. Use a different function or method to create a data structure with a different [scope](#scope).
+
+### Methods
+
+Use these methods on the data structure:
 
 {{% include "/_common/store-methods.md" %}}
 
+### Scope
+
 {{% include "/_common/store-scope.md" %}}
 
-## Determinate values
+### Determinate values
 
-The `Store` method is often used to set values within a _shortcode_ template, a _partial_ template called by a _shortcode_ template, or by a _render hook_ template. In all three cases, the stored values are indeterminate until Hugo renders the page content.
+{{% include "/_common/store-determinate-values.md" %}}
 
-If you need to access a stored value from a parent template, and the parent template has not yet rendered the page content, you can trigger content rendering by assigning the returned value to a [noop](g) variable:
+## Examples
 
 ```go-html-template
-{{ $noop := .Content }}
-{{ .Store.Get "mykey" }}
+{{ .Store.Set "greeting" "Hello" }}
+{{ .Store.Get "greeting" }} → Hello
 ```
 
-You can also trigger content rendering with the `ContentWithoutSummary`, `FuzzyWordCount`, `Len`, `Plain`, `PlainWords`, `ReadingTime`, `Summary`, `Truncated`, and `WordCount` methods. For example:
+Adding a string to a string:
 
 ```go-html-template
-{{ $noop := .WordCount }}
-{{ .Store.Get "mykey" }}
+{{ .Store.Set "greeting" "Hello" }}
+{{ .Store.Add "greeting" "Welcome" }}
+{{ .Store.Get "greeting" }} → HelloWelcome
+```
+
+Adding a number to a number:
+
+```go-html-template
+{{ .Store.Set "total" 3 }}
+{{ .Store.Add "total" 7 }}
+{{ .Store.Get "total" }} → 10
+```
+
+Appending to a slice:
+
+```go-html-template
+{{ .Store.Set "greetings" (slice "Hello") }}
+{{ .Store.Add "greetings" (slice "Welcome" "Cheers") }}
+{{ .Store.Get "greetings" }} → [Hello Welcome Cheers]
+```
+
+Setting values in a map:
+
+```go-html-template
+{{ .Store.SetInMap "greetings" "english" "Hello" }}
+{{ .Store.SetInMap "greetings" "french" "Bonjour" }}
+{{ .Store.Get "greetings" }} → map[english:Hello french:Bonjour]
+```
+
+Deleting a value from a map:
+
+```go-html-template
+{{ .Store.SetInMap "greetings" "english" "Hello" }}
+{{ .Store.SetInMap "greetings" "french" "Bonjour" }}
+{{ .Store.DeleteInMap "greetings" "english" }}
+{{ .Store.Get "greetings" }} → map[french:Bonjour]
+```
+
+Getting the map values sorted by map key:
+
+```go-html-template
+{{ .Store.SetInMap "greetings" "english" "Hello" }}
+{{ .Store.SetInMap "greetings" "french" "Bonjour" }}
+{{ .Store.GetSortedMapValues "greetings" }} → [Hello Bonjour]
+```
+
+Deleting a key:
+
+```go-html-template
+{{ .Store.Set "greeting" "Hello" }}
+{{ .Store.Delete "greeting" }}
 ```
