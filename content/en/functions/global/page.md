@@ -1,6 +1,6 @@
 ---
 title: page
-description: Returns the Page object of the current page, accessible from any context.
+description: Returns the Page object passed to the top-level template, accessible from any context.
 categories: []
 keywords: []
 params:
@@ -12,36 +12,56 @@ params:
 
 ## Usage
 
-At the top level of a template that receives a `Page` object in context, these are equivalent:
-
-```go-html-template
-{{ .Params.foo }}
-{{ .Page.Params.foo }}
-{{ page.Params.foo }}
-```
-
-When a `Page` object is not in context, you can use the global `page` function:
-
-```go-html-template
-{{ page.Params.foo }}
-```
+The `page` function returns the `Page` object passed to the top-level template, accessible from any context.
 
 > [!WARNING]
-> Do not use the global `page` function in shortcodes, _partial_ templates called by shortcodes, or cached _partial_ templates. See [examples](#examples) below.
+> Do not use the global `page` function in shortcodes, _partial_ templates called by shortcodes, or _partial_ templates cached by the [`partials.IncludeCached`][] function, as described in the [examples](#examples).
 
-Hugo almost always passes a `Page` as the data context into the top-level template (e.g., `baseof.html`). The one exception is the multihost sitemap template. This means that you can access the current page with the `.` in the template.
+Hugo passes a `Page` object as the data context into the top-level template. This means that you can access the current page with the `.` in the template:
 
-However, when deeply nested inside a [partial template](g) or [render hook](g), it is not always practical or possible to access the `Page` object.
+```go-html-template {file="layouts/page.html"}
+{{ .Title }}
+```
 
-Use the global `page` function to access the `Page` object from anywhere in any template.
+However, a [partial template](g) receives only the data passed to it. To access the `Page` object within a _partial_ template, you must pass it, either as the context or within a map alongside other values.
+
+Pass the `Page` object as the context:
+
+```go-html-template {file="layouts/page.html"}
+{{ partial "foo.html" . }}
+```
+
+```go-html-template {file="layouts/_partials/foo.html"}
+{{ .Title }}
+```
+
+Pass the `Page` object within a map alongside other values:
+
+```go-html-template {file="layouts/page.html"}
+{{ partial "foo.html" (dict "page" . "color" "red") }}
+```
+
+```go-html-template {file="layouts/_partials/foo.html"}
+{{ .page.Title }}
+{{ .color }}
+```
+
+When a `Page` object is not in context, you can use the global `page` function instead:
+
+```go-html-template {file="layouts/page.html"}
+{{ partial "foo.html" (dict "color" "red") }}
+```
+
+```go-html-template {file="layouts/_partials/foo.html"}
+{{ page.Title }}
+{{ .color }}
+```
 
 ## Examples
 
-The following examples demonstrate common pitfalls when using the global `page` function.
+These examples show common pitfalls and how to avoid them.
 
 ### Be aware of top-level context
-
-The global `page` function accesses the `Page` object passed into the top-level template.
 
 With this content structure:
 
@@ -64,7 +84,7 @@ And this code in the _home_ template:
 {{ end }}
 ```
 
-The rendered output will be:
+The rendered output is:
 
 ```text
 My Home Page
@@ -72,17 +92,19 @@ My Home Page
 My Home Page
 ```
 
-In the example above, the global `page` function accesses the `Page` object passed into the _home_ template; it does not access the `Page` object of the iterated pages.
+In the example above, the global `page` function accesses the `Page` object passed into the _home_ template, not the `Page` object of the iterated pages. Use the dot to access the iterated pages:
+
+```go-html-template {file="layouts/home.html"}
+{{ range site.Sections }}
+  {{ range .Pages }}
+    {{ .Title }}
+  {{ end }}
+{{ end }}
+```
 
 ### Be aware of caching
 
-Do not use the global `page` function in:
-
-- Shortcodes
-- _Partial_ templates called by shortcodes
-- _Partial_ templates cached by the [`partialCached`][] function
-
-Hugo renders the content of a page once, including its shortcodes, then caches the result. If you use the global `page` function within a shortcode, and the page content is rendered in two or more templates, the cached content may be incorrect.
+Hugo renders the content of a page once, including its shortcodes, then caches the result. If you use the global `page` function within a shortcode, and two or more templates render the page content, the cached content may be incorrect.
 
 Consider this _section_ template:
 
@@ -93,9 +115,10 @@ Consider this _section_ template:
 {{ end }}
 ```
 
-When you call the [`Summary`][] method, Hugo renders the page content including shortcodes. In this case, within a shortcode, the global `page` function accesses the `Page` object of the section page, not the content page.
+When you call the [`Summary`][] method, Hugo renders the page content, including shortcodes. In this case, within a shortcode, the global `page` function accesses the `Page` object of the section page, not the content page.
 
-If Hugo renders the section page before a content page, the cached content will be incorrect. You cannot control the rendering sequence due to concurrency.
+If Hugo renders the section page before a content page, the cached content is incorrect. You cannot control the rendering sequence due to concurrency. Within a shortcode, use the [`Page`][] method on the `Shortcode` object instead.
 
+[`Page`]: /methods/shortcode/page/
 [`Summary`]: /methods/page/summary/
-[`partialCached`]: /functions/partials/includecached/
+[`partials.IncludeCached`]: /functions/partials/includecached/

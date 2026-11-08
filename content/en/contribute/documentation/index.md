@@ -110,6 +110,12 @@ Follow these guidelines when adding links:
 - Do not link to common technologies and formats that readers already know, such as HTML, CSS, JSON, or Markdown, unless the link points to a specification that the text depends on.
 - Write link text that describes the destination. Do not use "here," "this page," or "this link" as link text.
 - Do not place links in headings.
+- Format all of the link text or none of it. Do not combine formatted text, such as code, bold, or italic, with unformatted text in the same link. Move the unformatted text outside the link, or remove the formatting.
+
+  No → ``Call any of the [`Site` methods][] from any template.``\
+  Yes → `Call any of the [Site methods][] from any template.`\
+  Yes → ``Call the [`Site`][] method from any template.``
+
 - Prefer linking within a sentence to adding a separate sentence that begins with "See."
 
   No → `Hugo can resize images. See [image processing][].`\
