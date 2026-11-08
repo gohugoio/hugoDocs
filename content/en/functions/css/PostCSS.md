@@ -147,8 +147,7 @@ Hugo passes the following environment variables to the PostCSS process, making t
 : The absolute path to the project working directory.
 
 `HUGO_ENVIRONMENT`
-: The current Hugo environment, set with the `--environment` command-line flag.
-Default is `production` for `hugo build` and `development` for `hugo server`.
+: The current Hugo environment, set with the `--environment` command-line flag or the [`HUGO_ENVIRONMENT`][] environment variable. If you do not set it, the environment is `development` when you run the `hugo server` command, and `production` otherwise.
 
 `HUGO_PUBLISHDIR`
 : The absolute path to the publish directory, typically `public`. This value points to a directory on disk, even when rendering to memory with the `--renderToMemory` command-line flag.
@@ -166,6 +165,7 @@ For each file, Hugo creates a corresponding environment variable named `HUGO_FIL
 let tailwindConfig = process.env.HUGO_FILE_TAILWIND_CONFIG_JS || './tailwind.config.js';
 ```
 
+[`HUGO_ENVIRONMENT`]: /configuration/introduction/#hugo_environment
 [Node.js]: https://nodejs.org/en
 [PostCSS]: https://postcss.org/
 [plugins]: https://postcss.org/docs/postcss-plugins

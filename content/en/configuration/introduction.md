@@ -323,7 +323,7 @@ In addition to configuring standard settings, environment variables may be used 
 : (`string`) The absolute path to the Dart Sass executable. By default, Hugo searches for the executable in each of the paths in the `PATH` environment variable.
 
 `HUGO_ENVIRONMENT`
-: (`string`) The build environment. Default is `production` when running `hugo build` and `development` when running `hugo server`.
+: (`string`) The build environment. Default is `development` when running `hugo server`, and `production` otherwise.
 
 `HUGO_FILE_LOG_FORMAT`
 : (`string`) A format string for the file path, line number, and column number displayed when reporting errors, or when calling the `Position` method from a shortcode or Markdown render hook. Valid tokens are `:file`, `:line`, and `:col`. Default is `:file::line::col`.
