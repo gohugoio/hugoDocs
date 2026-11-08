@@ -11,9 +11,17 @@ params:
 
 {{< new-in 0.156.0 />}}
 
+## Usage
+
+The `hugo.Sites` function returns a collection of all sites for all [dimensions](g).
+
 {{% include "/_common/sites-collection.md" %}}
 
-With this project configuration:
+Use the `Default` method on the returned collection to get the [default site](g). The default site is the site with the [default language](g), [default version](g), and [default role](g), regardless of its position in the collection.
+
+## Examples
+
+These examples use this project configuration:
 
 {{< code-toggle file=hugo >}}
 defaultContentLanguage = 'en'
@@ -41,7 +49,7 @@ weight = 2
 [versions.'v3.0.0']
 {{< /code-toggle >}}
 
-This template:
+Rendering a list of links to the home page of each site:
 
 ```go-html-template
 <ul>
@@ -51,7 +59,7 @@ This template:
 </ul>
 ```
 
-Produces a list of links to each home page:
+The rendered output:
 
 ```html
 <ul>
@@ -64,7 +72,7 @@ Produces a list of links to each home page:
 </ul>
 ```
 
-To render a link to the home page of the [default site](g):
+Rendering a link to the home page of the default site:
 
 ```go-html-template
 {{ with hugo.Sites.Default }}
@@ -72,6 +80,6 @@ To render a link to the home page of the [default site](g):
 {{ end }}
 ```
 
-With the configuration above, this renders a link to the home page of the English version v3.0.0 site. The default site is the site with the [default language](g), [default version](g), and [default role](g), regardless of its position in the collection. In this example the three German sites appear first due to their lower language weight, but English is the default language per the [`defaultContentLanguage`][] setting.
+This renders a link to the home page of the English v3.0.0 site. The German sites appear first in the collection due to their lower language weight, but English is the default language as set by [`defaultContentLanguage`][].
 
 [`defaultContentLanguage`]: /configuration/all/#defaultcontentlanguage

@@ -9,13 +9,11 @@ params:
     signatures: [hugo.Environment]
 ---
 
-The `hugo.Environment` function returns the current running [environment](g) as defined through the `--environment` command-line flag.
+## Usage
 
-```go-html-template
-{{ hugo.Environment }} → production
-```
+The `hugo.Environment` function returns the current running [environment](g). Set the environment with the `--environment` command-line flag. If you do not set it, the environment is `development` when you run the `hugo server` command, and `production` otherwise.
 
-Command-line examples:
+This table shows the environment returned by the function for each command:
 
 Command|Environment
 :--|:--
@@ -23,3 +21,9 @@ Command|Environment
 `hugo build --environment staging`|`staging`
 `hugo server`|`development`
 `hugo server --environment staging`|`staging`
+
+## Examples
+
+```go-html-template
+{{ hugo.Environment }} → production
+```
