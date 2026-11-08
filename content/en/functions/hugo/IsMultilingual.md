@@ -9,7 +9,13 @@ params:
     signatures: [hugo.IsMultilingual]
 ---
 
-Project configuration:
+## Usage
+
+The `hugo.IsMultilingual` function reports whether there are two or more configured [languages](g).
+
+## Examples
+
+This example uses this project configuration:
 
 {{< code-toggle file=hugo >}}
 defaultContentLanguage = 'de'
@@ -26,8 +32,6 @@ defaultContentLanguageInSubdir = true
     title = 'Project Documentation'
     weight = 2
 {{< /code-toggle >}}
-
-Template:
 
 ```go-html-template
 {{ hugo.IsMultilingual }} → true

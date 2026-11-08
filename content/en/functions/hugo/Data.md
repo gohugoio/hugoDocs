@@ -10,12 +10,18 @@ params:
 
 {{< new-in 0.156.0 />}}
 
-Use the `hugo.Data` function to access data within the `data` directory of the [unified file system](g). Supported data formats include JSON, TOML, YAML, and XML.
+## Usage
+
+The `hugo.Data` function returns a data structure composed from the files in the `data` directory of the [unified file system](g). Supported data formats include JSON, TOML, YAML, and XML.
+
+Each subdirectory and file name, without its extension, becomes a key in the data structure. Access the data by [chaining](g) the keys as [identifiers](g). To access a key that is not a valid identifier, such as a key that contains a hyphen, use the [`collections.Index`][] function.
 
 > [!NOTE]
-> Although Hugo can [unmarshal](g) CSV files with the [`transform.Unmarshal`][] function, do not place CSV files in the `data` directory. You cannot access data within CSV files using this method.
+> Although Hugo can [unmarshal](g) CSV files with the [`transform.Unmarshal`][] function, do not place CSV files in the `data` directory. You cannot access data within CSV files using this function.
 
-Consider this `data` directory:
+## Examples
+
+These examples use this `data` directory:
 
 ```tree
 data/
@@ -27,7 +33,7 @@ data/
 └── sculptures.toml
 ```
 
-And these data files:
+The `books` directory contains these data files:
 
 ```yaml {file="data/books/fiction.yaml"}
 - title: The Hunchback of Notre Dame
@@ -47,7 +53,7 @@ And these data files:
   isbn: 978-0521280495
 ```
 
-Access the data by [chaining](g) the [identifiers](g):
+Listing the books in each category:
 
 ```go-html-template
 {{ range $category, $books := hugo.Data.books }}
@@ -60,7 +66,7 @@ Access the data by [chaining](g) the [identifiers](g):
 {{ end }}
 ```
 
-Hugo renders this to:
+The rendered output:
 
 ```html
 <p>Fiction</p>
@@ -75,7 +81,7 @@ Hugo renders this to:
 </ul>
 ```
 
-To limit the listing to fiction, and sort by title:
+Listing the fiction books sorted by title:
 
 ```go-html-template
 <ul>
@@ -85,19 +91,19 @@ To limit the listing to fiction, and sort by title:
 </ul>
 ```
 
-To find a fiction book by ISBN:
+Finding a fiction book by ISBN:
 
 ```go-html-template
 {{ range where hugo.Data.books.fiction "isbn" "978-0140443530" }}
-  <li>{{ .title }} ({{ .author }})</li>
+  <p>{{ .title }} ({{ .author }})</p>
 {{ end }}
 ```
 
-In the template examples above, each of the keys is a valid identifier. For example, none of the keys contains a hyphen. To access a key that is not a valid identifier, use the [`index`][] function. For example:
+Accessing a key that is not a valid identifier:
 
 ```go-html-template
 {{ index hugo.Data.books "historical-fiction" }}
 ```
 
-[`index`]: /functions/collections/indexfunction/
+[`collections.Index`]: /functions/collections/indexfunction/
 [`transform.Unmarshal`]: /functions/transform/unmarshal/

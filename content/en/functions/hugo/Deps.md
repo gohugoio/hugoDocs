@@ -9,37 +9,34 @@ params:
     signatures: [hugo.Deps]
 ---
 
-The `hugo.Deps` function returns a slice of the [modules](g) that the project depends on, including modules in the `themes` directory.
+## Usage
 
-## Methods
+The `hugo.Deps` function returns a slice of the [modules](g), including themes, that the project depends on.
 
-Use these methods on each `hugo.Dependency` object returned by `hugo.Deps`.
+Use these methods on each `hugo.Dependency` object in the slice:
 
 `Owner`
-: (`hugo.Dependency`) In the dependency tree, this is the first module that defines this module as a dependency (e.g., `github.com/gohugoio/hugo-mod-bootstrap-scss/v5`).
+: (`hugo.Dependency`) Returns the first module in the dependency tree that defines this module as a dependency, such as `github.com/gohugoio/hugo-mod-bootstrap-scss/v5`.
 
 `Path`
-: (`string`) Returns the module path or the path below your `themes` directory (e.g., `github.com/gohugoio/hugo-mod-jslibs-dist/popperjs/v2`).
+: (`string`) Returns the module path or the path below your `themes` directory, such as `github.com/gohugoio/hugo-mod-jslibs-dist/popperjs/v2`.
 
 `Replace`
 : (`hugo.Dependency`) Returns the dependency that replaces this dependency.
 
 `Time`
-: (`time.Time`) Returns the time that the version was created (e.g., `2022-02-13 15:11:28 +0000 UTC`).
+: (`time.Time`) Returns the time that the version was created, such as `2022-02-13 15:11:28 +0000 UTC`.
 
 `Vendor`
 : (`bool`) Reports whether the dependency is vendored.
 
 `Version`
-: (`string`) Returns the module version (e.g., `v2.21100.20000`).
+: (`string`) Returns the module version, such as `v2.21100.20000`.
 
-## Example
-
-An example table listing the dependencies:
+## Examples
 
 ```go-html-template
-<h2>Dependencies</h2>
-<table class="table table-dark">
+<table>
   <thead>
     <tr>
       <th scope="col">#</th>
@@ -52,19 +49,19 @@ An example table listing the dependencies:
   </thead>
   <tbody>
     {{ range $index, $element := hugo.Deps }}
-    <tr>
-      <th scope="row">{{ add $index 1 }}</th>
-      <td>{{ with $element.Owner }}{{ .Path }}{{ end }}</td>
-      <td>
-        {{ $element.Path }}
-        {{ with $element.Replace }}
-        => {{ .Path }}
-        {{ end }}
-      </td>
-      <td>{{ $element.Version }}</td>
-      <td>{{ with $element.Time }}{{ . }}{{ end }}</td>
-      <td>{{ $element.Vendor }}</td>
-    </tr>
+      <tr>
+        <th scope="row">{{ add $index 1 }}</th>
+        <td>{{ with $element.Owner }}{{ .Path }}{{ end }}</td>
+        <td>
+          {{ $element.Path }}
+          {{ with $element.Replace }}
+            => {{ .Path }}
+          {{ end }}
+        </td>
+        <td>{{ $element.Version }}</td>
+        <td>{{ with $element.Time }}{{ . }}{{ end }}</td>
+        <td>{{ $element.Vendor }}</td>
+      </tr>
     {{ end }}
   </tbody>
 </table>

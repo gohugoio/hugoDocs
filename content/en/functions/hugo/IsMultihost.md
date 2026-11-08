@@ -9,7 +9,13 @@ params:
     signatures: [hugo.IsMultihost]
 ---
 
-Project configuration:
+## Usage
+
+The `hugo.IsMultihost` function reports whether each configured [language](g) has a unique base URL, as described in the [multihost][] configuration. The function returns `false` if fewer than two languages are enabled.
+
+## Examples
+
+This example uses this project configuration:
 
 {{< code-toggle file=hugo >}}
 defaultContentLanguage = 'de'
@@ -29,8 +35,8 @@ defaultContentLanguageInSubdir = true
     weight = 2
 {{< /code-toggle >}}
 
-Template:
-
 ```go-html-template
 {{ hugo.IsMultihost }} → true
 ```
+
+[multihost]: /configuration/languages/#multihost

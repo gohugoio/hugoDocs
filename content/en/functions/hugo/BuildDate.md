@@ -9,7 +9,11 @@ params:
     signatures: [hugo.BuildDate]
 ---
 
+## Usage
+
 The `hugo.BuildDate` function returns the compile date of the Hugo binary, formatted per [RFC 3339][].
+
+## Examples
 
 ```go-html-template
 {{ hugo.BuildDate }} → 2023-11-01T17:57:00Z
