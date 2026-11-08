@@ -1,7 +1,7 @@
 ---
 title: External learning resources
 linkTitle: External resources
-description: Use these third-party resources to learn Hugo.
+description: Explore these external learning resources.
 keywords: []
 weight: 40
 ---
