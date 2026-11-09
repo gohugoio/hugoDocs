@@ -9,7 +9,7 @@ weight: 30
 ## Security Boundaries
 
 - The templates inside `layouts` are trusted.
-- The assets inside `archetypes`, `assets`, `resources`, `data`, `i18n` and `static` are trusted.
+- The assets inside `archetypes`, `assets`, `resources`, `data`, `i18n`, and `static` are trusted.
 - The content and the content produced by [content adapters][] inside `content` is not trusted. The one exception here is if [inline shortcodes][] is enabled. Note that for content adapters, this is scoped to the result of the adapter.
 - The development server, `hugo server`, and its livereload script is trusted and meant for _local_ development only.
 - We have no online  production server and any malformed input that fails the build (e.g. malformed content front matter) is not defined as a Denial of Service (DoS). This also includes input that trigger runtime errors such as `fatal error: stack overflow`; report these as [bugs](https://github.com/gohugoio/hugo/issues).
