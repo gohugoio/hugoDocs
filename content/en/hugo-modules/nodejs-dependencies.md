@@ -12,7 +12,7 @@ Modules that need Node packages (e.g. for Tailwind CSS) can declare those depend
 Each module declares its Node dependencies in a `package.json` file in its root directory, using the standard `dependencies` and `devDependencies` fields.
 
 <!-- TODO
-In the admonition below, remove the reference to v0.159.0 somewhere
+In the paragraph below, remove the reference to v0.159.0 somewhere
 after v0.174.0, 15 minor releases after the improvement.
 -->
 
@@ -40,9 +40,9 @@ after v0.174.0, 15 minor releases after the improvement.
 -->
 
 > [!NOTE]
-> In Hugo < v0.159.0 Hugo wrote the dependencies into your project's package.json, so if you have used `hugo mod npm pack` on your project using older Hugo versions, now is the time to do a spring cleaning of your project `package.json` file: Only direct Node dependencies needs to live in this file, all incoming dependencies from imported modules gets written to `packages/hugoautogen/package.json`.
+> In Hugo < v0.159.0 Hugo wrote the dependencies into your project's package.json, so if you have used `hugo mod npm pack` on your project using older Hugo versions, now is the time to do a spring cleaning of your project `package.json` file: Only direct Node dependencies need to live in this file, all incoming dependencies from imported modules gets written to `packages/hugoautogen/package.json`.
 
-When merging, the **topmost version, starting from the project, take precedence**. If a module declares `tailwindcss@4.1` but your project already has `tailwindcss@4.0`, the project version wins and the module dependency is excluded from the generated workspace package.
+When merging, the **topmost version, starting from the project, takes precedence**. If a module declares `tailwindcss@4.1` but your project already has `tailwindcss@4.0`, the project version wins and the module dependency is excluded from the generated workspace package.
 
 ## Staleness detection
 
