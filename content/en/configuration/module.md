@@ -5,7 +5,8 @@ description: Configure modules.
 keywords: []
 ---
 
-{{% include "/_common/gomodules-info.md" %}}
+> [!NOTE]
+> To work with modules you must install [Git][] and [Go][].
 
 ## Top-level settings
 
@@ -123,7 +124,7 @@ path = 'my-shortcodes'
 
 `usePackageJSON`
 : {{< new-in 0.159.0 />}}
-: (`string`) Whether to use the import's npm dependencies in [hugo mod npm pack](commands/hugo_mod_npm_pack/). One of `auto` (default), `always` or `never`. When set to `auto`, Hugo will enable this if either there is a Hugo config file (e.g. `hugo.toml`) or a `package.hugo.json` file in the module root.
+: (`string`) Whether to use the import's npm dependencies in [`hugo mod npm pack`][]. One of `auto` (default), `always` or `never`. When set to `auto`, Hugo will enable this if either there is a Hugo config file (e.g. `hugo.toml`) or a `package.hugo.json` file in the module root.
 
 `version`
 : {{< new-in 0.150.0 />}}
@@ -208,9 +209,12 @@ target = 'assets'
 [`assetDir`]: /configuration/all/#assetdir
 [`contentDir`]: /configuration/all/#contentdir
 [`dataDir`]: /configuration/all/#datadir
+[`hugo mod npm pack`]: /commands/hugo_mod_npm_pack/
 [`i18nDir`]: /configuration/all/#i18ndir
 [`layoutDir`]: /configuration/all/#layoutdir
 [`staticDir`]: /configuration/all/#staticdir
 [`themesDir`]: /configuration/all/#themesdir
 [pinning module versions]: /hugo-modules/use-modules/#pin
 [version query]: https://go.dev/ref/mod#version-queries
+[Git]: https://git-scm.com/book/en/v2/Getting-Started-Installing-Git
+[Go]: https://go.dev/doc/install

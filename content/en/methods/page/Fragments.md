@@ -27,14 +27,14 @@ To get the fragments of content rendered in a named scope, call [`Markup.Fragmen
 Use these methods on the `Fragments` object.
 
 `Headings`
-: (`slice`) A slice of maps of all headings on the page, with first-level keys for each heading. Each map contains the following keys: `ID`, `Level`, `Title` and `Headings`. To inspect the data structure:
+: (`slice`) A slice of maps of all headings on the page, with first-level keys for each heading. Each map contains the following keys: `ID`, `Level`, `Title`, and `Headings`. To inspect the data structure:
 
   ```go-html-template
   <pre>{{ debug.Dump .Fragments.Headings }}</pre>
   ```
 
 `HeadingsMap`
-: (`map`) A nested map of all headings on the page. Each map contains the following keys: `ID`, `Level`, `Title` and `Headings`. To inspect the data structure:
+: (`map`) A nested map of all headings on the page. Each map contains the following keys: `ID`, `Level`, `Title`, and `Headings`. To inspect the data structure:
 
   ```go-html-template
   <pre>{{ debug.Dump .Fragments.HeadingsMap }}</pre>

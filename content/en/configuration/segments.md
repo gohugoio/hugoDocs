@@ -12,7 +12,7 @@ Segmented rendering offers several advantages:
 
 - Faster builds: Process large sites more efficiently.
 - Rapid development: Render only a subset of your site for quicker iteration.
-- Scheduled rebuilds: Rebuild specific sections at different frequencies (e.g., home page and news hourly, full site weekly).
+- Scheduled rebuilds: Rebuild specific sections at different frequencies. For example, rebuild the home page and news section hourly and the full site weekly.
 - Targeted output: Generate specific output formats (like JSON for search indexes).
 
 ## Segment definition

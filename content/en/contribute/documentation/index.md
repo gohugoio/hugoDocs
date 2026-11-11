@@ -52,6 +52,11 @@ Adhere to these writing style conventions.
   No → Use inline elements (e.g., `strong`, `em`) sparingly.\
   Yes → Use inline elements such as `strong` and `em` sparingly.
 
+- Use a serial comma, also known as an Oxford comma, before the final "and" or "or" in a list of three or more items.
+
+  No → Set the value to `auto`, `always` or `never`.\
+  Yes → Set the value to `auto`, `always`, or `never`.
+
 - Spell out units of measure in prose, and insert a space between the number and the unit. Hyphenate the measurement when it modifies a noun. Use abbreviations such as `px` only in code.
 
   No → Resize the image to 300px wide and add a 2 px border.\

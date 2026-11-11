@@ -146,7 +146,7 @@ Most of the Goldmark settings above are self-explanatory, but some require expla
 : (`bool`) Whether to automatically add `id` attributes to headings (i.e., `h1`, `h2`, `h3`, `h4`, `h5`, and `h6` elements).
 
 `parser.autoIDType`
-: (`string`) The strategy used to automatically generate `id` attributes, one of `github`, `github-ascii` or `blackfriday`. Default is `github`.
+: (`string`) The strategy used to automatically generate `id` attributes, one of `github`, `github-ascii`, or `blackfriday`. Default is `github`.
 
   - `github`: Generate GitHub-compatible `id` attributes
   - `github-ascii`: Drop any non-ASCII characters after accent normalization
