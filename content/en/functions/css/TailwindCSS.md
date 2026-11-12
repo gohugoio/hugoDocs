@@ -35,6 +35,20 @@ Step 1
   > [!NOTE]
   > As of v0.161.0, Hugo no longer supports the Tailwind [standalone binary][]. You must now install the Tailwind CSS CLI via `npm` as shown above.
 
+  If you install the Tailwind CSS CLI with `pnpm` on a POSIX system and Hugo reports `binary "tailwindcss" is not a Node.js script`, enable [symlinked executables][]. With pnpm v11 and later, add this setting to your project's `pnpm-workspace.yaml` file:
+
+  ```yaml {file="pnpm-workspace.yaml" copy=true}
+  preferSymlinkedExecutables: true
+  ```
+
+  Then reinstall the dependencies to replace the executable wrappers with symbolic links:
+
+  ```sh {copy=true}
+  pnpm install --force
+  ```
+
+  This setting is ignored on Windows.
+
 Step 2
 : Add this to your project configuration:
 
@@ -149,5 +163,6 @@ Some notes to the above:
 
 [modern browser]: https://tailwindcss.com/docs/compatibility#browser-support
 [standalone binary]: https://github.com/tailwindlabs/tailwindcss/releases/latest
+[symlinked executables]: https://pnpm.io/settings#prefersymlinkedexecutables
 [`css.Build`]: /functions/css/build/
 [`vars`]: /functions/css/build/#vars
