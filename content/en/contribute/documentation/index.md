@@ -472,6 +472,18 @@ Under `## Arguments`, describe each argument in signature order using a definiti
 : (`map`) See [options](#options).
 ```
 
+Refer to each member of a returned object as a method, even if Go defines it as a field. The distinction does not change how readers use the object in a template, and many readers are not programmers. When readers need the methods of a returned object, introduce them in `## Usage` with "Use these methods on the `OBJECT` object:" followed by a definition list. Wrap each term in backticks, and begin each description with the data type in parentheses, followed by "Returns" or "Reports whether."
+
+```md {file="content/example.md"}
+Use these methods on the `DirFile` object:
+
+`Dir`
+: (`string`) Returns the directory component, including the final slash.
+
+`File`
+: (`string`) Returns the file name component.
+```
+
 Under `## Examples`, use one or more `go-html-template` code blocks to demonstrate the function or method. Call the documented function by its canonical form, and call any other function by its alias, as described in [code examples](#code-examples).
 
 The first code block needs no lead-in sentence. Introduce each subsequent code block with a short lead-in ending in a colon. Do not repeat the function's name, and do not restate the `## Usage` prose:
