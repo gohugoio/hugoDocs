@@ -18,7 +18,7 @@ The `resources.Concat` function returns a resource created by concatenating the 
 Hugo publishes the resource to the target path when you call its [`Publish`][], [`Permalink`][], or [`RelPermalink`][] method, or pass it to the [`resources.Publish`][] function.
 
 {{< new-in 0.170.0 >}}
-The `SLICE` argument now accepts a `[]any` slice of resources, such as the slice returned by the [`collections.Apply`](/functions/collections/apply/) function.
+The `SLICE` argument now accepts a `[]any` slice of resources, such as the slice returned by the [`collections.Apply`][] function.
 {{< /new-in >}}
 
 ## Arguments

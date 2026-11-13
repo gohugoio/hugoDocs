@@ -416,10 +416,10 @@ Is rendered to:
 
 [`MainSections`]: /methods/site/mainsections/
 [`collections.Complement`]: /functions/collections/complement/
-[`date`]: /methods/page/date/
-[`expiryDate`]: /methods/page/expirydate/
-[`lastmod`]: /methods/page/lastmod/
-[`publishDate`]: /methods/page/publishdate/
+[`date`]: /content-management/front-matter/#date
+[`expiryDate`]: /content-management/front-matter/#expirydate
+[`lastmod`]: /content-management/front-matter/#lastmod
+[`publishDate`]: /content-management/front-matter/#publishdate
 [`time.AsTime`]: /functions/time/astime/
 [`time.Time`]: /quick-reference/data-types/#dates-and-times
 [custom page parameters]: /content-management/front-matter/#parameters

@@ -70,8 +70,8 @@ Use the [`Next`][] and [`Prev`][] methods on a `Pages` object for more flexibili
 
 [`Next`]: /methods/pages/next/
 [`Prev`]: /methods/pages/prev/
-[`date`]: /methods/page/date/
-[`linkTitle`]: /methods/page/linktitle/
+[`date`]: /content-management/front-matter/#date
+[`linkTitle`]: /content-management/front-matter/#linktitle
 [`path`]: /methods/page/path/
-[`weight`]: /methods/page/weight/
+[`weight`]: /content-management/front-matter/#weight
 [project configuration]: /configuration/page/

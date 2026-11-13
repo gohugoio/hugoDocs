@@ -11,7 +11,8 @@ Hugo is available in two editions, standard and deploy. Use the standard edition
 {{< new-in 0.170.0 >}}
 The extended and extended/deploy editions are no longer available or needed.
 
-These editions provided WebP image encoding and an embedded LibSass transpiler. The standard and deploy editions now support WebP image encoding, and Hugo uses [Dart Sass](/functions/css/sass/#dart-sass) to transpile Sass to CSS. If you previously used the extended edition, use the standard edition instead. If you previously used the extended/deploy edition, use the deploy edition instead.
+These editions provided WebP image encoding and an embedded LibSass transpiler. The standard and deploy editions now support WebP image encoding, and Hugo uses [Dart Sass][] to transpile Sass to CSS. If you previously used the extended edition, use the standard edition instead. If you previously used the extended/deploy edition, use the deploy edition instead.
 {{< /new-in >}}
 
+[Dart Sass]: /functions/css/sass/#dart-sass
 [deploy your site]: /host-and-deploy/deploy-with-hugo/

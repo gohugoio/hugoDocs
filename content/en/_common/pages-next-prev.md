@@ -69,7 +69,7 @@ To reverse the meaning of _next_ and _previous_ you can chain the [`Reverse`][] 
 
 [`IndexOf`]: /methods/pages/indexof/
 [`Reverse`]: /methods/pages/reverse/
-[`date`]: /methods/page/date/
-[`linkTitle`]: /methods/page/linktitle/
+[`date`]: /content-management/front-matter/#date
+[`linkTitle`]: /content-management/front-matter/#linktitle
 [`path`]: /methods/page/path/
-[`weight`]: /methods/page/weight/
+[`weight`]: /content-management/front-matter/#weight
