@@ -20,34 +20,34 @@ hugo gen chromastyles [flags] [args]
 ### Options
 
 ```
-      --classDark string                class name used by --modeSelector for dark styles (default "dark")
-      --classLight string               class name used by --modeSelector for light styles (default "light")
-  -h, --help                            help for chromastyles
-      --highlightStyle string           foreground and background colors for highlighted lines, e.g. --highlightStyle "#fff000 bg:#000fff"
-      --lineNumbersInlineStyle string   foreground and background colors for inline line numbers, e.g. --lineNumbersInlineStyle "#fff000 bg:#000fff"
-      --lineNumbersTableStyle string    foreground and background colors for table line numbers, e.g. --lineNumbersTableStyle "#fff000 bg:#000fff"
-      --mode string                     style mode ("light", "dark")
-      --modeSelector                    scope selectors under a top level mode class, e.g. ".dark .chroma"
-      --omitClassComments               omit CSS class comment prefixes in the generated CSS
-      --omitEmpty                       omit empty CSS rules (deprecated, no longer needed)
-      --style string                    highlighter style (default "friendly")
+      --classDark string                 class name used by --modeSelector for dark styles (default "dark")
+      --classLight string                class name used by --modeSelector for light styles (default "light")
+  -h, --help[=true|false]                help for chromastyles
+      --highlightStyle string            foreground and background colors for highlighted lines, e.g. --highlightStyle "#fff000 bg:#000fff"
+      --lineNumbersInlineStyle string    foreground and background colors for inline line numbers, e.g. --lineNumbersInlineStyle "#fff000 bg:#000fff"
+      --lineNumbersTableStyle string     foreground and background colors for table line numbers, e.g. --lineNumbersTableStyle "#fff000 bg:#000fff"
+      --mode string                      style mode ("light", "dark")
+      --modeSelector[=true|false]        scope selectors under a top level mode class, e.g. ".dark .chroma"
+      --omitClassComments[=true|false]   omit CSS class comment prefixes in the generated CSS
+      --omitEmpty[=true|false]           omit empty CSS rules (deprecated, no longer needed)
+      --style string                     highlighter style (default "friendly")
 ```
 
 ### Options inherited from parent commands
 
 ```
-      --clock string               set the clock used by Hugo, e.g. --clock 2021-11-06T22:30:00.00+09:00
-      --config string              config file (default is hugo.yaml|json|toml)
-      --configDir string           config dir (default "config")
-  -d, --destination string         filesystem path to write files to
-  -e, --environment string         build environment
-      --ignoreVendorPaths string   ignores any _vendor for module paths matching the given Glob pattern
-      --logLevel string            log level (debug|info|warn|error)
-      --noBuildLock                don't create .hugo_build.lock file
-      --quiet                      build in quiet mode
-  -M, --renderToMemory             render to memory (mostly useful when running the server)
-  -s, --source string              filesystem path to read files relative from
-      --themesDir string           filesystem path to themes directory
+      --clock string                  set the clock used by Hugo, e.g. --clock 2021-11-06T22:30:00.00+09:00
+      --config string                 config file (default is hugo.yaml|json|toml)
+      --configDir string              config dir (default "config")
+  -d, --destination string            filesystem path to write files to
+  -e, --environment string            build environment
+      --ignoreVendorPaths string      ignores any _vendor for module paths matching the given Glob pattern
+      --logLevel string               log level (debug|info|warn|error)
+      --noBuildLock[=true|false]      don't create .hugo_build.lock file
+      --quiet[=true|false]            build in quiet mode
+  -M, --renderToMemory[=true|false]   render to memory (mostly useful when running the server)
+  -s, --source string                 filesystem path to read files relative from
+      --themesDir string              filesystem path to themes directory
 ```
 
 ### SEE ALSO
