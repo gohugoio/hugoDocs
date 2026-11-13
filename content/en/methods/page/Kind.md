@@ -8,7 +8,7 @@ params:
     signatures: [PAGE.Kind]
 ---
 
-The [page kind](g) is one of `home`, `page`, `section`, `taxonomy`, or `term`.
+The [page kind](g) is one of `home`, `page`, `section`, `taxonomy`, `term`, or `404`.
 
 ```tree
 content/
@@ -22,6 +22,8 @@ content/
 │   │   └── _index.md   <-- kind = term
 │   └── _index.md       <-- kind = taxonomy
 └── _index.md           <-- kind = home
+layouts/
+└── 404.html            <-- kind = 404
 ```
 
 To get the value within a template:
