@@ -8,14 +8,19 @@ params:
     signatures: [urls.PathUnescape INPUT]
 ---
 
-{{< new-in v0.153.0 />}}
+{{< new-in 0.153.0 />}}
 
-The `urls.PathUnescape` function does the inverse transformation of [`urls.PathEscape`][].
+## Usage
+
+The `urls.PathUnescape` function returns the given string, replacing all percent-encoded sequences with the corresponding unescaped characters. Use this function to decode a segment within a URL path. The function does not replace plus signs (`+`) with spaces. The build fails if the string contains an invalid percent-encoded sequence.
+
+The [`urls.PathEscape`][] function performs the inverse transformation.
+
+## Examples
 
 ```go-html-template
+{{ urls.PathUnescape "my%20caf%C3%A9" }} → my café
 {{ urls.PathUnescape "A%2Fb%2Fc%3Fd=%C3%A9&f=g+h" }} → A/b/c?d=é&f=g+h
 ```
 
-Use this function to decode an individual segment within a URL path.
-
-[`urls.PathEscape`]: /functions/urls/PathEscape/
+[`urls.PathEscape`]: /functions/urls/pathescape/

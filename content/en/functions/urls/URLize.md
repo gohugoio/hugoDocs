@@ -9,49 +9,46 @@ params:
     signatures: [urls.URLize INPUT]
 ---
 
-{{% include "/_common/anchorize-vs-urlize.md" %}}
+## Usage
 
-Use the `urlize` function to create a link to a [term page](g).
+The `urls.URLize` function returns the given string, sanitized for usage in a URL. The function:
 
-Consider this project configuration:
+1. Replaces each sequence of spaces with a hyphen.
+1. Removes characters other than letters, digits, marks, percent-encoded sequences, and the `.`, `/`, `\`, `_`, `#`, `+`, `~`, `-`, and `@` characters.
+1. Removes accents from letters if you set [`removePathAccents`][] to `true` in your project configuration.
+1. Converts the result to lowercase, unless you set [`disablePathToLower`][] to `true` in your project configuration.
+1. Applies percent-encoding to non-ASCII characters.
 
-{{< code-toggle file=hugo >}}
-[taxonomies]
-author = 'authors'
-{{< /code-toggle >}}
+Hugo applies the same rules when it creates the URL of a [term page](g) from a term.
 
-And this front matter:
+To sanitize a string for usage in an HTML `id` attribute, use the [`urls.Anchorize`][] function instead.
 
-{{< code-toggle file=content/books/les-miserables.md fm=true >}}
-title = 'Les Misérables'
-authors = ['Victor Hugo']
-{{< /code-toggle >}}
-
-The `public` directory will have this structure:
-
-```tree
-public/
-├── authors/
-│   ├── victor-hugo/
-│   │   └── index.html
-│   └── index.html
-├── books/
-│   ├── les-miserables/
-│   │   └── index.html
-│   └── index.html
-└── index.html
-```
-
-To create a link to the term page:
+## Examples
 
 ```go-html-template
-{{ $taxonomy := "authors" }}
-{{ $term := "Victor Hugo" }}
-{{ with index site.Taxonomies $taxonomy (urlize $term) }}
-  <a href="{{ .Page.RelPermalink }}">{{ .Page.LinkTitle }}</a>
-{{ end }}
+{{ urls.URLize "Hello, World!" }} → hello-world
+{{ urls.URLize "a b   c" }} → a-b-c
+{{ urls.URLize "main.go" }} → main.go
+{{ urls.URLize "Les Misérables" }} → les-mis%C3%A9rables
 ```
 
-To generate a list of term pages associated with a given content page, use the [`GetTerms`][] method on a `Page` object.
+With `disablePathToLower` set to `true`:
 
-[`GetTerms`]: /methods/page/getterms/
+```go-html-template
+{{ urls.URLize "Hello, World!" }} → Hello-World
+{{ urls.URLize "Les Misérables" }} → Les-Mis%C3%A9rables
+```
+
+With `removePathAccents` set to `true`:
+
+```go-html-template
+{{ urls.URLize "Les Misérables" }} → les-miserables
+```
+
+Comparing the result with `urls.Anchorize`:
+
+{{% include "/_common/anchorize-vs-urlize.md" %}}
+
+[`disablePathToLower`]: /configuration/all/#disablepathtolower
+[`removePathAccents`]: /configuration/all/#removepathaccents
+[`urls.Anchorize`]: /functions/urls/anchorize/

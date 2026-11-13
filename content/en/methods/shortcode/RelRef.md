@@ -1,6 +1,6 @@
 ---
 title: RelRef
-description: Returns the relative URL of the page with the given path, language, and output format.
+description: Returns the relative URL of the page with the given logical path.
 keywords: []
 params:
   functions_and_methods:
@@ -10,7 +10,11 @@ params:
 
 ## Usage
 
-The `RelRef` method requires a single argument: an options map.
+The `RelRef` method on a `Shortcode` object returns the relative URL of the page with the given [logical path](g). By default, the URL is for the target page in the current language. To return the URL for a different language or output format, set the `lang` or `outputFormat` option.
+
+Unlike the [`urls.RelRef`][] function, the `RelRef` method accepts only an options map, not a path. To return an absolute URL, use the [`Ref`][] method instead.
+
+{{% include "/_common/ref-and-relref-error-handling.md" %}}
 
 ## Options
 
@@ -18,7 +22,7 @@ The `RelRef` method requires a single argument: an options map.
 
 ## Examples
 
-The following examples show the rendered output for a page on the English version of the site:
+These examples use a shortcode called from a page in the English site of a multilingual project:
 
 ```go-html-template
 {{ $opts := dict "path" "/books/book-1" }}
@@ -31,6 +35,5 @@ The following examples show the rendered output for a page on the English versio
 {{ .RelRef $opts }} → /de/books/book-1/index.json
 ```
 
-## Error handling
-
-{{% include "/_common/ref-and-relref-error-handling.md" %}}
+[`urls.RelRef`]: /functions/urls/relref/
+[`Ref`]: /methods/shortcode/ref/
