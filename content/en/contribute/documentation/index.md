@@ -43,7 +43,7 @@ Adhere to these writing style conventions.
   No → To copy the repository:\
   Yes → Use the `git clone` command to copy the repository.
 
-  Exception: within the `## Examples` section of a function or method reference page, use a short fragment to introduce each code block after the first. See [function and method page structure](#structure).
+  Exception: within the `## Examples` section of a function or method reference page, use a short fragment to introduce each code block after the first. See [function and method page structure](#function-and-method-structure).
 
 - Use [basic english][] where possible for a global audience.
 - Prioritize current best practices over multiple options or historical information.
@@ -422,7 +422,7 @@ Keep the records sorted by `source`.
 
 Function and method pages follow specific conventions for the front matter description and the page structure.
 
-### Descriptions
+### Descriptions {#function-and-method-descriptions}
 
 For function and method pages, start the front matter `description` with "Returns" to describe the value returned, or with "Reports whether" if the returned value is a boolean. If a function or method is used primarily for its side effects, describe the action it performs instead, using third-person present tense. For example:
 
@@ -430,7 +430,7 @@ For function and method pages, start the front matter `description` with "Return
 - `Reports whether the given page is in the given section.`
 - `Logs a WARNING from a template.`
 
-### Structure
+### Structure {#function-and-method-structure}
 
 Structure the body of a function or method reference page with these level 2 headings, in this order:
 
@@ -513,6 +513,34 @@ Comparing `string` and `template.HTML` input, showing the raw HTML output:
 {{ "<b>Lilo &amp; Stitch</b>" | safeHTML | transform.Plainify }} → Lilo &amp; Stitch
 ```
 ````
+
+## Shortcode pages
+
+Shortcode pages describe Hugo's embedded shortcodes. They follow specific conventions for the front matter description and the page structure. To use a shortcode within this documentation, see [shortcodes](#shortcodes).
+
+### Descriptions {#shortcode-descriptions}
+
+For shortcode pages, write the front matter `description` in imperative present tense, naming the shortcode at the end. For example:
+
+- `Insert a QR code into your content using the qr shortcode.`
+- `Insert syntax-highlighted code into your content using the highlight shortcode.`
+
+### Structure {#shortcode-structure}
+
+Structure the body of a shortcode page with these level 2 headings, in this order:
+
+1. `## Usage`: Required. Prose describing behavior, configuration, and edge cases.
+1. `## Arguments`: Optional. A definition list describing the arguments.
+1. `## Options`: Required if an argument accepts options, otherwise omit. A definition list describing each option.
+1. `## Examples`: Required. Code blocks demonstrating the shortcode.
+
+Do not add other level 2 headings. Place related topics, such as privacy settings or styling, under `## Usage` as level 3 headings.
+
+Open the `## Usage` section with a complete sentence that names the shortcode, wrapped in backticks. For example: "The `qr` shortcode encodes the given text into a QR code and renders the resulting image." Callouts, such as a note that the shortcode is obsolete, belong within `## Usage`, not before it. End the `## Usage` section with a tip describing how to override the embedded shortcode.
+
+Under `## Arguments`, state in prose whether the shortcode accepts positional arguments, named arguments, or both. Then describe each argument using a definition list: list positional arguments in order, then named arguments alphabetically. Wrap each term in backticks, and begin each description with the data type in parentheses.
+
+Under `## Examples`, show each shortcode call in an `md` code block with the `file` attribute set to `content/example.md`, escaping the call as described in [escaping shortcode syntax](#escaping-shortcode-syntax). Follow each call with "Hugo renders this to:" and an `html` code block showing the output. The first code block needs no lead-in sentence. Introduce each subsequent example with a short lead-in ending in a colon.
 
 ## Code examples
 
