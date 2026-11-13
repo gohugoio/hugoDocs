@@ -95,7 +95,6 @@ A general setting is a single value, such as [`baseURL`](#baseurl) or [`title`](
 : (`bool`) Whether to disable the generation of HTML redirect files for each path defined in the [`aliases`][aliases_front_matter] front matter field. When `true`, Hugo will not create physical files for [client-side redirection][], but the alias data remains available via the [`Aliases`][aliases_page_method] method on a `Page` object. Default is `false`.
 
 `disableDefaultLanguageRedirect`
-: {{< new-in 0.140.0 />}}
 : (`bool`) Whether to disable generation of the alias redirect for the default content language. When [`defaultContentLanguageInSubdir`](#defaultcontentlanguageinsubdir) is `true`, this setting prevents the root directory from redirecting to the language subdirectory. Conversely, when `defaultContentLanguageInSubdir` is `false`, this setting prevents the language subdirectory from redirecting to the root directory. This is superseded by the more general [`disableDefaultSiteRedirect`](#disabledefaultsiteredirect) setting. Default is `false`.
 
 `disableDefaultSiteRedirect`

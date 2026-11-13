@@ -29,7 +29,6 @@ Use these methods on the collection returned by the `Resources` method:
 : (`resource.Resources`) Returns a collection of page resources whose paths match the given glob pattern, or an empty collection if none found. To get global resources, use the [`resources.Match`][] function.
 
 `Mount`
-: {{< new-in 0.140.0 />}}
 : (`resource.ResourceGetter`) Mounts the given resources, remapping from the base path (first argument) to the target path (second argument), and returns a [resource getter](g). A leading slash in the target marks an absolute path. Relative target paths allow you to mount resources relative to another set, such as a [page bundle](g).
 
 With the `GetMatch` and `Match` methods, Hugo determines a match using a case-insensitive glob pattern. Within a pattern, `*` matches any sequence of characters except the path separator, and `**` matches any sequence of characters including the path separator. For example, `images/*` matches `images/a.jpg` but not `images/sub/d.jpg`, while `images/**` matches both. The [glob patterns reference guide][] describes the other syntax rules.

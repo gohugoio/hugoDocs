@@ -47,7 +47,6 @@ _comment: Do not remove front matter.
   ```
 
 `loaders`
-: {{< new-in 0.140.0 />}}
 : (`map`) Configuring a loader for a given file type lets you load that file type with an `import` statement or a `require` call. For example, configuring the `.png` file extension to use the data URL loader means importing a `.png` file gives you a data URL containing the contents of that image. Loaders available are `none`, `base64`, `binary`, `copy`,  `css`,  `dataurl`, `default`, `empty`, `file`, `global-css`, `js`, `json`, `jsx`, `local-css`,  `text`, `ts`, `tsx`. See [details][esb loader].
 
 `minify`
@@ -69,7 +68,6 @@ _comment: Do not remove front matter.
   Note that this is meant for small data sets, e.g., configuration settings. For larger data sets, please put/mount the files into `assets` and import them directly.
 
 `platform`
-: {{< new-in 0.140.0 />}}
 : (`string`) One of `browser`, `node`, `neutral`. Default is `browser`. See [details][esb platform].
 
 `shims`
@@ -103,7 +101,6 @@ _comment: Do not remove front matter.
 : (`string`) The type of source map to generate. One of `external`, `inline`, `linked`, or `none`. Default is `none`. Linked and external source maps will be written to the target with the output file name + ".map". When `linked` a `sourceMappingURL` will also be written to the output file.
 
 `sourcesContent`
-: {{< new-in 0.140.0 />}}
 : (`bool`) Whether to include the content of the source files in the source map. Default is `true`.
 
 `target`

@@ -64,7 +64,6 @@ _comment: Do not remove front matter.
 : (`int`) Substitute this number of spaces for each tab character in your highlighted code. Irrelevant if `noClasses` is `false`. Default is `4`.
 
 `wrapperClass`
-: {{< new-in 0.140.2 />}}
 : (`string`) The class or classes to use for the outermost element of the highlighted code. Default is `highlight`.
 
 [`css.ChromaStyles`]: /functions/css/chromastyles/
