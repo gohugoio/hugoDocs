@@ -5,8 +5,6 @@ description: Insert an HTML details element into your content using the details 
 keywords: []
 ---
 
-{{< new-in 0.140.0 />}}
-
 ## Example
 
 With this Markdown:
