@@ -17,7 +17,7 @@ after deprecation.
 -->
 
 > [!WARNING]
-> The embedded LibSass transpiler was deprecated in [v0.153.0][] and will be removed in a future release. Use the Dart Sass transpiler instead by setting the `transpiler` option to `dartsass` as shown in the examples below.
+> The embedded LibSass transpiler was deprecated in [v0.153.0][] was removed in [v0.170.0][]. Use the Dart Sass transpiler instead by setting the `transpiler` option to `dartsass` as shown in the examples below.
 
 Sass has two forms of syntax: [SCSS][] and [indented][]. Hugo supports both.
 
@@ -340,3 +340,4 @@ For examples of how to install Dart Sass in a production environment, see the [h
 [scoop.sh]: https://scoop.sh/#/apps?q=sass
 [snapcraft.io]: https://snapcraft.io/dart-sass
 [v0.153.0]: https://github.com/gohugoio/hugo/releases/tag/v0.153.0
+[v0.170.0]: https://github.com/gohugoio/hugo/releases/tag/v0.170.0
