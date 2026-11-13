@@ -173,6 +173,8 @@ Standard|`{{</* foo */>}} ## Section 2 {{</* /foo */>}}`
 
 Hugo processes the shortcode before the page content is rendered by the Markdown renderer. This means, for instance, that Markdown headings inside a Markdown-notation shortcode will be included when invoking the [`TableOfContents`][] method on the `Page` object.
 
+When you use a shortcode to provide the destination of a Markdown link or image, call it with Markdown notation. Link and image [render hooks][] then receive the output of the shortcode as the destination.
+
 #### Standard notation
 
 With standard notation, Hugo processes the shortcode separately, merging the output into the page content after Markdown rendering. This means, for instance, that Markdown headings inside a standard-notation shortcode will be excluded when invoking the `TableOfContents` method on the `Page` object.
@@ -201,6 +203,8 @@ Hugo renders this HTML:
 
 In the above, "Section 1" will be included when invoking the `TableOfContents` method, while "Section 2" will not.
 
+When you use a standard-notation shortcode to provide the destination of a Markdown link or image, link and image render hooks receive a placeholder instead of the output of the shortcode. Hugo replaces the placeholder after rendering, so the HTML is correct, but a render hook that inspects the destination produces unexpected results.
+
 The shortcode author determines which notation to use. Consult each shortcode's documentation for specific usage instructions and available arguments.
 
 ## Nesting
@@ -225,6 +229,7 @@ The shortcode templates section provides detailed explanations and examples of [
 [configure security]: /configuration/security/
 [layout string]: /functions/time/format/#layout-string
 [nesting]: /templates/shortcode/#nesting
+[render hooks]: /render-hooks/
 [rendering order]: /templates/shortcode/#rendering-order
 [shortcode method]: /templates/shortcode/#methods
 [shortcode templates]: /templates/shortcode/

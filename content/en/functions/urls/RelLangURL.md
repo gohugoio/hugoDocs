@@ -9,15 +9,25 @@ params:
     signatures: [urls.RelLangURL INPUT]
 ---
 
-Use this function with both monolingual and multilingual configurations. The URL returned by this function depends on:
+## Usage
 
-- Whether the input begins with a slash (`/`)
-- The `baseURL` in your project configuration
-- The language prefix, if any
+The `urls.RelLangURL` function returns a relative URL with a language prefix, if any. The function builds the URL from the given input, the language prefix of the current site, and the [`baseURL`][] in your project configuration:
 
-This is the project configuration for the examples that follow:
+- If the input does not begin with a slash (`/`), the function appends the language prefix and the input to the path of the `baseURL`.
+- If the input begins with a slash, the function returns the input with the language prefix, ignoring the path of the `baseURL`.
+- If the input is an absolute URL that begins with the `baseURL`, the function replaces the `baseURL` with its path and the language prefix.
+- If the input is any other absolute URL, or a protocol-relative URL beginning with `//`, the function returns the input unchanged.
+
+In most cases, omit the leading slash so that the result includes the path of the `baseURL`.
+
+The language prefix is the language key of the current site. The function omits the prefix for the [default language](g) unless you set [`defaultContentLanguageInSubdir`][] to `true` in your project configuration. If the input already begins with the language prefix, the function does not add it again. In a monolingual project, or in a [multihost][] project, the function behaves like the [`urls.RelURL`][] function.
+
+## Examples
+
+These examples use this project configuration, and show the result when rendering the `en` site:
 
 {{< code-toggle file=hugo >}}
+baseURL = 'https://example.org/'
 defaultContentLanguage = 'en'
 defaultContentLanguageInSubdir = true
 [languages.en]
@@ -26,55 +36,57 @@ weight = 1
 weight = 2
 {{< /code-toggle >}}
 
-## Input does not begin with a slash
-
-If the input does not begin with a slash, the resulting URL will be relative to the `baseURL` in your project configuration.
-
-When rendering the `en` site with `baseURL = https://example.org/`
-
 ```go-html-template
-{{ relLangURL "" }}                         → /en/
-{{ relLangURL "articles" }}                 → /en/articles
-{{ relLangURL "style.css" }}                → /en/style.css
-{{ relLangURL "https://example.org" }}      → https://example.org
-{{ relLangURL "https://example.org/" }}     → /en
-{{ relLangURL "https://www.example.org" }}  → https://www.example.org
-{{ relLangURL "https://www.example.org/" }} → https://www.example.org/
+{{ urls.RelLangURL "" }}            → /en/
+{{ urls.RelLangURL "articles" }}    → /en/articles
+{{ urls.RelLangURL "style.css" }}   → /en/style.css
+{{ urls.RelLangURL "/" }}           → /en/
+{{ urls.RelLangURL "/articles" }}   → /en/articles
+{{ urls.RelLangURL "/style.css" }}  → /en/style.css
+{{ urls.RelLangURL "en/articles" }} → /en/articles
 ```
 
-When rendering the `en` site with `baseURL = https://example.org/docs/`
+With a `baseURL` of `https://example.org/docs/`:
 
 ```go-html-template
-{{ relLangURL "" }}                           → /docs/en/
-{{ relLangURL "articles" }}                   → /docs/en/articles
-{{ relLangURL "style.css" }}                  → /docs/en/style.css
-{{ relLangURL "https://example.org" }}        → https://example.org
-{{ relLangURL "https://example.org/" }}       → https://example.org/
-{{ relLangURL "https://example.org/docs" }}   → https://example.org/docs
-{{ relLangURL "https://example.org/docs/" }}  → /docs/en
-{{ relLangURL "https://www.example.org" }}    → https://www.example.org
-{{ relLangURL "https://www.example.org/" }}   → https://www.example.org/
+{{ urls.RelLangURL "" }}            → /docs/en/
+{{ urls.RelLangURL "articles" }}    → /docs/en/articles
+{{ urls.RelLangURL "style.css" }}   → /docs/en/style.css
+{{ urls.RelLangURL "/" }}           → /en/
+{{ urls.RelLangURL "/articles" }}   → /en/articles
+{{ urls.RelLangURL "/style.css" }}  → /en/style.css
+{{ urls.RelLangURL "en/articles" }} → /docs/en/articles
 ```
 
-## Input begins with a slash
-
-If the input begins with a slash, the resulting URL will be relative to the protocol+host of the `baseURL` in your project configuration.
-
-When rendering the `en` site with `baseURL = https://example.org/`
+Absolute URLs with a `baseURL` of `https://example.org/`:
 
 ```go-html-template
-{{ relLangURL "/" }}          → /en/
-{{ relLangURL "/articles" }}  → /en/articles
-{{ relLangURL "/style.css" }} → /en/style.css
+{{ urls.RelLangURL "https://example.org" }}       → https://example.org
+{{ urls.RelLangURL "https://example.org/" }}      → /en
+{{ urls.RelLangURL "https://example.org/docs" }}  → /en/docs
+{{ urls.RelLangURL "https://example.org/docs/" }} → /en/docs/
+{{ urls.RelLangURL "https://www.example.org" }}   → https://www.example.org
+{{ urls.RelLangURL "https://www.example.org/" }}  → https://www.example.org/
 ```
 
-When rendering the `en` site with `baseURL = https://example.org/docs/`
+Absolute URLs with a `baseURL` of `https://example.org/docs/`:
 
 ```go-html-template
-{{ relLangURL "/" }}          → /en/
-{{ relLangURL "/articles" }}  → /en/articles
-{{ relLangURL "/style.css" }} → /en/style.css
+{{ urls.RelLangURL "https://example.org" }}       → https://example.org
+{{ urls.RelLangURL "https://example.org/" }}      → https://example.org/
+{{ urls.RelLangURL "https://example.org/docs" }}  → https://example.org/docs
+{{ urls.RelLangURL "https://example.org/docs/" }} → /docs/en
+{{ urls.RelLangURL "https://www.example.org" }}   → https://www.example.org
+{{ urls.RelLangURL "https://www.example.org/" }}  → https://www.example.org/
 ```
 
-> [!TIP]
-> As illustrated by the previous example, using a leading slash is rarely desirable and can lead to unexpected outcomes. In nearly all cases, omit the leading slash.
+A protocol-relative URL:
+
+```go-html-template
+{{ urls.RelLangURL "//example.com/a" }} → //example.com/a
+```
+
+[`baseURL`]: /configuration/all/#baseurl
+[`defaultContentLanguageInSubdir`]: /configuration/all/#defaultcontentlanguageinsubdir
+[`urls.RelURL`]: /functions/urls/relurl/
+[multihost]: /configuration/languages/#multihost
