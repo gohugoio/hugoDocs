@@ -9,62 +9,70 @@ params:
     signatures: [urls.RelURL INPUT]
 ---
 
-With multilingual configurations, use the [`urls.RelLangURL`][] function instead. The URL returned by this function depends on:
+## Usage
 
-- Whether the input begins with a slash (`/`)
-- The `baseURL` in your project configuration
+The `urls.RelURL` function returns a relative URL. The function builds the URL from the given input and the [`baseURL`][] in your project configuration:
 
-## Input does not begin with a slash
+- If the input does not begin with a slash (`/`), the function appends the input to the path of the `baseURL`.
+- If the input begins with a slash, the function returns the input, ignoring the path of the `baseURL`.
+- If the input is an absolute URL that begins with the `baseURL`, the function replaces the `baseURL` with its path.
+- If the input is any other absolute URL, or a protocol-relative URL beginning with `//`, the function returns the input unchanged.
 
-If the input does not begin with a slash, the resulting URL will be relative to the `baseURL` in your project configuration.
+In most cases, omit the leading slash so that the result includes the path of the `baseURL`.
 
-With `baseURL = https://example.org/`
+In a multilingual project, use the [`urls.RelLangURL`][] function to add a language prefix.
 
-```go-html-template
-{{ relURL "" }}                         → /
-{{ relURL "articles" }}                 → /articles
-{{ relURL "style.css" }}                → /style.css
-{{ relURL "https://example.org" }}      → https://example.org
-{{ relURL "https://example.org/" }}     → /
-{{ relURL "https://www.example.org" }}  → https://www.example.org
-{{ relURL "https://www.example.org/" }} → https://www.example.org/
-```
+## Examples
 
-With `baseURL = https://example.org/docs/`
+These examples use a `baseURL` of `https://example.org/`:
 
 ```go-html-template
-{{ relURL "" }}                           → /docs/
-{{ relURL "articles" }}                   → /docs/articles
-{{ relURL "style.css" }}                  → /docs/style.css
-{{ relURL "https://example.org" }}        → https://example.org
-{{ relURL "https://example.org/" }}       → https://example.org/
-{{ relURL "https://example.org/docs" }}   → https://example.org/docs
-{{ relURL "https://example.org/docs/" }}  → /docs
-{{ relURL "https://www.example.org" }}    → https://www.example.org
-{{ relURL "https://www.example.org/" }}   → https://www.example.org/
+{{ urls.RelURL "" }}           → /
+{{ urls.RelURL "articles" }}   → /articles
+{{ urls.RelURL "style.css" }}  → /style.css
+{{ urls.RelURL "/" }}          → /
+{{ urls.RelURL "/articles" }}  → /articles
+{{ urls.RelURL "/style.css" }} → /style.css
 ```
 
-## Input begins with a slash
-
-If the input begins with a slash, the resulting URL will be relative to the protocol+host of the `baseURL` in your project configuration.
-
-With `baseURL = https://example.org/`
+With a `baseURL` of `https://example.org/docs/`:
 
 ```go-html-template
-{{ relURL "/" }}          → /
-{{ relURL "/articles" }}  → /articles
-{{ relURL "/style.css" }} → /style.css
+{{ urls.RelURL "" }}           → /docs/
+{{ urls.RelURL "articles" }}   → /docs/articles
+{{ urls.RelURL "style.css" }}  → /docs/style.css
+{{ urls.RelURL "/" }}          → /
+{{ urls.RelURL "/articles" }}  → /articles
+{{ urls.RelURL "/style.css" }} → /style.css
 ```
 
-With `baseURL = https://example.org/docs/`
+Absolute URLs with a `baseURL` of `https://example.org/`:
 
 ```go-html-template
-{{ relURL "/" }}          → /
-{{ relURL "/articles" }}  → /articles
-{{ relURL "/style.css" }} → /style.css
+{{ urls.RelURL "https://example.org" }}       → https://example.org
+{{ urls.RelURL "https://example.org/" }}      → /
+{{ urls.RelURL "https://example.org/docs" }}  → /docs
+{{ urls.RelURL "https://example.org/docs/" }} → /docs/
+{{ urls.RelURL "https://www.example.org" }}   → https://www.example.org
+{{ urls.RelURL "https://www.example.org/" }}  → https://www.example.org/
 ```
 
-> [!TIP]
-> As illustrated by the previous example, using a leading slash is rarely desirable and can lead to unexpected outcomes. In nearly all cases, omit the leading slash.
+Absolute URLs with a `baseURL` of `https://example.org/docs/`:
 
+```go-html-template
+{{ urls.RelURL "https://example.org" }}       → https://example.org
+{{ urls.RelURL "https://example.org/" }}      → https://example.org/
+{{ urls.RelURL "https://example.org/docs" }}  → https://example.org/docs
+{{ urls.RelURL "https://example.org/docs/" }} → /docs
+{{ urls.RelURL "https://www.example.org" }}   → https://www.example.org
+{{ urls.RelURL "https://www.example.org/" }}  → https://www.example.org/
+```
+
+A protocol-relative URL:
+
+```go-html-template
+{{ urls.RelURL "//example.com/a" }} → //example.com/a
+```
+
+[`baseURL`]: /configuration/all/#baseurl
 [`urls.RelLangURL`]: /functions/urls/rellangurl/
