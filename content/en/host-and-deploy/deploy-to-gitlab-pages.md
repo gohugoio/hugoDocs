@@ -201,7 +201,7 @@ For more information on hosting and managing your site with GitLab Pages, consul
 - [General documentation][]
 - [Custom domain setup][]
 
-[Custom domain setup]: https://docs.gitlab.com/ee/user/project/pages/custom_domains_ssl_tls_certificates/
+[Custom domain setup]: https://docs.gitlab.com/user/project/pages/custom_domains_ssl_tls_certification/
 [General documentation]: https://docs.gitlab.com/ee/user/project/pages/
 [`baseURL`]: /configuration/all/#baseurl
 [`cacheDir`]: /configuration/all/#cachedir

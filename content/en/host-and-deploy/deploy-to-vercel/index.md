@@ -224,7 +224,7 @@ For more information on hosting and managing your site with Vercel, consult the 
 - [General documentation][]
 - [Custom domain setup][]
 
-[Custom domain setup]: https://vercel.com/docs/domains/overview
+[Custom domain setup]: https://vercel.com/docs/domains
 [General documentation]: https://vercel.com/docs
 [`cacheDir`]: /configuration/all/#cachedir
 [configure file caches]: /configuration/caches/
