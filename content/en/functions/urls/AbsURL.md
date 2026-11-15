@@ -9,52 +9,69 @@ params:
     signatures: [urls.AbsURL INPUT]
 ---
 
-With multilingual configurations, use the [`urls.AbsLangURL`][] function instead. The URL returned by this function depends on:
+## Usage
 
-- Whether the input begins with a slash (`/`)
-- The `baseURL` in your project configuration
+The `urls.AbsURL` function returns an absolute URL. The function builds the URL from the given input and the [`baseURL`][] in your project configuration:
 
-## Input does not begin with a slash
+- If the input does not begin with a slash (`/`), the function appends the input to the `baseURL`.
+- If the input begins with a slash, the function appends the input to the protocol and host of the `baseURL`, ignoring the path of the `baseURL`.
+- If the input is an absolute URL, or a protocol-relative URL beginning with `//`, the function returns the input unchanged.
 
-If the input does not begin with a slash, the path in the resulting URL will be relative to the `baseURL` in your project configuration.
+In most cases, omit the leading slash so that the result includes the path of the `baseURL`.
 
-With `baseURL = https://example.org/`
+In a multilingual project, use the [`urls.AbsLangURL`][] function to add a language prefix.
 
-```go-html-template
-{{ absURL "" }}          → https://example.org/
-{{ absURL "articles" }}  → https://example.org/articles
-{{ absURL "style.css" }} → https://example.org/style.css
-```
+## Examples
 
-With `baseURL = https://example.org/docs/`
+These examples use a `baseURL` of `https://example.org/`:
 
 ```go-html-template
-{{ absURL "" }}          → https://example.org/docs/
-{{ absURL "articles" }}  → https://example.org/docs/articles
-{{ absURL "style.css" }} → https://example.org/docs/style.css
+{{ urls.AbsURL "" }}           → https://example.org/
+{{ urls.AbsURL "articles" }}   → https://example.org/articles
+{{ urls.AbsURL "style.css" }}  → https://example.org/style.css
+{{ urls.AbsURL "/" }}          → https://example.org/
+{{ urls.AbsURL "/articles" }}  → https://example.org/articles
+{{ urls.AbsURL "/style.css" }} → https://example.org/style.css
 ```
 
-## Input begins with a slash
-
-If the input begins with a slash, the path in the resulting URL will be relative to the protocol+host of the `baseURL` in your project configuration.
-
-With `baseURL = https://example.org/`
+With a `baseURL` of `https://example.org/docs/`:
 
 ```go-html-template
-{{ absURL "/" }}          → https://example.org/
-{{ absURL "/articles" }}  → https://example.org/articles
-{{ absURL "/style.css" }} → https://example.org/style.css
+{{ urls.AbsURL "" }}           → https://example.org/docs/
+{{ urls.AbsURL "articles" }}   → https://example.org/docs/articles
+{{ urls.AbsURL "style.css" }}  → https://example.org/docs/style.css
+{{ urls.AbsURL "/" }}          → https://example.org/
+{{ urls.AbsURL "/articles" }}  → https://example.org/articles
+{{ urls.AbsURL "/style.css" }} → https://example.org/style.css
 ```
 
-With `baseURL = https://example.org/docs/`
+Absolute URLs with a `baseURL` of `https://example.org/`:
 
 ```go-html-template
-{{ absURL "/" }}          → https://example.org/
-{{ absURL "/articles" }}  → https://example.org/articles
-{{ absURL "/style.css" }} → https://example.org/style.css
+{{ urls.AbsURL "https://example.org" }}       → https://example.org
+{{ urls.AbsURL "https://example.org/" }}      → https://example.org/
+{{ urls.AbsURL "https://example.org/docs" }}  → https://example.org/docs
+{{ urls.AbsURL "https://example.org/docs/" }} → https://example.org/docs/
+{{ urls.AbsURL "https://www.example.org" }}   → https://www.example.org
+{{ urls.AbsURL "https://www.example.org/" }}  → https://www.example.org/
 ```
 
-> [!TIP]
-> As illustrated by the previous example, using a leading slash is rarely desirable and can lead to unexpected outcomes. In nearly all cases, omit the leading slash.
+Absolute URLs with a `baseURL` of `https://example.org/docs/`:
 
+```go-html-template
+{{ urls.AbsURL "https://example.org" }}       → https://example.org
+{{ urls.AbsURL "https://example.org/" }}      → https://example.org/
+{{ urls.AbsURL "https://example.org/docs" }}  → https://example.org/docs
+{{ urls.AbsURL "https://example.org/docs/" }} → https://example.org/docs/
+{{ urls.AbsURL "https://www.example.org" }}   → https://www.example.org
+{{ urls.AbsURL "https://www.example.org/" }}  → https://www.example.org/
+```
+
+A protocol-relative URL:
+
+```go-html-template
+{{ urls.AbsURL "//example.com/a" }} → //example.com/a
+```
+
+[`baseURL`]: /configuration/all/#baseurl
 [`urls.AbsLangURL`]: /functions/urls/abslangurl/

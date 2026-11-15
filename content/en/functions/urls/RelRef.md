@@ -1,6 +1,6 @@
 ---
 title: urls.RelRef
-description: Returns the relative URL of the page with the given path, language, and output format.
+description: Returns the relative URL of the page with the given logical path.
 keywords: []
 params:
   functions_and_methods:
@@ -13,10 +13,22 @@ params:
 
 ## Usage
 
-The `relref` function takes two arguments:
+The `urls.RelRef` function returns the relative URL of the page with the given [logical path](g). By default, the URL is for the target page in the current language. To return the URL for a different language or output format, pass an options map instead of a path.
 
-1. The context for resolving relative paths (typically the current page).
-1. Either the target page's path or an options map (see below).
+To return an absolute URL, use the [`urls.Ref`][] function instead.
+
+{{% include "/_common/ref-and-relref-error-handling.md" %}}
+
+## Arguments
+
+`PAGE`
+: (`page.Page`) The page used to resolve relative paths and to determine the default language.
+
+`PATH`
+: (`string`) The logical path of the target page, as described in the `path` option.
+
+`OPTIONS`
+: (`map`) The logical path, language, and output format of the target page. See [options](#options-1).
 
 ## Options
 
@@ -24,21 +36,23 @@ The `relref` function takes two arguments:
 
 ## Examples
 
-The following examples show the rendered output for a page on the English version of the site:
+These examples use a page in the English site of a multilingual project:
 
 ```go-html-template
-{{ relref . "/books/book-1" }} → /en/books/book-1/
-
-{{ $opts := dict "path" "/books/book-1" }}
-{{ relref . $opts }} → /en/books/book-1/
-
-{{ $opts := dict "path" "/books/book-1" "lang" "de" }}
-{{ relref . $opts }} → /de/books/book-1/
-
-{{ $opts := dict "path" "/books/book-1" "lang" "de" "outputFormat" "json" }}
-{{ relref . $opts }} → /de/books/book-1/index.json
+{{ urls.RelRef . "/books/book-1" }} → /en/books/book-1/
 ```
 
-## Error handling
+Passing an options map:
 
-{{% include "/_common/ref-and-relref-error-handling.md" %}}
+```go-html-template
+{{ $opts := dict "path" "/books/book-1" }}
+{{ urls.RelRef . $opts }} → /en/books/book-1/
+
+{{ $opts := dict "path" "/books/book-1" "lang" "de" }}
+{{ urls.RelRef . $opts }} → /de/books/book-1/
+
+{{ $opts := dict "path" "/books/book-1" "lang" "de" "outputFormat" "json" }}
+{{ urls.RelRef . $opts }} → /de/books/book-1/index.json
+```
+
+[`urls.Ref`]: /functions/urls/ref/

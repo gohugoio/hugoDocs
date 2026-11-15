@@ -8,14 +8,19 @@ params:
     signatures: [urls.PathEscape INPUT]
 ---
 
-{{< new-in v0.153.0 />}}
+{{< new-in 0.153.0 />}}
 
-The `urls.PathEscape` function does the inverse transformation of [`urls.PathUnescape`][].
+## Usage
+
+The `urls.PathEscape` function returns the given string, applying percent-encoding to special characters and reserved delimiters so that you can use it as a segment within a URL path. The function encodes slashes (`/`) and question marks (`?`), so do not pass a complete path to this function. Encode each segment of the path instead.
+
+The [`urls.PathUnescape`][] function performs the inverse transformation.
+
+## Examples
 
 ```go-html-template
 {{ urls.PathEscape "my café" }} → my%20caf%C3%A9
+{{ urls.PathEscape "a/b?c" }} → a%2Fb%3Fc
 ```
 
-Use this function to escape a string so that it can be safely used as an individual segment within a URL path.
-
-[`urls.PathUnescape`]: /functions/urls/PathUnescape/
+[`urls.PathUnescape`]: /functions/urls/pathunescape/
