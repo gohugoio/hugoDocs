@@ -98,6 +98,51 @@ tags = ['Tag A','Tag B']
 categories = ['Category A','Category B']
 {{< /code-toggle >}}
 
+## Term names
+
+Hugo creates the [logical path](g) of each term page from the term, converting it to lower case and replacing each space with a hyphen. Terms with the same logical path are the same term. For example, `Tag A`, `tag a`, and `tag-a` are the same term, and Hugo publishes its page to `/tags/tag-a/`.
+
+When your content assigns the same term with different capitalization, spaces, or hyphens, such as `Tag A` in one page and `tag-a` in another, Hugo creates the term page title from one of them, and the choice may change from one build to the next. To get a consistent title, write the term the same way everywhere, or set the `title` in the front matter of the [term page](#metadata).
+
+Hugo then removes most punctuation from the logical path to create the [URL path][]. As a result, two different terms can have the same URL path. For example, `a,b` and `a:b` are different terms, but Hugo publishes both term pages to `/tags/ab/`, and one overwrites the other. Use the `--printPathWarnings` flag when building your project to detect these collisions.
+
+To prevent collisions, and to be able to create a term page for any term on any operating system, limit each term to letters, digits, spaces, and these characters: `_` `-` `#` `+` `.` `@` `~`
+
+Hugo treats a space and a hyphen as the same character. For example, `web dev` and `web-dev` are the same term.
+
+To display a term with other characters, set the `title` in the front matter of its term page.
+
+When you create a term page, name its directory using the logical path of the term, including any accented characters. For example, to create a page for the term `Música`, create `content/tags/música/_index.md`.
+
+In a multilingual project, assign the same term in every language, then create a term page for each language to translate its title and localize its URL with the [`slug`][] field. For example, assign the term `music` in both English and Portuguese content, then create this term page:
+
+{{< code-toggle file=content/tags/music/_index.pt.md fm=true >}}
+title = 'Música'
+slug = 'música'
+{{< /code-toggle >}}
+
+Hugo publishes the Portuguese term page to `/pt/tags/música/`, and links it to the English term page as a translation.
+
+To validate the terms in every taxonomy, create a partial template that throws an error when a term contains characters other than those listed above:
+
+```go-html-template {file="layouts/_partials/validate-terms.html" copy=true}
+{{ if .IsHome }}
+  {{ range $taxonomy, $terms := site.Taxonomies }}
+    {{ range $term, $_ := $terms }}
+      {{ if findRE `[^\pL\pN\s_\-#+.@~]` $term }}
+        {{ errorf "The %q taxonomy contains an invalid term: %q" $taxonomy $term }}
+      {{ end }}
+    {{ end }}
+  {{ end }}
+{{ end }}
+```
+
+Then call the partial from your base template. Hugo runs it once for each site.
+
+```go-html-template {file="layouts/baseof.html"}
+{{ partial "validate-terms.html" . }}
+```
+
 ## Taxonomic weight
 
 {{% glossary-term "taxonomic weight" %}}
@@ -184,4 +229,6 @@ Or create a _term_ template specific to the `authors` taxonomy:
 
 In the example above we display the author including their affiliation and portrait, then a list of associated content.
 
+[URL path]: /content-management/organization/#url-paths
+[`slug`]: /content-management/urls/#slug
 [configure taxonomies]: /configuration/taxonomies/

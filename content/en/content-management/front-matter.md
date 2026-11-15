@@ -211,6 +211,8 @@ Access taxonomy terms from a template using the [`Params`][] or [`GetTerms`][] m
 {{ end }}
 ```
 
+Hugo creates the URL of each term page from the term, removing most punctuation. To prevent two terms from publishing to the same URL, follow the guidelines for [term names][].
+
 ## Cascade
 
 > [!TIP]
@@ -333,5 +335,6 @@ If a date/time string includes a time zone offset, Hugo uses that offset. Otherw
 [page resources]: /content-management/page-resources/#metadata
 [sitemap template]: /templates/sitemap/
 [target a specific template]: /templates/lookup-order/#target-a-template
+[term names]: /content-management/taxonomies/#term-names
 [slug]: /content-management/urls/#slug
 [url]: /content-management/urls/#url
