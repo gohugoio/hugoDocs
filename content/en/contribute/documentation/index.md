@@ -614,13 +614,18 @@ Structure the body of a shortcode page with these level 2 headings, in this orde
 1. `## Options`: Required if an argument accepts options, otherwise omit. A definition list describing each option.
 1. `## Examples`: Required. Code blocks demonstrating the shortcode.
 
-Do not add other level 2 headings. Place related topics, such as privacy settings or styling, under `## Usage` as level 3 headings.
+Do not add other level 2 headings. Place related topics, such as privacy settings or styling, under `## Usage`. If `## Usage` contains two or more such topics, give each topic a level 3 heading. If it contains only one, do not add a heading, because a single subsection violates the [section heading](#section-headings) rules.
 
 Open the `## Usage` section with a complete sentence that names the shortcode, wrapped in backticks. For example: "The `qr` shortcode encodes the given text into a QR code and renders the resulting image." Callouts, such as a note that the shortcode is obsolete, belong within `## Usage`, not before it. End the `## Usage` section with a tip describing how to override the embedded shortcode.
 
-Under `## Arguments`, state in prose whether the shortcode accepts positional arguments, named arguments, or both. Then describe each argument using a definition list: list positional arguments in order, then named arguments alphabetically. Wrap each term in backticks, and begin each description with the data type in parentheses.
+Under `## Arguments`, state in prose whether the shortcode accepts positional arguments, named arguments, or both. If it accepts both, add "Do not mix positional and named arguments." Then describe each argument using a definition list: list positional arguments in order, then named arguments alphabetically. Wrap each term in backticks, and begin each description with the data type in parentheses.
 
-Under `## Examples`, show each shortcode call in an `md` code block with the `file` attribute set to `content/example.md`, escaping the call as described in [escaping shortcode syntax](#escaping-shortcode-syntax). Follow each call with "Hugo renders this to:" and an `html` code block showing the output. The first code block needs no lead-in sentence. Introduce each subsequent example with a short lead-in ending in a colon.
+Under `## Examples`, show each shortcode call in an `md` code block with the `file` attribute set to `content/example.md`, escaping the call as described in [escaping shortcode syntax](#escaping-shortcode-syntax). Follow each call with its result, using one of these lead-ins:
+
+- If the shortcode renders visible content, such as an image, a video, or highlighted code, follow the call with "Your browser displays this:" and the same call, unescaped, so that the page displays the result.
+- Otherwise, follow the call with "Hugo renders this to:" and an `html` code block showing the output.
+
+The first code block needs no lead-in sentence. Introduce each subsequent example with a short lead-in ending in a colon.
 
 ## Code examples
 

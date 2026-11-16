@@ -7,41 +7,71 @@ keywords: []
 
 {{< new-in 0.141.0 />}}
 
-The `qr` shortcode encodes the given text into a [QR code][] using the specified options and renders the resulting image.
+## Usage
 
-Internally this shortcode calls the `images.QR` function. Please read the [related documentation][] for implementation details and guidance.
+The `qr` shortcode encodes the given text into a [QR code][] using the specified options and renders the resulting image. Pass the text with the `text` argument, or place it between the opening and closing shortcode tags.
+
+The shortcode calls the [`images.QR`][] function, which describes the encoding process and the error correction levels in detail.
+
+> [!TIP]
+> To override Hugo's embedded `qr` shortcode, copy the [source code][] to a file with the same name in the `layouts/_shortcodes` directory.
+
+## Arguments
+
+The `qr` shortcode accepts named arguments.
+
+`alt`
+: (`string`) The `alt` attribute of the `img` element.
+
+`class`
+: (`string`) The `class` attribute of the `img` element.
+
+`id`
+: (`string`) The `id` attribute of the `img` element.
+
+`level`
+: (`string`) The error correction level to use when encoding the text, one of `low`, `medium`, `quartile`, or `high`. Default is `medium`.
+
+`loading`
+: (`string`) The `loading` attribute of the `img` element, either `eager` or `lazy`.
+
+`scale`
+: (`int`) The number of image pixels per QR code module. Must be greater than or equal to 2. Default is `4`.
+
+`targetDir`
+: (`string`) The subdirectory within the `public` directory where Hugo places the generated image.
+
+`text`
+: (`string`) The text to encode, falling back to the text between the opening and closing shortcode tags.
+
+`title`
+: (`string`) The `title` attribute of the `img` element.
 
 ## Examples
 
-Use the self-closing syntax to pass the text as an argument:
-
-```md
+```md {file="content/example.md"}
 {{</* qr text="https://gohugo.io" /*/>}}
 ```
 
-Or insert the text between the opening and closing tags:
+Your browser displays this:
 
-```md
+{{< qr text="https://gohugo.io" />}}
+
+With the text between the opening and closing tags:
+
+```md {file="content/example.md"}
 {{</* qr */>}}
 https://gohugo.io
 {{</* /qr */>}}
 ```
 
-Both of the above produce this image:
+Your browser displays this:
 
-{{< qr text="https://gohugo.io" class="qrcode" targetDir="images/qr" />}}
+{{< qr text="https://gohugo.io" />}}
 
-To create a QR code for a phone number:
+With contact information in the [vCard][] format:
 
-```md
-{{</* qr text="tel:+12065550101" /*/>}}
-```
-
-{{< qr text="tel:+12065550101" class="qrcode" targetDir="images/qr" />}}
-
-To create a QR code containing contact information in the [vCard][] format:
-
-```md
+```md {file="content/example.md"}
 {{</* qr level="low" scale=2 alt="QR code of vCard for John Smith" */>}}
 BEGIN:VCARD
 VERSION:2.1
@@ -55,7 +85,9 @@ END:VCARD
 {{</* /qr */>}}
 ```
 
-{{< qr level="low" scale=2 alt="QR code of vCard for John Smith" class="qrcode" targetDir="images/qr" >}}
+Your browser displays this:
+
+{{< qr level="low" scale=2 alt="QR code of vCard for John Smith" >}}
 BEGIN:VCARD
 VERSION:2.1
 N;CHARSET=UTF-8:Smith;John;R.;Dr.;PhD
@@ -67,39 +99,7 @@ EMAIL;TYPE=WORK:jsmith@example.org
 END:VCARD
 {{< /qr >}}
 
-## Arguments
-
-`text`
-: (`string`) The text to encode, falling back to the text between the opening and closing shortcode tags.
-
-`level`
-: (`string`) The error correction level to use when encoding the text, one of `low`, `medium`, `quartile`, or `high`. Default is `medium`.
-
-`scale`
-: (`int`) The number of image pixels per QR code module. Must be greater than or equal to 2. Default is `4`.
-
-`targetDir`
-: (`string`) The subdirectory within the `public` directory where Hugo will place the generated image.
-
-`alt`
-: (`string`) The `alt` attribute of the `img` element.
-
-`class`
-: (`string`) The `class` attribute of the `img` element.
-
-`id`
-: (`string`) The `id` attribute of the `img` element.
-
-`loading`
-: (`string`) The `loading` attribute of the `img` element, either `eager` or `lazy`.
-
-`title`
-: (`string`) The `title` attribute of the `img` element.
-
-> [!TIP]
-> To override Hugo's embedded `qr` shortcode, copy the [source code][] to a file with the same name in the `layouts/_shortcodes` directory.
-
 [QR code]: https://en.wikipedia.org/wiki/QR_code
-[related documentation]: /functions/images/qr/
+[`images.QR`]: /functions/images/qr/
 [source code]: <{{% eturl qr %}}>
 [vCard]: <https://en.wikipedia.org/wiki/VCard>

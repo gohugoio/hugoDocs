@@ -5,36 +5,49 @@ description: Insert syntax-highlighted code into your content using the highligh
 keywords: [highlight]
 ---
 
-> [!NOTE]
-> With the Markdown [content format][], the `highlight` shortcode is rarely needed because, by default, Hugo automatically applies syntax highlighting to fenced code blocks.
->
-> The primary use case for the `highlight` shortcode in Markdown is to apply syntax highlighting to inline code snippets.
+## Usage
 
-The `highlight` shortcode calls the [`transform.Highlight`][] function to generate syntax-highlighted HTML from the provided code, [language][], and [options](#options-1).
+The `highlight` shortcode calls the [`transform.Highlight`][] function to render the code between its opening and closing tags with a syntax highlighter, using the given [language][] and [options](#options-1).
+
+> [!NOTE]
+> With the Markdown [content format][], you rarely need the `highlight` shortcode because Hugo applies syntax highlighting to fenced code blocks by default. In Markdown, use the `highlight` shortcode mainly to highlight inline code.
+
+If you often highlight inline code, create your own shortcode with a shorter name and preset options:
+
+```go-html-template {file="layouts/_shortcodes/hl.html"}
+{{ $code := .Inner | strings.TrimSpace }}
+{{ $lang := or (.Get 0) "go" }}
+{{ $opts := dict "hl_inline" true "noClasses" true }}
+{{ transform.Highlight $code $lang $opts }}
+```
+
+Then call it from your content:
+
+```md {file="content/example.md"}
+This is some {{</* hl */>}}fmt.Println("inline"){{</* /hl */>}} code.
+```
+
+> [!TIP]
+> To override Hugo's embedded `highlight` shortcode, copy the [source code][] to a file with the same name in the `layouts/_shortcodes` directory.
 
 ## Arguments
 
-The `highlight` shortcode takes three arguments.
-
-```md
-{{</* highlight LANG OPTIONS */>}}
-CODE
-{{</* /highlight */>}}
-```
-
-`CODE`
-: (`string`) The code to highlight.
+The `highlight` shortcode accepts positional arguments.
 
 `LANG`
-: (`string`) The [language][] of the code to highlight. This value is case-insensitive.
+: (`string`) The language of the code to highlight. This value is case-insensitive.
 
 `OPTIONS`
-: (`string`) Zero or more space-separated key-value pairs wrapped in quotation marks. You can set default values for each option in your [project configuration][]. The key names are case-insensitive.
+: (`string`) Zero or more comma-separated key-value pairs, wrapped in quotation marks. See [options](#options-1). The key names are case-insensitive. You can set default values for each option in your [project configuration][].
 
-## Example
+## Options
+
+{{% include "/_common/syntax-highlighting-options.md" %}}
+
+## Examples
 
 ```md {file="content/example.md"}
-{{</* highlight go "linenos=inline, hl_lines=3 6-8, style=emacs" */>}}
+{{</* highlight go "linenos=inline, hl_Lines=3 6-8" */>}}
 package main
 
 import "fmt"
@@ -47,7 +60,7 @@ func main() {
 {{</* /highlight */>}}
 ```
 
-Hugo renders this to:
+Your browser displays this:
 
 {{< highlight go "linenos=inline, hl_Lines=3 6-8, noClasses=true" >}}
 package main
@@ -56,44 +69,20 @@ import "fmt"
 
 func main() {
     for i := 0; i < 3; i++ {
-            fmt.Println("Value of i:", i)
+        fmt.Println("Value of i:", i)
     }
 }
 {{< /highlight >}}
 
-You can also use the `highlight` shortcode for inline code snippets:
+Highlighting inline code:
 
-```md
+```md {file="content/example.md"}
 This is some {{</* highlight go "hl_inline=true" */>}}fmt.Println("inline"){{</* /highlight */>}} code.
 ```
 
-Hugo renders this to:
+Your browser displays this:
 
 This is some {{< highlight go "hl_inline=true, noClasses=true" >}}fmt.Println("inline"){{< /highlight >}} code.
-
-Given the verbosity of the example above, if you need to frequently highlight inline code snippets, create your own shortcode using a shorter name with preset options.
-
-```go-html-template {file="layouts/_shortcodes/hl.html"}
-{{ $code := .Inner | strings.TrimSpace }}
-{{ $lang := or (.Get 0) "go" }}
-{{ $opts := dict "hl_inline" true "noClasses" true }}
-{{ transform.Highlight $code $lang $opts }}
-```
-
-```md
-This is some {{</* hl */>}}fmt.Println("inline"){{</* /hl */>}} code.
-```
-
-Hugo renders this to:
-
-This is some {{< hl >}}fmt.Println("inline"){{< /hl >}} code.
-
-## Options
-
-{{% include "/_common/syntax-highlighting-options.md" %}}
-
-> [!TIP]
-> To override Hugo's embedded `highlight` shortcode, copy the [source code][] to a file with the same name in the `layouts/_shortcodes` directory.
 
 [`transform.Highlight`]: /functions/transform/highlight/
 [content format]: /content-management/formats/

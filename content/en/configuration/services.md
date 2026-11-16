@@ -33,7 +33,7 @@ This is the default configuration:
   ```
 
 `x.disableInlineCSS`
-: (`bool`) Whether to disable the inline CSS rendered by the embedded `x` shortode. See [details][privacy]. Default is `false`. To access this value from a template:
+: (`bool`) Whether to disable the inline CSS rendered by the embedded `x` shortcode. See [details][privacy]. Default is `false`. To access this value from a template:
 
   ```go-html-template
   {{ site.Config.Services.X.DisableInlineCSS }}
@@ -41,5 +41,5 @@ This is the default configuration:
 
 [disqus]: /templates/embedded/#disqus
 [google-analytics]: /templates/embedded/#google-analytics
-[privacy]: /shortcodes/x/#privacy
+[privacy]: /shortcodes/x/#usage
 [rss]: /templates/rss/

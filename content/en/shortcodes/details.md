@@ -5,51 +5,11 @@ description: Insert an HTML details element into your content using the details 
 keywords: []
 ---
 
-## Example
+## Usage
 
-With this Markdown:
+The `details` shortcode renders an HTML `details` element, converting the content between its opening and closing tags from Markdown to HTML.
 
-```md
-{{</* details summary="See the details" */>}}
-This is a **bold** word.
-{{</* /details */>}}
-```
-
-Hugo renders this HTML:
-
-```html
-<details>
-  <summary>See the details</summary>
-  <p>This is a <strong>bold</strong> word.</p>
-</details>
-```
-
-Which looks like this in your browser:
-
-{{< details summary="See the details" >}}
-This is a **bold** word.
-{{< /details >}}
-
-## Arguments
-
-`summary`
-: (`string`) The content of the child `summary` element rendered from Markdown to HTML. Default is `Details`.
-
-`open`
-: (`bool`) Whether to initially display the content of the `details` element. Default is `false`.
-
-`class`
-: (`string`) The `class` attribute of the `details` element.
-
-`name`
-: (`string`) The `name` attribute of the `details` element.
-
-`title`
-: (`string`) The `title` attribute of the `details` element.
-
-## Styling
-
-Use CSS to style the `details` element, the `summary` element, and the content itself.
+Use CSS to style the `details` element, the `summary` element, and the content itself:
 
 ```css
 /* target the details element */
@@ -67,5 +27,58 @@ details > :not(summary) { }
 
 > [!TIP]
 > To override Hugo's embedded `details` shortcode, copy the [source code][] to a file with the same name in the `layouts/_shortcodes` directory.
+
+## Arguments
+
+The `details` shortcode accepts named arguments.
+
+`class`
+: (`string`) The `class` attribute of the `details` element.
+
+`name`
+: (`string`) The `name` attribute of the `details` element.
+
+`open`
+: (`bool`) Whether to initially display the content of the `details` element. Default is `false`.
+
+`summary`
+: (`string`) The content of the child `summary` element, rendered from Markdown to HTML. Default is `Details`.
+
+`title`
+: (`string`) The `title` attribute of the `details` element.
+
+## Examples
+
+```md {file="content/example.md"}
+{{</* details summary="See the details" */>}}
+This is a **bold** word.
+{{</* /details */>}}
+```
+
+Hugo renders this to:
+
+```html
+<details>
+  <summary>See the details</summary>
+  <p>This is a <strong>bold</strong> word.</p>
+</details>
+```
+
+With the content initially displayed:
+
+```md {file="content/example.md"}
+{{</* details summary="See the details" open=true */>}}
+This is a **bold** word.
+{{</* /details */>}}
+```
+
+Hugo renders this to:
+
+```html
+<details open>
+  <summary>See the details</summary>
+  <p>This is a <strong>bold</strong> word.</p>
+</details>
+```
 
 [source code]: <{{% eturl details %}}>
