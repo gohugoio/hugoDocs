@@ -11,6 +11,8 @@ keywords: []
 
 The `qr` shortcode encodes the given text into a [QR code][] using the specified options and renders the resulting image. Pass the text with the `text` argument, or place it between the opening and closing shortcode tags.
 
+When you pass the text with the `text` argument, use the self-closing syntax by adding a slash before the closing delimiter, such as `{{</* qr text="https://gohugo.io" /*/>}}`. Without the slash, Hugo looks for a closing tag, and the build can fail with an error stating that the shortcode must be closed or self-closed.
+
 The shortcode calls the [`images.QR`][] function, which describes the encoding process and the error correction levels in detail.
 
 > [!TIP]
@@ -67,7 +69,9 @@ https://gohugo.io
 
 Your browser displays this:
 
-{{< qr text="https://gohugo.io" />}}
+{{< qr >}}
+https://gohugo.io
+{{< /qr >}}
 
 With contact information in the [vCard][] format:
 
