@@ -418,6 +418,86 @@ Each record has these fields:
 
 Keep the records sorted by `source`.
 
+## Guide pages
+
+Guide pages describe how to complete a specific task. They follow specific conventions for the title, the front matter description, and the page structure.
+
+### Scope {#guide-scope}
+
+Limit each guide to a single task. If a guide branches into tasks with different goals, such as building a site on your computer and building a site with a CI/CD service, create a separate guide for each task.
+
+Include explanation or reference material in a guide only when readers need it to complete the task or to decide whether the task applies to them. Limit this material to what the procedure uses, such as the flags in a command that the procedure runs. Place general explanations on a concept page and complete lists of settings, options, or behaviors on a reference page, then link to those pages from the guide.
+
+### Titles {#guide-titles}
+
+Begin the `title` of a guide with a verb in the imperative mood that names the task. For example:
+
+- `Deploy to GitHub Pages`
+- `Deploy with Rclone`
+
+Do not use a noun phrase that names a product or feature, such as `Docker` or `Menus`.
+
+### Descriptions {#guide-descriptions}
+
+For guide pages, write the front matter `description` in imperative present tense. For example:
+
+- `Deploy your project to GitHub Pages.`
+- `Deploy your site to a web server with Rclone.`
+
+### Structure {#guide-structure}
+
+Open the body of a guide page with a sentence that describes the task, without a heading. For example: "Use these instructions to deploy your site to a web server with Rclone."
+
+Then structure the body with these level 2 headings, in this order:
+
+1. Context sections: Optional. Short sections that readers need before they begin, such as constraints that determine whether the task applies. Use a heading that describes the content.
+1. `## Prerequisites`: Optional. A numbered list of the tasks that readers must complete before they begin.
+1. `## Procedure`: Required. A sequence of steps that completes the task.
+1. Additional sections: Optional. Information about the commands, settings, or flags that the procedure uses, or variations that apply to some readers. Use a heading that describes the content.
+1. `## Related resources`: Optional. A list of links to external documentation, such as a service provider's official documentation. Do not list pages on this site. The "See also" sidebar displays [related content](#related-content).
+
+When related guides share a context or additional section, use the same heading on each page, such as `## Deployment constraints` and `## Command-line flags` on each deployment guide.
+
+Introduce the `## Prerequisites` list with a complete sentence such as "Complete the following tasks before continuing:"
+
+Under `## Procedure`, describe each step using a definition list. Label each term `Step 1`, `Step 2`, and so on, and begin each description with a verb in the imperative mood. Describe one action per step where practical. Indent code blocks, callouts, and other content within a step by two spaces so that they remain part of the step.
+
+````md {file="content/example.md"}
+## Procedure
+
+Step 1
+: Create a `deploy.sh` file in the root of your project.
+
+  ```sh {file="deploy.sh" copy=true}
+  #!/usr/bin/env sh
+  hugo build --gc --minify
+  ```
+
+Step 2
+: Make the script executable.
+
+  ```sh
+  chmod u+x deploy.sh
+  ```
+````
+
+When a step differs by operating system or platform, nest a definition list within the step, with one term for each operating system or platform. Indent the nested content by four spaces:
+
+````md {file="content/example.md"}
+Step 1
+: Create the Hugo cache directory.
+
+  Linux
+  : ```sh {copy=true}
+    mkdir -p $HOME/.cache/hugo_cache
+    ```
+
+  macOS
+  : ```sh {copy=true}
+    mkdir -p $HOME/Library/Caches/hugo_cache
+    ```
+````
+
 ## Function and method pages
 
 Function and method pages follow specific conventions for the front matter description and the page structure.
