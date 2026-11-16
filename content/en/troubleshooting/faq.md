@@ -13,7 +13,7 @@ An error message indicates that a feature is not available. Why?
 : When you attempt to use a feature that is not available in the edition that you installed, Hugo throws this error:
 
   ```go-html-template
-  this feature is not available in this edition of Hugo
+  this feature is not available in your current Hugo version
   ```
 
   To resolve, install a different edition. See the [installation][] section for details.
