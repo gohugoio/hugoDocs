@@ -5,28 +5,26 @@ description: Embed a YouTube video in your content using the youtube shortcode.
 keywords: []
 ---
 
-## Example
+## Usage
 
-To display a YouTube video with this URL:
+The `youtube` shortcode embeds the YouTube video with the given ID. The ID is the value of the `v` query parameter in the video's URL. For example, the ID of the video at `https://www.youtube.com/watch?v=0RKpf3rK57I` is `0RKpf3rK57I`.
 
-```text
-https://www.youtube.com/watch?v=0RKpf3rK57I
-```
+Adjust the privacy settings for this shortcode in your project configuration. These are the default settings:
 
-Include this in your Markdown:
+{{< code-toggle config=privacy.youTube />}}
 
-```md
-{{</* youtube 0RKpf3rK57I */>}}
-```
+`disable`
+: (`bool`) Whether to disable the shortcode. Default is `false`.
 
-Hugo renders this to:
+`privacyEnhanced`
+: (`bool`) Whether to block YouTube from storing information about visitors to your site unless the visitor plays the embedded video. Default is `false`.
 
-{{< youtube 0RKpf3rK57I >}}
+> [!TIP]
+> To override Hugo's embedded `youtube` shortcode, copy the [source code][] to a file with the same name in the `layouts/_shortcodes` directory.
 
 ## Arguments
 
-`id`
-: (`string`) The video `id`. Optional if the `id` is the first and only positional argument.
+The `youtube` shortcode accepts either a single positional argument, the video ID, or named arguments. Do not mix positional and named arguments.
 
 `allowFullScreen`
 : (`bool`) Whether the `iframe` element can activate full screen mode. Default is `true`.
@@ -43,8 +41,11 @@ Hugo renders this to:
 `end`
 : (`int`) The time, measured in seconds from the start of the video, when the player should stop playing the video.
 
+`id`
+: (`string`) The ID of the YouTube video. Required when using named arguments.
+
 `loading`
-: (`string`) The loading attribute of the `iframe` element, either `eager` or `lazy`. Default is `eager`.
+: (`string`) The `loading` attribute of the `iframe` element, either `eager` or `lazy`. Default is `eager`.
 
 `loop`
 : (`bool`) Whether to indefinitely repeat the video. Ignores the `start` and `end` arguments after the first play. Default is `false`.
@@ -56,27 +57,26 @@ Hugo renders this to:
 : (`int`) The time, measured in seconds from the start of the video, when the player should start playing the video.
 
 `title`
-: (`string`) The `title` attribute of the `iframe` element. Defaults to "YouTube video".
+: (`string`) The `title` attribute of the `iframe` element. Default is `YouTube video`.
 
-Here's an example using some of the available arguments:
+## Examples
 
-```md
+```md {file="content/example.md"}
+{{</* youtube 0RKpf3rK57I */>}}
+```
+
+Your browser displays this:
+
+{{< youtube 0RKpf3rK57I >}}
+
+With named arguments:
+
+```md {file="content/example.md"}
 {{</* youtube id=0RKpf3rK57I start=30 end=60 loading=lazy */>}}
 ```
 
-## Privacy
+Your browser displays this:
 
-Adjust the relevant privacy settings in your project configuration.
-
-{{< code-toggle config=privacy.youTube />}}
-
-`disable`
-: (`bool`) Whether to disable the shortcode. Default is `false`.
-
-`privacyEnhanced`
-: (`bool`) Whether to block YouTube from storing information about visitors on your website unless the user plays the embedded video. Default is `false`.
-
-> [!TIP]
-> To override Hugo's embedded `youtube` shortcode, copy the [source code][] to a file with the same name in the `layouts/_shortcodes` directory.
+{{< youtube id=0RKpf3rK57I start=30 end=60 loading=lazy >}}
 
 [source code]: <{{% eturl youtube %}}>

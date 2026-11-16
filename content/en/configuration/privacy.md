@@ -42,7 +42,7 @@ See each template's documentation for a description of its privacy settings:
 
 [Disqus partial]: /templates/embedded/#privacy-disqus
 [Google Analytics partial]: /templates/embedded/#privacy-google-analytics
-[Instagram shortcode]: /shortcodes/instagram/#privacy
-[Vimeo shortcode]: /shortcodes/vimeo/#privacy
-[X shortcode]: /shortcodes/x/#privacy
-[YouTube shortcode]: /shortcodes/youtube/#privacy
+[Instagram shortcode]: /shortcodes/instagram/#usage
+[Vimeo shortcode]: /shortcodes/vimeo/#usage
+[X shortcode]: /shortcodes/x/#usage
+[YouTube shortcode]: /shortcodes/youtube/#usage
