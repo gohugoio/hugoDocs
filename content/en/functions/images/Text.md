@@ -9,51 +9,77 @@ params:
     signatures: ['images.Text TEXT [OPTIONS]']
 ---
 
+## Usage
+
+The `images.Text` function returns an image filter that adds text to an image. Hugo wraps the text to fit within the image, and starts a new line at each newline character.
+
+## Arguments
+
+`TEXT`
+: (`string`) The text to add to the image.
+
+`OPTIONS`
+: (`map`) See [options](#options).
+
 ## Options
 
-The `images.Text` filter accepts an options map.
-
-Although none of the options are required, at a minimum you will want to set the `size` to be some reasonable percentage of the image height.
+The `images.Text` function accepts an options map. None of the options are required, but you should set the `size` to a reasonable percentage of the image height.
 
 `alignx`
 : {{< new-in 0.141.0 />}}
-: (`string`) The horizontal alignment of the text relative to the horizontal offset, one of `left`, `center`, or `right`. Default is `left`.
+: (`string`) The horizontal alignment of the text relative to the [horizontal offset](#x), one of `left`, `center`, or `right`. Default is `left`.
 
 `aligny`
 : {{< new-in 0.147.0 />}}
-: (`string`) The vertical alignment of the text relative to the vertical offset, one of `top`, `center`, or `bottom`. Default is `top`.
+: (`string`) The vertical alignment of the text relative to the [vertical offset](#y), one of `top`, `center`, or `bottom`. Default is `top`.
 
 `color`
-: (`string`) The font color, either a 3-digit or 6-digit hexadecimal color code. Default is `#ffffff` (white).
+: (`string`) The font color, expressed as an RGB or RGBA [hexadecimal color][], with or without a leading hash mark. Default is `#ffffff` (white).
 
 `font`
-: (`resource.Resource`) The font can be a [global resource](g), a [page resource](g), or a [remote resource](g). Default is [Go Regular][], a proportional sans-serif TrueType font.
+: (`resource.Resource`) The font, which can be a [global resource](g), a [page resource](g), or a [remote resource](g). Default is [Go Regular][], a proportional sans-serif TrueType font.
 
 `linespacing`
-: (`int`) The number of pixels between each line. For a line height of 1.4, set the `linespacing` to 0.4 multiplied by the `size`. Default is `2`.
+: (`int`) The extra space between lines, in pixels, added to the height of each line. To set a line height that is proportional to the font size, multiply the `size` by one less than the line height. For example, for a line height of 1.4 and a `size` of `40`, set the `linespacing` to `16`. Default is `2`.
 
 `size`
-: (`int`) The font size in pixels. Default is `20`.
+: (`int`) The font size, in pixels. Default is `20`.
 
 `x`
-: (`int`) The horizontal offset, in pixels, relative to the left of the image. Default is `10`.
+: (`int`) The horizontal offset, in pixels, relative to the left edge of the image. Default is `10`.
 
 `y`
-: (`int`) The vertical offset, in pixels, relative to the top of the image. Default is `10`.
+: (`int`) The vertical offset, in pixels, relative to the top edge of the image. Default is `10`.
 
-## Usage
+## Examples
 
-Set the text and paths:
+```go-html-template
+{{ $opts := dict
+  "color" "#fbfaf5"
+  "linespacing" 8
+  "size" 40
+  "x" 25
+  "y" 190
+}}
+{{ $filter := images.Text "Zion National Park" $opts }}
+```
+
+{{% include "/_common/image-filter-apply.md" %}}
+
+{{< img
+  src="images/examples/zion-national-park.jpg"
+  alt="Zion National Park"
+  filter=`images.Text "Zion National Park" (dict "color" "#fbfaf5" "linespacing" 8 "size" 40 "x" 25 "y" 190)`
+  example=true
+>}}
+
+Using a remote font, and centering the text horizontally and vertically:
 
 ```go-html-template
 {{ $text := "Zion National Park" }}
 {{ $fontPath := "https://github.com/google/fonts/raw/main/ofl/lato/Lato-Regular.ttf" }}
 {{ $imagePath := "images/original.jpg" }}
-```
 
-Capture the font as a resource:
-
-```go-html-template
 {{ $font := "" }}
 {{ with try (resources.GetRemote $fontPath) }}
   {{ with .Err }}
@@ -64,14 +90,8 @@ Capture the font as a resource:
     {{ errorf "Unable to get resource %s" $fontPath }}
   {{ end }}
 {{ end }}
-```
 
-Create the filter, centering the text horizontally and vertically:
-
-```go-html-template
-{{ $r := "" }}
-{{ $filter := "" }}
-{{ with $r = resources.Get $imagePath }}
+{{ with resources.Get $imagePath }}
   {{ $opts := dict
     "alignx" "center"
     "aligny" "center"
@@ -82,42 +102,13 @@ Create the filter, centering the text horizontally and vertically:
     "x" (mul .Width 0.5 | int)
     "y" (mul .Height 0.5 | int)
   }}
-  {{ $filter = images.Text $text $opts }}
+  {{ with . | images.Filter (images.Text $text $opts) }}
+    <img src="{{ .RelPermalink }}" width="{{ .Width }}" height="{{ .Height }}" alt="">
+  {{ end }}
 {{ else }}
   {{ errorf "Unable to get resource %s" $imagePath }}
 {{ end }}
 ```
 
-Apply the filter using the [`images.Filter`][] function:
-
-```go-html-template
-{{ with $r }}
-  {{ with . | images.Filter $filter }}
-    <img src="{{ .RelPermalink }}" width="{{ .Width }}" height="{{ .Height }}" alt="">
-  {{ end }}
-{{ end }}
-```
-
-You can also apply the filter using the [`Filter`][] method on a `Resource` object:
-
-```go-html-template
-{{ with $r }}
-  {{ with .Filter $filter }}
-    <img src="{{ .RelPermalink }}" width="{{ .Width }}" height="{{ .Height }}" alt="">
-  {{ end }}
-{{ end }}
-```
-
-## Example
-
-{{< img
-  src="images/examples/zion-national-park.jpg"
-  alt="Zion National Park"
-  filter="Text"
-  filterArgs="Zion National Park,25,190,40,1.2,#fbfaf5"
-  example=true
->}}
-
 [Go Regular]: https://go.dev/blog/go-fonts#sans-serif
-[`Filter`]: /methods/resource/filter/
-[`images.Filter`]: /functions/images/filter/
+[hexadecimal color]: https://developer.mozilla.org/en-US/docs/Web/CSS/hex-color

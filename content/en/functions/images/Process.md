@@ -9,24 +9,15 @@ params:
     signatures: [images.Process SPECIFICATION]
 ---
 
-Returns an image filter that processes an image according to the given [processing specification](#processing-specification). This versatile filter supports the full range of image transformations, including resizing, cropping, rotation, and format conversion, all within a single specification string. Use this as an argument to the [`Filter`][] method or the [`images.Filter`][] function.
+## Usage
 
-```go-html-template
-{{ with resources.Get "images/original.jpg" }}
-  {{ $filter := images.Process "crop 200x200 TopRight webp q50" }}
-  {{ with .Filter $filter }}
-    <img src="{{ .RelPermalink }}" width="{{ .Width }}" height="{{ .Height }}" alt="">
-  {{ end }}
-{{ end }}
-```
+The `images.Process` function returns an image filter that processes an image according to the given [processing specification](#processing-specification). This filter supports the full range of image transformations, including resizing, cropping, rotation, and format conversion, within a single specification string.
 
-In the example above, `"crop 200x200 TopRight webp q50"` is the processing specification.
+Use this filter instead of the [`Process`][] method when you need to combine processing with other image filters.
 
 {{% include "/_common/image-processing-spec.md" %}}
 
-## Usage
-
-Create a filter:
+## Examples
 
 ```go-html-template
 {{ $filter := images.Process "crop 200x200 TopRight webp q50" }}
@@ -34,15 +25,11 @@ Create a filter:
 
 {{% include "/_common/image-filter-apply.md" %}}
 
-## Example
-
 {{< img
   src="images/examples/zion-national-park.jpg"
   alt="Zion National Park"
-  filter="Process"
-  filterArgs="crop 200x200 TopRight webp q50"
+  filter=`images.Process "crop 200x200 TopRight webp q50"`
   example=true
 >}}
 
-[`Filter`]: /methods/resource/filter/
-[`images.Filter`]: /functions/images/filter/
+[`Process`]: /methods/resource/process/

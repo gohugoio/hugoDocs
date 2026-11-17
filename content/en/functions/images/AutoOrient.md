@@ -11,7 +11,9 @@ params:
 
 ## Usage
 
-Create the filter:
+The `images.AutoOrient` function returns an image filter that rotates and flips an image as needed per its Exif orientation tag. When you combine this filter with other filters, specify it first.
+
+## Examples
 
 ```go-html-template
 {{ $filter := images.AutoOrient }}
@@ -19,8 +21,14 @@ Create the filter:
 
 {{% include "/_common/image-filter-apply.md" %}}
 
-> [!NOTE]
-> When using with other filters, specify `images.AutoOrient` first.
+{{< img
+  src="images/examples/landscape-exif-orientation-5.jpg"
+  alt="Zion National Park"
+  filter=`images.AutoOrient`
+  example=true
+>}}
+
+Combining with other filters:
 
 ```go-html-template
 {{ $filters := slice
@@ -33,13 +41,3 @@ Create the filter:
   {{ end }}
 {{ end }}
 ```
-
-## Example
-
-{{< img
-  src="images/examples/landscape-exif-orientation-5.jpg"
-  alt="Zion National Park"
-  filter="AutoOrient"
-  filterArgs=""
-  example=true
->}}

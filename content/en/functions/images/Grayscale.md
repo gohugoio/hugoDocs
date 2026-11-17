@@ -11,7 +11,9 @@ params:
 
 ## Usage
 
-Create the filter:
+The `images.Grayscale` function returns an image filter that produces a grayscale version of an image.
+
+## Examples
 
 ```go-html-template
 {{ $filter := images.Grayscale }}
@@ -19,12 +21,9 @@ Create the filter:
 
 {{% include "/_common/image-filter-apply.md" %}}
 
-## Example
-
 {{< img
   src="images/examples/zion-national-park.jpg"
   alt="Zion National Park"
-  filter="Grayscale"
-  filterArgs=""
+  filter=`images.Grayscale`
   example=true
 >}}

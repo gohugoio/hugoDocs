@@ -29,8 +29,11 @@ This module size is half of the commonly recommended minimum of 0.170 millimeter
 
 Do not use Hugo's image processing methods to resize a QR code. Resizing can blur the image when a module occupies a fractional number of pixels.
 
+<<<<<<< HEAD
 If you change the colors, use a dark foreground on a light background with high contrast. Some devices cannot scan a QR code with low contrast or with a light foreground on a dark background. If the background is transparent, make sure that the content behind the image provides enough contrast.
 
+=======
+>>>>>>> 4391e9bb7 (content: Apply style guide to images functions)
 > [!TIP]
 > Test the rendered QR code both on screen and in print.
 

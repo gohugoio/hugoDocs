@@ -1,6 +1,6 @@
 ---
 title: images.GaussianBlur
-description: Returns an image filter that applies a gaussian blur to an image.
+description: Returns an image filter that applies a Gaussian blur to an image.
 keywords: []
 params:
   functions_and_methods:
@@ -9,11 +9,16 @@ params:
     signatures: [images.GaussianBlur SIGMA]
 ---
 
-The sigma value must be positive, and indicates how much the image will be blurred. The blur-affected radius is approximately 3 times the sigma value.
-
 ## Usage
 
-Create the filter:
+The `images.GaussianBlur` function returns an image filter that applies a Gaussian blur to an image.
+
+## Arguments
+
+`SIGMA`
+: (`float`) The amount of blur, in pixels. The filter blends each pixel with neighboring pixels up to three times this distance away. A value of `0` or less has no effect.
+
+## Examples
 
 ```go-html-template
 {{ $filter := images.GaussianBlur 5 }}
@@ -21,12 +26,9 @@ Create the filter:
 
 {{% include "/_common/image-filter-apply.md" %}}
 
-## Example
-
 {{< img
   src="images/examples/zion-national-park.jpg"
   alt="Zion National Park"
-  filter="GaussianBlur"
-  filterArgs="5"
+  filter=`images.GaussianBlur 5`
   example=true
 >}}

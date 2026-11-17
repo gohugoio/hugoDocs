@@ -9,43 +9,29 @@ params:
     signatures: [images.Filter FILTER... RESOURCE]
 ---
 
+## Usage
+
+The `images.Filter` function returns a new image resource created by applying one or more image filters to the given [processable image](g). Use it to apply effects such as blurring, sharpening, or grayscale conversion.
+
 {{% include "/_common/resource-types-note.md" %}}
 
-The `images.Filter` function returns a new resource from a [processable image](g) after applying one or more [image filters](#image-filters).
+You can also apply image filters with the [`Filter`][] method on a `Resource` object.
 
 {{% include "/_common/image-processable-tip.md" %}}
 
-## Usage
+Use any of these filters with the `images.Filter` function or the `Filter` method:
 
-Use the `images.Filter` function to apply effects such as blurring, sharpening, or grayscale conversion. You can pass a single filter or a slice of filters. When providing a slice, Hugo applies the filters from left to right.
+{{% render-list-of-pages-in-section path=/functions/images filter=functions_images_no_filters filterType=exclude %}}
 
-To apply a single filter:
+## Arguments
 
-```go-html-template
-{{ with resources.Get "images/original.jpg" }}
-  {{ with images.Filter images.Grayscale . }}
-    <img src="{{ .RelPermalink }}" width="{{ .Width }}" height="{{ .Height }}" alt="">
-  {{ end }}
-{{ end }}
-```
+`FILTER`
+: (`images.filter` or `slice`) One or more image filters, or a slice of image filters. Hugo applies the filters from left to right.
 
-To apply two or more filters, executing from left to right:
+`RESOURCE`
+: (`images.ImageResource`) The image to filter.
 
-```go-html-template
-{{ $filters := slice
-  images.Grayscale
-  (images.GaussianBlur 8)
-}}
-{{ with resources.Get "images/original.jpg" }}
-  {{ with images.Filter $filters . }}
-    <img src="{{ .RelPermalink }}" width="{{ .Width }}" height="{{ .Height }}" alt="">
-  {{ end }}
-{{ end }}
-```
-
-You can also apply image filters using the [`Filter`][] method on a `Resource` object.
-
-## Example
+## Examples
 
 ```go-html-template
 {{ with resources.Get "images/original.jpg" }}
@@ -58,15 +44,22 @@ You can also apply image filters using the [`Filter`][] method on a `Resource` o
 {{< img
   src="images/examples/zion-national-park.jpg"
   alt="Zion National Park"
-  filter="Grayscale"
-  filterArgs=""
+  filter=`images.Grayscale`
   example=true
 >}}
 
-## Image filters
+Applying a slice of filters, from left to right:
 
-Use any of these filters with the `images.Filter` function, or with the `Filter` method on a `Resource` object.
-
-{{% render-list-of-pages-in-section path=/functions/images filter=functions_images_no_filters filterType=exclude %}}
+```go-html-template
+{{ $filters := slice
+  images.Grayscale
+  (images.GaussianBlur 8)
+}}
+{{ with resources.Get "images/original.jpg" }}
+  {{ with images.Filter $filters . }}
+    <img src="{{ .RelPermalink }}" width="{{ .Width }}" height="{{ .Height }}" alt="">
+  {{ end }}
+{{ end }}
+```
 
 [`Filter`]: /methods/resource/filter/
