@@ -59,5 +59,5 @@ Render the code owners for each content page:
 Combine this method with [`resources.GetRemote`][] to retrieve names and avatars from your Git provider by querying their API.
 
 [GitHub CODEOWNERS documentation]: https://docs.github.com/en/repositories/managing-your-repositorys-settings-and-features/customizing-your-repository/about-code-owners
-[GitLab CODEOWNERS documentation]: https://docs.gitlab.com/ee/user/project/code_owners.html
+[GitLab CODEOWNERS documentation]: https://docs.gitlab.com/user/project/codeowners/
 [`resources.GetRemote`]: /functions/resources/getremote/
