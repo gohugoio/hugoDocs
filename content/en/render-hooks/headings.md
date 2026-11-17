@@ -38,7 +38,7 @@ Heading _render hook_ templates receive the following [context](g):
 
 `Position`
 : {{< new-in 0.160.0 />}}
-: (`string`) The position of the heading within the page content.
+: ([`text.Position`][]) The position of the heading within the page content.
 
 `Text`
 : (`template.HTML`) The heading text.
@@ -67,3 +67,4 @@ To add an anchor link to the right of each heading:
 [CommonMark]: https://spec.commonmark.org/current/
 [Markdown attributes]: /content-management/markdown-attributes/
 [`RenderShortcodes`]: /methods/page/rendershortcodes/
+[`text.Position`]: /quick-reference/data-types/#source-position

@@ -39,7 +39,7 @@ Link _render hook_ templates receive the following context:
 
 `Position`
 : {{< new-in 0.160.0 />}}
-: (`string`) The position of the link within the page content.
+: ([`text.Position`][]) The position of the link within the page content.
 
 `Text`
 : (`template.HTML`) The link description.
@@ -107,6 +107,7 @@ target = 'assets'
 
 [CommonMark]: https://spec.commonmark.org/current/
 [`RenderShortcodes`]: /methods/page/rendershortcodes/
+[`text.Position`]: /quick-reference/data-types/#source-position
 [details]: /configuration/markup/#renderhookslinkuseembedded
 [duplication of shared page resources]: /configuration/markup/#duplicateresourcefiles
 [embedded link render hook]: <{{% eturl render-link %}}>

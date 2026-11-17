@@ -27,7 +27,7 @@ Table _render hook_ templates receive the following [context](g):
 : (`page`) A reference to a page nested via the [`RenderShortcodes`][] method. [See details](#pageinner-details).
 
 `Position`
-: (`string`) The position of the table within the page content.
+: ([`text.Position`][]) The position of the table within the page content.
 
 `THead`
 : (`slice`) A slice of table header rows, where each element is a slice of table cells.
@@ -94,3 +94,4 @@ In its default configuration, Hugo renders Markdown tables according to the [Git
 [GitHub Flavored Markdown specification]: https://github.github.com/gfm/#tables-extension-
 [Markdown attributes]: /content-management/markdown-attributes/
 [`RenderShortcodes`]: /methods/page/rendershortcodes/
+[`text.Position`]: /quick-reference/data-types/#source-position

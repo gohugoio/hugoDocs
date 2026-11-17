@@ -36,7 +36,7 @@ Blockquote _render hook_ templates receive the following [context](g):
 : (`page`) A reference to a page nested via the [`RenderShortcodes`][] method. [See details](#pageinner-details).
 
 `Position`
-: (`string`) The position of the blockquote within the page content.
+: ([`text.Position`][]) The position of the blockquote within the page content.
 
 `Text`
 : (`template.HTML`) The blockquote text, excluding the first line if [`Type`](#type) is `alert`. See the [alerts](#alerts) section below.
@@ -176,3 +176,4 @@ layouts/
 [Obsidian]: https://help.obsidian.md/Editing+and+formatting/Callouts
 [Typora]: https://support.typora.io/Markdown-Reference/#callouts--github-style-alerts
 [`RenderShortcodes`]: /methods/page/rendershortcodes/
+[`text.Position`]: /quick-reference/data-types/#source-position

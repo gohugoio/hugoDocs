@@ -64,7 +64,7 @@ Passthrough _render hook_ templates receive the following [context](g):
 : (`page`) A reference to a page nested via the [`RenderShortcodes`][] method. [See details](#pageinner-details).
 
 `Position`
-: (`string`) The position of the passthrough element within the page content.
+: ([`text.Position`][]) The position of the passthrough element within the page content.
 
 `Type`
 : (`string`) The passthrough element type, either `block` or `inline`.
@@ -113,5 +113,6 @@ layouts/
 [Markdown attributes]: /content-management/markdown-attributes/
 [Passthrough]: /configuration/markup/#passthrough
 [`RenderShortcodes`]: /methods/page/rendershortcodes/
+[`text.Position`]: /quick-reference/data-types/#source-position
 [`transform.ToMath`]: /functions/transform/tomath/
 [mathematical expressions]: /content-management/mathematics/

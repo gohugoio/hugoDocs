@@ -146,10 +146,48 @@ Data type|Description|Methods
 `page.Taxonomy`|A taxonomy and its terms|[Taxonomy][]
 `resource.Resource`|A [resource](g), such as an image or stylesheet|[Resource][]
 `resource.Resources`|A collection of resources|[`Resources`][]
+`text.Position`|A position within a file|[Source position](#source-position)
 `time.Duration`|A [duration](g)|[Duration][]
 `time.Time`|A date and time|[Time][]
 
 For most Hugo objects, the `fmt.Printf` function prints the name of an internal implementation instead of the data type shown above. For example, it prints `*hugolib.pageState` for a `page.Page` value. To check whether a value is a page, a site, or a resource, use the [`reflect.IsPage`][], [`reflect.IsSite`][], or [`reflect.IsResource`][] function instead.
+
+## Source position
+
+A `text.Position` value is a position within a file, such as the place in a content file where you call a shortcode or where a Markdown element begins. The [`Position`][] method on a `Shortcode` object returns a `text.Position` value, and so does the `Position` method in each [render hook](g) template. Use the value to tell users where to fix a problem when you log an error or warning.
+
+When you print a `text.Position` value, Hugo formats it using the [`HUGO_FILE_LOG_FORMAT`][] environment variable. Without this environment variable, the format is `":file::line::col"`, where the quotation marks are part of the format:
+
+```go-html-template
+{{ .Position }} → "/home/user/project/content/about.md:11:1"
+```
+
+If you build your project in a terminal that displays colors, Hugo also wraps the printed value in terminal color codes. These codes are useful in error and warning messages, but they appear as extra characters if you render the value to a page.
+
+Use these methods on the `text.Position` object:
+
+`ColumnNumber`
+: (`int`) Returns the column number, starting at 1.
+
+`Filename`
+: (`string`) Returns the absolute path to the file.
+
+`IsValid`
+: (`bool`) Reports whether the position is valid, meaning that its line number is greater than 0.
+
+`LineNumber`
+: (`int`) Returns the line number, starting at 1.
+
+`Offset`
+: (`int`) Returns the byte offset from the beginning of the file, starting at 0, or `-1` if the offset is not available.
+
+To render the position without quotation marks or terminal color codes, format the methods yourself:
+
+```go-html-template
+{{ with .Position }}
+  {{ printf "%s:%d:%d" .Filename .LineNumber .ColumnNumber }} → /home/user/project/content/about.md:11:1
+{{ end }}
+```
 
 ## Any
 
@@ -161,7 +199,9 @@ Similarly, some function pages show `[]any` as the returned data type when the f
 [`Before`]: /methods/time/before/
 [`Content`]: /methods/page/content/
 [`Equal`]: /methods/time/equal/
+[`HUGO_FILE_LOG_FORMAT`]: /configuration/introduction/#hugo_file_log_format
 [`Params`]: /methods/page/params/
+[`Position`]: /methods/shortcode/position/
 [`Resources`]: /methods/page/resources/
 [`cast.ToFloat`]: /functions/cast/tofloat/
 [`cast.ToInt`]: /functions/cast/toint/
