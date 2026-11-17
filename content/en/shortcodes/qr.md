@@ -25,8 +25,16 @@ The `qr` shortcode accepts named arguments.
 `alt`
 : (`string`) The `alt` attribute of the `img` element.
 
+`bgColor`
+: {{< new-in 0.171.0 />}}
+: (`string`) The background color, expressed as an RGB or RGBA [hexadecimal color][], with or without a leading hash mark. To make the background transparent, set the alpha channel to `00`, such as `#ffffff00`. Default is `#ffffff` (opaque white).
+
 `class`
 : (`string`) The `class` attribute of the `img` element.
+
+`fgColor`
+: {{< new-in 0.171.0 />}}
+: (`string`) The foreground color, expressed as an RGB or RGBA hexadecimal color, with or without a leading hash mark. Default is `#000000` (opaque black).
 
 `id`
 : (`string`) The `id` attribute of the `img` element.
@@ -73,6 +81,16 @@ Your browser displays this:
 https://gohugo.io
 {{< /qr >}}
 
+With a navy foreground and a light blue background:
+
+```md {file="content/example.md"}
+{{</* qr text="https://gohugo.io" fgColor="#000080" bgColor="#e0f0ff" /*/>}}
+```
+
+Your browser displays this:
+
+{{< qr text="https://gohugo.io" fgColor="#000080" bgColor="#e0f0ff" />}}
+
 With contact information in the [vCard][] format:
 
 ```md {file="content/example.md"}
@@ -105,5 +123,6 @@ END:VCARD
 
 [QR code]: https://en.wikipedia.org/wiki/QR_code
 [`images.QR`]: /functions/images/qr/
+[hexadecimal color]: https://developer.mozilla.org/en-US/docs/Web/CSS/hex-color
 [source code]: <{{% eturl qr %}}>
 [vCard]: <https://en.wikipedia.org/wiki/VCard>
