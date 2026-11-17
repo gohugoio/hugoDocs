@@ -394,7 +394,7 @@ To print an HTML comment, pass a string through the [`safe.HTML`][] function. Fo
 
 ## Include
 
-Use the [`template`][] function to include one or more of Hugo's [embedded templates][]:
+Use the [`partial`][] function to include one or more of Hugo's [embedded templates][]:
 
 ```go-html-template
 {{ partial "google_analytics.html" . }}
@@ -588,7 +588,6 @@ In the template example above, each of the keys is a valid identifier. For examp
 [`strings.Replace`]: /functions/strings/replace/
 [`strings.ToLower`]: /functions/strings/tolower/
 [`strings.ToUpper`]: /functions/strings/toupper/
-[`template`]: /functions/go-template/template/
 [`text/template`]: https://pkg.go.dev/text/template
 [`with`]: /functions/go-template/with/
 [Markdown notation]: /content-management/shortcodes/#markdown-notation
