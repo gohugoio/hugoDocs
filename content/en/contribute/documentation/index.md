@@ -566,7 +566,7 @@ Use these methods on the `DirFile` object:
 
 Under `## Examples`, use one or more `go-html-template` code blocks to demonstrate the function or method. Call the documented function by its canonical form, and call any other function by its alias, as described in [code examples](#code-examples).
 
-The first code block needs no lead-in sentence. Introduce each subsequent code block with a short lead-in ending in a colon. Do not repeat the function's name, and do not restate the `## Usage` prose:
+A lead-in sentence before the first code block is optional. Add one only when readers need context to understand the example, such as the front matter or content structure that the example uses. Introduce each subsequent code block with a short lead-in ending in a colon. Do not repeat the function's name, and do not restate the `## Usage` prose:
 
 ````md {file="content/example.md"}
 ## Examples
@@ -625,7 +625,7 @@ Under `## Examples`, show each shortcode call in an `md` code block with the `fi
 - If the shortcode renders visible content, such as an image, a video, or highlighted code, follow the call with "Your browser displays this:" and the same call, unescaped, so that the page displays the result.
 - Otherwise, follow the call with "Hugo renders this to:" and an `html` code block showing the output.
 
-The first code block needs no lead-in sentence. Introduce each subsequent example with a short lead-in ending in a colon.
+A lead-in sentence before the first code block is optional. Add one only when readers need context to understand the example. Introduce each subsequent example with a short lead-in ending in a colon.
 
 ## Code examples
 
