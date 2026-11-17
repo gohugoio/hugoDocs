@@ -8,6 +8,8 @@ params:
     signatures: [SHORTCODE.Position]
 ---
 
+The `Position` method returns a [`text.Position`][] object containing the file name, line number, and column number from which the shortcode was called. The `text.Position` object has its own methods, and you can change how Hugo prints it.
+
 The `Position` method is useful for error reporting. For example, if your shortcode requires a "greeting" argument:
 
 ```go-html-template {file="layouts/_shortcodes/myshortcode.html"}
@@ -27,3 +29,5 @@ ERROR The "myshortcode" shortcode requires a 'greeting' argument. See "/home/use
 
 > [!TIP]
 > The position can be expensive to calculate. Limit its use to error reporting.
+
+[`text.Position`]: /quick-reference/data-types/#source-position

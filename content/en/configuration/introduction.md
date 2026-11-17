@@ -326,7 +326,7 @@ In addition to configuring standard settings, environment variables may be used 
 : (`string`) The build environment. Default is `development` when running `hugo server`, and `production` otherwise. The `--environment` command-line flag overrides this value.
 
 `HUGO_FILE_LOG_FORMAT`
-: (`string`) A format string for the file path, line number, and column number displayed when reporting errors, or when calling the `Position` method from a shortcode or Markdown render hook. Valid tokens are `:file`, `:line`, and `:col`. Default is `:file::line::col`.
+: (`string`) A format string for the file path, line number, and column number displayed when reporting errors, or when calling the `Position` method from a shortcode or Markdown render hook. Valid tokens are `:file`, `:line`, and `:col`. Default is `":file::line::col"`, where the quotation marks are part of the format.
 
 `HUGO_MEMORYLIMIT`
 : (`int`) The maximum amount of system memory, in gigabytes, that Hugo can use while building your project. Default is 25% of total system memory. Note that `HUGO_MEMORYLIMIT` is a "best effort" setting. Don't expect Hugo to build a million pages with only 1 GB of memory. You can get more information about how this behaves during the build by running `hugo build --logLevel info` and look for the `dynacache` label.

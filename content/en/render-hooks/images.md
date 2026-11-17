@@ -52,7 +52,7 @@ Image _render hook_ templates receive the following context:
 
 `Position`
 : {{< new-in 0.160.0 />}}
-: (`string`) The position of the image within the page content.
+: ([`text.Position`][]) The position of the image within the page content.
 
 `Text`
 : (`template.HTML`) The image description.
@@ -134,6 +134,7 @@ Note that the embedded image render hook does not perform image processing. Its 
 [CommonMark]: https://spec.commonmark.org/current/
 [Markdown attributes]: /content-management/markdown-attributes/
 [`RenderShortcodes`]: /methods/page/rendershortcodes/
+[`text.Position`]: /quick-reference/data-types/#source-position
 [details]: /configuration/markup/#renderhooksimageuseembedded
 [duplication of shared page resources]: /configuration/markup/#duplicateresourcefiles
 [embedded image render hook]: <{{% eturl render-image %}}>

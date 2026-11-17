@@ -61,7 +61,7 @@ Code block _render hook_ templates receive the following [context](g):
 : (`page`) A reference to a page nested via the [`RenderShortcodes`][] method. [See details](#pageinner-details).
 
 `Position`
-: (`text.Position`) The position of the code block within the page content.
+: ([`text.Position`][]) The position of the code block within the page content.
 
 `Type`
 : (`string`) The first word of the info string, typically the code language.
@@ -127,6 +127,7 @@ Hugo includes an [embedded code block render hook][] to render [GoAT diagrams][]
 [GoAT diagrams]: /content-management/diagrams/#goat-diagrams-ascii
 [Mermaid]: https://mermaid.js.org/
 [`RenderShortcodes`]: /methods/page/rendershortcodes/
+[`text.Position`]: /quick-reference/data-types/#source-position
 [code fence]: https://spec.commonmark.org/current/#code-fence
 [diagrams]: /content-management/diagrams/#mermaid-diagrams
 [embedded code block render hook]: <{{% eturl render-codeblock-goat %}}>
