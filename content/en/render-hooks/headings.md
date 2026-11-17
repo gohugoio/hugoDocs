@@ -38,7 +38,7 @@ Heading _render hook_ templates receive the following [context](g):
 
 `Position`
 : {{< new-in 0.160.0 />}}
-: ([`text.Position`][]) The position of the heading within the page content.
+: ([`text.Position`][]) The position of the heading within the page content. Calculating the position can be expensive, so call this method only when you log an error or warning.
 
 `Text`
 : (`template.HTML`) The heading text.

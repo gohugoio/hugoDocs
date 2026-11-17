@@ -36,7 +36,7 @@ Blockquote _render hook_ templates receive the following [context](g):
 : (`page`) A reference to a page nested via the [`RenderShortcodes`][] method. [See details](#pageinner-details).
 
 `Position`
-: ([`text.Position`][]) The position of the blockquote within the page content.
+: ([`text.Position`][]) The position of the blockquote within the page content. Calculating the position can be expensive, so call this method only when you log an error or warning.
 
 `Text`
 : (`template.HTML`) The blockquote text, excluding the first line if [`Type`](#type) is `alert`. See the [alerts](#alerts) section below.

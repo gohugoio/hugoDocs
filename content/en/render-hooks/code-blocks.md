@@ -61,7 +61,7 @@ Code block _render hook_ templates receive the following [context](g):
 : (`page`) A reference to a page nested via the [`RenderShortcodes`][] method. [See details](#pageinner-details).
 
 `Position`
-: ([`text.Position`][]) The position of the code block within the page content.
+: ([`text.Position`][]) The position of the code block within the page content. Calculating the position can be expensive, so call this method only when you log an error or warning.
 
 `Type`
 : (`string`) The first word of the info string, typically the code language.

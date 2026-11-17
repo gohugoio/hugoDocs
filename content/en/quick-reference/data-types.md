@@ -154,7 +154,7 @@ For most Hugo objects, the `fmt.Printf` function prints the name of an internal 
 
 ## Source position
 
-A `text.Position` value is a position within a file, such as the place in a content file where you call a shortcode or where a Markdown element begins. The [`Position`][] method on a `Shortcode` object returns a `text.Position` value, and so does the `Position` method in each [render hook](g) template. Use the value to tell users where to fix a problem when you log an error or warning.
+A `text.Position` value is a position within a file, such as the place in a content file where you call a shortcode or where a Markdown element begins. The [`Position`][] method on a `Shortcode` object returns a `text.Position` value, and so does the `Position` method in each [render hook](g) template. Calculating a position can be expensive, so call the `Position` method only when you log an error or warning, to tell users where to fix the problem.
 
 When you print a `text.Position` value, Hugo formats it using the [`HUGO_FILE_LOG_FORMAT`][] environment variable. Without this environment variable, the format is `":file::line::col"`, where the quotation marks are part of the format:
 
