@@ -27,7 +27,7 @@ Table _render hook_ templates receive the following [context](g):
 : (`page`) A reference to a page nested via the [`RenderShortcodes`][] method. [See details](#pageinner-details).
 
 `Position`
-: ([`text.Position`][]) The position of the table within the page content.
+: ([`text.Position`][]) The position of the table within the page content. Calculating the position can be expensive, so call this method only when you log an error or warning.
 
 `THead`
 : (`slice`) A slice of table header rows, where each element is a slice of table cells.
