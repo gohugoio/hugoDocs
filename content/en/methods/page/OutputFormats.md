@@ -49,7 +49,7 @@ Use these methods on the `OutputFormats` object.
 
 ## Examples
 
-To render a `link` element pointing to the [canonical output format](g) for the current page:
+This example renders a `link` element pointing to the [canonical output format](g) for the current page:
 
 ```go-html-template
 {{ with .OutputFormats.Canonical }}

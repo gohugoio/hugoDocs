@@ -82,7 +82,7 @@ Use these methods on the `Meta` object.
 
 ## Examples
 
-To list the creation date, latitude, longitude, and orientation:
+This example lists the creation date, latitude, longitude, and orientation:
 
 ```go-html-template
 {{ with resources.GetMatch "images/featured.*" }}

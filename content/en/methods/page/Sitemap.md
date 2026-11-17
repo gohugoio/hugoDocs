@@ -37,7 +37,7 @@ Use these methods on the `Sitemap` object.
 
 ## Example
 
-With this project configuration:
+This example uses this project configuration:
 
 {{< code-toggle file=hugo >}}
 [sitemap]

@@ -16,7 +16,7 @@ Set the `type` field in front matter to group pages from different sections, or 
 
 ## Examples
 
-To list the books regardless of [section](g), given this content structure:
+This example lists the books regardless of [section](g), using this content structure:
 
 ```tree
 content/
