@@ -38,7 +38,7 @@ Use the [`time.Format`][] function to format string representations of dates, an
 
 ## Examples
 
-Given this front matter:
+These examples use this front matter:
 
 {{< code-toggle fm=true >}}
 title = "About time"

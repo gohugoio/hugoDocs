@@ -16,7 +16,7 @@ Set the `layout` field in front matter to [target a specific template][]. This m
 
 ## Examples
 
-Given this front matter:
+This example uses this front matter:
 
 {{< code-toggle file=content/contact.md fm=true >}}
 title = 'Contact'

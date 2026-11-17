@@ -24,7 +24,7 @@ Use the `MarkupScope` method within _shortcode_ and [render hook](g) templates, 
 
 ## Examples
 
-Rendering the content of each page in a scope named `home`:
+This example renders the content of each page in a scope named `home`:
 
 ```go-html-template {file="layouts/home.html"}
 {{ range site.RegularPages | first 10 }}

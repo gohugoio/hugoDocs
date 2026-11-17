@@ -26,7 +26,7 @@ Use the following rules to understand how Hugo sorts the collection returned by 
 
 ## Examples
 
-To render a list of the current page's language variants, including the current page, while sharing its current version and role:
+This example renders a list of the current page's language variants, including the current page, while sharing its current version and role:
 
 ```go-html-template
 {{/* Returns languages sorted by weight ascending, then lexicographically ascending */}}

@@ -24,7 +24,7 @@ The `compare.Default` function returns the second argument if set, else the firs
 
 ## Examples
 
-When the second argument is set:
+The function returns the second argument when it is set:
 
 ```go-html-template
 {{ 1             | compare.Default 42 }} → 1

@@ -38,8 +38,6 @@ To inspect the data structure:
 
 ## Example
 
-With this template:
-
 ```go-html-template
 {{ range $taxonomyObject.Alphabetical }}
   <h2><a href="{{ .Page.RelPermalink }}">{{ .Page.LinkTitle }}</a> ({{ .Count }})</h2>

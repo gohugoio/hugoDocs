@@ -46,8 +46,6 @@ To inspect the data structure:
 
 ## Example
 
-With this template:
-
 ```go-html-template
 {{ $weightedPages := $taxonomyObject.Get "suspense" }}
 {{ range $weightedPages }}
