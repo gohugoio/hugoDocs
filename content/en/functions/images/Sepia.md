@@ -6,14 +6,19 @@ params:
   functions_and_methods:
     aliases: []
     returnType: images.filter
-    signatures: [images.Sepia PERCENTAGE]
+    signatures: [images.Sepia STRENGTH]
 ---
-
-The percentage must be in the range `[0, 100]` where `0` has no effect.
 
 ## Usage
 
-Create the filter:
+The `images.Sepia` function returns an image filter that produces a sepia-toned version of an image.
+
+## Arguments
+
+`STRENGTH`
+: (`float`) The strength of the effect, as a percentage in the range `[0, 100]`. A value of `0` has no effect.
+
+## Examples
 
 ```go-html-template
 {{ $filter := images.Sepia 75 }}
@@ -21,12 +26,9 @@ Create the filter:
 
 {{% include "/_common/image-filter-apply.md" %}}
 
-## Example
-
 {{< img
   src="images/examples/zion-national-park.jpg"
   alt="Zion National Park"
-  filter="Sepia"
-  filterArgs="75"
+  filter=`images.Sepia 75`
   example=true
 >}}

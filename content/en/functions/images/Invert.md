@@ -11,7 +11,9 @@ params:
 
 ## Usage
 
-Create the filter:
+The `images.Invert` function returns an image filter that negates the colors of an image.
+
+## Examples
 
 ```go-html-template
 {{ $filter := images.Invert }}
@@ -19,12 +21,9 @@ Create the filter:
 
 {{% include "/_common/image-filter-apply.md" %}}
 
-## Example
-
 {{< img
   src="images/examples/zion-national-park.jpg"
   alt="Zion National Park"
-  filter="Invert"
-  filterArgs=""
+  filter=`images.Invert`
   example=true
 >}}

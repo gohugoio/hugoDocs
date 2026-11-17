@@ -6,14 +6,19 @@ params:
   functions_and_methods:
     aliases: []
     returnType: images.filter
-    signatures: [images.Saturation PERCENTAGE]
+    signatures: [images.Saturation AMOUNT]
 ---
-
-The percentage must be in the range `[-100, 500]` where `0` has no effect.
 
 ## Usage
 
-Create the filter:
+The `images.Saturation` function returns an image filter that changes the saturation of an image.
+
+## Arguments
+
+`AMOUNT`
+: (`float`) The percentage change in saturation, in the range `[-100, 500]`. A value of `0` has no effect.
+
+## Examples
 
 ```go-html-template
 {{ $filter := images.Saturation 65 }}
@@ -21,12 +26,9 @@ Create the filter:
 
 {{% include "/_common/image-filter-apply.md" %}}
 
-## Example
-
 {{< img
   src="images/examples/zion-national-park.jpg"
   alt="Zion National Park"
-  filter="Saturation"
-  filterArgs="65"
+  filter=`images.Saturation 65`
   example=true
 >}}

@@ -98,12 +98,12 @@ resources.GetRemote function.
 {{- /* Render. */}}
 {{- $class := "border-1 border-gray-300 dark:border-gray-500" }}
 {{- if $example }}
-	<p>Original</p>
+	<p>This is the original image:</p>
 	<img
 		class="{{ $class }}"
 		src="{{ $i.RelPermalink }}"
 		alt="{{ $alt }}">
-	<p>Processed</p>
+	<p>This is the processed image:</p>
 	<img
 		class="{{ $class }}"
 		src="{{ $src }}"

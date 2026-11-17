@@ -9,41 +9,73 @@ params:
     signatures: ['images.Dither [OPTIONS]']
 ---
 
-## Options
-
-The `images.Dither` filter accepts an options map.
-
-`colors`
-: (`[]string`) A slice of two or more colors that make up the dithering palette, each expressed as an RGB or RGBA [hexadecimal][] value, with or without a leading hash mark. The default values are opaque black (`000000ff`) and opaque white (`ffffffff`).
-
-`method`
-: (`string`) The dithering method. See the [dithering methods](#dithering-methods) section below for a list of the available methods. Default is `FloydSteinberg`.
-
-`serpentine`
-: (`bool`) Applicable to error diffusion dithering methods, whether to apply the error diffusion matrix in a serpentine manner, meaning that it goes right-to-left every other line. This greatly reduces line-type artifacts. Default is `true`.
-
-`strength`
-: (`float`) The strength at which to apply the dithering matrix, typically a value in the range `[0, 1]`. A value of `1.0` applies the dithering matrix at 100% strength (no modification of the dither matrix). The `strength` is inversely proportional to contrast; reducing the strength increases the contrast. Setting `strength` to a value such as `0.8` can be useful to reduce noise in the dithered image. Default is `1.0`.
-
 ## Usage
 
-Create the options map:
+The `images.Dither` function returns an image filter that dithers an image.
 
-```go-html-template
-{{ $opts := dict
-  "colors" (slice "222222" "808080" "dddddd")
-  "method" "ClusteredDot4x4"
-  "strength" 0.85
-}}
-```
+Follow these recommendations to get the best results with any dithering method:
 
-Create the filter:
+- If you resize the image, do so before dithering it. Resizing a dithered image distorts the dither pattern.
+- If the [dithering palette](#colors) is grayscale, convert the image to grayscale before dithering it.
+- Convert the dithered image to a lossless format such as GIF or PNG.
 
-```go-html-template
-{{ $filter := images.Dither $opts }}
-```
+## Arguments
 
-Or create the filter using the default settings:
+`OPTIONS`
+: (`map`) See [options](#options).
+
+## Options
+
+The `images.Dither` function accepts an options map.
+
+`colors`
+: (`slice`) A slice of two or more colors that make up the dithering palette, each expressed as an RGB or RGBA [hexadecimal color][], with or without a leading hash mark. Default is opaque black (`000000ff`) and opaque white (`ffffffff`).
+
+`method`
+: (`string`) The dithering method. Default is `FloydSteinberg`. The documentation for the [`makeworld-the-better-one/dither`][] package describes each of these dithering methods.
+
+  Use one of these [error diffusion dithering](g) methods:
+
+  - `Atkinson`
+  - `Burkes`
+  - `FalseFloydSteinberg`
+  - `FloydSteinberg`
+  - `JarvisJudiceNinke`
+  - `Sierra`
+  - `Sierra2`
+  - `Sierra2_4A`
+  - `Sierra3`
+  - `SierraLite`
+  - `Simple2D`
+  - `StevenPigeon`
+  - `Stucki`
+  - `TwoRowSierra`
+
+  Or use one of these [ordered dithering](g) methods:
+
+  - `ClusteredDot4x4`
+  - `ClusteredDot6x6`
+  - `ClusteredDot6x6_2`
+  - `ClusteredDot6x6_3`
+  - `ClusteredDot8x8`
+  - `ClusteredDotDiagonal16x16`
+  - `ClusteredDotDiagonal6x6`
+  - `ClusteredDotDiagonal8x8`
+  - `ClusteredDotDiagonal8x8_2`
+  - `ClusteredDotDiagonal8x8_3`
+  - `ClusteredDotHorizontalLine`
+  - `ClusteredDotSpiral5x5`
+  - `ClusteredDotVerticalLine`
+  - `Horizontal3x5`
+  - `Vertical5x3`
+
+`serpentine`
+: (`bool`) Applicable to error diffusion dithering methods, whether to process every other row from right to left instead of from left to right. This reduces streaks in the dither pattern. Default is `true`.
+
+`strength`
+: (`float`) How strongly to apply the dither pattern, typically in the range `[0, 1]`. A lower value produces fewer scattered dots and more contrast, so a value such as `0.8` can reduce noise in the dithered image. Default is `1.0`.
+
+## Examples
 
 ```go-html-template
 {{ $filter := images.Dither }}
@@ -51,68 +83,28 @@ Or create the filter using the default settings:
 
 {{% include "/_common/image-filter-apply.md" %}}
 
-## Dithering methods
-
-The documentation for the [`makeworld-the-better-one/dither`][] package describes each of the dithering methods below.
-
-Error diffusion dithering methods:
-
-- Atkinson
-- Burkes
-- FalseFloydSteinberg
-- FloydSteinberg
-- JarvisJudiceNinke
-- Sierra
-- Sierra2
-- Sierra2_4A
-- Sierra3
-- SierraLite
-- Simple2D
-- StevenPigeon
-- Stucki
-- TwoRowSierra
-
-Ordered dithering methods:
-
-- ClusteredDot4x4
-- ClusteredDot6x6
-- ClusteredDot6x6_2
-- ClusteredDot6x6_3
-- ClusteredDot8x8
-- ClusteredDotDiagonal16x16
-- ClusteredDotDiagonal6x6
-- ClusteredDotDiagonal8x8
-- ClusteredDotDiagonal8x8_2
-- ClusteredDotDiagonal8x8_3
-- ClusteredDotHorizontalLine
-- ClusteredDotSpiral5x5
-- ClusteredDotVerticalLine
-- Horizontal3x5
-- Vertical5x3
-
-## Example
-
-This example uses the default dithering options.
-
 {{< img
   src="images/examples/zion-national-park.jpg"
   alt="Zion National Park"
-  filter="Dither"
-  filterArgs=""
+  filter=`images.Dither`
   example=true
 >}}
 
-## Recommendations
-
-Regardless of dithering method, do both of the following to obtain the best results:
-
-1. Scale the image _before_ dithering
-1. Output the image to a lossless format such as GIF or PNG
-
-The example below does both of these, and it sets the dithering palette to the three most dominant colors in the image.
+With options:
 
 ```go-html-template
-{{ with resources.Get "original.jpg" }}
+{{ $opts := dict
+  "colors" (slice "222222" "808080" "dddddd")
+  "method" "ClusteredDot4x4"
+  "strength" 0.85
+}}
+{{ $filter := images.Dither $opts }}
+```
+
+Resizing the image, dithering it with the three most dominant colors in the image, and converting it to PNG:
+
+```go-html-template
+{{ with resources.Get "images/original.jpg" }}
   {{ $opts := dict
     "method" "ClusteredDotSpiral5x5"
     "colors" (first 3 .Colors)
@@ -128,27 +120,22 @@ The example below does both of these, and it sets the dithering palette to the t
 {{ end }}
 ```
 
-For best results, if the dithering palette is grayscale, convert the image to grayscale before dithering.
+Resizing the image, converting it to grayscale, dithering it with a grayscale palette, and converting it to PNG:
 
 ```go-html-template
-{{ $opts := dict "colors" (slice "222" "808080" "ddd") }}
-{{ $filters := slice
-  (images.Process "resize 800x")
-  (images.Grayscale)
-  (images.Dither $opts)
-  (images.Process "png")
-}}
-{{ with images.Filter $filters . }}
-  <img src="{{ .RelPermalink }}" width="{{ .Width }}" height="{{ .Height }}" alt="">
+{{ with resources.Get "images/original.jpg" }}
+  {{ $opts := dict "colors" (slice "222" "808080" "ddd") }}
+  {{ $filters := slice
+    (images.Process "resize 800x")
+    images.Grayscale
+    (images.Dither $opts)
+    (images.Process "png")
+  }}
+  {{ with . | images.Filter $filters }}
+    <img src="{{ .RelPermalink }}" width="{{ .Width }}" height="{{ .Height }}" alt="">
+  {{ end }}
 {{ end }}
 ```
 
-The example above:
-
-1. Resizes the image to be 800 pixels wide
-1. Converts the image to grayscale
-1. Dithers the image using the default (`FloydSteinberg`) dithering method with a grayscale palette
-1. Converts the image to the PNG format
-
 [`makeworld-the-better-one/dither`]: https://pkg.go.dev/github.com/makeworld-the-better-one/dither/v2#pkg-variables
-[hexadecimal]: https://developer.mozilla.org/en-US/docs/Web/CSS/hex-color
+[hexadecimal color]: https://developer.mozilla.org/en-US/docs/Web/CSS/hex-color

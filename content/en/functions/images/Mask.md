@@ -1,6 +1,6 @@
 ---
 title: images.Mask
-description: Returns an image filter that applies a mask to the source image.
+description: Returns an image filter that applies a mask to an image.
 keywords: []
 params:
   functions_and_methods:
@@ -11,50 +11,23 @@ params:
 
 {{< new-in 0.141.0 />}}
 
-The `images.Mask` filter applies a mask to an image. Black pixels in the mask make the corresponding areas of the base image transparent, while white pixels keep them opaque. Color images are converted to grayscale for masking purposes. The mask is automatically resized to match the dimensions of the base image.
-
-> [!NOTE]
-> Of the formats supported by Hugo's imaging pipeline, only AVIF, PNG, and WebP have an alpha channel to support transparency. If your source image has a different format and you require transparent masked areas, convert it to AVIF, PNG, or WebP as shown in the example below.
-
-When applying a mask to a non-transparent image format such as JPEG, the masked areas will be filled with the color specified by the `bgColor` parameter in your [project configuration][]. You can override that color with a `Process` image filter:
-
-```go-html-template
-{{ $filter := images.Process "#00ff00" }}
-```
-
 ## Usage
 
-Create a slice of filters, one for format conversion and the other for mask application:
+The `images.Mask` function returns an image filter that applies a mask to an image. The `RESOURCE` argument is the mask image, which can be a [global resource](g), a [page resource](g), or a [remote resource](g).
+
+Black pixels in the mask make the corresponding areas of the image transparent, and white pixels keep them opaque. Hugo converts a color mask to grayscale, and resizes the mask to match the dimensions of the image.
+
+Of the formats that Hugo can process, only AVIF, PNG, and WebP support transparency. To make the masked areas transparent, convert the image to one of these formats. Otherwise, Hugo fills the masked areas with the `bgColor` setting in your [imaging configuration][]. To use a different color, combine this filter with an [`images.Process`][] filter that specifies a background color.
+
+## Examples
 
 ```go-html-template
-{{ $filter1 := images.Process "webp" }}
-{{ $filter2 := images.Mask (resources.Get "images/mask.png") }}
-{{ $filters := slice $filter1 $filter2 }}
+{{ $filter := images.Mask (resources.Get "images/mask.png") }}
 ```
 
-Apply the filters using the [`images.Filter`][] function:
+{{% include "/_common/image-filter-apply.md" %}}
 
-```go-html-template
-{{ with resources.Get "images/original.jpg" }}
-  {{ with . | images.Filter $filters }}
-    <img src="{{ .RelPermalink }}" width="{{ .Width }}" height="{{ .Height }}" alt="">
-  {{ end }}
-{{ end }}
-```
-
-You can also apply the filter using the [`Filter`][] method on a 'Resource' object:
-
-```go-html-template
-{{ with resources.Get "images/original.jpg" }}
-  {{ with .Filter $filters }}
-    <img src="{{ .RelPermalink }}" width="{{ .Width }}" height="{{ .Height }}" alt="">
-  {{ end }}
-{{ end }}
-```
-
-## Example
-
-Mask
+This is the mask image:
 
 {{< img
   src="images/examples/mask.png"
@@ -64,11 +37,27 @@ Mask
 {{< img
   src="images/examples/zion-national-park.jpg"
   alt="Zion National Park"
-  filter="mask"
-  filterArgs="images/examples/mask.png"
+  filter=`images.Mask (resources.Get "images/examples/mask.png")`
   example=true
 >}}
 
-[`Filter`]: /methods/resource/filter/
-[`images.Filter`]: /functions/images/filter/
-[project configuration]: /configuration/imaging/
+Converting the image to WebP to make the masked areas transparent:
+
+```go-html-template
+{{ $filters := slice
+  (images.Process "webp")
+  (images.Mask (resources.Get "images/mask.png"))
+}}
+```
+
+Filling the masked areas with a background color:
+
+```go-html-template
+{{ $filters := slice
+  (images.Process "#00ff00")
+  (images.Mask (resources.Get "images/mask.png"))
+}}
+```
+
+[`images.Process`]: /functions/images/process/
+[imaging configuration]: /configuration/imaging/

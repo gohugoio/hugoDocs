@@ -9,11 +9,18 @@ params:
     signatures: [images.Opacity OPACITY]
 ---
 
-The opacity value must be in the range `[0, 1]`. A value of `0` produces a transparent image, and a value of `1` produces an opaque image (no transparency).
-
 ## Usage
 
-Create the filter:
+The `images.Opacity` function returns an image filter that changes the opacity of an image.
+
+The filter is most useful when the target format supports transparency, such as AVIF, PNG, or WebP. If the image has a different format, combine this filter with an [`images.Process`][] filter that converts the image to one of these formats.
+
+## Arguments
+
+`OPACITY`
+: (`float`) The opacity, which must be in the range `[0, 1]`. A value of `0` produces a transparent image, a value of `0.5` produces a semi-transparent image, and a value of `1` produces an opaque image.
+
+## Examples
 
 ```go-html-template
 {{ $filter := images.Opacity 0.65 }}
@@ -21,7 +28,14 @@ Create the filter:
 
 {{% include "/_common/image-filter-apply.md" %}}
 
-The `images.Opacity` filter is most useful for target formats such as AVIF, PNG, and WebP that support transparency. If the source image does not support transparency, combine this filter with the `images.Process` filter:
+{{< img
+  src="images/examples/zion-national-park.jpg"
+  alt="Zion National Park"
+  filter=`images.Opacity 0.65`
+  example=true
+>}}
+
+Converting the image to PNG to support transparency:
 
 ```go-html-template
 {{ with resources.Get "images/original.jpg" }}
@@ -35,12 +49,4 @@ The `images.Opacity` filter is most useful for target formats such as AVIF, PNG,
 {{ end }}
 ```
 
-## Example
-
-{{< img
-  src="images/examples/zion-national-park.jpg"
-  alt="Zion National Park"
-  filter="Opacity"
-  filterArgs="0.65"
-  example=true
->}}
+[`images.Process`]: /functions/images/process/
