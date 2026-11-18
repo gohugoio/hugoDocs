@@ -23,7 +23,7 @@ You can also install Hugo using one of the following package managers.
 [Chocolatey][] is a free and open-source package manager for Windows. To install Hugo:
 
 ```sh
-choco install hugo-extended
+choco install hugo
 ```
 
 ### Scoop
@@ -31,7 +31,7 @@ choco install hugo-extended
 [Scoop][] is a free and open-source package manager for Windows. To install Hugo:
 
 ```sh
-scoop install hugo-extended
+scoop install hugo
 ```
 
 ### WinGet
@@ -39,13 +39,13 @@ scoop install hugo-extended
 [WinGet][] is Microsoft's official free and open-source package manager for Windows. To install Hugo:
 
 ```sh
-winget install -e --id Hugo.Hugo.Extended
+winget install -e --id Hugo.Hugo
 ```
 
 To uninstall Hugo:
 
 ```sh
-winget uninstall -e --id Hugo.Hugo.Extended
+winget uninstall -e --id Hugo.Hugo
 ```
 
 ## Build from source
