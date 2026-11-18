@@ -58,8 +58,7 @@ You can also apply image filters using the [`images.Filter`][] function.
 {{< img
   src="images/examples/zion-national-park.jpg"
   alt="Zion National Park"
-  filter="Grayscale"
-  filterArgs=""
+  filter=`images.Grayscale`
   example=true
 >}}
 
