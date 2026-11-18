@@ -45,7 +45,7 @@ Adhere to these writing style conventions.
 
   Exception: within the `## Examples` section of a function or method reference page, use a short fragment to introduce each code block after the first. See [function and method page structure](#function-and-method-structure).
 
-- Use [basic english][] where possible for a global audience.
+- Use [Basic English][] where possible for a global audience.
 - Prioritize current best practices over multiple options or historical information.
 - Avoid parenthetical "e.g." expressions, em dashes, and semicolons.
 
@@ -1020,7 +1020,7 @@ Step 9
 [ATX]: https://spec.commonmark.org/current/#atx-headings
 [Glossary]: /quick-reference/glossary/
 [`aliases`]: /content-management/front-matter/#aliases
-[basic english]: https://simple.wikipedia.org/wiki/Basic_English
+[Basic English]: https://simple.wikipedia.org/wiki/Basic_English
 [collapsed link references]: https://discourse.gohugo.io/t/55714
 [details]: https://github.com/gohugoio/hugoDocs/blob/master/layouts/_partials/layouts/blocks/feature-state.html
 [developer documentation style guide]: https://developers.google.com/style
