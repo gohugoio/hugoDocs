@@ -46,8 +46,7 @@ In the example above, `"200x200 TopRight"` is the processing specification.
 {{< img
   src="images/examples/zion-national-park.jpg"
   alt="Zion National Park"
-  filter="Process"
-  filterArgs="crop 200x200 TopRight"
+  filter=`images.Process "crop 200x200 TopRight"`
   example=true
 >}}
 

@@ -45,7 +45,6 @@ In the example above, `"300x"` is the processing specification.
 {{< img
   src="images/examples/zion-national-park.jpg"
   alt="Zion National Park"
-  filter="Process"
-  filterArgs="resize 300x"
+  filter=`images.Process "resize 300x"`
   example=true
 >}}

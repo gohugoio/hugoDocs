@@ -17,7 +17,7 @@ The following books cover using Hugo to build static websites.
 
 Hugo in Action is a step-by-step guide to using Hugo to create static websites. Working with a complete example website and source code samples, you'll learn how to build and host a low-maintenance, high-performance site that will wow your users and stay stable without relying on a third-party server.
 
-[{{< img src="hugo-in-action.png" alt="Book cover: Hugo in Action" filter="process" filterArgs="resize x350 webp">}}](https://www.manning.com/books/hugo-in-action/)
+[{{< img src="hugo-in-action.png" alt="Book cover: Hugo in Action" filter=`images.Process "resize x350 webp"`>}}](https://www.manning.com/books/hugo-in-action/)
 
 Author: Atishay Jain\
 Publisher: [Manning Publications][]\
@@ -29,7 +29,7 @@ ISBN: 9781617297007
 
 In this book, you'll use Hugo to build a personal portfolio site that you can use to showcase your skills and thoughts to the world. You'll build the basic skeleton, develop a custom theme, and use content templates to generate new pages quickly. You'll use internal and external data sources to embed content into your site and render some of your content in JSON and RSS. You'll add a blog section with posts and integrate Disqus with your site, and then make your site searchable.
 
-[{{< img src="build-websites-with-hugo.png" alt="Book cover: Build Websites with Hugo" filter="process" filterArgs="resize x350 webp">}}](https://pragprog.com/titles/bhhugo/build-websites-with-hugo/)
+[{{< img src="build-websites-with-hugo.png" alt="Book cover: Build Websites with Hugo" filter=`images.Process "resize x350 webp"`>}}](https://pragprog.com/titles/bhhugo/build-websites-with-hugo/)
 
 Author: Brian P. Hogan\
 Publisher: [Pragmatic Bookshelf][]\

@@ -43,8 +43,7 @@ In the example above, `"300x175"` is the processing specification.
 {{< img
   src="images/examples/zion-national-park.jpg"
   alt="Zion National Park"
-  filter="Process"
-  filterArgs="fit 300x175"
+  filter=`images.Process "fit 300x175"`
   example=true
 >}}
 

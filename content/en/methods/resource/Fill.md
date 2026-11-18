@@ -43,7 +43,6 @@ In the example above, `"500x200 TopRight"` is the _processing specification.
 {{< img
   src="images/examples/zion-national-park.jpg"
   alt="Zion National Park"
-  filter="Process"
-  filterArgs="fill 500x200 TopRight"
+  filter=`images.Process "fill 500x200 TopRight"`
   example=true
 >}}

@@ -56,8 +56,7 @@ The `Process` method is also available as a filter. This is more effective if yo
 {{< img
   src="images/examples/zion-national-park.jpg"
   alt="Zion National Park"
-  filter="Process"
-  filterArgs="crop 200x200 TopRight webp q50"
+  filter=`images.Process "crop 200x200 TopRight webp q50"`
   example=true
 >}}
 
