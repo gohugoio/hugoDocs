@@ -208,6 +208,7 @@ Link to [glossary][] terms as described in [links](#links), and use terms consis
 
 - "client side" (noun), "client-side" (adjective)
 - "command line" (noun), "command-line" (adjective)
+- "Exif" (not "EXIF")
 - "file name" (two words)
 - "flag" (instead of "option" for command-line flags)
 - "front matter" (two words, except when referring to the configuration key)
