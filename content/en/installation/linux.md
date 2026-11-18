@@ -96,20 +96,12 @@ You can also download Debian packages from the [latest release][] page.
 
 ### Exherbo
 
-To install Hugo on [Exherbo][]:
+To install Hugo on [Exherbo][] using the Paludis package manager:
 
-1. Add this line to /etc/paludis/options.conf:
-
-    ```text
-    www-apps/hugo extended
-    ```
-
-1. Install using the Paludis package manager:
-
-    ```sh
-    cave resolve -x repository/heirecka
-    cave resolve -x hugo
-    ```
+```sh
+cave resolve -x repository/heirecka
+cave resolve -x hugo
+```
 
 ### Fedora
 
@@ -121,19 +113,11 @@ sudo dnf install hugo
 
 ### Gentoo
 
-Derivatives of the [Gentoo][] distribution of Linux include [Calculate Linux][], [Funtoo][], and others. To install Hugo:
+Derivatives of the [Gentoo][] distribution of Linux include [Calculate Linux][], [Funtoo][], and others. To install Hugo using the Portage package manager:
 
-1. Specify the `extended` [USE][] flag in /etc/portage/package.use/hugo:
-
-    ```text
-    www-apps/hugo extended
-    ```
-
-1. Build using the Portage package manager:
-
-    ```sh
-    sudo emerge www-apps/hugo
-    ```
+```sh
+sudo emerge www-apps/hugo
+```
 
 ### NixOS
 
@@ -204,7 +188,6 @@ Latest version available?|:heavy_check_mark:|:heavy_check_mark:|varies|:heavy_ch
 [Red Hat Enterprise Linux]: https://www.redhat.com/
 [Snap]: https://snapcraft.io/
 [Solus]: https://getsol.us/
-[USE]: https://packages.gentoo.org/packages/www-apps/hugo
 [Ubuntu]: https://ubuntu.com/
 [Void Linux]: https://voidlinux.org/
 [Zorin OS]: https://zorin.com/os/
