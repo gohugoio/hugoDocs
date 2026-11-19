@@ -187,10 +187,6 @@ To learn how to _deploy_ your project, see the [host and deploy][] section.
 
 Hugo's [forum][] is an active community of users and developers who answer questions, share knowledge, and provide examples. A quick search of over 20,000 topics will often answer your question. Please be sure to read about [requesting help][] before asking your first question.
 
-## Other resources
-
-For other resources to help you learn Hugo, including books and video tutorials, see the [external learning resources][] page.
-
 [Ananke]: https://github.com/theNewDynamic/gohugo-theme-ananke
 [Git submodule]: https://git-scm.com/book/en/v2/Git-Tools-Submodules
 [Install Git]: https://git-scm.com/book/en/v2/Getting-Started-Installing-Git
@@ -201,7 +197,6 @@ For other resources to help you learn Hugo, including books and video tutorials,
 [demonstration site]: https://ananke-theme.netlify.app/
 [documentation]: https://ananke-documentation.netlify.app/
 [draft, future, and expired content]: /getting-started/usage/#draft-future-and-expired-content
-[external learning resources]: /getting-started/external-learning-resources/
 [forum]: https://discourse.gohugo.io/
 [front matter]: /content-management/front-matter/
 [host and deploy]: /host-and-deploy/
