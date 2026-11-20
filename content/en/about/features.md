@@ -122,7 +122,7 @@ weight: 20
 [Menus]: /content-management/menus/
 [Minification]: /configuration/minify/
 [Modules]: /hugo-modules/
-[Multidimensional content model]: /quick-reference/glossary/#sites-matrix
+[Multidimensional content model]: /content-management/content-dimensions/
 [Multilingual]: /content-management/multilingual/
 [Multiplatform]: /installation/
 [Output formats]: /configuration/output-formats/

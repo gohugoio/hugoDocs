@@ -176,7 +176,7 @@ These are the default mounts:
 
 `sites`
 : {{< new-in 0.153.0 />}}
-: (`map`) A map to define [sites matrix](g) and [sites complements](g) for the mount. Relevant for `content` and `layouts` mounts, and `static` mounts when in multihost mode. For `static` and `layouts`, only the `matrix` keyword is supported.
+: (`map`) A map containing a [sites matrix](g), a [sites complements](g), or both, to assign the files in the mount to one or more [sites](g). Relevant for `content` and `layouts` mounts, and `static` mounts when in multihost mode. For `static` and `layouts`, only the `matrix` key is supported. When two or more `content` mounts provide the same page to the same site, Hugo uses the page from the first mount. See [content dimensions][] for details.
 
 ### Example
 
@@ -194,6 +194,7 @@ source = 'assets'
 target = 'assets'
 {{< /code-toggle >}}
 
+[content dimensions]: /content-management/content-dimensions/
 [`archetypeDir`]: /configuration/all/#archetypedir
 [`assetDir`]: /configuration/all/#assetdir
 [`contentDir`]: /configuration/all/#contentdir

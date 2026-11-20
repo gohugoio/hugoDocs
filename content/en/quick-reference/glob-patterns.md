@@ -35,4 +35,16 @@ The matching logic follows these rules:
 - Negation (`!`) matches any character except those specified in a list or range when used inside brackets.
 - Character ranges (`[a-z]`) match any single character within the specified range.
 
-The delimiter is a slash (`/`), except when matching semantic version strings, where the delimiter is a dot (`.`).
+The delimiter is a slash (`/`), except when matching version names, where the delimiter is a dot (`.`).
+
+## Glob slices
+
+{{% glossary-term "glob slice" %}}
+
+## Dimension matchers
+
+{{% glossary-term "dimension matcher" %}}
+
+A dimension matcher also accepts comparisons such as `>= v2.0.0`. See [dimension matchers][] for details.
+
+[dimension matchers]: /content-management/content-dimensions/#dimension-matchers

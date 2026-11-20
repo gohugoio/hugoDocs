@@ -78,6 +78,9 @@ translationKey: "about"
 
 By setting the `translationKey` front matter parameter to `about` in all three pages, they will be linked as translated pages.
 
+> [!NOTE]
+> Hugo identifies each page by its [logical path](g). The `translationKey` links pages with different logical paths as translations of each other, but they remain different pages. When you [fill in missing translations][], each one fills the gap left by the other. Instead of setting a translation key, give each translation the same path, and [localize the URL](#localizing-permalinks) with the `slug`.
+
 ### Localizing permalinks
 
 Because paths and file names are used to handle linking, all translated pages will share the same URL (apart from the language subdirectory).
@@ -398,6 +401,7 @@ hugo new content content/de/post/test.md
 ```
 
 [`enableMissingTranslationPlaceholders`]: /configuration/all/#enablemissingtranslationplaceholders
+[fill in missing translations]: /content-management/content-dimensions/#translations
 [`lang.Translate`]: /functions/lang/translate/
 [`slug`]: /content-management/urls/#slug
 [`time.Format`]: /functions/time/format/
