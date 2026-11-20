@@ -112,18 +112,15 @@ The most common front matter fields are `date`, `draft`, `title`, and `weight`, 
 
 `sites`
 : {{< new-in 0.153.0 />}}
-: (`map`) A map to define [sites matrix](g) and [sites complements](g) for the page.
+: (`map`) A map containing a [sites matrix](g), a [sites complements](g), or both, to assign the page to one or more [sites](g). The `matrix` key selects the sites to publish the page to, and the `complements` key selects other sites whose page collections include the page. Each key accepts the `languages`, `versions`, and `roles` keys, and the value of each is a [dimension matcher](g). See [content dimensions][] for details.
 
   <!-- markdownlint-disable MD049 -->
 
-  {{< code-toggle file=content/_index.md fm=true >}}
-  title = 'Home'
+  {{< code-toggle file=content/about.md fm=true >}}
+  title = 'About'
   [sites.matrix]
-  languages = ["en","fr"]
-  versions = ["v1.2.*","v2.*.*"]
-  roles = ["**"]
-  [sites.complements]
-  versions = ["v3.*.*"]
+  languages = '**'
+  versions = ['>= v2.0.0']
   {{< /code-toggle >}}
 
   <!-- markdownlint-enable MD049 -->
@@ -138,7 +135,7 @@ The most common front matter fields are `date`, `draft`, `title`, and `weight`, 
 : (`string`) The page title. Access this value from a template using the [`Title`][] method on a `Page` object.
 
 `translationKey`
-: (`string`) An arbitrary value used to relate two or more translations of the same page, useful when the translated pages do not share a common path. Access this value from a template using the [`TranslationKey`][] method on a `Page` object.
+: (`string`) An arbitrary value used to relate two or more translations of the same page, useful when the translated pages do not share a common path. Access this value from a template using the [`TranslationKey`][] method on a `Page` object. Hugo identifies each page by its [logical path](g), so pages with different logical paths remain different pages, even if they share a translation key. When you [fill in missing translations][], each one fills the gap left by the other. Instead of setting a translation key, give each translation the same path, and set the [`slug`](#slug) to translate the URL.
 
 `type`
 : (`string`) The [content type](g), overriding the value derived from the top-level section in which the page resides. Access this value from a template using the [`Type`][] method on a `Page` object. You can also set this field to target a specific template.
@@ -297,6 +294,8 @@ If a date/time string includes a time zone offset, Hugo uses that offset. Otherw
 [JSON]: https://www.json.org/
 [TOML]: https://toml.io/
 [YAML]: https://yaml.org/
+[content dimensions]: /content-management/content-dimensions/
+[fill in missing translations]: /content-management/content-dimensions/#translations
 [`Aliases`]: /methods/page/aliases/
 [`Date`]: /methods/page/date/
 [`Description`]: /methods/page/description/

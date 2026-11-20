@@ -8,9 +8,16 @@ params:
     signatures: [PAGE.TranslationKey]
 ---
 
-The translation key creates a relationship between all translations of a given page. The translation key is derived from the file path, or from the `translationKey` parameter if defined in front matter.
+## Usage
 
-With this project configuration:
+The `TranslationKey` method on a `Page` object returns the translation key of the given page. The translation key relates all translations of a page to each other. If you set the [`translationKey`][] field in front matter, this method returns its value. Otherwise, it returns the page's [logical path](g). This method is rarely used within a template.
+
+> [!NOTE]
+> Hugo identifies each page by its logical path, so pages with different logical paths remain different pages, even if they share a translation key. When you [fill in missing translations][], each one fills the gap left by the other. Instead of setting a translation key, give each translation the same path, and set the [`slug`][] in front matter to translate the URL.
+
+## Examples
+
+These examples use this project configuration:
 
 {{< code-toggle file=hugo >}}
 defaultContentLanguage = 'en'
@@ -28,7 +35,7 @@ locale = 'de-DE'
 weight = 2
 {{< /code-toggle >}}
 
-And this content:
+The project contains this content:
 
 ```tree
 content/
@@ -45,7 +52,7 @@ content/
 └── _index.md
 ```
 
-And this front matter:
+The front matter of Book 1 sets the same translation key in both languages:
 
 {{< code-toggle file=content/en/books/book-1.md fm=true >}}
 title = 'Book 1'
@@ -57,14 +64,18 @@ title = 'Buch 1'
 translationKey = 'foo'
 {{< /code-toggle >}}
 
-When rendering either of the pages above:
+Rendering either Book 1 page:
 
 ```go-html-template
-{{ .TranslationKey }} → page/foo
+{{ .TranslationKey }} → foo
 ```
 
-If the front matter of Book 2, in both languages, does not include a translation key:
+Rendering either Book 2 page, where front matter does not set a translation key:
 
 ```go-html-template
-{{ .TranslationKey }} → page/books/book-2
+{{ .TranslationKey }} → /books/book-2
 ```
+
+[`slug`]: /content-management/urls/#slug
+[`translationKey`]: /content-management/front-matter/#translationkey
+[fill in missing translations]: /content-management/content-dimensions/#translations

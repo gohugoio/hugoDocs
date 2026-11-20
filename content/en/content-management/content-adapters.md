@@ -8,7 +8,7 @@ keywords: []
 
 A content adapter is a template that dynamically creates pages when building a site. For example, use a content adapter to create pages from a remote data source such as JSON, TOML, YAML, or XML.
 
-Unlike templates that reside in the `layouts` directory, content adapters reside in the `content` directory, no more than one per directory per language. When a content adapter creates a page, the page's [logical path](g) will be relative to the content adapter.
+Unlike templates that reside in the `layouts` directory, content adapters reside in the `content` directory, no more than one per directory per [site](g). When a content adapter creates a page, the page's [logical path](g) will be relative to the content adapter.
 
 ```tree
 content/
@@ -92,9 +92,7 @@ Use these methods within a content adapter.
   ```
 
 `EnableAllLanguages`
-: By default, Hugo executes the content adapter only once for the first matching site in the [sites matrix](g). Use this method to expand execution to all languages while maintaining the current role and version.
-
-  For more fine-grained control, define a `sites.matrix` in front matter or in a content mount.
+: By default, Hugo executes the content adapter once, for the first site that it matches. Use this method to execute the content adapter once for each language, keeping the version and role of the first execution. See [multidimensional projects](#multidimensional-projects).
 
   ```go-html-template {file="content/books/_content.gotmpl"}
   {{ .EnableAllLanguages }}
@@ -112,9 +110,11 @@ Use these methods within a content adapter.
   ```
 
 `EnableAllDimensions`
-: By default, Hugo executes the content adapter only once for the first matching site in the [sites matrix](g). Use this method to expand execution to every possible combination of language, version, and role.
+: By default, Hugo executes the content adapter once, for the first site that it matches. Use this method to execute the content adapter once for each site in the project, one for each combination of language, version, and role. See [multidimensional projects](#multidimensional-projects).
 
-  For more fine-grained control, define a `sites.matrix` in front matter or in a content mount.
+  ```go-html-template {file="content/books/_content.gotmpl"}
+  {{ .EnableAllDimensions }}
+  ```
 
 ## Page map
 
@@ -135,6 +135,7 @@ Key|Description|Required
 `dates.publishDate`|The page publication date as a `time.Time` value.|&nbsp;
 `params`|A map of page parameters.|&nbsp;
 `path`|The page's [logical path](g) relative to the content adapter. Do not include a leading slash or file extension.|:heavy_check_mark:
+`sites`|A map containing a [sites matrix](g), a [sites complements](g), or both, to assign the page to one or more sites. See [multidimensional projects](#multidimensional-projects).|&nbsp;
 `title`|The page title.|&nbsp;
 
 While `path` is the only required field, we recommend setting `title` as well.
@@ -152,6 +153,7 @@ Key|Description|Required
 `name`|The resource name.|&nbsp;
 `params`|A map of resource parameters.|&nbsp;
 `path`|The resource's [logical path](g) relative to the content adapter. Do not include a leading slash.|:heavy_check_mark:
+`sites`|A map containing a sites matrix, a sites complements, or both, to assign the resource to one or more sites. See [multidimensional projects](#multidimensional-projects).|&nbsp;
 `title`|The resource title.|&nbsp;
 
 When `content.value` is a string, Hugo generates a new resource with a [publication path](g) relative to the page. However, if `content.value` is already a resource, Hugo directly uses its value and publishes it relative to the site root. This latter method is more efficient.
@@ -266,12 +268,59 @@ Step 4
   {{ end }}
   ```
 
-## Multilingual projects
+## Multidimensional projects
 
-With multilingual projects you can:
+A project with more than one language, version, or role generates more than one [site](g). See [content dimensions][] for an overview.
 
-1. Create one content adapter for all languages using the [`EnableAllLanguages`](#enablealllanguages) method as described above.
-1. Create content adapters unique to each language. See the examples below.
+### Execution
+
+By default, Hugo executes each content adapter once, for the first site that it matches. The `Site` method returns that site, and the pages and resources that the content adapter creates belong to that site.
+
+Setting `sites.matrix` on the mount that contains a content adapter, or including a language, version, or role identifier in its file name, determines which site Hugo executes the content adapter for. It does not cause Hugo to execute the content adapter more than once.
+
+To create pages for more than one site, do one of the following:
+
+- Call the [`EnableAllLanguages`](#enablealllanguages) or [`EnableAllDimensions`](#enablealldimensions) method to execute the content adapter once for each language or once for each site. Use the `Site` method to get the language, version, and role of the current execution, such as `.Site.Version.Name`, and create the pages for that site.
+- Set the `sites` key in the [page map](#page-map) and [resource map](#resource-map) to assign each page and resource to one or more sites, without executing the content adapter more than once.
+- Create a separate content adapter for each site, as described in [translations by file name](#translations-by-file-name) and [translations by directory](#translations-by-directory).
+
+For example, this content adapter executes once for each site, and creates a page for each version from the data for that version:
+
+```go-html-template {file="content/books/_content.gotmpl"}
+{{ .EnableAllDimensions }}
+{{ $url := printf "https://example.org/books/%s.json" .Site.Version.Name }}
+{{ with try (resources.GetRemote $url) }}
+  {{ with .Err }}
+    {{ errorf "Unable to get remote resource %s: %s" $url . }}
+  {{ else with .Value }}
+    {{ range . | transform.Unmarshal }}
+      {{ $.AddPage (dict "path" .title "title" .title) }}
+    {{ end }}
+  {{ end }}
+{{ end }}
+```
+
+This content adapter executes once, and assigns each page to one version and every language:
+
+```go-html-template {file="content/books/_content.gotmpl"}
+{{ range slice "v1" "v2" }}
+  {{ $sites := dict "matrix" (dict "versions" . "languages" "**") }}
+  {{ $.AddPage (dict "path" "release-notes" "title" (printf "Release notes for %s" .) "sites" $sites) }}
+{{ end }}
+```
+
+When you set the `sites` key in the page map, the page is published to the selected sites, but the content adapter still executes once. Values that depend on the `Site` method, such as `.Site.Language.Name`, reflect the site of that single execution, not the sites that the page is published to.
+
+### Page resources
+
+A resource created by a content adapter belongs only to the site that the content adapter was executing for, unless you set the `sites` key in the resource map. Unlike a page resource backed by a file, Hugo does not use a resource from one language as a fallback for another. For example, if a content adapter assigns a page to every language, also assign its resources to every language:
+
+```go-html-template {file="content/books/_content.gotmpl"}
+{{ $sites := dict "matrix" (dict "languages" "**") }}
+{{ $content := dict "mediaType" "text/plain" "value" "Hello" }}
+{{ .AddPage (dict "path" "p1" "title" "P1" "sites" $sites) }}
+{{ .AddResource (dict "path" "p1/hello.txt" "content" $content "sites" $sites) }}
+```
 
 ### Translations by file name
 
@@ -340,6 +389,7 @@ If the content adapter also creates `books/the-hunchback-of-notre-dame`, the con
 
 To detect page collisions, use the `--printPathWarnings` flag when building your project.
 
+[content dimensions]: /content-management/content-dimensions/
 [content formats]: /content-management/formats/#classification
 [examples]: /methods/page/store/
 [front matter field]: /content-management/front-matter/#fields

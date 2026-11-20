@@ -234,6 +234,16 @@ Yes → The `public` directory will have this structure:
 No → Some templates are executed many times during a site build.\
 Yes → Some templates are executed many times during a build.
 
+When describing the [multidimensional content model][], follow these conventions:
+
+- Use "dimension" to refer to language, version, or role. Use "content dimension" only when "dimension" alone would be unclear.
+- Write "sites matrix" and "sites complements" in lowercase, preceded by an article, such as "a sites matrix" or "the sites complements." The plural of "sites matrix" is "sites matrices." Do not write "site matrix" or "site complements."
+- Use "dimension matcher" for the value of each key within a sites matrix or sites complements, such as `'>= v2.0.0'`. Use "glob slice" only for settings that accept glob patterns without comparisons, such as the `files` setting of a mount.
+- Use code formatting, such as `sites.matrix`, only when referring to the configuration key itself.
+
+No → Define the site matrix in front matter.\
+Yes → Define a sites matrix in front matter.
+
 Use "[build artifacts](g)" when referring to the output of a build as a whole, such as "Hugo writes the build artifacts to the `public` directory." When referring to specific files or their contents, name them instead, such as "the rendered HTML files." Use "published site" only when referring to the deployed website.
 
 Distinguish between a [module](g) and a [theme](g). A theme is a module that provides a complete set of components defining a site's layout, presentation, and behavior. Use "module" when a statement applies to any module, such as when describing templates, configuration merging, or mounts. Use "theme" only when a statement applies to themes specifically, such as when describing how to choose or install a theme, or the `theme` configuration setting.
@@ -1037,6 +1047,7 @@ Step 9
 [inline links]: https://discourse.gohugo.io/t/55714
 [issues]: https://github.com/gohugoio/hugoDocs/issues
 [list items]: https://spec.commonmark.org/current/#list-items
+[multidimensional content model]: /content-management/content-dimensions/
 [project repository]: https://github.com/gohugoio/hugo
 [raw HTML]: https://spec.commonmark.org/current/#raw-html
 [related content]: /content-management/related-content/
