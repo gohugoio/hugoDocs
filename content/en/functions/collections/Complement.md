@@ -20,7 +20,7 @@ To find the elements within `$c3` that do not exist in `$c1` or `$c2`:
 ```
 
 > [!TIP]
-> Make your code simpler to understand by using a [chained pipeline][]:
+> Make your code simpler to understand by using a [chained pipeline](g):
 
 ```go-html-template
 {{ $c3 | complement $c1 $c2 }} → [1 2]
@@ -67,5 +67,4 @@ In this example we use the `complement` function to remove [stop words][] from a
 ```
 
 [`where`]: /functions/collections/where/
-[chained pipeline]: https://pkg.go.dev/text/template#hdr-Pipelines
 [stop words]: https://en.wikipedia.org/wiki/Stop_word
