@@ -247,6 +247,11 @@ When readers may not realize that a theme is a module, write "modules, including
 
 Do not use "module" to refer to the project, even though you define project mounts under the `module` configuration key.
 
+Use "[template](g)" when referring to a template, not "layout," even though templates reside in the `layouts` directory. Use "layout" only when referring to the `layouts` directory, the [`layout`][] front matter field, the [`Layout`][layout_method] method on a `Page` object, a date/time layout string, the custom layout and standard layout identifiers in a template's file name, or the visual arrangement of elements on a page.
+
+No → Unless you provide a custom layout, Hugo uses its embedded alias template.\
+Yes → Unless you provide a custom template, Hugo uses its embedded alias template.
+
 ### Products and executables
 
 Distinguish between a product or project and its command-line executable.
@@ -1020,6 +1025,8 @@ Step 9
 [ATX]: https://spec.commonmark.org/current/#atx-headings
 [Glossary]: /quick-reference/glossary/
 [`aliases`]: /content-management/front-matter/#aliases
+[`layout`]: /content-management/front-matter/#layout
+[layout_method]: /methods/page/layout/
 [Basic English]: https://simple.wikipedia.org/wiki/Basic_English
 [collapsed link references]: https://discourse.gohugo.io/t/55714
 [details]: https://github.com/gohugoio/hugoDocs/blob/master/layouts/_partials/layouts/blocks/feature-state.html

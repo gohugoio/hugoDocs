@@ -235,7 +235,7 @@ By default, Hugo uses client-side redirection, generating a small HTML file for 
 
 When using this method, Hugo creates a physical directory and an `index.html` file at each alias location. For example, if a page at `content/posts/new.md` has a page-relative alias of `old-path`, a file is generated at `public/posts/old-path/index.html`.
 
-Unless you provide a custom layout, Hugo uses its [embedded alias template][] to generate the redirect files:
+Unless you provide a custom template, Hugo uses its [embedded alias template][] to generate the redirect files:
 
 ```go-html-template
 <!DOCTYPE html>
