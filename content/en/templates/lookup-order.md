@@ -18,7 +18,7 @@ Custom layout|The value of the [`layout`][] field in front matter
 Page kind|The [page kind](g), one of `home`, `page`, `section`, `taxonomy`, or `term`
 Standard layout|Either `single` or `list`
 Output format|The name of the [output format](g), such as `html`, `rss`, or `json`
-Standard layout|The `all` layout
+Standard layout|The `all` template
 Language|The language key, such as `en` or `de`
 Media type|The suffix of the [media type][] associated with the output format, such as `html` or `xml`
 Page path|The location of the template relative to the page's [logical path](g)
@@ -26,7 +26,7 @@ Content type|The value of the [`type`][] field in front matter
 
 The page path and content type identifiers correspond to the template's location within the `layouts` directory, as described in the [directory structure](#directory-structure) section. The other identifiers are part of the template's file name, as described in the [file names](#file-names) section.
 
-If a template for a specific page kind does not exist, Hugo falls back to a [standard layout][template types] template: _single_ or _list_, then _all_.
+If a template for a specific page kind does not exist, Hugo falls back to a [standard layout][]: _single_ or _list_, then _all_.
 
 Each page kind identifier applies only to that page kind. For example, Hugo uses `taxonomy.html` to render taxonomy pages, but not term pages. To render term pages, create a `term.html`, `list.html`, or `all.html` template.
 
@@ -139,7 +139,25 @@ layouts/
 └── term.html
 ```
 
-Like other templates, _render hook_ and _shortcode_ templates can include the page kind, custom layout, output format, and language identifiers, such as `render-link.section.html`, `render-link.contact.html`, `render-link.rss.xml`, or `example.de.html`. Hugo also uses the content type when searching for these templates. For example, Hugo uses the templates in `layouts/books/_markup` and `layouts/books/_shortcodes` for pages with a content type of `books`. Hugo does not consider the current page when selecting a [partial template][partial templates].
+Like other templates, _render hook_ and _shortcode_ templates can include the page kind, custom layout, output format, and language identifiers, such as `render-link.section.html`, `render-link.contact.html`, `render-link.rss.xml`, or `example.de.html`. Hugo also uses the content type when searching for these templates. For example, Hugo uses the templates in `layouts/books/_markup` and `layouts/books/_shortcodes` for pages with a content type of `books`.
+
+## Partial templates
+
+<!-- https://github.com/gohugoio/hugo/pull/13614#issuecomment-2805977008 -->
+Unlike other template types, Hugo does not consider the current page kind, content type, logical path, language, or output format when searching for a matching [partial template][partial templates]. However, it applies the same name matching logic it uses for other template types. It tries to find the most specific match first, then looks for more general matches.
+
+For example, consider this call:
+
+```go-html-template {file="layouts/baseof.html"}
+{{ partial "footer.section.de.html" . }}
+```
+
+Hugo uses this lookup order to find a matching template:
+
+1. `layouts/_partials/footer.section.de.html`
+1. `layouts/_partials/footer.section.html`
+1. `layouts/_partials/footer.de.html`
+1. `layouts/_partials/footer.html`
 
 ## Target a template
 
@@ -228,4 +246,4 @@ Render a shortcode named `note` on pages in the `docs` section|`layouts/docs/_sh
 [content organization]: /content-management/organization/#file-names
 [media type]: /configuration/media-types/
 [partial templates]: /templates/types/#partial
-[template types]: /templates/types/
+[standard layout]: /templates/types/#standard-layout

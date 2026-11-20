@@ -66,7 +66,7 @@ Although you can also set these values in your project configuration, it can lea
 
 ## Develop and test your site
 
-To view your site while developing layouts or creating content, `cd` into your project directory and run:
+To view your site while developing templates or creating content, `cd` into your project directory and run:
 
 ```sh
 hugo server
@@ -78,7 +78,7 @@ The [`hugo server`][] command builds your project and serves your pages using a 
 Web Server is available at http://localhost:1313/
 ```
 
-While the server is running, it watches your project directory for changes to assets, configuration, content, data, layouts, translations, and static files. When it detects a change, the server rebuilds your project and refreshes your browser using [LiveReload][].
+While the server is running, it watches your project directory for changes to assets, configuration, content, data, templates, translations, and static files. When it detects a change, the server rebuilds your project and refreshes your browser using [LiveReload][].
 
 Most Hugo builds are so fast that you may not notice the change unless you are looking directly at your browser.
 

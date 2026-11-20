@@ -40,11 +40,11 @@ layouts/
 
 Hugo's [template lookup order][] determines the template path, allowing you to create unique templates for any page. Hugo selects a template based on template type, page kind, content type, section, language, and output format.
 
-The sections below describe the purpose of each template type.
+The sections below describe the purpose of each template type. The [page kind](#page-kind) and [standard layout](#standard-layout) sections group the templates that render pages by the identifier that Hugo uses to select them.
 
 ## Base
 
-A _base_ template is a layout that other templates build upon. It typically defines the common structure of your HTML, such as the `html`, `head`, and `body` elements. It often includes features that appear on many pages of your site, such as headers, footers, navigation, and scripts. Defining these once in a _base_ template avoids repetition, keeps pages consistent, and makes your site easier to maintain.
+A _base_ template is a template that other templates build upon. It typically defines the common structure of your HTML, such as the `html`, `head`, and `body` elements. It often includes features that appear on many pages of your site, such as headers, footers, navigation, and scripts. Defining these once in a _base_ template avoids repetition, keeps pages consistent, and makes your site easier to maintain.
 
 Hugo can apply a _base_ template to the following template types: [home](#home), [page](#page), [section](#section), [taxonomy](#taxonomy), [term](#term), [single](#single), [list](#list), and [all](#all). When Hugo parses any of these template types, it applies a _base_ template only if the template being parsed meets these conditions:
 
@@ -107,7 +107,11 @@ In the example above, the page kind and language identifiers rank higher than th
 
 Hugo matches the page kind and layout identifiers in a _base_ template's file name against the file name of the template being rendered, not against the page. For example, Hugo applies `baseof.section.html` to `section.html`, but not to `list.html`, even when `list.html` renders a section page.
 
-## Home
+## Page kind
+
+Use these templates to render pages of a specific [page kind](g). Each template applies only to its own page kind. For example, Hugo uses a _taxonomy_ template to render taxonomy pages, but not term pages.
+
+### Home
 
 A _home_ template renders your site's home page.
 
@@ -124,7 +128,7 @@ For example, Hugo applies a _base_ template to the _home_ template below, then r
 
 {{% include "/_common/filter-sort-group.md" %}}
 
-## Page
+### Page
 
 A _page_ template renders a regular page.
 
@@ -137,7 +141,7 @@ For example, Hugo applies a _base_ template to the _page_ template below, then r
 {{ end }}
 ```
 
-## Section
+### Section
 
 A _section_ template renders a list of pages within a [section](g).
 
@@ -155,7 +159,7 @@ For example, Hugo applies a _base_ template to the _section_ template below, the
 
 {{% include "/_common/filter-sort-group.md" %}}
 
-## Taxonomy
+### Taxonomy
 
 A _taxonomy_ template renders a list of terms in a [taxonomy](g).
 
@@ -187,7 +191,7 @@ The [`Terms`][] method returns a [taxonomy object](g), allowing you to call any 
 {{ end }}
 ```
 
-## Term
+### Term
 
 A _term_ template renders a list of pages associated with a [term](g).
 
@@ -207,7 +211,11 @@ For example, Hugo applies a _base_ template to the _term_ template below, then r
 
 Within a _term_ template, the [`Data`][] object provides the [term-specific methods][] `Singular`, `Plural`, and `Term`.
 
-## Single
+## Standard layout
+
+Use these templates as fallbacks for the [page kind](#page-kind) templates. If a template for the page kind does not exist, Hugo looks for a _single_ or _list_ template, then an _all_ template.
+
+### Single
 
 A _single_ template is a fallback for a _page_ template. If a _page_ template does not exist, Hugo looks for a _single_ template instead.
 
@@ -220,7 +228,7 @@ For example, Hugo applies a _base_ template to the _single_ template below, then
 {{ end }}
 ```
 
-## List
+### List
 
 A _list_ template is a fallback for [home](#home), [section](#section), [taxonomy](#taxonomy), and [term](#term) templates. If one of these template types does not exist, Hugo looks for a _list_ template instead.
 
@@ -236,7 +244,7 @@ For example, Hugo applies a _base_ template to the _list_ template below, then r
 {{ end }}
 ```
 
-## All
+### All
 
 An _all_ template is a fallback for [home](#home), [page](#page), [section](#section), [taxonomy](#taxonomy), [term](#term), [single](#single), and [list](#list) templates. If one of these template types does not exist, Hugo looks for an _all_ template instead.
 
@@ -280,21 +288,7 @@ Execute the _partial_ template by calling the [`partials.Include`][] or [`partia
 {{ partial "footer.html" . }}
 ```
 
-<!-- https://github.com/gohugoio/hugo/pull/13614#issuecomment-2805977008 -->
-Unlike other template types, Hugo does not consider the current page kind, content type, logical path, language, or output format when searching for a matching _partial_ template. However, it applies the same name matching logic it uses for other template types. It tries to find the most specific match first, then looks for more general matches.
-
-For example, consider this call:
-
-```go-html-template {file="layouts/baseof.html"}
-{{ partial "footer.section.de.html" . }}
-```
-
-Hugo uses this lookup order to find a matching template:
-
-1. `layouts/_partials/footer.section.de.html`
-1. `layouts/_partials/footer.section.html`
-1. `layouts/_partials/footer.de.html`
-1. `layouts/_partials/footer.html`
+Unlike other template types, Hugo selects a _partial_ template based on the name you pass to the function, not on the current page, as described in the [partial template lookup][] rules.
 
 ## Inline partial
 
@@ -372,6 +366,19 @@ Then call the shortcode from a content page:
 
 Learn more about [shortcode templates][].
 
+## Inline shortcode
+
+You can also define a _shortcode_ template inline within content. Hugo's security model trusts template authors but not content authors, so Hugo disables inline shortcodes by default. To enable them, set [`enableInlineShortcodes`][] to `true` in your project configuration.
+
+```md {file="content/example.md"}
+Today is
+{{</* date.inline ":date_medium" */>}}
+  {{- now | time.Format (.Get 0) -}}
+{{</* /date.inline */>}}.
+```
+
+Learn more about [inline shortcodes][].
+
 ## Other
 
 Use other specialized templates to create these files:
@@ -391,8 +398,11 @@ Use other specialized templates to create these files:
 [`Terms`]: /methods/page/data/#terms
 [`block`]: /functions/go-template/block/
 [`define`]: /functions/go-template/define/
+[`enableInlineShortcodes`]: /configuration/security/#enableinlineshortcodes
 [`partials.IncludeCached`]: /functions/partials/includecached/
 [`partials.Include`]: /functions/partials/include/
+[inline shortcodes]: /content-management/shortcodes/#inline
+[partial template lookup]: /templates/lookup-order/#partial-templates
 [render hook templates]: /render-hooks/
 [robots.txt files]: /templates/robots/
 [shortcode templates]: /templates/shortcode/
