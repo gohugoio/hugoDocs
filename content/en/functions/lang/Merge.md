@@ -9,19 +9,32 @@ params:
     signatures: [lang.Merge FROM TO]
 ---
 
-As an example:
+## Usage
 
-```sh
-{{ $pages := site.RegularPages | lang.Merge $frSite.RegularPages | lang.Merge $enSite.RegularPages }}
+The `lang.Merge` function returns a copy of the `TO` collection, adding each page from the `FROM` collection that does not have a translation in `TO`, and sorts the result by the [default sort order](g).
+
+To determine whether a translation exists, the function compares the [translation key][] of each page. The translation key is the value of the [`translationKey`][] field in front matter if set, otherwise the [logical path](g) of the page. For example, a page with the logical path `/books/book-1` in one language and a page with the same logical path in another language are translations of each other.
+
+If either collection is empty, the function returns the other collection.
+
+Because the `TO` collection is the last argument, you can chain calls to fill in the missing translations from more than one language, in order of preference.
+
+## Examples
+
+Filling in the missing translations of the current site with pages from the site of the [default language](g):
+
+```go-html-template
+{{ $pages := site.RegularPages | lang.Merge hugo.Sites.Default.RegularPages }}
 ```
 
-Will "fill in the gaps" in the current site with, from left to right, content from the French site, and lastly the English.
+Filling in the missing translations from the site of each other language:
 
-A more practical example is to fill in the missing translations from the other languages:
-
-```sh
+```go-html-template
 {{ $pages := site.RegularPages }}
 {{ range site.Home.Translations }}
   {{ $pages = $pages | lang.Merge .Site.RegularPages }}
 {{ end }}
- ```
+```
+
+[`translationKey`]: /content-management/front-matter/#translationkey
+[translation key]: /methods/page/translationkey/

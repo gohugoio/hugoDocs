@@ -3,7 +3,9 @@ _comment: Do not remove front matter.
 ---
 
 > [!NOTE]
-> Localization of dates, currencies, numbers, and percentages is performed by the [`bep/golocales`][] package. Hugo determines the locale using the [`locale`][] configuration setting, falling back to the language key itself. The resolved value must be a locale supported by the package.
+> Hugo localizes the result using the [`locale`][] of the current language. If the locale is not set or not recognized, Hugo uses the language key, then the [`defaultContentLanguage`][], then `en`. Hugo does not warn you when it falls back to another value.
+>
+> Hugo does not recognize some common language tags, such as `zh-CN` and `zh-TW`. Use the equivalent tag that includes a script subtag, such as `zh-Hans-CN` or `zh-Hant-TW`.
 
-[`bep/golocales`]: https://github.com/bep/golocales
+[`defaultContentLanguage`]: /configuration/all/#defaultcontentlanguage
 [`locale`]: /configuration/all/#locale
