@@ -9,16 +9,16 @@ params:
     signatures: ['lang.Translate KEY [CONTEXT]']
 ---
 
-The `lang.Translate` function returns the value associated with the given key by searching the current language's [translation tables](#translation-tables), then those for the [`defaultContentLanguage`][].
+## Usage
 
-If not found, the function returns an empty string.
+The `lang.Translate` function returns the value associated with the given key by searching the current language's [translation tables](#translation-tables), then those for the [`defaultContentLanguage`][]. If not found, the function returns an empty string.
 
 > [!TIP]
 > To list missing and fallback translations, set [`printI18nWarnings`][] to `true` in your project configuration, or use the `--printI18nWarnings` flag when building your project.
 >
 > To render placeholders for missing and fallback translations, set [`enableMissingTranslationPlaceholders`][] to `true` in your project configuration.
 
-## Translation tables
+### Translation tables
 
 {{% glossary-term "translation table" %}}
 
@@ -29,14 +29,14 @@ i18n/en.toml
 i18n/pt-BR.toml
 ```
 
-Hugo searches for a matching translation table using the following base names, in order:
+Hugo searches for a matching translation table using these base names, in order:
 
 1. The [`locale`][] of the current language
 1. The [key][] of the current language
-1. The locale of the [`defaultContentLanguage`][]
-1. The key of the [`defaultContentLanguage`][]
+1. The locale of the `defaultContentLanguage`
+1. The key of the `defaultContentLanguage`
 
-Artificial languages with private use subtags as defined in [RFC 5646 § 2.2.7][] are also supported. You may omit the `art-x-` prefix for brevity. For example:
+Hugo also supports artificial languages with private use subtags as defined in [RFC 5646 § 2.2.7][]. You may omit the `art-x-` prefix for brevity. For example:
 
 ```text
 i18n/art-x-hugolang.toml
@@ -46,136 +46,17 @@ i18n/hugolang.toml
 > [!NOTE]
 > Private use subtags must not exceed 8 alphanumeric characters.
 
-## Simple translations
+A translation table may contain both simple translations and translations with pluralization.
 
-Let's say your multilingual project supports two languages, English and Polish. Create a translation table for each language in the `i18n` directory.
+### Pluralization
 
-```tree
-i18n/
-├── en.toml
-└── pl.toml
-```
+To translate a string with pluralization, define a table for the key, with one entry for each plural form that the language uses. The Unicode [CLDR Plural Rules chart][CLDR] describes the plural forms for each language.
 
-The English translation table:
+Then pass a number, or a map with a `count` key, as the `CONTEXT` argument. The function uses the number to select the plural form, and passes the `CONTEXT` to the translation as template data.
 
-{{< code-toggle file=i18n/en >}}
-privacy = 'privacy'
-security = 'security'
-{{< /code-toggle >}}
+### Reserved keys
 
-The Polish translation table:
-
-{{< code-toggle file=i18n/pl >}}
-privacy = 'prywatność'
-security = 'bezpieczeństwo'
-{{< /code-toggle >}}
-
-The examples below use the `T` alias for brevity.
-
-When viewing the English language site:
-
-```go-html-template
-{{ T "privacy" }} → privacy
-{{ T "security" }} → security
-````
-
-When viewing the Polish language site:
-
-```go-html-template
-{{ T "privacy" }} → prywatność
-{{ T "security" }} → bezpieczeństwo
-```
-
-## Translations with pluralization
-
-Let's say your multilingual project supports two languages, English and Polish. Create a translation table for each language in the `i18n` directory.
-
-```tree
-i18n/
-├── en.toml
-└── pl.toml
-```
-
-The Unicode [CLDR Plural Rules chart][CLDR] describes the pluralization categories for each language.
-
-The English translation table:
-
-{{< code-toggle file=i18n/en >}}
-[day]
-one = 'day'
-other = 'days'
-
-[day_with_count]
-one = '{{ . }} day'
-other = '{{ . }} days'
-{{< /code-toggle >}}
-
-The Polish translation table:
-
-{{< code-toggle file=i18n/pl >}}
-[day]
-one = 'miesiąc'
-few = 'miesiące'
-many = 'miesięcy'
-other = 'miesiąca'
-
-[day_with_count]
-one = '{{ . }} miesiąc'
-few = '{{ . }} miesiące'
-many = '{{ . }} miesięcy'
-other = '{{ . }} miesiąca'
-{{< /code-toggle >}}
-
-When viewing the English language site:
-
-```go-html-template
-{{ T "day" 0 }} → days
-{{ T "day" 1 }} → day
-{{ T "day" 2 }} → days
-{{ T "day" 5 }} → days
-
-{{ T "day_with_count" 0 }} → 0 days
-{{ T "day_with_count" 1 }} → 1 day
-{{ T "day_with_count" 2 }} → 2 days
-{{ T "day_with_count" 5 }} → 5 days
-````
-
-When viewing the Polish language site:
-
-```go-html-template
-{{ T "day" 0 }} → miesięcy
-{{ T "day" 1 }} → miesiąc
-{{ T "day" 2 }} → miesiące
-{{ T "day" 5 }} → miesięcy
-
-{{ T "day_with_count" 0 }} → 0 miesięcy
-{{ T "day_with_count" 1 }} → 1 miesiąc
-{{ T "day_with_count" 2 }} → 2 miesiące
-{{ T "day_with_count" 5 }} → 5 miesięcy
-```
-
-In the pluralization examples above, we passed an integer in context (the second argument). You can also pass a map in context, providing a `count` key to control pluralization.
-
-Translation table:
-
-{{< code-toggle file=i18n/en >}}
-[age]
-one = '{{ .name }} is {{ .count }} year old.'
-other = '{{ .name }} is {{ .count }} years old.'
-{{< /code-toggle >}}
-
-Template code:
-
-```go-html-template
-{{ T "age" (dict "name" "Will" "count" 1) }} → Will is 1 year old.
-{{ T "age" (dict "name" "John" "count" 3) }} → John is 3 years old.
-```
-
-Translation tables may contain both simple translations and translations with pluralization.
-
-## Reserved keys
-
-Hugo uses the [`nicksnyder/go-i18n`][] package to look up values in translation tables. This package reserves the following keys for internal use:
+Hugo uses the [`nicksnyder/go-i18n`][] package to look up values in translation tables. This package reserves these keys for internal use:
 
 `id`
 : (`string`) Uniquely identifies the message.
@@ -193,22 +74,22 @@ Hugo uses the [`nicksnyder/go-i18n`][] package to look up values in translation 
 : (`string`) The right Go template delimiter.
 
 `zero`
-: (`string`) The content of the message for the [CLDR][] plural form "zero".
+: (`string`) The content of the message for the CLDR plural form "zero".
 
 `one`
-: (`string`) The content of the message for the [CLDR][] plural form "one".
+: (`string`) The content of the message for the CLDR plural form "one".
 
 `two`
-: (`string`) The content of the message for the [CLDR][] plural form "two".
+: (`string`) The content of the message for the CLDR plural form "two".
 
 `few`
-: (`string`) The content of the message for the [CLDR][] plural form "few".
+: (`string`) The content of the message for the CLDR plural form "few".
 
 `many`
-: (`string`) The content of the message for the [CLDR][] plural form "many".
+: (`string`) The content of the message for the CLDR plural form "many".
 
 `other`
-: (`string`) The content of the message for the [CLDR][] plural form "other".
+: (`string`) The content of the message for the CLDR plural form "other".
 
 If a translation table uses a reserved key as a simple translation, and also contains other keys, the build fails with an error:
 
@@ -216,7 +97,7 @@ If a translation table uses a reserved key as a simple translation, and also con
 failed to load translations: reserved keys [description] mixed with unreserved keys [privacy]: see the lang.Translate documentation for a list of reserved keys
 ```
 
-To provide a translation for a reserved key, define the translation as a table with an `other` key. For example:
+To provide a translation for a reserved key, define the translation as a table with an `other` key:
 
 {{< code-toggle file=i18n/es >}}
 [description]
@@ -241,19 +122,19 @@ other = 'dos'
 other = 'cero'
 {{< /code-toggle >}}
 
-Then in your templates:
+Then call the function with the reserved key:
 
 ```go-html-template
-{{ T "description" }} → descripción
-{{ T "few" }} → pocos
-{{ T "many" }} → muchos
-{{ T "one" }} → uno
-{{ T "two" }} → dos
-{{ T "zero" }} → cero
-{{ T "other" }} → otro
+{{ lang.Translate "description" }} → descripción
+{{ lang.Translate "few" }} → pocos
+{{ lang.Translate "many" }} → muchos
+{{ lang.Translate "one" }} → uno
+{{ lang.Translate "two" }} → dos
+{{ lang.Translate "zero" }} → cero
+{{ lang.Translate "other" }} → otro
 ```
 
-Alternatively, prepend the key with an underscore. For example:
+Alternatively, prepend the key with an underscore:
 
 {{< code-toggle file=i18n/es >}}
 _description = 'descripción'
@@ -265,16 +146,121 @@ _two = 'dos'
 _zero = 'cero'
 {{< /code-toggle >}}
 
-Then in your templates:
+Then call the function with the prefixed key:
 
 ```go-html-template
-{{ T "_description" }} → descripción
-{{ T "_few" }} → pocos
-{{ T "_many" }} → muchos
-{{ T "_one" }} → uno
-{{ T "_two" }} → dos
-{{ T "_zero" }} → cero
-{{ T "_other" }} → otro
+{{ lang.Translate "_description" }} → descripción
+{{ lang.Translate "_few" }} → pocos
+{{ lang.Translate "_many" }} → muchos
+{{ lang.Translate "_one" }} → uno
+{{ lang.Translate "_two" }} → dos
+{{ lang.Translate "_zero" }} → cero
+{{ lang.Translate "_other" }} → otro
+```
+
+## Arguments
+
+`KEY`
+: (`string`) The key to look up in the translation tables.
+
+`CONTEXT`
+: (`any`) The data passed to the translation, available within the translation as the dot (`.`). If `CONTEXT` is a number, the function uses it to select the [plural form](#pluralization). If `CONTEXT` is a map with a `count` key, or a value with a `Count` method, the function uses that value to select the plural form.
+
+## Examples
+
+The examples below use these translation tables for a project that supports English and Polish:
+
+```tree
+i18n/
+├── en.toml
+└── pl.toml
+```
+
+The English translation table:
+
+{{< code-toggle file=i18n/en >}}
+privacy = 'privacy'
+security = 'security'
+
+[month]
+one = 'month'
+other = 'months'
+
+[month_with_count]
+one = '{{ . }} month'
+other = '{{ . }} months'
+
+[age]
+one = '{{ .name }} is {{ .count }} year old.'
+other = '{{ .name }} is {{ .count }} years old.'
+{{< /code-toggle >}}
+
+The Polish translation table:
+
+{{< code-toggle file=i18n/pl >}}
+privacy = 'prywatność'
+security = 'bezpieczeństwo'
+
+[month]
+one = 'miesiąc'
+few = 'miesiące'
+many = 'miesięcy'
+other = 'miesiąca'
+
+[month_with_count]
+one = '{{ . }} miesiąc'
+few = '{{ . }} miesiące'
+many = '{{ . }} miesięcy'
+other = '{{ . }} miesiąca'
+{{< /code-toggle >}}
+
+When viewing the English site:
+
+```go-html-template
+{{ lang.Translate "privacy" }} → privacy
+{{ lang.Translate "security" }} → security
+```
+
+When viewing the Polish site:
+
+```go-html-template
+{{ lang.Translate "privacy" }} → prywatność
+{{ lang.Translate "security" }} → bezpieczeństwo
+```
+
+With pluralization, when viewing the English site:
+
+```go-html-template
+{{ lang.Translate "month" 0 }} → months
+{{ lang.Translate "month" 1 }} → month
+{{ lang.Translate "month" 2 }} → months
+{{ lang.Translate "month" 5 }} → months
+
+{{ lang.Translate "month_with_count" 0 }} → 0 months
+{{ lang.Translate "month_with_count" 1 }} → 1 month
+{{ lang.Translate "month_with_count" 2 }} → 2 months
+{{ lang.Translate "month_with_count" 5 }} → 5 months
+```
+
+With pluralization, when viewing the Polish site:
+
+```go-html-template
+{{ lang.Translate "month" 0 }} → miesięcy
+{{ lang.Translate "month" 1 }} → miesiąc
+{{ lang.Translate "month" 2 }} → miesiące
+{{ lang.Translate "month" 5 }} → miesięcy
+
+{{ lang.Translate "month_with_count" 0 }} → 0 miesięcy
+{{ lang.Translate "month_with_count" 1 }} → 1 miesiąc
+{{ lang.Translate "month_with_count" 2 }} → 2 miesiące
+{{ lang.Translate "month_with_count" 5 }} → 5 miesięcy
+```
+
+Passing a map with a `count` key, when viewing the English site:
+
+```go-html-template
+{{ lang.Translate "age" (dict "name" "Will" "count" 1) }} → Will is 1 year old.
+{{ lang.Translate "age" (dict "name" "John" "count" 3) }} → John is 3 years old.
 ```
 
 [CLDR]: https://www.unicode.org/cldr/charts/latest/supplemental/language_plural_rules.html
