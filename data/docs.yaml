@@ -1555,10 +1555,10 @@ config:
       renderHooks:
         image:
           enableDefault: false
-          useEmbedded: auto
+          useEmbedded: fallback
         link:
           enableDefault: false
-          useEmbedded: auto
+          useEmbedded: fallback
       renderer:
         hardWraps: false
         unsafe: false
@@ -3462,8 +3462,10 @@ tpl:
           
           The return value is formatted with at least two decimal places.
         Examples:
-        - - '{{ 512.5032 | lang.FormatAccounting 2 "NOK" }}'
-          - NOK512.50
+        - - '{{ 512.5032 | lang.FormatAccounting 2 "USD" }}'
+          - $512.50
+        - - '{{ -512.5032 | lang.FormatAccounting 2 "USD" }}'
+          - ($512.50)
       FormatCurrency:
         Aliases: null
         Args:
@@ -3478,6 +3480,8 @@ tpl:
         Examples:
         - - '{{ 512.5032 | lang.FormatCurrency 2 "USD" }}'
           - $512.50
+        - - '{{ -512.5032 | lang.FormatCurrency 2 "USD" }}'
+          - -$512.50
       FormatNumber:
         Aliases: null
         Args:
@@ -4696,7 +4700,9 @@ tpl:
         Args:
         - s
         - options
-        Description: Truncate truncates the string in s to the specified length.
+        Description: |-
+          Truncate truncates the string in s to the specified length.
+          If the text or the ellipsis is of type template.HTML, the result is template.HTML, else a string.
         Examples:
         - - '{{ "this is a very long text" | truncate 10 " ..." }}'
           - this is a ...

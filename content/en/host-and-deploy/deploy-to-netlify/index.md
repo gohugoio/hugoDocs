@@ -29,7 +29,7 @@ Step 1
   ```toml {file="netlify.toml" copy=true}
   [build.environment]
   GO_VERSION = "1.27.4"
-  HUGO_VERSION = "0.170.0"
+  HUGO_VERSION = "0.171.0"
   NODE_VERSION = "24.22.3"
   TZ = "Europe/Oslo"
 
@@ -47,7 +47,7 @@ Step 1
   [build.environment]
   DART_SASS_VERSION = "1.108.2"
   GO_VERSION = "1.27.4"
-  HUGO_VERSION = "0.170.0"
+  HUGO_VERSION = "0.171.0"
   NODE_VERSION = "24.22.3"
   TZ = "Europe/Oslo"
 

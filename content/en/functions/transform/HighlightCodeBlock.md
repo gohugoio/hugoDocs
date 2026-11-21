@@ -13,6 +13,8 @@ params:
 
 The `transform.HighlightCodeBlock` function returns highlighted code received in context within a [code block render hook][]. It uses the [`alecthomas/chroma`][] package to generate syntax-highlighted HTML. Use this function only within a code block render hook.
 
+Hugo caches the result in memory, reducing the cost of highlighting the same code with the same options more than once during a build.
+
 To check whether the syntax highlighter supports a language, use the [`transform.CanHighlight`][] function.
 
 The function returns a `HighlightResult` object with two methods:

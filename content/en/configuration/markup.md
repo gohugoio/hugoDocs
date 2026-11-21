@@ -132,9 +132,6 @@ Most of the Goldmark settings above are self-explanatory, but some require expla
 `duplicateResourceFiles`
 : (`bool`) Whether to duplicate shared page resources for each language on multilingual single-host projects. See [multilingual page resources][] for details. Default is `false`.
 
-  > [!NOTE]
-  > With multilingual single-host projects, setting this parameter to `false` will enable Hugo's [embedded link render hook][] and [embedded image render hook][]. This is the default configuration for multilingual single-host projects.
-
 `parser.wrapStandAloneImageWithinParagraph`
 : (`bool`) Whether to wrap image elements without adjacent content within a `p` element when rendered. This is the default Markdown behavior. Set to `false` when using an [image render hook][] to render standalone images as `figure` elements. Default is `true`.
 
@@ -166,24 +163,30 @@ Most of the Goldmark settings above are self-explanatory, but some require expla
 
 `renderHooks.image.useEmbedded`
 : {{< new-in 0.148.0 />}}
-: (`string`) When to use the [embedded image render hook][]. One of `auto`, `never`, `always`, or `fallback`. Default is `auto`.
+: (`string`) When to use the [embedded image render hook][]. One of `fallback`, `always`, or `never`. Default is `fallback`.
 
-  - `auto`: Use the embedded image render hook only for multilingual single-host projects where the [duplication of shared page resources][] feature is disabled. If your project or its modules define custom image render hooks, Hugo uses those instead.
-  - `never`: Never use the embedded image render hook. If your project or its modules define custom image render hooks, Hugo uses those instead.
-  - `always`: Always use the embedded image render hook, even if your project or its modules define custom image render hooks.
+  {{< new-in 0.171.0 >}}
+  The default value changed from `auto` to `fallback`. The `auto` value is an alias for `fallback`, kept for backward compatibility.
+  {{< /new-in >}}
+
   - `fallback`: Use the embedded image render hook only if your project and its modules do not define custom image render hooks. Otherwise, Hugo uses the custom image render hooks.
+  - `always`: Always use the embedded image render hook, even if your project or its modules define custom image render hooks.
+  - `never`: Never use the embedded image render hook. If your project or its modules define custom image render hooks, Hugo uses those instead.
 
 `renderHooks.link.enableDefault`
 : {{< deprecated-in 0.148.0 />}}
 : Use the `renderHooks.link.useEmbedded` setting instead.
 
 `renderHooks.link.useEmbedded`
-: (`string`) When to use the [embedded link render hook][]. One of `auto`, `never`, `always`, or `fallback`. Default is `auto`.
+: (`string`) When to use the [embedded link render hook][]. One of `fallback`, `always`, or `never`. Default is `fallback`.
 
-  - `auto`: Use the embedded link render hook only for multilingual single-host projects where the [duplication of shared page resources][] feature is disabled. If your project or its modules define custom link render hooks, Hugo uses those instead.
-  - `never`: Never use the embedded link render hook. If your project or its modules define custom link render hooks, Hugo uses those instead.
-  - `always`: Always use the embedded link render hook, even if your project or its modules define custom link render hooks.
+  {{< new-in 0.171.0 >}}
+  The default value changed from `auto` to `fallback`. The `auto` value is an alias for `fallback`, kept for backward compatibility.
+  {{< /new-in >}}
+
   - `fallback`: Use the embedded link render hook only if your project and its modules do not define custom link render hooks. Otherwise, Hugo uses the custom link render hooks.
+  - `always`: Always use the embedded link render hook, even if your project or its modules define custom link render hooks.
+  - `never`: Never use the embedded link render hook. If your project or its modules define custom link render hooks, Hugo uses those instead.
 
 `renderer.hardWraps`
 : (`bool`) Whether to replace newline characters within a paragraph with `br` elements. Default is `false`.
@@ -408,7 +411,6 @@ This is the default configuration for the table of contents, applicable to Goldm
 [asciidoctor-diagram]: https://asciidoctor.org/docs/asciidoctor-diagram/
 [attributes]: https://asciidoctor.org/docs/asciidoc-syntax-quick-reference/#attributes-and-substitutions
 [deleted text]: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/del
-[duplication of shared page resources]: /configuration/markup/#duplicateresourcefiles
 [embedded image render hook]: /render-hooks/images/#embedded-render-hook
 [embedded link render hook]: /render-hooks/links/#embedded-render-hook
 [image render hook]: /render-hooks/images/

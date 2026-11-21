@@ -5,7 +5,7 @@ keywords: []
 params:
   functions_and_methods:
     aliases: [truncate]
-    returnType: template.HTML
+    returnType: any
     signatures: ['strings.Truncate SIZE [ELLIPSIS] STRING']
 ---
 
@@ -13,10 +13,12 @@ params:
 
 The `strings.Truncate` function returns the given string, truncating it to a maximum length without cutting words or leaving unclosed HTML tags. If `STRING` is longer than `SIZE` characters, the function appends `ELLIPSIS` to the result. If you omit `ELLIPSIS`, the function appends a space followed by a horizontal ellipsis.
 
+The return type depends on the types of `STRING` and `ELLIPSIS`. If either is of type `template.HTML`, the function returns `template.HTML`. Otherwise, it returns a `string`.
+
 When truncating a value marked as safe HTML, such as one returned by the [`safe.HTML`][] function, `strings.Truncate` closes any tag left open by the truncation instead of cutting in the middle of it.
 
 > [!NOTE]
-> If you have a raw string containing HTML tags that you want treated as HTML, convert it with the [`safe.HTML`][] function first. Otherwise, `strings.Truncate` escapes the tags.
+> If you have a raw string containing HTML tags that you want treated as HTML, convert it with the [`safe.HTML`][] function first. Otherwise, `strings.Truncate` treats the tags as text, and Hugo escapes them when you print the result in an HTML template.
 
 ## Examples
 
