@@ -33,9 +33,17 @@ Use the following setting to define how Hugo orders versions.
 `weight`
 : (`int`) The version [weight](g). When set to a non-zero value, this is the primary sort criteria for this version.
 
+## Version names
+
+{{< new-in 0.155.0 />}}
+
+Name each version with a [semantic version][], such as `v1.2.3`, or a shortened semantic version, such as `v1` or `v1.2`. Hugo treats a shortened semantic version as if the missing parts were zero, so `v1` is equivalent to `v1.0.0` when sorting and comparing versions.
+
+You can also use a name that is not a semantic version, such as `dev` or `latest`. Hugo sorts these after the semantic versions, in lexicographical order, unless you set a `weight`.
+
 ## Sort order
 
-Hugo sorts versions by weight in ascending order, then by their [semantic version][] in descending order. This affects build order and complement selection.
+Hugo sorts versions by weight in ascending order, then by their semantic version in descending order. This affects build order, complement selection, and comparisons such as `>= v2.0.0` in a [dimension matcher](g).
 
 ## Example
 

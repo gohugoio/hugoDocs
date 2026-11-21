@@ -197,7 +197,7 @@ Methods|Functions|Shortcodes
 
 Specify the logical path of the page, such as `/posts/my-post` for the page backed by `content/posts/My Post.md`. You cannot find a page by its URL. For example, if you set the `slug` field in front matter to `my-first-post`, the path `/posts/my-first-post` does not find the page.
 
-To find a page in a different language, use the `lang` option with the `Ref` and `RelRef` methods, functions, and shortcodes, or query the [`Sites`][] object.
+To find a page in a different language, use the `lang` option with the `Ref` and `RelRef` methods, functions, and shortcodes. To find the variants of the current page in other languages, versions, or roles, use the [`Rotate`][] method.
 
 ### File paths
 
@@ -317,9 +317,11 @@ Identifier|Example
 
 Hugo does not recognize a role or version name without the prefix. You can combine identifiers in a single file name. For example, `about._version_v1.0.0_.de.md` assigns the file to version `v1.0.0` in German.
 
-[Template file names][] use the same identifiers.
+[Template file names][] use the same identifiers. To assign files to sites in other ways, such as with front matter or mounts, see [content dimensions][].
 
 [Template file names]: /templates/lookup-order/#file-names
+[`Rotate`]: /methods/page/rotate/
+[content dimensions]: /content-management/content-dimensions/#assign-content-to-sites
 [`Ancestors`]: /methods/page/ancestors/
 [`Page.GetPage`]: /methods/page/getpage/
 [`Page.Ref`]: /methods/page/ref/
@@ -333,7 +335,6 @@ Hugo does not recognize a role or version name without the prefix. You can combi
 [`Shortcode.Ref`]: /methods/shortcode/ref/
 [`Shortcode.RelRef`]: /methods/shortcode/relref/
 [`Site.GetPage`]: /methods/site/getpage/
-[`Sites`]: /methods/page/sites/
 [`disablePathToLower`]: /configuration/all/#disablepathtolower
 [`ref`]: /shortcodes/ref/
 [`relref`]: /shortcodes/relref/

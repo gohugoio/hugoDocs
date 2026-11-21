@@ -87,6 +87,9 @@ The three pages are translations of each other, even though their logical paths 
 
 If you set the `translationKey` field on a page, set it on all of its translations. A page with a `translationKey` is not a translation of a page that has the same logical path but no `translationKey`.
 
+> [!NOTE]
+> Hugo identifies each page by its [logical path](g). The `translationKey` links pages with different logical paths as translations of each other, but they remain different pages. When you [fill in missing translations][], each one fills the gap left by the other. Instead of setting a translation key, give each translation the same path, and [localize the URL](#localizing-permalinks) with the `slug`.
+
 ### Localizing permalinks
 
 By default, translations with the same logical path have the same URL, apart from the language prefix.
@@ -379,7 +382,7 @@ While translating a Hugo website, it can be helpful to have a visual indicator o
 > [!NOTE]
 > Hugo will generate your website with these missing translation placeholders. It might not be suitable for production environments.
 
-To fill in missing content translations with pages from other languages, use the [`lang.Merge`][] function.
+To fill in missing content translations with pages from other languages, see [fill in missing content][], or use the [`lang.Merge`][] function to fill in a single page collection.
 
 To track down missing translation strings, run Hugo with the `--printI18nWarnings` flag:
 
@@ -415,6 +418,8 @@ hugo new content content/de/post/test.md
 
 [`enableMissingTranslationPlaceholders`]: /configuration/all/#enablemissingtranslationplaceholders
 [`lang.Merge`]: /functions/lang/merge/
+[fill in missing content]: /content-management/content-dimensions/#fill-in-missing-content
+[fill in missing translations]: /content-management/content-dimensions/#translations
 [`lang.Translate`]: /functions/lang/translate/
 [`slug`]: /content-management/urls/#slug
 [`time.Format`]: /functions/time/format/

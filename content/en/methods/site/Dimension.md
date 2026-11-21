@@ -1,6 +1,6 @@
 ---
 title: Dimension
-description: Returns the dimension object for the given dimension for the given site.
+description: Returns the object for the given dimension of the given site.
 keywords: []
 params:
   functions_and_methods:
@@ -10,15 +10,22 @@ params:
 
 {{< new-in 0.153.0 />}}
 
-The `Dimension` method on a `Site` object returns the dimension object for the given [dimension](g).
+## Usage
 
-The `DIMENSION` argument must be one of `language`, `version`, or `role`.
+The `Dimension` method on a `Site` object returns the object for the given [dimension](g) of the given site, as defined by the [multidimensional content model][]. Each call returns the same object as the corresponding method on a `Site` object:
 
 Example|Returns|Equivalent to
 :--|:--|:--
-`{{ site.Dimension "language" }}`|`langs.Language`|`{{ site.Language }}`
-`{{ site.Dimension "version" }}`|`version.Version`|`{{ site.Version }}`
-`{{ site.Dimension "role" }}`|`roles.Role`|`{{ site.Role }}`
+`{{ site.Dimension "language" }}`|`langs.Language`|[`{{ site.Language }}`][]
+`{{ site.Dimension "version" }}`|`versions.Version`|[`{{ site.Version }}`][]
+`{{ site.Dimension "role" }}`|`roles.Role`|[`{{ site.Role }}`][]
+
+## Arguments
+
+`DIMENSION`
+: (`string`) The dimension, one of `language`, `version`, or `role`.
+
+## Examples
 
 ```go-html-template
 {{ $languageObject := site.Dimension "language" }}
@@ -33,3 +40,8 @@ Example|Returns|Equivalent to
 {{ $roleObject.IsDefault }} → true
 {{ $roleObject.Name }} → guest
 ```
+
+[`{{ site.Language }}`]: /methods/site/language/
+[`{{ site.Role }}`]: /methods/site/role/
+[`{{ site.Version }}`]: /methods/site/version/
+[multidimensional content model]: /content-management/content-dimensions/

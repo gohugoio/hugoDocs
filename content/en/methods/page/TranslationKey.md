@@ -14,9 +14,12 @@ The `TranslationKey` method on a `Page` object returns the translation key of th
 
 The translation key is the value of the [`translationKey`][] field in front matter if set, otherwise the [logical path](g) of the page. Because the logical path does not include the language, pages with the same logical path in different languages are translations of each other. Set the `translationKey` field in front matter to relate translations that have different logical paths, such as pages with translated file names.
 
+> [!NOTE]
+> When you [fill in missing translations][], give each translation the same logical path. Hugo treats pages with different logical paths as different pages, even if they share a translation key.
+
 ## Examples
 
-With this project configuration:
+These examples use this project configuration:
 
 {{< code-toggle file=hugo >}}
 defaultContentLanguage = 'en'
@@ -34,7 +37,7 @@ locale = 'de-DE'
 weight = 2
 {{< /code-toggle >}}
 
-And this content:
+The project contains this content:
 
 ```tree
 content/
@@ -75,3 +78,4 @@ When rendering either version of Book 2, which has the same logical path in both
 ```
 
 [`translationKey`]: /content-management/front-matter/#translationkey
+[fill in missing translations]: /content-management/content-dimensions/#translations
