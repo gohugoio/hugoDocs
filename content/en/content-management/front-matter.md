@@ -138,7 +138,7 @@ The most common front matter fields are `date`, `draft`, `title`, and `weight`, 
 : (`string`) The page title. Access this value from a template using the [`Title`][] method on a `Page` object.
 
 `translationKey`
-: (`string`) An arbitrary value used to relate two or more translations of the same page, useful when the translated pages do not share a common path. Access this value from a template using the [`TranslationKey`][] method on a `Page` object.
+: (`string`) An arbitrary value used to relate two or more translations of the same page. If not set, Hugo uses the [logical path](g) of the page as its translation key, so pages with the same logical path in different languages are translations of each other. Set this field to relate translations that have different logical paths, such as pages with translated file names. Access the translation key from a template using the [`TranslationKey`][] method on a `Page` object.
 
 `type`
 : (`string`) The [content type](g), overriding the value derived from the top-level section in which the page resides. Access this value from a template using the [`Type`][] method on a `Page` object. You can also set this field to target a specific template.

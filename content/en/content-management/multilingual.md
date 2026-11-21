@@ -11,30 +11,30 @@ See [configure languages][].
 
 ## Translate your content
 
-There are two ways to manage your content translations. Both ensure each page is assigned a language and is linked to its counterpart translations.
+There are two ways to manage your content translations: by file name or by directory. Both assign a language to each page.
+
+Hugo relates the translations of a page to each other using the page's translation key. The translation key is the value of the [`translationKey`][] field in front matter if set, otherwise the [logical path](g) of the page. The logical path does not include the language, so pages with the same logical path in different languages are translations of each other. To relate translations that have different logical paths, set the `translationKey` field as described in [bypassing default linking](#bypassing-default-linking).
 
 ### Translation by file name
 
-Considering the following example:
+With this content:
 
-1. `/content/about.en.md`
-1. `/content/about.fr.md`
+```tree
+content/
+├── about.en.md
+└── about.fr.md
+```
 
-The first file is assigned the English language and is linked to the second.
-The second file is assigned the French language and is linked to the first.
-
-Their language is assigned according to the language code added as a suffix to the file name.
-
-By having the same path and base file name, the content pieces are linked together as translated pages.
+Hugo assigns a language to each page based on the language key in the file name, `en` or `fr`. Both pages have the same logical path, `/about`, so they are translations of each other.
 
 > [!NOTE]
-> The language code in a file name must be lowercase. For example, use `about.en-us.md` instead of `about.en-US.md`.
+> The language key in a file name must be lowercase. For example, use `about.en-us.md` instead of `about.en-US.md`.
 
-If a file has no language code, Hugo assigns it to the default language.
+If a file name has no language key, Hugo assigns the page to the default language.
 
 ### Translation by directory
 
-This system uses different content directories for each of the languages. Each language's `content` directory is set using the `contentDir` parameter.
+To use a different content directory for each language, set the `contentDir` of each language in your project configuration:
 
 {{< code-toggle file=hugo >}}
 [languages.en]
@@ -48,39 +48,48 @@ label = "Français"
 weight = 20
 {{< /code-toggle >}}
 
-The value of `contentDir` can be any valid path -- even absolute path references. The only restriction is that the content directories cannot overlap.
+The value of `contentDir` can be any valid path, including an absolute path. The content directories must not overlap.
 
-Considering the following example in conjunction with the configuration above:
+With the configuration above and this content:
 
-1. `/content/english/about.md`
-1. `/content/french/about.md`
+```tree
+content/
+├── english/
+│   └── about.md
+└── french/
+    └── about.md
+```
 
-The first file is assigned the English language and is linked to the second.
-The second file is assigned the French language and is linked to the first.
-
-Their language is assigned according to the `content` directory they are placed in.
-
-By having the same path and basename (relative to their language `content` directory), the content pieces are linked together as translated pages.
+Hugo assigns a language to each page based on the content directory that contains it. The logical path of a page is relative to its content directory, so both pages have the same logical path, `/about`, and they are translations of each other.
 
 ### Bypassing default linking
 
-Any pages sharing the same `translationKey` set in front matter will be linked as translated pages regardless of basename or location.
+Pages with the same `translationKey` in front matter are translations of each other, regardless of their logical paths.
 
-Considering the following example:
+With this content:
 
-1. `/content/about-us.en.md`
-1. `/content/om.nn.md`
-1. `/content/presentation/a-propos.fr.md`
+```tree
+content/
+├── presentation/
+│   └── a-propos.fr.md
+├── about-us.en.md
+└── om.nn.md
+```
 
-{{< code-toggle file=hugo >}}
-translationKey: "about"
+Set the same `translationKey` in the front matter of all three pages:
+
+{{< code-toggle file=content/about-us.en.md fm=true >}}
+title = 'About us'
+translationKey = 'about'
 {{< /code-toggle >}}
 
-By setting the `translationKey` front matter parameter to `about` in all three pages, they will be linked as translated pages.
+The three pages are translations of each other, even though their logical paths are `/about-us`, `/om`, and `/presentation/a-propos`.
+
+If you set the `translationKey` field on a page, set it on all of its translations. A page with a `translationKey` is not a translation of a page that has the same logical path but no `translationKey`.
 
 ### Localizing permalinks
 
-Because paths and file names are used to handle linking, all translated pages will share the same URL (apart from the language subdirectory).
+By default, translations with the same logical path have the same URL, apart from the language prefix.
 
 To localize URLs, set either [`slug`][] or [`url`][] in front matter.
 
@@ -119,16 +128,23 @@ content/products/electronics/tv.fr.md     → https://example.org/fr/produits/el
 
 ### Page bundles
 
-To avoid the burden of having to duplicate files, each Page Bundle inherits the resources of its linked translated pages' bundles except for the content files (Markdown files, HTML files etc.).
+Hugo assigns a language to each [page resource](g) the same way it assigns a language to a page, either by file name, such as `header.fr.jpg`, or by content directory, such as `french/about/header.jpg`. A page resource without a language key in its file name belongs to every language.
 
-Therefore, from within a template, the page will have access to the files from all linked pages' bundles.
+To avoid duplicating files, a [page bundle](g) also includes the page resources of the bundles of its translations, except for content files such as Markdown files. For example, with this content:
 
-If, across the linked bundles, two or more files share the same basename, only one will be included and chosen as follows:
+```tree
+content/
+└── about/
+    ├── header.en.jpg
+    ├── index.de.md
+    ├── index.en.md
+    ├── index.fr.md
+    └── map.fr.jpg
+```
 
-- File from current language bundle, if present.
-- First file found across bundles by order of language `Weight`.
+The German page has two page resources, `header.en.jpg` and `map.fr.jpg`, even though the bundle contains no German resources.
 
-Page Bundle resources follow the same language assignment logic as content files, both by file name (`image.jpg`, `image.fr.jpg`) and by directory (`english/about/header.jpg`, `french/about/header.jpg`).
+If two or more translations have a page resource with the same name, apart from the language key, the page uses the page resource in its own language. If its own language has no such page resource, Hugo uses the page resource from one of the other languages. To control which page resource each language uses, add one for each language.
 
 ## Translation of strings
 
@@ -363,7 +379,7 @@ While translating a Hugo website, it can be helpful to have a visual indicator o
 > [!NOTE]
 > Hugo will generate your website with these missing translation placeholders. It might not be suitable for production environments.
 
-For merging of content from other languages (i.e. missing content translations), see [lang.Merge].
+To fill in missing content translations with pages from other languages, use the [`lang.Merge`][] function.
 
 To track down missing translation strings, run Hugo with the `--printI18nWarnings` flag:
 
@@ -398,9 +414,11 @@ hugo new content content/de/post/test.md
 ```
 
 [`enableMissingTranslationPlaceholders`]: /configuration/all/#enablemissingtranslationplaceholders
+[`lang.Merge`]: /functions/lang/merge/
 [`lang.Translate`]: /functions/lang/translate/
 [`slug`]: /content-management/urls/#slug
 [`time.Format`]: /functions/time/format/
+[`translationKey`]: /content-management/front-matter/#translationkey
 [`url`]: /content-management/urls/#url
 [`urls.AbsLangURL`]: /functions/urls/abslangurl/
 [`urls.RelLangURL`]: /functions/urls/rellangurl/
@@ -414,5 +432,4 @@ hugo new content content/de/post/test.md
 [lang.FormatNumberCustom]: /functions/lang/formatnumbercustom/
 [lang.FormatNumber]: /functions/lang/formatnumber/
 [lang.FormatPercent]: /functions/lang/formatpercent/
-[lang.Merge]: /functions/lang/merge/
 [project configuration]: /content-management/menus/#define-in-project-configuration
