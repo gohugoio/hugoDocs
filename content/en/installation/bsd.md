@@ -1,9 +1,12 @@
 ---
-title: BSD
+title: Install Hugo on BSD
+linkTitle: BSD
 description: Install Hugo on BSD derivatives.
 keywords: []
 weight: 40
 ---
+
+Use these instructions to install Hugo on a BSD derivative.
 
 {{% include "/_common/installation-01-editions.md" %}}
 
@@ -13,11 +16,11 @@ weight: 40
 
 ## Repository packages
 
-Most BSD derivatives maintain a repository for commonly installed applications. Please note that these repositories may not contain the [latest release][].
+Most BSD derivatives maintain a repository for commonly installed applications. These repositories might not contain the latest release.
 
 ### DragonFly BSD
 
-[DragonFly BSD][] includes Hugo in its package repository. To install Hugo:
+[DragonFly BSD][] includes Hugo in its package repository. Run this command to install Hugo:
 
 ```sh
 sudo pkg install gohugo
@@ -25,7 +28,7 @@ sudo pkg install gohugo
 
 ### FreeBSD
 
-[FreeBSD][] includes Hugo in its package repository. To install Hugo:
+[FreeBSD][] includes Hugo in its package repository. Run this command to install Hugo:
 
 ```sh
 sudo pkg install gohugo
@@ -33,7 +36,7 @@ sudo pkg install gohugo
 
 ### NetBSD
 
-[NetBSD][] includes Hugo in its package repository. To install Hugo:
+[NetBSD][] includes Hugo in its package repository. Run this command to install Hugo:
 
 ```sh
 sudo pkgin install go-hugo
@@ -41,7 +44,7 @@ sudo pkgin install go-hugo
 
 ### OpenBSD
 
-[OpenBSD][] includes Hugo in its package repository. This will prompt you to select which edition of Hugo to install:
+[OpenBSD][] includes Hugo in its package repository. Run this command to install Hugo. The command prompts you to select an edition:
 
 ```sh
 doas pkg_add hugo
@@ -63,4 +66,3 @@ Latest version available?|:heavy_check_mark:|varies|:heavy_check_mark:
 [FreeBSD]: https://www.freebsd.org/
 [NetBSD]: https://www.netbsd.org/
 [OpenBSD]: https://www.openbsd.org/
-[latest release]: https://github.com/gohugoio/hugo/releases/latest

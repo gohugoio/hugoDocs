@@ -1,9 +1,12 @@
 ---
-title: Linux
+title: Install Hugo on Linux
+linkTitle: Linux
 description: Install Hugo on Linux.
 keywords: []
 weight: 20
 ---
+
+Use these instructions to install Hugo on Linux.
 
 {{% include "/_common/installation-01-editions.md" %}}
 
@@ -13,21 +16,21 @@ weight: 20
 
 ## Package managers
 
-You can also install Hugo using one of the following package managers.
+You can also install Hugo using one of these package managers.
 
 ### Snap
 
-[Snap][] is a free and open-source package manager for Linux. Available for [most distributions][], snap packages are simple to install and are automatically updated.
+[Snap][] is a free and open-source package manager for Linux. Snap is available for [most distributions][], and snap packages are simple to install and update automatically.
 
-The Hugo snap package is [strictly confined][]. Strictly confined snaps run in complete isolation, up to a minimal access level that's deemed always safe. The sites you create and build must be located within your home directory, or on removable media.
+The Hugo snap package is [strictly confined][], so it runs in isolation with minimal access to your system. Your project must reside in your home directory or on removable media. The Hugo snap package includes Dart Sass, so you do not need to install Dart Sass separately.
 
-To install Hugo:
+Run this command to install Hugo:
 
 ```sh
 sudo snap install hugo
 ```
 
-To control automatic updates:
+Use these commands to turn automatic updates off or on:
 
 ```sh
 # disable automatic updates
@@ -37,7 +40,7 @@ sudo snap refresh --hold hugo
 sudo snap refresh --unhold hugo
 ```
 
-To control access to removable media:
+Use these commands to allow or revoke access to removable media:
 
 ```sh
 # allow access
@@ -47,7 +50,7 @@ sudo snap connect hugo:removable-media
 sudo snap disconnect hugo:removable-media
 ```
 
-To control access to SSH keys:
+Use these commands to allow or revoke access to SSH keys:
 
 ```sh
 # allow access
@@ -61,16 +64,11 @@ sudo snap disconnect hugo:ssh-keys
 
 ## Repository packages
 
-Most Linux distributions maintain a repository for commonly installed applications.
-
-> [!NOTE]
-> The Hugo version available in package repositories varies based on Linux distribution and release, and in some cases is not the [latest version][].
->
-> Use one of the other installation methods if your package repository does not provide the desired version.
+Most Linux distributions maintain a repository for commonly installed applications. The Hugo version in these repositories varies by distribution and release, and might not be the latest version. If your package repository does not provide the version you need, use another installation method.
 
 ### Alpine Linux
 
-To install Hugo on [Alpine Linux][]:
+Run this command to install Hugo on [Alpine Linux][]:
 
 ```sh
 doas apk add --no-cache --repository=https://dl-cdn.alpinelinux.org/alpine/edge/community hugo
@@ -78,7 +76,7 @@ doas apk add --no-cache --repository=https://dl-cdn.alpinelinux.org/alpine/edge/
 
 ### Arch Linux
 
-Derivatives of the [Arch Linux][] distribution of Linux include [EndeavourOS][], [Garuda Linux][], [Manjaro][], and others. To install Hugo:
+Derivatives of the [Arch Linux][] distribution of Linux include [EndeavourOS][], [Garuda Linux][], [Manjaro][], and others. Run this command to install Hugo:
 
 ```sh
 sudo pacman -S hugo
@@ -86,7 +84,7 @@ sudo pacman -S hugo
 
 ### Debian
 
-Derivatives of the [Debian][] distribution of Linux include [elementary OS][], [KDE neon][], [Linux Lite][], [Linux Mint][], [MX Linux][], [Pop!_OS][], [Ubuntu][], [Zorin OS][], and others. To install Hugo:
+Derivatives of the [Debian][] distribution of Linux include [elementary OS][], [KDE neon][], [Linux Lite][], [Linux Mint][], [MX Linux][], [Pop!_OS][], [Ubuntu][], [Zorin OS][], and others. Run this command to install Hugo:
 
 ```sh
 sudo apt install hugo
@@ -96,7 +94,7 @@ You can also download Debian packages from the [latest release][] page.
 
 ### Exherbo
 
-To install Hugo on [Exherbo][] using the Paludis package manager:
+Run these commands to install Hugo on [Exherbo][] using the Paludis package manager:
 
 ```sh
 cave resolve -x repository/heirecka
@@ -105,7 +103,7 @@ cave resolve -x hugo
 
 ### Fedora
 
-Derivatives of the [Fedora][] distribution of Linux include [CentOS][], [Red Hat Enterprise Linux][], and others. To install Hugo:
+Derivatives of the [Fedora][] distribution of Linux include [CentOS][], [Red Hat Enterprise Linux][], and others. Run this command to install Hugo:
 
 ```sh
 sudo dnf install hugo
@@ -113,7 +111,7 @@ sudo dnf install hugo
 
 ### Gentoo
 
-Derivatives of the [Gentoo][] distribution of Linux include [Calculate Linux][], [Funtoo][], and others. To install Hugo using the Portage package manager:
+Derivatives of the [Gentoo][] distribution of Linux include [Calculate Linux][], [Funtoo][], and others. Run this command to install Hugo using the Portage package manager:
 
 ```sh
 sudo emerge www-apps/hugo
@@ -121,7 +119,7 @@ sudo emerge www-apps/hugo
 
 ### NixOS
 
-The NixOS distribution of Linux includes Hugo in its package repository. To install Hugo:
+The [NixOS][] distribution of Linux includes Hugo in its package repository. Run this command to install Hugo:
 
 ```sh
 nix-env -iA nixos.hugo
@@ -129,7 +127,7 @@ nix-env -iA nixos.hugo
 
 ### openSUSE
 
-Derivatives of the [openSUSE][] distribution of Linux include [GeckoLinux][], [Linux Karmada][], and others. To install Hugo:
+Derivatives of the [openSUSE][] distribution of Linux include [GeckoLinux][], [Linux Kamarada][], and others. Run this command to install Hugo:
 
 ```sh
 sudo zypper install hugo
@@ -137,7 +135,7 @@ sudo zypper install hugo
 
 ### Solus
 
-The [Solus][] distribution of Linux includes Hugo in its package repository. To install Hugo:
+The [Solus][] distribution of Linux includes Hugo in its package repository. Run this command to install Hugo:
 
 ```sh
 sudo eopkg install hugo
@@ -145,7 +143,7 @@ sudo eopkg install hugo
 
 ### Void Linux
 
-To install Hugo on [Void Linux][]:
+Run this command to install Hugo on [Void Linux][]:
 
 ```sh
 sudo xbps-install -S hugo
@@ -179,11 +177,12 @@ Latest version available?|:heavy_check_mark:|:heavy_check_mark:|varies|:heavy_ch
 [GeckoLinux]: https://geckolinux.github.io/
 [Gentoo]: https://www.gentoo.org/
 [KDE neon]: https://neon.kde.org/
-[Linux Karmada]: https://linuxkamarada.com/
+[Linux Kamarada]: https://linuxkamarada.com/
 [Linux Lite]: https://www.linuxliteos.com/
 [Linux Mint]: https://linuxmint.com/
 [MX Linux]: https://mxlinux.org/
 [Manjaro]: https://manjaro.org/
+[NixOS]: https://nixos.org/
 [Pop!_OS]: https://pop.system76.com/
 [Red Hat Enterprise Linux]: https://www.redhat.com/
 [Snap]: https://snapcraft.io/
@@ -193,7 +192,6 @@ Latest version available?|:heavy_check_mark:|:heavy_check_mark:|varies|:heavy_ch
 [Zorin OS]: https://zorin.com/os/
 [elementary OS]: https://elementary.io/
 [latest release]: https://github.com/gohugoio/hugo/releases/latest
-[latest version]: https://github.com/gohugoio/hugo/releases/latest
 [most distributions]: https://snapcraft.io/docs/installing-snapd
 [openSUSE]: https://www.opensuse.org/
 [strictly confined]: https://snapcraft.io/docs/snap-confinement
