@@ -4,14 +4,14 @@ _comment: Do not remove front matter.
 
 ## Build from source
 
-To build Hugo from source you must install:
+Install these tools before you build Hugo from source:
 
-1. [Git][]
-1. [Go][] version {{% current-go-version %}} or later
+- [Git][]
+- [Go][] version {{% current-go-version %}} or later
 
 ### Standard edition
 
-To build and install the standard edition:
+Run this command to build and install the standard edition:
 
 ```sh {copy=true}
 CGO_ENABLED=0 go install github.com/gohugoio/hugo@latest
@@ -21,7 +21,7 @@ CGO_ENABLED=0 go install github.com/gohugoio/hugo@latest
 
 {{< new-in v0.159.2 />}}
 
-To build and install the deploy edition:
+Run this command to build and install the deploy edition:
 
 ```sh {copy=true}
 CGO_ENABLED=0 go install -tags withdeploy github.com/gohugoio/hugo@latest

@@ -1,12 +1,12 @@
 ---
-title: Windows
+title: Install Hugo on Windows
+linkTitle: Windows
 description: Install Hugo on Windows.
 keywords: []
 weight: 30
 ---
 
-> [!NOTE]
-> Hugo requires Windows 10, Windows Server 2016, or later.
+Use these instructions to install Hugo on Windows 10, Windows Server 2016, or later.
 
 {{% include "/_common/installation-01-editions.md" %}}
 
@@ -16,11 +16,11 @@ weight: 30
 
 ## Package managers
 
-You can also install Hugo using one of the following package managers.
+You can also install Hugo using one of these package managers.
 
 ### Chocolatey
 
-[Chocolatey][] is a free and open-source package manager for Windows. To install Hugo:
+[Chocolatey][] is a free and open-source package manager for Windows. Run this command to install Hugo:
 
 ```sh
 choco install hugo
@@ -28,7 +28,7 @@ choco install hugo
 
 ### Scoop
 
-[Scoop][] is a free and open-source package manager for Windows. To install Hugo:
+[Scoop][] is a free and open-source package manager for Windows. Run this command to install Hugo:
 
 ```sh
 scoop install hugo
@@ -36,13 +36,13 @@ scoop install hugo
 
 ### WinGet
 
-[WinGet][] is Microsoft's official free and open-source package manager for Windows. To install Hugo:
+[WinGet][] is Microsoft's official free and open-source package manager for Windows. Run this command to install Hugo:
 
 ```sh
 winget install -e --id Hugo.Hugo
 ```
 
-To uninstall Hugo:
+Run this command to uninstall Hugo:
 
 ```sh
 winget uninstall -e --id Hugo.Hugo
@@ -50,25 +50,20 @@ winget uninstall -e --id Hugo.Hugo
 
 ## Build from source
 
-To build Hugo from source you must install:
+Install these tools before you build Hugo from source:
 
-1. [Git][]
-1. [Go][] version {{% current-go-version %}} or later
-
-> [!NOTE]
-> The Bash-style `KEY=VALUE cmd` syntax used in the macOS and Linux build-from-source instructions does not work in PowerShell or Command Prompt. Use the code block matching your shell.
+- [Git][]
+- [Go][] version {{% current-go-version %}} or later
 
 ### Standard edition
 
-To build and install the standard edition:
-
-PowerShell:
+Run this command in PowerShell to build and install the standard edition:
 
 ```powershell
 $env:CGO_ENABLED=0; go install github.com/gohugoio/hugo@latest
 ```
 
-Command Prompt:
+Run these commands in Command Prompt to build and install the standard edition:
 
 ```bat
 set CGO_ENABLED=0
@@ -79,15 +74,13 @@ go install github.com/gohugoio/hugo@latest
 
 {{< new-in v0.159.2 />}}
 
-To build and install the deploy edition:
-
-PowerShell:
+Run this command in PowerShell to build and install the deploy edition:
 
 ```powershell
 $env:CGO_ENABLED=0; go install -tags withdeploy github.com/gohugoio/hugo@latest
 ```
 
-Command Prompt:
+Run these commands in Command Prompt to build and install the deploy edition:
 
 ```bat
 set CGO_ENABLED=0
@@ -100,12 +93,12 @@ go install -tags withdeploy github.com/gohugoio/hugo@latest
 :--|:--:|:--:|:--:
 Easy to install?|:heavy_check_mark:|:heavy_check_mark:|:heavy_check_mark:
 Easy to upgrade?|:heavy_check_mark:|:heavy_check_mark:|:heavy_check_mark:
-Easy to downgrade?|:heavy_check_mark:|:heavy_check_mark: [^2]|:heavy_check_mark:
-Automatic updates?|:x:|:x: [^1]|:x:
+Easy to downgrade?|:heavy_check_mark:|:heavy_check_mark: [^1]|:heavy_check_mark:
+Automatic updates?|:x:|:x: [^2]|:x:
 Latest version available?|:heavy_check_mark:|:heavy_check_mark:|:heavy_check_mark:
 
-[^1]: Possible but requires advanced configuration.
-[^2]: Easy if a previous version is still installed.
+[^1]: Easy if a previous version is still installed.
+[^2]: Possible but requires advanced configuration.
 
 [Chocolatey]: https://chocolatey.org/
 [Git]: https://git-scm.com/book/en/v2/Getting-Started-Installing-Git

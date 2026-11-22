@@ -1,9 +1,12 @@
 ---
-title: macOS
+title: Install Hugo on macOS
+linkTitle: macOS
 description: Install Hugo on macOS.
 keywords: []
 weight: 10
 ---
+
+Use these instructions to install Hugo on macOS.
 
 {{% include "/_common/installation-01-editions.md" %}}
 
@@ -13,13 +16,13 @@ weight: 10
 
 ## Package managers
 
-You can also install Hugo using one of the following package managers.
+You can also install Hugo using one of these package managers.
 
 {{% include "/_common/installation-homebrew.md" %}}
 
 ### MacPorts
 
-[MacPorts][] is a free and open-source package manager for macOS. To install Hugo:
+[MacPorts][] is a free and open-source package manager for macOS. Run this command to install Hugo:
 
 ```sh
 sudo port install hugo
