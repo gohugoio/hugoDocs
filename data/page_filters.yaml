@@ -89,5 +89,5 @@ methods_resource_image_processing:
   - /methods/resource/fill
   - /methods/resource/filter
   - /methods/resource/fit
-  - /methods/resource/fit
+  - /methods/resource/process
   - /methods/resource/resize

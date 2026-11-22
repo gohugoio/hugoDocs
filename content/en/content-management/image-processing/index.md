@@ -4,7 +4,7 @@ description: Transform images to change their size, shape, and appearance.
 keywords: []
 ---
 
-Hugo provides methods to transform and analyze images during the build process. While Hugo can manage any image format as a resource, only [processable images](g) can be transformed using the methods below. The results are cached to ensure subsequent builds remain fast.
+Hugo provides methods to transform images during the build process. While Hugo can manage any image format as a resource, only [processable images](g) can be transformed using the methods below. The results are cached to ensure subsequent builds remain fast.
 
 {{% include "/_common/image-processable-tip.md" %}}
 
@@ -113,10 +113,7 @@ To transform an image, apply a processing method to the image resource. Hugo gen
 {{ end }}
 ```
 
-> [!NOTE]
-> Metadata is not preserved during image transformation. Use the [`Meta`][] method with the original image resource to extract metadata from supported formats.
-
-Select a method from the table below for syntax and usage examples, depending on your specific transformation or metadata requirements:
+Select a method from the table below for syntax and usage examples, depending on your specific transformation requirements:
 
 {{% render-table-of-pages-in-section
   path=/methods/resource
@@ -161,7 +158,6 @@ If your source images are much larger than the maximum size you intend to publis
 See [configure imaging][].
 
 [`Height`]: /methods/resource/height/
-[`Meta`]: /methods/resource/meta/
 [`Permalink`]: /methods/resource/permalink/
 [`RelPermalink`]: /methods/resource/relpermalink/
 [`Width`]: /methods/resource/width/
