@@ -17,7 +17,7 @@ The `Meta` method on an image `Resource` object returns an object containing [Ex
 While Hugo classifies many file types as images, only certain formats support metadata extraction. Supported formats include AVIF, BMP, GIF, HEIC, HEIF, JPEG, PNG, TIFF, and WebP.
 
 > [!NOTE]
-> Metadata is not preserved during image transformation. Use this method with the _original_ image resource to extract metadata from supported formats.
+> Metadata is not written to transformed images. When you call this method on a transformed image, Hugo returns the metadata from the original image.
 
 ## Usage
 
