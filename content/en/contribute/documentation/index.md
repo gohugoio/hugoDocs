@@ -6,7 +6,7 @@ keywords: []
 
 ## Introduction
 
-We welcome corrections and improvements to the documentation. The documentation lives in a separate repository from the main project. To contribute:
+We welcome corrections and improvements to the documentation. The documentation lives in a separate repository from the main project. Submit your contribution to the repository that matches its purpose:
 
 - For corrections and improvements to existing documentation, submit issues and pull requests to the [documentation repository][].
 - For documentation of new features, include the documentation changes in your pull request to the [project repository][].
@@ -187,7 +187,7 @@ Definitions must be complete sentences, with the first sentence defining the ter
 
 Link to glossary terms using this syntax: `[term](g)`
 
-Term lookups are case-insensitive, ignore formatting, and support singular and plural forms. For example, all of these variations will link to the same glossary term:
+Term lookups are case-insensitive, ignore formatting, and support singular and plural forms. For example, all of these variations link to the same glossary term:
 
 ```md {file="content/example.md"}
 [global resource](g)
@@ -204,7 +204,7 @@ Use the [`glossary-term`](#glossary-term) shortcode to insert a term definition:
 
 ### Terminology
 
-Link to [glossary][] terms as described in [links](#links), and use terms consistently. Pay particular attention to:
+Link to glossary terms as described in [links](#links), and use terms consistently. Pay particular attention to:
 
 - "client side" (noun), "client-side" (adjective)
 - "command line" (noun), "command-line" (adjective)
@@ -319,7 +319,7 @@ Field|Description|Required
 `description`|A complete sentence describing the page|:heavy_check_mark:
 `keywords`|An array of keywords used to identify related content|:heavy_check_mark:
 `publishDate`|Applicable to news items: the publication date|&nbsp;
-`params.alt_title`|An alternate title: used in the "see also" panel if provided|&nbsp;
+`params.alt_title`|An alternate title: used in the "See also" sidebar if provided|&nbsp;
 `params.functions_and_methods.aliases`|Applicable to function and method pages: an array of alias names|&nbsp;
 `params.functions_and_methods.returnType`|Applicable to function and method pages: the data type returned|&nbsp;
 `params.functions_and_methods.signatures`|Applicable to function and method pages: an array of signatures|&nbsp;
@@ -357,9 +357,9 @@ Do not use formatting, such as backticks, bold, or italic, in the `title` field 
 
 Do not use formatting, such as backticks, bold, or italic, in the `description` field in front matter.
 
-When writing the page `description` use imperative present tense when possible. For example:
+When writing the page `description`, use imperative present tense when possible. For example:
 
-{{< code-toggle file=content/en/functions/data/_index.md fm=true >}}
+{{< code-toggle file=content/en/functions/cast/_index.md fm=true >}}
 title: Cast functions
 description: Use these functions to cast a value from one data type to another.
 {{< /code-toggle >}}
@@ -640,7 +640,7 @@ Use short, focused code examples. When including template code examples, follow 
 - Indent with two spaces.
 - Insert a space after an opening action delimiter.
 - Insert a space before a closing action delimiter.
-- Do not add white space removal syntax to action delimiters unless required. For example, inline elements like `img` and `a` require whitespace removal on both sides.
+- Do not add whitespace removal syntax to action delimiters unless required. For example, inline elements like `img` and `a` require whitespace removal on both sides.
 - On a function's reference page, call that function by its canonical form. Everywhere else, call a function by its alias if it has one. Aliases make examples shorter and easier to read. For example, on the `compare.Eq` page:
 
   No → `{{ eq (dict "a" 1) (dict "a" 1) }}`\
@@ -657,7 +657,7 @@ Use short, focused code examples. When including template code examples, follow 
   No → `{{ .Site.Title }}`\
   Yes → `{{ site.Title }}`
 
-- Do not update version references to third-party libraries embedded within Hugo (for example, the KaTeX display engine used by the `transform.ToMath` function) unless the embedded library version changes in Hugo's source code.
+- Do not update version references to third-party libraries embedded within Hugo, such as the KaTeX display engine used by the `transform.ToMath` function, unless the embedded library version changes in Hugo's source code.
 
 This example follows these conventions:
 
@@ -726,7 +726,7 @@ Use the `file` and `copy` attributes to include a file name header and copy-to-c
 ```
 ````
 
-Use the `details`, `open`, and `summary` attributes to wrap the code block in an initially-opened `details` element with a custom summary.
+Use the `details`, `open`, and `summary` attributes to wrap the code block in an initially open `details` element with a custom summary.
 
 ````md {file="content/example.md"}
 ```go-html-template {details=true open=true summary="layouts/_partials/foo.html" copy=true}
@@ -773,7 +773,7 @@ title = 'My Site'
 
 ### Front matter examples
 
-Use the [`code-toggle`](#code-toggle) shortcode to include front matter example, setting the `fm` attribute to `true`:
+Use the [`code-toggle`](#code-toggle) shortcode to include front matter examples, setting the `fm` attribute to `true`:
 
 ```md {file="content/example.md"}
 {{</* code-toggle file=content/posts/my-first-post.md fm=true */>}}
@@ -883,7 +883,7 @@ Use the `code-toggle` shortcode to display examples of project configuration, fr
 : (`bool`) Whether to render the code as front matter. Default is `false`.
 
 `skipHeader`
-: (`bool`) Whether to omit top-level key(s) when rendering a section of `hugo.Data.docs.config`.
+: (`bool`) Whether to omit top-level keys when rendering a section of `hugo.Data.docs.config`.
 
 ```md {file="content/example.md"}
 {{</* code-toggle file=hugo copy=true */>}}
@@ -897,19 +897,19 @@ title = 'My Site'
 
 Use the `deprecated-in` shortcode to indicate that a feature is deprecated:
 
-```md
+```md {file="content/example.md"}
 {{</* deprecated-in 0.144.0 /*/>}}
 ```
 
 You can also include details:
 
-```md
+```md {file="content/example.md"}
 {{</* deprecated-in 0.144.0 */>}}
 Use the [`hugo.IsServer`](/functions/hugo/isserver/) function instead.
 {{</* /deprecated-in */>}}
 ```
 
-The shortcode triggers a build warning if the specified version is older than a predefined threshold, based on differences in major and minor versions. This serves as a reminder to remove the shortcode call and the associated content. See [details][].
+The shortcode triggers a build warning if the specified version is older than a [predefined threshold][], based on differences in major and minor versions. This serves as a reminder to remove the shortcode call and the associated content.
 
 When deprecating a feature that has its own page, also set the `expiryDate` in front matter to two years from the date of deprecation. Include a brief comment to explain the setting:
 
@@ -919,7 +919,7 @@ expiryDate: 2028-03-03 # deprecated 2026-03-03 in v0.157.0
 
 ### eturl
 
-Use the embedded template URL (`eturl`) shortcode to insert an absolute URL to the source code for an embedded template. The shortcode takes a single argument, the base file name of the template (omit the file extension).
+Use the embedded template URL (`eturl`) shortcode to insert an absolute URL to the source code for an embedded template. The shortcode takes a single argument, the base file name of the template without the file extension.
 
 ```md {file="content/example.md"}
 This is a link to the [embedded alias template][].
@@ -945,7 +945,7 @@ Use the `include` shortcode to include content from another page. Call this shor
 {{%/* include "/_common/content-format-table.md" */%}}
 ```
 
-See [shared content](#shared-content) for guidance on when and how to create a snippet in the `_common` directory.
+Follow the [shared content](#shared-content) guidelines to decide when and how to create a snippet in the `_common` directory.
 
 ### new-in
 
@@ -963,7 +963,7 @@ This is a new feature.
 {{</* /new-in */>}}
 ```
 
-The shortcode triggers a build warning if the specified version is older than a predefined threshold, based on differences in major and minor versions. This serves as a reminder to remove the shortcode call. See [details][].
+The shortcode triggers a build warning if the specified version is older than a predefined threshold, based on differences in major and minor versions. This serves as a reminder to remove the shortcode call.
 
 On a function or method page, place the shortcode where the new feature is documented. If the entire function or method is new, place it on the first line of the page body, before the first heading. If an argument, option, or section is new, place it with that argument, option, or section.
 
@@ -990,14 +990,14 @@ Step 4
 : Make changes.
 
 Step 5
-: Build the site locally to preview your changes.
+: Run `hugo server` to preview your changes.
 
 Step 6
 : Commit your changes with a descriptive commit message:
 
   - Provide a summary on the first line, 50 characters or less, followed by a blank line.
-    - Begin the summary with one of `content`, `theme`, `config`, `all`, or `misc`, followed by a colon, a space, and a brief description of the change beginning with a capital letter
-    - Use imperative present tense
+    - Begin the summary with one of `content`, `theme`, `config`, `all`, or `misc`, followed by a colon, a space, and a brief description of the change beginning with a capital letter.
+    - Use imperative present tense.
   - Optionally, provide a detailed description where each line is 72 characters or less, followed by a blank line.
   - Optionally, add one or more "Fixes", "Closes", or "Updates" keywords, each on its own line, referencing the [issues][] addressed by this change. Use "Updates" for partial work that should not close the issue. Do not end these lines with a period.
 
@@ -1020,7 +1020,7 @@ Step 8
 : Visit the [documentation repository][] and create a pull request (PR).
 
 Step 9
-: A project maintainer will review your PR and may request changes. You may delete your branch after the maintainer merges your PR.
+: Wait for a project maintainer to review your PR. The maintainer may request changes. After the maintainer merges your PR, you may delete your branch.
 
 [ATX]: https://spec.commonmark.org/current/#atx-headings
 [Glossary]: /quick-reference/glossary/
@@ -1029,7 +1029,6 @@ Step 9
 [layout_method]: /methods/page/layout/
 [Basic English]: https://simple.wikipedia.org/wiki/Basic_English
 [collapsed link references]: https://discourse.gohugo.io/t/55714
-[details]: https://github.com/gohugoio/hugoDocs/blob/master/layouts/_partials/layouts/blocks/feature-state.html
 [developer documentation style guide]: https://developers.google.com/style
 [documentation repository]: https://github.com/gohugoio/hugoDocs/
 [fenced code blocks]: https://spec.commonmark.org/current/#fenced-code-blocks
@@ -1037,6 +1036,7 @@ Step 9
 [inline links]: https://discourse.gohugo.io/t/55714
 [issues]: https://github.com/gohugoio/hugoDocs/issues
 [list items]: https://spec.commonmark.org/current/#list-items
+[predefined threshold]: https://github.com/gohugoio/hugoDocs/blob/master/layouts/_partials/layouts/blocks/feature-state.html
 [project repository]: https://github.com/gohugoio/hugo
 [raw HTML]: https://spec.commonmark.org/current/#raw-html
 [related content]: /content-management/related-content/

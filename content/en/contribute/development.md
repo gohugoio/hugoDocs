@@ -6,32 +6,28 @@ keywords: []
 
 ## Introduction
 
-You can contribute to the Hugo project by:
+There are many ways to contribute to the Hugo project:
 
-- Answering questions on the [forum][]
-- Improving the [documentation][]
-- Monitoring the [issue queue][]
-- Creating or improving [themes][]
-- Squashing [bugs][]
+- Answer questions on the [forum][].
+- Improve the [documentation][].
+- Monitor the [issue queue][].
+- Create or improve [themes][].
+- Fix [bugs][].
 
-Please submit documentation issues and pull requests to the [documentation repository][].
+Submit documentation issues and pull requests to the [documentation repository][].
 
-If you have an idea for an enhancement or new feature, create a new topic on the [forum][] in the "Feature" category. This will help you to:
-
-- Determine if the capability already exists
-- Measure interest
-- Refine the concept
+If you have an idea for an enhancement or new feature, create a new topic on the forum in the "Feature" category. The discussion helps you determine whether the capability already exists, measure interest, and refine the concept.
 
 If there is sufficient interest, [create a proposal][]. Do not submit a pull request until the project lead accepts the proposal.
 
-For a complete guide to contributing to Hugo, see the [Contribution Guide][].
+Read the [contribution guide][] for complete details about contributing to Hugo.
 
 ## Prerequisites
 
-To build Hugo from source you must install:
+Complete the following tasks before continuing:
 
-1. Install [Git][]
-1. Install [Go][] version {{% current-go-version %}} or later
+1. Install [Git][].
+1. Install [Go][] version {{% current-go-version %}} or later.
 
 ## GitHub workflow
 
@@ -48,13 +44,13 @@ Step 2
 Step 3
 : Create a new branch with a descriptive name that includes the corresponding issue number.
 
-  For a new feature:
+  Use the `feat/` prefix for a new feature:
 
   ```sh
   git checkout -b feat/implement-some-feature-99999
   ```
 
-  For a bug fix:
+  Use the `fix/` prefix for a bug fix:
 
   ```sh
   git checkout -b fix/fix-some-bug-99999
@@ -66,13 +62,13 @@ Step 4
 Step 5
 : Build and install.
 
-  To build and install the standard edition:
+  Build and install the standard edition:
 
   ```sh
   CGO_ENABLED=0 go install
   ```
 
-  {{< new-in v0.159.2 />}} To build and install the deploy edition:
+  {{< new-in v0.159.2 />}} Build and install the deploy edition:
 
   ```sh
   CGO_ENABLED=0 go install -tags withdeploy
@@ -86,14 +82,13 @@ Step 6
   ```
 
 Step 7
-: Commit your changes with a descriptive commit message:
+: Commit your changes with a descriptive commit message that follows the [commit message guidelines][]:
 
   - Provide a summary on the first line, typically 50 characters or less, followed by a blank line.
-    - Begin the summary with the name of the package, followed by a colon, a space, and a brief description of the change beginning with a capital letter
-    - Use imperative present tense
-    - See the [commit message guidelines][] for requirements
+    - Begin the summary with the name of the package, followed by a colon, a space, and a brief description of the change beginning with a capital letter.
+    - Use imperative present tense.
   - Optionally, provide a detailed description where each line is 72 characters or less, followed by a blank line.
-  - Add one or more "Fixes" or "Closes" keywords, each on its own line, referencing the [issues][] addressed by this change.
+  - Add one or more "Fixes" or "Closes" keywords, each on its own line, referencing the issues addressed by this change.
 
   For example:
 
@@ -109,24 +104,23 @@ Step 7
   ```
 
 Step 8
-: Push the new branch to your fork of the documentation repository.
+: Push the new branch to your fork of the project repository.
 
 Step 9
-: Visit the [project repository][] and create a pull request (PR).
+: Visit the project repository and create a pull request (PR).
 
 Step 10
-: A project maintainer will review your PR and may request changes. You may delete your branch after the maintainer merges your PR.
+: Wait for a project maintainer to review your PR. The maintainer may request changes. After the maintainer merges your PR, you may delete your branch.
 
-[Contribution Guide]: https://github.com/gohugoio/hugo/blob/master/CONTRIBUTING.md
 [Git]: https://git-scm.com/book/en/v2/Getting-Started-Installing-Git
 [Go]: https://go.dev/doc/install
 [bugs]: https://github.com/gohugoio/hugo/issues?q=is%3Aopen+is%3Aissue+label%3ABug
 [commit message guidelines]: https://github.com/gohugoio/hugo/blob/master/CONTRIBUTING.md#git-commit-message-guidelines
+[contribution guide]: https://github.com/gohugoio/hugo/blob/master/CONTRIBUTING.md
 [create a proposal]: https://github.com/gohugoio/hugo/issues/new?labels=Proposal%2C+NeedsTriage&template=feature_request.md
 [documentation repository]: https://github.com/gohugoio/hugoDocs
-[documentation]: /documentation
+[documentation]: /contribute/documentation/
 [forum]: https://discourse.gohugo.io
 [issue queue]: https://github.com/gohugoio/hugo/issues
-[issues]: https://github.com/gohugoio/hugo/issues
 [project repository]: https://github.com/gohugoio/hugo/
 [themes]: https://themes.gohugo.io/
