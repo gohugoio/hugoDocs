@@ -136,6 +136,12 @@ body {
   white-space: nowrap;
 }
 
+/* Allow code spans in definition lists to wrap on narrow screens. */
+dd code {
+  white-space: normal;
+  overflow-wrap: anywhere;
+}
+
 /* Utility class for tables to prevent word wrapping in the first column. */
 .no-wrap-first-col td:first-child,
 .no-wrap-first-col th:first-child {
