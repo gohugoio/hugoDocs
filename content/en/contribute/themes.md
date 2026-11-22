@@ -1,17 +1,17 @@
 ---
 title: Themes
-description: If you've built a Hugo theme and want to contribute back to the Hugo Community, please share it with us.
+description: Share your theme with the Hugo community.
 keywords: []
 ---
 
 Visit [themes.gohugo.io][] to browse a collection of themes created by the Hugo community.
 
-To submit your theme:
+Follow these steps to submit your theme:
 
-1. Read the [submission guidelines][]
-1. Open a pull request in the [themes repository][]
+1. Read the [submission guidelines][].
+1. Open a pull request in the [themes repository][].
 
-Other useful theme directories:
+Browse these directories to find more themes:
 
 - [jamstack.club][]
 - [jamstackthemes.dev][]
