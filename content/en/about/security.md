@@ -54,7 +54,7 @@ Adjust the security policy in your project configuration to allow or deny access
 [configured to sanitize]: /configuration/markup/#rendererunsafe
 [content adapters]: /content-management/content-adapters/
 [Go modules]: https://go.dev/ref/mod
-[inline shortcodes]: /content-management/shortcodes/#inline
+[inline shortcodes]: /templates/types/#inline-shortcode
 [Modules]: /hugo-modules/
 [OWASP]: https://owasp.org/
 [`safe`]: /functions/safe/
