@@ -1,6 +1,6 @@
 ---
 title: Features
-description: Hugo's rich and powerful feature set provides the framework and tools to create static sites that build in seconds, often less.
+description: Explore the framework and tools that Hugo provides to create static sites that build in seconds, often less.
 keywords: []
 weight: 20
 ---
@@ -29,7 +29,7 @@ weight: 20
 : Configure your project to help comply with regional privacy regulations.
 
 [Security][]
-: Hugo's security model is based on the premise that template and configuration authors are trusted, but content authors are not. This model enables generation of HTML output safe against code injection. Other protections prevent "shelling out" to arbitrary applications, limit access to specific environment variables, prevent connections to arbitrary remote data sources, and more.
+: Hugo's security model is based on the premise that template and configuration authors are trusted, but content authors are not. With this model, Hugo generates HTML output that is safe against code injection. Other protections prevent Hugo from running arbitrary executables, limit access to specific environment variables, prevent connections to arbitrary remote data sources, and more.
 
 ## Content authoring
 
@@ -40,7 +40,7 @@ weight: 20
 : Apply HTML attributes such as `class` and `id` to Markdown images and block elements including blockquotes, fenced code blocks, headings, horizontal rules, lists, paragraphs, and tables.
 
 [Markdown extensions][]
-: Leverage the embedded Markdown extensions to create tables, definition lists, footnotes, task lists, inserted text, mark text, subscripts, superscripts, and more.
+: Use the embedded Markdown extensions to create tables, definition lists, footnotes, task lists, inserted text, mark text, subscripts, superscripts, and more.
 
 [Markdown render hooks][]
 : Override the conversion of Markdown to HTML when rendering blockquotes, fenced code blocks, headings, images, links, and tables. For example, render every standalone image as an HTML `figure` element.
@@ -52,7 +52,7 @@ weight: 20
 : Include mathematical equations and expressions in Markdown using LaTeX markup.
 
 [Syntax highlighting][]
-: Syntactically highlight code examples using Hugo's embedded syntax highlighter, enabled by default for fenced code blocks in Markdown. The syntax highlighter supports hundreds of code languages and dozens of styles.
+: Highlight code examples using Hugo's embedded syntax highlighter, enabled by default for fenced code blocks in Markdown. The syntax highlighter supports hundreds of code languages and dozens of styles.
 
 [Shortcodes][]
 : Use Hugo's embedded shortcodes, or create your own, to insert complex content. For example, use shortcodes to include `audio` and `video` elements, render tables from local or remote data sources, insert snippets from other pages, and more.
@@ -60,7 +60,7 @@ weight: 20
 ## Content management
 
 [Multidimensional content model][]
-: Generate pages across any combination of language, version, and role from a single source. This allows a single piece of content to be published to multiple [sites](g) within your project, removing the need to duplicate files for different audiences or versions.
+: Generate pages across any combination of language, version, and role from a single source. Publish a single piece of content to multiple [sites](g) within your project without duplicating files for different audiences or versions.
 
 [Content adapters][]
 : Create content adapters to dynamically add content when building your project. For example, use a content adapter to create pages from a remote data source such as JSON, TOML, YAML, or XML.
@@ -72,14 +72,14 @@ weight: 20
 : Augment your content using local or remote data sources including CSV, JSON, TOML, YAML, and XML. For example, create a shortcode to render an HTML table from a remote CSV file.
 
 [Menus][]
-: Provide rapid access to content via Hugo's menu system, configured automatically, globally, or on a page-by-page basis. The menu system is a key component of Hugo's multilingual architecture.
+: Provide rapid access to content through Hugo's menu system, configured automatically, globally, or on a page-by-page basis. The menu system is a key component of Hugo's multilingual architecture.
 
 [URL management][]
-: Serve any page from any path via global configuration or on a page-by-page basis.
+: Serve any page from any path through global configuration or on a page-by-page basis.
 
 ## Asset pipelines
 
-[CSS Processing][]
+[CSS processing][]
 : Bundle, transform, minify, create source maps, perform SRI hashing, and integrate with PostCSS.
 
 [Image processing][]
@@ -97,15 +97,15 @@ weight: 20
 ## Performance
 
 [Caching][]
-: Reduce build time and cost by rendering a _partial_ template once then cache the result, either globally or within a given context. For example, cache the result of an asset pipeline to prevent reprocessing on every rendered page.
+: Reduce build time and cost by rendering a _partial_ template once and caching the result, either globally or within a given context. For example, cache the result of an asset pipeline to prevent reprocessing on every rendered page.
 
 [Segmentation][]
-: Reduce build time and cost by partitioning your sites into segments. For example, render the home page and the "news section" every hour, and render the entire project once a week.
+: Reduce build time and cost by partitioning your sites into segments. For example, render the home page and the news section every hour, and render the entire project once a week.
 
 [Minification][]
 : Minify HTML, CSS, and JavaScript to reduce file size, bandwidth consumption, and loading times.
 
-[CSS Processing]: /functions/css/build/
+[CSS processing]: /functions/css/build/
 [Caching]: /functions/partials/includecached/
 [CommonMark]: https://spec.commonmark.org/current/
 [Content adapters]: /content-management/content-adapters/

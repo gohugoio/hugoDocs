@@ -1,62 +1,62 @@
 ---
 title: Security model
 linkTitle: Security
-description: A summary of Hugo's security model.
+description: Learn about Hugo's security model, including its trust boundaries and its runtime, dependency, and web application protections.
 keywords: []
 weight: 30
 ---
 
-## Security Boundaries
+## Security boundaries
 
-- The templates inside `layouts` are trusted.
-- The assets inside `archetypes`, `assets`, `resources`, `data`, `i18n`, and `static` are trusted.
-- The content and the content produced by [content adapters][] inside `content` is not trusted. The one exception here is if [inline shortcodes][] is enabled. Note that for content adapters, this is scoped to the result of the adapter.
-- The development server, `hugo server`, and its livereload script is trusted and meant for _local_ development only.
-- We have no online  production server and any malformed input that fails the build (e.g. malformed content front matter) is not defined as a Denial of Service (DoS). This also includes input that trigger runtime errors such as `fatal error: stack overflow`; report these as [bugs](https://github.com/gohugoio/hugo/issues).
+Hugo's security model defines these trust boundaries:
+
+- Templates in the `layouts` directory are trusted.
+- Files in the `archetypes`, `assets`, `data`, `i18n`, `resources`, and `static` directories are trusted.
+- Content in the `content` directory is not trusted, including content that [content adapters][] produce. For content adapters, this applies to the result of the adapter. The exception is when you enable [inline shortcodes][].
+- The development server, `hugo server`, and its LiveReload script are trusted and are for _local_ development only.
+- Hugo is not an online production server, so malformed input that causes the build to fail, such as malformed front matter, is not a denial of service (DoS). This also applies to input that causes a runtime error such as `fatal error: stack overflow`. Report these as [bugs][].
 
 ## Runtime security
 
-Hugo generates static websites, meaning the final output runs directly in the browser and interacts with any integrated APIs. However, during development and site building, the `hugo` executable itself is the runtime environment.
+Hugo generates static websites, so the final output runs in the browser and interacts with any integrated APIs. During development and when you build your project, the `hugo` executable is the runtime environment.
 
-Securing a runtime is a complex task. Hugo addresses this through a robust sandboxing approach and a strict security policy with default protections. Key features include:
+Securing a runtime is a complex task. Hugo addresses this with sandboxing and a strict [security policy][] with default protections. These are the key features:
 
-- Virtual file system: Hugo employs a virtual file system, limiting file access. Only the main project, not external components, can access files or directories outside the project root.
-- Read-Only access: User-defined components have read-only access to the file system, preventing unintended modifications.
-- Controlled external binaries: While Hugo utilizes external binaries for features like Asciidoctor support, these are strictly predefined with specific flags and are disabled by default. The [security policy][] details these limitations.
-- No arbitrary commands: To mitigate risks, Hugo intentionally avoids implementing general functions that would allow users to execute arbitrary operating system commands.
-- Pragmatic defaults: The default [security policy][] aims to balance security and usability, enabling common workflows out of the box while keeping more sensitive capabilities opt-in. These defaults may be tightened in future releases, but each project is ultimately responsible for reviewing the policy and adjusting it to match its own trust model and requirements.
+- Virtual file system: Hugo uses a virtual file system to limit file access. Only the project, not its modules, can access files or directories outside the project root.
+- Read-only access: Project components, such as templates, have read-only access to the file system, which prevents unintended changes.
+- Controlled external executables: Hugo runs external executables for features such as Asciidoctor support, but these are predefined with specific flags and are disabled by default. The security policy describes these limits.
+- No arbitrary commands: Hugo does not provide general functions that would allow you to run arbitrary operating system commands.
+- Pragmatic defaults: The default security policy balances security and usability. It enables common workflows by default, while you must opt in to more sensitive capabilities. Future releases may tighten these defaults. Each project is responsible for reviewing the policy and adjusting it to match its own trust model and requirements.
 
-This combination of sandboxing and strict defaults effectively minimizes potential security vulnerabilities during the Hugo build process.
+This combination of sandboxing and strict defaults reduces potential security vulnerabilities when you build your project.
 
 ## Dependency security
 
-Hugo utilizes [Go modules][] to manage its dependencies, compiling as a static binary. Go modules create a `go.sum` file, a critical security feature. This file acts as a database, storing the expected cryptographic checksums of all dependencies, including those required indirectly (transitive dependencies).
+Hugo uses [Go modules][] to manage its dependencies, and compiles to a static binary. Go modules create a `go.sum` file, which is a critical security feature. This file stores the expected cryptographic checksums of all dependencies, including transitive dependencies, which are dependencies required indirectly.
 
-[Hugo modules][], which extend the functionality of Go modules, also produce a `go.sum` file. To ensure dependency integrity, commit this `go.sum` file to your version control. If Hugo detects a checksum mismatch during the build process, it will fail, indicating a possible attempt to [tamper with your project's dependencies][].
+[Modules][], which extend the functionality of Go modules, also create a `go.sum` file. To ensure dependency integrity, commit this `go.sum` file to version control. If Hugo detects a checksum mismatch, the build fails, which indicates a possible attempt to [tamper with your project's dependencies][].
 
 ## Web application security
 
-Hugo's security philosophy is rooted in established security standards, primarily aligning with the threats defined by [OWASP][]. For HTML output, Hugo operates under a clear trust model. This model assumes that template and configuration authors, the developers, are trustworthy. However, the data supplied to these templates is inherently considered untrusted. This distinction is crucial for understanding how Hugo handles potential security risks.
+Hugo's security philosophy is based on established security standards, and aligns with the threats defined by [OWASP][]. For HTML output, Hugo uses a clear trust model. This model assumes that template and configuration authors, the developers, are trustworthy. The data supplied to these templates is not trusted. This distinction is important to understand how Hugo handles potential security risks.
 
-To prevent unintended escaping of data that developers know is safe, Hugo provides  [`safe`][] functions, such as [`safe.HTML`][]. These functions allow developers to explicitly mark data as trusted, bypassing the default escaping mechanisms. This is essential for scenarios where data is generated or sourced from reliable sources. However, an exception exists: enabling [inline shortcodes][]. By activating this feature, you are implicitly trusting the logic within the shortcodes and the data contained within your content files.
+To prevent unintended escaping of data that developers know is safe, Hugo provides [`safe`][] functions such as `safe.HTML`. Developers use these functions to mark data as trusted, which bypasses the default escaping. This is essential when data comes from reliable sources. If you enable inline shortcodes, you trust the logic within the shortcodes and the data in your content files.
 
-It's vital to remember that Hugo is a static site generator. This architectural choice significantly reduces the attack surface by eliminating the complexities and vulnerabilities associated with dynamic user input. Unlike dynamic websites, Hugo generates static HTML files, minimizing the risk of real-time attacks. Regarding content, Hugo's default Markdown renderer is [configured to sanitize][] potentially unsafe content. This default behavior ensures that potentially malicious code or scripts are removed or escaped. However, this setting can be reconfigured if you have a high degree of confidence in the safety of your content sources.
+Because Hugo is a static site generator, it reduces the attack surface by removing the complexity and vulnerabilities of dynamic user input. Unlike dynamic websites, Hugo generates static HTML files, which reduces the risk of real-time attacks. Hugo's default Markdown renderer is [configured to sanitize][] potentially unsafe content, removing or escaping potentially malicious code or scripts. You can change this setting if you are confident that your content sources are safe.
 
-In essence, Hugo prioritizes secure output by establishing a clear trust boundary between developers and data. By default, it errs on the side of caution, sanitizing potentially unsafe content and escaping data. Developers have the flexibility to adjust these defaults through [`safe`][] functions and [configuration settings][], but they must do so with a clear understanding of the security implications. Hugo's static site generation model further strengthens its security posture by minimizing dynamic vulnerabilities.
+Hugo prioritizes secure output by establishing a clear trust boundary between developers and data. By default, Hugo sanitizes potentially unsafe content and escapes data. Developers can change these defaults with `safe` functions and configuration settings, but must understand the security implications before doing so.
 
 ## Configuration
 
-See [configure security][].
+Adjust the security policy in your project configuration to allow or deny access to external executables, environment variables, remote resources, and more.
 
-[Go modules]: https://go.dev/wiki/Modules#modules
-[Hugo modules]: /hugo-modules/
-[OWASP]: https://en.wikipedia.org/wiki/OWASP
-[`safe.HTML`]: /functions/safe/html/
-[`safe`]: /functions/safe/
-[configuration settings]: /configuration/security/
-[configure security]: /configuration/security/
+[bugs]: https://github.com/gohugoio/hugo/issues
 [configured to sanitize]: /configuration/markup/#rendererunsafe
 [content adapters]: /content-management/content-adapters/
+[Go modules]: https://go.dev/ref/mod
 [inline shortcodes]: /content-management/shortcodes/#inline
+[Modules]: /hugo-modules/
+[OWASP]: https://owasp.org/
+[`safe`]: /functions/safe/
 [security policy]: /configuration/security/
-[tamper with your project's dependencies]: https://julienrenaux.fr/2019/12/20/github-actions-security-risk/
+[tamper with your project's dependencies]: https://go.dev/ref/mod#authenticating
