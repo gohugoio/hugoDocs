@@ -39,11 +39,11 @@ Hugo has four logging levels:
   ```
 
 > [!NOTE]
-> If you do not specify a logging level with the `--logLevel` flag, warnings and errors are always displayed.
+> If you do not specify a logging level with the `--logLevel` flag, Hugo displays warning and error messages.
 
 ## Template functions
 
-You can also use template functions to print warnings or errors to the console. These functions are typically used to report data validation errors, missing files, etc.
+Use these template functions to log messages to the console, such as data validation errors or missing files.
 
 {{% render-list-of-pages-in-section path=/functions/fmt filter=functions_fmt_logging filterType=include %}}
 
@@ -55,10 +55,10 @@ To log Hugo's LiveReload requests in your browser, add this query string to the 
 debug=LR-verbose
 ```
 
-For example:
+For example, visit this URL:
 
 ```text
 http://localhost:1313/?debug=LR-verbose
 ```
 
-Then monitor the reload requests in your browser's dev tools console. Make sure the dev tools "preserve log" option is enabled.
+Then monitor the reload requests in the console of your browser's developer tools. Enable the "preserve log" option in the developer tools.

@@ -1,35 +1,35 @@
 ---
 title: Performance
-description: Tools and suggestions for evaluating and improving performance.
+description: Evaluate and improve the performance of your project builds.
 keywords: []
 ---
 
 ## Virus scanning
 
-Virus scanners are an essential component of system protection, but the performance impact can be severe for applications like Hugo that frequently read and write to disk. For example, with Microsoft Defender Antivirus, build times for some sites may increase by 400% or more.
+Virus scanners are an essential part of system protection, but they can severely slow down applications like Hugo that often read and write to disk. For example, with Microsoft Defender Antivirus, build times for some projects may increase by 400% or more.
 
-Before building your project, your virus scanner has already evaluated the files in your project directory. Scanning them again while building the project is superfluous. To improve performance, add Hugo's executable to your virus scanner's process exclusion list.
+Your virus scanner has already evaluated the files in your project directory before you build your project. Scanning them again during the build is not necessary. To improve performance, add Hugo's executable to your virus scanner's process exclusion list.
 
-For example, with Microsoft Defender Antivirus:
+For example, with Microsoft Defender Antivirus, use this navigation path:
 
 **Start** > **Settings** > **Privacy & security** > **Windows Security** > **Open Windows Security** > **Virus & threat protection** > **Manage settings** > **Add or remove exclusions** > **Add an exclusion** > **Process**
 
 Then type `hugo.exe` and press the **Add** button.
 
 > [!WARNING]
-> Virus scanning exclusions are common, but use caution when changing these settings. See the [Microsoft Defender Antivirus documentation][] for details.
+> Virus scanning exclusions are common, but use caution when changing these settings, as described in the [Microsoft Defender Antivirus documentation][].
 
-Other virus scanners have similar exclusion mechanisms. See their respective documentation.
+Other virus scanners have similar exclusion mechanisms, described in their documentation.
 
 ## Template metrics
 
-Hugo is fast, but inefficient templates impede performance. Enable template metrics to determine which templates take the most time, and to identify caching opportunities:
+Hugo is fast, but inefficient templates reduce performance. Enable template metrics to determine which templates take the most time, and to identify caching opportunities:
 
 ```sh
 hugo build --templateMetrics --templateMetricsHints
 ```
 
-The result will look something like this:
+The result looks similar to this:
 
 <!--
 Run hugo build --templateMetrics --templateMetricsHints in this repo and paste
@@ -157,40 +157,40 @@ maximum duration
 : The maximum time spent executing the template.
 
 cache potential
-: Displayed as a percentage, any _partial_ template with a 100% cache potential should be called with the [`partialCached`][] function instead of the [`partial`][] function. See the [caching](#caching) section below.
+: The percentage of executions that produce the same output as the first execution. Call a _partial_ template with a 100% cache potential using the [`partials.IncludeCached`][] function instead of the [`partials.Include`][] function, as described in [caching](#caching).
 
   > [!WARNING]
-  > A 100% cache potential is calculated by comparing each execution's rendered output to the first execution's output, so it cannot detect side effects such as calls to [`warnf`][] or [`errorf`][], or execution order dependencies such as a conditional based on [`IsHome`][]. A _partial_ template that produces no visible output but performs validation, logging, or conditional logic based on context can show 100% cache potential even though caching it would suppress that behavior for all but the first invocation. Review the template's logic before switching it to `partialCached`.
+  > Hugo calculates cache potential by comparing the rendered output of each execution to the output of the first execution. It cannot detect side effects, such as calls to the [`fmt.Warnf`][] or [`fmt.Errorf`][] function, or dependencies on execution order, such as a conditional based on the [`IsHome`][] method. A _partial_ template that performs validation, logging, or conditional logic based on context can show a 100% cache potential, even though caching it suppresses that behavior for all but the first call. Review the logic of the template before you call it with the `partials.IncludeCached` function.
 
 percent cached
-: The number of times the rendered templated was cached divided by the number of times the template was executed.
+: The number of times Hugo cached the rendered template, divided by the number of times Hugo executed the template.
 
 cached count
-: The number of times the rendered templated was cached.
+: The number of times Hugo cached the rendered template.
 
 total count
-: The number of times the template was executed.
+: The number of times Hugo executed the template.
 
 template
 : The path to the template, relative to the `layouts` directory.
 
-Hugo builds pages in parallel where multiple pages are generated simultaneously. Because of this parallelism, the sum of "cumulative duration" values is usually greater than the actual time it takes to build the project.
+Hugo builds multiple pages at the same time. Because of this parallelism, the sum of the "cumulative duration" values is usually greater than the actual time it takes to build the project.
 
 ## Caching
 
-Some _partial_ templates such as sidebars or menus are executed many times during a build. Depending on the content within the _partial_ template and the desired output, the template may benefit from caching to reduce the number of executions. The [`partialCached`][] function provides caching capabilities for _partial_ templates.
+Hugo executes some _partial_ templates, such as sidebars or menus, many times during a build. Depending on the content of the _partial_ template and the desired output, caching may reduce the number of executions. Use the `partials.IncludeCached` function to cache the result of a _partial_ template.
 
 > [!TIP]
-> You can create cached variants of each _partial_ template by passing additional arguments to `partialCached` beyond the initial context. See the `partialCached` documentation for more details.
+> To create cached variants of a _partial_ template, pass additional arguments to the `partials.IncludeCached` function after the context.
 
 ## Timers
 
-Use the [`debug.Timer`][] function to determine execution time for a block of code, useful for finding performance bottlenecks in templates.
+Use the [`debug.Timer`][] function to measure the execution time of a block of code and find performance bottlenecks in your templates.
 
 [Microsoft Defender Antivirus documentation]: https://support.microsoft.com/en-us/topic/how-to-add-a-file-type-or-process-exclusion-to-windows-security-e524cbc2-3975-63c2-f9d1-7c2eb5331e53
 [`debug.Timer`]: /functions/debug/timer/
-[`errorf`]: /functions/fmt/errorf/
+[`fmt.Errorf`]: /functions/fmt/errorf/
+[`fmt.Warnf`]: /functions/fmt/warnf/
 [`IsHome`]: /methods/page/ishome/
-[`partialCached`]: /functions/partials/includecached/
-[`partial`]: /functions/partials/include/
-[`warnf`]: /functions/fmt/warnf/
+[`partials.Include`]: /functions/partials/include/
+[`partials.IncludeCached`]: /functions/partials/includecached/
