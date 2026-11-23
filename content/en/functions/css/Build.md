@@ -1,6 +1,6 @@
 ---
 title: css.Build
-description: Returns a resource created by bundling, transforming, and minifying the given CSS resource.
+description: Returns a resource created by bundling the given CSS resource, and optionally transforming and minifying it.
 keywords: []
 params:
   functions_and_methods:
@@ -11,114 +11,117 @@ params:
 
 {{< new-in 0.158.0 />}}
 
-The `css.Build` function is backed by the [`evanw/esbuild`][] package, providing a mature, high-performance foundation for bundling, transformation, and minification.
-
-Use the `css.Build` function to:
-
-- Recursively replace `@import` statements in CSS files with the content of the imported files
-- Transform syntax for browser compatibility
-- Apply vendor prefixes for browser compatibility
-- Minify the bundled CSS code
-- Create a source map
-
-If an `@import` statement includes a media query, a feature query, or a cascade layer assignment, the function wraps the imported content in the corresponding `@media`, `@supports`, or `@layer` rule.
-
 ## Usage
 
-In this example, Hugo bundles the local files referenced by `@import` statements to create and publish a single resource with inline content.
+The `css.Build` function returns a resource created by bundling the given CSS resource, and optionally transforming and minifying it. It uses the [`evanw/esbuild`][] package to replace `@import` statements with the content of the imported files, recursively. If an `@import` statement includes a media query, a feature query, or a cascade layer assignment, the function wraps the imported content in the corresponding `@media`, `@supports`, or `@layer` rule.
 
-```tree
-assets/
-└── css/
-    ├── components/
-    │   ├── a.css
-    │   └── b.css
-    └── main.css
+Use these options to process the bundled CSS code further:
+
+- Set the [`target`](#target) option to transform syntax and add vendor prefixes for browser compatibility.
+- Set the [`minify`](#minify) option to minify the CSS code.
+- Set the [`sourceMap`](#sourcemap) option to create a source map.
+
+### Import paths
+
+The paths described below apply to both `@import` statements and the `url()` functional notation used for images and fonts.
+
+Each file referenced by a path, including images, fonts, and stylesheets, must reside in the `assets` directory of the [unified file system](g), or in a Node package in an allowed location as described in [file system access](#file-system-access).
+
+#### Files in the assets directory
+
+To import a file from the `assets` directory, use a bare path, a relative path, or a root-relative path. When you use a bare path, Hugo searches relative to the current stylesheet, then relative to the `assets` directory.
+
+```css {file="assets/css/main.css"}
+/* A bare path */
+@import "variables.css";
+
+/* A relative path */
+@import "./theme.css";
+@import "../layout.css";
+
+/* A root-relative path */
+@import "/css/grid.css";
+
+/* A url() reference using the same resolution logic */
+.logo { background: url("/images/logo.svg"); }
 ```
 
-```css {file="assets/css/main.css" copy=true}
-@import url('https://cdn.jsdelivr.net/npm/the-new-css-reset/css/reset.min.css');
+#### Node packages
 
-@import './components/a.css';
-@import './components/b.css';
+To import a Node package, use the package name. Hugo reads the `package.json` file in the package to find the entry point, as described in the [`mainFields`](#mainfields) option.
 
-.c {color: blue; }
+```css {file="assets/css/main.css"}
+@import "bootstrap";
 ```
 
-```css {file="assets/css/components/a.css" copy=true}
-.a { color: red; }
+#### Files in a Node package
+
+To import a specific file from a Node package, use a path that begins with the package name.
+
+```css {file="assets/css/main.css"}
+@import "bootstrap/dist/css/bootstrap-grid.css";
 ```
 
-```css {file="assets/css/components/b.css" copy=true}
-.b { color: green; }
-```
+### Artifacts
 
-```go-html-template {file="layouts/_partials/css.html" copy=true}
-{{ with resources.Get "css/main.css" | css.Build }}
-  {{ if hugo.IsDevelopment }}
-    <link rel="stylesheet" href="{{ .RelPermalink }}">
-  {{ else }}
-    {{ with . | fingerprint }}
-      <link rel="stylesheet" href="{{ .RelPermalink }}" integrity="{{ .Data.Integrity }}" crossorigin="anonymous">
-    {{ end }}
-  {{ end }}
-{{ end }}
-```
+{{< new-in 0.165.0 />}}
 
-```go-html-template {file="layouts/baseof.html" copy=true}
-{{ partialCached "css.html" . }}
-```
+In addition to the main output, Hugo may publish other files as part of the build:
 
-The generated CSS code:
+- Files copied to the output directory by the `file` loader, such as fonts and images
+- A source map, when the [`sourceMap`](#sourcemap) option is `external` or `linked`
 
-```css {file="public/css/main.css"}
-@import "https://cdn.jsdelivr.net/npm/the-new-css-reset/css/reset.min.css";
+To access these files, call the [`Data`][] method on the returned resource. The resulting map contains an `Artifacts` key, a slice with one artifact for each file. Use these methods on each artifact:
 
-.a {
-  color: red;
-}
+`MediaType`
+: (`media.Type`) Returns the media type of the file.
 
-.b {
-  color: green;
-}
+`Permalink`
+: (`string`) Returns the permalink of the file.
 
-.c {
-  color: blue;
-}
-```
+`RelPermalink`
+: (`string`) Returns the relative permalink of the file.
 
-To minify the generated CSS code, use the [`minify`](#minify) option as described below.
+### File system access
+
+{{% include "/_common/node-permissions-imports.md" %}}
 
 ## Options
 
-The `css.Build` function accepts an options map to fine-tune bundling, minification, and browser compatibility.
+The `css.Build` function accepts an options map.
 
 `charset`
 : {{< new-in 0.168.0 />}}
-: (`string`) The character set of the generated CSS code. Characters outside of this set are escaped. Either `ascii` or `utf8`. Default is `ascii`. See [details][esb charset].
+: (`string`) The [character set][esb charset] of the generated CSS code, either `ascii` or `utf8`. Hugo escapes characters outside of this set. Default is `ascii`.
 
 `externals`
-: (`[]string`) A slice of path patterns to exclude from bundling. The `@import` statements for these patterns remain as-is in the generated CSS code. See [details][esb external].
+: (`[]string`) A slice of [paths][esb external] to exclude from bundling. Hugo leaves the matching `@import` statements unchanged in the generated CSS code. How Hugo matches each path depends on where the imported file resides:
+
+  - For a file in the `assets` directory, the path must exactly match the path in the `@import` statement, such as `./vendor/legacy.css`.
+  - For a Node package, the path can be a package name, such as `bootstrap`, which also matches every file in the package. The path can also contain one `*` wildcard, such as `boot*`.
 
   ```go-html-template
-  {{ $opts := dict "externals" (slice "./exclude-these/*" "./exclude-these-too/*") }}
+  {{ $opts := dict "externals" (slice "./vendor/legacy.css" "bootstrap") }}
   {{ $r := resources.Get "css/main.css" | css.Build $opts }}
   ```
 
 `importContext`
 : {{< new-in 0.165.0 />}}
-: (`resource.ResourceGetter`) A [resource getter](g) to use when resolving `@import` statements. Hugo searches this context first, matching by the path as written in the `@import` statement, before falling back to the file system.
+: (`resource.ResourceGetter`) A [resource getter](g) to use when resolving `@import` statements. Hugo searches this context first, before falling back to the file system. Hugo matches a resource in the context by the path relative to the `assets` directory. For a path that begins with `./` or `../`, Hugo resolves the path relative to the importing file. For example, when the `assets/css/main.css` file contains `@import "./sub/theme.css"`, a resource named `css/sub/theme.css` matches. For a bare path, Hugo also tries the path as written, so `@import "sub/theme.css"` matches a resource named `sub/theme.css` or `css/sub/theme.css`.
 
 `loaders`
-: (`map`) A map of file extensions to loader types. This determines how files with a given extension are processed during bundling. By default, Hugo uses the `css` loader for `.css` files and the `file` loader for all others. Common loaders include:
+: (`map`) A map of file extensions to [loader types][esb loader]. The loader type determines how Hugo processes files with a given extension during bundling. Values in this map override the defaults, which are:
+
+  - The `css` loader for `.css` files
+  - The `file` loader for image files with the `.avif`, `.gif`, `.jpeg`, `.jpg`, `.png`, `.svg`, or `.webp` extension
+  - The `file` loader for font files with the `.eot`, `.otf`, `.ttf`, `.woff`, or `.woff2` extension
+
+  The build fails if a `url()` references a file with any other extension, such as `.ico`, unless you map the extension to a loader. Common loaders include:
 
   - `css`: Processes the file as a CSS file
-  - `dataurl`: Embeds the file as a base64-encoded data URL
-  - `empty`: Excludes the file from the bundle
+  - `dataurl`: Embeds the file in the generated CSS code as a data URL
+  - `empty`: Replaces the reference with an empty `url()`
   - `file`: Copies the file to the output directory and rewrites the URL
-  - `text`: Loads the file content as a string
-
-  See [details][esb loader].
 
   ```go-html-template
   {{ $opts := dict "loaders" (dict ".png" "dataurl" ".svg" "dataurl") }}
@@ -126,9 +129,9 @@ The `css.Build` function accepts an options map to fine-tune bundling, minificat
   ```
 
 `mainFields`
-: (`[]string`) A prioritized slice of field names in a `package.json` file that determine the CSS entry point of a Node.js package. The default is `["style", "main"]`. See [details][esb mainfields].
+: (`[]string`) A prioritized slice of [field names][esb mainfields] in a `package.json` file that determine the CSS entry point of a [Node.js][] package. Default is `["style", "main"]`.
 
-  When an `@import` statement references a Node package, Hugo consults the metadata in the `package.json` file to find the stylesheet. Use this option to support packages that define a CSS entry point using non-standard fields.
+  When an `@import` statement references a Node package, Hugo reads the `package.json` file to find the stylesheet. Use this option to support packages that define a CSS entry point using non-standard fields.
 
   ```go-html-template
   {{ $opts := dict "mainFields" (slice "css" "style" "main") }}
@@ -136,7 +139,7 @@ The `css.Build` function accepts an options map to fine-tune bundling, minificat
   ```
 
 `minify`
-: (`bool`) Whether to minify the generated CSS code. Default is `false`. See [details][esb minify].
+: (`bool`) Whether to [minify][esb minify] the generated CSS code. Default is `false`.
 
   ```go-html-template
   {{ $opts := dict "minify" true }}
@@ -144,7 +147,7 @@ The `css.Build` function accepts an options map to fine-tune bundling, minificat
   ```
 
 `sourceMap`
-: (`string`) The type of source map to generate. One of `external`, `inline`, `linked`, or `none`. Default is `none`. See [details][esb sourcemap].
+: (`string`) The type of [source map][esb sourcemap] to generate, one of `external`, `inline`, `linked`, or `none`. Default is `none`.
 
   ```go-html-template
   {{ $opts := dict "sourceMap" "linked" }}
@@ -152,7 +155,7 @@ The `css.Build` function accepts an options map to fine-tune bundling, minificat
   ```
 
 `sourcesContent`
-: (`bool`) Whether to include the content of the source files in the source map. Default is `true`. See [details][esb sourcesContent].
+: (`bool`) Whether to include the [content of the source files][esb sourcesContent] in the source map. Default is `true`.
 
   ```go-html-template
   {{ $opts := dict "sourceMap" "linked" "sourcesContent" false }}
@@ -160,15 +163,15 @@ The `css.Build` function accepts an options map to fine-tune bundling, minificat
   ```
 
 `target`
-: (`[]string`) The target environment for the generated CSS code. This determines which syntax transformations to perform and which vendor prefixes to apply. If unset, no transformations or prefixing are performed. Each element consists of a target name and a version number. Supported targets include `chrome`, `edge`, `firefox`, `ie`, `ios`, `opera`, and `safari`. See [details][esb target].
+: (`[]string`) The [target environment][esb target] for the generated CSS code. The target environment determines which syntax transformations to perform and which vendor prefixes to add. If unset, Hugo does not transform syntax or add vendor prefixes. Each element consists of a target name followed by a version number, such as `chrome115`. Supported targets include `chrome`, `edge`, `firefox`, `ie`, `ios`, `opera`, and `safari`. Target names are case-insensitive, and the build fails if a target name is unknown or lacks a version number.
 
   ```go-html-template
-  {{ $target := slice "chrome115" "edge115" "firefox116" "ios16.4" "opera101" "safari16.4" }}
+  {{ $target := slice "chrome115" "edge115" "firefox116" "ios16.4" "safari16.4" }}
   {{ $opts := dict "target" $target }}
   {{ $r := resources.Get "css/main.css" | css.Build $opts }}
   ```
 
-  In the example above, the target environment is roughly equivalent to the [browserlist][] "baseline widely available" profile as of March 2026.
+  This target environment matches the desktop and iOS browsers in the [Browserslist][] "baseline widely available" query as of March 2026.
 
 `targetPath`
 : (`string`) The target path of the resource, relative to the `public` directory. If unset, the target path defaults to the asset's original path with a `.css` extension.
@@ -180,7 +183,7 @@ The `css.Build` function accepts an options map to fine-tune bundling, minificat
 
 `vars`
 : {{< new-in 0.160.0 />}}
-: (`map`) A map of key-value pairs used to generate CSS variables. The `css.Build` function injects these variables into the stylesheet when it encounters the `hugo:vars` internal identifier within an `@import` statement.
+: (`map`) A map of key-value pairs used to generate CSS variables. The `css.Build` function injects these variables into the stylesheet when it finds the `hugo:vars` internal identifier in an `@import` statement.
 
   ```go-html-template
   {{ $vars := dict
@@ -192,7 +195,7 @@ The `css.Build` function accepts an options map to fine-tune bundling, minificat
   {{ $r := resources.Get "css/main.css" | css.Build $opts }}
   ```
 
-  In the example above, using the identifier in your CSS allows you to access the values using standard CSS variable syntax.
+  Import the `hugo:vars` identifier in your stylesheet to access the values with standard CSS variable syntax:
 
   ```css
   @import 'hugo:vars';
@@ -225,7 +228,7 @@ The `css.Build` function accepts an options map to fine-tune bundling, minificat
 
   {{< new-in 0.161.0 />}}
 
-  The map may optionally contain nested maps. Each nested map is exposed as a separate `hugo:vars/<name>` namespace, where `<name>` is the key of the nested map (lowercased). Top-level scalar values and nested maps are independent. A top-level `@import 'hugo:vars'` only includes scalar values, while `@import 'hugo:vars/<name>'` only includes the scalars from the named nested map.
+  The map can contain nested maps. Hugo exposes each nested map as a separate `hugo:vars/<name>` namespace, where `<name>` is the key of the nested map converted to lowercase. Top-level scalar values and nested maps are independent. An `@import 'hugo:vars'` statement includes only the top-level scalar values, and an `@import 'hugo:vars/<name>'` statement includes only the scalar values from the named nested map.
 
   ```go-html-template
   {{ $vars := dict
@@ -241,7 +244,7 @@ The `css.Build` function accepts an options map to fine-tune bundling, minificat
   {{ $r := resources.Get "css/main.css" | css.Build $opts }}
   ```
 
-  Because nested imports follow the same rules as regular `@import` statements, you can attach a media query, feature query, or cascade layer assignment to a `hugo:vars/<name>` import.
+  Nested imports follow the same rules as other `@import` statements, so you can add a media query, a feature query, or a cascade layer assignment to a `hugo:vars/<name>` import:
 
   ```css
   @import 'hugo:vars';
@@ -257,7 +260,10 @@ The `css.Build` function accepts an options map to fine-tune bundling, minificat
 
   ```css
   :root {
-    --font-family: "Times New Roman", Times, serif;
+    --font-family:
+      "Times New Roman",
+      Times,
+      serif;
     --font-size: 24px;
     --primary-color: blue;
   }
@@ -275,7 +281,7 @@ The `css.Build` function accepts an options map to fine-tune bundling, minificat
   }
   ```
 
-  The `vars` option is useful for setting CSS variables within your project configuration.
+  Use the `vars` option to set CSS variables in your project configuration:
 
   {{< code-toggle file=hugo >}}
   [params.theme.style]
@@ -288,19 +294,102 @@ The `css.Build` function accepts an options map to fine-tune bundling, minificat
   primary-color = 'red'
   {{< /code-toggle >}}
 
+  Then pass the configuration values to the `css.Build` function:
+
   ```go-html-template
   {{ $opts := dict "vars" site.Params.theme.style }}
   {{ $r := resources.Get "css/main.css" | css.Build $opts }}
   ```
 
-  When passing a `vars` map to the `css.Build` function, you can use the [`css.Quoted`][] function to explicitly indicate that a value must be treated as a quoted string, most commonly for `font-family` names or the `content` property.
+  Use the [`css.Quoted`][] function to treat a value as a quoted string, most commonly for `font-family` names or the `content` property.
 
   > [!TIP]
-  > To use the `vars` option to inject CSS variables with Tailwind CSS, see [inject CSS variables][].
+  > You can also use the `vars` option to [inject CSS variables][] into a stylesheet that you process with Tailwind CSS.
 
-## Example
+## Examples
 
-The example below uses several of the [options](#options) described above to bundle, transform, and minify CSS code.
+These examples bundle imported files, apply several options, and render preload links for the font files published by the build.
+
+### Bundle imported files
+
+This example bundles the local files referenced by `@import` statements into a single resource:
+
+```tree
+assets/
+└── css/
+    ├── components/
+    │   ├── a.css
+    │   └── b.css
+    └── main.css
+```
+
+The CSS entry file:
+
+```css {file="assets/css/main.css" copy=true}
+@import url('https://cdn.jsdelivr.net/npm/the-new-css-reset/css/reset.min.css');
+
+@import './components/a.css';
+@import './components/b.css';
+
+.c { color: blue; }
+```
+
+The imported files:
+
+```css {file="assets/css/components/a.css" copy=true}
+.a { color: red; }
+```
+
+```css {file="assets/css/components/b.css" copy=true}
+.b { color: green; }
+```
+
+A _partial_ template to process the CSS:
+
+```go-html-template {file="layouts/_partials/css.html" copy=true}
+{{ with resources.Get "css/main.css" | css.Build }}
+  {{ if hugo.IsDevelopment }}
+    <link rel="stylesheet" href="{{ .RelPermalink }}">
+  {{ else }}
+    {{ with . | fingerprint }}
+      <link rel="stylesheet" href="{{ .RelPermalink }}" integrity="{{ .Data.Integrity }}" crossorigin="anonymous">
+    {{ end }}
+  {{ end }}
+{{ end }}
+```
+
+Calling the _partial_ template from the _base_ template:
+
+```go-html-template {file="layouts/baseof.html" copy=true}
+{{ partialCached "css.html" . }}
+```
+
+The generated CSS code in development, in which the external URL import remains unchanged:
+
+```css {file="public/css/main.css"}
+@import "https://cdn.jsdelivr.net/npm/the-new-css-reset/css/reset.min.css";
+
+/* ns-hugo-imp:/home/user/project/assets/css/components/a.css */
+.a {
+  color: red;
+}
+
+/* ns-hugo-imp:/home/user/project/assets/css/components/b.css */
+.b {
+  color: green;
+}
+
+/* <stdin> */
+.c {
+  color: blue;
+}
+```
+
+Unless you set the [`minify`](#minify) option to `true`, the generated CSS code includes a comment before the content of each source file. The comment for an imported file contains its absolute path on the computer that builds the site. In production, the `fingerprint` function adds a hash to the file name, such as `main.5913efb7…841b.css`.
+
+### Bundle, transform, and minify
+
+This example uses several [options](#options) to bundle, transform, and minify the CSS code:
 
 ```go-html-template {file="layouts/_partials/css.html" copy=true}
 {{ with resources.Get "css/main.css" }}
@@ -308,7 +397,7 @@ The example below uses several of the [options](#options) described above to bun
     "loaders" (dict ".png" "dataurl" ".svg" "dataurl")
     "minify" (cond hugo.IsDevelopment false true)
     "sourceMap" (cond hugo.IsDevelopment "linked" "none")
-    "target" (slice "chrome115" "edge115" "firefox116" "ios16.4" "opera101" "safari16.4")
+    "target" (slice "chrome115" "edge115" "firefox116" "ios16.4" "safari16.4")
     "targetPath" "css/styles.css"
   }}
   {{ with . | css.Build $opts }}
@@ -323,28 +412,19 @@ The example below uses several of the [options](#options) described above to bun
 {{ end }}
 ```
 
-Using the options above, Hugo does the following:
+With these options, Hugo does the following:
 
 - Embeds PNG and SVG images as data URLs in the generated CSS code
 - Minifies the output in production but not in development
-- Generates an external source map in development but not in production
+- Generates a linked source map in development but not in production
 - Transforms syntax for compatibility with the targeted browser versions
 - Adds vendor prefixes for compatibility with the targeted browser versions
 - Publishes the generated CSS code to `css/styles.css`
-- In production, adds an SRI hash and inserts a file hash into the filename
+- In production, adds an SRI hash and inserts a file hash into the file name
 
-## Artifacts
+### Render preload links for fonts
 
-{{< new-in 0.165.0 />}}
-
-In addition to the main output, Hugo may publish other files as part of the build:
-
-- Files copied to the output directory by the `file` loader, such as fonts and images
-- A source map, when the [`sourceMap`](#sourcemap) option is `external` or `linked`
-
-The `Data` method on the returned resource exposes these files as a slice of artifacts, where each artifact provides `MediaType`, `Permalink`, and `RelPermalink` methods.
-
-For example, to render preload links for font files published by the build:
+This example renders a preload link for each font file that the build publishes, using the [artifacts](#artifacts) of the returned resource:
 
 ```go-html-template {file="layouts/_partials/css.html"}
 {{ with resources.Get "css/main.css" }}
@@ -359,54 +439,11 @@ For example, to render preload links for font files published by the build:
 {{ end }}
 ```
 
-## Common patterns
-
-The examples below cover the most frequent use cases for referencing resources within your project or within Node packages. These patterns apply to both `@import` statements and the `url()` functional notation used for images and fonts.
-
-All resources referenced by a path, including images, fonts, and stylesheets, must reside in the `assets` directory of the [unified file system](g), or within a Node package in an allowed location. See [file system access](#file-system-access).
-
-### Files in the assets directory
-
-To include a stylesheet from the `assets` directory, you can use a bare path, a relative path, or a root-relative path. When you use a bare path, Hugo searches relative to the current stylesheet, then relative to the `assets` directory.
-
-```css {file="/assets/css/main.css"}
-/* A bare path */
-@import "variables.css";
-
-/* A relative path */
-@import "./theme.css";
-@import "../layout.css";
-
-/* A root-relative path */
-@import "/css/grid.css";
-
-/* A url() reference using the same resolution logic */
-.logo { background: url("/images/logo.svg"); }
-```
-
-### Node packages
-
-When referencing a Node package by name, Hugo consults the `package.json` file within that package to find the entry point.
-
-```css {file="/assets/css/main.css"}
-@import "bootstrap";
-```
-
-### Files within a package
-
-To reference a specific file within a Node package, provide the path starting with the package name.
-
-```css {file="/assets/css/main.css"}
-@import "bootstrap/dist/css/bootstrap-grid.css";
-```
-
-## File system access
-
-{{% include "/_common/node-permissions-imports.md" %}}
-
+[Browserslist]: https://browsersl.ist
+[Node.js]: https://nodejs.org/en
+[`Data`]: /methods/resource/data/
 [`css.Quoted`]: /functions/css/quoted/
 [`evanw/esbuild`]: https://github.com/evanw/esbuild
-[browserlist]: https://browsersl.ist
 [esb charset]: https://esbuild.github.io/api/#charset
 [esb external]: https://esbuild.github.io/api/#external
 [esb loader]: https://esbuild.github.io/api/#loader

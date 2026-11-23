@@ -9,12 +9,15 @@ params:
     signatures: [css.Unquoted STRING]
 ---
 
-> [!NOTE]
-> This function is only applicable to the `vars` option passed to the [`css.Sass`][] function.
+## Usage
 
-When passing a `vars` map to the `css.Sass` function, Hugo detects common typed CSS values such as `24px` or `#FF0000` using regular expression matching. If necessary, you can bypass automatic type inference by using the `css.Unquoted` function to explicitly indicate that the value must be treated as an unquoted string.
+The `css.Unquoted` function returns the given string, setting its data type to indicate that it must not be quoted when used in CSS. Use this function only within the map passed to the `vars` option of the [`css.Sass`][] function.
 
-In the example below, we use `css.Unquoted` to ensure the value for the `font-family` property is injected without quotes.
+When you pass a `vars` map to the `css.Sass` function, Hugo uses regular expressions to detect common typed CSS values such as `24px` or `#FF0000`. Use the `css.Unquoted` function to bypass this type inference and treat the value as an unquoted string.
+
+## Examples
+
+This example injects the value for the `font-family` property without quotes:
 
 ```go-html-template
 {{ $vars := dict
@@ -27,7 +30,7 @@ In the example below, we use `css.Unquoted` to ensure the value for the `font-fa
 {{ end }}
 ```
 
-Using the `hugo:vars` identifier in your stylesheet:
+Using the `hugo:vars` identifier in the stylesheet:
 
 ```scss
 @use "hugo:vars" as h;
@@ -37,7 +40,7 @@ body {
 }
 ```
 
-The resulting CSS contains an unquoted string:
+The resulting CSS, with an unquoted string:
 
 ```css
 body {

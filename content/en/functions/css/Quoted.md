@@ -9,14 +9,17 @@ params:
     signatures: [css.Quoted STRING]
 ---
 
-> [!NOTE]
-> This function is only applicable to the `vars` option passed to the [`css.Build`][] or [`css.Sass`][] functions.
+## Usage
 
-When passing a `vars` map to the `css.Sass` function, Hugo detects common typed CSS values such as `24px` or `#FF0000` using regular expression matching. If necessary, you can bypass automatic type inference by using the `css.Quoted` function to explicitly indicate that the value must be treated as a quoted string.
+The `css.Quoted` function returns the given string, setting its data type to indicate that it must be quoted when used in CSS. Use this function only within the map passed to the `vars` option of the [`css.Build`][] or [`css.Sass`][] functions.
 
-For the `css.Build` function, use `css.Quoted` to explicitly indicate that a value must be treated as a quoted string, most commonly for `font-family` names or the `content` property.
+When you pass a `vars` map to the `css.Sass` function, Hugo uses regular expressions to detect common typed CSS values such as `24px` or `#FF0000`. Use the `css.Quoted` function to bypass this type inference and treat the value as a quoted string.
 
-In the example below, we use `css.Quoted` to ensure the values for the `content` property are injected as strings.
+When you pass a `vars` map to the `css.Build` function, use the `css.Quoted` function to treat a value as a quoted string, most commonly for `font-family` names or the `content` property.
+
+## Examples
+
+This example injects the values for the `content` property as quoted strings:
 
 ```go-html-template
 {{ $vars := dict
@@ -30,7 +33,7 @@ In the example below, we use `css.Quoted` to ensure the values for the `content`
 {{ end }}
 ```
 
-Using the `hugo:vars` identifier in your stylesheet:
+Using the `hugo:vars` identifier in the stylesheet:
 
 ```scss
 @use "hugo:vars" as h;
@@ -44,7 +47,7 @@ ul li::after {
 }
 ```
 
-The resulting CSS contains quoted strings:
+The resulting CSS, with quoted strings:
 
 ```css
 ol li::after {
