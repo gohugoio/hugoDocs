@@ -13,16 +13,20 @@ params:
 
 ## Usage
 
-This example iterates through all project resources and uses `reflect.IsImageResource` to decide whether to render an image tag or provide a download link for non-image files.
+The `reflect.IsImageResource` function reports whether the given value is a `Resource` object representing an image, as defined by its [media type](g). The function returns `true` for any resource with a main media type of `image`, even if Hugo cannot process the image or extract its dimensions.
+
+{{% include "/_common/image-reflection-functions.md" %}}
+
+## Examples
+
+Rendering an `img` element for each image, and a download link for each other file:
 
 ```go-html-template
 {{ range resources.Match "**" }}
   {{ if reflect.IsImageResource . }}
-    <img src="{{ .RelPermalink }}" alt="Image">
+    <img src="{{ .RelPermalink }}" alt="">
   {{ else }}
     <a href="{{ .RelPermalink }}">Download</a>
   {{ end }}
 {{ end }}
 ```
-
-{{% include "/_common/image-reflection-functions.md" %}}

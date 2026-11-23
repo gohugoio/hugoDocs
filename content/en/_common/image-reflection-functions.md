@@ -2,8 +2,6 @@
 _comment: Do not remove front matter.
 ---
 
-## Image operations
-
 Use these functions to determine which operations Hugo supports for a given resource. While Hugo classifies a variety of file types as image resources, its ability to process them or extract metadata varies by format.
 
 - [`reflect.IsImageResource`][]: {{% get-page-desc "/functions/reflect/isimageresource" %}}
@@ -17,12 +15,12 @@ The table below shows the values these functions return for various file formats
 |AVIF  |true           |true                      |true                   |
 |BMP   |true           |true                      |true                   |
 |GIF   |true           |true                      |true                   |
-|HEIC  |true           |**false**                 |true                   |
-|HEIF  |true           |**false**                 |true                   |
-|ICO   |true           |**false**                 |**false**              |
+|HEIC  |true           |false                     |true                   |
+|HEIF  |true           |false                     |true                   |
+|ICO   |true           |false                     |false                  |
 |JPEG  |true           |true                      |true                   |
 |PNG   |true           |true                      |true                   |
-|SVG   |true           |**false**                 |**false**              |
+|SVG   |true           |false                     |false                  |
 |TIFF  |true           |true                      |true                   |
 |WebP  |true           |true                      |true                   |
 

@@ -11,6 +11,12 @@ params:
 
 {{< new-in 0.154.0 />}}
 
+## Usage
+
+The `reflect.IsSite` function reports whether the given value is a `Site` object.
+
+## Examples
+
 ```go-html-template {file="layouts/page.html"}
 {{ with site }}
   {{ reflect.IsSite . }} → true
