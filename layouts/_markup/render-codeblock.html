@@ -75,7 +75,7 @@ may also specify the following parameters:
 {{- end }}
 
 {{- if $details }}
-	<details class="cursor-pointer" {{ $open }}>
+	<details class="cursor-pointer" {{ $open | safe.HTMLAttr }}>
 		<summary>{{ $summary }}</summary>
 {{- end }}
 
