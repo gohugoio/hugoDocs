@@ -11,7 +11,9 @@ params:
 
 {{< new-in 0.165.0 />}}
 
-The `css.ChromaStyles` function returns a CSS stylesheet for the syntax highlighter as a `Resource` object. This stylesheet is needed when the `noClasses` option is `false`, either as a [global default][] in your project configuration or as an override when using any of the following:
+## Usage
+
+The `css.ChromaStyles` function returns a CSS stylesheet for the syntax highlighter as a [resource](g). You need this stylesheet when the `noClasses` option is `false`, either as a [global default][] in your project configuration or as an override when using any of the following:
 
 - The [`highlight`][] shortcode
 - The [`transform.Highlight`][] function
@@ -22,13 +24,13 @@ Hugo caches the result in memory, so calling the function more than once with th
 
 ## Options
 
-The `css.ChromaStyles` function requires an options map. The [`targetPath`](#targetpath) is the only required option.
+The `css.ChromaStyles` function requires an options map. The [`targetPath`](#targetpath) option is required. All other options are optional.
 
 `classDark`
-: (`string`) When [`modeSelector`](#modeselector) is `true` and [`mode`](#mode) is `dark`, the CSS class name used to scope selectors. Default is `dark`.
+: (`string`) The CSS class name used to scope selectors when [`modeSelector`](#modeselector) is `true` and [`mode`](#mode) is `dark`. Default is `dark`.
 
 `classLight`
-: (`string`) When [`modeSelector`](#modeselector) is `true` and [`mode`](#mode) is `light`, the CSS class name used to scope selectors. Default is `light`.
+: (`string`) The CSS class name used to scope selectors when [`modeSelector`](#modeselector) is `true` and [`mode`](#mode) is `light`. Default is `light`.
 
 `highlightStyle`
 : (`string`) The foreground and background colors for highlighted lines, such as `#fff000 bg:#000fff`. Defaults to the colors defined by the selected [`style`](#style).
@@ -40,10 +42,10 @@ The `css.ChromaStyles` function requires an options map. The [`targetPath`](#tar
 : (`string`) The foreground and background colors for table line numbers, such as `#fff000 bg:#000fff`. Defaults to the colors defined by the selected [`style`](#style).
 
 `mode`
-: (`string`) The color [mode][mode], either `light` or `dark`. The specified style must support the given mode. If you omit this option, Hugo uses the style's default mode.
+: (`string`) The color [mode][], either `light` or `dark`. The selected style must support the given mode. If you omit this option, Hugo uses the default mode of the style.
 
 `modeSelector`
-: (`bool`) Whether to scope CSS selectors under a top-level mode class. For example, a `light` mode stylesheet scopes selectors under `.light`, producing `.light .chroma` instead of `.chroma`. Set to `true` when generating a paired light/dark stylesheet. Default is `false`.
+: (`bool`) Whether to scope CSS selectors under a top-level mode class. For example, a `light` mode stylesheet scopes selectors under `.light`, producing `.light .chroma` instead of `.chroma`. Set this option to `true` when you generate paired light and dark stylesheets. Default is `false`.
 
 `omitClassComments`
 : (`bool`) Whether to omit CSS class comment prefixes in the generated stylesheet. Default is `false`.
@@ -56,7 +58,9 @@ The `css.ChromaStyles` function requires an options map. The [`targetPath`](#tar
 
 ## Examples
 
-In the first two examples, call the _partial_ template from your _base_ template using the [`partials.IncludeCached`][] function. Both examples assume this project configuration:
+These examples generate a single stylesheet, generate paired light and dark stylesheets, and add a theme switcher to your site.
+
+In the first two examples, call the _partial_ template from your _base_ template using the [`partials.IncludeCached`][] function. Both examples use this project configuration:
 
 {{< code-toggle file=hugo copy=true >}}
 [markup.highlight]
@@ -77,7 +81,7 @@ To generate and include a stylesheet using the [`style`][] value in your project
 
 ### Light and dark stylesheets
 
-To generate and include paired light and dark stylesheets for a style that supports both [modes][mode]:
+To generate and include paired light and dark stylesheets for a style that supports both modes:
 
 ```go-html-template {file="layouts/_partials/highlight.html" copy=true}
 {{ $opts := dict
@@ -98,11 +102,11 @@ To generate and include paired light and dark stylesheets for a style that suppo
 {{ end }}
 ```
 
-The light stylesheet is unscoped and acts as the default. The dark stylesheet's selectors are scoped under the `dark` class, so its rules take effect only when the root element has that class.
+The light stylesheet is unscoped and acts as the default. The selectors in the dark stylesheet are scoped under the `dark` class, so its rules take effect only when the root element has that class.
 
-### Complete example
+### Theme switcher
 
-This example adds a light/dark/system theme switcher to your site, using the [`css.Build`][] function to bundle the generated stylesheets into your main CSS file.
+This example adds a theme switcher with light, dark, and system options to your site. It uses the [`css.Build`][] function to bundle the generated stylesheets into your main CSS file.
 
 Step 1
 : Add this to your project configuration:
@@ -239,7 +243,7 @@ Step 5
   ```
 
 Step 6
-: Call both _partial_ templates from your _base_ template and add the theme switcher markup. The inline script in the `head` element applies the theme before the first paint, preventing a flash of light-themed content when a dark-theme visitor loads a page:
+: Call both _partial_ templates from your _base_ template and add the theme switcher markup. The inline script in the `head` element applies the theme before the browser first paints the page. This prevents a flash of light-themed content when a visitor who prefers the dark theme loads a page:
 
   ```go-html-template {file="layouts/baseof.html" copy=true}
   <!DOCTYPE html>
@@ -274,7 +278,7 @@ Step 6
   ```
 
 Step 7
-: To verify the setup, add a fenced code block to your home page:
+: Add a fenced code block to your home page to verify the setup:
 
   ````md {file="content/_index.md" copy=true}
   ```go

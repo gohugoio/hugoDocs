@@ -9,9 +9,47 @@ params:
     signatures: ['css.Sass [OPTIONS] RESOURCE']
 ---
 
-Transpile Sass to CSS using the Dart Sass transpiler. To use this function, you must first [install Dart Sass](#dart-sass).
+## Usage
 
-Sass has two forms of syntax: [SCSS][] and [indented][]. Hugo supports both.
+The `css.Sass` function returns a resource created by transpiling the given Sass resource to CSS. Sass has two forms of syntax, [SCSS][] and [indented][], and Hugo supports both. To use this function, you must first [install Dart Sass](#dart-sass).
+
+Hugo caches the result in memory and writes it to disk in the [`assets`][] file cache, which is the `resources/_gen` directory by default. With the default [`useResourceCacheWhen`][] setting, Hugo runs Dart Sass on every build, and reads the result from the file cache only if it cannot find the Dart Sass executable.
+
+If you commit the `resources` directory to your repository, you do not need to install Dart Sass on your [CI/CD](g) platform, because Hugo reads the result from the file cache. This works only if both of these conditions are true:
+
+- You have not changed the location of the `assets` file cache.
+- You have not set `useResourceCacheWhen` to `never` in your project configuration.
+
+### Dart Sass
+
+Hugo uses [Dart Sass][] to transpile Sass to CSS. Install Dart Sass in your development and production environments. If you install Hugo as a [Snap package][], you do not need to install Dart Sass because the Hugo Snap package includes it.
+
+#### Development environment
+
+Install Dart Sass with one of these package managers:
+
+OS      | Package manager | Site               | Installation
+:-------|:----------------|:-------------------|:-----------------------------
+Linux   | Homebrew        | [brew.sh][]        | `brew install sass/sass/sass`
+Linux   | Snap            | [snapcraft.io][]   | `sudo snap install dart-sass`
+macOS   | Homebrew        | [brew.sh][]        | `brew install sass/sass/sass`
+Windows | Chocolatey      | [chocolatey.org][] | `choco install sass`
+Windows | Scoop           | [scoop.sh][]       | `scoop install sass`
+
+You can also install one of the [prebuilt binaries][] for Linux, macOS, and Windows. Extract the archive to a directory outside of your project, then add the directory that contains the `sass` executable to your `PATH`.
+
+Run `hugo env` to list the active transpilers.
+
+> [!NOTE]
+> If you build Hugo from source and run `mage test -v`, the test fails if you install Dart Sass as a Snap package. This is due to the strict confinement model of the Snap package.
+
+#### Production environment
+
+Most CI/CD platforms do not include Dart Sass, so you must install it in your build workflow before Hugo builds your project, unless you commit the `resources` directory as described above. See the [hosting guides][] for examples.
+
+### File system access
+
+{{% include "/_common/node-permissions-imports.md" %}}
 
 ## Options
 
@@ -27,18 +65,18 @@ The `css.Sass` function accepts an options map.
 
 `importContext`
 : {{< new-in 0.165.0 />}}
-: (`resource.ResourceGetter`) A [resource getter](g) to use when resolving `@use` and `@import` statements. Hugo searches this context first, matching by the path as written in the statement, before falling back to the file system.
+: (`resource.ResourceGetter`) A [resource getter](g) to use when resolving `@use` and `@import` statements. Hugo searches this context first, before falling back to the file system. Hugo matches a resource in the context by the path as written in the statement, and by the same file name variations that Sass uses, such as a leading underscore or an `.scss` extension. For example, `@use 'sub/theme'` matches a resource named `sub/_theme.scss`. Hugo does not match paths relative to the importing file.
 
 `includePaths`
-: (`slice`) A slice of paths, relative to the project root, that the transpiler will use when resolving `@use` and `@import` statements.
+: (`slice`) A slice of paths, relative to the project root, that the transpiler uses when resolving `@use` and `@import` statements. Each path must be inside the project directory. To import files from outside the project, such as the `node_modules` directory of a parent directory in a monorepo, add the directory to [`security.node.permissions.allowRead`][], then import the files with a relative path.
 
   ```go-html-template
-  {{ $opts := dict "includePaths" (slice "node_modules/bootstrap/scss") }}
+  {{ $opts := dict "includePaths" (slice "node_modules/my-package/scss") }}
   {{ $r := resources.Get "sass/main.scss" | css.Sass $opts }}
   ```
 
 `outputStyle`
-: (`string`) The output style of the resulting CSS, either `expanded` or `compressed`. Default is `expanded`.
+: (`string`) The output style of the generated CSS, either `expanded` or `compressed`. Default is `expanded`.
 
   ```go-html-template
   {{ $opts := dict "outputStyle" "compressed" }}
@@ -46,7 +84,7 @@ The `css.Sass` function accepts an options map.
   ```
 
 `silenceDeprecations`
-: (`slice`) A slice of deprecation IDs to silence. IDs are enclosed in brackets within Dart Sass warning messages (e.g., `import` in `WARN Dart Sass: DEPRECATED [import]`).
+: (`slice`) A slice of deprecation IDs to silence. Each ID appears in brackets in a Dart Sass warning message. For example, the ID is `import` in the `WARN Dart Sass: DEPRECATED [import]` message.
 
   ```go-html-template
   {{ $opts := dict "silenceDeprecations" (slice "import") }}
@@ -55,7 +93,7 @@ The `css.Sass` function accepts an options map.
 
 `silenceDependencyDeprecations`
 : {{< new-in 0.146.0 />}}
-: (`bool`) Whether to silence deprecation warnings from dependencies, where a dependency is considered any file transitively imported through a load path. This does not apply to `@warn` or `@debug` rules. Default is `false`.
+: (`bool`) Whether to silence deprecation warnings from dependencies, where a dependency is any file imported, directly or indirectly, through a load path. This option does not silence `@warn` or `@debug` rules. Default is `false`.
 
   ```go-html-template
   {{ $opts := dict "silenceDependencyDeprecations" true }}
@@ -82,10 +120,10 @@ The `css.Sass` function accepts an options map.
   ```
 
 `transpiler`
-: (`string`) The transpiler to use. The only supported value is `dartsass`. To install Dart Sass, see the [installation instructions](#dart-sass). Default is `dartsass`.
+: (`string`) The transpiler to use. The only supported value is `dartsass`. Default is `dartsass`.
 
   {{< new-in 0.170.0 >}}
-  The embedded LibSass transpiler was removed, and setting this option to `libsass` returns an error. To migrate, set this option to `dartsass` or remove it.
+  Hugo no longer includes the LibSass transpiler, and setting this option to `libsass` returns an error. The Sass team [deprecated LibSass](https://sass-lang.com/blog/libsass-is-deprecated/) in October 2020 and advised all users to migrate to Dart Sass. LibSass [reached end of life](https://github.com/sass/libsass) in October 2025 and no longer receives updates of any kind. To migrate, set this option to `dartsass` or remove it.
   {{< /new-in >}}
 
   ```go-html-template
@@ -94,7 +132,7 @@ The `css.Sass` function accepts an options map.
   ```
 
 `vars`
-: (`map`) A map of key-value pairs used to generate Sass variables. The `css.Sass` function injects these variables into the stylesheet when it encounters the `hugo:vars` internal identifier within a `@use` or `@import` statement.
+: (`map`) A map of key-value pairs used to generate Sass variables. The `css.Sass` function injects these variables into the stylesheet when it finds the `hugo:vars` internal identifier in a `@use` or `@import` statement.
 
   ```go-html-template
   {{ $vars := dict
@@ -106,7 +144,7 @@ The `css.Sass` function accepts an options map.
   {{ $r := resources.Get "sass/main.scss" | css.Sass $opts }}
   ```
 
-  In the example above, using the identifier in your stylesheet allows you to access the values as Sass variables in the `hugo:vars` namespace:
+  Use the `hugo:vars` identifier in your stylesheet to access the values as Sass variables in the `hugo:vars` namespace:
 
   ```scss
   @use 'hugo:vars' as v;
@@ -130,7 +168,7 @@ The `css.Sass` function accepts an options map.
 
   {{< new-in 0.161.0 />}}
 
-  The map may optionally contain nested maps. Each nested map is exposed as a separate `hugo:vars/<name>` namespace, where `<name>` is the key of the nested map (lowercased). Top-level scalar values and nested maps are independent. A top-level `@use 'hugo:vars'` only includes scalar values, while `@use 'hugo:vars/<name>'` only includes the scalars from the named nested map.
+  The map can contain nested maps. Hugo exposes each nested map as a separate `hugo:vars/<name>` namespace, where `<name>` is the key of the nested map converted to lowercase. Top-level scalar values and nested maps are independent. A `@use 'hugo:vars'` statement includes only the top-level scalar values, and a `@use 'hugo:vars/<name>'` statement includes only the scalar values from the named nested map.
 
   ```go-html-template
   {{ $vars := dict
@@ -146,7 +184,7 @@ The `css.Sass` function accepts an options map.
   {{ $r := resources.Get "sass/main.scss" | css.Sass $opts }}
   ```
 
-  In the stylesheet, reference each nested namespace with a separate `@use` statement. Assign an alias to access the variables from that namespace:
+  In your stylesheet, use a separate `@use` statement for each nested namespace, and assign an alias to access its variables:
 
   ```scss
   @use 'hugo:vars' as v;
@@ -183,7 +221,7 @@ The `css.Sass` function accepts an options map.
   }
   ```
 
-  The `vars` option is useful for setting Sass variables within your project configuration.
+  Use the `vars` option to set Sass variables in your project configuration:
 
   {{< code-toggle file=hugo >}}
   [params.theme.style]
@@ -196,23 +234,45 @@ The `css.Sass` function accepts an options map.
   primary-color = 'red'
   {{< /code-toggle >}}
 
+  Then pass the configuration values to the `css.Sass` function:
+
   ```go-html-template
   {{ $opts := dict "vars" site.Params.theme.style }}
   {{ $r := resources.Get "sass/main.scss" | css.Sass $opts }}
   ```
 
-  When passing a `vars` map to the `css.Sass` function, Hugo detects common typed CSS values such as `24px` or `#FF0000` using regular expression matching. If necessary, you can bypass automatic type inference by using the [`css.Quoted`][] or [`css.Unquoted`][] function to explicitly indicate a value's type.
+  Hugo uses regular expressions to detect common typed CSS values such as `24px` or `#FF0000`. Use the [`css.Quoted`][] or [`css.Unquoted`][] function to bypass this type inference and set the type of a value.
 
-## Example
+## Examples
 
-```go-html-template {copy=true}
+This example transpiles a Sass file to CSS, then renders a `link` element for the generated stylesheet. Define the Sass variables in your project configuration:
+
+{{< code-toggle file=hugo >}}
+[params.styles]
+font-size = '18px'
+primary-color = 'blue'
+{{< /code-toggle >}}
+
+Load the variables in your Sass file:
+
+```scss {file="assets/sass/main.scss"}
+@use 'hugo:vars' as v;
+
+body {
+  color: v.$primary-color;
+  font-size: v.$font-size;
+}
+```
+
+Call this _partial_ template from the `head` element of your _base_ template:
+
+```go-html-template {file="layouts/_partials/css.html" copy=true}
 {{ with resources.Get "sass/main.scss" }}
   {{ $opts := dict
     "enableSourceMap" hugo.IsDevelopment
     "outputStyle" (cond hugo.IsDevelopment "expanded" "compressed")
     "targetPath" "css/main.css"
     "vars" site.Params.styles
-    "includePaths" (slice "node_modules/bootstrap/scss")
   }}
   {{ with . | css.Sass $opts }}
     {{ if hugo.IsDevelopment }}
@@ -226,47 +286,25 @@ The `css.Sass` function accepts an options map.
 {{ end }}
 ```
 
-## File system access
+The template passes these options to the `css.Sass` function:
 
-{{% include "/_common/node-permissions-imports.md" %}}
+`enableSourceMap`
+: Generates a source map in development but not in production.
 
-## Dart Sass
+`outputStyle`
+: Generates expanded CSS in development and compressed CSS in production.
 
-Hugo uses [Dart Sass][] to transpile Sass to CSS. Install Dart Sass in your development and production environments. If you install Hugo as a [Snap package][], you do not need to install Dart Sass because the Hugo Snap package includes it.
+`targetPath`
+: Publishes the generated CSS to the `public/css` directory instead of the `public/sass` directory, with `main.css` as the base file name.
 
-### Development environment
+`vars`
+: Passes the `params.styles` values from your project configuration to the `hugo:vars` module that your Sass file loads.
 
-When you install Dart Sass somewhere in your PATH, Hugo will find it.
+The template uses the [`hugo.IsDevelopment`][] function to handle the development and production environments differently. The `hugo.IsDevelopment` function returns `true` when you run the `hugo server` command, and `false` when you run the `hugo build` command, unless you set a different [environment](g).
 
-OS      | Package manager | Site               | Installation
-:-------|:----------------|:-------------------|:-----------------------------
-Linux   | Homebrew        | [brew.sh][]        | `brew install sass/sass/sass`
-Linux   | Snap            | [snapcraft.io][]   | `sudo snap install dart-sass`
-macOS   | Homebrew        | [brew.sh][]        | `brew install sass/sass/sass`
-Windows | Chocolatey      | [chocolatey.org][] | `choco install sass`
-Windows | Scoop           | [scoop.sh][]       | `scoop install sass`
+In development, the template optimizes for debugging. Expanded CSS is easy to read, and the source map maps each CSS rule to its location in the Sass file. Neither is useful to site visitors, and both increase the size of the published files.
 
-You may also install [prebuilt binaries][] for Linux, macOS, and Windows. You must install the prebuilt binary outside of your project directory and ensure its path is included in your system's `PATH` environment variable.
-
-Run `hugo env` to list the active transpilers.
-
-> [!NOTE]
-> If you build Hugo from source and run `mage test -v`, the test fails if you install Dart Sass as a Snap package. This is due to the Snap package's strict confinement model.
-
-### Production environment
-
-To use Dart Sass with Hugo on a [CI/CD](g) platform, you typically must modify your build workflow to install Dart Sass before the Hugo site build begins. This is because these platforms don't have Dart Sass pre-installed, and Hugo needs it to process your Sass files.
-
-Hugo caches the result of each transpilation in memory and writes it to disk in the [`assets`][] file cache, which is the `resources/_gen` directory by default. With the default [`useResourceCacheWhen`][] setting, Hugo runs Dart Sass on every build, and reads the result from the file cache only if it cannot find the Dart Sass executable.
-
-There's one key exception where you can skip installing Dart Sass: you have committed your `resources` directory to your repository. This is only possible if:
-
-- You have not changed Hugo's default asset cache location.
-- You have not set `useResourceCacheWhen` to `never` in your project configuration.
-
-By committing the `resources` directory, you're providing the pre-built CSS files directly to your CI/CD platform, so it doesn't need to run the Sass compilation itself.
-
-For examples of how to install Dart Sass in a production environment, see the [hosting guides][] for CI/CD platforms.
+In production, the template optimizes for delivery. Compressed CSS reduces the download size. The [`resources.Fingerprint`][] function adds a hash of the content to the file name, so browsers download the file again only when its content changes, and returns an [SRI][] hash that the `integrity` attribute uses to verify the file. In development, the template skips this step so the file name stays the same when you edit your Sass files.
 
 [`assets`]: /configuration/caches/#assets
 [Dart Sass]: https://sass-lang.com/dart-sass/
@@ -274,6 +312,10 @@ For examples of how to install Dart Sass in a production environment, see the [h
 [Snap package]: https://snapcraft.io/hugo
 [`css.Quoted`]: /functions/css/quoted/
 [`css.Unquoted`]: /functions/css/unquoted/
+[`hugo.IsDevelopment`]: /functions/hugo/isdevelopment/
+[`resources.Fingerprint`]: /functions/resources/fingerprint/
+[`security.node.permissions.allowRead`]: /configuration/security/#nodepermissionsallowread
+[SRI]: https://developer.mozilla.org/en-US/docs/Web/Security/Subresource_Integrity
 [`useResourceCacheWhen`]: /configuration/build/#useresourcecachewhen
 [brew.sh]: https://brew.sh/
 [chocolatey.org]: https://community.chocolatey.org/packages/sass
