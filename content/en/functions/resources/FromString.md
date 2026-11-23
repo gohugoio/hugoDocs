@@ -9,7 +9,7 @@ params:
     signatures: [resources.FromString TARGETPATH STRING]
 ---
 
-The `resources.FromString` function returns a resource created from a string, caching the result using the target path as its cache key.
+The `resources.FromString` function returns a resource created from a string.
 
 For example, to create and publish a `security.txt` file from your site configuration:
 

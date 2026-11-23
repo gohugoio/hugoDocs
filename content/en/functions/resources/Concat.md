@@ -13,9 +13,11 @@ params:
 
 ## Usage
 
-The `resources.Concat` function returns a resource created by concatenating the given slice of resources, caching the result using the target path as its cache key. Use it to bundle text resources such as JavaScript and CSS files. Each resource must have the same [media type](g).
+The `resources.Concat` function returns a resource created by concatenating the given slice of resources. Use it to bundle text resources such as JavaScript and CSS files. Each resource must have the same [media type](g).
 
 Hugo publishes the resource to the target path when you call its [`Publish`][], [`Permalink`][], or [`RelPermalink`][] method, or pass it to the [`resources.Publish`][] function.
+
+Hugo caches the result in memory by target path. If you call the function again with the same target path, it returns the cached resource, even if you pass a different slice of resources. Use a unique target path for each bundle.
 
 {{< new-in 0.170.0 >}}
 The `SLICE` argument now accepts a `[]any` slice of resources, such as the slice returned by the [`collections.Apply`][] function.

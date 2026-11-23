@@ -64,9 +64,14 @@ An example of a pipe chain is:
 {{ $mainJs := resources.Get "js/main.js" | js.Build "main.js" | minify | fingerprint }}
 ```
 
-The pipe chain is only invoked the first time it is encountered in a site build, and results are otherwise loaded from cache. As such, Hugo Pipes can be used in templates which are executed thousands or millions of times without negatively impacting the build performance.
+The pipe chain is only invoked the first time it is encountered in a build, and results are otherwise loaded from an in-memory [cache](g). As such, Hugo Pipes can be used in templates which are executed thousands or millions of times without negatively impacting the build performance.
+
+The [`css.PostCSS`][] and [`css.Sass`][] functions also write their results to disk in the [`assets`][] file cache, as described on their reference pages.
 
 [Go Pipes]: /templates/introduction/#pipes
+[`assets`]: /configuration/caches/#assets
+[`css.PostCSS`]: /functions/css/postcss/
+[`css.Sass`]: /functions/css/sass/
 [`resources.ByType`]: /functions/resources/bytype/
 [`resources.Copy`]: /functions/resources/copy/
 [`resources.GetMatch`]: /functions/resources/getmatch/
