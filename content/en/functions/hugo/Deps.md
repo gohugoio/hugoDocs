@@ -16,7 +16,7 @@ The `hugo.Deps` function returns a slice of the [modules](g), including themes, 
 Use these methods on each `hugo.Dependency` object in the slice:
 
 `Owner`
-: (`hugo.Dependency`) Returns the first module in the dependency tree that defines this module as a dependency, such as `github.com/gohugoio/hugo-mod-bootstrap-scss/v5`.
+: (`hugo.Dependency`) Returns the first module in the dependency tree that defines this module as a dependency, such as `github.com/user/theme`.
 
 `Path`
 : (`string`) Returns the module path or the path below your `themes` directory, such as `github.com/gohugoio/hugo-mod-jslibs-dist/popperjs/v2`.
