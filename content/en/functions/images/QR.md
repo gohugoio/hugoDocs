@@ -52,11 +52,11 @@ To insert a QR code into your content, use the [`qr`][] shortcode.
 The `images.QR` function accepts an options map.
 
 `bgColor`
-: {{< new-in 0.171.0 />}}
+: {{< new-in 0.170.1 />}}
 : (`string` or `images.Color`) The background color, expressed as an RGB or RGBA [hexadecimal color][], with or without a leading hash mark. To make the background transparent, set the alpha channel to `00`, such as `#ffffff00`. Default is `#ffffff` (opaque white).
 
 `fgColor`
-: {{< new-in 0.171.0 />}}
+: {{< new-in 0.170.1 />}}
 : (`string` or `images.Color`) The foreground color, expressed as an RGB or RGBA hexadecimal color, with or without a leading hash mark. Default is `#000000` (opaque black).
 
 `level`
