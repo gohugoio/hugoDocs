@@ -11,7 +11,13 @@ params:
 
 {{< new-in 0.154.0 />}}
 
-With this project structure:
+## Usage
+
+The `reflect.IsResource` function reports whether the given value is a `Resource` object. The function returns `true` for any [resource](g), regardless of its [resource type](g), and for any `Page` object.
+
+## Examples
+
+These examples use this project structure:
 
 ```tree
 project/
@@ -27,7 +33,7 @@ project/
         └── f.jpg
 ```
 
-These are the values returned by the `reflect.IsResource` function:
+Global resources:
 
 ```go-html-template {file="layouts/page.html"}
 {{ with resources.Get "a.json" }}
@@ -43,6 +49,8 @@ These are the values returned by the `reflect.IsResource` function:
 {{ end }}
 ```
 
+Page resources:
+
 ```go-html-template {file="layouts/page.html"}
 {{ with .Resources.Get "d.json" }}
   {{ reflect.IsResource . }} → true
@@ -56,6 +64,8 @@ These are the values returned by the `reflect.IsResource` function:
   {{ reflect.IsResource . }} → true
 {{ end }}
 ```
+
+A page:
 
 ```go-html-template {file="layouts/page.html"}
 {{ with site.GetPage "/example" }}

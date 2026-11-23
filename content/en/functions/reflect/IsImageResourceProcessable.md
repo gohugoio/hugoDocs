@@ -11,20 +11,24 @@ params:
 
 {{< new-in 0.157.0 />}}
 
-{{% glossary-term "processable image" %}}
-
 ## Usage
 
-This example iterates through all project resources and uses `reflect.IsImageResourceProcessable` to ensure the image pipeline can perform transformations like resizing before processing begins.
+The `reflect.IsImageResourceProcessable` function reports whether the given value is a `Resource` object representing a processable image. Use this function before calling a method that processes an image, such as `Process` or `Resize`.
+
+{{% glossary-term "processable image" %}}
+
+{{% include "/_common/image-reflection-functions.md" %}}
+
+## Examples
+
+Resizing and converting each processable image:
 
 ```go-html-template
 {{ range resources.Match "**" }}
   {{ if reflect.IsImageResourceProcessable . }}
     {{ with .Process "resize 300x webp" }}
-      <img src="{{ .RelPermalink }}" width="{{ .Width }}" height="{{ .Height }}" alt="Processed Image">
+      <img src="{{ .RelPermalink }}" width="{{ .Width }}" height="{{ .Height }}" alt="">
     {{ end }}
   {{ end }}
 {{ end }}
 ```
-
-{{% include "/_common/image-reflection-functions.md" %}}

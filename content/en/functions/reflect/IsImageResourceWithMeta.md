@@ -13,17 +13,25 @@ params:
 
 ## Usage
 
-This example iterates through all project resources and uses `reflect.IsImageResourceWithMeta` to safely display image dimensions and metadata only for supported formats.
+The `reflect.IsImageResourceWithMeta` function reports whether the given value is a `Resource` object representing an image from which Hugo can extract dimensions and, if present, Exif, IPTC, and XMP data. Use this function before calling the [`Width`][], [`Height`][], or [`Meta`][] method on an image resource.
+
+{{% include "/_common/image-reflection-functions.md" %}}
+
+## Examples
+
+Rendering each image with its dimensions and creation date:
 
 ```go-html-template
 {{ range resources.Match "**" }}
   {{ if reflect.IsImageResourceWithMeta . }}
-    <img src="{{ .RelPermalink }}" width="{{ .Width }}" height="{{ .Height }}" alt="Image with Meta">
+    <img src="{{ .RelPermalink }}" width="{{ .Width }}" height="{{ .Height }}" alt="">
     {{ with .Meta }}
-      <p>Taken on: {{ .Date }}</p>
+      <p>Taken on: {{ .Date.Format "2006-01-02" }}</p>
     {{ end }}
   {{ end }}
 {{ end }}
 ```
 
-{{% include "/_common/image-reflection-functions.md" %}}
+[`Height`]: /methods/resource/height/
+[`Meta`]: /methods/resource/meta/
+[`Width`]: /methods/resource/width/

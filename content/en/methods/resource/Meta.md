@@ -184,6 +184,8 @@ To list specific values:
 {{ end }}
 ```
 
+## Image operations
+
 {{% include "/_common/image-reflection-functions.md" %}}
 
 [Exif]: https://en.wikipedia.org/wiki/Exif

@@ -11,6 +11,12 @@ params:
 
 {{< new-in 0.154.0 />}}
 
+## Usage
+
+The `reflect.IsPage` function reports whether the given value is a `Page` object.
+
+## Examples
+
 ```go-html-template {file="layouts/page.html"}
 {{ with site.GetPage "/examples" }}
   {{ reflect.IsPage . }} → true
