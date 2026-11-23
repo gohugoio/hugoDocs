@@ -26,14 +26,14 @@ The `qr` shortcode accepts named arguments.
 : (`string`) The `alt` attribute of the `img` element.
 
 `bgColor`
-: {{< new-in 0.171.0 />}}
+: {{< new-in 0.170.1 />}}
 : (`string`) The background color, expressed as an RGB or RGBA [hexadecimal color][], with or without a leading hash mark. To make the background transparent, set the alpha channel to `00`, such as `#ffffff00`. Default is `#ffffff` (opaque white).
 
 `class`
 : (`string`) The `class` attribute of the `img` element.
 
 `fgColor`
-: {{< new-in 0.171.0 />}}
+: {{< new-in 0.170.1 />}}
 : (`string`) The foreground color, expressed as an RGB or RGBA hexadecimal color, with or without a leading hash mark. Default is `#000000` (opaque black).
 
 `id`
