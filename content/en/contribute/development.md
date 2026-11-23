@@ -68,7 +68,7 @@ Step 5
   CGO_ENABLED=0 go install
   ```
 
-  {{< new-in v0.159.2 />}} Build and install the deploy edition:
+  {{< new-in 0.159.2 />}} Build and install the deploy edition:
 
   ```sh
   CGO_ENABLED=0 go install -tags withdeploy

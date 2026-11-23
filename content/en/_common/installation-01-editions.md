@@ -6,7 +6,7 @@ _comment: Do not remove front matter.
 
 Hugo is available in two editions, standard and deploy. Use the standard edition unless you need to deploy your site directly from Hugo.
 
-{{< new-in v0.159.2 />}} The deploy edition includes every feature of the standard edition, and adds the ability to [deploy your site][] to a Google Cloud Storage bucket, an AWS S3 bucket, or an Azure Storage container.
+{{< new-in 0.159.2 />}} The deploy edition includes every feature of the standard edition, and adds the ability to [deploy your site][] to a Google Cloud Storage bucket, an AWS S3 bucket, or an Azure Storage container.
 
 {{< new-in 0.170.0 >}}
 The extended and extended/deploy editions are no longer available or needed.

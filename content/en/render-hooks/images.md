@@ -38,7 +38,7 @@ Image _render hook_ templates receive the following context:
 : (`bool`) Reports whether a standalone image is not wrapped within a paragraph element.
 
 `Ordinal`
-: {{< new-in v0.160.0 />}}
+: {{< new-in 0.160.0 />}}
 : (`int`) The zero-based ordinal of the image on the page.
 
 `Page`
