@@ -22,7 +22,13 @@ This is the default configuration:
 : (`bool`) Whether to disable writing a `jsconfig.json` in your `assets` directory with mapping of imports from running [`js.Build`][]. This file is intended to help with intellisense/navigation inside code editors such as [VS Code][]. Note that if you do not use `js.Build`, no file will be written.
 
 `useResourceCacheWhen`
-: (`string`) When to use the resource file cache, one of `never`, `fallback`, or `always`. Applicable when transpiling Sass to CSS. Default is `fallback`.
+: (`string`) When to read the results of the [`css.PostCSS`][] and [`css.Sass`][] functions from the [`assets`][] file cache instead of running PostCSS or Dart Sass, one of `never`, `fallback`, or `always`. Default is `fallback`.
+
+  - `never`: Always runs PostCSS or Dart Sass.
+  - `fallback`: Reads from the file cache only if Hugo cannot find the PostCSS or Dart Sass executable.
+  - `always`: Always reads from the file cache without running PostCSS or Dart Sass. The build fails if the file cache does not contain the result.
+
+  When Hugo runs PostCSS or Dart Sass, it writes the result to the file cache regardless of this setting.
 
 ## Build stats
 
@@ -107,6 +113,9 @@ This is the default configuration:
 
 [VS Code]: https://code.visualstudio.com/
 [`config/production`]: /configuration/introduction/#configuration-directory
+[`assets`]: /configuration/caches/#assets
+[`css.PostCSS`]: /functions/css/postcss/
+[`css.Sass`]: /functions/css/sass/
 [`css.TailwindCSS`]: /functions/css/tailwindcss/
 [`js.Build`]: /functions/js/build/
 [removing unused CSS]: /functions/templates/defer/#remove-unused-css

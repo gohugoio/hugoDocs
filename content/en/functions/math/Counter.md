@@ -16,7 +16,7 @@ The `math.Counter` function returns a global counter value, incrementing it each
 Use this function to create unique values, such as:
 
 - Messages passed to the [`fmt.Warnf`][] function, which otherwise suppresses duplicate messages.
-- Target paths passed to the [`resources.FromString`][] function, which uses the target path as the cache key.
+- Target paths passed to the [`resources.ExecuteAsTemplate`][] function, which otherwise returns the cached resource when called with a different context.
 
 > [!NOTE]
 > Because Hugo renders pages concurrently, the value returned in a given template for a given page varies from one build to the next. You cannot use this function to assign a static identifier to each page.
@@ -36,4 +36,4 @@ WARN  page.html called 3 times
 ```
 
 [`fmt.Warnf`]: /functions/fmt/warnf/
-[`resources.FromString`]: /functions/resources/fromstring/
+[`resources.ExecuteAsTemplate`]: /functions/resources/executeastemplate/

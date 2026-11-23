@@ -18,7 +18,7 @@ The `css.ChromaStyles` function returns a CSS stylesheet for the syntax highligh
 - The [`transform.HighlightCodeBlock`][] function
 - Highlight options in the [info string](g) of a fenced code block in Markdown
 
-Hugo caches the result, so calling the function multiple times with the same options incurs no additional overhead.
+Hugo caches the result in memory, so calling the function more than once with the same options during a build incurs no additional overhead.
 
 ## Options
 

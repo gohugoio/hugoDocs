@@ -257,15 +257,18 @@ Run `hugo env` to list the active transpilers.
 
 To use Dart Sass with Hugo on a [CI/CD](g) platform, you typically must modify your build workflow to install Dart Sass before the Hugo site build begins. This is because these platforms don't have Dart Sass pre-installed, and Hugo needs it to process your Sass files.
 
-There's one key exception where you can skip this step: you have committed your `resources` directory to your repository. This is only possible if:
+Hugo caches the result of each transpilation in memory and writes it to disk in the [`assets`][] file cache, which is the `resources/_gen` directory by default. With the default [`useResourceCacheWhen`][] setting, Hugo runs Dart Sass on every build, and reads the result from the file cache only if it cannot find the Dart Sass executable.
+
+There's one key exception where you can skip installing Dart Sass: you have committed your `resources` directory to your repository. This is only possible if:
 
 - You have not changed Hugo's default asset cache location.
-- You have not set [`useResourceCacheWhen`][] to never in your project configuration.
+- You have not set `useResourceCacheWhen` to `never` in your project configuration.
 
 By committing the `resources` directory, you're providing the pre-built CSS files directly to your CI/CD platform, so it doesn't need to run the Sass compilation itself.
 
 For examples of how to install Dart Sass in a production environment, see the [hosting guides][] for CI/CD platforms.
 
+[`assets`]: /configuration/caches/#assets
 [Dart Sass]: https://sass-lang.com/dart-sass/
 [SCSS]: https://sass-lang.com/documentation/syntax#scss
 [Snap package]: https://snapcraft.io/hugo

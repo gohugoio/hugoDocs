@@ -35,7 +35,7 @@ While `strings.Replace` and `strings.ReplacePairs` can produce the same results,
 
 When you use `strings.Replace`, Hugo scans the text from start to finish to find a match. If you chain three replacements together, Hugo performs three separate passes over the entire string. The `strings.ReplacePairs` function performs a single pass, applying all replacements at the same time.
 
-Unlike `strings.Replace`, which performs a direct substitution, `strings.ReplacePairs` requires an initialization step to prepare the single-pass replacement logic. Hugo caches this logic for each set of pairs. During the initial call, Hugo initializes and stores the logic. During subsequent calls, Hugo retrieves the stored logic, skipping the initialization step.
+Unlike `strings.Replace`, which performs a direct substitution, `strings.ReplacePairs` requires an initialization step to prepare the single-pass replacement logic. Hugo caches this logic in memory for each set of pairs. During the initial call, Hugo initializes and stores the logic. During subsequent calls, Hugo retrieves the stored logic, skipping the initialization step.
 
 The efficiency of `strings.ReplacePairs` increases as the text gets longer or the number of pairs grows. Consider these scenarios when deciding which function to use:
 

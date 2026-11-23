@@ -11,6 +11,8 @@ params:
 
 The `css.PostCSS` function transforms CSS using [PostCSS][] and any of its [plugins][].
 
+Hugo caches the result in memory and writes it to disk in the [`assets`][] file cache, which is the `resources/_gen` directory by default. With the default [`useResourceCacheWhen`][] setting, Hugo runs PostCSS on every build, and reads the result from the file cache only if it cannot find the PostCSS executable. If you commit the `resources` directory to your repository, you do not need to install PostCSS on your [CI/CD](g) platform.
+
 ## Setup
 
 Step 1
@@ -167,4 +169,6 @@ let tailwindConfig = process.env.HUGO_FILE_TAILWIND_CONFIG_JS || './tailwind.con
 
 [Node.js]: https://nodejs.org/en
 [PostCSS]: https://postcss.org/
+[`assets`]: /configuration/caches/#assets
+[`useResourceCacheWhen`]: /configuration/build/#useresourcecachewhen
 [plugins]: https://postcss.org/docs/postcss-plugins

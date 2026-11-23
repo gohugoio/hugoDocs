@@ -11,9 +11,11 @@ params:
 
 {{% include "/_common/resource-types-note.md" %}}
 
-The `resources.ExecuteAsTemplate` function returns a resource created from a Go template, parsed and executed with the given context, caching the result using the target path as its cache key.
+The `resources.ExecuteAsTemplate` function returns a resource created from a Go template, parsed and executed with the given context.
 
 Hugo publishes the resource to the target path when you call its [`Publish`][], [`Permalink`][], or [`RelPermalink`][] method, or pass it to the [`resources.Publish`][] function.
+
+Hugo caches the result in memory by resource and target path, not by context. If you call the function again with the same resource and target path but a different context, it returns the cached resource. Use a unique target path for each context.
 
 Let's say you have a CSS file that you wish to populate with values from your project configuration:
 

@@ -15,7 +15,7 @@ The `transform.ToMath` function returns the given mathematical markup, written i
 
 Call this function from a [passthrough render hook][] to render mathematical markup when you build the site, instead of on the client side with MathJax or KaTeX.
 
-Hugo caches the result to disk in the [`misc`][] file cache, so calling the function multiple times with the same arguments incurs no additional overhead.
+Hugo stores the result in an in-memory [cache](g) and in the [`misc`][] file cache, so calling the function more than once with the same arguments incurs no additional overhead, even across builds.
 
 > [!NOTE]
 > By default, Hugo renders mathematical markup to [MathML][], and does not require any CSS to display the result.
