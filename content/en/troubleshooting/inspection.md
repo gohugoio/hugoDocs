@@ -26,7 +26,7 @@ Use the [`debug.Dump`][] function to inspect a data structure:
 }
 ```
 
-Use the [`printf`][] function (render) or [`warnf`][] function (log to console) to inspect simple data structures. The layout string below displays both value and [data type][].
+Use the [`fmt.Printf`][] function to render a simple data structure, or the [`fmt.Warnf`][] function to log it to the console. The format string in this example displays both the value and its [data type][]:
 
 ```go-html-template
 {{ $value := 42 }}
@@ -38,7 +38,7 @@ Use the [`printf`][] function (render) or [`warnf`][] function (log to console) 
 Use the [`templates.Current`][] function to visually mark template execution boundaries or to display the template call stack.
 
 [`debug.Dump`]: /functions/debug/dump/
-[`printf`]: /functions/fmt/printf/
+[`fmt.Printf`]: /functions/fmt/printf/
+[`fmt.Warnf`]: /functions/fmt/warnf/
 [`templates.Current`]: /functions/templates/current/
-[`warnf`]: /functions/fmt/warnf/
 [data type]: /quick-reference/data-types/
