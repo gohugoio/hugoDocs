@@ -19,7 +19,7 @@ CGO_ENABLED=0 go install github.com/gohugoio/hugo@latest
 
 ### Deploy edition
 
-{{< new-in v0.159.2 />}}
+{{< new-in 0.159.2 />}}
 
 Run this command to build and install the deploy edition:
 
