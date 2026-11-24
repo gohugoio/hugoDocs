@@ -9,7 +9,15 @@ params:
     signatures: [if EXPR]
 ---
 
+## Usage
+
+The `if` statement executes the block if the expression is truthy. Use the [`else`][] statement to execute an alternate block if the expression is falsy, and the [`end`][] statement to terminate the block.
+
 {{% include "/_common/truthy-falsy.md" %}}
+
+{{% include "/_common/text-template-reference.md" %}}
+
+## Examples
 
 ```go-html-template
 {{ $var := "foo" }}
@@ -18,7 +26,7 @@ params:
 {{ end }}
 ```
 
-Use with the [`else`][] statement:
+With an `else` statement:
 
 ```go-html-template
 {{ $var := "foo" }}
@@ -29,7 +37,7 @@ Use with the [`else`][] statement:
 {{ end }}
 ```
 
-Use `else if` to check multiple conditions:
+Checking multiple conditions with `else if`:
 
 ```go-html-template
 {{ $var := 12 }}
@@ -44,6 +52,5 @@ Use `else if` to check multiple conditions:
 {{ end }}
 ```
 
-{{% include "/_common/text-template-reference.md" %}}
-
 [`else`]: /functions/go-template/else/
+[`end`]: /functions/go-template/end/

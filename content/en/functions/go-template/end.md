@@ -9,7 +9,15 @@ params:
     signatures: [end]
 ---
 
-Use with the [`if`][] statement:
+## Usage
+
+The `end` statement terminates the block that begins with an [`if`][], [`with`][], [`range`][], [`block`][], or [`define`][] statement. Each of these statements requires a matching `end` statement.
+
+{{% include "/_common/text-template-reference.md" %}}
+
+## Examples
+
+With an `if` statement:
 
 ```go-html-template
 {{ $var := "foo" }}
@@ -18,7 +26,7 @@ Use with the [`if`][] statement:
 {{ end }}
 ```
 
-Use with the [`with`][] statement:
+With a `with` statement:
 
 ```go-html-template
 {{ $var := "foo" }}
@@ -27,7 +35,7 @@ Use with the [`with`][] statement:
 {{ end }}
 ```
 
-Use with the [`range`][] statement:
+With a `range` statement:
 
 ```go-html-template
 {{ $var := slice 1 2 3 }}
@@ -36,21 +44,19 @@ Use with the [`range`][] statement:
 {{ end }}
 ```
 
-Use with the [`block`][] statement:
+With a `block` statement:
 
 ```go-html-template
 {{ block "main" . }}{{ end }}
 ```
 
-Use with the [`define`][] statement:
+With a `define` statement:
 
 ```go-html-template
 {{ define "main" }}
   {{ print "this is the main section" }}
 {{ end }}
 ```
-
-{{% include "/_common/text-template-reference.md" %}}
 
 [`block`]: /functions/go-template/block/
 [`define`]: /functions/go-template/define/

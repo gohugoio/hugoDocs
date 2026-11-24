@@ -15,7 +15,7 @@ The `template` statement executes the given template, optionally passing context
 
 Call the template from the same file where you define it. If Hugo cannot find a template with the given name, the build fails. Hugo cannot find a template defined in a different file if that file uses a [base][] template, or if the output formats of the two files have different [`isPlainText`][] settings.
 
-When you define the template, give it a unique name. See [`define`][] for details.
+When you define the template, give it a name that no other template uses. Otherwise, Hugo might use a different definition without warning.
 
 A template executed with `template` differs from a template executed with the [`partials.Include`][] function in these ways:
 
@@ -25,6 +25,8 @@ A template executed with `template` differs from a template executed with the [`
 - You cannot call it using a relative path.
 
 Use `template` when a template calls itself, such as when rendering a nested structure. A _partial_ template can call itself too, but each call builds its result in memory and returns it to its caller. Because `template` writes directly to the output, it is somewhat faster for large or deeply nested structures. For everything else, use the `partials.Include` function.
+
+{{% include "/_common/text-template-reference.md" %}}
 
 ## Examples
 
@@ -56,8 +58,6 @@ Rendering a nested list of sections:
   {{ end }}
 {{ end }}
 ```
-
-{{% include "/_common/text-template-reference.md" %}}
 
 [`define`]: /functions/go-template/define/
 [`isPlainText`]: /configuration/output-formats/#isplaintext

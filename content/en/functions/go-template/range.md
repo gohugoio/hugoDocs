@@ -11,70 +11,25 @@ params:
 
 ## Usage
 
-The collection may be a slice, a map, or an integer.
+The `range` statement iterates over a non-empty collection, binds the [context](g) (the dot) to successive elements, and executes the block. The collection may be a slice, a map, or an integer.
 
-```go-html-template
-{{ $s := slice "foo" "bar" "baz" }}
-{{ range $s }}
-  {{ . }} → foo bar baz
-{{ end }}
-```
+- When ranging over a slice, Hugo iterates over the elements in order.
+- When ranging over a map, Hugo sorts the elements by key.
+- When ranging over a positive integer `n`, Hugo executes the block `n` times. The context starts at zero and increases by one in each iteration. Hugo does not execute the block if the integer is zero or negative.
 
-Use with the [`else`][] statement:
+Use the [`else`][] statement to execute an alternate block if the collection is empty. Within the block, use the [`continue`][] statement to stop the current iteration and continue with the next iteration, or the [`break`][] statement to stop the current iteration and bypass any remaining iterations.
 
-```go-html-template
-{{ $s := slice "foo" "bar" "baz" }}
-{{ range $s }}
-  <p>{{ . }}</p>
-{{ else }}
-  <p>The collection is empty</p>
-{{ end }}
-```
-
-Within a range block:
-
-- Use the [`continue`][] statement to stop the innermost iteration and continue to the next iteration
-- Use the [`break`][] statement to stop the innermost iteration and bypass all remaining iterations
-
-See the [context][] section in the introduction to templating.
-
-For example, at the top of a _page_ template, the [context](g) (the dot) is a `Page` object. Within the `range` block, the context is bound to each successive element.
-
-With this contrived example:
-
-```go-html-template
-{{ $s := slice "foo" "bar" "baz" }}
-{{ range $s }}
-  {{ .Title }}
-{{ end }}
-```
-
-Hugo will throw an error:
-
-```text
-can't evaluate field Title in type int
-```
-
-The error occurs because we are trying to use the `Title` method on a string instead of a `Page` object. Within the `range` block, if we want to render the page title, we need to get the context passed into the template. Use the `$` to get the context passed into the template.
-
-This template will render the page title three times:
-
-```go-html-template
-{{ $s := slice "foo" "bar" "baz" }}
-{{ range $s }}
-  {{ $.Title }}
-{{ end }}
-```
+Within the block, the context is the current element, not the context passed into the template. For example, at the top of a _page_ template, the context is a `Page` object, but within a `range` block that iterates over a slice of strings, the context is a string. Use the `$` to access the [template context][] from within the block.
 
 {{% include "/_common/template-context.md" %}}
 
+{{% include "/_common/text-template-reference.md" %}}
+
 ## Examples
 
-The following examples demonstrate ranging over different collection types.
+These examples demonstrate ranging over different data types.
 
 ### Slice of scalars
-
-This template code:
 
 ```go-html-template
 {{ $s := slice "foo" "bar" "baz" }}
@@ -83,7 +38,7 @@ This template code:
 {{ end }}
 ```
 
-Is rendered to:
+The rendered output:
 
 ```html
 <p>foo</p>
@@ -91,7 +46,7 @@ Is rendered to:
 <p>baz</p>
 ```
 
-This template code:
+Assigning each element to a variable:
 
 ```go-html-template
 {{ $s := slice "foo" "bar" "baz" }}
@@ -100,7 +55,7 @@ This template code:
 {{ end }}
 ```
 
-Is rendered to:
+The rendered output:
 
 ```html
 <p>foo</p>
@@ -108,7 +63,7 @@ Is rendered to:
 <p>baz</p>
 ```
 
-This template code:
+Assigning the index and each element to variables:
 
 ```go-html-template
 {{ $s := slice "foo" "bar" "baz" }}
@@ -117,7 +72,7 @@ This template code:
 {{ end }}
 ```
 
-Is rendered to:
+The rendered output:
 
 ```html
 <p>0: foo</p>
@@ -125,9 +80,33 @@ Is rendered to:
 <p>2: baz</p>
 ```
 
-### Slice of maps
+With an `else` statement:
 
-This template code:
+```go-html-template
+{{ $s := slice }}
+{{ range $s }}
+  <p>{{ . }}</p>
+{{ else }}
+  <p>The collection is empty</p>
+{{ end }}
+```
+
+The rendered output:
+
+```html
+<p>The collection is empty</p>
+```
+
+Accessing the template context from within the block:
+
+```go-html-template
+{{ $s := slice "foo" "bar" "baz" }}
+{{ range $s }}
+  <p>{{ . }} is on the {{ $.Title }} page</p>
+{{ end }}
+```
+
+### Slice of maps
 
 ```go-html-template
 {{ $m := slice
@@ -140,7 +119,7 @@ This template code:
 {{ end }}
 ```
 
-Is rendered to:
+The rendered output:
 
 ```html
 <p>John is 30</p>
@@ -150,15 +129,13 @@ Is rendered to:
 
 ### Slice of pages
 
-This template code:
-
 ```go-html-template
 {{ range where site.RegularPages "Type" "articles" }}
   <h2><a href="{{ .RelPermalink }}">{{ .LinkTitle }}</a></h2>
 {{ end }}
 ```
 
-Is rendered to:
+The rendered output:
 
 ```html
 <h2><a href="/articles/article-3/">Article 3</a></h2>
@@ -168,35 +145,21 @@ Is rendered to:
 
 ### Maps
 
-This template code:
-
 ```go-html-template
-{{ $m :=  dict "name" "John" "age" 30 }}
+{{ $m := dict "name" "John" "age" 30 }}
 {{ range $k, $v := $m }}
   <p>key = {{ $k }} value = {{ $v }}</p>
 {{ end }}
 ```
 
-Is rendered to:
+The rendered output, sorted by key:
 
-```go-html-template
+```html
 <p>key = age value = 30</p>
 <p>key = name value = John</p>
 ```
 
-Unlike ranging over an array or slice, Hugo sorts by key when ranging over a map.
-
 ### Integers
-
-Ranging over a positive integer `n` executes the block `n` times, with the context starting at zero and incrementing by one in each iteration.
-
-```go-html-template
-{{ $s := slice }}
-{{ range 1 }}
-  {{ $s = $s | append . }}
-{{ end }}
-{{ $s }} → [0]
-```
 
 ```go-html-template
 {{ $s := slice }}
@@ -206,11 +169,17 @@ Ranging over a positive integer `n` executes the block `n` times, with the conte
 {{ $s }} → [0 1 2]
 ```
 
-Ranging over a non-positive integer executes the block zero times.
+With a single iteration:
 
-{{% include "/_common/text-template-reference.md" %}}
+```go-html-template
+{{ $s := slice }}
+{{ range 1 }}
+  {{ $s = $s | append . }}
+{{ end }}
+{{ $s }} → [0]
+```
 
 [`break`]: /functions/go-template/break/
 [`continue`]: /functions/go-template/continue/
 [`else`]: /functions/go-template/else/
-[context]: /templates/introduction/#context
+[template context]: /templates/introduction/#template-context
