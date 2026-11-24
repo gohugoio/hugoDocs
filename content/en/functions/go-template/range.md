@@ -179,7 +179,21 @@ With a single iteration:
 {{ $s }} → [0]
 ```
 
+Looping until a `break` condition is met, using the [`math.MaxInt64`][] function to set the maximum number of iterations:
+
+```go-html-template
+{{ $n := 1 }}
+{{ range math.MaxInt64 }}
+  {{ if gt $n 1000 }}
+    {{ break }}
+  {{ end }}
+  {{ $n = mul $n 2 }}
+{{ end }}
+{{ $n }} → 1024
+```
+
 [`break`]: /functions/go-template/break/
 [`continue`]: /functions/go-template/continue/
 [`else`]: /functions/go-template/else/
+[`math.MaxInt64`]: /functions/math/maxint64/
 [template context]: /templates/introduction/#template-context
