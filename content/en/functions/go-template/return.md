@@ -9,19 +9,27 @@ params:
     signatures: ['return [VALUE]']
 ---
 
-The `return` statement is a non-standard extension to Go's [`text/template`][] package. It terminates execution of the current template only; execution continues in any calling template. When used within a _partial_ template, the `return` statement may also return a value to the caller.
+## Usage
+
+The `return` statement terminates execution of the current template and, when used within a _partial_ template, returns the given value, if any. It is a non-standard extension to Go's [`text/template`][] package. The statement terminates execution of the current template only. Execution continues in any calling template.
 
 {{< new-in 0.166.0 >}}
-In earlier versions, the `return` statement was only supported within partial templates, limited to one `return` statement per template, executed regardless of its position within logical blocks. The `return` statement now follows normal flow control: you can use it in any template, in any position, any number of times, and Hugo executes it only when reached.
+In earlier versions, the `return` statement was only supported within partial templates, limited to one `return` statement per template, executed regardless of its position within logical blocks. The `return` statement now follows normal flow control. You can use it in any template, in any position, any number of times, and Hugo executes it only when reached.
 {{< /new-in >}}
 
-## Return a value
+Within a _partial_ template, the `return` statement may return a value of any data type, such as [`bool`](g), [`float`](g), [`int`](g), [`map`](g), [`resource`](g), [`slice`](g), or [`string`](g). When returning a value, Hugo discards any output rendered before the `return` statement. Using the `return` statement with a value in any other template type fails the build.
 
-Within a _partial_ template, the `return` statement may return a value of any data type: [`bool`](g), [`float`](g), [`int`](g), [`map`](g), [`resource`](g), [`slice`](g), [`string`](g), and others. When returning a value, any output rendered before the `return` statement is discarded.
+Use the `return` statement without a value to stop execution of the current template in any template type, such as when a page is a draft or when a validation check fails.
 
-Using the `return` statement with a value in any other template type produces an error.
+The `return` statement must be the last command in a pipeline. For example, this code fails the build:
 
-For example, a _partial_ template that returns a string value:
+```go-html-template
+{{ return "even" | strings.ToUpper }}
+```
+
+## Examples
+
+A _partial_ template that returns a string value:
 
 ```go-html-template {file="layouts/_partials/parity.html"}
 {{ if math.ModBool . 2 }}
@@ -34,7 +42,7 @@ For example, a _partial_ template that returns a string value:
 {{ partial "parity.html" 42 }} → even
 ```
 
-A more practical example is a _partial_ template that returns the cover image of the first page in a section that has one:
+A _partial_ template that returns the cover image of the first page in a section that has one:
 
 ```go-html-template {file="layouts/_partials/section-cover.html"}
 {{ range .Pages }}
@@ -50,9 +58,7 @@ A more practical example is a _partial_ template that returns the cover image of
 {{ end }}
 ```
 
-## Return early
-
-Use the `return` statement without a value to stop execution of the current template:
+Stopping execution of a _page_ template if the page is a draft:
 
 ```go-html-template {file="layouts/single.html"}
 <h2>{{ .Title }}</h2>
@@ -63,7 +69,7 @@ Use the `return` statement without a value to stop execution of the current temp
 {{ .Content }}
 ```
 
-Within a _shortcode_ template, use a `return` statement after each validation check to avoid deeply nested conditional blocks:
+Stopping execution of a _shortcode_ template after each failed validation check, avoiding deeply nested conditional blocks:
 
 ```go-html-template {file="layouts/_shortcodes/img.html"}
 {{ if not (.Get "src") }}
@@ -77,14 +83,6 @@ Within a _shortcode_ template, use a `return` statement after each validation ch
 {{ end }}
 
 <img src="{{ .Get "src" }}" alt="{{ .Get "alt" }}">
-```
-
-## Limitations
-
-The `return` statement must be the last command in a pipeline. This produces an error:
-
-```go-html-template
-{{ return "even" | strings.ToUpper }}
 ```
 
 [`text/template`]: https://pkg.go.dev/text/template

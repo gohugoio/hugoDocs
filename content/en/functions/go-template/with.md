@@ -1,6 +1,6 @@
 ---
 title: with
-description: Binds context (the dot) to the expression and executes the block if expression is truthy.
+description: Binds context (the dot) to the expression and executes the block if the expression is truthy.
 keywords: []
 params:
   functions_and_methods:
@@ -9,9 +9,21 @@ params:
     signatures: [with EXPR]
 ---
 
+## Usage
+
+The `with` statement binds the [context](g) (the dot) to the expression and executes the block if the expression is truthy. Use the [`else`][] statement to execute an alternate block if the expression is falsy, and `else with` to check multiple conditions.
+
 {{% include "/_common/truthy-falsy.md" %}}
 
-## Usage
+Within the block, the context is the value of the expression, not the context passed into the template. For example, at the top of a _page_ template, the context is a `Page` object, but within a `with` block that receives an integer, the context is an integer. Use the `$` to access the [template context][] from within the block.
+
+To assign the value of the expression to a variable, use the `with $var := EXPR` form. The variable is scoped to the block.
+
+{{% include "/_common/template-context.md" %}}
+
+{{% include "/_common/text-template-reference.md" %}}
+
+## Examples
 
 ```go-html-template
 {{ $var := "foo" }}
@@ -20,7 +32,7 @@ params:
 {{ end }}
 ```
 
-Use with the [`else`][] statement:
+With an `else` statement:
 
 ```go-html-template
 {{ $var := "foo" }}
@@ -31,7 +43,7 @@ Use with the [`else`][] statement:
 {{ end }}
 ```
 
-Use `else with` to check multiple conditions:
+Checking multiple conditions with `else with`:
 
 ```go-html-template
 {{ $v1 := 0 }}
@@ -45,7 +57,7 @@ Use `else with` to check multiple conditions:
 {{ end }}
 ```
 
-Initialize a variable, scoped to the current block:
+Assigning the value to a variable scoped to the block:
 
 ```go-html-template
 {{ with $var := 42 }}
@@ -55,27 +67,7 @@ Initialize a variable, scoped to the current block:
 {{ $var }} → undefined
 ```
 
-## Understanding context
-
-See the [context][] section in the introduction to templating.
-
-For example, at the top of a _page_ template, the [context](g) (the dot) is a `Page` object. Inside of the `with` block, the context is bound to the value passed to the `with` statement.
-
-With this contrived example:
-
-```go-html-template
-{{ with 42 }}
-  {{ .Title }}
-{{ end }}
-```
-
-Hugo will throw an error:
-
-    can't evaluate field Title in type int
-
-The error occurs because we are trying to use the `Title` method on an integer instead of a `Page` object. Inside of the `with` block, if we want to render the page title, we need to get the context passed into the template. Use the `$` to get the context passed into the template.
-
-This template will render the page title as desired:
+Accessing the template context from within the block:
 
 ```go-html-template
 {{ with 42 }}
@@ -83,9 +75,5 @@ This template will render the page title as desired:
 {{ end }}
 ```
 
-{{% include "/_common/template-context.md" %}}
-
-{{% include "/_common/text-template-reference.md" %}}
-
 [`else`]: /functions/go-template/else/
-[context]: /templates/introduction/#context
+[template context]: /templates/introduction/#template-context

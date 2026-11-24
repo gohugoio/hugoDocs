@@ -9,19 +9,28 @@ params:
     signatures: [block NAME CONTEXT]
 ---
 
-A block is shorthand for defining a template:
+## Usage
+
+The `block` statement defines a template and executes it in place. It is shorthand for defining a template with the [`define`][] statement, and then executing it in place with the [`template`][] statement. For example, this code uses a `block` statement:
+
+```go-html-template
+{{ block "name" . }} T1 {{ end }}
+```
+
+This code produces the same result with the `define` and `template` statements:
 
 ```go-html-template
 {{ define "name" }} T1 {{ end }}
+{{ template "name" . }}
 ```
 
-and then executing it in place:
+Use the `block` statement in a [base][] template to define the default content of a section of the page. To replace the default content, redefine the block in another template with the `define` statement.
 
-```go-html-template
-{{ template "name" pipeline }}
-```
+{{% include "/_common/text-template-reference.md" %}}
 
-The typical use is to define a set of root templates that are then customized by redefining the block templates within.
+## Examples
+
+This _base_ template defines a block named `main` with default content. The _page_ and _section_ templates each redefine the block:
 
 ```go-html-template {file="layouts/baseof.html"}
 <body>
@@ -50,4 +59,6 @@ The typical use is to define a set of root templates that are then customized by
 {{ end }}
 ```
 
-{{% include "/_common/text-template-reference.md" %}}
+[`define`]: /functions/go-template/define/
+[`template`]: /functions/go-template/template/
+[base]: /templates/types/#base

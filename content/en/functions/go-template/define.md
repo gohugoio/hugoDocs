@@ -17,6 +17,8 @@ To create an inline _partial_ template, begin the name with `_partials/`.
 
 When you create a template to call with the `template` statement, give it a name that no other template uses. If two files that do not use a base template define the same name, and their output formats have the same [`isPlainText`][] setting, Hugo uses one of the definitions in both files without warning.
 
+{{% include "/_common/text-template-reference.md" %}}
+
 ## Examples
 
 ```go-html-template
@@ -49,8 +51,6 @@ Creating a template to call with the `template` statement:
   {{ printf "The answer is %v." .answer }}
 {{ end }}
 ```
-
-{{% include "/_common/text-template-reference.md" %}}
 
 [`block`]: /functions/go-template/block/
 [`isPlainText`]: /configuration/output-formats/#isplaintext

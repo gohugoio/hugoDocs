@@ -9,7 +9,15 @@ params:
     signatures: [not VALUE]
 ---
 
-Unlike the `and` and `or` operators, the `not` operator always returns a boolean value.
+## Usage
+
+The `not` function returns the boolean negation of its single argument. Unlike the [`and`][] and [`or`][] functions, the `not` function always returns a boolean value.
+
+{{% include "/_common/truthy-falsy.md" %}}
+
+{{% include "/_common/text-template-reference.md" %}}
+
+## Examples
 
 ```go-html-template
 {{ not true }} → false
@@ -22,11 +30,12 @@ Unlike the `and` and `or` operators, the `not` operator always returns a boolean
 {{ not "" }} → true
 ```
 
-Use the `not` operator, twice in succession, to cast any value to a boolean value. For example:
+Casting any value to a boolean value by calling the function twice:
 
 ```go-html-template
 {{ 42 | not | not }} → true
 {{ "" | not | not }} → false
 ```
 
-{{% include "/_common/text-template-reference.md" %}}
+[`and`]: /functions/go-template/and/
+[`or`]: /functions/go-template/or/

@@ -9,7 +9,13 @@ params:
     signatures: [break]
 ---
 
-This template code:
+## Usage
+
+The `break` statement stops the innermost [`range`][] iteration and bypasses any remaining iterations. Use the [`continue`][] statement to stop the current iteration and continue with the next iteration.
+
+{{% include "/_common/text-template-reference.md" %}}
+
+## Examples
 
 ```go-html-template
 {{ $s := slice "foo" "bar" "baz" }}
@@ -21,10 +27,11 @@ This template code:
 {{ end }}
 ```
 
-Is rendered to:
+The rendered output:
 
 ```html
 <p>foo</p>
 ```
 
-{{% include "/_common/text-template-reference.md" %}}
+[`continue`]: /functions/go-template/continue/
+[`range`]: /functions/go-template/range/

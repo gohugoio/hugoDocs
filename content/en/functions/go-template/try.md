@@ -11,36 +11,39 @@ params:
 
 {{< new-in 0.141.0 />}}
 
-The `try` function is a non-standard extension to Go's [`text/template`][] package. It introduces a mechanism for handling errors within templates, mimicking the `try-catch` constructs found in other programming languages.
+## Usage
 
-## Methods
+The `try` function returns a `TryValue` object after evaluating the given expression. It is a non-standard extension to Go's [`text/template`][] package that handles errors within templates, similar to the `try-catch` constructs in other programming languages.
 
-Use these methods on the `TryValue` object.
+If the expression throws an error, the build does not fail. Instead, the `TryValue` object contains the error, and you can decide how to handle it, such as by logging a warning.
+
+Use these methods on the `TryValue` object:
 
 `Err`
-: (`string`) Returns a string representation of the error thrown by the expression, if an error occurred, or returns `nil` if the expression evaluated without errors.
+: (`string`) Returns a string representation of the error thrown by the expression, or `nil` if the expression evaluated without errors.
 
 `Value`
-: (`any`) Returns the result of the expression if the evaluation was successful, or returns `nil` if an error occurred while evaluating the expression.
+: (`any`) Returns the result of the expression, or `nil` if an error occurred while evaluating the expression.
 
-## Explanation
+Within a `with` block that receives the `TryValue` object, the [context](g) is the `TryValue` object. Use the `$` to access the [template context][] from within the block.
 
-By way of example, let's divide a number by zero:
+## Examples
+
+Without the `try` function, dividing a number by zero throws an error and fails the build:
 
 ```go-html-template
 {{ $x := 1 }}
 {{ $y := 0 }}
-{{ $result := div $x $y }}
-{{ printf "%v divided by %v equals %v" $x $y .Value }}
+{{ div $x $y }}
 ```
 
-As expected, the example above throws an error and fails the build:
+The resulting console output:
 
-```terminfo
-Error: error calling div: can't divide the value by 0
+```text
+ERROR error calling div: can't divide the value by 0
 ```
 
-Instead of failing the build, we can catch the error and emit a warning:
+Catching the error and logging a warning instead:
 
 ```go-html-template
 {{ $x := 1 }}
@@ -54,13 +57,13 @@ Instead of failing the build, we can catch the error and emit a warning:
 {{ end }}
 ```
 
-The error thrown by the expression is logged to the console as a warning:
+The resulting console output:
 
-```terminfo
+```text
 WARN error calling div: can't divide the value by 0
 ```
 
-Now let's change the arguments to avoid dividing by zero:
+With arguments that do not cause an error:
 
 ```go-html-template
 {{ $x := 42 }}
@@ -74,17 +77,13 @@ Now let's change the arguments to avoid dividing by zero:
 {{ end }}
 ```
 
-Hugo renders the above to:
+The rendered output:
 
-```html
+```text
 42 divided by 6 equals 7
 ```
 
-## Example
-
-Error handling is essential when using the [`resources.GetRemote`][] function to capture remote resources such as data or images. When calling this function, if the HTTP request fails, Hugo will fail the build.
-
-Instead of failing the build, we can catch the error and emit a warning:
+Handling errors when getting a remote resource with the [`resources.GetRemote`][] function, which fails the build if the HTTP request fails:
 
 ```go-html-template
 {{ $url := "https://broken-example.org/images/a.jpg" }}
@@ -99,10 +98,7 @@ Instead of failing the build, we can catch the error and emit a warning:
 {{ end }}
 ```
 
-In the above, note that the [context](g) within the last conditional block is the `TryValue` object returned by the `try` function. At this point neither the `Err` nor `Value` methods returned anything, so the current context is not useful. Use the `$` to access the [template context][] if needed.
-
-> [!NOTE]
-> Hugo does not classify an HTTP response with status code 404 as an error. In this case `resources.GetRemote` returns `nil`.
+Hugo does not classify an HTTP response with status code 404 as an error. In this case the `resources.GetRemote` function returns `nil`, so the example handles it in the last `else` block.
 
 [`resources.GetRemote`]: /functions/resources/getremote/
 [`text/template`]: https://pkg.go.dev/text/template

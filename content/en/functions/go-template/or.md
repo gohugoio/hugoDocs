@@ -9,19 +9,31 @@ params:
     signatures: [or VALUE...]
 ---
 
+## Usage
+
+The `or` function returns the first truthy argument. If all arguments are falsy, it returns the last argument. The function evaluates the arguments from left to right, and stops when the result is determined.
+
 {{% include "/_common/truthy-falsy.md" %}}
 
-The `or` function evaluates the arguments from left to right, and returns when the result is determined.
+{{% include "/_common/text-template-reference.md" %}}
+
+## Examples
 
 ```go-html-template
 {{ or 0 1 2 }} → 1 (int)
 {{ or false "a" 1 }} → a (string)
 {{ or 0 true "a" }} → true (bool)
-
-{{ or false "" 0 }} → 0 (int)
-{{ or 0 "" false }} → false (bool)
-
-{{ or true (math.Div 1 0) }} → true (bool)
 ```
 
-{{% include "/_common/text-template-reference.md" %}}
+When all arguments are falsy:
+
+```go-html-template
+{{ or false "" 0 }} → 0 (int)
+{{ or 0 "" false }} → false (bool)
+```
+
+Stopping before the division by zero is evaluated:
+
+```go-html-template
+{{ or true (div 1 0) }} → true (bool)
+```
