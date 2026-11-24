@@ -5,9 +5,11 @@ description: Create image render hook templates to override the rendering of Mar
 keywords: []
 ---
 
-## Markdown
+## Usage
 
-A Markdown image has three components: the image description, the image destination, and optionally the image title.
+An image render hook is a [Markdown render hook][] that overrides the conversion of Markdown images to HTML. Use it to change the image markup, such as wrapping standalone images in `figure` elements, or to resolve image destinations to [page resources](g).
+
+A Markdown image has three components: the image description, the image destination, and an optional image title.
 
 ```text
 ![white kitten](/images/kitten.jpg "A kitten!")
@@ -15,14 +17,21 @@ A Markdown image has three components: the image description, the image destinat
   description      destination        title
 ```
 
-These components are passed into the render hook [context](g) as shown below.
+Hugo passes these components to the template [context](#context).
+
+By default, Hugo wraps a standalone image, one without adjacent content, within a paragraph element. To render a standalone image as a block element, such as a `figure` element, disable this behavior in your project configuration:
+
+{{< code-toggle file=hugo >}}
+[markup.goldmark.parser]
+wrapStandAloneImageWithinParagraph = false
+{{< /code-toggle >}}
 
 ## Context
 
-Image _render hook_ templates receive the following context:
+Image render hook templates receive the following [context](g):
 
 `Attributes`
-: (`map`) The [Markdown attributes][], available if you configure your site as follows:
+: (`map`) The [Markdown attributes][], available if you configure your project as follows:
 
   {{< code-toggle file=hugo >}}
   [markup.goldmark.parser]
@@ -45,7 +54,7 @@ Image _render hook_ templates receive the following context:
 : (`page`) A reference to the current page.
 
 `PageInner`
-: (`page`) A reference to a page nested via the [`RenderShortcodes`][] method. [See details](#pageinner-details).
+: (`page`) A reference to the [nested page][] when rendering content inserted by the [`RenderShortcodes`][] method. Otherwise, a reference to the current page.
 
 `PlainText`
 : (`string`) The image description as plain text.
@@ -60,10 +69,31 @@ Image _render hook_ templates receive the following context:
 `Title`
 : (`string`) The image title.
 
-## Examples
+## Template selection
+
+Hugo selects an image render hook template from a `_markup` directory using the [template lookup order][]. Name the template `render-image.html`, and optionally include page kind, custom layout, output format, and language identifiers in the file name, such as `render-image.rss.xml`. Place the `_markup` directory at any level of the `layouts` directory to limit the template to pages in a given section.
+
+## Embedded render hook
+
+Hugo includes an embedded image render hook to resolve Markdown image destinations. The [`renderHooks.image.useEmbedded`][] setting in your project configuration determines when Hugo uses it. This is the default setting:
+
+{{< code-toggle file=hugo >}}
+[markup.goldmark.renderHooks.image]
+useEmbedded = 'auto'
+{{< /code-toggle >}}
+
+When set to `auto`, Hugo uses the embedded image render hook for multilingual single-host projects where the [duplication of shared page resources][] feature is disabled. If your project or its modules define custom image render hooks, Hugo uses those instead. You can also configure Hugo to `always` use the embedded image render hook, use it only as a `fallback`, or `never` use it.
+
+The embedded image render hook resolves internal Markdown destinations by looking for a matching page resource, falling back to a matching [global resource](g). It passes remote destinations through unchanged, and does not log an error or warning if it cannot resolve a destination. It does not perform image processing.
+
+{{% include "/_common/static-to-assets-mount.md" %}}
 
 > [!TIP]
-> With inline elements such as images and links, remove leading and trailing whitespace using the `{{- -}}` delimiter notation to prevent whitespace between adjacent inline elements and text.
+> To override Hugo's embedded image render hook, copy the [source code][] to a file with the same name in the `layouts/_markup` directory. Hugo uses your template instead of the embedded image render hook unless you set `useEmbedded` to `always`.
+
+## Examples
+
+When [`IsBlock`](#isblock) is `false`, Hugo renders the image inline, within the surrounding text, so any whitespace that the template outputs appears in the rendered text. For example, a newline after the `img` element renders as a space between the image and a comma that follows it. The templates below remove this whitespace with the `{{-` and `-}}` delimiters, and end with a comment that removes the trailing newline.
 
 In its default configuration, Hugo renders Markdown images according to the [CommonMark][] specification. To create a render hook that does the same thing:
 
@@ -75,7 +105,7 @@ In its default configuration, Hugo renders Markdown images according to the [Com
 {{- /* chomp trailing newline */ -}}
 ```
 
-To render standalone images within `figure` elements:
+To render standalone images within `figure` elements, set `wrapStandAloneImageWithinParagraph` to `false` as described in [usage](#usage), then create this template:
 
 ```go-html-template {file="layouts/_markup/render-image.html" copy=true}
 {{- if .IsBlock -}}
@@ -93,48 +123,13 @@ To render standalone images within `figure` elements:
 {{- end -}}
 ```
 
-Note that the above requires the following project configuration:
-
-{{< code-toggle file=hugo >}}
-[markup.goldmark.parser]
-wrapStandAloneImageWithinParagraph = false
-{{< /code-toggle >}}
-
-## Embedded
-
-Hugo includes an [embedded image render hook][] to resolve Markdown image destinations. You can adjust its behavior in your project configuration. This is the default setting:
-
-{{< code-toggle file=hugo >}}
-[markup.goldmark.renderHooks.image]
-useEmbedded = 'auto'
-{{< /code-toggle >}}
-
-When set to `auto` as shown above, Hugo automatically uses the embedded image render hook for multilingual single-host projects, specifically when the [duplication of shared page resources][] feature is disabled. This is the default behavior for such projects. If your project or its modules define custom image render hooks, Hugo uses those instead.
-
-You can also configure Hugo to `always` use the embedded image render hook, use it only as a `fallback`, or `never` use it. See [details][].
-
-The embedded image render hook resolves internal Markdown destinations by looking for a matching [page resource](g), falling back to a matching [global resource](g). Remote destinations are passed through, and the render hook will not throw an error or warning if unable to resolve a destination.
-
-You must place global resources in the `assets` directory. If you have placed your resources in the `static` directory, and you are unable or unwilling to move them, you must mount the `static` directory to the `assets` directory by including both of these entries in your project configuration:
-
-{{< code-toggle file=hugo >}}
-[[module.mounts]]
-source = 'assets'
-target = 'assets'
-
-[[module.mounts]]
-source = 'static'
-target = 'assets'
-{{< /code-toggle >}}
-
-Note that the embedded image render hook does not perform image processing. Its sole purpose is to resolve Markdown image destinations.
-
-{{% include "/_common/pageinner-details.md" %}}
-
 [CommonMark]: https://spec.commonmark.org/current/
 [Markdown attributes]: /content-management/markdown-attributes/
+[Markdown render hook]: /render-hooks/introduction/
 [`RenderShortcodes`]: /methods/page/rendershortcodes/
+[`renderHooks.image.useEmbedded`]: /configuration/markup/#renderhooksimageuseembedded
 [`text.Position`]: /quick-reference/data-types/#source-position
-[details]: /configuration/markup/#renderhooksimageuseembedded
 [duplication of shared page resources]: /configuration/markup/#duplicateresourcefiles
-[embedded image render hook]: <{{% eturl render-image %}}>
+[source code]: <{{% eturl render-image %}}>
+[nested page]: /render-hooks/introduction/#nested-pages
+[template lookup order]: /templates/lookup-order/

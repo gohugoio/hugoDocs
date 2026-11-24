@@ -65,6 +65,6 @@ Hugo renders this to:
 [`relref`]: /shortcodes/relref/
 [Markdown notation]: /content-management/shortcodes/#notation
 [duplication of shared page resources]: /configuration/markup/#duplicateresourcefiles
-[embedded link render hook]: /render-hooks/links/#embedded
+[embedded link render hook]: /render-hooks/links/#embedded-render-hook
 [render hooks]: /render-hooks/
 [source code]: <{{% eturl ref %}}>

@@ -5,23 +5,27 @@ description: Create heading render hook templates to override the rendering of M
 keywords: []
 ---
 
+## Usage
+
+A heading render hook is a [Markdown render hook][] that overrides the conversion of Markdown headings to HTML. Use it to change the heading markup, such as adding an anchor link to each heading.
+
 ## Context
 
-Heading _render hook_ templates receive the following [context](g):
+Heading render hook templates receive the following [context](g):
 
 `Anchor`
 : (`string`) The `id` attribute of the heading element.
 
 `Attributes`
-: (`map`) The [Markdown attributes][], available if you configure your site as follows:
+: (`map`) The [Markdown attributes][]. Hugo enables Markdown attributes for headings by default. To disable them, set this value in your project configuration:
 
   {{< code-toggle file=hugo >}}
   [markup.goldmark.parser.attribute]
-  title = true
+  title = false
   {{< /code-toggle >}}
 
 `Level`
-: (`int`) The heading level, 1 through 6.
+: (`int`) The heading level, `1` through `6`.
 
 `Ordinal`
 : {{< new-in 0.160.0 />}}
@@ -31,7 +35,7 @@ Heading _render hook_ templates receive the following [context](g):
 : (`page`) A reference to the current page.
 
 `PageInner`
-: (`page`) A reference to a page nested via the [`RenderShortcodes`][] method. [See details](#pageinner-details).
+: (`page`) A reference to the [nested page][] when rendering content inserted by the [`RenderShortcodes`][] method. Otherwise, a reference to the current page.
 
 `PlainText`
 : (`string`) The heading text as plain text.
@@ -42,6 +46,10 @@ Heading _render hook_ templates receive the following [context](g):
 
 `Text`
 : (`template.HTML`) The heading text.
+
+## Template selection
+
+Hugo selects a heading render hook template from a `_markup` directory using the [template lookup order][]. Name the template `render-heading.html`, and optionally include page kind, custom layout, output format, and language identifiers in the file name, such as `render-heading.rss.xml`. Place the `_markup` directory at any level of the `layouts` directory to limit the template to pages in a given section.
 
 ## Examples
 
@@ -62,9 +70,10 @@ To add an anchor link to the right of each heading:
 </h{{ .Level }}>
 ```
 
-{{% include "/_common/pageinner-details.md" %}}
-
 [CommonMark]: https://spec.commonmark.org/current/
 [Markdown attributes]: /content-management/markdown-attributes/
+[Markdown render hook]: /render-hooks/introduction/
 [`RenderShortcodes`]: /methods/page/rendershortcodes/
 [`text.Position`]: /quick-reference/data-types/#source-position
+[nested page]: /render-hooks/introduction/#nested-pages
+[template lookup order]: /templates/lookup-order/

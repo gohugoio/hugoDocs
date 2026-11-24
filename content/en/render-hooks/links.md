@@ -1,13 +1,15 @@
 ---
 title: Link render hooks
 linkTitle: Links
-description: Create a link render hook to override the rendering of Markdown links to HTML.
+description: Create link render hook templates to override the rendering of Markdown links to HTML.
 keywords: []
 ---
 
-## Markdown
+## Usage
 
-A Markdown link has three components: the link text, the link destination, and optionally the link title.
+A link render hook is a [Markdown render hook][] that overrides the conversion of Markdown links to HTML. Use it to change the link markup, such as adding a `rel` attribute to external links, or to resolve link destinations to pages and [page resources](g).
+
+A Markdown link has three components: the link text, the link destination, and an optional link title.
 
 ```text
 [Post 1](/posts/post-1 "My first post")
@@ -15,11 +17,11 @@ A Markdown link has three components: the link text, the link destination, and o
   text    destination       title
 ```
 
-These components are passed into the render hook [context](g) as shown below.
+Hugo passes these components to the template [context](#context).
 
 ## Context
 
-Link _render hook_ templates receive the following context:
+Link render hook templates receive the following [context](g):
 
 `Destination`
 : (`string`) The link destination.
@@ -32,25 +34,46 @@ Link _render hook_ templates receive the following context:
 : (`page`) A reference to the current page.
 
 `PageInner`
-: (`page`) A reference to a page nested via the [`RenderShortcodes`][] method. [See details](#pageinner-details).
+: (`page`) A reference to the [nested page][] when rendering content inserted by the [`RenderShortcodes`][] method. Otherwise, a reference to the current page.
 
 `PlainText`
-: (`string`) The link description as plain text.
+: (`string`) The link text as plain text.
 
 `Position`
 : {{< new-in 0.160.0 />}}
 : ([`text.Position`][]) The position of the link within the page content. Calculating the position can be expensive, so call this method only when you log an error or warning.
 
 `Text`
-: (`template.HTML`) The link description.
+: (`template.HTML`) The link text.
 
 `Title`
 : (`string`) The link title.
 
-## Examples
+## Template selection
+
+Hugo selects a link render hook template from a `_markup` directory using the [template lookup order][]. Name the template `render-link.html`, and optionally include page kind, custom layout, output format, and language identifiers in the file name, such as `render-link.rss.xml`. Place the `_markup` directory at any level of the `layouts` directory to limit the template to pages in a given section.
+
+## Embedded render hook
+
+Hugo includes an embedded link render hook to resolve Markdown link destinations. The [`renderHooks.link.useEmbedded`][] setting in your project configuration determines when Hugo uses it. This is the default setting:
+
+{{< code-toggle file=hugo >}}
+[markup.goldmark.renderHooks.link]
+useEmbedded = 'auto'
+{{< /code-toggle >}}
+
+When set to `auto`, Hugo uses the embedded link render hook for multilingual single-host projects where the [duplication of shared page resources][] feature is disabled. If your project or its modules define custom link render hooks, Hugo uses those instead. You can also configure Hugo to `always` use the embedded link render hook, use it only as a `fallback`, or `never` use it.
+
+The embedded link render hook resolves internal Markdown destinations by looking for a matching page, falling back to a matching page resource, then falling back to a matching [global resource](g). It passes remote destinations through unchanged, and does not log an error or warning if it cannot resolve a destination.
+
+{{% include "/_common/static-to-assets-mount.md" %}}
 
 > [!TIP]
-> With inline elements such as images and links, remove leading and trailing whitespace using the `{{- -}}` delimiter notation to prevent whitespace between adjacent inline elements and text.
+> To override Hugo's embedded link render hook, copy the [source code][] to a file with the same name in the `layouts/_markup` directory. Hugo uses your template instead of the embedded link render hook unless you set `useEmbedded` to `always`.
+
+## Examples
+
+Hugo renders a link inline, within the surrounding text, so any whitespace that the template outputs appears in the rendered text. For example, a newline after the closing `a` tag renders as a space between the link and a comma that follows it. The templates below remove this whitespace with the `{{-` and `-}}` delimiters, and end with a comment that removes the trailing newline.
 
 In its default configuration, Hugo renders Markdown links according to the [CommonMark][] specification. To create a render hook that does the same thing:
 
@@ -63,7 +86,7 @@ In its default configuration, Hugo renders Markdown links according to the [Comm
 {{- /* chomp trailing newline */ -}}
 ```
 
-To include a `rel` attribute set to `external` for external links:
+To add a `rel` attribute set to `external` to links with an absolute URL:
 
 ```go-html-template {file="layouts/_markup/render-link.html" copy=true}
 {{- $u := urls.Parse .Destination -}}
@@ -76,38 +99,12 @@ To include a `rel` attribute set to `external` for external links:
 {{- /* chomp trailing newline */ -}}
 ```
 
-## Embedded
-
-Hugo includes an [embedded link render hook][] to resolve Markdown link destinations. You can adjust its behavior in your project configuration. This is the default setting:
-
-{{< code-toggle file=hugo >}}
-[markup.goldmark.renderHooks.link]
-useEmbedded = 'auto'
-{{< /code-toggle >}}
-
-When set to `auto` as shown above, Hugo automatically uses the embedded link render hook for multilingual single-host projects, specifically when the [duplication of shared page resources][] feature is disabled. This is the default behavior for such projects. If your project or its modules define custom link render hooks, Hugo uses those instead.
-
-You can also configure Hugo to `always` use the embedded link render hook, use it only as a `fallback`, or `never` use it. See [details][].
-
-The embedded link render hook resolves internal Markdown destinations by looking for a matching page, falling back to a matching [page resource](g), then falling back to a matching [global resource](g). Remote destinations are passed through, and the render hook will not throw an error or warning if unable to resolve a destination.
-
-You must place global resources in the `assets` directory. If you have placed your resources in the `static` directory, and you are unable or unwilling to move them, you must mount the `static` directory to the `assets` directory by including both of these entries in your project configuration:
-
-{{< code-toggle file=hugo >}}
-[[module.mounts]]
-source = 'assets'
-target = 'assets'
-
-[[module.mounts]]
-source = 'static'
-target = 'assets'
-{{< /code-toggle >}}
-
-{{% include "/_common/pageinner-details.md" %}}
-
 [CommonMark]: https://spec.commonmark.org/current/
+[Markdown render hook]: /render-hooks/introduction/
 [`RenderShortcodes`]: /methods/page/rendershortcodes/
+[`renderHooks.link.useEmbedded`]: /configuration/markup/#renderhookslinkuseembedded
 [`text.Position`]: /quick-reference/data-types/#source-position
-[details]: /configuration/markup/#renderhookslinkuseembedded
 [duplication of shared page resources]: /configuration/markup/#duplicateresourcefiles
-[embedded link render hook]: <{{% eturl render-link %}}>
+[source code]: <{{% eturl render-link %}}>
+[nested page]: /render-hooks/introduction/#nested-pages
+[template lookup order]: /templates/lookup-order/

@@ -280,6 +280,6 @@ duplicateResourceFiles = true
 [build option]: /content-management/build-options/
 [content formats]: /content-management/formats/
 [duplication of shared page resources]: /configuration/markup/#duplicateresourcefiles
-[embedded image render hook]: /render-hooks/images/#embedded
-[embedded link render hook]: /render-hooks/links/#embedded
+[embedded image render hook]: /render-hooks/images/#embedded-render-hook
+[embedded link render hook]: /render-hooks/links/#embedded-render-hook
 [page bundle]: /content-management/organization/#page-bundles
