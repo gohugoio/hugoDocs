@@ -5,11 +5,13 @@ description: Create passthrough render hook templates to override the rendering 
 keywords: []
 ---
 
-## Overview
+## Usage
 
-Hugo uses [Goldmark][] to render Markdown to HTML. Goldmark supports custom extensions to extend its core functionality. The [Passthrough][] extension captures and preserves raw Markdown within delimited snippets of text, including the delimiters themselves. These are known as _passthrough elements_.
+A passthrough render hook is a [Markdown render hook][] that overrides the rendering of passthrough elements. Use it to convert the raw content of each element to HTML, such as rendering mathematical expressions written in the LaTeX markup language.
 
-Depending on your choice of delimiters, Hugo will classify a passthrough element as either _block_ or _inline_. Consider this contrived example:
+Hugo uses [Goldmark][] to render Markdown to HTML. The Goldmark [Passthrough][] extension captures and preserves raw Markdown within delimited snippets of text, including the delimiters themselves. These are known as _passthrough elements_. Without a passthrough render hook, Hugo renders passthrough elements unchanged.
+
+Depending on your choice of delimiters, Hugo classifies a passthrough element as either _block_ or _inline_. For example:
 
 ```md {file="content/example.md"}
 This is a
@@ -21,7 +23,7 @@ passthrough element with opening and closing block delimiters.
 This is an \(inline\) passthrough element with opening and closing inline delimiters.
 ```
 
-Update your project configuration to enable the Passthrough extension and define opening and closing delimiters for each passthrough element type, either `block` or `inline`. For example:
+To enable the Passthrough extension, update your project configuration and define the opening and closing delimiters for each passthrough element type, either `block` or `inline`. For example:
 
 {{< code-toggle file=hugo >}}
 [markup.goldmark.extensions.passthrough]
@@ -31,18 +33,16 @@ block = [['\[', '\]'], ['$$', '$$']]
 inline = [['\(', '\)']]
 {{< /code-toggle >}}
 
-In the example above there are two sets of `block` delimiters. You may use either one in your Markdown.
+In the example above there are two sets of `block` delimiters. You can use either one in your Markdown.
 
-The Passthrough extension is often used in conjunction with the MathJax or KaTeX display engine to render [mathematical expressions][] written in the LaTeX markup language.
-
-To enable custom rendering of passthrough elements, create a passthrough render hook.
+The Passthrough extension is often used with the MathJax or KaTeX display engine to render [mathematical expressions][] written in the LaTeX markup language.
 
 ## Context
 
-Passthrough _render hook_ templates receive the following [context](g):
+Passthrough render hook templates receive the following [context](g):
 
 `Attributes`
-: (`map`) The [Markdown attributes][], available if you configure your site as follows:
+: (`map`) The [Markdown attributes][], available if you configure your project as follows:
 
   {{< code-toggle file=hugo >}}
   [markup.goldmark.parser.attribute]
@@ -61,7 +61,7 @@ Passthrough _render hook_ templates receive the following [context](g):
 : (`page`) A reference to the current page.
 
 `PageInner`
-: (`page`) A reference to a page nested via the [`RenderShortcodes`][] method. [See details](#pageinner-details).
+: (`page`) A reference to the [nested page][] when rendering content inserted by the [`RenderShortcodes`][] method. Otherwise, a reference to the current page.
 
 `Position`
 : ([`text.Position`][]) The position of the passthrough element within the page content. Calculating the position can be expensive, so call this method only when you log an error or warning.
@@ -69,9 +69,22 @@ Passthrough _render hook_ templates receive the following [context](g):
 `Type`
 : (`string`) The passthrough element type, either `block` or `inline`.
 
-## Example
+## Template selection
 
-Instead of client-side JavaScript rendering of mathematical markup using MathJax or KaTeX, create a passthrough render hook which calls the [`transform.ToMath`][] function.
+Hugo selects a passthrough render hook template from a `_markup` directory using the [template lookup order][]. Name the template `render-passthrough.html`, and optionally include page kind, custom layout, output format, and language identifiers in the file name, such as `render-passthrough.rss.xml`. Place the `_markup` directory at any level of the `layouts` directory to limit the template to pages in a given section.
+
+To use a different template for a given passthrough element [`Type`](#type), append the type to the base name. Hugo uses `render-passthrough.html` for all other types:
+
+```tree
+layouts/
+└── _markup/
+    ├── render-passthrough-block.html
+    └── render-passthrough.html
+```
+
+## Examples
+
+To render mathematical markup to HTML when you build your project, instead of rendering it in the browser with MathJax or KaTeX, call the [`transform.ToMath`][] function:
 
 ```go-html-template {file="layouts/_markup/render-passthrough.html" copy=true}
 {{- $opts := dict "output" "htmlAndMathml" "displayMode" (eq .Type "block") }}
@@ -85,7 +98,7 @@ Instead of client-side JavaScript rendering of mathematical markup using MathJax
 {{- end -}}
 ```
 
-Then, in your _base_ template, conditionally include the KaTeX CSS within the head element:
+Then, in your _base_ template, conditionally include the KaTeX CSS within the `head` element. The [noop](g) statement forces Hugo to render the content before the template checks the value of `hasMath` with the `Store.Get` method:
 
 ```go-html-template {file="layouts/baseof.html" copy=true}
 <head>
@@ -96,23 +109,13 @@ Then, in your _base_ template, conditionally include the KaTeX CSS within the he
 </head>
 ```
 
-In the above, note the use of a [noop](g) statement to force content rendering before we check the value of `hasMath` with the `Store.Get` method.
-
-Although you can use one template with conditional logic as shown above, you can also create separate templates for each [`Type`](#type) of passthrough element:
-
-```tree
-layouts/
-  └── _markup/
-      ├── render-passthrough-block.html
-      └── render-passthrough-inline.html
-```
-
-{{% include "/_common/pageinner-details.md" %}}
-
 [Goldmark]: https://github.com/yuin/goldmark
 [Markdown attributes]: /content-management/markdown-attributes/
+[Markdown render hook]: /render-hooks/introduction/
 [Passthrough]: /configuration/markup/#passthrough
 [`RenderShortcodes`]: /methods/page/rendershortcodes/
 [`text.Position`]: /quick-reference/data-types/#source-position
 [`transform.ToMath`]: /functions/transform/tomath/
 [mathematical expressions]: /content-management/mathematics/
+[nested page]: /render-hooks/introduction/#nested-pages
+[template lookup order]: /templates/lookup-order/

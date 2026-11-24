@@ -633,6 +633,39 @@ Under `## Examples`, show each shortcode call in an `md` code block with the `fi
 
 A lead-in sentence before the first code block is optional. Add one only when readers need context to understand the example. Introduce each subsequent example with a short lead-in ending in a colon.
 
+## Render hook pages
+
+Render hook pages are reference pages that describe each type of Markdown render hook. They follow specific conventions for the front matter description and the page structure. A separate page explains how render hooks work, how Hugo selects them, and how the `Page` and `PageInner` methods differ. Do not repeat that material on the page for each render hook. Link to it instead.
+
+### Descriptions {#render-hook-descriptions}
+
+For render hook pages, write the front matter `description` in imperative present tense, using this pattern: "Create ELEMENT render hook templates to override the rendering of Markdown ELEMENTS to HTML." For example:
+
+- `Create link render hook templates to override the rendering of Markdown links to HTML.`
+- `Create table render hook templates to override the rendering of Markdown tables to HTML.`
+
+### Structure {#render-hook-structure}
+
+Structure the body of a render hook page with these level 2 headings, in this order:
+
+1. `## Usage`: Required. Prose describing the Markdown syntax that the render hook renders, and any configuration that the syntax requires.
+1. `## Context`: Required. A definition list describing the template context.
+1. `## Template selection`: Required. A summary of the template name and the type identifiers that the render hook accepts.
+1. `## Embedded render hook`: Required if Hugo includes an embedded render hook for the element, otherwise omit. Prose describing what the embedded render hook does and when Hugo uses it.
+1. `## Examples`: Required. Code blocks demonstrating the render hook.
+
+Do not add other level 2 headings. If `## Usage` contains two or more topics, such as basic and extended syntax, give each topic a level 3 heading.
+
+Open the `## Usage` section with a complete sentence that names the render hook and links to the page that explains render hooks. For example: "A link render hook is a Markdown render hook that overrides the conversion of Markdown links to HTML," with "Markdown render hook" as the link text.
+
+Under `## Context`, introduce the list with "ELEMENT render hook templates receive the following [context](g):" and describe each method alphabetically using a definition list. Wrap each term in backticks, and begin each description with the data type in parentheses. Describe `PageInner` with the same sentence on every page, linking to the explanation of `Page` and `PageInner` for details. When the context includes nested objects, such as table cells, describe their methods within `## Context`, introduced with "Use these methods on each OBJECT:".
+
+Under `## Template selection`, name the template file, state that Hugo selects it using the [template lookup order][], and give an example that includes an output format identifier, such as `render-link.rss.xml`. If the render hook accepts a type in the file name, such as `render-codeblock-mermaid.html`, state that Hugo falls back to the base template for all other types, and show a type-specific template alongside the base template in a `tree` code block. Do not repeat the lookup rules.
+
+End the `## Embedded render hook` section with a tip describing how to override the embedded render hook. For example: "To override Hugo's embedded link render hook, copy the source code to a file with the same name in the `layouts/_markup` directory." Link "source code" to the embedded template using the [`eturl`](#eturl) shortcode. If a configuration setting can prevent the override, say so in the tip.
+
+Under `## Examples`, open with a template that reproduces Hugo's default rendering of the element, if possible, introduced with "To create a render hook that does the same thing:". Place each template in a `go-html-template` code block with the `file` attribute set to the template path and the `copy` attribute set to `true`. Introduce each subsequent example with a short lead-in that begins with "To" and ends with a colon, such as "To render standalone images within `figure` elements:".
+
 ## Code examples
 
 Use short, focused code examples. When including template code examples, follow these conventions.

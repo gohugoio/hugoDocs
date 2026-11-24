@@ -11,17 +11,7 @@ The `figure` shortcode renders an HTML `figure` element containing an image, wit
 
 The shortcode resolves the image path by looking for a matching [page resource](g), falling back to a matching [global resource](g). Hugo passes remote URLs through unchanged, and does not log an error or warning if it cannot resolve the path.
 
-Place global resources in the `assets` directory. If your images are in the `static` directory and you cannot move them, mount the `static` directory to the `assets` directory by adding both of these entries to your project configuration:
-
-{{< code-toggle file=hugo >}}
-[[module.mounts]]
-source = 'assets'
-target = 'assets'
-
-[[module.mounts]]
-source = 'static'
-target = 'assets'
-{{< /code-toggle >}}
+{{% include "/_common/static-to-assets-mount.md" %}}
 
 > [!TIP]
 > To override Hugo's embedded `figure` shortcode, copy the [source code][] to a file with the same name in the `layouts/_shortcodes` directory.

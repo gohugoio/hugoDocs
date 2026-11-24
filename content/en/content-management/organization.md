@@ -343,7 +343,7 @@ Hugo does not recognize a role or version name without the prefix. You can combi
 [`url`]: /content-management/urls/#url
 [`urls.Ref`]: /functions/urls/ref/
 [`urls.RelRef`]: /functions/urls/relref/
-[embedded link render hook]: /render-hooks/links/#embedded
+[embedded link render hook]: /render-hooks/links/#embedded-render-hook
 [non-spacing marks]: https://www.compart.com/en/unicode/category/Mn
 [build options]: /content-management/build-options/#headless-page
 [permalinks]: /configuration/permalinks/

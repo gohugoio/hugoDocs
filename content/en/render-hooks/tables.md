@@ -5,12 +5,16 @@ description: Create table render hook templates to override the rendering of Mar
 keywords: []
 ---
 
+## Usage
+
+A table render hook is a [Markdown render hook][] that overrides the conversion of Markdown tables to HTML. Use it to change the table markup, such as wrapping the table in a container element or adding classes to the cells.
+
 ## Context
 
-Table _render hook_ templates receive the following [context](g):
+Table render hook templates receive the following [context](g):
 
 `Attributes`
-: (`map`) The [Markdown attributes][], available if you configure your site as follows:
+: (`map`) The [Markdown attributes][], available if you configure your project as follows:
 
   {{< code-toggle file=hugo >}}
   [markup.goldmark.parser.attribute]
@@ -24,28 +28,30 @@ Table _render hook_ templates receive the following [context](g):
 : (`page`) A reference to the current page.
 
 `PageInner`
-: (`page`) A reference to a page nested via the [`RenderShortcodes`][] method. [See details](#pageinner-details).
+: (`page`) A reference to the [nested page][] when rendering content inserted by the [`RenderShortcodes`][] method. Otherwise, a reference to the current page.
 
 `Position`
 : ([`text.Position`][]) The position of the table within the page content. Calculating the position can be expensive, so call this method only when you log an error or warning.
 
-`THead`
-: (`slice`) A slice of table header rows, where each element is a slice of table cells.
-
 `TBody`
-: (`slice`) A slice of table body rows, where each element is a slice of table cells.
+: (`slice`) A slice of table body rows, where each row is a slice of table cells.
 
-## Table cells
+`THead`
+: (`slice`) A slice of table header rows, where each row is a slice of table cells.
 
-Each table cell within the slice of slices returned by the `THead` and `TBody` methods has the following fields:
+Use these methods on each table cell within the `THead` and `TBody` slices:
 
 `Alignment`
-: (`string`) The alignment of the text within the table cell, one of `left`, `center`, or `right`.
+: (`string`) Returns the alignment of the text within the table cell, one of `left`, `center`, or `right`.
 
 `Text`
-: (`template.HTML`) The text within the table cell.
+: (`template.HTML`) Returns the text within the table cell.
 
-## Example
+## Template selection
+
+Hugo selects a table render hook template from a `_markup` directory using the [template lookup order][]. Name the template `render-table.html`, and optionally include page kind, custom layout, output format, and language identifiers in the file name, such as `render-table.rss.xml`. Place the `_markup` directory at any level of the `layouts` directory to limit the template to pages in a given section.
+
+## Examples
 
 In its default configuration, Hugo renders Markdown tables according to the [GitHub Flavored Markdown specification][]. To create a render hook that does the same thing:
 
@@ -89,9 +95,10 @@ In its default configuration, Hugo renders Markdown tables according to the [Git
 </table>
 ```
 
-{{% include "/_common/pageinner-details.md" %}}
-
 [GitHub Flavored Markdown specification]: https://github.github.com/gfm/#tables-extension-
 [Markdown attributes]: /content-management/markdown-attributes/
+[Markdown render hook]: /render-hooks/introduction/
 [`RenderShortcodes`]: /methods/page/rendershortcodes/
 [`text.Position`]: /quick-reference/data-types/#source-position
+[nested page]: /render-hooks/introduction/#nested-pages
+[template lookup order]: /templates/lookup-order/

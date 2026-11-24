@@ -409,8 +409,8 @@ This is the default configuration for the table of contents, applicable to Goldm
 [attributes]: https://asciidoctor.org/docs/asciidoc-syntax-quick-reference/#attributes-and-substitutions
 [deleted text]: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/del
 [duplication of shared page resources]: /configuration/markup/#duplicateresourcefiles
-[embedded image render hook]: /render-hooks/images/#embedded
-[embedded link render hook]: /render-hooks/links/#embedded
+[embedded image render hook]: /render-hooks/images/#embedded-render-hook
+[embedded link render hook]: /render-hooks/links/#embedded-render-hook
 [image render hook]: /render-hooks/images/
 [includes]: https://docs.asciidoctor.org/asciidoc/latest/syntax-quick-reference/#includes
 [inserted text]: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/ins
