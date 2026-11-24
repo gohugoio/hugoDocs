@@ -9,46 +9,48 @@ params:
     signatures: [collections.Last N SLICE|STRING]
 ---
 
+## Usage
+
+The `collections.Last` function returns the last `N` elements of the given slice or string. If `N` is greater than the length of the slice or string, the function returns the entire slice or string. If `N` is zero, the function returns an empty slice or string.
+
+When you pass a string, the function returns the last `N` bytes, not the last `N` characters. A character may consist of more than one byte, so the returned string may begin with an incomplete character.
+
+## Examples
+
 ```go-html-template
-{{ slice "a" "b" "c" | last 1 }} → [c]
-{{ slice "a" "b" "c" | last 2 }} → [b c]
+{{ slice "a" "b" "c" | collections.Last 1 }} → [c]
+{{ slice "a" "b" "c" | collections.Last 2 }} → [b c]
 ```
 
-Given that a string is in effect a read-only slice of bytes, this function can be used to return the specified number of bytes from the end of the string:
+With a string:
 
 ```go-html-template
-{{ "abc" | last 1 }} → c
-{{ "abc" | last 2 }} → bc
+{{ "abc" | collections.Last 1 }} → c
+{{ "abc" | collections.Last 2 }} → bc
 ```
 
-Note that a _character_ may consist of multiple _bytes_:
+With a string that contains multibyte characters:
 
 ```go-html-template
-{{ "Schön" | last 1 }} → n
-{{ "Schön" | last 2 }} → \xb6n
-{{ "Schön" | last 3 }} → ön
+{{ "Schön" | collections.Last 1 }} → n
+{{ "Schön" | collections.Last 2 }} → \xb6n
+{{ "Schön" | collections.Last 3 }} → ön
 ```
 
-To use the `collections.Last` function with a page collection:
+With a page collection:
 
 ```go-html-template
-{{ range last 5 .Pages }}
+{{ range collections.Last 5 .Pages }}
   {{ .Render "summary" }}
 {{ end }}
 ```
 
-Set `N` to zero to return an empty slice:
+Filtering a page collection with the [`collections.Where`][] function before returning the last five pages:
 
 ```go-html-template
-{{ $emptyPageCollection := last 0 .Pages }}
-```
-
-Use `last` and [`where`][] together:
-
-```go-html-template
-{{ range where .Pages "Section" "articles" | last 5 }}
+{{ range where .Pages "Section" "articles" | collections.Last 5 }}
   {{ .Render "summary" }}
 {{ end }}
 ```
 
-[`where`]: /functions/collections/where/
+[`collections.Where`]: /functions/collections/where/

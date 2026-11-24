@@ -9,11 +9,17 @@ params:
     signatures: [collections.Merge MAP MAP...]
 ---
 
-Returns the result of merging two or more maps from left to right. If a key already exists, `merge` updates its value. If a key is absent, `merge` inserts the value under the new key.
+## Usage
 
-Key handling is case-insensitive.
+The `collections.Merge` function returns a map by combining two or more given maps. The function merges the maps from left to right. If a key already exists, the function updates its value. If a key does not exist, the function inserts the key and its value.
 
-The following examples use these map definitions:
+The function merges nested maps at every level. It does not merge slices. A slice in a later map replaces a slice in an earlier map. To combine slices, use the [`collections.Append`][] function.
+
+The function matches keys without regard to case.
+
+## Examples
+
+These examples use these map definitions:
 
 ```go-html-template
 {{ $m1 := dict "x" "foo" }}
@@ -21,46 +27,52 @@ The following examples use these map definitions:
 {{ $m3 := dict "x" "baz" "y" "wobble" "z" (dict "a" "huey") }}
 ```
 
-This example merges `$m1`, `$m2`, and `$m3`, in that order:
+Merging `$m1`, `$m2`, and `$m3`, in that order:
 
 ```go-html-template
-{{ $merged := merge $m1 $m2 $m3 }}
+{{ $merged := collections.Merge $m1 $m2 $m3 }}
 
 {{ $merged.x }}   → baz
 {{ $merged.y }}   → wobble
 {{ $merged.z.a }} → huey
 ```
 
-This example merges `$m3`, `$m2`, and `$m1`, in that order:
+Merging `$m3`, `$m2`, and `$m1`, in that order:
 
 ```go-html-template
-{{ $merged := merge $m3 $m2 $m1 }}
+{{ $merged := collections.Merge $m3 $m2 $m1 }}
 
 {{ $merged.x }}   → foo
 {{ $merged.y }}   → wibble
 {{ $merged.z.a }} → huey
 ```
 
-This example merges `$m2`, `$m3`, and `$m1`, in that order:
+Merging `$m2`, `$m3`, and `$m1`, in that order:
 
 ```go-html-template
-{{ $merged := merge $m2 $m3 $m1 }}
+{{ $merged := collections.Merge $m2 $m3 $m1 }}
 
 {{ $merged.x }}   → foo
 {{ $merged.y }}   → wobble
 {{ $merged.z.a }} → huey
 ```
 
-This example merges `$m1`, `$m3`, and `$m2`, in that order:
+Merging `$m1`, `$m3`, and `$m2`, in that order:
 
 ```go-html-template
-{{ $merged := merge $m1 $m3 $m2 }}
+{{ $merged := collections.Merge $m1 $m3 $m2 }}
 
 {{ $merged.x }}   → bar
 {{ $merged.y }}   → wibble
 {{ $merged.z.a }} → huey
 ```
 
-Regardless of depth, merging only applies to maps. For slices, use the [`collections.Append`][] function.
+Merging nested maps and slices:
+
+```go-html-template
+{{ $m1 := dict "a" (dict "b" 1 "c" 1) "s" (slice 1 2) }}
+{{ $m2 := dict "a" (dict "b" 2) "s" (slice 3) }}
+{{ collections.Merge $m1 $m2 }} → map[a:map[b:2 c:1] s:[3]]
+```
 
 [`collections.Append`]: /functions/collections/append/

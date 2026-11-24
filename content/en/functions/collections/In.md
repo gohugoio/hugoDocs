@@ -9,22 +9,41 @@ params:
     signatures: [collections.In SLICE|STRING VALUE]
 ---
 
+## Usage
+
+The `collections.In` function reports whether a value exists within the given slice or string. When you pass a slice, the function reports whether any element is equal to `VALUE`. When you pass a string, the function reports whether `VALUE` is a substring.
+
+Numbers are compared by value, regardless of type. A number is not equal to a string that contains the same digits.
+
+{{% include "/_common/time-comparison-note.md" %}}
+
+## Examples
+
 ```go-html-template
 {{ $s := slice "a" "b" "c" }}
-{{ in $s "b" }} → true
+{{ collections.In $s "b" }} → true
+{{ collections.In $s "d" }} → false
 ```
+
+With a string:
 
 ```go-html-template
-{{ $s := "abc" }}
-{{ in $s "b" }} → true
+{{ collections.In "abc" "b" }} → true
+{{ collections.In "abc" "bc" }} → true
 ```
 
-The function compares [`time.Time`][] values by the moment they represent, regardless of time zone:
+Comparing numbers:
+
+```go-html-template
+{{ $s := slice 1 2 3 }}
+{{ collections.In $s 1.0 }} → true
+{{ collections.In $s "1" }} → false
+```
+
+Comparing the same moment in different time zones:
 
 ```go-html-template
 {{ $utc := time.AsTime "2023-07-19T17:42:36Z" }}
 {{ $tokyo := $utc | time.In "Asia/Tokyo" }}
-{{ in (slice $utc) $tokyo }} → true
+{{ collections.In (slice $utc) $tokyo }} → true
 ```
-
-[`time.Time`]: /quick-reference/data-types/#dates-and-times

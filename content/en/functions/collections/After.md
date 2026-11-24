@@ -9,60 +9,46 @@ params:
     signatures: [collections.After N SLICE]
 ---
 
-## Basic usage
+## Usage
 
-The following shows `after` being used in conjunction with the [`slice`][] function:
+The `collections.After` function returns a slice containing the elements after the first `N` elements of the given slice. If `N` is greater than or equal to the length of the slice, the function returns an empty slice.
+
+Use this function with the [`collections.First`][] function to return a range of elements from the middle of a slice.
+
+## Examples
 
 ```go-html-template
-{{ $data := slice "one" "two" "three" "four" }}
+{{ $s := slice "a" "b" "c" "d" }}
+{{ collections.After 2 $s }} → [c d]
+{{ collections.After 0 $s }} → [a b c d]
+{{ collections.After 4 $s }} → []
+```
+
+Returning a range of elements from the middle of a slice:
+
+```go-html-template
+{{ $s := slice "a" "b" "c" "d" }}
+{{ collections.After 1 $s | first 2 }} → [b c]
+```
+
+Rendering the most recently published page in one list, and the next three pages in another list:
+
+```go-html-template
+{{ $pages := .Pages.ByPublishDate.Reverse }}
+
+<h2>Featured</h2>
 <ul>
-  {{ range after 2 $data }}
-    <li>{{ . }}</li>
+  {{ range first 1 $pages }}
+    <li><a href="{{ .RelPermalink }}">{{ .LinkTitle }}</a></li>
+  {{ end }}
+</ul>
+
+<h2>Recent</h2>
+<ul>
+  {{ range collections.After 1 $pages | first 3 }}
+    <li><a href="{{ .RelPermalink }}">{{ .LinkTitle }}</a></li>
   {{ end }}
 </ul>
 ```
 
-The template above is rendered to:
-
-```html
-<ul>
-  <li>three</li>
-  <li>four</li>
-</ul>
-```
-
-## Combine with first
-
-You can use `after` in combination with the [`first`][] function and Hugo's [powerful sorting methods][]. Let's assume you have a `section` page at `example.org/articles`. You have 10 articles, but you want your template to show only two rows:
-
-1. The top row is titled "Featured" and shows only the most recently published article (i.e. by `publishdate` in the content files' front matter).
-1. The second row is titled "Recent Articles" and shows only the 2nd- to 4th-most recently published articles.
-
-```go-html-template {file="layouts/section/articles.html"}
-{{ define "main" }}
-  <section class="row featured-article">
-    <h2>Featured Article</h2>
-    {{ range first 1 .Pages.ByPublishDate.Reverse }}
-    <header>
-      <h3><a href="{{ .RelPermalink }}">{{ .Title }}</a></h3>
-    </header>
-    <p>{{ .Description }}</p>
-  {{ end }}
-  </section>
-  <div class="row recent-articles">
-    <h2>Recent Articles</h2>
-    {{ range first 3 (after 1 .Pages.ByPublishDate.Reverse) }}
-      <section class="recent-article">
-        <header>
-          <h3><a href="{{ .RelPermalink }}">{{ .Title }}</a></h3>
-        </header>
-        <p>{{ .Description }}</p>
-      </section>
-    {{ end }}
-  </div>
-{{ end }}
-```
-
-[`first`]: /functions/collections/first/
-[`slice`]: /functions/collections/slice/
-[powerful sorting methods]: /quick-reference/page-collections/#sort
+[`collections.First`]: /functions/collections/first/

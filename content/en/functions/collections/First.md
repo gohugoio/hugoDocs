@@ -9,46 +9,48 @@ params:
     signatures: [collections.First N SLICE|STRING]
 ---
 
+## Usage
+
+The `collections.First` function returns the first `N` elements of the given slice or string. If `N` is greater than the length of the slice or string, the function returns the entire slice or string. If `N` is zero, the function returns an empty slice or string.
+
+When you pass a string, the function returns the first `N` bytes, not the first `N` characters. A character may consist of more than one byte, so the returned string may end with an incomplete character.
+
+## Examples
+
 ```go-html-template
-{{ slice "a" "b" "c" | first 1 }} → [a]
-{{ slice "a" "b" "c" | first 2 }} → [a b]
+{{ slice "a" "b" "c" | collections.First 1 }} → [a]
+{{ slice "a" "b" "c" | collections.First 2 }} → [a b]
 ```
 
-Given that a string is in effect a read-only slice of bytes, this function can be used to return the specified number of bytes from the beginning of the string:
+With a string:
 
 ```go-html-template
-{{ "abc" | first 1 }} → a
-{{ "abc" | first 2 }} → ab
+{{ "abc" | collections.First 1 }} → a
+{{ "abc" | collections.First 2 }} → ab
 ```
 
-Note that a _character_ may consist of multiple _bytes_:
+With a string that contains multibyte characters:
 
 ```go-html-template
-{{ "Schön" | first 3 }} → Sch
-{{ "Schön" | first 4 }} → Sch\xc3
-{{ "Schön" | first 5 }} → Schö
+{{ "Schön" | collections.First 3 }} → Sch
+{{ "Schön" | collections.First 4 }} → Sch\xc3
+{{ "Schön" | collections.First 5 }} → Schö
 ```
 
-To use the `collections.First` function with a page collection:
+With a page collection:
 
 ```go-html-template
-{{ range first 5 .Pages }}
+{{ range collections.First 5 .Pages }}
   {{ .Render "summary" }}
 {{ end }}
 ```
 
-Set `N` to zero to return an empty slice:
+Filtering a page collection with the [`collections.Where`][] function before returning the first five pages:
 
 ```go-html-template
-{{ $emptyPageCollection := first 0 .Pages }}
-```
-
-Use `first` and [`where`][] together:
-
-```go-html-template
-{{ range where .Pages "Section" "articles" | first 5 }}
+{{ range where .Pages "Section" "articles" | collections.First 5 }}
   {{ .Render "summary" }}
 {{ end }}
 ```
 
-[`where`]: /functions/collections/where/
+[`collections.Where`]: /functions/collections/where/
