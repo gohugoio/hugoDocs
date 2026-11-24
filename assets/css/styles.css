@@ -131,9 +131,10 @@ body {
   padding-left: .0625em;
 }
 
-/* Code spans within paragraphs, tables cells, list items, etc. */
+/* Code spans within paragraphs, table cells, list items, etc. Allow long
+   spans without spaces, such as URLs, to break to prevent overflow. */
 :not(pre) > code {
-  white-space: nowrap;
+  overflow-wrap: break-word;
 }
 
 /* Utility class for tables to prevent word wrapping in the first column. */
