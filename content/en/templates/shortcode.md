@@ -349,6 +349,6 @@ You can use the `HasShortcode` method in your _base_ template to conditionally l
 [named or positional]: /content-management/shortcodes/#arguments
 [notation]: /content-management/shortcodes/#notation
 [shortcodes]: /content-management/shortcodes/
-[standard notation]: /content-management/shortcodes/#standard-notation
+[standard notation]: /content-management/shortcodes/#notation
 [template lookup order]: /templates/lookup-order/
 [whitespace]: /templates/introduction/#whitespace
