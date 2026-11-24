@@ -9,43 +9,49 @@ params:
     signatures: ['collections.Sort MAP|SLICE [KEY] [ORDER]']
 ---
 
-The `KEY` is optional when sorting slices in ascending order, otherwise it is required. When sorting slices, use the literal `value` in place of the `KEY`. See examples below.
+## Usage
 
-The `ORDER` may be either `asc` (ascending) or `desc` (descending). The default sort order is ascending.
+The `collections.Sort` function returns a sorted map or slice by reordering the given collection by a key and order.
 
-## Sort a slice
+When you sort a map, the function discards the top-level keys and returns a slice of the map values. For example, sorting a map of maps returns a slice of maps.
 
-The examples below assume this project configuration:
+To sort a page collection, you can also use the [page sorting methods][], such as `ByTitle` and `ByParam`.
+
+## Arguments
+
+`MAP|SLICE`
+: (`map` or `slice`) The collection to sort, such as a slice of scalar values, a slice of maps, a map of maps, or a page collection.
+
+`KEY`
+: (`string`) The key to sort by. When sorting a slice of scalar values, use the literal `value` as the key. The key is optional only when sorting a slice of scalar values in ascending order. Use dot notation to sort by a nested key, such as `Params.rank`.
+
+  Hugo converts the keys of maps defined in project configuration, front matter, and data files to lowercase, so use a lowercase key when you sort these maps.
+
+`ORDER`
+: (`string`) The sort order, either `asc` for ascending or `desc` for descending. Default is `asc`.
+
+## Examples
+
+These examples demonstrate sorting different data types.
+
+### Slice
+
+These examples use this project configuration:
 
 {{< code-toggle file=hugo >}}
 [params]
 grades = ['b','a','c']
 {{< /code-toggle >}}
 
-### Ascending order {#slice-ascending-order}
-
-Sort slice elements in ascending order using either of these constructs:
-
 ```go-html-template
-{{ sort site.Params.grades }} → [a b c]
-{{ sort site.Params.grades "value" "asc" }} → [a b c]
+{{ collections.Sort site.Params.grades }} → [a b c]
+{{ collections.Sort site.Params.grades "value" "asc" }} → [a b c]
+{{ collections.Sort site.Params.grades "value" "desc" }} → [c b a]
 ```
 
-In the examples above, `value` is the `KEY` representing the value of the slice element.
+### Map
 
-### Descending order {#slice-descending-order}
-
-Sort slice elements in descending order:
-
-```go-html-template
-{{ sort site.Params.grades "value" "desc" }} → [c b a]
-```
-
-In the example above, `value` is the `KEY` representing the value of the slice element.
-
-## Sort a map
-
-The examples below assume this project configuration:
+These examples use this project configuration:
 
 {{< code-toggle file=hugo >}}
 [params.authors.a]
@@ -59,90 +65,46 @@ firstName = 'Jean'
 lastName  = 'Valjean'
 {{< /code-toggle >}}
 
-> [!NOTE]
-> When sorting maps, the `KEY` argument must be lowercase.
-
-### Ascending order {#map-ascending-order}
-
-Sort map objects in ascending order using either of these constructs:
-
 ```go-html-template
-{{ range sort site.Params.authors "firstname" }}
-  {{ .firstName }}
-{{ end }}
-
-{{ range sort site.Params.authors "firstname" "asc" }}
+{{ range collections.Sort site.Params.authors "firstname" }}
   {{ .firstName }}
 {{ end }}
 ```
 
-These produce:
+The rendered output:
 
 ```text
 Jean Marius Victor
 ```
 
-### Descending order {#map-descending-order}
-
-Sort map objects in descending order:
+In descending order:
 
 ```go-html-template
-{{ range sort site.Params.authors "firstname" "desc" }}
+{{ range collections.Sort site.Params.authors "firstname" "desc" }}
   {{ .firstName }}
 {{ end }}
 ```
 
-This produces:
+The rendered output:
 
 ```text
 Victor Marius Jean
 ```
 
-### First level key removal
-
-Hugo removes the first level keys when sorting a map.
-
-Original map:
-
-```json
-{
-  "felix": {
-    "breed": "malicious",
-    "type": "cat"
-  },
-  "spot": {
-    "breed": "boxer",
-    "type": "dog"
-  }
-}
-```
-
-After sorting:
-
-```json
-[
-  {
-    "breed": "malicious",
-    "type": "cat"
-  },
-  {
-    "breed": "boxer",
-    "type": "dog"
-  }
-]
-```
-
-## Sort a page collection
-
-> [!TIP]
-> Although you can use the `sort` function to sort a page collection, Hugo provides [sorting and grouping methods][] as well.
-
-In this contrived example, sort the site's regular pages by `.Type` in descending order:
+### Page collection
 
 ```go-html-template
-{{ range sort site.RegularPages "Type" "desc" }}
+{{ range collections.Sort site.RegularPages "Type" "desc" }}
   <h2><a href="{{ .RelPermalink }}">{{ .LinkTitle }}</a></h2>
 {{ end }}
 ```
 
-[sorting and grouping methods]: /methods/pages/
+Sorting by a page parameter:
+
+```go-html-template
+{{ range collections.Sort site.RegularPages "Params.rank" }}
+  <h2><a href="{{ .RelPermalink }}">{{ .LinkTitle }}</a></h2>
+{{ end }}
+```
+
+[page sorting methods]: /methods/pages/

@@ -28,6 +28,8 @@ The returned slice is always of type `[]any`, regardless of the data type return
 
 ## Examples
 
+This example applies two functions in turn to each element of a slice, using `"."` to pass the element as an argument:
+
 ```go-html-template
 {{ $s := slice "hello" "world" }}
 

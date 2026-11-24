@@ -1,6 +1,6 @@
 ---
 title: collections.KeyVals
-description: Returns a KeyVals struct by pairing a given key and values.
+description: Returns a KeyValues object by pairing the given key and values.
 keywords: []
 params:
   functions_and_methods:
@@ -9,32 +9,37 @@ params:
     signatures: [collections.KeyVals KEY VALUE...]
 ---
 
-The primary application for this function is the definition of the `namedSlices` value in the options map passed to the [`Related`][] method on the `Pages` object.
+## Usage
 
-See [related content][].
+The `collections.KeyVals` function returns a `KeyValues` object by pairing the given key and values. Use this function to define the `namedSlices` option of the [`Related`][] method on a `Pages` object, which returns [related content][].
 
-```go-html-template
-{{ $kv := keyVals "foo" "a" "b" "c" }}
-```
+Use these methods on the `KeyValues` object:
 
-The resulting data structure is:
+`Key`
+: (`any`) Returns the key.
 
-```json
-{
-  "Key": "foo",
-  "Values": [
-    "a",
-    "b",
-    "c"
-  ]
-}
-```
+`Values`
+: (`[]any`) Returns the values.
 
-To extract the key and values:
+## Examples
 
 ```go-html-template
+{{ $kv := collections.KeyVals "foo" "a" "b" "c" }}
 {{ $kv.Key }} → foo
 {{ $kv.Values }} → [a b c]
+```
+
+Defining the `namedSlices` option of the `Related` method:
+
+```go-html-template
+{{ $opts := dict
+  "document" .
+  "indices" (slice "tags" "keywords")
+  "namedSlices" (slice (collections.KeyVals "tags" "hugo" "rocks"))
+}}
+{{ range site.RegularPages.Related $opts | first 5 }}
+  <a href="{{ .RelPermalink }}">{{ .LinkTitle }}</a>
+{{ end }}
 ```
 
 [`Related`]: /methods/pages/related/
