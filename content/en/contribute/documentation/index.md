@@ -43,7 +43,7 @@ Adhere to these writing style conventions.
   No → To copy the repository:\
   Yes → Use the `git clone` command to copy the repository.
 
-  Exception: within the `## Examples` section of a function or method reference page, use a short fragment to introduce each code block after the first. See [function and method page structure](#function-and-method-structure).
+  Exception: within an `## Examples` section, use a short fragment to introduce each code block after the first. See [example lead-ins](#example-lead-ins).
 
 - Use [Basic English][] where possible for a global audience.
 - Prioritize current best practices over multiple options or historical information.
@@ -572,7 +572,7 @@ Use these methods on the `DirFile` object:
 
 Under `## Examples`, use one or more `go-html-template` code blocks to demonstrate the function or method. Call the documented function by its canonical form, and call any other function by its alias, as described in [code examples](#code-examples).
 
-A lead-in sentence before the first code block is optional. Add one only when readers need context to understand the example, such as the front matter or content structure that the example uses. Introduce each subsequent code block with a short lead-in ending in a colon. Do not repeat the function's name, and do not restate the `## Usage` prose:
+Introduce each code block as described in [example lead-ins](#example-lead-ins). Do not repeat the function's name in a lead-in:
 
 ````md {file="content/example.md"}
 ## Examples
@@ -631,7 +631,7 @@ Under `## Examples`, show each shortcode call in an `md` code block with the `fi
 - If the shortcode renders visible content, such as an image, a video, or highlighted code, follow the call with "Your browser displays this:" and the same call, unescaped, so that the page displays the result.
 - Otherwise, follow the call with "Hugo renders this to:" and an `html` code block showing the output.
 
-A lead-in sentence before the first code block is optional. Add one only when readers need context to understand the example. Introduce each subsequent example with a short lead-in ending in a colon.
+Introduce each example as described in [example lead-ins](#example-lead-ins).
 
 ## Render hook pages
 
@@ -664,7 +664,7 @@ Under `## Template selection`, name the template file, state that Hugo selects i
 
 End the `## Embedded render hook` section with a tip describing how to override the embedded render hook. For example: "To override Hugo's embedded link render hook, copy the source code to a file with the same name in the `layouts/_markup` directory." Link "source code" to the embedded template using the [`eturl`](#eturl) shortcode. If a configuration setting can prevent the override, say so in the tip.
 
-Under `## Examples`, open with a template that reproduces Hugo's default rendering of the element, if possible, introduced with "To create a render hook that does the same thing:". Place each template in a `go-html-template` code block with the `file` attribute set to the template path and the `copy` attribute set to `true`. Introduce each subsequent example with a short lead-in that begins with "To" and ends with a colon, such as "To render standalone images within `figure` elements:".
+Under `## Examples`, open with a template that reproduces Hugo's default rendering of the element, if possible, introduced with "To create a render hook that does the same thing:". Place each template in a `go-html-template` code block with the `file` attribute set to the template path and the `copy` attribute set to `true`. Introduce each subsequent example with a short lead-in that begins with "To" and ends with a colon, such as "To render standalone images within `figure` elements:". If you cannot reproduce the default rendering, introduce the first example as described in [example lead-ins](#example-lead-ins).
 
 ## Code examples
 
@@ -701,6 +701,18 @@ This example follows these conventions:
 {{ end }}
 ```
 ````
+
+### Example lead-ins
+
+These guidelines apply to the `## Examples` section of any page, including function, method, shortcode, and render hook pages. The page type sections above may add specific lead-ins.
+
+A lead-in sentence before the first code block is optional. Add one when readers need context to understand the example, such as the front matter or content structure that the example uses. Also add one when the example is complex enough that readers would otherwise have to work out what it does, such as an example that combines several functions or renders a list of pages. Write the lead-in as a complete sentence that describes what the example does:
+
+```md {file="content/example.md"}
+This example creates one page group from the first 10 regular pages and another from the last 10, then renders a heading and a list of links for each group:
+```
+
+Introduce each subsequent code block with a short lead-in ending in a colon. The lead-in may be a fragment, such as "Comparing numbers of different types:". Do not restate the `## Usage` prose.
 
 ### Fenced code blocks
 
