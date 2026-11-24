@@ -590,7 +590,7 @@ In the template example above, each of the keys is a valid identifier. For examp
 [`strings.ToUpper`]: /functions/strings/toupper/
 [`text/template`]: https://pkg.go.dev/text/template
 [`with`]: /functions/go-template/with/
-[Markdown notation]: /content-management/shortcodes/#markdown-notation
+[Markdown notation]: /content-management/shortcodes/#notation
 [data type]: /quick-reference/data-types/
 [embedded templates]: /templates/embedded/
 [front matter fields]: /content-management/front-matter/#fields

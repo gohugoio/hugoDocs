@@ -330,7 +330,7 @@ You can use the `HasShortcode` method in your _base_ template to conditionally l
 ```
 
 [GitHub]: https://github.com/gohugoio/hugo/tree/master/tpl/tplimpl/embedded/templates/_shortcodes
-[Markdown notation]: /content-management/shortcodes/#markdown-notation
+[Markdown notation]: /content-management/shortcodes/#notation
 [`Get`]: /methods/shortcode/get/
 [`HasShortcode`]: /methods/page/hasshortcode/
 [`Inner`]: /methods/shortcode/inner/
