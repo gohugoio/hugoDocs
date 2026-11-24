@@ -18,7 +18,16 @@ _comment: Do not remove front matter.
 : (`string`) Edit your source code before building to drop certain constructs: One of `debugger` or `console`. See [details][esb drop].
 
 `externals`
-: (`slice`) External dependencies. Use this to trim dependencies you know will never be executed. See [details][esb external].
+: (`slice`) External dependencies. Use this to trim dependencies you know will never be executed. Hugo leaves the matching `import` statements unchanged in the generated JavaScript code. How Hugo matches each path depends on where the imported file resides:
+
+  - For a file in the `assets` directory, the path must exactly match the path in the `import` statement, such as `./lib/util.js`.
+  - For a Node package, the path can be a package name, such as `react`, which also matches every file in the package. The path can also contain one `*` wildcard, such as `react*`.
+
+  ```go-html-template
+  {{ $js := resources.Get "js/main.js" | js.Build (dict "externals" (slice "./lib/util.js" "react")) }}
+  ```
+
+  See [details][esb external].
 
 `inject`
 : (`slice`) This option allows you to automatically replace a global variable with an import from another file. The path names must be relative to `assets`. See [details][esb inject].
