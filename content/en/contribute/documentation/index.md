@@ -666,6 +666,60 @@ End the `## Embedded render hook` section with a tip describing how to override 
 
 Under `## Examples`, open with a template that reproduces Hugo's default rendering of the element, if possible, introduced with "To create a render hook that does the same thing:". Place each template in a `go-html-template` code block with the `file` attribute set to the template path and the `copy` attribute set to `true`. Introduce each subsequent example with a short lead-in that begins with "To" and ends with a colon, such as "To render standalone images within `figure` elements:". If you cannot reproduce the default rendering, introduce the first example as described in [example lead-ins](#example-lead-ins).
 
+## Configuration pages
+
+Configuration pages are reference pages that describe Hugo's configuration settings. Each configuration category, such as `build` or `markup`, has its own page. A separate page lists every top-level key. Both types of page follow specific conventions for the front matter description and the page structure. The introduction to the configuration section is a concept page, and these conventions do not apply to it.
+
+### Descriptions {#configuration-descriptions}
+
+For configuration category pages, write the front matter `description` in imperative present tense, beginning with "Configure" and describing what the settings control. Do not repeat the title. For example:
+
+No → `Configure file caches.`\
+Yes → `Configure the file caches that Hugo uses to store data between builds.`
+
+### Structure {#configuration-structure}
+
+Structure the body of a configuration category page with these level 2 headings, in this order:
+
+1. `## Usage`: Required. Prose describing what the category controls, its scope, and where to define it.
+1. `## Base settings`: Optional. A definition list describing the general settings that control the category, such as `defaultContentLanguage`.
+1. `## Settings`: Required unless the category has no predefined keys, such as `params`. The default configuration followed by a definition list describing each key.
+1. Nested key sections: Required for each nested key that has its own default configuration or several settings of its own. Use the key name in sentence case as the heading, such as `## Build stats` or `## Mounts`.
+1. Topic sections: Optional. Behavior or tasks that do not fit in the sections above. Use a heading that describes the content.
+1. `## Examples`: Optional. Examples that combine several settings or show a complete configuration.
+
+Do not add other level 2 headings. When related pages share a topic section, use the same heading on each page, such as `## Map form`, `## Array form`, and `## Target` on the cascade and permalinks pages. Use these headings for common topics:
+
+- `## Tokens`
+- `## Sort order`
+- `## Localized settings`
+- `## Environment variables`
+- `## Template selection`, as described in [section headings](#section-headings)
+
+Open the `## Usage` section with a complete sentence that names the top-level key, wrapped in backticks. Place glossary terms, scope callouts, and links to concept pages within `## Usage`. If the entire category is new, place the `new-in` shortcode on the first line of the page body, before the first heading.
+
+Under `## Settings`, introduce the default configuration with "This is the default configuration:" followed by the `code-toggle` shortcode with the `config` argument. Then describe each key alphabetically using a definition list. Wrap each term in backticks, begin each description with the data type in parentheses, and end it with the default value, such as "Default is `false`." Use a dotted term, such as `http.urls`, for a nested key that does not have its own section. Do not describe a key that has its own section, because each term and heading creates an anchor, and the duplicate anchor breaks links to the section. When the category contains entries that you name, such as languages or output formats, introduce the list with "Each ENTRY accepts these settings:".
+
+Under each nested key section, follow the same conventions as `## Settings`. Use level 3 headings for keys nested more deeply.
+
+Under `## Examples`, do not repeat examples shown in earlier sections. Introduce each example as described in [example lead-ins](#example-lead-ins).
+
+### All settings page
+
+Structure the body of the page that lists every top-level key with these level 2 headings, in this order:
+
+1. `## General settings`: Required. A definition list describing each top-level key that is not a configuration category.
+1. `## Configuration categories`: Required. A definition list of configuration category keys, each linking to its category page.
+1. Detail sections: Optional. More information about a general setting that needs more than its list entry, using the setting name in sentence case as the heading, such as `## Cache directory`.
+
+Do not add other level 2 headings.
+
+Under `## General settings`, describe each key alphabetically using a definition list. Wrap each term in backticks, begin each description with the data type in parentheses, and end it with the default value. When a general setting has a detail section, link to that section from its description.
+
+Under `## Configuration categories`, describe each key alphabetically using a definition list. Wrap each term in backticks, and write each description as `See [configure CATEGORY][].` Do not include the data type. The category page describes it.
+
+When a general setting also appears under `## Base settings` on a category page, keep the two descriptions consistent. Follow the [shared content](#shared-content) guidelines to decide whether to create a snippet.
+
 ## Code examples
 
 Use short, focused code examples. When including template code examples, follow these conventions.
