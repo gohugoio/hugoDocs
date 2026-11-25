@@ -9,19 +9,15 @@ params:
     signatures: [resources.Concat TARGETPATH SLICE]
 ---
 
-{{% include "/_common/resource-types-note.md" %}}
-
 ## Usage
 
 The `resources.Concat` function returns a resource created by concatenating the given slice of resources. Use it to bundle text resources such as JavaScript and CSS files. Each resource must have the same [media type](g).
 
+{{% include "/_common/resource-types-note.md" %}}
+
 Hugo publishes the resource to the target path when you call its [`Publish`][], [`Permalink`][], or [`RelPermalink`][] method, or pass it to the [`resources.Publish`][] function.
 
 Hugo caches the result in memory by target path. If you call the function again with the same target path, it returns the cached resource, even if you pass a different slice of resources. Use a unique target path for each bundle.
-
-{{< new-in 0.170.0 >}}
-The `SLICE` argument now accepts a `[]any` slice of resources, such as the slice returned by the [`collections.Apply`][] function.
-{{< /new-in >}}
 
 ## Arguments
 
@@ -30,6 +26,10 @@ The `SLICE` argument now accepts a `[]any` slice of resources, such as the slice
 
 `SLICE`
 : (`resource.Resources` or `[]any`) A slice of the resources to concatenate, in order, such as the slice returned by the [`collections.Slice`][], [`collections.Apply`][], [`resources.ByType`][], or [`resources.Match`][] function. Every element must be a resource. For example, a slice that contains a `nil` element, such as the value returned by the [`resources.Get`][] function when it cannot find the file, causes an error.
+
+  {{< new-in 0.170.0 >}}
+  The `SLICE` argument now accepts a `[]any` slice of resources, such as the slice returned by the `collections.Apply` function.
+  {{< /new-in >}}
 
 ## Examples
 

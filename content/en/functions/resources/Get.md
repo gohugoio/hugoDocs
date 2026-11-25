@@ -9,10 +9,16 @@ params:
     signatures: [resources.Get PATH]
 ---
 
+## Usage
+
+The `resources.Get` function returns a [global resource](g) from the given `PATH`, or `nil` if none found. The path is relative to the `assets` directory. The function also returns `nil` if the path is an empty string.
+
+{{% include "/_common/global-resources-note.md" %}}
+
+## Examples
+
 ```go-html-template
 {{ with resources.Get "images/a.jpg" }}
   <img src="{{ .RelPermalink }}" width="{{ .Width }}" height="{{ .Height }}" alt="">
 {{ end }}
 ```
-
-{{% include "/_common/global-resources-note.md" %}}

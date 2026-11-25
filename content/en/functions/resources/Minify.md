@@ -9,11 +9,23 @@ params:
     signatures: [resources.Minify RESOURCE]
 ---
 
+## Usage
+
+The `resources.Minify` function returns a minified version of the given resource. The resource must be a CSS, JavaScript, JSON, HTML, SVG, or XML file. Otherwise, Hugo returns an error when you access the content or URL of the returned resource.
+
 {{% include "/_common/resource-types-note.md" %}}
 
+Hugo uses the [`tdewolff/minify`][] package to minify the resource. To change the minifier settings, or to disable minification for a specific file type, [configure minify][].
+
+## Examples
+
 ```go-html-template
-{{ $css := resources.Get "css/main.css" }}
-{{ $style := $css | minify }}
+{{ with resources.Get "css/main.css" }}
+  {{ with resources.Minify . }}
+    <link rel="stylesheet" href="{{ .RelPermalink }}">
+  {{ end }}
+{{ end }}
 ```
 
-Any CSS, JS, JSON, HTML, SVG, or XML resource can be minified using resources.Minify which takes for argument the resource object.
+[`tdewolff/minify`]: https://github.com/tdewolff/minify
+[configure minify]: /configuration/minify/
