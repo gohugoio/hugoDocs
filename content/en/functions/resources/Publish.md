@@ -11,20 +11,24 @@ params:
 
 {{< new-in 0.166.0 />}}
 
+## Usage
+
+The `resources.Publish` function writes the given resource to the `public` directory and returns the resource. Use it to publish a resource within a template pipeline. Outside of a pipeline, you can use the [`Publish`][] method on the resource instead, which publishes the resource without returning a value.
+
 {{% include "/_common/resource-types-note.md" %}}
 
-The `resources.Publish` function writes the given resource to the `public` directory and returns the resource, making it useful within a template pipeline.
+## Examples
+
+Publishing a resource with the `resources.Publish` function, which returns the resource:
 
 ```go-html-template
 {{ resources.Get "main.js" | js.Build | resources.Publish }}
 ```
 
-This is equivalent to:
+Publishing a resource with the `Publish` method, which returns nothing:
 
 ```go-html-template
 {{ (resources.Get "main.js" | js.Build).Publish }}
 ```
-
-See the [`Publish`][] method for the non-pipeline form.
 
 [`Publish`]: /methods/resource/publish/
