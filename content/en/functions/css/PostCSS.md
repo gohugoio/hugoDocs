@@ -13,6 +13,8 @@ params:
 
 The `css.PostCSS` function returns a resource created by processing the given CSS resource with [PostCSS][] and any of its [plugins][].
 
+By default, Hugo searches the root of the project directory and of each module for `postcss.config.js`, `postcss.config.mjs`, and `postcss.config.cjs`, in that order. To use a configuration file in a different location, set the [`config`](#config) option.
+
 Hugo caches the result in memory and writes it to disk in the [`assets`][] file cache, which is the `resources/_gen` directory by default. With the default [`useResourceCacheWhen`][] setting, Hugo runs PostCSS on every build, and reads the result from the file cache only if it cannot find the PostCSS executable.
 
 If you commit the `resources` directory to your repository, you do not need to install PostCSS on your [CI/CD](g) platform, because Hugo reads the result from the file cache. This works only if both of these conditions are true:
@@ -69,7 +71,7 @@ Hugo passes these environment variables to the PostCSS process, so you can use t
 The `css.PostCSS` function accepts an options map. This option applies when you use a PostCSS configuration file:
 
 `config`
-: (`string`) The path to the directory that contains the PostCSS configuration file. By default, Hugo searches the root of the project directory and of each module for `postcss.config.js`, `postcss.config.mjs`, and `postcss.config.cjs`, in that order. Use this option only if your configuration file is in a custom subdirectory. The directory must contain a file named `postcss.config.js`, `postcss.config.mjs`, or `postcss.config.cjs`. Otherwise, the build fails.
+: (`string`) The path to the directory that contains the PostCSS configuration file. Hugo resolves a relative path against the root of the project directory and of each module. The directory must contain a file named `postcss.config.js`, `postcss.config.mjs`, or `postcss.config.cjs`. Otherwise, the build fails. If you pass the path to a file, PostCSS ignores the file name and uses the directory that contains the file. Use this option only if your configuration file is in a custom subdirectory.
 
 Hugo handles these options itself, so they apply with or without a PostCSS configuration file:
 
