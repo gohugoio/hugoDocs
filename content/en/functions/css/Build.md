@@ -6,7 +6,7 @@ params:
   functions_and_methods:
     aliases: []
     returnType: resource.Resource
-    signatures: ['css.Build [OPTIONS] RESOURCE']
+    signatures: ['css.Build [OPTIONS] RESOURCE', 'css.Build TARGETPATH RESOURCE']
 ---
 
 {{< new-in 0.158.0 />}}
@@ -20,6 +20,8 @@ Use these options to process the bundled CSS code further:
 - Set the [`target`](#target) option to transform syntax and add vendor prefixes for browser compatibility.
 - Set the [`minify`](#minify) option to minify the CSS code.
 - Set the [`sourceMap`](#sourcemap) option to create a source map.
+
+Instead of an options map, you can pass a target path as the first argument. This has the same effect as setting the [`targetPath`](#targetpath) option.
 
 ### Import paths
 
