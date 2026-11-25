@@ -43,7 +43,7 @@ Adhere to these writing style conventions.
   No → To copy the repository:\
   Yes → Use the `git clone` command to copy the repository.
 
-  Exception: within an `## Examples` section, use a short fragment to introduce each code block after the first. See [example lead-ins](#example-lead-ins).
+  Exception: within an `## Examples` section, use a short fragment to introduce each code block after the first, and to introduce the first code block of comparative examples. See [example lead-ins](#example-lead-ins).
 
 - Use [Basic English][] where possible for a global audience.
 - Prioritize current best practices over multiple options or historical information.
@@ -706,13 +706,37 @@ This example follows these conventions:
 
 These guidelines apply to the `## Examples` section of any page, including function, method, shortcode, and render hook pages. The page type sections above may add specific lead-ins.
 
-A lead-in sentence before the first code block is optional. Add one when readers need context to understand the example, such as the front matter or content structure that the example uses. Also add one when the example is complex enough that readers would otherwise have to work out what it does, such as an example that combines several functions or renders a list of pages. Write the lead-in as a complete sentence that describes what the example does:
+A lead-in sentence before the first code block is optional, unless the examples are comparative as described below. Add one when readers need context to understand the example, such as the front matter or content structure that the example uses. Also add one when the example is complex enough that readers would otherwise have to work out what it does, such as an example that combines several functions or renders a list of pages. Write the lead-in as a complete sentence that describes what the example does:
 
 ```md {file="content/example.md"}
 This example creates one page group from the first 10 regular pages and another from the last 10, then renders a heading and a list of links for each group:
 ```
 
 Introduce each subsequent code block with a short lead-in ending in a colon. The lead-in may be a fragment, such as "Comparing numbers of different types:". Do not restate the `## Usage` prose.
+
+Examples are comparative when a subsequent example changes one aspect of the first, and its lead-in describes the change relative to the first example. For example, a lead-in that ends with "and its subdirectories" makes sense only if readers know that the first example excludes them.
+
+Introduce the first code block of comparative examples with a short lead-in ending in a colon, so that readers know what the subsequent examples differ from. Write the lead-ins in parallel form, changing only the words that describe the difference:
+
+````md {file="content/example.md"}
+## Examples
+
+Rendering every file with a `.jpg` extension in the `images` directory:
+
+```go-html-template
+{{ range resources.Match "images/*.jpg" }}
+  <img src="{{ .RelPermalink }}" width="{{ .Width }}" height="{{ .Height }}" alt="">
+{{ end }}
+```
+
+Rendering every file with a `.jpg` extension in the `images` directory and its subdirectories:
+
+```go-html-template
+{{ range resources.Match "images/**.jpg" }}
+  <img src="{{ .RelPermalink }}" width="{{ .Width }}" height="{{ .Height }}" alt="">
+{{ end }}
+```
+````
 
 ### Fenced code blocks
 
