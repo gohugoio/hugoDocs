@@ -163,7 +163,7 @@ The `css.Build` function accepts an options map.
   ```
 
 `target`
-: (`[]string`) The [target environment][esb target] for the generated CSS code. The target environment determines which syntax transformations to perform and which vendor prefixes to add. If unset, Hugo does not transform syntax or add vendor prefixes. Each element consists of a target name followed by a version number, such as `chrome115`. Supported targets include `chrome`, `edge`, `firefox`, `ie`, `ios`, `opera`, and `safari`. Target names are case-insensitive, and the build fails if a target name is unknown or lacks a version number.
+: (`string` or `[]string`) The [target environment][esb target] for the generated CSS code. The target environment determines which syntax transformations to perform and which vendor prefixes to add. If unset, Hugo does not transform syntax or add vendor prefixes. Each value consists of a target name followed by a version number, such as `chrome115`. Supported targets include `chrome`, `edge`, `firefox`, `ie`, `ios`, `opera`, and `safari`. Target names are case-insensitive. The build fails if a target name lacks a version number, or if Hugo does not recognize any of the values. Hugo ignores an unrecognized value if it recognizes another value in the slice.
 
   ```go-html-template
   {{ $target := slice "chrome115" "edge115" "firefox116" "ios16.4" "safari16.4" }}
