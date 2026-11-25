@@ -36,6 +36,8 @@ _Partial_ templates are not context-aware. Hugo ignores the current page's outpu
 
 ## Examples
 
+Passing the current page as context:
+
 ```go-html-template
 {{ partials.Include "breadcrumbs.html" . }}
 ```

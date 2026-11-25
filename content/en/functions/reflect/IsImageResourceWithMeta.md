@@ -19,7 +19,7 @@ The `reflect.IsImageResourceWithMeta` function reports whether the given value i
 
 ## Examples
 
-Rendering each image with its dimensions and creation date:
+This example renders each image with its dimensions and creation date:
 
 ```go-html-template
 {{ range resources.Match "**" }}

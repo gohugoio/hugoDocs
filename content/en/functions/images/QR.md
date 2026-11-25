@@ -77,6 +77,8 @@ The `images.QR` function accepts an options map.
 
 ## Examples
 
+Without options:
+
 ```go-html-template
 {{ $text := "https://gohugo.io" }}
 {{ with images.QR $text }}

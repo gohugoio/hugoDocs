@@ -33,6 +33,8 @@ Use this function for complex _partial_ templates that do not need to be rendere
 
 ## Examples
 
+Caching one result for all pages:
+
 ```go-html-template
 {{ partials.IncludeCached "footer.html" . }}
 ```

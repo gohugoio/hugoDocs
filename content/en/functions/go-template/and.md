@@ -19,6 +19,8 @@ The `and` function returns the first falsy argument. If all arguments are truthy
 
 ## Examples
 
+When one or more arguments are falsy:
+
 ```go-html-template
 {{ and 1 0 "" }} → 0 (int)
 {{ and 1 false 0 }} → false (bool)

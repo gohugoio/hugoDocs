@@ -29,7 +29,7 @@ The `return` statement must be the last command in a pipeline. For example, this
 
 ## Examples
 
-A _partial_ template that returns a string value:
+This example defines a _partial_ template that returns a string value, then calls it from a _page_ template:
 
 ```go-html-template {file="layouts/_partials/parity.html"}
 {{ if math.ModBool . 2 }}

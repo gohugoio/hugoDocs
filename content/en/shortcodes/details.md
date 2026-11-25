@@ -49,6 +49,8 @@ The `details` shortcode accepts named arguments.
 
 ## Examples
 
+With the content initially hidden:
+
 ```md {file="content/example.md"}
 {{</* details summary="See the details" */>}}
 This is a **bold** word.

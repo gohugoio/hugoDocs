@@ -77,6 +77,8 @@ The `images.Dither` function accepts an options map.
 
 ## Examples
 
+Without options:
+
 ```go-html-template
 {{ $filter := images.Dither }}
 ```

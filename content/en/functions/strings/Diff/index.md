@@ -14,6 +14,8 @@ The `strings.Diff` function returns an anchored diff of the two texts `OLD` and 
 
 ## Examples
 
+This example compares two HTML snippets, then passes the diff to the [`transform.Highlight`][] function to render it with syntax highlighting:
+
 ```go-html-template
 {{ $want := `
 <p>The product of 6 and 7 is 42.</p>
@@ -32,3 +34,5 @@ The `strings.Diff` function returns an anchored diff of the two texts `OLD` and 
 The rendered output:
 
 ![screen capture](diff-screen-capture.png)
+
+[`transform.Highlight`]: /functions/transform/highlight/

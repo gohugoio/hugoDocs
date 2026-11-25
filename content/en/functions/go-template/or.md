@@ -19,6 +19,8 @@ The `or` function returns the first truthy argument. If all arguments are falsy,
 
 ## Examples
 
+When one or more arguments are truthy:
+
 ```go-html-template
 {{ or 0 1 2 }} → 1 (int)
 {{ or false "a" 1 }} → a (string)

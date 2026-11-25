@@ -17,6 +17,8 @@ To sanitize a string for usage in a URL, use the [`urls.URLize`][] function inst
 
 ## Examples
 
+With `autoIDType` set to `github`, the default:
+
 ```go-html-template
 {{ urls.Anchorize "Hello, World!" }} → hello-world
 {{ urls.Anchorize "a b   c" }} → a-b---c

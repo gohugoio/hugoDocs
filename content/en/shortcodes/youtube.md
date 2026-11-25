@@ -61,6 +61,8 @@ The `youtube` shortcode accepts either a single positional argument, the video I
 
 ## Examples
 
+With a positional argument:
+
 ```md {file="content/example.md"}
 {{</* youtube 0RKpf3rK57I */>}}
 ```

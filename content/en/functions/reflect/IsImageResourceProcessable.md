@@ -21,7 +21,7 @@ The `reflect.IsImageResourceProcessable` function reports whether the given valu
 
 ## Examples
 
-Resizing and converting each processable image:
+This example resizes each processable image and converts it to WebP:
 
 ```go-html-template
 {{ range resources.Match "**" }}

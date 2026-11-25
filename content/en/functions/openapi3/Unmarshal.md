@@ -31,6 +31,8 @@ The `openapi3.Unmarshal` function accepts an options map.
 
 ## Examples
 
+Unmarshaling a global resource:
+
 ```go-html-template {copy=true}
 {{ $api := "" }}
 {{ with resources.Get "api/petstore.json" }}

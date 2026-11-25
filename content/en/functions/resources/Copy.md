@@ -24,6 +24,8 @@ Hugo caches the result in memory by target path. If you call the function again 
 
 ## Examples
 
+Copying a global resource:
+
 ```go-html-template
 {{ with resources.Get "images/a.jpg" }}
   {{ with resources.Copy "img/new-image-name.jpg" . }}
