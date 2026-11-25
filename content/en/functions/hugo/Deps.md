@@ -35,6 +35,8 @@ Use these methods on each `hugo.Dependency` object in the slice:
 
 ## Examples
 
+This example renders a table that lists each dependency with its owner, path, version, time, and vendor status:
+
 ```go-html-template
 <table>
   <thead>

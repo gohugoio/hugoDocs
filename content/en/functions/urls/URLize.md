@@ -19,6 +19,8 @@ To sanitize a string for usage in an HTML `id` attribute, use the [`urls.Anchori
 
 ## Examples
 
+With the default settings:
+
 ```go-html-template
 {{ urls.URLize "Hello, World!" }} → hello-world
 {{ urls.URLize "a b   c" }} → a-b-c

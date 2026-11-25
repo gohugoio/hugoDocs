@@ -19,7 +19,7 @@ The `reflect.IsImageResource` function reports whether the given value is a `Res
 
 ## Examples
 
-Rendering an `img` element for each image, and a download link for each other file:
+This example renders an `img` element for each image, and a download link for each other file:
 
 ```go-html-template
 {{ range resources.Match "**" }}

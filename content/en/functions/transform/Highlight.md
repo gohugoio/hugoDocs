@@ -42,6 +42,8 @@ The `transform.Highlight` function accepts an options map.
 
 ## Examples
 
+Without options:
+
 ```go-html-template
 {{ $input := `fmt.Println("Hello World!")` }}
 {{ transform.Highlight $input "go" }}

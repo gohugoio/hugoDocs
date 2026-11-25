@@ -32,6 +32,8 @@ The deferred block retains the [output format][], [site][], and [language][] of 
 
 ## Examples
 
+This example uses the `data` option to pass the current page to the deferred block, and shows that the block retains the language of the calling template:
+
 ```go-html-template
 Language outside: {{ site.Language.Name }}
 Page outside: {{ .RelPermalink }}

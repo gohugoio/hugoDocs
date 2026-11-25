@@ -25,6 +25,8 @@ The supported algorithms match those used for the [Subresource Integrity][] (SRI
 
 ## Examples
 
+With an algorithm:
+
 ```go-html-template
 {{ crypto.Hash "sha256" "Hello world" }} → 64ec88ca00b268e5ba1a35678a1b5316d212f4f366b2477232534a8aeca37f3c
 {{ "Hello world" | crypto.Hash "sha512" }} → b7f783baed8297f0db917462184ff4f08e69c2d5e5f79a942600f9725f58ce1f29c18139bf80b06c0fff2bdd34738452ecf40c488c22a7e3d80cdf6f9c1c0d47

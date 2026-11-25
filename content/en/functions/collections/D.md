@@ -42,11 +42,13 @@ The function returns an error if any argument is negative, or if `N` or `HIGH` i
 
 ## Examples
 
+With a seed value of 6:
+
 ```go-html-template
 {{ collections.D 6 7 42 }} → [4 9 10 20 22 24 41]
 ```
 
-With a different seed value:
+With a seed value of 2:
 
 ```go-html-template
 {{ collections.D 2 7 42 }} → [3 11 19 25 32 33 38]

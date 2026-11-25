@@ -23,6 +23,8 @@ A _partial_ template can call `templates.Inner` zero or more times. If the _part
 
 ## Examples
 
+This _partial_ template wraps the enclosed block in a `div` element:
+
 ```go-html-template {file="layouts/_partials/components/card.html"}
 <div class="card">
   {{ templates.Inner . }}

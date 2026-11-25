@@ -33,6 +33,8 @@ Hugo caches the result in memory by target path. If you call the function again 
 
 ## Examples
 
+Creating the slice from a list of resources:
+
 ```go-html-template
 {{ $plugins := resources.Get "js/plugins.js" }}
 {{ $global := resources.Get "js/global.js" }}

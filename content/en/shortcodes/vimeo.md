@@ -48,6 +48,8 @@ The `vimeo` shortcode accepts either a single positional argument, the video ID,
 
 ## Examples
 
+With a positional argument:
+
 ```md {file="content/example.md"}
 {{</* vimeo 19899678 */>}}
 ```

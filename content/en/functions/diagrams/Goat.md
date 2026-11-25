@@ -31,6 +31,8 @@ Use these methods on the `SVGDiagram` object:
 
 ## Examples
 
+This code block render hook renders each GoAT diagram within a `figure` element, using the `class`, `id`, and `caption` attributes of the code block if present:
+
 ```go-html-template {file="layouts/_markup/render-codeblock-goat.html"}
 {{ $caption := or .Attributes.caption "" }}
 {{ $class := or .Attributes.class "diagram" }}

@@ -19,6 +19,8 @@ Use this function to check for a template before calling it, such as when you bu
 
 ## Examples
 
+This example calls a _partial_ template named for the page's content type if it exists, and calls a default _partial_ template otherwise:
+
 ```go-html-template
 {{ $partialPath := printf "headers/%s.html" .Type }}
 {{ if templates.Exists (printf "_partials/%s" $partialPath) }}
