@@ -222,6 +222,12 @@ site-relative|`/old-url`|`/en/old-url/`
 page-relative|`old-name`|`/en/examples/old-name/`
 page-relative|`../old/path`|`/en/old/path/`
 
+### Alias collisions
+
+If two pages define the same alias, Hugo publishes a single redirect file for that path, pointing to one of the two pages. Hugo does not define which page wins, and it does not report the collision unless you use the `--printPathWarnings` flag when building your project. To fail the build when a collision occurs, combine it with the `--panicOnWarning` flag.
+
+When [`disableAliases`][] is `true`, Hugo does not publish redirect files, and the `--printPathWarnings` flag cannot detect alias collisions.
+
 ### Redirection methods
 
 There are two ways to implement aliases depending on your hosting environment and preferences: client-side redirection and server-side redirection.
