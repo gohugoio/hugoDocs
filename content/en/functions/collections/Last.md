@@ -5,7 +5,7 @@ keywords: []
 params:
   functions_and_methods:
     aliases: [last]
-    returnType: 'any'
+    returnType: any
     signatures: [collections.Last N SLICE|STRING]
 ---
 

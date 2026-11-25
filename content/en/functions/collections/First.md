@@ -5,7 +5,7 @@ keywords: []
 params:
   functions_and_methods:
     aliases: [first]
-    returnType: 'any'
+    returnType: any
     signatures: [collections.First N SLICE|STRING]
 ---
 
