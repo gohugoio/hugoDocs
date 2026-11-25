@@ -40,6 +40,8 @@ Hugo uses [Go modules][] to manage its dependencies, and compiles to a static bi
 
 Hugo's security philosophy is based on established security standards, and aligns with the threats defined by [OWASP][]. For HTML output, Hugo uses a clear trust model. This model assumes that template and configuration authors, the developers, are trustworthy. The data supplied to these templates is not trusted. This distinction is important to understand how Hugo handles potential security risks.
 
+Hugo escapes data only in templates that produce HTML output. It does not escape data in templates that produce plain text output formats such as CSS, CSV, JSON, or Markdown, or in templates executed by the [`resources.ExecuteAsTemplate`][] function. If these templates print data from content files, escape the data yourself.
+
 To prevent unintended escaping of data that developers know is safe, Hugo provides [`safe`][] functions such as `safe.HTML`. Developers use these functions to mark data as trusted, which bypasses the default escaping. This is essential when data comes from reliable sources. If you enable inline shortcodes, you trust the logic within the shortcodes and the data in your content files.
 
 Because Hugo is a static site generator, it reduces the attack surface by removing the complexity and vulnerabilities of dynamic user input. Unlike dynamic websites, Hugo generates static HTML files, which reduces the risk of real-time attacks. Hugo's default Markdown renderer is [configured to sanitize][] potentially unsafe content, removing or escaping potentially malicious code or scripts. You can change this setting if you are confident that your content sources are safe.
@@ -57,6 +59,7 @@ Adjust the security policy in your project configuration to allow or deny access
 [inline shortcodes]: /templates/types/#inline-shortcode
 [Modules]: /hugo-modules/
 [OWASP]: https://owasp.org/
+[`resources.ExecuteAsTemplate`]: /functions/resources/executeastemplate/
 [`safe`]: /functions/safe/
 [security policy]: /configuration/security/
 [tamper with your project's dependencies]: https://go.dev/ref/mod#authenticating
