@@ -131,11 +131,9 @@ A remote resource is a file on a remote server, accessible via HTTP or HTTPS.
 ```
 
 > [!NOTE]
-> When retrieving remote data, a misconfigured server may send a response header with an incorrect [Content-Type][]. For example, the server may set the Content-Type header to `application/octet-stream` instead of `application/json`.
+> When retrieving remote data, a misconfigured server may send a response header with an incorrect [Content-Type][]. For example, the server may set the `Content-Type` header to `application/octet-stream` instead of `application/json`. In this case, set the [`format`](#format) option. For example, replace the unmarshaling line in the remote resource example with this:
 >
-> In these cases, pass the resource `Content` through the `transform.Unmarshal` function instead of passing the resource itself. For example, in the [remote resource](#remote-resource) example, use this instead:
->
-> `{{ $data = .Content | transform.Unmarshal }}`
+> `{{ $data = . | transform.Unmarshal (dict "format" "json") }}`
 
 ### Working with CSV
 
