@@ -27,7 +27,7 @@ Step 1
   ![screen capture](cb-pages-01.png)
 
 Step 2
-: Create a `hugo.yaml` file in the `.forgejo/workflows` directory, adjusting the tool versions and time zone as needed.
+: Create a `hugo.yaml` file in the `.forgejo/workflows` directory, adjusting the tool versions and [build time zone](#build-time-zone) as needed.
 
   ```yaml {file=".forgejo/workflows/hugo.yaml" copy=true}
   name: Build and deploy
@@ -245,6 +245,10 @@ Runner|Notes
 `codeberg-tiny`|The 2-minute maximum runtime is insufficient for image processing. Hugo caches processed images, but the initial run to prime that cache can exceed this limit.
 `codeberg-small`|A reasonable middle ground for projects with a moderate amount of image processing. Queue times can exceed 30 minutes under heavy load. If your deployment is not time-sensitive, consider using `codeberg-small-lazy` instead.
 `codeberg-medium`|Demand for these runners is high, making queue times impractical for routine deployments.
+
+## Build time zone
+
+{{% include "/_common/build-time-zone.md" %}}
 
 ## Related resources
 

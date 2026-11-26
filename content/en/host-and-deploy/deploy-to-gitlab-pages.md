@@ -26,7 +26,7 @@ The [`baseURL`][] in your project configuration must reflect the full URL of you
 ## Procedure
 
 Step 1
-: Create a `.gitlab-ci.yml` file in the root of your project, adjusting the tool versions and time zone as needed.
+: Create a `.gitlab-ci.yml` file in the root of your project, adjusting the tool versions and [build time zone](#build-time-zone) as needed.
 
   ```yaml {file=".gitlab-ci.yml" copy=true}
   variables:
@@ -36,7 +36,7 @@ Step 1
     HUGO_VERSION: 0.170.0
     NODE_VERSION: 24.22.3
 
-    # Set the build timezone
+    # Set the build time zone
     TZ: Europe/Oslo
 
     # Set the build cache directory
@@ -193,6 +193,10 @@ Step 6
 : When the pipeline has passed, your new website is available at `https://<YourUsername>.gitlab.io/<your-hugo-site>/`.
 
 In the future, whenever you push a change from your local Git repository, GitLab Pages will rebuild and deploy your site.
+
+## Build time zone
+
+{{% include "/_common/build-time-zone.md" %}}
 
 ## Related resources
 

@@ -70,7 +70,7 @@ Step 2
   1. Delete the downloaded JSON file.
 
 Step 3
-: Create a `hugo.yaml` file in the `.github/workflows` directory, adjusting the tool versions and time zone as needed. Set the `FIREBASE_PROJECT_ID` to the Project ID that you noted earlier in this procedure.
+: Create a `hugo.yaml` file in the `.github/workflows` directory, adjusting the tool versions and [build time zone](#build-time-zone) as needed. Set the `FIREBASE_PROJECT_ID` to the Project ID that you noted earlier in this procedure.
 
   ```yaml {file=".github/workflows/hugo.yaml" copy=true}
   name: Build and deploy
@@ -275,6 +275,10 @@ Step 8
   ![screen capture](firebase-09.png)
 
 In the future, whenever you push a change from your local Git repository, GitHub will rebuild and deploy your site.
+
+## Build time zone
+
+{{% include "/_common/build-time-zone.md" %}}
 
 ## Related resources
 

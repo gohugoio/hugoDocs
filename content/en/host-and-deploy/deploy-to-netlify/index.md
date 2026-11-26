@@ -24,7 +24,7 @@ Complete the following tasks before continuing:
 ## Procedure
 
 Step 1
-: Create a `netlify.toml` file in the root of your project, adjusting the tool versions and time zone as needed.
+: Create a `netlify.toml` file in the root of your project, adjusting the tool versions and [build time zone](#build-time-zone) as needed.
 
   ```toml {file="netlify.toml" copy=true}
   [build.environment]
@@ -126,6 +126,10 @@ Step 12
   ![screen capture](netlify-10.png)
 
 In the future, whenever you push a change from your local Git repository, Netlify will rebuild and deploy your site.
+
+## Build time zone
+
+{{% include "/_common/build-time-zone.md" %}}
 
 ## Related resources
 

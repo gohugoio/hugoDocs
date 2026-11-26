@@ -37,7 +37,7 @@ Step 1
   ![screen capture](gh-pages-02.png)
 
 Step 2
-: Create a `hugo.yaml` file in the `.github/workflows` directory, adjusting the tool versions and time zone as needed.
+: Create a `hugo.yaml` file in the `.github/workflows` directory, adjusting the tool versions and [build time zone](#build-time-zone) as needed.
 
   ```yaml {file=".github/workflows/hugo.yaml" copy=true}
   name: Build and deploy
@@ -215,6 +215,10 @@ Step 7
   ![screen capture](gh-pages-05.png)
 
 In the future, whenever you push a change from your local Git repository, GitHub Pages will rebuild and deploy your site.
+
+## Build time zone
+
+{{% include "/_common/build-time-zone.md" %}}
 
 ## Related resources
 
