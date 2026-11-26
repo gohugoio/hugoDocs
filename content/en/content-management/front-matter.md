@@ -291,7 +291,7 @@ When populating a date field, whether a [custom page parameter](#parameters) or 
 
 The TOML format also supports unquoted date/time values.
 
-If a date/time string includes a time zone offset, Hugo uses that offset. Otherwise, Hugo uses the time zone set by the [`timeZone`][] setting in your project configuration, falling back to `Etc/UTC`.
+If a date/time string includes a time zone offset, Hugo uses that offset. Otherwise, Hugo uses the time zone set by the [`timeZone`][] setting in your project configuration, falling back to `UTC`.
 
 [Emacs Org Mode]: https://orgmode.org/
 [JSON]: https://www.json.org/

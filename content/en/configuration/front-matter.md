@@ -1,9 +1,33 @@
 ---
 title: Configure front matter
 linkTitle: Front matter
-description: Configure front matter.
+description: Configure how Hugo determines page dates from front matter fields, file names, and Git information.
 keywords: []
 ---
+
+## Usage
+
+The `frontmatter` key determines which front matter fields and other sources Hugo uses to set the date, expiry date, last modification date, and publish date of each page.
+
+## Settings
+
+This is the default configuration:
+
+{{< code-toggle config=frontmatter />}}
+
+`date`
+: (`[]string`) The ordered list of sources for the value returned by the [`Date`][] method on a `Page` object.
+
+`expiryDate`
+: (`[]string`) The ordered list of sources for the value returned by the [`ExpiryDate`][] method on a `Page` object.
+
+`lastmod`
+: (`[]string`) The ordered list of sources for the value returned by the [`Lastmod`][] method on a `Page` object.
+
+`publishDate`
+: (`[]string`) The ordered list of sources for the value returned by the [`PublishDate`][] method on a `Page` object.
+
+Each source is either a front matter field or one of the [tokens](#tokens). Hugo uses the first source that provides a valid date.
 
 ## Dates
 
@@ -16,11 +40,7 @@ Method|Description
 [`Lastmod`][]|Returns the last modification date of the given page.
 [`PublishDate`][]|Returns the publish date of the given page.
 
-Hugo determines the values to return based on this configuration:
-
-{{< code-toggle config=frontmatter />}}
-
-The `ExpiryDate` method, for example, returns the `expirydate` value if it exists, otherwise it returns `unpublishdate`.
+Hugo determines the values to return based on the configuration [settings](#settings). The `ExpiryDate` method, for example, returns the `expirydate` value if it exists, otherwise it returns `unpublishdate`.
 
 You can also use custom date parameters:
 
@@ -68,9 +88,9 @@ Hugo provides the following [tokens](g) to help you configure your front matter:
   - `YYYY-MM-DD`
   - `YYYY-MM-DD-HH-MM-SS` {{< new-in 0.148.0 />}}
 
-  Within the `YYYY-MM-DD-HH-MM-SS` format, the date and time values may be separated by any character including a space (e.g., `2025-02-01T14-30-00`).
+  Within the `YYYY-MM-DD-HH-MM-SS` format, the date and time values may be separated by any character including a space, such as `2025-02-01T14-30-00`.
 
-  Hugo resolves the extracted date to the [`timeZone`][] defined in your project configuration, falling back to the system time zone. Hugo also derives the page [`slug`][] from the remaining file name, unless the page already defines a `slug` in its front matter.
+  Hugo resolves the extracted date to the [`timeZone`][] defined in your project configuration, falling back to UTC. Hugo also derives the page [`slug`][] from the remaining file name, unless the page already defines a `slug` in its front matter.
 
   Slug inference only occurs when `:filename` is the winning date source. If an earlier entry in the list provides a valid date, Hugo skips `:filename` entirely. For example, with `date = ["date", ":filename"]`, a page that defines `date` in its front matter will use that value, and the slug will not be inferred from the file name.
 
@@ -79,7 +99,7 @@ Hugo provides the following [tokens](g) to help you configure your front matter:
 `:git`
 : The Git author date for the file's last revision. To enable access to the Git author date, set [`enableGitInfo`][] to `true`.
 
-## Example
+## Examples
 
 Consider this project configuration:
 

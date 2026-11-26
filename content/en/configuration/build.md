@@ -1,25 +1,22 @@
 ---
 title: Configure build
 linkTitle: Build
-description: Configure global build options.
+description: Configure build stats, cache busters, cleanup of the public directory, and other build options.
 keywords: []
 ---
+
+## Usage
+
+The `build` key controls how Hugo builds your project, including the creation of build stats, the expiration of cached resources, and the cleanup of the `public` directory.
+
+## Settings
 
 This is the default configuration:
 
 {{< code-toggle config=build />}}
 
-`buildStats`
-: See the [build stats](#build-stats) section below.
-
-`cachebusters`
-: See the [cache busters](#cache-busters) section below.
-
-`cleanDestinationDir`
-: See the [clean destination directory](#clean-destination-directory) section below.
-
 `noJSConfigInAssets`
-: (`bool`) Whether to disable writing a `jsconfig.json` in your `assets` directory with mapping of imports from running [`js.Build`][]. This file is intended to help with intellisense/navigation inside code editors such as [VS Code][]. Note that if you do not use `js.Build`, no file will be written.
+: (`bool`) Whether to disable writing a `jsconfig.json` in your `assets` directory with mapping of imports from running [`js.Build`][]. This file is intended to help with intellisense/navigation inside code editors such as [VS Code][]. If you do not use `js.Build`, Hugo does not write the file. Default is `false`.
 
 `useResourceCacheWhen`
 : (`string`) When to read the results of the [`css.PostCSS`][] and [`css.Sass`][] functions from the [`assets`][] file cache instead of running PostCSS or Dart Sass, one of `never`, `fallback`, or `always`. Default is `fallback`.
@@ -32,10 +29,12 @@ This is the default configuration:
 
 ## Build stats
 
+This is the default configuration:
+
 {{< code-toggle config=build.buildStats />}}
 
-`enable`
-: (`bool`) Whether to create a `hugo_stats.json` file in the root of your project. This file contains arrays of the `class` attributes, `id` attributes, and tags of every element in the rendered HTML files. Use this file as data source when [removing unused CSS][] from your site. This process is also known as pruning, purging, or tree shaking. Default is `false`.
+`disableClasses`
+: (`bool`) Whether to exclude `class` attributes. Default is `false`.
 
 `disableIDs`
 : (`bool`) Whether to exclude `id` attributes. Default is `false`.
@@ -43,8 +42,8 @@ This is the default configuration:
 `disableTags`
 : (`bool`) Whether to exclude element tags. Default is `false`.
 
-`disableClasses`
-: (`bool`) Whether to exclude `class` attributes. Default is `false`.
+`enable`
+: (`bool`) Whether to create a `hugo_stats.json` file in the root of your project. This file contains arrays of the `class` attributes, `id` attributes, and tags of every element in the rendered HTML files. Use this file as data source when [removing unused CSS][] from your site. This process is also known as pruning, purging, or tree shaking. Default is `false`.
 
 Given that CSS purging is typically limited to production builds, place the `buildStats` object below [`config/production`][].
 
@@ -81,7 +80,7 @@ Use `build.cachebusters` to expire specific keys in the resource cache when a wa
 {{< /code-toggle >}}
 <!-- markdownlint-enable MD049 -->
 
-When [`buildStats`](#buildstats) is enabled, Hugo writes a `hugo_stats.json` file on each build, containing the classes, IDs, and tags used in the rendered output. Changes to this file trigger a rebuild of the CSS. See the [`css.TailwindCSS`][] function for a running example.
+When [build stats](#build-stats) are enabled, Hugo writes a `hugo_stats.json` file on each build, containing the classes, IDs, and tags used in the rendered output. Changes to this file trigger a rebuild of the CSS. See the [`css.TailwindCSS`][] function for a running example.
 
 `source`
 : (`string`) A [regular expression](g) matching file(s) relative to one of the virtual component directories in Hugo, typically `assets/...`.

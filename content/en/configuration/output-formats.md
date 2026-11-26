@@ -1,9 +1,13 @@
 ---
 title: Configure output formats
 linkTitle: Output formats
-description: Configure output formats.
+description: Configure the output formats that Hugo can render for each page.
 keywords: []
 ---
+
+## Usage
+
+The `outputFormats` key defines the output formats that Hugo can render.
 
 {{% glossary-term "output format" %}}
 
@@ -30,11 +34,13 @@ This is the default output format configuration in tabular form:
   "ugly"
 >}}
 
-## Default configuration
+## Settings
 
-This is the default configuration that matches the table above:
+This is the default configuration, matching the table above:
 
 {{< code-toggle config=outputFormats />}}
+
+Each output format accepts these settings:
 
 `baseName`
 : (`string`) The base name of the published file. Default is `index`.

@@ -1,11 +1,13 @@
 ---
 title: Configure permalinks
 linkTitle: Permalinks
-description: Configure permalinks.
+description: Configure the URL patterns that Hugo uses to publish pages.
 keywords: []
 ---
 
-Use the `permalinks` configuration to define custom URL patterns for your pages. Hugo supports two forms: a map form for simple section-based patterns, and an array form that supports [page matchers](g) for more precise targeting.
+## Usage
+
+Use the `permalinks` key to define custom URL patterns for your pages. Hugo supports two forms: a map form for simple section-based patterns, and an array form that supports [page matchers](g) for more precise targeting.
 
 > [!NOTE]
 > The [`url`][] front matter field overrides any matching permalink pattern.

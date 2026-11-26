@@ -23,7 +23,7 @@ If the `INPUT` includes a time zone offset, the function uses that offset. Other
 
 1. The `TIMEZONE` argument
 1. The [`timeZone`][] setting in your project configuration
-1. The `Etc/UTC` time zone
+1. `UTC`
 
 ## Arguments
 
@@ -31,7 +31,7 @@ If the `INPUT` includes a time zone offset, the function uses that offset. Other
 : (`string` or `time.Time`) The date/time value, such as a custom date from JSON, TOML, or YAML front matter, quoted or unquoted. A string must be a [parsable representation](#usage) of a date/time value. If the `INPUT` is a `time.Time` value, the function returns the same date/time.
 
 `TIMEZONE`
-: (`string`) Optional. The [time zone](g) to use when the `INPUT` does not include a [time zone offset](g). Use `UTC`, `Local` for the system's local time zone, or any location in the [IANA Time Zone database][]. The list of valid time zones may depend on the system. The function ignores this argument if the `INPUT` is a `time.Time` value. To represent a `time.Time` value in a different time zone, use the [`time.In`][] function.
+: (`string`) Optional. The [time zone](g) to use when the `INPUT` does not include a [time zone offset](g). Use an empty string or `UTC` for [UTC](g), `Local` for the system's local time zone, or any location in the [IANA Time Zone database][]. The list of valid time zones may depend on the system. The function ignores this argument if the `INPUT` is a `time.Time` value. To represent a `time.Time` value in a different time zone, use the [`time.In`][] function.
 
 ## Examples
 

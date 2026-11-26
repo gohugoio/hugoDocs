@@ -1,33 +1,35 @@
 ---
 title: Configure related content
 linkTitle: Related content
-description: Configure related content.
+description: Configure how Hugo identifies related content.
 keywords: []
 ---
 
-Hugo provides a sensible default configuration for identifying related content, but you can customize it in your project configuration, either globally or per language. Use the [`Pages.Related`][] method to render related content in your templates.
+## Usage
 
-## Default configuration
+The `related` key controls how Hugo identifies related content. Hugo provides a sensible default configuration, but you can customize it in your project configuration, either globally or per language. Use the [`Pages.Related`][] method to render related content in your templates.
+
+> [!NOTE]
+> Adding a `related` section to your project configuration requires you to provide a full configuration. You cannot override individual default values without specifying all related settings.
+
+## Settings
 
 This is the default configuration:
 
 {{< code-toggle config=related />}}
 
-> [!NOTE]
-> Adding a `related` section to your project configuration requires you to provide a full configuration. You cannot override individual default values without specifying all related settings.
-
-## Top-level settings
-
-`threshold`
-: (`int`) A value in the range `[0, 100]`. A lower value will return more, but maybe not so relevant, matches.
-
 `includeNewer`
 : (`bool`) Whether to include pages newer than the current page in the related content listing. The output for older posts may change as new related content is added. Default is `false`.
+
+`threshold`
+: (`int`) A value in the range `[0, 100]`. A lower value will return more, but maybe not so relevant, matches. Default is `80`.
 
 `toLower`
 : (`bool`) Whether to transform keywords in both the indexes and the queries to lower case. This may give more accurate results at a slight performance penalty. Default is `false`.
 
-## Per-index settings
+## Indices
+
+Use the `indices` key to define a slice of indices. Each index accepts these settings:
 
 `applyFilter`
 : (`bool`) Apply a `type` specific filter to the result of a search. This is only used for the `fragments` type. Default is `false`.

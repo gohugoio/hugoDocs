@@ -1,17 +1,19 @@
 ---
 title: Configure content types
 linkTitle: Content types
-description: Configure content types.
+description: Configure which content formats Hugo treats as pages when used as page resources.
 keywords: []
 ---
 
 {{< new-in 0.144.0 />}}
 
-Hugo supports six [content formats](g):
+## Usage
+
+The `contentTypes` key determines which [content formats](g) Hugo treats as pages when they are used as [page resources](g). Hugo supports six content formats:
 
 {{% include "/_common/content-format-table.md" %}}
 
-These can be used as either page content or [page resources](g). When used as page resources, their [resource type](g) is `page`.
+These can be used as either page content or page resources. When used as page resources, their [resource type](g) is `page`.
 
 Consider this example of a [page bundle](g):
 
@@ -44,13 +46,17 @@ public/
 
 The default behavior is appropriate in most cases. Given that page resources containing markup are typically intended for inclusion in the main content, publishing them independently is generally undesirable.
 
-The default behavior is determined by the `contentTypes` configuration:
+## Settings
+
+This is the default configuration:
 
 {{< code-toggle config=contentTypes />}}
 
-In this default configuration, page resources with those media types will have a resource type of `page`, and will not be automatically published. To change the resource type assignment from `page` to `text` for a given media type, remove the corresponding entry from the list.
+Each key is a [media type](g). With this configuration, page resources with those media types have a resource type of `page`, and Hugo does not publish them automatically. To change the resource type assignment from `page` to `text` for a given media type, remove the corresponding entry from the list.
 
-For example, to set the resource type of `text/html` files to `text`, thereby enabling automatic publication, remove the `text/html` entry:
+## Examples
+
+To set the resource type of `text/html` files to `text`, thereby enabling automatic publication, remove the `text/html` entry:
 
 {{< code-toggle file=hugo >}}
 contentTypes:

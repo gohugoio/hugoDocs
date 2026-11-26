@@ -1,11 +1,13 @@
 ---
 title: Configure menus
 linkTitle: Menus
-description: Centrally define menu entries for one or more menus.
+description: Configure menu entries for one or more menus in your project configuration.
 keywords: []
 ---
 
-To understand Hugo's menu system, see the [menus][] page.
+## Usage
+
+The `menus` key defines menu entries in your project configuration. To understand Hugo's menu system, see the [menus][] page.
 
 There are three ways to define menu entries:
 
@@ -15,7 +17,29 @@ There are three ways to define menu entries:
 
 This page covers the project configuration method.
 
-## Example
+## Settings
+
+Menu entries usually include at least three settings: `name`, `weight`, and either `pageRef` or `url`. Use `pageRef` for internal page destinations and `url` for external destinations.
+
+Each menu entry accepts these settings:
+
+{{% include "/_common/menu-entry-properties.md" %}}
+
+`pageRef`
+: (`string`) The [logical path](g) of the target page. The [path resolution][] rules for the `Site.GetPage` method apply. For example:
+
+  page kind|pageRef
+  :--|:--
+  home|`/`
+  page|`/books/book-1`
+  section|`/books`
+  taxonomy|`/tags`
+  term|`/tags/foo`
+
+`url`
+: (`string`) The destination URL. Use this for external destinations only.
+
+## Examples
 
 To define entries for a "main" menu:
 
@@ -36,15 +60,13 @@ pageRef = '/services'
 weight = 30
 {{< /code-toggle >}}
 
-This creates a menu structure that you can access with [`Menus`][] method on a `Site` object:
+This creates a menu structure that you can access with the [`Menus`][] method on a `Site` object. See [menu templates][] for a detailed example.
 
 ```go-html-template
 {{ range site.Menus.main }}
   ...
 {{ end }}
 ```
-
-See [menu templates][] for a detailed example.
 
 To define entries for a "footer" menu:
 
@@ -68,31 +90,7 @@ Access this menu structure in the same way:
 {{ end }}
 ```
 
-## Properties
-
-Menu entries usually include at least three properties: `name`, `weight`, and either `pageRef` or `url`. Use `pageRef` for internal page destinations and `url` for external destinations.
-
-These are the available menu entry properties:
-
-{{% include "/_common/menu-entry-properties.md" %}}
-
-`pageRef`
-: (`string`) The [logical path](g) of the target page. The [path resolution][] rules for the `Site.GetPage` method apply. For example:
-
-  page kind|pageRef
-  :--|:--
-  home|`/`
-  page|`/books/book-1`
-  section|`/books`
-  taxonomy|`/tags`
-  term|`/tags/foo`
-
-`url`
-: (`string`) The destination URL. Use this for external destinations only.
-
-## Nested menu
-
-This nested menu demonstrates some of the available properties:
+This nested menu demonstrates some of the available settings:
 
 <!-- markdownlint-disable MD033 -->
 {{< code-toggle file=hugo >}}

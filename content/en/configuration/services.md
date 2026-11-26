@@ -1,25 +1,29 @@
 ---
 title: Configure services
 linkTitle: Services
-description: Configure embedded templates.
+description: Configure the external services used by Hugo's embedded templates, such as Disqus and Google Analytics.
 keywords: []
 ---
 
-Hugo provides [embedded templates](g) to simplify site and content creation. Some of these templates are configurable. For example, the embedded Google Analytics template requires a Google tag ID.
+## Usage
+
+The `services` key configures the external services used by Hugo's [embedded templates](g). For example, the embedded Google Analytics template requires a Google tag ID.
+
+## Settings
 
 This is the default configuration:
 
 {{< code-toggle config=services />}}
 
 `disqus.shortname`
-: (`string`) The `shortname` used with the Disqus commenting system. See [details][disqus]. To access this value from a template:
+: (`string`) The `shortname` used with the Disqus commenting system. See [details][disqus]. Default is `''`. To access this value from a template:
 
   ```go-html-template
   {{ site.Config.Services.Disqus.Shortname }}
   ```
 
 `googleAnalytics.id`
-: (`string`) The Google tag ID for Google Analytics 4 properties. See [details][google-analytics]. To access this value from a template:
+: (`string`) The Google tag ID for Google Analytics 4 properties. See [details][google-analytics]. Default is `''`. To access this value from a template:
 
   ```go-html-template
   {{ site.Config.Services.GoogleAnalytics.ID }}

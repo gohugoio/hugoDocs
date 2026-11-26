@@ -11,4 +11,4 @@ The _canonical output format_ is the [_output format_](g) for the current page w
 
   [`rel`]: /configuration/output-formats/#rel
   [front matter of the current page]: /configuration/outputs/#outputs-per-page
-  [project configuration]: /configuration/outputs/#outputs-per-page-kind
+  [project configuration]: /configuration/outputs/#settings

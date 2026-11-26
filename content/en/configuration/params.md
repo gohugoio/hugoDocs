@@ -1,11 +1,13 @@
 ---
 title: Configure params
 linkTitle: Params
-description: Create custom site parameters.
+description: Configure custom site parameters that you can access from your templates.
 keywords: []
 ---
 
-Use the `params` key for custom parameters:
+## Usage
+
+Use the `params` key to define custom site parameters:
 
 {{< code-toggle file=hugo >}}
 baseURL = 'https://example.org/'
@@ -40,7 +42,7 @@ But you cannot do this:
 {{ site.Params.kebab-case.foo }}
 ```
 
-## Multilingual projects
+## Localized settings
 
 For multilingual projects, create a `params` key under each language:
 

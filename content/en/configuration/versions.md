@@ -1,15 +1,15 @@
 ---
 title: Configure versions
 linkTitle: Versions
-description: Configure versions.
+description: Configure the versions in your project, including the default version and the order in which Hugo builds each version.
 keywords: []
 ---
 
 {{< new-in 0.153.0 />}}
 
-This is the default configuration:
+## Usage
 
-{{< code-toggle config=versions />}}
+The `versions` key defines the versions in your project, and the settings that apply to each version.
 
 ## Base settings
 
@@ -21,27 +21,31 @@ defaultContentVersionInSubdir = false
 {{< /code-toggle >}}
 
 `defaultContentVersion`
-: (`string`) The project's [default version](g). When one or more versions are defined, this value must match one of the defined version names.
+: (`string`) The project's [default version](g). When one or more versions are defined, this value must match one of the defined version names. If not set, Hugo uses the first version in [sort order](#sort-order). Default is `v1.0.0`.
 
 `defaultContentVersionInSubdir`
 : (`bool`) Whether to publish the default content version to a subdirectory matching the [`defaultContentVersion`](#defaultcontentversion). Default is `false`.
 
-## Version settings
+## Settings
 
-Use the following setting to define how Hugo orders versions.
+This is the default configuration:
+
+{{< code-toggle config=versions />}}
+
+Each version accepts these settings:
 
 `weight`
-: (`int`) The version [weight](g). When set to a non-zero value, this is the primary sort criteria for this version.
+: (`int`) The version [weight](g). When set to a non-zero value, this is the primary sort criterion for this version. Default is `0`.
 
 ## Sort order
 
 Hugo sorts versions by weight in ascending order, then by their [semantic version][] in descending order. This affects build order and complement selection.
 
-## Example
+## Examples
 
-The following configuration demonstrates how to define multiple versions with specific weights.
+This example defines two versions, giving version `v2.0.0` priority over version `v1.0.0`:
 
-{{< code-toggle >}}
+{{< code-toggle file=hugo >}}
 [versions."v1.0.0"]
 weight = 20
 [versions."v2.0.0"]

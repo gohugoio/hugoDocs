@@ -1,9 +1,13 @@
 ---
 title: Configure languages
 linkTitle: Languages
-description: Configure the languages in your multilingual project.
+description: Configure the languages in your multilingual project, including the default language and the settings for each language.
 keywords: []
 ---
+
+## Usage
+
+The `languages` key defines the languages in your multilingual project, and the settings that apply to each language.
 
 ## Base settings
 
@@ -17,24 +21,24 @@ disableLanguages = []
 {{< /code-toggle >}}
 
 `defaultContentLanguage`
-: (`string`) The project's [default language](g), conforming to the syntax described in [RFC 5646][]. When one or more languages are defined, this value must match one of the defined [language keys][].
+: (`string`) The project's [default language](g), conforming to the syntax described in [RFC 5646][]. When one or more languages are defined, this value must match one of the defined [language keys][]. If not set, Hugo uses `en` when it is one of the defined languages, otherwise the first language in [sort order](#sort-order). Default is `en`.
 
 `defaultContentLanguageInSubdir`
 : (`bool`) Whether to publish the default content language to a subdirectory matching the [`defaultContentLanguage`](#defaultcontentlanguage). Default is `false`.
 
 `disableDefaultLanguageRedirect`
-: (`bool`) Whether to disable generation of the alias redirect for the default content language. When [`defaultContentLanguageInSubdir`](#defaultcontentlanguageinsubdir) is `true`, this setting prevents the root directory from redirecting to the language subdirectory. Conversely, when `defaultContentLanguageInSubdir` is `false`, this setting prevents the language subdirectory from redirecting to the root directory. This is superseded by the more general [`disableDefaultSiteRedirect`][] setting. Default is `false`.
+: (`bool`) An alias for [`disableDefaultSiteRedirect`][]. Despite its name, this setting also disables the role and version redirects. Default is `false`.
 
 `disableLanguages`
-: (`[]string]`) A slice of language keys representing the languages to disable during the build process. Although this is functional, consider using the [`disabled`](#disabled) key under each language instead.
+: (`[]string`) A slice of language keys representing the languages to disable during the build process. Although this is functional, consider using the [`disabled`](#disabled) key under each language instead.
 
-## Language settings
+## Settings
 
-Configure each language under the `languages` key:
+This is the default configuration:
 
 {{< code-toggle config=languages />}}
 
-In the above, `en` is the [language key](#language-keys).
+In the above, `en` is the [language key](#language-keys). Each language accepts these settings:
 
 `direction`
 : (`string`) The language direction, either left-to-right (`ltr`) or right-to-left (`rtl`). Use this value in your templates with the global [`dir`][] HTML attribute. Access this value from a template using the [`Language.Direction`][] method on a `Site` or `Page` object. Default is `ltr`.
@@ -119,7 +123,40 @@ weight = 2
 > [!NOTE]
 > Private use subtags must not exceed 8 alphanumeric characters.
 
-## Example
+## Multihost
+
+Hugo supports multiple languages in a multihost configuration. This means you can configure a `baseURL` per `language`.
+
+> [!NOTE]
+> If you define a `baseURL` for one language, you must define a unique `baseURL` for all languages.
+
+For example:
+
+{{< code-toggle file=hugo >}}
+defaultContentLanguage = 'fr'
+[languages.en]
+baseURL = 'https://en.example.org/'
+label = 'English'
+title = 'In English'
+weight = 2
+[languages.fr]
+baseURL = 'https://fr.example.org'
+label = 'Français'
+title = 'En Français'
+weight = 1
+{{</ code-toggle >}}
+
+With the above, Hugo publishes two sites, each with their own root:
+
+```tree
+public
+├── en
+└── fr
+```
+
+## Examples
+
+This example defines German and English languages, publishing each to its own subdirectory:
 
 {{< code-toggle file=hugo >}}
 defaultContentLanguage = 'de'
@@ -152,37 +189,6 @@ subtitle = 'Reference, Tutorials, and Explanations'
 {{< /code-toggle >}}
 
 In the example above, omit `contentDir` if [translating by file name][].
-
-## Multihost
-
-Hugo supports multiple languages in a multihost configuration. This means you can configure a `baseURL` per `language`.
-
-> [!NOTE]
-> If you define a `baseURL` for one language, you must define a unique `baseURL` for all languages.
-
-For example:
-
-{{< code-toggle file=hugo >}}
-defaultContentLanguage = 'fr'
-[languages.en]
-baseURL = 'https://en.example.org/'
-label = 'English'
-title = 'In English'
-weight = 2
-[languages.fr]
-baseURL = 'https://fr.example.org'
-label = 'Français'
-title = 'En Français'
-weight = 1
-{{</ code-toggle >}}
-
-With the above, Hugo publishes two sites, each with their own root:
-
-```tree
-public
-├── en
-└── fr
-```
 
 [RFC 5646 § 2.2.7]: https://datatracker.ietf.org/doc/html/rfc5646#section-2.2.7
 [RFC 5646]: https://datatracker.ietf.org/doc/html/rfc5646#section-2.1

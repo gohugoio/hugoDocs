@@ -1,9 +1,13 @@
 ---
 title: Configure media types
 linkTitle: Media types
-description: Configure media types.
+description: Configure the media types that Hugo uses to define output formats and identify files.
 keywords: []
 ---
+
+## Usage
+
+The `mediaTypes` key defines the media types that Hugo recognizes.
 
 {{% glossary-term "media type" %}}
 
@@ -16,11 +20,13 @@ The `suffixes` column in the table above shows the suffixes associated with each
 > [!NOTE]
 > The first suffix is the primary suffix. Use the primary suffix when naming template files. For example, when creating a template for an RSS feed, use the `xml` suffix.
 
-## Default configuration
+## Settings
 
-The following is the default configuration that matches the table above:
+This is the default configuration, matching the table above:
 
 {{< code-toggle file=hugo config=mediaTypes />}}
+
+Each media type accepts these settings:
 
 `delimiter`
 : (`string`) The delimiter between the file name and the suffix. The delimiter, in conjunction with the suffix, forms the file extension. Default is `"."`.

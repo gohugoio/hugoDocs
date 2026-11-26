@@ -1,20 +1,25 @@
 ---
 title: Configure modules
 linkTitle: Modules
-description: Configure modules.
+description: Configure module imports, mounts, version requirements, and how Hugo downloads and vendors modules.
 keywords: []
 ---
+
+## Usage
+
+The `module` key controls how Hugo downloads and vendors [modules](g), which modules your project imports, and how Hugo mounts directories into the [unified file system](g).
 
 > [!NOTE]
 > To work with modules you must install [Git][] and [Go][].
 
-## Top-level settings
+## Settings
 
 This is the default configuration:
 
 <!-- markdownlint-disable MD049 -->
 {{< code-toggle file=hugo >}}
 [module]
+auth = ''
 noProxy = 'none'
 noVendor = ''
 private = '*.*'
@@ -52,19 +57,11 @@ workspace = 'off'
 : (`bool`) Whether to pick the vendored module closest to the module using it. The default behavior is to pick the first. Note that there can still be only one dependency of a given module path, so once it is in use it cannot be redefined. Default is `false`.
 
 `workspace`
-: (`string`) The Go workspace file to use, either as an absolute path or a path relative to the current working directory. Enabling this activates Go workspace mode and requires Go 1.18 or later. The default is `off`.
-
-You may also use environment variables to set any of the above. For example:
-
-```sh
-export HUGO_MODULE_PROXY="https://proxy.example.org"
-export HUGO_MODULE_REPLACEMENTS="github.com/user/theme -> ../.."
-export HUGO_MODULE_WORKSPACE="/my/hugo.work"
-```
+: (`string`) The Go workspace file to use, either as an absolute path or a path relative to the current working directory. Enabling this activates Go workspace mode and requires Go 1.18 or later. Default is `off`.
 
 ## Hugo version
 
-You can specify a required Hugo version for your module in the `module` section. Users will then receive a warning if their Hugo version is incompatible.
+Use the `hugoVersion` key to specify the Hugo versions that your module supports. Users receive a warning if their Hugo version is incompatible.
 
 This is the default configuration:
 
@@ -84,6 +81,8 @@ You can omit any of the settings above.
 
 ## Imports
 
+Use the `imports` key to define a slice of modules to import. For example:
+
 {{< code-toggle file=hugo >}}
 [[module.imports]]
 disable = false
@@ -93,6 +92,8 @@ path = 'github.com/user/shortcodes'
 [[module.imports]]
 path = 'my-shortcodes'
 {{< /code-toggle >}}
+
+Each import accepts these settings:
 
 `disable`
 : (`bool`) Whether to disable the module but keep version information in the `go.*` files. Default is `false`.
@@ -114,7 +115,7 @@ path = 'my-shortcodes'
 
 `usePackageJSON`
 : {{< new-in 0.159.0 />}}
-: (`string`) Whether to use the import's npm dependencies in [`hugo mod npm pack`][]. One of `auto` (default), `always` or `never`. When set to `auto`, Hugo will enable this if either there is a Hugo config file (e.g. `hugo.toml`) or a `package.hugo.json` file in the module root.
+: (`string`) Whether to use the import's npm dependencies in [`hugo mod npm pack`][]. One of `auto`, `always`, or `never`. When set to `auto`, Hugo enables this if the module root contains a project configuration file, such as `hugo.toml`, or a `package.hugo.json` file. Default is `auto`.
 
 `version`
 : {{< new-in 0.150.0 />}}
@@ -127,8 +128,6 @@ path = 'my-shortcodes'
 > [!NOTE]
 > If you define one or more mounts to map a file system path to a component path, do not use these legacy configuration settings: [`archetypeDir`][], [`assetDir`][], [`contentDir`][], [`dataDir`][], [`i18nDir`][], [`layoutDir`][], or [`staticDir`][].
 
-### Default mounts
-
 Defining a mount for a component in the project configuration removes the default mount for that component.
 
 Defining one or more mounts in a module configuration, or in the corresponding module import in the project configuration, removes all default mounts for that module. This lets you control exactly which files Hugo uses from the module.
@@ -139,21 +138,7 @@ These are the default mounts:
 
 {{< code-toggle config=module.mounts />}}
 
-`source`
-: (`string`) The source directory of the mount. For the main project, this can be either project-relative or absolute. For other modules, it must be relative to the module root and must not resolve to a path outside of the module.
-
-  {{< new-in 0.152.2 />}}
-
-  The exception is a path that begins with `node_modules/`. When a module mounts such a path, Hugo first looks for it within the module, then relative to the project root. This allows a module to use npm packages installed in the project. For example:
-
-  {{< code-toggle file=hugo >}}
-  [[module.mounts]]
-  source = 'node_modules/bootstrap'
-  target = 'assets/vendor/bootstrap'
-  {{< /code-toggle >}}
-
-`target`
-: (`string`) Where the mount will reside within Hugo's [unified file system](g). It must begin with one of Hugo's [component](g) directories: archetypes, assets, content, data, i18n, layouts, or static. For example, content/blog.
+Each mount accepts these settings:
 
 `disableWatch`
 : (`bool`) Whether to disable watching in watch mode for this mount. Default is `false`.
@@ -178,7 +163,35 @@ These are the default mounts:
 : {{< new-in 0.153.0 />}}
 : (`map`) A map to define [sites matrix](g) and [sites complements](g) for the mount. Relevant for `content` and `layouts` mounts, and `static` mounts when in multihost mode. For `static` and `layouts`, only the `matrix` keyword is supported.
 
-### Example
+`source`
+: (`string`) The source directory of the mount. For the main project, this can be either project-relative or absolute. For other modules, it must be relative to the module root and must not resolve to a path outside of the module.
+
+  {{< new-in 0.152.2 />}}
+
+  The exception is a path that begins with `node_modules/`. When a module mounts such a path, Hugo first looks for it within the module, then relative to the project root. This allows a module to use npm packages installed in the project. For example:
+
+  {{< code-toggle file=hugo >}}
+  [[module.mounts]]
+  source = 'node_modules/bootstrap'
+  target = 'assets/vendor/bootstrap'
+  {{< /code-toggle >}}
+
+`target`
+: (`string`) Where the mount will reside within Hugo's [unified file system](g). It must begin with one of Hugo's [component](g) directories: archetypes, assets, content, data, i18n, layouts, or static. For example, content/blog.
+
+## Environment variables
+
+You can also use environment variables to set any of the [settings](#settings) above. For example:
+
+```sh
+export HUGO_MODULE_PROXY="https://proxy.example.org"
+export HUGO_MODULE_REPLACEMENTS="github.com/user/theme -> ../.."
+export HUGO_MODULE_WORKSPACE="/my/hugo.work"
+```
+
+## Examples
+
+This example mounts the `content` directory while excluding the `docs` subdirectory, and mounts both the `node_modules` and `assets` directories to the `assets` directory:
 
 {{< code-toggle file=hugo >}}
 [module]

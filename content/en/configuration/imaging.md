@@ -1,17 +1,21 @@
 ---
 title: Configure imaging
 linkTitle: Imaging
-description: Configure imaging.
+description: Configure image processing, including format-specific encoding and metadata extraction.
 keywords: []
 ---
 
-These are the default settings for processing images:
+## Usage
+
+The `imaging` key controls how Hugo processes images, encodes them in each format, and extracts their metadata.
+
+## Settings
+
+This is the default configuration:
 
 {{< code-toggle config=imaging />}}
 
-## Top-level settings
-
-These settings apply to all image formats.
+These settings apply to all image formats:
 
 `anchor`
 : (`string`) The focal point used when cropping or filling an image. Valid case-insensitive options include `TopLeft`, `Top`, `TopRight`, `Left`, `Center`, `Right`, `BottomLeft`, `Bottom`, `BottomRight`, or `Smart`. The `Smart` option utilizes the [`muesli/smartcrop`][] package to identify the most interesting area of the image. Default is `smart`.
@@ -22,6 +26,10 @@ These settings apply to all image formats.
 `compression`
 : {{< deprecated-in 0.163.0 />}}
 : Use the format-specific `compression` setting instead, applicable to [AVIF](#avif) and [WebP](#webp) images.
+
+`exif`
+: {{< deprecated-in 0.155.0 />}}
+: Use the [`meta`](#meta) setting instead.
 
 `firstFrameOnly`
 : {{< new-in 0.168.0 />}}
@@ -130,17 +138,13 @@ These settings apply when encoding WebP images.
 `useSharpYuv`
 : (`bool`) The conversion method used for RGB-to-YUV encoding, equivalent to the `-sharp_yuv` flag for the [`cwebp`][] CLI. Enabling this prioritizes image sharpness at the expense of processing speed. Default is `false`.
 
-## Exif method
-
-{{< deprecated-in 0.155.0 >}}
-Use the [`Meta`](#meta-method) method instead.
-{{< /deprecated-in >}}
-
-## Meta method
+## Meta
 
 {{< new-in 0.155.0 />}}
 
-The following parameters allow you to control how Hugo extracts and filters metadata when using the [`Meta`][] method, helping you balance data granularity with build performance.
+These settings control how Hugo extracts and filters metadata when using the [`Meta`][] method, helping you balance data granularity with build performance.
+
+{{< code-toggle config=imaging.meta />}}
 
 `fields`
 : (`[]string`) A [glob slice](g) matching the fields to include when extracting metadata. If empty, a default set excluding technical metadata is used. Set to `['**']` to include all fields.

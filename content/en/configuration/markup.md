@@ -1,41 +1,48 @@
 ---
 title: Configure markup
 linkTitle: Markup
-description: Configure markup.
+description: Configure the renderers that convert Markdown and other markup to HTML, along with syntax highlighting and the table of contents.
 keywords: []
 ---
 
-## Default handler
+## Usage
 
-In its default configuration, Hugo uses [Goldmark][] to render Markdown to HTML.
+The `markup` key controls how Hugo renders Markdown and other markup languages to HTML, including syntax highlighting and the table of contents.
+
+Files ending with `.md`, `.mdown`, or `.markdown` are processed as Markdown, unless you've explicitly set a different format using the `markup` field in your front matter.
+
+## Settings
+
+This is the default configuration for the `defaultMarkdownHandler` setting. The other settings are described in the sections below.
 
 {{< code-toggle file=hugo >}}
 [markup]
 defaultMarkdownHandler = 'goldmark'
 {{< /code-toggle >}}
 
-Files with ending with `.md`, `.mdown`, or `.markdown` are processed as Markdown, unless you've explicitly set a different format using the `markup` field in your front matter.
+`defaultMarkdownHandler`
+: (`string`) The renderer to use for Markdown files. One of `asciidocext`, `goldmark`, `org`, `pandoc`, or `rst`. Default is `goldmark`.
 
-To use a different renderer for Markdown files, specify one of `asciidocext`, `org`, `pandoc`, or `rst` in your project configuration.
+  Value|Renderer
+  :--|:--
+  `asciidocext`|[AsciiDoc][]
+  `goldmark`|[Goldmark][]
+  `org`|[Emacs Org Mode][]
+  `pandoc`|[Pandoc][]
+  `rst`|[reStructuredText][]
 
-`defaultMarkdownHandler` | Renderer
-:------------------------|:--------------------
-`asciidocext`            | [AsciiDoc][]
-`goldmark`               | [Goldmark][]
-`org`                    | [Emacs Org Mode][]
-`pandoc`                 | [Pandoc][]
-`rst`                    | [reStructuredText][]
-
-To use AsciiDoc, Pandoc, or reStructuredText you must install the relevant renderer and update your [security policy][].
+  To use AsciiDoc, Pandoc, or reStructuredText you must install the relevant renderer and update your [security policy][].
 
 > [!TIP]
 > Unless you need a unique capability provided by one of the alternative Markdown handlers, we strongly recommend that you use the default setting. Goldmark is fast, well maintained, conforms to the [CommonMark][] specification, and is compatible with [GitHub Flavored Markdown][] (GFM).
 
 ## Goldmark
 
-This is the default configuration for the Goldmark Markdown renderer:
+Use the `goldmark` key to configure the Goldmark Markdown renderer. This is the default configuration:
 
 {{< code-toggle config=markup.goldmark />}}
+
+Most of these settings are self-explanatory. The following subsections describe the extensions and the settings that require explanation.
 
 ### Extensions
 
@@ -92,13 +99,13 @@ With this configuration, to format text as deleted, wrap it with double-tildes.
 
 Enabled by default, the Footnote extension enables inclusion of footnotes in Markdown.
 
-`enable`
-: {{< new-in 0.151.0 />}}
-: (`bool`) Whether to enable the Footnotes extension. Default is `true`.
-
 `backlinkHTML`
 : {{< new-in 0.151.0 />}}
 : (`string`) The HTML to be displayed at the end of a footnote that links the user back to the corresponding reference in the main text. The default is &#x21a9;&#xfe0e; (a return arrow symbol).
+
+`enable`
+: {{< new-in 0.151.0 />}}
+: (`bool`) Whether to enable the Footnotes extension. Default is `true`.
 
 `enableAutoIDPrefix`
 : {{< new-in 0.151.0 />}}
@@ -125,9 +132,9 @@ Markdown|Replaced by|Description
 `”`|`&rdquo;`|right double quote
 `’`|`&rsquo;`|right single quote
 
-### Settings
+### Other settings
 
-Most of the Goldmark settings above are self-explanatory, but some require explanation.
+These Goldmark settings require explanation:
 
 `duplicateResourceFiles`
 : (`bool`) Whether to duplicate shared page resources for each language on multilingual single-host projects. See [multilingual page resources][] for details. Default is `false`.
@@ -135,15 +142,18 @@ Most of the Goldmark settings above are self-explanatory, but some require expla
   > [!NOTE]
   > With multilingual single-host projects, setting this parameter to `false` will enable Hugo's [embedded link render hook][] and [embedded image render hook][]. This is the default configuration for multilingual single-host projects.
 
-`parser.wrapStandAloneImageWithinParagraph`
-: (`bool`) Whether to wrap image elements without adjacent content within a `p` element when rendered. This is the default Markdown behavior. Set to `false` when using an [image render hook][] to render standalone images as `figure` elements. Default is `true`.
+`parser.attribute.block`
+: (`bool`) Whether to enable [Markdown attributes][] for block elements. Default is `false`.
+
+`parser.attribute.title`
+: (`bool`) Whether to enable [Markdown attributes][] for headings. Default is `true`.
 
 `parser.autoDefinitionTermID`
 : {{< new-in 0.144.0 />}}
-: (`bool`) Whether to automatically add `id` attributes to description list terms (i.e., `dt` elements). When `true`, the `id` attribute of each `dt` element is accessible through the [`Fragments.Identifiers`][] method on a `Page` object.
+: (`bool`) Whether to automatically add `id` attributes to description list terms, which are `dt` elements. When `true`, the `id` attribute of each `dt` element is accessible through the [`Fragments.Identifiers`][] method on a `Page` object.
 
 `parser.autoHeadingID`
-: (`bool`) Whether to automatically add `id` attributes to headings (i.e., `h1`, `h2`, `h3`, `h4`, `h5`, and `h6` elements).
+: (`bool`) Whether to automatically add `id` attributes to headings, which are `h1` through `h6` elements.
 
 `parser.autoIDType`
 : (`string`) The strategy used to automatically generate `id` attributes, one of `github`, `github-ascii`, or `blackfriday`. Default is `github`.
@@ -154,11 +164,14 @@ Most of the Goldmark settings above are self-explanatory, but some require expla
 
   This is also the strategy used by the [`urls.Anchorize`][] function.
 
-`parser.attribute.block`
-: (`bool`) Whether to enable [Markdown attributes][] for block elements. Default is `false`.
+`parser.wrapStandAloneImageWithinParagraph`
+: (`bool`) Whether to wrap image elements without adjacent content within a `p` element when rendered. This is the default Markdown behavior. Set to `false` when using an [image render hook][] to render standalone images as `figure` elements. Default is `true`.
 
-`parser.attribute.title`
-: (`bool`) Whether to enable [Markdown attributes][] for headings. Default is `true`.
+`renderer.hardWraps`
+: (`bool`) Whether to replace newline characters within a paragraph with `br` elements. Default is `false`.
+
+`renderer.unsafe`
+: (`bool`) Whether to render raw HTML mixed within Markdown. This is unsafe unless the content is under your control. Default is `false`.
 
 `renderHooks.image.enableDefault`
 : {{< deprecated-in 0.148.0 />}}
@@ -185,15 +198,9 @@ Most of the Goldmark settings above are self-explanatory, but some require expla
   - `always`: Always use the embedded link render hook, even if your project or its modules define custom link render hooks.
   - `fallback`: Use the embedded link render hook only if your project and its modules do not define custom link render hooks. Otherwise, Hugo uses the custom link render hooks.
 
-`renderer.hardWraps`
-: (`bool`) Whether to replace newline characters within a paragraph with `br` elements. Default is `false`.
-
-`renderer.unsafe`
-: (`bool`) Whether to render raw HTML mixed within Markdown. This is unsafe unless the content is under your control. Default is `false`.
-
 ## AsciiDoc
 
-This is the default configuration for the AsciiDoc renderer:
+Use the `asciidocExt` key to configure the AsciiDoc renderer. This is the default configuration:
 
 {{< code-toggle config=markup.asciiDocExt />}}
 
@@ -235,7 +242,7 @@ This is the default configuration for the AsciiDoc renderer:
 `workingFolderCurrent`
 : (`bool`) Whether to set the working directory to be the same as that of the AsciiDoc file being processed, allowing [includes][] to work with relative paths. Set to `true` to render diagrams with the [asciidoctor-diagram][] extension. Default is `false`.
 
-### Configuration example
+For example, to use the `asciidoctor-html5s` backend with the `asciidoctor-diagram` extension:
 
 {{< code-toggle file=hugo >}}
 [markup.asciidocExt]
@@ -293,7 +300,7 @@ Step 4
   ----
   ```
 
-### Troubleshooting
+### Troubleshooting {#troubleshooting-asciidoc}
 
 Run `hugo build --logLevel debug` to examine Hugo's call to the `asciidoctor` executable:
 
@@ -303,7 +310,7 @@ INFO 2019/12/22 09:08:48 Rendering book-as-pdf.adoc with C:\Ruby26-x64\bin\ascii
 
 ## reStructuredText
 
-This is the default configuration for the reStructuredText renderer:
+Use the `rst` key to configure the reStructuredText renderer. This is the default configuration:
 
 {{< code-toggle config=markup.rst />}}
 
@@ -359,7 +366,7 @@ Step 4
 
 ## Highlight
 
-These settings apply to fenced code blocks in Markdown, the embedded [`highlight`][] shortcode, the [`transform.Highlight`][] function, and the [`transform.HighlightCodeBlock`][] function. The default configuration is shown below.
+Use the `highlight` key to configure syntax highlighting. These settings apply to fenced code blocks in Markdown, the embedded [`highlight`][] shortcode, the [`transform.Highlight`][] function, and the [`transform.HighlightCodeBlock`][] function. This is the default configuration:
 
 {{< code-toggle config=markup.highlight />}}
 
@@ -367,18 +374,18 @@ These settings apply to fenced code blocks in Markdown, the embedded [`highlight
 
 ## Table of contents
 
-This is the default configuration for the table of contents, applicable to Goldmark and Asciidoctor:
+Use the `tableOfContents` key to configure the table of contents, applicable to Goldmark and Asciidoctor. This is the default configuration:
 
 {{< code-toggle config=markup.tableOfContents />}}
-
-`startLevel`
-: (`int`) Heading levels less than this value will be excluded from the table of contents. For example, to exclude `h1` elements from the table of contents, set this value to `2`. Default is `2`.
 
 `endLevel`
 : (`int`) Heading levels greater than this value will be excluded from the table of contents. For example, to exclude `h4`, `h5`, and `h6` elements from the table of contents, set this value to `3`. Default is `3`.
 
 `ordered`
-: (`bool`) Whether to generates an ordered list instead of an unordered list. Default is `false`.
+: (`bool`) Whether to generate an ordered list instead of an unordered list. Default is `false`.
+
+`startLevel`
+: (`int`) Heading levels less than this value will be excluded from the table of contents. For example, to exclude `h1` elements from the table of contents, set this value to `2`. Default is `2`.
 
 [^1]: See [details](https://github.com/gohugoio/hugo-goldmark-extensions/commit/4d4fcd022fe45a9b51483df001c9e5f4e632d5a9).
 

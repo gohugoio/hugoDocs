@@ -1,11 +1,13 @@
 ---
 title: Configure server
 linkTitle: Server
-description: Configure the development server.
+description: Configure the headers and redirects of the development server.
 keywords: []
 ---
 
-These settings are exclusive to Hugo's development server, so a dedicated [configuration directory][] for development, where the server is configured accordingly, is the recommended approach.
+## Usage
+
+The `server` key configures the headers and redirects of Hugo's development server. These settings are exclusive to Hugo's development server, so a dedicated [configuration directory][] for development, where the server is configured accordingly, is the recommended approach.
 
 ```tree
 project/
@@ -16,31 +18,13 @@ project/
         └── server.toml
 ```
 
-## Default settings
+## Settings
 
-The development server defaults to redirecting to `/404.html` for any requests to URLs that don't exist. See the [404 errors](#404-errors) section below for details.
+This is the default configuration:
 
 {{< code-toggle config=server />}}
 
-`force`
-: (`bool`) Whether to force a redirect even if there is existing content in the path.
-
-`from`
-: (`string`) A [glob pattern](g) matching the requested URL. Either `from` or `fromRE` must be set. If both `from` and `fromRe` are specified, the URL must match both patterns.
-
-`fromHeaders`
-: {{< new-in 0.144.0 />}}
-: (`map[string][string]`) Headers to match for the redirect. This maps the HTTP header name to a [glob pattern](g) with values to match. If the map is empty, the redirect will always be triggered.
-
-`fromRe`
-: {{< new-in 0.144.0 />}}
-: (`string`) A [regular expression](g) used to match the requested URL. Either `from` or `fromRE` must be set. If both `from` and `fromRe` are specified, the URL must match both patterns. Capture groups from the regular expression are accessible in the `to` field as `$1`, `$2`, and so on.
-
-`status`
-: (`string`) The HTTP status code to use for the redirect. A status code of 200 will trigger a URL rewrite.
-
-`to`
-: (`string`) The URL to forward the request to.
+The development server defaults to redirecting to `/404.html` for any requests to URLs that don't exist. See the [404 errors](#404-errors) section below for details.
 
 ## Headers
 
@@ -60,7 +44,7 @@ Content-Security-Policy = 'script-src localhost:1313'
 
 ## Redirects
 
-You can define simple redirect rules.
+Use the `redirects` key to define a slice of redirect rules. For example:
 
 {{< code-toggle file=config/development/server >}}
 [[redirects]]
@@ -72,13 +56,31 @@ force = false
 
 The `200` status code in this example triggers a URL rewrite, which is typically the desired behavior for [single-page applications][].
 
+Each redirect rule accepts these settings:
+
+`force`
+: (`bool`) Whether to force a redirect even if there is existing content in the path. Default is `false`.
+
+`from`
+: (`string`) A [glob pattern](g) matching the requested URL. Either `from` or `fromRe` must be set. If both `from` and `fromRe` are specified, the URL must match both patterns.
+
+`fromHeaders`
+: {{< new-in 0.144.0 />}}
+: (`map[string][string]`) Headers to match for the redirect. This maps the HTTP header name to a [glob pattern](g) with values to match. If the map is empty, the redirect will always be triggered.
+
+`fromRe`
+: {{< new-in 0.144.0 />}}
+: (`string`) A [regular expression](g) used to match the requested URL. Either `from` or `fromRe` must be set. If both `from` and `fromRe` are specified, the URL must match both patterns. Capture groups from the regular expression are accessible in the `to` field as `$1`, `$2`, and so on.
+
+`status`
+: (`int`) The HTTP status code to use for the redirect. A status code of `200` triggers a URL rewrite.
+
+`to`
+: (`string`) The URL to forward the request to.
+
 ## 404 errors
 
-The development server defaults to redirecting to /404.html for any requests to URLs that don't exist.
-
-{{< code-toggle config=server />}}
-
-If you've already defined other redirects, you must explicitly add the 404 redirect.
+If you define other redirects, you must explicitly add the 404 redirect:
 
 {{< code-toggle file=config/development/server >}}
 [[redirects]]
