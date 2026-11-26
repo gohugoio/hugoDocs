@@ -19,4 +19,4 @@ A _page matcher_ filters pages by logical path, page kind, environment, or site.
 
 `sites`
 : {{< new-in 0.153.0 />}}
-: (`map`) A [sites matrix](g) matching any combination of [content dimensions](g) including language, version, and role.
+: (`map`) A map with a `matrix` key, whose value is a [sites matrix](g) matching any combination of language, version, and role.

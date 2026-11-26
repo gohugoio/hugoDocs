@@ -19,6 +19,8 @@ If either collection is empty, the function returns the other collection.
 
 Because the `TO` collection is the last argument, you can chain calls to fill in the missing translations from more than one language, in order of preference.
 
+To fill in missing translations in every page collection, not only the collection that you pass to this function, use the [multidimensional content model][] instead. It finds translations by their logical path, not by their translation key.
+
 ## Examples
 
 Filling in the missing translations of the current site with pages from the site of the [default language](g):
@@ -37,4 +39,5 @@ Filling in the missing translations from the site of each other language:
 ```
 
 [`translationKey`]: /content-management/front-matter/#translationkey
+[multidimensional content model]: /content-management/content-dimensions/#translations
 [translation key]: /methods/page/translationkey/

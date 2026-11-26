@@ -10,23 +10,24 @@ params:
 
 {{< new-in 0.153.0 />}}
 
-The rotate method on a page object returns a collection of pages that vary along the specified [dimension](g), while holding the other dimensions constant. The result includes the current page and is sorted according to the rules of the specified dimension. For example, rotating along [language](g) returns all language variants that share the current page's [version](g) and [role](g).
+## Usage
 
-The `DIMENSION` argument must be one of `language`, `version`, or `role`.
+The `Rotate` method on a `Page` object returns a collection of pages that vary along the specified [dimension](g) of the [multidimensional content model][], while holding the other dimensions constant. The result includes the current page and is sorted according to the rules of the specified dimension. For example, rotating along [language](g) returns all language variants that share the current page's [version](g) and [role](g). The collection includes only the [sites](g) that the page is published to.
 
-## Sort order
+Hugo sorts the collection using these rules:
 
-Use the following rules to understand how Hugo sorts the collection returned by the `Rotate` method.
+Dimension|Primary sort|Secondary sort
+:--|:--|:--
+Language|Weight ascending|Lexicographical ascending
+Version|Weight ascending|Semantic version descending
+Role|Weight ascending|Lexicographical ascending
 
-| Dimension | Primary Sort | Secondary Sort |
-| :--- | :--- | :--- |
-| Language | Weight ascending | Lexicographical ascending |
-| Version | Weight ascending | Semantic version descending |
-| Role | Weight ascending | Lexicographical ascending |
+## Arguments
+
+`DIMENSION`
+: (`string`) The dimension to rotate along, one of `language`, `version`, or `role`.
 
 ## Examples
-
-This example renders a list of the current page's language variants, including the current page, while sharing its current version and role:
 
 ```go-html-template
 {{/* Returns languages sorted by weight ascending, then lexicographically ascending */}}
@@ -35,7 +36,7 @@ This example renders a list of the current page's language variants, including t
 {{ end }}
 ```
 
-To render a list of the current page's version variants, including the current page, while sharing its current language and role:
+Rotating along the version dimension:
 
 ```go-html-template
 {{/* Returns versions sorted by weight ascending, then semantic version descending */}}
@@ -44,7 +45,7 @@ To render a list of the current page's version variants, including the current p
 {{ end }}
 ```
 
-To render a list of the current page's role variants, including the current page, while sharing its current language and version:
+Rotating along the role dimension:
 
 ```go-html-template
 {{/* Returns roles sorted by weight ascending, then lexicographically ascending */}}
@@ -52,3 +53,5 @@ To render a list of the current page's role variants, including the current page
   <h2><a href="{{ .RelPermalink }}">{{ .LinkTitle }}</a></h2>
 {{ end }}
 ```
+
+[multidimensional content model]: /content-management/content-dimensions/

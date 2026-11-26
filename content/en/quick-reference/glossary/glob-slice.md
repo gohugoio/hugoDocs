@@ -2,15 +2,15 @@
 title: glob slice
 ---
 
-A _glob slice_ is a [_slice_](g) of [_glob patterns_](g). Within the slice, a glob pattern can be negated by prefixing it with an exclamation mark (`!`) and one space. Matches in negated patterns short-circuit the evaluation of the rest of the slice, and are useful for early coarse-grained exclusions.
+A _glob slice_ is a [_slice_](g) of [_glob patterns_](g) used to match values such as file paths. A value matches the slice when it matches any of the glob patterns. To exclude the values that match a glob pattern, begin the pattern with an exclamation mark (`!`) followed by a space. Place negated patterns before the patterns that they limit.
 
-  The following example illustrates how to use glob slices to define a [_sites matrix_](g) in your project configuration:
+  For example, this mount includes the files in the `books` directory except those in the `books/drafts` directory:
 
   ```toml
-  [sites.matrix]
-  languages = [ "! no", "**" ]
-  versions = [ "! v1.2.3", "v1.*.*", "v2.*.*" ]
-  roles = [ "{member, guest}" ]
+  [[module.mounts]]
+  source = 'content'
+  target = 'content'
+  files = ['! books/drafts/**', 'books/**']
   ```
 
-  In this example, the `versions` setting evaluates as: `(not v1.2.3) AND (v1.*.* OR v2.*.*)`.
+  See also: [_dimension matcher_](g).
