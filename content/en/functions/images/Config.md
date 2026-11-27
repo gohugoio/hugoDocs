@@ -24,7 +24,7 @@ Use these methods on the `image.Config` object:
 `Width`
 : (`int`) Returns the width of the image, in pixels.
 
-Hugo caches the result in memory, so calling the function more than once with the same path during a build incurs no additional overhead.
+Hugo caches the result in memory, reducing the cost of calling the function more than once with the same path during a build.
 
 ## Examples
 

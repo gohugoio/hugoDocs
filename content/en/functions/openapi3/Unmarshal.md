@@ -19,7 +19,7 @@ The function resolves all external references, both local and remote, and includ
 
 The function creates the returned value with the [`getkin/kin-openapi`][] package. Many fields of the returned value are structs or pointers instead of maps, so you must use accessors or other methods to index them or to range over them. For example, the `Paths` field is a pointer, so use its `Map` method to range over the API paths.
 
-Hugo caches the result in memory, so calling the function more than once with the same resource and options during a build incurs no additional overhead.
+Hugo caches the result in memory, reducing the cost of calling the function more than once with the same resource and options during a build.
 
 ## Options
 
