@@ -1,9 +1,15 @@
 ---
 title: Configure pagination
 linkTitle: Pagination
-description: Configure pagination.
+description: Configure the number of pages per pager and the URL of each pager.
 keywords: []
 ---
+
+## Usage
+
+The `pagination` key controls how Hugo divides a list of pages into pagers, including the number of pages per pager and the URL of each pager.
+
+## Settings
 
 This is the default configuration:
 
@@ -17,6 +23,8 @@ This is the default configuration:
 
 `path`
 : (`string`) The segment of each pager URL indicating that the target page is a pager. Default is `page`.
+
+## Localized settings
 
 With multilingual projects you can define the pagination behavior for each language:
 

@@ -24,7 +24,7 @@ Complete the following tasks before continuing:
 ## Procedure
 
 Step 1
-: Create an `amplify.yml` file in the root of your project, adjusting the tool versions and time zone as needed.
+: Create an `amplify.yml` file in the root of your project, adjusting the tool versions and [build time zone](#build-time-zone) as needed.
 
   ```yaml {file="amplify.yml" copy=true}
   version: 1
@@ -189,6 +189,10 @@ Step 12
 : When your site has finished deploying, press the **Visit deployed URL** button to view your published site.
 
   ![screen capture](amplify-06.png)
+
+## Build time zone
+
+{{% include "/_common/build-time-zone.md" %}}
 
 ## Related resources
 

@@ -1,9 +1,13 @@
 ---
 title: Configure ugly URLs
 linkTitle: Ugly URLs
-description: Configure ugly URLs.
+description: Configure Hugo to generate ugly URLs for the entire site or for specific sections.
 keywords: []
 ---
+
+## Usage
+
+The `uglyURLs` key determines whether Hugo generates ugly URLs.
 
 {{% glossary-term "ugly url" %}} For example:
 
@@ -17,9 +21,15 @@ In its default configuration, Hugo generates [pretty URLs](g). For example:
 https://example.org/section/article/
 ```
 
+## Settings
+
 This is the default configuration:
 
 {{< code-toggle config=uglyURLs />}}
+
+Set the value to a `bool` to apply the setting to the entire site, or to a map of section names to `bool` values to apply the setting to specific sections.
+
+## Examples
 
 To generate ugly URLs for the entire site:
 

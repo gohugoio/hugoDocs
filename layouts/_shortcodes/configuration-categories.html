@@ -12,6 +12,10 @@ Renders a comma-separated list of links to the configuration category pages.
 	{{- end }}
 {{- end }}
 
+{{- /* These keys default to null, so the loop above skips them. */}}
+{{- $s.Set "cascade" "cascade" }}
+{{- $s.Set "permalinks" "permalinks" }}
+
 {{- /* Deprecated. */}}
 {{- $s.Delete "author" }}
 

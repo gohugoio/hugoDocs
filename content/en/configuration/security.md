@@ -1,13 +1,17 @@
 ---
 title: Configure security
 linkTitle: Security
-description: Configure security.
+description: Configure the security policy that restricts external executables, environment variables, remote resources, and Node tools.
 keywords: []
 ---
 
-Hugo's built-in security policy, which restricts access to `os/exec`, remote communication, and similar operations, is configured via allowlists. By default, access is restricted. If a build attempts to use a feature not included in the allowlist, it will fail, providing a detailed message.
+## Usage
 
-This is the default security configuration:
+The `security` key configures Hugo's built-in security policy, which restricts access to `os/exec`, remote communication, and similar operations using allowlists. By default, access is restricted. If a build attempts to use a feature not included in the allowlist, it will fail, providing a detailed message.
+
+## Settings
+
+This is the default configuration:
 
 {{< code-toggle config=security />}}
 
@@ -32,11 +36,11 @@ This is the default security configuration:
 `funcs.getenv`
 : (`[]string`) A slice of [regular expressions](g) matching the names of operating system environment variables that Hugo is allowed to access with the [`os.Getenv`][] function.
 
-`http.methods`
-: (`[]string`) A slice of [regular expressions](g) matching the HTTP methods that the [`resources.GetRemote`][] function is allowed to use.
-
 `http.mediaTypes`
-: (`[]string`) Applicable to the `resources.GetRemote` function, a slice of [regular expressions](g) matching the `Content-Type` in HTTP responses that Hugo trusts, bypassing file content analysis for media type detection.
+: (`[]string`) Applicable to the [`resources.GetRemote`][] function, a slice of [regular expressions](g) matching the `Content-Type` in HTTP responses that Hugo trusts, bypassing file content analysis for media type detection.
+
+`http.methods`
+: (`[]string`) A slice of [regular expressions](g) matching the HTTP methods that the `resources.GetRemote` function is allowed to use.
 
 `http.proxyFromEnvironment`
 : {{< new-in 0.166.0 />}}
@@ -46,10 +50,6 @@ This is the default security configuration:
 : (`[]string`) A slice of [regular expressions](g) matching the URLs that the `resources.GetRemote` function is allowed to access.
 
   The default allowlist denies URLs with an IP address or `localhost` as the host name. In addition, with the default allowlist, Hugo validates the resolved address when connecting and rejects connections to loopback, private, link-local, and other non-public addresses, such as a host name that resolves to a cloud metadata endpoint. This validation is disabled if you override `http.urls`, as the override may intentionally allow access to hosts on your local network, such as a development server.
-
-`node.permissions.disable`
-: {{< new-in 0.161.0 />}}
-: (`bool`) Whether to disable the Node.js [permission model][]. When `false`, Hugo runs Node tools with the `--permission` flag, restricting their file system and resource access to what is explicitly allowed below. Default is `false`.
 
 `node.permissions.allowAddons`
 : {{< new-in 0.161.0 />}}
@@ -79,6 +79,10 @@ This is the default security configuration:
 : {{< new-in 0.161.0 />}}
 : (`[]string`) A slice of file system paths that Node tools are allowed to write. Hugo passes these paths to `node` with the `--allow-fs-write` flag. Paths are relative to the working directory, where `"."` means the working directory itself. Use `"*"` to allow all paths.
 
+`node.permissions.disable`
+: {{< new-in 0.161.0 />}}
+: (`bool`) Whether to disable the Node.js [permission model][]. When `false`, Hugo runs Node tools with the `--permission` flag, restricting their file system and resource access to what is explicitly allowed by the other `node.permissions` settings. Default is `false`.
+
 ## Negation rules
 
 {{< new-in 0.161.0 />}}
@@ -98,7 +102,7 @@ Setting an allowlist to the string `none` will completely disable the associated
 
 You can also override your project configuration with environment variables. For example, to block `resources.GetRemote` from accessing any URL:
 
-```txt
+```sh
 export HUGO_SECURITY_HTTP_URLS=none
 ```
 

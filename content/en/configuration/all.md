@@ -5,11 +5,9 @@ keywords: []
 weight: 20
 ---
 
-## Settings
+## General settings
 
-Each top-level key in the project configuration is either a general setting or a configuration category.
-
-A general setting is a single value, such as [`baseURL`](#baseurl) or [`title`](#title). A configuration category groups related, nested settings, such as [`markup`](#markup), [`menus`](#menus), or [`params`](#params).
+Each top-level key in the project configuration is either a general setting or a configuration category. A general setting is a single value, such as [`baseURL`](#baseurl) or [`title`](#title).
 
 `_merge`
 : (`string`) Controls how Hugo merges module configuration into the project configuration. Set at any level of nesting within a configuration category to control merging for that section, at the root of a category to control merging for the entire category, or at the root of the project configuration to change the default for every category that does not specify its own value. One of `none`, `shallow`, or `deep`. See [merge configuration settings][] and the [security implications][] of changing the default `none` strategy.
@@ -23,9 +21,6 @@ A general setting is a single value, such as [`baseURL`](#baseurl) or [`title`](
 `baseURL`
 : (`string`) The absolute URL of your published site including the protocol, host, path, and a trailing slash. Default is `https://example.org/`.
 
-`build`
-: See [configure build][].
-
 `buildDrafts`
 : (`bool`) Whether to include draft content when building a site. Default is `false`.
 
@@ -38,17 +33,11 @@ A general setting is a single value, such as [`baseURL`](#baseurl) or [`title`](
 `cacheDir`
 : (`string`) The designated cache directory. See [details](#cache-directory).
 
-`caches`
-: See [configure file caches][].
-
 `canonifyURLs`
 : (`bool`) See [details][canonical-urls] before enabling this feature. Default is `false`.
 
 `capitalizeListTitles`
 : (`bool`) Whether to capitalize automatic list titles. Applicable to section, taxonomy, and term pages. Use the [`titleCaseStyle`](#titlecasestyle) setting to configure capitalization rules. Default is `true`.
-
-`cascade`
-: See [configure cascade][].
 
 `cleanDestinationDir`
 : {{< deprecated-in 0.167.0 />}}
@@ -64,14 +53,14 @@ A general setting is a single value, such as [`baseURL`](#baseurl) or [`title`](
 : (`string`) The designated directory for data files. Default is `data`. {{% module-mounts-note %}}
 
 `defaultContentLanguage`
-: (`string`) The project's [default language](g), conforming to the syntax described in [RFC 5646][]. When one or more languages are defined, this value must match one of the defined [language keys][].
+: (`string`) The project's [default language](g), conforming to the syntax described in [RFC 5646][]. When one or more languages are defined, this value must match one of the defined [language keys][]. If not set, Hugo uses `en` when it is one of the defined languages, otherwise the first language in [sort order][languages sort order]. Default is `en`.
 
 `defaultContentLanguageInSubdir`
 : (`bool`) Whether to publish the default content language to a subdirectory matching the [`defaultContentLanguage`](#defaultcontentlanguage). Default is `false`.
 
 `defaultContentRole`
 : {{< new-in 0.153.0 />}}
-: (`string`) The project's [default role](g). When one or more roles are defined, this value must match one of the defined role names.
+: (`string`) The project's [default role](g). When one or more roles are defined, this value must match one of the defined role names. If not set, Hugo uses the first role in [sort order][roles sort order]. Default is `guest`.
 
 `defaultContentRoleInSubdir`
 : {{< new-in 0.153.0 />}}
@@ -79,30 +68,27 @@ A general setting is a single value, such as [`baseURL`](#baseurl) or [`title`](
 
 `defaultContentVersion`
 : {{< new-in 0.153.0 />}}
-: (`string`) The project's [default version](g). When one or more versions are defined, this value must match one of the defined version names.
+: (`string`) The project's [default version](g). When one or more versions are defined, this value must match one of the defined version names. If not set, Hugo uses the first version in [sort order][versions sort order]. Default is `v1.0.0`.
 
 `defaultContentVersionInSubdir`
 : {{< new-in 0.153.0 />}}
 : (`bool`) Whether to publish the default content version to a subdirectory matching the [`defaultContentVersion`](#defaultcontentversion). Default is `false`.
 
 `defaultOutputFormat`
-: (`string`) The default output format for the site. If unspecified, the first available format in the defined order (by weight, then alphabetically) will be used.
-
-`deployment`
-: See [configure deployment][].
+: (`string`) The default output format for the site. If unspecified, the first available format in the defined order (by weight, then alphabetically) will be used. Default is `html`.
 
 `disableAliases`
 : (`bool`) Whether to disable the generation of HTML redirect files for each path defined in the [`aliases`][aliases_front_matter] front matter field. When `true`, Hugo will not create physical files for [client-side redirection][], but the alias data remains available via the [`Aliases`][aliases_page_method] method on a `Page` object. Default is `false`.
 
 `disableDefaultLanguageRedirect`
-: (`bool`) Whether to disable generation of the alias redirect for the default content language. When [`defaultContentLanguageInSubdir`](#defaultcontentlanguageinsubdir) is `true`, this setting prevents the root directory from redirecting to the language subdirectory. Conversely, when `defaultContentLanguageInSubdir` is `false`, this setting prevents the language subdirectory from redirecting to the root directory. This is superseded by the more general [`disableDefaultSiteRedirect`](#disabledefaultsiteredirect) setting. Default is `false`.
+: (`bool`) An alias for [`disableDefaultSiteRedirect`](#disabledefaultsiteredirect). Despite its name, this setting also disables the role and version redirects. Default is `false`.
 
 `disableDefaultSiteRedirect`
 : {{< new-in 0.154.5 />}}
 : (`bool`) Whether to disable generation of the alias redirect to the [default site](g). When [`defaultContentLanguageInSubdir`](#defaultcontentlanguageinsubdir), [`defaultContentRoleInSubdir`](#defaultcontentroleinsubdir), or [`defaultContentVersionInSubdir`](#defaultcontentversioninsubdir) is `true`, this prevents the root directory from redirecting to the default site's subdirectory. Conversely, when these are `false`, it prevents the subdirectories from redirecting back to the root. Default is `false`.
 
 `disableHugoGeneratorInject`
-: (`bool`) Whether to disable injection of a `<meta name="generator">` tag into the home page. Default is `false`.
+: (`bool`) Whether to disable injection of a `<meta name="generator">` element into the home page. Hugo does not inject the element if the page already contains one. Default is `false`.
 
 `disableKinds`
 : (`[]string`) A slice of page [kinds](g) to disable during the build process, any of `404`, `home`, `page`, `robotstxt`, `rss`, `section`, `sitemap`, `taxonomy`, or `term`.
@@ -117,50 +103,38 @@ A general setting is a single value, such as [`baseURL`](#baseurl) or [`title`](
 : (`bool`) Whether to disable the conversion of [URL paths][] to lower case. Default is `false`.
 
 `enableEmoji`
-: (`bool`) Whether to allow emoji in Markdown. Default is `false`.
+: (`bool`) Whether to replace emoji shortcodes in Markdown, such as `:smile:`, with the corresponding emoji characters. Default is `false`.
 
 `enableGitInfo`
 : (`bool`) Whether to retrieve commit metadata from the Git history of your local project and any [modules](g). This enables the [`GitInfo`][] method on a `Page` object. With the default front matter configuration, the [`Lastmod`][] method on a `Page` object returns the Git author date of the last commit for that file. Default is `false`.
 
 `enableMissingTranslationPlaceholders`
-: (`bool`) Whether to show a placeholder instead of the default value or an empty string if a translation is missing. Default is `false`.
+: (`bool`) Whether to render a placeholder when the current language's translation tables do not contain the given key. The placeholder is `[i18n]` followed by the key, such as `[i18n] hello`. When `false`, Hugo renders the translation from the [default language](g), or an empty string if that translation is also missing. Default is `false`.
 
 `enableRobotsTXT`
 : (`bool`) Whether to enable generation of a `robots.txt` file. Default is `false`.
 
-`frontmatter`
-: See [configure front matter][].
-
 `hasCJKLanguage`
 : (`bool`) Whether to automatically detect [CJK](g) languages in content. Affects the values returned by the [`FuzzyWordCount`][], [`ReadingTime`][], [`Summary`][], and [`WordCount`][] methods. To override this behavior on a given page, set the [`isCJKLanguage`][] field in its front matter. Default is `false`.
-
-`HTTPCache`
-: See [configure HTTP cache][].
 
 `i18nDir`
 : (`string`) The designated directory for translation tables. Default is `i18n`. {{% module-mounts-note %}}
 
 `ignoreCache`
-: (`bool`) Whether to ignore the configured file caches. Default is `false`.
+: (`bool`) Whether to ignore the configured file caches and the HTTP cache. Default is `false`.
 
 `ignoreFiles`
-: (`[]string`) A slice of [regular expressions](g) used to exclude specific files from a build. These expressions are matched against the absolute file path and apply to files within the `content`, `data`, and `i18n` directories. For more advanced file exclusion options, see the section on [module mounts][].
+: (`[]string`) A slice of [regular expressions](g) matching files and directories to exclude from the `content`, `data`, and `i18n` directories. Excluding a directory excludes everything beneath it. Hugo matches each expression against the absolute file path, and an expression can match any part of the path. For example, `/drafts$` excludes every directory named `drafts`. Use a forward slash as the path separator on all operating systems. This setting does not apply to the `archetypes`, `assets`, `layouts`, or `static` directories. For more advanced file exclusion options, see the section on [module mounts][].
 
 `ignoreLogs`
 : (`[]string`) A slice of message identifiers corresponding to warnings and errors you wish to suppress. See [`erroridf`][] and [`warnidf`][].
 
 `ignoreVendorPaths`
-: (`string`) A [glob pattern](g) matching the module paths to exclude from the `_vendor` directory.
-
-`imaging`
-: See [configure imaging][].
+: (`string`) A [glob pattern](g) matching the paths of modules that Hugo should not load from the `_vendor` directory. Hugo loads these modules from their source instead. This setting does not affect which modules the `hugo mod vendor` command vendors.
 
 `languageCode`
 : {{<deprecated-in 0.158.0 />}}
 : Use [`locale`](#locale) instead.
-
-`languages`
-: See [configure languages][].
 
 `layoutDir`
 : (`string`) The designated directory for templates. Default is `layouts`. {{% module-mounts-note %}}
@@ -172,56 +146,35 @@ A general setting is a single value, such as [`baseURL`](#baseurl) or [`title`](
 `mainSections`
 : (`string` or `[]string`) The main sections of a site. If set, the [`MainSections`][] method on the `Site` object returns the given sections, otherwise it returns the section with the most pages.
 
-`markup`
-: See [configure markup][].
-
-`mediaTypes`
-: See [configure media types][].
-
-`menus`
-: See [configure menus][].
-
-`minify`
-: See [configure minify][].
-
-`module`
-: See [configure modules][].
-
 `newContentEditor`
-: (`string`) The editor to use when creating new content.
+: (`string`) The command that the [`hugo new content`][] command runs to open a new content file. Specify the name of an executable in your `PATH`, or the absolute path to an executable, optionally followed by flags separated by spaces, such as `code --wait`. Hugo passes the path of the new content file as the final argument. Hugo does not open the editor when it creates a page bundle from a directory-based archetype. The `--editor` command-line flag overrides this setting.
+
+  You must also add the executable to the [`security.exec.allow`][] allowlist, otherwise Hugo creates the file but fails to open the editor. When you specify an absolute path, the allowlist must match the absolute path. For example, to use Visual Studio Code:
+
+  {{< code-toggle file=hugo >}}
+  newContentEditor = 'code --wait'
+  [security.exec]
+  allow = ['^(dart-)?sass$', '^go$', '^git$', '^node$', '^postcss$', '^code$']
+  {{< /code-toggle >}}
+
+  A value you set for `security.exec.allow` replaces the default value, so include the default patterns to continue allowing those executables.
 
 `noBuildLock`
-: (`bool`) Whether to disable creation of the `.hugo_build.lock` file. Default is `false`.
+: (`bool`) Whether to disable the build lock. Hugo uses a `.hugo_build.lock` file in the root of your project to prevent two Hugo processes from writing to the same project at the same time. While one process holds the lock, such as a build, the `hugo server` command rebuilding after a change, or the `hugo new content` command, another process waits until the lock is released. Disable the lock when Hugo cannot create the file, such as when your project is on a read-only file system. When the lock is disabled, concurrent Hugo processes can produce incomplete or inconsistent output. Default is `false`.
+
+  Hugo does not delete the empty `.hugo_build.lock` file after releasing the lock. Exclude it from version control.
 
 `noChmod`
-: (`bool`) Whether to disable synchronization of file permission modes. Default is `false`.
+: (`bool`) Whether to disable synchronization of file permission modes when copying static files to the `public` directory. Default is `false`.
 
 `noTimes`
-: (`bool`) Whether to disable synchronization of file modification times. Default is `false`.
-
-`outputFormats`
-: See [configure output formats][].
-
-`outputs`
-: See [configure outputs][].
-
-`page`
-: See [configure page][].
-
-`pagination`
-: See [configure pagination][].
+: (`bool`) Whether to disable synchronization of file modification times when copying static files to the `public` directory. Default is `false`.
 
 `panicOnWarning`
-: (`bool`) Whether to panic on the first WARNING. Default is `false`.
-
-`params`
-: See [configure params][].
-
-`permalinks`
-: See [configure permalinks][].
+: (`bool`) Whether to stop the build at the first warning. Enable this setting to find the source of a warning, such as one logged by the [`warnf`][] function. When a template logs the warning, Hugo reports the template file and the position of the call in the error message. When Hugo logs the warning, it prints a stack trace, which is a list of the internal function calls that led to the warning, intended for Hugo developers. To also stop at warnings that Hugo logs while loading the project configuration, use the `--panicOnWarning` command-line flag. The setting in your project configuration takes effect only after Hugo loads it. Default is `false`.
 
 `pluralizeListTitles`
-: (`bool`) Whether to pluralize automatic list titles. Applicable to section pages. Default is `true`.
+: (`bool`) Whether to pluralize automatic section page titles. Hugo creates an automatic title when a section page does not define a `title` in front matter. Pluralization follows English rules regardless of the site language. Default is `true`.
 
 `printI18nWarnings`
 : (`bool`) Whether to log WARNINGs for each missing translation. Default is `false`.
@@ -232,9 +185,6 @@ A general setting is a single value, such as [`baseURL`](#baseurl) or [`title`](
 `printUnusedTemplates`
 : (`bool`) Whether to log WARNINGs for each unused template. Default is `false`.
 
-`privacy`
-: See [configure privacy][].
-
 `publishDir`
 : (`string`) The designated directory for publishing the site. Default is `public`.
 
@@ -243,9 +193,6 @@ A general setting is a single value, such as [`baseURL`](#baseurl) or [`title`](
 
 `refLinksNotFoundURL`
 : (`string`) The URL to return when the `ref` and `relref` functions, methods, and shortcodes are unable to resolve a reference to a page.
-
-`related`
-: See [configure related content][].
 
 `relativeURLs`
 : (`bool`) See [details][relative-urls] before enabling this feature. Default is `false`.
@@ -259,35 +206,14 @@ A general setting is a single value, such as [`baseURL`](#baseurl) or [`title`](
 `resourceDir`
 : (`string`) The designated directory for caching output from [asset pipelines](g). Default is `resources`.
 
-`roles`
-: See [configure roles][].
-
-`security`
-: See [configure security][].
-
 `sectionPagesMenu`
 : (`string`) When set, each top-level section will be added to the menu identified by the provided value. See [details][define-automatically].
 
-`segments`
-: See [configure segments][].
-
-`server`
-: See [configure server][].
-
-`services`
-: See [configure services][].
-
-`sitemap`
-: See [configure sitemap][].
-
 `staticDir`
-: (`string`) The designated directory for static files. Default is `static`. {{% module-mounts-note %}}
+: (`string` or `[]string`) The designated directory or directories for static files. Default is `['static']`. {{% module-mounts-note %}}
 
 `summaryLength`
-: (`int`) Applicable to [automatic summaries][], the minimum number of words returned by the [`Summary`][] method on a `Page` object. The `Summary` method will return content truncated at the paragraph boundary closest to the specified `summaryLength`, but at least this minimum number of words. Default is `70`.
-
-`taxonomies`
-: See [configure taxonomies][].
+: (`int`) Applicable to [automatic summaries][], the minimum number of words returned by the [`Summary`][] method on a `Page` object. Hugo ends the summary at the first paragraph boundary at or after this number of words. Default is `70`.
 
 `templateMetrics`
 : (`bool`) Whether to print template execution metrics to the console. Default is `false`. See [details][template-metrics].
@@ -305,7 +231,7 @@ A general setting is a single value, such as [`baseURL`](#baseurl) or [`title`](
 : (`string`) The timeout for generating page content, either as a [duration][] or in seconds. This timeout is used to prevent infinite recursion during content generation. You may need to increase this value if your pages take a long time to generate, for example, due to extensive image processing or reliance on remote content. Default is `60s`.
 
 `timeZone`
-: (`string`) The [time zone](g) used to parse dates without [time zone offsets](g), including front matter date fields and values passed to the [`time.AsTime`][] and [`time.Format`][] functions. The list of valid values may be system dependent, but should include `UTC`, `Local`, and any location in the [IANA Time Zone Database][]. For example, `America/Los_Angeles` and `Europe/Oslo` are valid time zones.
+: (`string`) The [time zone](g) used to parse dates without [time zone offsets](g), including front matter date fields and values passed to the [`time.AsTime`][] and [`time.Format`][] functions. The list of valid values may be system dependent, but should include `UTC`, `Local`, and any location in the [IANA Time Zone Database][]. For example, `America/Los_Angeles` and `Europe/Oslo` are valid time zones. Default is `UTC`.
 
 `title`
 : (`string`) The site title.
@@ -313,7 +239,98 @@ A general setting is a single value, such as [`baseURL`](#baseurl) or [`title`](
 `titleCaseStyle`
 : (`string`) The capitalization rules to follow when Hugo automatically generates a section title, or when using the [`strings.Title`][] function. One of `ap`, `chicago`, `go`, `firstupper`, or `none`. Default is `ap`. See [details](#title-case-style).
 
-`uglyurls`
+## Configuration categories
+
+A configuration category groups related, nested settings, such as [`markup`](#markup), [`menus`](#menus), or [`params`](#params). Some configuration settings, such as menus and custom parameters, can be defined separately for each language. See [configure languages][].
+
+`build`
+: See [configure build][].
+
+`caches`
+: See [configure file caches][].
+
+`cascade`
+: See [configure cascade][].
+
+`contentTypes`
+: See [configure content types][].
+
+`deployment`
+: See [configure deployment][].
+
+`frontmatter`
+: See [configure front matter][].
+
+`HTTPCache`
+: See [configure HTTP cache][].
+
+`imaging`
+: See [configure imaging][].
+
+`languages`
+: See [configure languages][].
+
+`markup`
+: See [configure markup][].
+
+`mediaTypes`
+: See [configure media types][].
+
+`menus`
+: See [configure menus][].
+
+`minify`
+: See [configure minify][].
+
+`module`
+: See [configure modules][].
+
+`outputFormats`
+: See [configure output formats][].
+
+`outputs`
+: See [configure outputs][].
+
+`page`
+: See [configure page][].
+
+`pagination`
+: See [configure pagination][].
+
+`params`
+: See [configure params][].
+
+`permalinks`
+: See [configure permalinks][].
+
+`privacy`
+: See [configure privacy][].
+
+`related`
+: See [configure related content][].
+
+`roles`
+: See [configure roles][].
+
+`security`
+: See [configure security][].
+
+`segments`
+: See [configure segments][].
+
+`server`
+: See [configure server][].
+
+`services`
+: See [configure services][].
+
+`sitemap`
+: See [configure sitemap][].
+
+`taxonomies`
+: See [configure taxonomies][].
+
+`uglyURLs`
 : See [configure ugly URLs][].
 
 `versions`
@@ -352,10 +369,6 @@ Hugo's [`titleCaseStyle`](#titlecasestyle) setting governs capitalization for au
 `none`
 : Disable transformation of automatic section titles, and disable the transformation performed by the `strings.Title` function. This is useful if you would prefer to manually capitalize section titles as needed, and to bypass opinionated theme usage of the `strings.Title` function.
 
-## Localized settings
-
-Some configuration settings, such as menus and custom parameters, can be defined separately for each language. See [configure languages][].
-
 [Associated Press Stylebook]: https://www.apstylebook.com/
 [Chicago Manual of Style]: https://www.chicagomanualofstyle.org/home.html
 [IANA Time Zone Database]: https://en.wikipedia.org/wiki/List_of_tz_database_time_zones
@@ -371,12 +384,15 @@ Some configuration settings, such as menus and custom parameters, can be defined
 [`WordCount`]: /methods/page/wordcount/
 [`disabled`]: /configuration/languages/#disabled
 [`erroridf`]: /functions/fmt/erroridf/
+[`hugo new content`]: /commands/hugo_new_content/
 [`isCJKLanguage`]: /content-management/front-matter/#iscjklanguage
 [`os.UserCacheDir`]: https://pkg.go.dev/os#UserCacheDir
+[`security.exec.allow`]: /configuration/security/#execallow
 [`segments`]: /configuration/segments/
 [`strings.Title`]: /functions/strings/title/
 [`time.AsTime`]: /functions/time/astime/
 [`time.Format`]: /functions/time/format/
+[`warnf`]: /functions/fmt/warnf/
 [`warnidf`]: /functions/fmt/warnidf/
 [aliases_front_matter]: /content-management/front-matter/#aliases
 [aliases_page_method]: /methods/page/aliases/
@@ -388,6 +404,7 @@ Some configuration settings, such as menus and custom parameters, can be defined
 [configure HTTP cache]: /configuration/http-cache/
 [configure build]: /configuration/build/
 [configure cascade]: /configuration/cascade/
+[configure content types]: /configuration/content-types/
 [configure deployment]: /configuration/deployment/
 [configure file caches]: /configuration/caches/
 [configure front matter]: /configuration/front-matter/
@@ -419,11 +436,14 @@ Some configuration settings, such as menus and custom parameters, can be defined
 [details]: /hugo-modules/theme-components/
 [duration]: https://pkg.go.dev/time#Duration
 [language keys]: /configuration/languages/#language-keys
+[languages sort order]: /configuration/languages/#sort-order
 [merge configuration settings]: /configuration/introduction/#merge-configuration-settings
 [module mounts]: /configuration/module/#mounts
 [non-spacing marks]: https://www.compart.com/en/unicode/category/Mn
 [order of precedence]: /configuration/introduction/#order-of-precedence
 [relative-urls]: /content-management/urls/#relative-urls
+[roles sort order]: /configuration/roles/#sort-order
 [security implications]: /configuration/introduction/#security-implications
 [template-metrics]: /troubleshooting/performance/#template-metrics
 [this configuration]: https://github.com/bep/hugo-sass-test/blob/6c3960a8f4b90e8938228688bc49bdcdd6b2d99e/.circleci/config.yml
+[versions sort order]: /configuration/versions/#sort-order

@@ -1,14 +1,13 @@
 ---
 title: Configure the HTTP cache
 linkTitle: HTTP cache
-description: Configure the HTTP cache.
+description: Configure caching and polling of remote resources fetched with the resources.GetRemote function.
 keywords: []
 ---
 
-> [!NOTE]
-> This configuration is only relevant when using the [`resources.GetRemote`][] function.
+## Usage
 
-## Layered caching
+The `HTTPCache` key controls caching and polling of remote resources. This configuration is only relevant when using the [`resources.GetRemote`][] function.
 
 Hugo employs a layered caching system.
 
@@ -37,13 +36,11 @@ HTTP Cache
 File cache
 : See [configure file caches][].
 
-The HTTP cache involves two key aspects: determining which content to cache (the caching process itself) and defining the frequency with which to check for updates (the polling strategy).
+The HTTP cache involves two key aspects: determining which content to cache, configured with the [`cache`](#cache) key, and defining the frequency with which to check for updates, configured with the [`polls`](#polls) key.
 
-## HTTP caching
+## Settings
 
-The HTTP cache behavior is defined for a configured set of resources. Stale resources will be refreshed from the file cache, even if their configured Time-To-Live (TTL) has not expired. If HTTP caching is disabled for a resource, Hugo will bypass the cache and access the file directly.
-
-This is the default configuration for HTTP caching:
+This is the default configuration:
 
 {{< code-toggle config=HTTPCache />}}
 
@@ -55,35 +52,25 @@ This is the default configuration for HTTP caching:
 : {{< new-in 0.151.0 />}}
 : (`bool`) Whether to respect the `no-store` directive in the server's `Cache-Control` response header when fetching remote resources via the [`resources.GetRemote`][] function. Default is `false`.
 
-`cache.for.excludes`
-: (`[]string`) A slice of [glob patterns](g) to exclude from caching. In its default configuration HTTP caching excludes all files.
+## Cache
 
-`cache.for.includes`
+The HTTP cache behavior is defined for a configured set of resources. Stale resources will be refreshed from the file cache, even if their configured Time-To-Live (TTL) has not expired. If HTTP caching is disabled for a resource, Hugo will bypass the cache and access the file directly.
+
+In its default configuration, HTTP caching excludes all files:
+
+{{< code-toggle config=HTTPCache.cache />}}
+
+`for.excludes`
+: (`[]string`) A slice of [glob patterns](g) to exclude from caching.
+
+`for.includes`
 : (`[]string`) A slice of [glob patterns](g) to cache.
 
-`polls`
-: (`[]PollConfig`) A slice of polling configurations.
+## Polls
 
-`polls.disable`
-: (`bool`) Whether to disable polling for this configuration. Default is `true`.
+Polling is used in watch mode, such as when running `hugo server`, to detect changes in remote resources. Polling can be enabled even if HTTP caching is disabled. Detected changes trigger a rebuild of pages using the affected resource. Polling can be disabled for specific resources, typically those known to be static.
 
-`polls.high`
-: (`string`) The maximum polling interval expressed as a [duration](g). This is used when the resource is considered stable. Default is `0s`.
-
-`polls.low`
-: (`string`) The minimum polling interval expressed as a [duration](g). This is used after a recent change and gradually increases towards `polls.high`. Default is `0s`.
-
-`polls.for.excludes`
-: (`[]string`) A slice of [glob patterns](g) to exclude from polling for this configuration.
-
-`polls.for.includes`
-: (`[]string`) A slice of [glob patterns](g) to include in polling for this configuration.
-
-## HTTP polling
-
-Polling is used in watch mode (e.g., `hugo server`) to detect changes in remote resources. Polling can be enabled even if HTTP caching is disabled. Detected changes trigger a rebuild of pages using the affected resource. Polling can be disabled for specific resources, typically those known to be static.
-
-The default configuration disables everything:
+Use the `polls` key to define a slice of polling configurations. In its default configuration, polling is disabled:
 
 {{< code-toggle file=hugo >}}
 [[HTTPCache.polls]]
@@ -95,33 +82,32 @@ includes = ['**']
 excludes = []
 {{< /code-toggle >}}
 
-`polls`
-: (`[]PollConfig`) A slice of polling configurations.
+Each polling configuration accepts these settings:
 
-`polls.disable`
+`disable`
 : (`bool`) Whether to disable polling for this configuration. Default is `true`.
 
-`polls.high`
+`for.excludes`
+: (`[]string`) A slice of [glob patterns](g) to exclude from polling for this configuration.
+
+`for.includes`
+: (`[]string`) A slice of [glob patterns](g) to include in polling for this configuration.
+
+`high`
 : (`string`) The maximum polling interval expressed as a [duration](g). This is used when the resource is considered stable. Default is `0s`.
 
-`polls.low`
-: (`string`) The minimum polling interval expressed as a [duration](g). This is used after a recent change and gradually increases towards `polls.high`. Default is `0s`.
-
-`polls.for.excludes`
-: (`[]string`) A list of [glob patterns](g) to exclude from polling for this configuration.
-
-`polls.for.includes`
-: (`[]string`) A list of [glob patterns](g) to include in polling for this configuration.
+`low`
+: (`string`) The minimum polling interval expressed as a [duration](g). This is used after a recent change and gradually increases towards `high`. Default is `0s`.
 
 ## Behavior
 
 Polling and HTTP caching interact as follows:
 
 - With polling enabled, rebuilds are triggered only by actual changes, detected via `eTag` changes (Hugo generates an MD5 hash if the server doesn't provide one).
-- If polling is enabled but HTTP caching is disabled, the remote is checked for changes only after the file cache's TTL expires (e.g., a `maxAge` of `10h` with a `1s` polling interval is inefficient).
+- If polling is enabled but HTTP caching is disabled, the remote is checked for changes only after the file cache's TTL expires. For example, a `maxAge` of `10h` with a `1s` polling interval is inefficient.
 - If both polling and HTTP caching are enabled, changes are checked for even before the file cache's TTL expires. Cached `eTag` and `last-modified` values are sent in `if-none-match` and `if-modified-since` headers, respectively, and a cached response is returned on HTTP [304][].
 
-## Example
+## Examples
 
 Consider a site that renders remote data fetched with the [`resources.GetRemote`][] function. With the default configuration Hugo bypasses the HTTP cache for every remote resource, and polling is disabled. As a result, while running `hugo server` you will not detect changes to the remote data until you restart the server.
 

@@ -5,24 +5,28 @@ description: Configure which output formats to render for each page kind.
 keywords: []
 ---
 
+## Usage
+
+The `outputs` key determines which output formats Hugo renders for each page [kind](g).
+
 {{% glossary-term "output format" %}}
 
 Learn more about creating and configuring output formats in the [configure output formats][] section.
 
-## Outputs per page kind
+## Settings
 
-The following default configuration determines the output formats generated for each page kind:
+This is the default configuration:
 
 {{< code-toggle config=outputs />}}
 
-To render the built-in `json` output format for the `home` page kind, assuming you've already created the necessary template, add the following to your configuration:
+Each key is a page kind, and each value is a slice of output format names. To render the built-in `json` output format for the `home` page kind, assuming you've already created the necessary template, add the following to your configuration:
 
 {{< code-toggle file=hugo >}}
 [outputs]
 home = ['html','rss','json']
 {{< /code-toggle >}}
 
-Notice in this example that we only specified the `home` page kind. You don't need to include entries for other page kinds unless you intend to modify their default output formats.
+This example specifies only the `home` page kind. You don't need to include entries for other page kinds unless you intend to modify their default output formats.
 
 > [!NOTE]
 > The order of the output formats in the arrays above is important. The first element will be the [primary output format](g) for that page kind, and in most cases that should be `html` as shown in the default configuration.
@@ -46,4 +50,4 @@ In its default configuration, Hugo renders both the `html` and `json` output for
 [`RelPermalink`]: /methods/page/relpermalink/
 [`permalinkable`]: /configuration/output-formats/#permalinkable
 [configure output formats]: /configuration/output-formats/
-[link to output formats]: configuration/output-formats/#link-to-output-formats
+[link to output formats]: /configuration/output-formats/#link-to-output-formats

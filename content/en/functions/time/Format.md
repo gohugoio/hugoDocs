@@ -17,7 +17,7 @@ The `INPUT` can be a [`time.Time`][] value, such as one of the four predefined [
 
 {{% include "/_common/parsable-date-time-strings.md" %}}
 
-If the `INPUT` is a string with a time zone offset, the function uses that offset. If the `INPUT` is a string without a time zone offset, the function uses the time zone set by the [`timeZone`][] setting in your project configuration, falling back to `Etc/UTC`, and the time zone determines the offset for that date. To use a different time zone, convert the string with the `time.AsTime` function first, passing the time zone as the second argument.
+If the `INPUT` is a string with a time zone offset, the function uses that offset. If the `INPUT` is a string without a time zone offset, the function uses the time zone set by the [`timeZone`][] setting in your project configuration, falling back to `UTC`, and the time zone determines the offset for that date. To use a different time zone, convert the string with the `time.AsTime` function first, passing the time zone as the second argument.
 
 ### Layout string
 

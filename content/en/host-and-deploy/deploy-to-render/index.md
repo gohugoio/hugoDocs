@@ -24,7 +24,7 @@ Complete the following tasks before continuing:
 ## Procedure
 
 Step 1
-: Create a `render.yaml` file in the root of your project, adjusting the tool versions and time zone as needed.
+: Create a `render.yaml` file in the root of your project, adjusting the tool versions and [build time zone](#build-time-zone) as needed.
 
   ```yaml {file="render.yaml" copy=true}
   services:
@@ -202,6 +202,10 @@ Step 14
   ![screen capture](render-10.png)
 
 In the future, whenever you push a change from your local Git repository, Render will rebuild and deploy your site.
+
+## Build time zone
+
+{{% include "/_common/build-time-zone.md" %}}
 
 ## Related resources
 

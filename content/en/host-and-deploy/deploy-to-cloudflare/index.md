@@ -43,7 +43,7 @@ Step 1
   ```
 
 Step 2
-: Create a `build.sh` file in the root of your project, adjusting the tool versions and time zone as needed.
+: Create a `build.sh` file in the root of your project, adjusting the tool versions and [build time zone](#build-time-zone) as needed.
 
   ```sh {file="build.sh" copy=true}
   #!/usr/bin/env bash
@@ -265,6 +265,10 @@ Step 4
 
 > [!NOTE]
 > The schedule event can be delayed during periods of high loads of GitHub Actions workflow runs. High load times include the start of every hour. If the load is sufficiently high enough, some queued jobs may be dropped. To decrease the chance of delay, schedule your workflow to run at a different time of the hour, or use a dedicated third-party scheduling service such as [Google Cloud Scheduler][] or [cron-job.org][].
+
+## Build time zone
+
+{{% include "/_common/build-time-zone.md" %}}
 
 ## Related resources
 

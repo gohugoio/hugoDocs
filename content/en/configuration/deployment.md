@@ -5,12 +5,13 @@ description: Configure deployments to Amazon S3, Azure Blob Storage, or Google C
 keywords: []
 ---
 
-> [!NOTE]
-> This configuration is only relevant when running `hugo deploy`. See [details][hugo deploy].
+## Usage
 
-## Top-level settings
+The `deployment` key controls how the `hugo deploy` command deploys your site to Amazon S3, Azure Blob Storage, or Google Cloud Storage. This configuration is only relevant when running `hugo deploy`. See [details][hugo deploy].
 
-These settings control the overall behavior of the deployment process. This is the default configuration:
+## Settings
+
+This is the default configuration:
 
 {{< code-toggle file=hugo config=deployment />}}
 
@@ -29,24 +30,18 @@ These settings control the overall behavior of the deployment process. This is t
 `maxDeletes`
 : (`int`) The maximum number of files to delete, or `-1` to disable. Default is `256`.
 
-`matchers`
-: (`[]*Matcher`) A slice of [matchers](#matchers-1).
-
 `order`
 : (`[]string`) An ordered slice of [regular expressions](g) that determines upload priority (left to right). Files not matching any expression are uploaded last in an arbitrary order.
 
 `target`
-: (`string`) The target deployment [`name`](#name). Defaults to the first target.
-
-`targets`
-: (`[]*Target`) A slice of [targets](#targets-1).
+: (`string`) The target deployment [`name`](#name). Default is the first target.
 
 `workers`
 : (`int`) The number of concurrent workers to use when uploading files. Default is `10`.
 
 ## Targets
 
-A target represents a deployment target such as "staging" or "production".
+Use the `targets` key to define a slice of deployment targets, such as "staging" or "production". Each target accepts these settings:
 
 `cloudFrontDistributionID`
 : (`string`) The CloudFront Distribution ID, applicable if you are using the Amazon Web Services CloudFront CDN. Hugo will invalidate the CDN when deploying this target.
@@ -64,15 +59,14 @@ A target represents a deployment target such as "staging" or "production".
 : (`string`) An arbitrary name for this target.
 
 `stripIndexHTML`
-: (`bool`) Whether to map files named `<dir>/index.html` to `<dir>` on the remote (except for the root `index.html`). This is useful for key-value cloud storage (e.g., Amazon S3, Google Cloud Storage, Azure Blob Storage) to align canonical URLs with object keys. Default is `false`.
+: (`bool`) Whether to map files named `<dir>/index.html` to `<dir>` on the remote (except for the root `index.html`). This is useful for key-value cloud storage, such as Amazon S3, Google Cloud Storage, and Azure Blob Storage, to align canonical URLs with object keys. Default is `false`.
 
 `url`
 : (`string`) The [destination URL](#destination-urls) for deployment.
 
 ## Matchers
 
-A Matcher represents a configuration to be applied to files whose paths match
-the specified pattern.
+Use the `matchers` key to define a slice of matchers, each applying settings to files whose paths match the given pattern. Each matcher accepts these settings:
 
 `cacheControl`
 : (`string`) The caching attributes to use when serving the blob. See [details][cacheControl].
@@ -84,7 +78,7 @@ the specified pattern.
 : (`string`) The media type of the blob being written. See [details][contentType].
 
 `force`
-: (`bool`) Whether matching files should be re-uploaded. Useful when other route-determined metadata (e.g., `contentType`) has changed. Default is `false`.
+: (`bool`) Whether matching files should be re-uploaded. Useful when other route-determined metadata, such as `contentType`, has changed. Default is `false`.
 
 `gzip`
 : (`bool`) Whether the file should be gzipped before upload. If so, the `ContentEncoding` field will automatically be set to `gzip`. Default is `false`.
@@ -106,7 +100,7 @@ With Google Cloud Storage you can target a subdirectory:
 gs://my-bucket?prefix=a/subdirectory
 ```
 
-You can also to deploy to storage servers compatible with Amazon S3 such as:
+You can also deploy to storage servers compatible with Amazon S3 such as:
 
 - [Ceph][]
 - [MinIO][]
@@ -118,7 +112,9 @@ For example, the `url` for a MinIO deployment target might resemble this:
 s3://my-bucket?endpoint=https://my.minio.instance&awssdk=v2&use_path_style=true&disable_https=false
 ```
 
-## Example
+## Examples
+
+This example defines production and staging targets, and applies cache and compression settings to matching files:
 
 {{< code-toggle file=hugo >}}
 [deployment]

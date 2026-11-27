@@ -27,7 +27,7 @@ The command above uses these environment variables, `grep` options, and patterns
 : Retain HTML comments even if minification is enabled. This takes precedence over `minify.tdewolff.html.keepComments` in your project configuration. If you minify without keeping HTML comments, the audit cannot detect omitted raw HTML.
 
 `HUGO_ENABLEMISSINGTRANSLATIONPLACEHOLDERS=true`
-: Show a placeholder instead of the default value or an empty string when a translation is missing. This takes precedence over `enableMissingTranslationPlaceholders` in your project configuration.
+: Render `[i18n]` followed by the key, such as `[i18n] hello`, when the current language's translation tables do not contain the given key, instead of rendering the translation from the default language or an empty string. This takes precedence over `enableMissingTranslationPlaceholders` in your project configuration.
 
 ### Grep options
 
