@@ -15,7 +15,7 @@ The `transform.Unmarshal` function returns a map or a slice parsed from serializ
 
 The return type depends on the format and the data. Unmarshaling an object returns a map, and unmarshaling an array returns a slice. Unmarshaling CSV data returns a slice of rows, as described in [working with CSV](#working-with-csv).
 
-When the `INPUT` is a resource, Hugo caches the result in memory, so calling the function more than once with the same resource during a build incurs no additional overhead.
+When the `INPUT` is a resource, Hugo caches the result in memory, reducing the cost of calling the function more than once with the same resource during a build.
 
 ## Options
 
