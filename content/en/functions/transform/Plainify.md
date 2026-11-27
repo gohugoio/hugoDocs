@@ -9,8 +9,6 @@ params:
     signatures: [transform.Plainify INPUT]
 ---
 
-{{< new-in 0.169.0 />}}
-
 ## Usage
 
 The `transform.Plainify` function returns the given input with all HTML tags removed.

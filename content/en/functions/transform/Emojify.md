@@ -9,8 +9,6 @@ params:
     signatures: [transform.Emojify INPUT]
 ---
 
-{{< new-in 0.169.0 />}}
-
 ## Usage
 
 The `transform.Emojify` function returns the given input with emoji shortcodes replaced by their corresponding emoji characters. See the list of [emoji shortcodes][] for available emoji.
