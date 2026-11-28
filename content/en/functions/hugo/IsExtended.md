@@ -1,6 +1,6 @@
 ---
 title: hugo.IsExtended
-description: Reports whether the Hugo binary is the extended edition. Always returns false.
+description: Reports whether the Hugo binary is the extended edition. Always returns true.
 keywords: []
 params:
   functions_and_methods:
@@ -9,16 +9,12 @@ params:
     signatures: [hugo.IsExtended]
 ---
 
-## Usage
+{{< deprecated-in 0.171.0 >}}
+The extended and extended/deploy editions are no longer available or needed.
 
-The `hugo.IsExtended` function reports whether the Hugo binary is the extended edition. It always returns `false`.
+These editions provided WebP image encoding and an embedded LibSass transpiler. The standard and deploy editions now support WebP image encoding, and Hugo uses [Dart Sass][] to transpile Sass to CSS. If you previously used the extended edition, use the standard edition instead. If you previously used the extended/deploy edition, use the deploy edition instead.
 
-{{< new-in 0.170.0 >}}
-The extended edition is no longer available or needed. This function remains available so that existing templates continue to work.
-{{< /new-in >}}
+As of v0.171.0 the `hugo.IsExtended` function always returns `true`.
 
-## Examples
-
-```go-html-template
-{{ hugo.IsExtended }} → false
-```
+[Dart Sass]: /functions/css/sass/#dart-sass
+{{< /deprecated-in >}}

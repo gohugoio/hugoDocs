@@ -13,6 +13,8 @@ params:
 
 The `transform.Highlight` function returns the given code rendered with a syntax highlighter. It uses the [`alecthomas/chroma`][] package to generate syntax-highlighted HTML from the provided code, [language][], and [options](#options-1).
 
+Hugo caches the result in memory, reducing the cost of calling the function more than once with the same arguments during a build.
+
 To check whether the syntax highlighter supports a language, use the [`transform.CanHighlight`][] function.
 
 ## Arguments

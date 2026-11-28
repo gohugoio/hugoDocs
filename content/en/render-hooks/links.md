@@ -59,10 +59,10 @@ Hugo includes an embedded link render hook to resolve Markdown link destinations
 
 {{< code-toggle file=hugo >}}
 [markup.goldmark.renderHooks.link]
-useEmbedded = 'auto'
+useEmbedded = 'fallback'
 {{< /code-toggle >}}
 
-When set to `auto`, Hugo uses the embedded link render hook for multilingual single-host projects where the [duplication of shared page resources][] feature is disabled. If your project or its modules define custom link render hooks, Hugo uses those instead. You can also configure Hugo to `always` use the embedded link render hook, use it only as a `fallback`, or `never` use it.
+By default, Hugo uses the embedded link render hook unless your project or its modules define custom link render hooks. You can also configure Hugo to `always` use the embedded link render hook, or to `never` use it.
 
 The embedded link render hook resolves internal Markdown destinations by looking for a matching page, falling back to a matching page resource, then falling back to a matching [global resource](g). It passes remote destinations through unchanged, and does not log an error or warning if it cannot resolve a destination.
 
@@ -104,7 +104,6 @@ To add a `rel` attribute set to `external` to links with an absolute URL:
 [`RenderShortcodes`]: /methods/page/rendershortcodes/
 [`renderHooks.link.useEmbedded`]: /configuration/markup/#renderhookslinkuseembedded
 [`text.Position`]: /quick-reference/data-types/#source-position
-[duplication of shared page resources]: /configuration/markup/#duplicateresourcefiles
 [source code]: <{{% eturl render-link %}}>
 [nested page]: /render-hooks/introduction/#nested-pages
 [template lookup order]: /templates/lookup-order/

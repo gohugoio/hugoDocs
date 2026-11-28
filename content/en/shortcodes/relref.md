@@ -12,7 +12,7 @@ The `relref` shortcode inserts the relative URL of the page with the given [logi
 > [!NOTE]
 > With Markdown, this shortcode is obsolete. To resolve Markdown link destinations, use the [embedded link render hook][] or create your own.
 >
-> By default, Hugo uses the embedded link render hook for multilingual single-host projects where the [duplication of shared page resources][] feature is disabled, which is the default for those projects. If your project or its modules define custom link render hooks, Hugo uses those instead. To change this behavior, set [`renderHooks.link.useEmbedded`][] to `always`, `fallback`, or `never`.
+> By default, Hugo uses the embedded link render hook unless your project or its modules define custom link render hooks. To change this behavior, set [`renderHooks.link.useEmbedded`][] to `always` or `never`.
 
 To insert an absolute URL, use the [`ref`][] shortcode instead.
 
@@ -64,7 +64,6 @@ Hugo renders this to:
 [`renderHooks.link.useEmbedded`]: /configuration/markup/#renderhookslinkuseembedded
 [`ref`]: /shortcodes/ref/
 [Markdown notation]: /content-management/shortcodes/#notation
-[duplication of shared page resources]: /configuration/markup/#duplicateresourcefiles
 [embedded link render hook]: /render-hooks/links/#embedded-render-hook
 [render hooks]: /render-hooks/
 [source code]: <{{% eturl relref %}}>

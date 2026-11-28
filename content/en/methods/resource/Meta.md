@@ -17,7 +17,7 @@ The `Meta` method on an image `Resource` object returns an object containing [Ex
 While Hugo classifies many file types as images, only certain formats support metadata extraction. Supported formats include AVIF, BMP, GIF, HEIC, HEIF, JPEG, PNG, TIFF, and WebP.
 
 > [!NOTE]
-> Metadata is not written to transformed images. When you call this method on a transformed image, Hugo returns the metadata from the original image.
+> Hugo does not copy metadata from the original image to a transformed image. When you call this method on a transformed image, Hugo returns the metadata from the original image. To write metadata to a transformed image, use the [`images.Meta`][] image filter.
 
 ## Usage
 
@@ -193,6 +193,7 @@ To list specific values:
 [XMP]: https://en.wikipedia.org/wiki/Extensible_Metadata_Platform
 [`fields`]: /configuration/imaging/#fields
 [`images.AutoOrient`]: /functions/images/autoorient/
+[`images.Meta`]: /functions/images/meta/
 [`reflect.IsImageResourceWithMeta`]: /functions/reflect/isimageresourcewithmeta/
 [`sources`]: /configuration/imaging/#sources
 [`time.Format`]: /functions/time/format/

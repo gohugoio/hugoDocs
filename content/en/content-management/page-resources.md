@@ -248,9 +248,9 @@ This approach reduces build times, storage requirements, bandwidth consumption, 
 > [!NOTE]
 > To resolve Markdown link and image destinations to the correct location, use link and image render hooks that get the page resource with the `Get` method, and then call its `RelPermalink` method.
 >
-> By default, Hugo uses the [embedded link render hook][] and the [embedded image render hook][] for multilingual single-host projects when the [duplication of shared page resources][] is disabled. If your project or its modules define custom link or image render hooks, Hugo uses those instead.
+> By default, Hugo uses the [embedded link render hook][] and the [embedded image render hook][] to resolve these destinations. If your project or its modules define custom link or image render hooks, Hugo uses those instead.
 >
-> You can also configure Hugo to `always` use the embedded link or image render hook, to use it only as a `fallback`, or to `never` use it, as described in [`useEmbedded`][].
+> To change this behavior, set [`renderHooks.link.useEmbedded`][] or [`renderHooks.image.useEmbedded`][] to `always` or `never`.
 
 To publish shared page resources once per language, enable duplication in your project configuration:
 
@@ -271,15 +271,15 @@ duplicateResourceFiles = true
 [`Permalink`]: /methods/resource/permalink/
 [`Publish`]: /methods/resource/publish/
 [`RelPermalink`]: /methods/resource/relpermalink/
+[`renderHooks.image.useEmbedded`]: /configuration/markup/#renderhooksimageuseembedded
+[`renderHooks.link.useEmbedded`]: /configuration/markup/#renderhookslinkuseembedded
 [`Resource`]: /methods/resource/
 [`resources`]: /functions/resources/
 [`resources.Publish`]: /functions/resources/publish/
 [`ResourceType`]: /methods/resource/resourcetype/
 [`Title`]: /methods/resource/title/
-[`useEmbedded`]: /configuration/markup/#renderhookslinkuseembedded
 [build option]: /content-management/build-options/
 [content formats]: /content-management/formats/
-[duplication of shared page resources]: /configuration/markup/#duplicateresourcefiles
 [embedded image render hook]: /render-hooks/images/#embedded-render-hook
 [embedded link render hook]: /render-hooks/links/#embedded-render-hook
 [page bundle]: /content-management/organization/#page-bundles
