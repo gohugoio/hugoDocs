@@ -235,6 +235,8 @@ By default, Hugo uses client-side redirection, generating a small HTML file for 
 
 When using this method, Hugo creates a physical directory and an `index.html` file at each alias location. For example, if a page at `content/posts/new.md` has a page-relative alias of `old-path`, a file is generated at `public/posts/old-path/index.html`.
 
+If two or more pages define the same alias, or if an alias matches the URL of an existing page, Hugo publishes each of them to the same path, and the result may change from one build to the next. Hugo does not report these collisions unless you use the `--printPathWarnings` flag when building your project. To fail the build when a collision occurs, also use the `--panicOnWarning` flag.
+
 Unless you provide a custom template, Hugo uses its [embedded alias template][] to generate the redirect files:
 
 ```go-html-template
@@ -268,7 +270,7 @@ To implement this, you typically create one template to generate the necessary r
 
 See the [`Aliases`][aliases_method] method page for a complete example of how to iterate through pages to generate these rules.
 
-If you implement server-side redirects, you should disable the generation of individual HTML files by setting [`disableAliases`][] to `true` in your project configuration. This setting only prevents the generation of the physical HTML files; the `Aliases` method on a `Page` object remains available for use in your configuration templates.
+If you implement server-side redirects, you should disable the generation of individual HTML files by setting [`disableAliases`][] to `true` in your project configuration. This setting only prevents the generation of the physical HTML files; the `Aliases` method on a `Page` object remains available for use in your configuration templates. Because Hugo does not publish redirect files when `disableAliases` is `true`, the `--printPathWarnings` flag cannot detect alias collisions.
 
 [URL paths]: /content-management/organization/#url-paths
 [`baseURL`]: /configuration/all/#baseurl
