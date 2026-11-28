@@ -45,9 +45,9 @@ Page-relative paths can also include directory traversal:
 
 | Path type | File path | Alias | Server-relative path |
 | :--- | :--- | :--- | :--- |
-| page-relative | `content/examples/a.en.md` | `a-old` | `/en/examples/a-old/` |
-| page-relative | `content/examples/a.en.md` | `../a-old` | `/en/a-old/` |
-| site-relative | `content/examples/a.en.md` | `/a-old` | `/en/a-old/` |
+| page-relative | `content/examples/a.en.md` | `a-old` | `/en/examples/a-old` |
+| page-relative | `content/examples/a.en.md` | `../a-old` | `/en/a-old` |
+| site-relative | `content/examples/a.en.md` | `/a-old` | `/en/a-old` |
 
 ### Project configuration
 
@@ -100,15 +100,22 @@ Next, create a home page template specifically for the `redirects` output format
 
 To ensure the resulting `_redirects` file is valid, the template uses the [`strings.FindRE`][] function to check for whitespace such as tabs or newlines within the alias string. If whitespace is detected, Hugo will throw an error and fail the build to prevent generating an invalid file.
 
+The template also fails the build if two or more pages define the same alias. When `disableAliases` is `true`, the `--printPathWarnings` flag cannot detect these collisions, and the `_redirects` file would contain conflicting rules for the same source URL.
+
 ```go-html-template {file="layouts/home.redirects" copy=true}
 {{- if site.IsDefault -}}
+  {{- $seen := dict -}}
   {{- range hugo.Sites -}}
     {{- range $p := .Pages -}}
-      {{- range .Aliases -}}
-        {{- if findRE `\s` . -}}
+      {{- range $alias := .Aliases -}}
+        {{- if findRE `\s` $alias -}}
           {{- errorf "One of the front matter aliases in %q contains whitespace" $p.String -}}
         {{- end -}}
-        {{- printf "%s %s 301\n" . $p.RelPermalink -}}
+        {{- with index $seen $alias -}}
+          {{- errorf "The front matter aliases in %q and %q both contain %q" . $p.String $alias -}}
+        {{- end -}}
+        {{- $seen = merge $seen (dict $alias $p.String) -}}
+        {{- printf "%s %s 301\n" $alias $p.RelPermalink -}}
       {{- end -}}
     {{- end -}}
   {{- end -}}
